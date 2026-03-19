@@ -82,37 +82,41 @@
 
 | Requirement | Phase | Status |
 | ----------- | ----- | ------ |
-| LECT-01 | Phase 1: Foundations | Planned |
-| EXER-01 | Phase 1: Foundations | Planned |
-| EXER-02 | Phase 1: Foundations | Planned |
-| LECT-02 | Phase 2: SUSY and Seiberg Duality | Planned |
-| LECT-03 | Phase 2: SUSY and Seiberg Duality | Planned |
-| LECT-04 | Phase 2: SUSY and Seiberg Duality | Planned |
-| EXER-03 | Phase 2: SUSY and Seiberg Duality | Planned |
-| EXER-04 | Phase 2: SUSY and Seiberg Duality | Planned |
-| LECT-05 | Phase 3: Non-perturbative dynamics | Planned |
-| LECT-06 | Phase 3: Non-perturbative dynamics | Planned |
-| LECT-07 | Phase 4: The Dualised SM | Planned |
-| LECT-08 | Phase 4: The Dualised SM | Planned |
-| EXER-05 | Phase 4: The Dualised SM | Planned |
-| EXER-06 | Phase 4: The Dualised SM | Planned |
-| VALD-01 | Phase 4: The Dualised SM | Planned |
-| VALD-02 | Phase 2: SUSY and Seiberg Duality | Planned |
-| VALD-03 | Phase 4: The Dualised SM | Planned |
-| VALD-04 | Phase 4: The Dualised SM | Planned |
-| VALD-05 | Phase 4: The Dualised SM | Planned |
-| REFS-01 | Phase 1: Foundations | Planned |
-| REFS-02 | Phase 1: Foundations | Planned |
-| REFS-03 | Phase 2: SUSY and Seiberg Duality | Planned |
-| REFS-04 | Phase 1: Foundations | Planned |
+| LECT-01 | Phase 1: Foundations | Pending |
+| EXER-01 | Phase 1: Foundations | Pending |
+| EXER-02 | Phase 1: Foundations | Pending |
+| REFS-01 | Phase 1: Foundations | Pending |
+| REFS-02 | Phase 1: Foundations | Pending |
+| REFS-04 | Phase 1: Foundations | Pending |
+| LECT-02 | Phase 2: SUSY and Seiberg Duality | Pending |
+| LECT-03 | Phase 2: SUSY and Seiberg Duality | Pending |
+| LECT-04 | Phase 2: SUSY and Seiberg Duality | Pending |
+| EXER-03 | Phase 2: SUSY and Seiberg Duality | Pending |
+| EXER-04 | Phase 2: SUSY and Seiberg Duality | Pending |
+| VALD-02 | Phase 2: SUSY and Seiberg Duality | Pending |
+| REFS-03 | Phase 2: SUSY and Seiberg Duality | Pending |
+| LECT-05 | Phase 3: Non-perturbative Dynamics | Pending |
+| LECT-06 | Phase 3: Non-perturbative Dynamics | Pending |
+| LECT-07 | Phase 4: The Dualised Standard Model | Pending |
+| LECT-08 | Phase 4: The Dualised Standard Model | Pending |
+| EXER-05 | Phase 4: The Dualised Standard Model | Pending |
+| EXER-06 | Phase 4: The Dualised Standard Model | Pending |
+| VALD-01 | Phase 4: The Dualised Standard Model | Pending |
+| VALD-03 | Phase 4: The Dualised Standard Model | Pending |
+| VALD-04 | Phase 4: The Dualised Standard Model | Pending |
+| VALD-05 | Phase 4: The Dualised Standard Model | Pending |
 
 **Coverage:**
 
-- Primary requirements: 22 total
-- Mapped to phases: 22
+- Primary requirements: 23 total (8 LECT + 6 EXER + 5 VALD + 4 REFS)
+- Mapped to phases: 23
 - Unmapped: 0
+- Phase 1: 6 requirements (LECT-01, EXER-01, EXER-02, REFS-01, REFS-02, REFS-04)
+- Phase 2: 7 requirements (LECT-02, LECT-03, LECT-04, EXER-03, EXER-04, VALD-02, REFS-03)
+- Phase 3: 2 requirements (LECT-05, LECT-06)
+- Phase 4: 8 requirements (LECT-07, LECT-08, EXER-05, EXER-06, VALD-01, VALD-03, VALD-04, VALD-05)
 
 ---
 
 _Requirements defined: 2026-03-20_
-_Last updated: 2026-03-20 after literature survey_
+_Last updated: 2026-03-20 after roadmap creation_
