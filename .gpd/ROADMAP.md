@@ -56,7 +56,12 @@ This project produces self-contained Part III lecture notes (~8 lectures) on the
 
 **Backtracking:** If convention verification fails (b_0 formula inconsistent with T(fund) = 1/2), halt and fix conventions before any downstream work.
 
-**Plans:** TBD
+**Plans:** 3 plans
+
+Plans:
+- [ ] 01-01-PLAN.md -- Convention verification and reference corpus assembly
+- [ ] 01-02-PLAN.md -- Lecture 1: Anomaly matching review and conformal window
+- [ ] 01-03-PLAN.md -- Exercise Sets 1-2: Anomaly matching and conformal window exercises
 
 ### Phase 2: SUSY and Seiberg Duality
 
@@ -172,7 +177,7 @@ This project produces self-contained Part III lecture notes (~8 lectures) on the
 
 | Phase | Plans Complete | Status | Completed |
 | ----- | -------------- | ------ | --------- |
-| 1. Foundations | 0/TBD | Not started | - |
+| 1. Foundations | 0/3 | Planned | - |
 | 2. SUSY and Seiberg Duality | 0/TBD | Not started | - |
 | 3. Non-perturbative Dynamics | 0/TBD | Not started | - |
 | 4. The Dualised Standard Model | 0/TBD | Not started | - |
