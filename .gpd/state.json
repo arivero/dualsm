@@ -1,0 +1,328 @@
+{
+  "project_reference": {
+    "project_md_updated": null,
+    "core_research_question": null,
+    "current_focus": null
+  },
+  "project_contract": {
+    "schema_version": 1,
+    "scope": {
+      "question": "Can the dualised Standard Model program be presented as a self-contained Part III half-course that builds duality machinery from scratch and produces quantitative IR matching of the SM spectrum?",
+      "in_scope": [
+        "Self-contained ~8 lecture notes on the dualised SM for Part III students",
+        "Building duality machinery from scratch without SUSY prerequisites",
+        "Quantitative exercises reproducing SM fermion masses, Fermi scale, QCD scale from dual description",
+        "Complete LaTeX lecture notes with solved exercises suitable for written examination",
+        "Systematic coverage of Seiberg duality, anomaly matching, tumbling, and the dualised SM construction",
+        "Full reference corpus from Sannino 2407.17281, Csaki-Terning 1106.3074, Maekawa, and foundational papers"
+      ],
+      "out_of_scope": [
+        "Full SUSY lecture course \u2014 only duality-relevant content if needed",
+        "BSM phenomenology beyond the dualised SM program",
+        "Lattice calculations or numerical simulations",
+        "Cosmological implications of the dualised SM"
+      ],
+      "unresolved_questions": [
+        "Whether 8 lectures suffice to go from no SUSY background to quantitative spectrum \u2014 may need 10-12",
+        "Exact chapter decomposition to be determined after literature review"
+      ]
+    },
+    "context_intake": {
+      "must_read_refs": [
+        "ref-sannino-2407",
+        "ref-csaki-terning",
+        "ref-seiberg-duality"
+      ],
+      "must_include_prior_outputs": [],
+      "user_asserted_anchors": [
+        "Physical SM spectrum: fermion masses, v ~ 246 GeV, Lambda_QCD ~ 200 MeV must be reproduced from the dual side",
+        "Seiberg original duality results are ground truth for the formal duality structure"
+      ],
+      "known_good_baselines": [],
+      "context_gaps": [
+        "Full reference list from 2407.17281 not yet downloaded",
+        "Maekawa specific papers not yet identified"
+      ],
+      "crucial_inputs": [
+        "Exercises must produce actual numerical SM spectrum with physical scales",
+        "Notes must be self-contained \u2014 no SUSY prerequisite assumed",
+        "Solved exercises double as Part III written examination material"
+      ]
+    },
+    "approach_policy": {
+      "formulations": [
+        "Self-contained lecture notes building from gauge theory basics to dualised SM"
+      ],
+      "allowed_estimator_families": [
+        "Analytical derivations with quantitative IR matching"
+      ],
+      "forbidden_estimator_families": [],
+      "allowed_fit_families": [],
+      "forbidden_fit_families": [],
+      "stop_and_rethink_conditions": [
+        "If the dualised SM program does not actually produce quantitative fermion mass predictions",
+        "If 8 lectures cannot cover the necessary material even with exercises"
+      ]
+    },
+    "observables": [
+      {
+        "id": "obs-ir-spectrum",
+        "name": "IR SM spectrum from dual description",
+        "kind": "other",
+        "definition": "Quantitative reproduction of SM fermion masses, Fermi scale v ~ 246 GeV, and Lambda_QCD ~ 200 MeV from the dualised SM framework",
+        "regime": null,
+        "units": null
+      },
+      {
+        "id": "obs-anomaly-match",
+        "name": "Anomaly matching verification",
+        "kind": "proof_obligation",
+        "definition": "t Hooft anomaly matching conditions satisfied between UV and IR descriptions",
+        "regime": null,
+        "units": null
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-lecture-notes",
+        "statement": "Self-contained Part III half-course lecture notes that build duality machinery from scratch and produce the physical SM spectrum from the dual description",
+        "observables": [
+          "obs-ir-spectrum",
+          "obs-anomaly-match"
+        ],
+        "deliverables": [
+          "deliv-latex-notes",
+          "deliv-exercises"
+        ],
+        "acceptance_tests": [
+          "test-spectrum-match",
+          "test-self-contained"
+        ],
+        "references": [
+          "ref-sannino-2407",
+          "ref-csaki-terning",
+          "ref-seiberg-duality"
+        ]
+      }
+    ],
+    "deliverables": [
+      {
+        "id": "deliv-latex-notes",
+        "kind": "note",
+        "path": null,
+        "description": "Complete LaTeX lecture notes (~8 lectures) on the dualised Standard Model",
+        "must_contain": [
+          "Duality machinery built from scratch",
+          "Anomaly matching",
+          "Dualised SM construction",
+          "Quantitative spectrum derivation"
+        ]
+      },
+      {
+        "id": "deliv-exercises",
+        "kind": "note",
+        "path": null,
+        "description": "Solved exercises reproducing the SM spectrum with physical scales, suitable for Part III written examination",
+        "must_contain": [
+          "Fermion mass calculations",
+          "Fermi scale derivation",
+          "QCD scale matching",
+          "Full worked solutions"
+        ]
+      }
+    ],
+    "acceptance_tests": [
+      {
+        "id": "test-spectrum-match",
+        "subject": "claim-lecture-notes",
+        "kind": "benchmark",
+        "procedure": "Verify that exercises produce m_t ~ 173 GeV, v ~ 246 GeV, Lambda_QCD ~ 200 MeV and other SM fermion masses from the dual description",
+        "pass_condition": "Physical scales reproduced to correct order of magnitude with correct parametric dependences",
+        "evidence_required": [
+          "deliv-exercises",
+          "ref-sannino-2407"
+        ],
+        "automation": "human"
+      },
+      {
+        "id": "test-self-contained",
+        "subject": "claim-lecture-notes",
+        "kind": "human_review",
+        "procedure": "Verify that a Part III student with standard QFT background but no SUSY can follow the notes from beginning to end",
+        "pass_condition": "No unexplained SUSY concepts; all duality machinery built within the notes",
+        "evidence_required": [
+          "deliv-latex-notes"
+        ],
+        "automation": "human"
+      }
+    ],
+    "references": [
+      {
+        "id": "ref-sannino-2407",
+        "kind": "paper",
+        "locator": "Sannino et al., arXiv:2407.17281",
+        "aliases": [
+          "Sannino dualised SM"
+        ],
+        "role": "benchmark",
+        "why_it_matters": "Primary reference for the dualised SM construction \u2014 defines the duality map, spectrum, and IR matching",
+        "applies_to": [
+          "claim-lecture-notes"
+        ],
+        "carry_forward_to": [
+          "planning",
+          "execution",
+          "verification",
+          "writing"
+        ],
+        "must_surface": true,
+        "required_actions": [
+          "read",
+          "compare",
+          "cite"
+        ]
+      },
+      {
+        "id": "ref-csaki-terning",
+        "kind": "paper",
+        "locator": "Csaki and Terning, arXiv:1106.3074",
+        "aliases": [
+          "Csaki-Terning review"
+        ],
+        "role": "method",
+        "why_it_matters": "Key reference for non-SUSY duality methods and techniques relevant to the dualised SM",
+        "applies_to": [
+          "claim-lecture-notes"
+        ],
+        "carry_forward_to": [
+          "planning",
+          "execution",
+          "writing"
+        ],
+        "must_surface": true,
+        "required_actions": [
+          "read",
+          "cite"
+        ]
+      },
+      {
+        "id": "ref-seiberg-duality",
+        "kind": "paper",
+        "locator": "Seiberg, hep-th/9411149",
+        "aliases": [
+          "Seiberg electric-magnetic duality"
+        ],
+        "role": "definition",
+        "why_it_matters": "Foundational ground truth for the formal duality structure \u2014 notes must be consistent with Seiberg results",
+        "applies_to": [
+          "claim-lecture-notes"
+        ],
+        "carry_forward_to": [
+          "planning",
+          "execution",
+          "verification",
+          "writing"
+        ],
+        "must_surface": true,
+        "required_actions": [
+          "read",
+          "compare",
+          "cite"
+        ]
+      }
+    ],
+    "forbidden_proxies": [
+      {
+        "id": "fp-formal-only",
+        "subject": "claim-lecture-notes",
+        "proxy": "Lecture notes that present the formal duality map without quantitative IR spectrum matching",
+        "reason": "The decisive test is reproducing physical masses and scales, not just the duality structure"
+      }
+    ],
+    "links": [
+      {
+        "id": "link-notes-spectrum",
+        "source": "claim-lecture-notes",
+        "target": "deliv-exercises",
+        "relation": "supports",
+        "verified_by": [
+          "test-spectrum-match"
+        ]
+      },
+      {
+        "id": "link-notes-selfcontained",
+        "source": "claim-lecture-notes",
+        "target": "deliv-latex-notes",
+        "relation": "supports",
+        "verified_by": [
+          "test-self-contained"
+        ]
+      }
+    ],
+    "uncertainty_markers": {
+      "weakest_anchors": [
+        "Whether the dualised SM program actually produces quantitative fermion mass predictions vs. only qualitative/structural matching"
+      ],
+      "unvalidated_assumptions": [
+        "8 lectures suffice for self-contained coverage from no SUSY to quantitative spectrum",
+        "Non-SUSY duality machinery can be made pedagogically accessible at Part III level"
+      ],
+      "competing_explanations": [],
+      "disconfirming_observations": [
+        "If the dualised SM literature shows the fermion mass spectrum is only qualitatively matched, not quantitatively derived, the exercise framework needs fundamental revision"
+      ]
+    }
+  },
+  "position": {
+    "current_phase": null,
+    "current_phase_name": null,
+    "total_phases": null,
+    "current_plan": null,
+    "total_plans_in_phase": null,
+    "status": null,
+    "last_activity": null,
+    "last_activity_desc": null,
+    "progress_percent": 0,
+    "paused_at": null
+  },
+  "active_calculations": [],
+  "intermediate_results": [],
+  "open_questions": [
+    "Whether 8 lectures suffice to go from no SUSY background to quantitative spectrum \u2014 may need 10-12",
+    "Exact chapter decomposition to be determined after literature review"
+  ],
+  "performance_metrics": {
+    "rows": []
+  },
+  "decisions": [],
+  "approximations": [],
+  "convention_lock": {
+    "metric_signature": null,
+    "fourier_convention": null,
+    "natural_units": null,
+    "gauge_choice": null,
+    "regularization_scheme": null,
+    "renormalization_scheme": null,
+    "coordinate_system": null,
+    "spin_basis": null,
+    "state_normalization": null,
+    "coupling_convention": null,
+    "index_positioning": null,
+    "time_ordering": null,
+    "commutation_convention": null,
+    "levi_civita_sign": null,
+    "generator_normalization": null,
+    "covariant_derivative_sign": null,
+    "gamma_matrix_convention": null,
+    "creation_annihilation_order": null,
+    "custom_conventions": {}
+  },
+  "propagated_uncertainties": [],
+  "pending_todos": [],
+  "blockers": [],
+  "session": {
+    "last_date": null,
+    "stopped_at": null,
+    "resume_file": null
+  }
+}
