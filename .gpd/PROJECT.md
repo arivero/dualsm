@@ -2,7 +2,7 @@
 
 ## What This Is
 
-Self-contained Part III (Cambridge) half-course lecture notes (~8 lectures) on the dualised Standard Model, following Sannino et al. (2407.17281), Csaki-Terning (1106.3074), Maekawa, and Seiberg's foundational duality work. The notes build duality machinery from scratch — no SUSY prerequisite assumed — and culminate in solved exercises that reproduce the physical SM spectrum (fermion masses, Fermi scale, QCD scale) from the dual description. Intended as an alternative to Tong's SUSY lectures for a shorter visit.
+Part III (Cambridge) half-course lecture notes (~8 lectures) on the dualised Standard Model, following Sannino et al. (2407.17281), Csaki-Terning (1106.3074), Maekawa, Fayet, and Seiberg's foundational duality work. Prerequisites: standard non-SUSY QFT from Michaelmas term (gauge theory, anomalies, representation theory). The notes build Seiberg duality machinery with minimal SUSY introduction and culminate in solved exercises that reproduce the SM spectrum parametrically (fermion mass hierarchies, Fermi scale, QCD scale) from the dual description. Intended as an alternative to Tong's SUSY lectures for a shorter visit.
 
 ## Core Research Question
 
