@@ -25,7 +25,7 @@ This project produces self-contained Part III lecture notes (~8 lectures) on the
 - Integer phases (1, 2, 3, 4): Planned research work
 - Decimal phases (e.g. 2.1): Urgent insertions if needed (marked INSERTED)
 
-- [ ] **Phase 1: Foundations** -- Anomaly matching review, conformal window, conventions, reference corpus download
+- [x] **Phase 1: Foundations** -- Anomaly matching review, conformal window, conventions, reference corpus download
 - [ ] **Phase 2: SUSY and Seiberg Duality** -- Minimal N=1 SUSY, Seiberg duality for N=1 SQCD, N=2 content including Fayet mechanisms, duality verification exercises
 - [ ] **Phase 3: Non-perturbative Dynamics** -- Tumbling/MAC, complementarity, non-SUSY duality extensions (Sannino-Schechter, Maekawa, Pati-Salam embedding, emergent SUSY)
 - [ ] **Phase 4: The Dualised Standard Model** -- Cacciapaglia-Sannino construction, duality map, anomaly matching for full SM, parametric spectrum exercises, scale matching, all validations
@@ -87,7 +87,13 @@ Plans:
 
 **Backtracking:** If anomaly coefficients do not match between electric and magnetic theories, there is a convention or calculation error -- do not proceed to Phase 3 until resolved. If N=2 content proves too heavy for one lecture, condense to executive summary and flag scope question (may need lecture 4.5).
 
-**Plans:** TBD
+**Plans:** 4 plans
+
+Plans:
+- [ ] 02-01-PLAN.md -- Reference downloads (REFS-03) + Lecture 2: Minimal N=1 SUSY introduction
+- [ ] 02-02-PLAN.md -- Lecture 3: Seiberg duality with full anomaly matching + VALD-02 verification script
+- [ ] 02-03-PLAN.md -- Lecture 4: N=2 SUSY, FI mechanism, APS deformation + Exercise Set 3: Seiberg duality exercises
+- [ ] 02-04-PLAN.md -- Exercise Set 4: N=2 deformation exercises
 
 ### Phase 3: Non-perturbative Dynamics
 
@@ -177,7 +183,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 | ----- | -------------- | ------ | --------- |
-| 1. Foundations | 0/3 | Planned | - |
+| 1. Foundations | 3/3 | Complete | 2026-03-20 |
 | 2. SUSY and Seiberg Duality | 0/TBD | Not started | - |
 | 3. Non-perturbative Dynamics | 0/TBD | Not started | - |
 | 4. The Dualised Standard Model | 0/TBD | Not started | - |
