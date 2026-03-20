@@ -1,0 +1,161 @@
+% ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
+%
+% CONVENTIONS (Seiberg hep-th/9411149)
+% Metric: (+,-,-,-) (mostly minus)
+% T(fund) = 1/2 per Weyl fermion
+% b_0 = (11N_c - 2N_f)/3 for N_f Dirac flavours
+% D_mu = partial_mu - ig A_mu^a T^a
+% A(fund) = 1 (cubic anomaly coefficient per fundamental Weyl fermion)
+% alpha_s = g_s^2 / (4 pi)
+% R[Q] = (N_f - N_c)/N_f; R[W] = 2
+% N_f counts Dirac flavour pairs (each = 2 Weyl fermions)
+%
+% This file is \input{} by all lecture files.
+
+%% ---------- Document class ----------
+% (loaded by the wrapper; preamble only provides packages and macros)
+
+%% ---------- Standard packages ----------
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,decorations.markings,positioning,calc}
+\usepackage{fancybox}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{slashed}              % Feynman slash notation
+\usepackage{cite}                 % compressed citation lists
+
+%% ---------- Hyperref configuration ----------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!70!black,
+  citecolor=green!50!black,
+  urlcolor=blue!80!black,
+  pdfauthor={Part III Lecture Notes},
+  pdftitle={The Dualised Standard Model}
+}
+
+%% ---------- Theorem environments ----------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}{Exercise}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+%% ---------- Physics macros: gauge groups and representations ----------
+\newcommand{\Nc}{N_{\!c}}
+\newcommand{\Nf}{N_{\!f}}
+\newcommand{\SU}[1]{\mathrm{SU}(#1)}
+\newcommand{\UU}[1]{\mathrm{U}(#1)}
+
+% Representations
+\newcommand{\fund}{\square}
+\newcommand{\antifund}{\overline{\square}}
+\newcommand{\adj}{\mathrm{adj}}
+\newcommand{\antisym}{\wedge^{\!2}}        % antisymmetric rank-2
+\newcommand{\sym}{\mathrm{S}_2}           % symmetric rank-2
+
+%% ---------- Physics macros: group theory constants ----------
+% Dynkin index: Tr(T^a T^b) = T(R) delta^{ab}
+\newcommand{\Tfund}{\tfrac{1}{2}}          % T(fund) = 1/2 per Weyl fermion
+\newcommand{\Tadj}{\Nc}                    % T(adj) = N_c
+\newcommand{\Cfund}{\frac{\Nc^2 - 1}{2\Nc}}  % C_2(fund)
+\newcommand{\Cadj}{\Nc}                    % C_2(adj)
+
+% Cubic anomaly coefficient: A(R) = Tr_R[T^a {T^b, T^c}] with A(fund) = 1
+\newcommand{\Afund}{1}
+
+%% ---------- Physics macros: beta function ----------
+\newcommand{\bzero}{b_0}
+\newcommand{\bone}{b_1}
+\newcommand{\alphas}{\alpha_s}
+\newcommand{\gs}{g_s}
+
+%% ---------- Physics macros: SUSY / R-charge ----------
+\newcommand{\Rcharge}[1]{R[#1]}
+\newcommand{\Wsup}{W}                      % superpotential
+
+%% ---------- Physics macros: covariant derivative and field strength ----------
+\newcommand{\Dmu}{D_\mu}
+\newcommand{\Fmn}{F_{\mu\nu}}
+\newcommand{\Ftilde}{\widetilde{F}_{\mu\nu}}
+
+%% ---------- Physics macros: common abbreviations ----------
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\eg}{\textit{e.g.}}
+\newcommand{\cf}{\textit{cf.}}
+\newcommand{\IR}{\ensuremath{\mathrm{IR}}}
+\newcommand{\UV}{\ensuremath{\mathrm{UV}}}
+\newcommand{\AF}{\ensuremath{\mathrm{AF}}}
+\newcommand{\BZ}{\ensuremath{\mathrm{BZ}}}
+\newcommand{\NSVZ}{\ensuremath{\mathrm{NSVZ}}}
+\newcommand{\SQCD}{\ensuremath{\mathrm{SQCD}}}
+\newcommand{\QCD}{\ensuremath{\mathrm{QCD}}}
+\newcommand{\SM}{\ensuremath{\mathrm{SM}}}
+\newcommand{\Tr}{\mathrm{Tr}}
+
+%% ---------- Convention box macro ----------
+\newtcolorbox{conventionbox}[1][]{%
+  enhanced,
+  colback=blue!5!white,
+  colframe=blue!60!black,
+  fonttitle=\bfseries,
+  title={Conventions},
+  #1
+}
+
+%% ---------- Comparison table style ----------
+\newtcolorbox{comparisontable}[1][]{%
+  enhanced,
+  colback=orange!5!white,
+  colframe=orange!70!black,
+  fonttitle=\bfseries,
+  title={Comparison},
+  #1
+}
+
+%% ---------- Warning / important box ----------
+\newtcolorbox{warningbox}[1][]{%
+  enhanced,
+  colback=red!5!white,
+  colframe=red!70!black,
+  fonttitle=\bfseries,
+  title={Important},
+  #1
+}
+
+%% ---------- Preview / forward-reference box ----------
+\newtcolorbox{previewbox}[1][]{%
+  enhanced,
+  colback=green!5!white,
+  colframe=green!50!black,
+  fonttitle=\bfseries,
+  title={Preview},
+  #1
+}
+
+%% ---------- Page layout ----------
+\usepackage[margin=2.5cm]{geometry}
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{0em}
+
+%% ---------- Section formatting ----------
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+
+%% ---------- End of preamble ----------
