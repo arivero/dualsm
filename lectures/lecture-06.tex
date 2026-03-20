@@ -1,0 +1,881 @@
+% ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
+%
+% Lecture 6: Non-SUSY Duality Extensions
+% Part of: The Dualised Standard Model -- Part III Lecture Notes
+%
+% Conventions (Seiberg hep-th/9411149, unchanged from Lectures 1-5):
+%   T(fund) = 1/2 per Weyl fermion
+%   b_0 = (11N_c - 2N_f)/3 for N_f Dirac flavours
+%   A(fund) = 1 (cubic anomaly coefficient per fundamental Weyl fermion)
+%   alpha_s = g_s^2 / (4 pi)
+%   R[Q] = (N_f - N_c)/N_f; R[W] = 2
+%   N_f counts Dirac flavour pairs (each = 2 Weyl fermions)
+%
+% EPISTEMIC STATUS: This lecture presents CONJECTURAL non-SUSY
+% duality extensions.  Every non-SUSY duality claim carries an
+% explicit conjectural qualifier ("if the duality holds", etc.).
+% This is contract requirement P1 -- NON-NEGOTIABLE.
+%
+\documentclass[11pt,a4paper]{article}
+\input{preamble}
+
+\title{\textbf{Lecture 6: Non-SUSY Duality Extensions}}
+\author{The Dualised Standard Model --- Part III Lecture Notes}
+\date{Lent Term 2027}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%%  CONVENTIONS
+%% ========================================================================
+
+\begin{conventionbox}[title={Conventions for Lecture 6}]
+All conventions from Lectures~1--5 remain in force.  No new conventions
+are introduced in this lecture.
+
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l l l@{}}
+\toprule
+\textbf{Quantity} & \textbf{Convention} & \textbf{Comment} \\
+\midrule
+Units & $\hbar = c = 1$ (natural) & \\
+Metric & $\eta_{\mu\nu} = \mathrm{diag}(+1,-1,-1,-1)$ & mostly minus \\
+Dynkin index & $\Tr(T^a T^b) = \Tfund\, \delta^{ab}$ & fundamental of $\SU{\Nc}$ \\
+Cubic anomaly & $A(\fund) = 1$, $A(\antifund) = -1$ & per fundamental Weyl \\
+Beta function & $\bzero = (11\Nc - 2\Nf)/3$ & $\Nf$ Dirac flavours \\
+R-charge & $\Rcharge{Q} = (\Nf - \Nc)/\Nf$ & SUSY reference point \\
+$\Nf$ counting & Dirac flavour pairs & each $= 2$ Weyl fermions \\
+\bottomrule
+\end{tabular}
+
+\medskip
+
+\textbf{Epistemic convention for this lecture.}  Every statement
+asserting or assuming non-supersymmetric duality carries an explicit
+conjectural qualifier: ``if the duality holds,'' ``assuming the
+conjectured duality,'' ``conjectural,'' or equivalent.  The anomaly
+matching \emph{equations} presented below are exact; the
+\emph{duality interpretation} of those equations is conjectural.
+\end{conventionbox}
+
+
+%% ========================================================================
+%%  SECTION 1: What We Lose Without SUSY
+%% ========================================================================
+\section{What We Lose Without SUSY}
+\label{sec:what-we-lose}
+
+In Lectures~2--4 we constructed Seiberg duality for $\mathcal{N}=1$
+SQCD as a \emph{proven} equivalence between two gauge theories.  That
+proof rested on four independent pillars working in concert.  Before
+extending duality beyond supersymmetry, we must be explicit about
+which of these pillars survive and which do not.
+
+\subsection{The four pillars of SUSY duality}
+
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+  \item \textbf{Holomorphy of the superpotential} (Lecture~2).  The
+    superpotential $\Wsup$ is a holomorphic function of the chiral
+    superfields and is not renormalised beyond one loop.  This
+    non-renormalisation theorem~\cite{Seiberg1993} constrains the
+    effective superpotential exactly, leaving the dynamical scale
+    $\Lambda$ as the only non-perturbative input.
+
+  \item \textbf{NSVZ exact beta function} (Lecture~2).  The exact
+    relation between the beta function, the anomalous dimensions, and
+    the gauge coupling~\cite{NSVZ1983} determines the boundaries of
+    the conformal window \emph{exactly}: $\tfrac{3}{2}\Nc < \Nf < 3\Nc$
+    for $\SU{\Nc}$ with $\Nf$ fundamental flavours.
+
+  \item \textbf{Moduli space matching} (Lecture~3).  The classical
+    moduli space of flat directions is not lifted quantum mechanically
+    (in the conformal window), and the electric and magnetic moduli
+    spaces can be mapped one-to-one via the meson operator
+    $M^i_j = Q^i \widetilde{Q}_j / \Lambda$.  This provides an
+    infinite family of consistency checks---one for each point on the
+    moduli space.
+
+  \item \textbf{'t~Hooft anomaly matching} (Lecture~1, verified
+    in Lecture~3).  All six independent anomaly
+    coefficients---$\SU{\Nf}_L^3$, $\SU{\Nf}_R^3$,
+    $\SU{\Nf}_L^2\,\UU{1}_B$, $\SU{\Nf}_R^2\,\UU{1}_B$,
+    $\UU{1}_B^3$, $\UU{1}_B$-gravitational---match exactly between
+    the electric and magnetic descriptions as polynomial identities in
+    $\Nc$ and $\Nf$ (validated by \texttt{verify\_anomaly\_matching.py},
+    7/7 symbolic checks).
+\end{enumerate}
+
+\subsection{What is lost}
+
+Without supersymmetry, three of the four pillars collapse:
+
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Holomorphy:} There is no superpotential in a non-SUSY
+    theory.  The powerful non-renormalisation theorems that fix the
+    form of $\Wsup$ have no analogue.  All couplings run and mix
+    under renormalisation without holomorphic constraints.
+
+  \item \textbf{Exact beta function:} The NSVZ formula relies on the
+    superfield structure.  Without SUSY, only the perturbative
+    coefficients $\bzero$, $\bone$, \ldots\ are available.  The
+    boundaries of the conformal window become \emph{estimates} rather
+    than exact results.
+
+  \item \textbf{Moduli space:} Flat directions require cancellation of
+    the scalar potential, which in SUSY theories is guaranteed by the
+    $F$-term and $D$-term conditions.  Without SUSY, quantum
+    corrections generically lift all flat directions.  There is no
+    moduli space to match.
+\end{enumerate}
+
+\subsection{What survives}
+
+\begin{warningbox}[title={The sole surviving tool}]
+  Of the four pillars, \textbf{only 't~Hooft anomaly matching
+  survives} without SUSY.
+
+  Anomaly matching is a non-perturbative, exact constraint that
+  relates the UV and IR spectra of \emph{any} gauge theory.  It was
+  derived by 't~Hooft~\cite{tHooft1980} in 1980 without any
+  reference to supersymmetry and requires only:
+  \begin{enumerate}[label=(\roman*)]
+    \item a UV gauge theory with a global symmetry group $G_{\mathrm{global}}$,
+    \item massless fermions charged under $G_{\mathrm{global}}$
+      in both the UV and IR descriptions.
+  \end{enumerate}
+  This is exactly the tool we developed in Lecture~1 and applied in
+  Lecture~3 to verify Seiberg duality.  It remains available---and
+  equally powerful---in the absence of SUSY.
+\end{warningbox}
+
+\begin{comparisontable}[title={SUSY vs.\ non-SUSY evidence for duality}]
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{} >{\raggedright}p{4cm} >{\centering}p{3cm}
+  >{\centering\arraybackslash}p{3cm} @{}}
+\toprule
+\textbf{Evidence type} & \textbf{SUSY duality} & \textbf{Non-SUSY duality} \\
+\midrule
+Holomorphy & \checkmark\ (exact) & $\times$ \\
+Exact beta function (NSVZ) & \checkmark\ (exact) & $\times$ \\
+Moduli space matching & \checkmark\ (infinite checks) & $\times$ \\
+'t~Hooft anomaly matching & \checkmark\ (exact) & \checkmark\ (exact) \\
+Superconformal index & \checkmark\ (independent check) & $\times$ \\
+\midrule
+\textbf{Total independent pillars} & \textbf{5} & \textbf{1} \\
+\bottomrule
+\end{tabular}
+
+\medskip
+
+\textbf{Summary:} Non-SUSY duality proposals rest on anomaly matching
+alone.  Anomaly matching is \emph{necessary} but \emph{not sufficient}
+for duality: multiple distinct IR spectra can satisfy the same UV
+anomaly conditions.  Every non-SUSY duality statement in this lecture
+is therefore \textbf{conjectural}.
+\end{comparisontable}
+
+
+%% ========================================================================
+%%  SECTION 2: Sannino-Schechter Toy Model (1997)
+%% ========================================================================
+\section{The Sannino--Schechter Toy Model (1997)}
+\label{sec:sannino-schechter}
+
+The first concrete evidence that SUSY duality structures might survive
+the breaking of supersymmetry came from a toy model by Sannino and
+Schechter~\cite{SS1997}.
+
+\subsection{The key insight}
+
+Sannino and Schechter started from the effective Lagrangian for
+$\mathcal{N}=1$ super Yang--Mills theory (the Veneziano--Yankielowicz
+Lagrangian~\cite{VY1982}) and asked: what happens if we add
+supersymmetry-breaking terms and integrate out the heavy superpartners
+(gluinos and squarks)?
+
+Their key observation was that the ordinary QCD degrees of
+freedom---mesons and glueballs---\emph{emerge from the auxiliary fields}
+of the supersymmetric effective Lagrangian.  Specifically:
+\begin{itemize}
+  \item The scalar and pseudoscalar glueball fields of QCD are
+    contained in the auxiliary $F$-field of the chiral superfield $S$
+    (see Eq.~(2.4) of~\cite{SS1997}):
+    \begin{equation}\label{eq:F-field}
+      F \;=\; \frac{g^2}{32\pi^2}\Bigl[
+        -\tfrac{1}{2} F_a^{mn} F_{mn,a}
+        - \tfrac{i}{4}\epsilon_{mnrs} F_a^{mn} F_a^{rs}
+        + \cdots
+      \Bigr]\,.
+    \end{equation}
+  \item The meson fields of QCD are hidden in the auxiliary field
+    $(F_T)_{ij} \sim \psi_i \widetilde{\psi}_j$ of the meson
+    superfield.
+\end{itemize}
+
+When SUSY is broken at a scale $m$ and the superpartners are
+integrated out, these auxiliary fields become the \emph{dynamical}
+degrees of freedom of the low-energy theory.  Sannino and Schechter
+showed that the resulting effective Lagrangian, under suitable
+assumptions about the SUSY-breaking terms, reproduces features of the
+ordinary QCD effective Lagrangian.
+
+\subsection{What this suggests---and what it does not prove}
+
+The Sannino--Schechter model \emph{suggests} that the duality structure
+encoded in the SUSY effective Lagrangian may persist, in some form,
+after SUSY breaking.  The QCD-like degrees of freedom that emerge are
+not ad hoc additions but arise organically from the SUSY structure.
+Sannino and Schechter themselves described this as an ``amusing feature''
+of their model~\cite{SS1997}.
+
+However, the model does \emph{not} prove that non-SUSY duality exists.
+The SUSY-breaking procedure involves arbitrary choices (the form of
+the breaking terms, the assumption that the dominant part of the
+effective Lagrangian retains a ``tree-level holomorphicity''), and the
+resulting QCD Lagrangian depends on these choices.  The model is a
+proof of concept, not a derivation.
+
+\subsection{The Cheng--Shadmi tension}
+\label{ssec:cheng-shadmi}
+
+Shortly after the Sannino--Schechter proposal, Cheng and
+Shadmi~\cite{CS1998} performed a systematic analysis of Seiberg
+duality in the presence of soft SUSY-breaking terms.  Their approach
+was to couple both the electric and magnetic theories to a common
+dynamical SUSY-breaking (DSB) sector and track the induced soft masses
+through the duality map.
+
+\begin{warningbox}[title={Cheng--Shadmi tension (unresolved)}]
+  Cheng and Shadmi found that in the limit of \textbf{large SUSY
+  breaking}---precisely the limit relevant for obtaining non-SUSY
+  QCD from broken SQCD---the magnetic scalars generically acquire
+  \textbf{negative mass-squared}.  This destabilises the magnetic
+  vacuum: the magnetic theory does not have a stable ground state in
+  the regime where the electric theory reduces to ordinary QCD.
+
+  \medskip
+
+  Specifically, assuming a canonical K\"ahler potential for the
+  magnetic theory (the simplest and most natural choice), they showed
+  that the soft scalar masses satisfy $m_{\mathrm{scalar}}^2 < 0$
+  for many cases in the conformal window~\cite{CS1998}.  The
+  resulting symmetry breaking pattern in the magnetic theory is
+  \textbf{incompatible} with the expected chiral symmetry breaking
+  pattern of QCD.
+
+  \medskip
+
+  \textbf{This tension is unresolved.}  Sannino's subsequent
+  programme (Sections~\ref{sec:qcd-dual}--\ref{sec:emergent-susy})
+  \emph{sidesteps} rather than \emph{resolves} the Cheng--Shadmi
+  problem by conjecturing non-SUSY duality directly, without deriving
+  it from broken SUSY.  The Cheng--Shadmi result remains a cautionary
+  example of what can go wrong when SUSY-derived structures are
+  extrapolated to the non-SUSY regime.
+\end{warningbox}
+
+
+%% ========================================================================
+%%  SECTION 3: The Non-SUSY QCD Dual (Sannino, 2009)
+%% ========================================================================
+\section{The Non-SUSY QCD Dual (Sannino, 2009)}
+\label{sec:qcd-dual}
+
+Rather than deriving non-SUSY duality from broken SUSY---an approach
+plagued by the Cheng--Shadmi tension---Sannino~\cite{Sannino2009}
+proposed in 2009 to \emph{conjecture} non-SUSY duality directly and
+check it for consistency via anomaly matching.
+
+\subsection{The electric theory}
+
+The starting point is ordinary QCD-like physics: an $\SU{\Nc}$ gauge
+theory (specialised to $\Nc = 3$ for QCD) with $\Nf$ Dirac flavours
+of fundamental quarks.  The quantum global symmetry group is:
+\begin{equation}\label{eq:qcd-global}
+  G_{\mathrm{global}}
+  \;=\; \SU{\Nf}_L \times \SU{\Nf}_R \times \UU{1}_V\,,
+\end{equation}
+where the classical axial $\UU{1}_A$ is broken by the Adler--Bell--Jackiw
+anomaly (as discussed in Lecture~1).
+
+\subsection{The conjectured magnetic dual}
+
+Sannino sought a \emph{magnetic} gauge theory with gauge group
+$\SU{X}$---where $X$ is to be determined by anomaly matching---and a
+matter content of magnetic quarks $q$, $\widetilde{q}$ plus
+gauge-singlet fermions identifiable as baryons built from the electric
+quarks.  The key constraint is that the magnetic spectrum must
+reproduce \emph{all} independent 't~Hooft anomaly coefficients
+of the electric theory:
+\begin{equation}\label{eq:anomaly-conditions}
+  \SU{\Nf}_{L/R}^3\,,
+  \qquad
+  \SU{\Nf}_{L/R}^2\,\UU{1}_V\,.
+\end{equation}
+(For a vector-like theory, these are the independent anomaly types;
+\cf\ Lecture~1.)
+
+\subsection{A non-trivial solution}
+
+Sannino found a novel solution to the anomaly matching conditions
+with~\cite{Sannino2009}:
+\begin{equation}\label{eq:dual-gauge-group}
+  \boxed{X \;=\; 2\Nf - 5N\,,}
+\end{equation}
+where $N = \Nc = 3$ for QCD, giving a dual gauge group
+$\SU{2\Nf - 15}$.  (For $\Nf = 9$ and $N = 3$, the magnetic gauge
+group is $\SU{3}$---the same as the electric theory, though with
+different matter content and interactions.)
+
+The solution includes magnetic quarks in the fundamental of
+$\SU{X}$ plus gauge-singlet Weyl fermions in specific representations
+of the global symmetry group, with multiplicities and $\UU{1}_V$
+charges determined by the anomaly matching equations.  The full
+spectrum is tabulated in Table~III of~\cite{Sannino2009}.
+
+\subsection{Consistency checks}
+
+\emph{If the conjectured duality holds}, Sannino's solution passes
+several non-trivial consistency checks:
+
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Anomaly matching:} All independent 't~Hooft anomaly
+    coefficients match between the electric and magnetic descriptions.
+    The anomaly matching equations are polynomials in $\Nf$ and $N$,
+    and the solution satisfies them as identities.
+
+  \item \textbf{Conformal window prediction:}  Requiring asymptotic
+    freedom of the dual theory gives a lower bound on $\Nf$:
+    \begin{equation}\label{eq:dual-AF}
+      \Nf \;\geq\; \frac{11}{4}\,N\,,
+    \end{equation}
+    which for $N = 3$ gives $\Nf \geq 8.25$.  Remarkably, this
+    \emph{coincides} with the lower boundary of the conformal window
+    predicted by the all-orders conjectured beta function of
+    Ryttov and Sannino~\cite{RS2008} when the anomalous dimension of
+    the mass operator takes the value $\gamma = 2$.
+
+  \item \textbf{Involution:}  Dualising the magnetic theory recovers
+    the electric gauge group structure---the duality is its own
+    inverse~\cite{Sannino2009}.
+\end{enumerate}
+
+\begin{warningbox}[title={Anomaly matching is necessary but not sufficient}]
+  The existence of a consistent anomaly matching solution is
+  \textbf{evidence for} duality, not \textbf{proof of} it.  The
+  anomaly matching conditions are a \emph{finite} set of polynomial
+  equations in the multiplicities and quantum numbers of the magnetic
+  spectrum.  Multiple distinct solutions can satisfy the same
+  conditions~\cite{Sannino2009}.
+
+  \medskip
+
+  Sannino's solution is distinguished by additional
+  physics requirements (involution, flavour decoupling, consistency
+  with the conjectured beta function), but these are
+  \emph{consistency checks}, not derivations.  The duality itself
+  remains a conjecture.
+\end{warningbox}
+
+
+%% ========================================================================
+%%  SECTION 4: The Standard Model as a Magnetic Dual (Sannino, 2011)
+%% ========================================================================
+\section{The Standard Model as a Magnetic Dual (Sannino, 2011)}
+\label{sec:sm-magnetic}
+
+In 2011, Sannino~\cite{Sannino2011} extended the QCD dual framework
+to the full Standard Model by embedding it in a Pati--Salam-like
+structure.  \emph{If the non-SUSY duality holds}, the Standard Model
+can be viewed as the \emph{magnetic dual} of a purely fermionic
+electric theory.
+
+\subsection{The SUSY precursor: Maekawa--Takahashi}
+
+The direct SUSY precursor of this construction was provided by
+Maekawa and Takahashi~\cite{MT1996}, who constructed the Seiberg dual
+of a supersymmetric theory with Pati--Salam gauge group
+$\SU{4}_{\mathrm{PS}}$.  In the SUSY context, their construction
+naturally produces:
+\begin{itemize}
+  \item A top quark Yukawa coupling of order unity (from the magnetic
+    superpotential $\Wsup_{\mathrm{mag}} \sim M\,q\,\widetilde{q}$),
+    explaining the large top mass without fine-tuning.
+  \item A natural $\mu$-parameter for the Higgs sector.
+\end{itemize}
+Sannino's 2011 proposal extends the Maekawa--Takahashi construction
+to non-SUSY by replacing the SUSY consistency arguments with anomaly
+matching.
+
+\subsection{The Pati--Salam embedding}
+
+The Standard Model fermion content---quarks and leptons---is naturally
+embedded in a Pati--Salam $\SU{4}$ framework by treating the lepton
+number as a fourth colour~\cite{PS1974}.  In Sannino's construction,
+the \textbf{magnetic} (SM-side) description includes~\cite{Sannino2011}:
+\begin{itemize}
+  \item Quarks and leptons: $p$ and $\widetilde{p}$ in the
+    fundamental and antifundamental of $\SU{4}_{\mathrm{PS}}$,
+    carrying flavour indices under the global symmetry group.
+  \item The Higgs field $H$: transforming as a bifundamental of the
+    flavour group---\emph{not} as an elementary scalar of the UV
+    theory, but as a \textbf{composite} built from electric fermions.
+  \item An adjoint Weyl fermion $\lambda_m$ of $\SU{4}_{\mathrm{PS}}$.
+  \item A meson field $M$: a scalar transforming as a bifundamental
+    of the flavour group, mediating interactions between the magnetic
+    quarks and the gauge-singlet fermions.
+\end{itemize}
+
+\subsection{Three conjectural consequences}
+
+\emph{If the SM is the magnetic dual of a Pati--Salam-like electric
+theory}, three remarkable consequences follow:
+
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{No elementary scalars in the UV = no hierarchy
+    problem.}  The electric theory contains \emph{only fermions and
+    gauge bosons}---no fundamental scalars.  The Higgs doublets of
+    the SM are composite ``mesons'' of the electric theory
+    ($H \sim Q\lambda\lambda\widetilde{Q}$ schematically), analogous
+    to the meson $M$ of Seiberg duality.  Since the electric theory
+    has no scalars, there are no quadratic divergences in the
+    fundamental description, and the hierarchy problem is, if the
+    duality holds, an artefact of the magnetic (composite) description.
+
+  \item \textbf{$N_{\mathrm{gen}} \geq 3$ from the dual gauge group.}
+    The dual \emph{electric} gauge group is
+    $\SU{2n_g - 4} = \SU{\Nf - 4}$, where $n_g$ is the number of
+    SM generations and $\Nf = 2n_g$~\cite{Sannino2011}.  For this
+    group to be non-abelian (a necessary condition for a
+    non-trivial gauge theory), we need:
+    \begin{equation}\label{eq:Ngen}
+      2n_g - 4 \;\geq\; 2
+      \qquad\Longrightarrow\qquad
+      \boxed{n_g \;\geq\; 3\,.}
+    \end{equation}
+    \emph{If the duality holds}, the existence of at least three
+    generations of quarks and leptons is not an accident but a
+    \emph{mathematical requirement} for the electric dual to be a
+    non-trivial gauge theory.  Requiring asymptotic freedom of the
+    magnetic theory further constrains $n_g \leq 6$~\cite{Sannino2011}.
+
+  \item \textbf{Common Yukawa origin.}  The Yukawa couplings of the SM
+    arise from the magnetic interaction Lagrangian, which has the
+    schematic form $\mathcal{L}_{\mathrm{mag}} \supset
+    Y\, q\, M\, \widetilde{q}$---the non-SUSY analogue of the SUSY
+    magnetic superpotential $\Wsup_{\mathrm{mag}} = M\,q\,\widetilde{q}/\mu$.
+    \emph{If the duality holds}, all Yukawa couplings share a common
+    dynamical origin rather than being independent free parameters.
+\end{enumerate}
+
+\begin{remark}[Why ``if the duality holds'' matters]
+  Each of the three consequences above is conditional on the
+  \emph{conjectured} non-SUSY duality being correct.  Without a proof
+  of duality, they are \textbf{predictions of the framework}, not
+  established results.  They are compelling because they address
+  genuine puzzles of the SM (hierarchy problem, number of
+  generations, Yukawa structure), but their validity depends entirely
+  on whether the underlying duality conjecture is correct.
+\end{remark}
+
+
+%% ========================================================================
+%%  SECTION 5: Emergent SUSY at Fixed Points (2011/2013)
+%% ========================================================================
+\section{Emergent SUSY at Fixed Points (Antipin--Mojaza--Pica--Sannino, 2011)}
+\label{sec:emergent-susy}
+
+The most striking piece of perturbative evidence for non-SUSY duality
+was provided by Antipin, Mojaza, Pica, and
+Sannino~\cite{AMPS2011}, who showed that \emph{supersymmetric fixed
+points can emerge from non-supersymmetric RG flow} in the magnetic
+dual theory.
+
+\subsection{The setup}
+
+The magnetic dual theory of Section~\ref{sec:qcd-dual}, augmented by
+a Weyl adjoint fermion $\lambda_m$ (as in the SM-as-magnetic
+construction of Section~\ref{sec:sm-magnetic}), has the quantum global
+symmetry:
+\begin{equation}\label{eq:global-sym-magnetic}
+  \SU{\Nf}_L \times \SU{\Nf}_R \times \UU{1}_V
+  \times \UU{1}_{AF}\,,
+\end{equation}
+where $\UU{1}_{AF}$ is an anomaly-free axial-like symmetry under which
+the adjoint fermion is charged.
+
+The theory has multiple couplings: the gauge coupling $\alpha_g$,
+Yukawa-type couplings $\alpha_y$ mediating interactions between the
+magnetic quarks and the scalar mesons, and quartic scalar couplings.
+In the Veneziano limit ($\Nc, \Nf \to \infty$ with $\Nf/\Nc$ fixed),
+the perturbative beta functions for all these couplings can be
+computed systematically.
+
+\subsection{The result: emergent SUSY}
+
+Antipin \textit{et al.}\ classified all perturbatively accessible
+fixed points of the coupled beta function system and discovered that
+among a large number of non-supersymmetric fixed points, there exist
+fixed points where~\cite{AMPS2011}:
+\begin{enumerate}[label=(\roman*)]
+  \item the gauge coupling, Yukawa couplings, and quartic scalar
+    couplings all take \emph{precisely the values predicted by
+    supersymmetry};
+  \item these SUSY fixed points are reached by the RG flow starting
+    from \emph{generic non-supersymmetric} initial conditions---no
+    fine-tuning of bare couplings is required;
+  \item the SUSY fixed points have finite basins of attraction in the
+    full coupling-constant space.
+\end{enumerate}
+
+The perturbative analysis \emph{suggests} that supersymmetry
+can emerge dynamically as an IR phenomenon: a non-SUSY UV Lagrangian
+flows to a SUSY fixed point without any SUSY being imposed at the
+fundamental level.  This supports the ``quasi-supersymmetric''
+interpretation of the magnetic spectrum~\cite{Sannino2011}: even
+without imposing SUSY, the IR dynamics organises fields into
+SUSY-like multiplets at the fixed point.
+
+\subsection{Limitations}
+
+\begin{warningbox}[title={Perturbative result in the Veneziano limit}]
+  The emergent SUSY result of Antipin \textit{et al.}\ is a
+  \textbf{perturbative} result valid in the \textbf{Veneziano limit}:
+  $\Nc, \Nf \to \infty$ with $\Nf/\Nc$ held fixed.  The
+  perturbative analysis is reliable because, in this limit, the fixed
+  point couplings are parametrically small (controlled by
+  $\epsilon = \Nf^{\mathrm{AF}} - \Nf \ll \Nf^{\mathrm{AF}}$).
+
+  \medskip
+
+  Whether emergent SUSY survives at \textbf{finite} $\Nc$ and $\Nf$
+  ---and in particular at the SM values $\Nc = 3$,
+  $\Nf = 6$ (three generations)---is an \textbf{open question}.
+  Finite-$N$ corrections to the beta functions are uncontrolled
+  and could qualitatively change the fixed-point structure.
+
+  \medskip
+
+  \textbf{The claim that SUSY emerges at the SM point extrapolates
+  a perturbative large-$N$ result to a regime where it is not
+  controlled.}  This does not invalidate the result---it means that
+  the result is \emph{suggestive}, not \emph{conclusive}.
+\end{warningbox}
+
+\subsection{Complementary large-$N$ arguments}
+
+A complementary approach to non-SUSY duality at large $N$ was
+provided by Armoni, Shifman, and Unsal~\cite{ASU2008}, who used
+\emph{orientifold planar equivalence} to argue that certain non-SUSY
+gauge theories share the same planar limit as their SUSY counterparts.
+This provides another piece of evidence for non-SUSY duality, but
+again limited to the large-$N$ regime.  Whether the planar equivalence
+extends to finite $N$ is unknown.
+
+
+%% ========================================================================
+%%  SECTION 6: The Central Vulnerability
+%% ========================================================================
+\section{The Central Vulnerability}
+\label{sec:vulnerability}
+
+We now state, as the concluding point of this lecture, the
+\textbf{central vulnerability} of the non-SUSY duality programme.
+This is not a footnote or caveat---it is the most important
+intellectual content of the lecture.
+
+\subsection{The vulnerability stated}
+
+\begin{warningbox}[title={Central vulnerability of non-SUSY duality}]
+  \textbf{Non-SUSY duality has no independent cross-validation
+  beyond 't~Hooft anomaly matching.}
+
+  \medskip
+
+  In SUSY, duality is established by \textbf{four independent
+  pillars} working together (\S\ref{sec:what-we-lose}):
+  anomaly matching, holomorphy, moduli space matching, and the NSVZ
+  exact beta function (plus the superconformal index as a fifth check).
+  The convergence of multiple independent lines of evidence is what
+  makes SUSY duality \emph{proven}.
+
+  \medskip
+
+  In non-SUSY, \textbf{only anomaly matching survives}.  The
+  construction \emph{postulates} the duality and checks consistency
+  via anomaly matching.  It does not \emph{prove} the duality.
+
+  \medskip
+
+  The Sannino programme is the simplest \emph{consistent} framework
+  that:
+  \begin{enumerate}[label=(\roman*)]
+    \item satisfies all 't~Hooft anomaly conditions,
+    \item passes the involution and flavour decoupling tests,
+    \item reproduces the correct SM gauge group and matter content,
+    \item predicts $n_g \geq 3$ and offers a mechanism for the
+      hierarchy problem.
+  \end{enumerate}
+  But \textbf{consistency is not proof}.  Anomaly matching is
+  necessary but not sufficient: multiple IR spectra can satisfy the
+  same UV anomaly conditions.
+\end{warningbox}
+
+\subsection{Then why study it?}
+
+A student who has followed the rigorous development of SUSY duality
+in Lectures~2--4 may reasonably ask: ``If non-SUSY duality is
+unproven, why are we studying it?''
+
+The answer involves four considerations:
+
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Anomaly matching is highly constraining.}  While not
+    sufficient by itself, anomaly matching is an extremely powerful
+    consistency condition.  The number of solutions that simultaneously
+    satisfy all anomaly conditions, pass the involution test, and allow
+    flavour decoupling is small.  Finding even one consistent solution
+    is non-trivial.
+
+  \item \textbf{The SUSY evidence is suggestive.}  Seiberg duality
+    for SQCD is proven.  The physical picture of tumbling plus
+    complementarity (Lecture~5) provides a mechanism that does not
+    intrinsically require SUSY.  The Sannino--Schechter toy model
+    (\S\ref{sec:sannino-schechter}) shows that QCD-like degrees of
+    freedom emerge naturally from the SUSY structure.  The emergent
+    SUSY result (\S\ref{sec:emergent-susy}) suggests that the
+    fixed-point structure survives beyond SUSY.  None of this is proof,
+    but collectively it makes the conjecture \emph{well-motivated}.
+
+  \item \textbf{The framework produces non-trivial predictions.}
+    \emph{If the duality holds}, it explains the hierarchy problem
+    (no fundamental scalars), predicts $n_g \geq 3$ (non-abelian
+    electric gauge group), and provides a common origin for Yukawa
+    couplings.  These are testable consequences of the framework,
+    not tautologies.
+
+  \item \textbf{Belief is not proof.}  We study the framework
+    \emph{because} it is the most economical and well-motivated
+    conjecture consistent with all available evidence---not because
+    it is established.  Independent validation is needed:
+    \begin{itemize}
+      \item \textbf{Lattice:} Direct numerical verification of the
+        non-SUSY conformal window structure and the duality map.
+      \item \textbf{New formal tools:} Non-perturbative methods
+        beyond anomaly matching that could provide additional
+        cross-checks.
+      \item \textbf{Experimental signatures:} Predictions of the
+        dualised SM (composite Higgs, extra matter at the
+        Pati--Salam scale) that could be tested at future colliders.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Recent developments}
+
+The non-SUSY duality programme remains an active area of research.
+Bi and Terning~\cite{BT2022} have explored non-SUSY duality
+candidates for chiral gauge theories with $\mathrm{Spin}(8)$
+gauge group, verifying 21 independent anomaly matching conditions.
+Their work demonstrates that the programme extends beyond QCD-like
+(vector-like) theories to chiral gauge theories---a broader and
+more challenging setting.
+
+The backbone paper of Cacciapaglia and
+Sannino~\cite{CacciapagliaSannino2024} provides the most
+comprehensive treatment of the dualised Standard Model, including the
+quasi-supersymmetric spectrum and quantitative IR matching, which we
+will develop in Lectures~7--8.
+
+
+%% ========================================================================
+%%  FORWARD REFERENCE
+%% ========================================================================
+
+\begin{previewbox}[title={Preview: Lectures 7--8}]
+  In Lectures~7--8, we will \emph{assume} the non-SUSY duality
+  conjecture and construct the dualised Standard Model following
+  Cacciapaglia and Sannino~\cite{CacciapagliaSannino2024}.  We will:
+  \begin{itemize}
+    \item Specify the electric theory (Pati--Salam gauge group,
+      purely fermionic matter content).
+    \item Construct the magnetic dual and identify the SM fields as
+      composites.
+    \item Derive the quasi-supersymmetric spectrum and check anomaly
+      matching for the full $\SU{3}_C \times \SU{2}_L \times
+      \UU{1}_Y$ gauge group.
+    \item Compute the fermion mass relations and compare with
+      observation.
+  \end{itemize}
+
+  \textbf{Every prediction derived in Lectures~7--8 is conditional on
+  the conjectured non-SUSY duality being correct.}
+\end{previewbox}
+
+
+%% ========================================================================
+%%  SUMMARY
+%% ========================================================================
+\section{Summary}
+\label{sec:summary}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=green!5!white,
+  colframe=green!60!black,
+  fonttitle=\bfseries,
+  title={Lecture 6: Summary}
+]
+\begin{enumerate}
+  \item \textbf{Without SUSY, three of four duality pillars are lost:}
+    holomorphy, the exact beta function, and moduli space matching.
+    Only 't~Hooft anomaly matching survives---exact, non-perturbative,
+    and requiring no SUSY (\S\ref{sec:what-we-lose}).
+
+  \item \textbf{Sannino--Schechter (1997):}  QCD degrees of freedom
+    emerge from the auxiliary fields of the SUSY effective Lagrangian,
+    \emph{suggesting} that duality structures may survive SUSY breaking
+    (\S\ref{sec:sannino-schechter}).
+
+  \item \textbf{Cheng--Shadmi tension (1998):}  Seiberg duality with
+    large SUSY breaking produces tachyonic magnetic scalars---an
+    \textbf{unresolved} tension.  Sannino's programme sidesteps this
+    by conjecturing non-SUSY duality directly
+    (\S\ref{ssec:cheng-shadmi}).
+
+  \item \textbf{QCD dual (Sannino, 2009):}  Non-trivial anomaly
+    matching solutions exist for non-SUSY QCD with a dual gauge
+    group $\SU{2\Nf - 5N}$.  The conformal window prediction
+    \emph{coincides} with the all-orders conjectured beta function
+    (\S\ref{sec:qcd-dual}).  \emph{If the duality holds}, this
+    provides a dual description of QCD.
+
+  \item \textbf{SM-as-magnetic (Sannino, 2011):}  \emph{If the
+    non-SUSY duality holds}, the SM is the magnetic dual of a
+    purely fermionic electric theory with Pati--Salam structure.
+    Consequences: no hierarchy problem, $n_g \geq 3$, common Yukawa
+    origin.  Maekawa--Takahashi~\cite{MT1996} provided the
+    direct SUSY precursor (\S\ref{sec:sm-magnetic}).
+
+  \item \textbf{Emergent SUSY (Antipin--Mojaza--Pica--Sannino, 2011):}
+    SUSY fixed points emerge from non-SUSY RG flow in the
+    Veneziano limit.  This perturbative result \emph{suggests} that
+    the quasi-SUSY spectrum is dynamically natural, but finite-$N$
+    validity is uncontrolled (\S\ref{sec:emergent-susy}).
+
+  \item \textbf{Central vulnerability:}  Non-SUSY duality has
+    \textbf{no independent cross-validation beyond anomaly matching}.
+    The construction postulates the duality and checks consistency.
+    Consistency is not proof (\S\ref{sec:vulnerability}).
+\end{enumerate}
+\end{tcolorbox}
+
+
+%% ========================================================================
+%%  BIBLIOGRAPHY
+%% ========================================================================
+\begin{thebibliography}{99}
+
+\bibitem{Seiberg1993}
+  N.~Seiberg,
+  ``Naturalness versus supersymmetric non-renormalization theorems,''
+  \textit{Phys.~Lett.} \textbf{B318} (1993) 469
+  [\texttt{hep-ph/9309335}].
+
+\bibitem{NSVZ1983}
+  V.~A.~Novikov, M.~A.~Shifman, A.~I.~Vainshtein, and
+  V.~I.~Zakharov,
+  ``Exact Gell-Mann--Low function of supersymmetric Yang--Mills
+  theories from instanton calculus,''
+  \textit{Nucl.~Phys.} \textbf{B229} (1983) 381.
+
+\bibitem{tHooft1980}
+  G.~'t~Hooft,
+  ``Naturalness, chiral symmetry, and spontaneous chiral symmetry
+  breaking,'' in \textit{Recent Developments in Gauge Theories},
+  NATO ASI Series~B59 (Plenum, 1980) 135.
+
+\bibitem{SS1997}
+  F.~Sannino and J.~Schechter,
+  ``Toy model for breaking super gauge theories at the effective
+  Lagrangian level,''
+  \textit{Phys.~Rev.} \textbf{D57} (1998) 170
+  [\texttt{hep-ph/9708113}].
+
+\bibitem{VY1982}
+  G.~Veneziano and S.~Yankielowicz,
+  ``An effective Lagrangian for the pure $\mathcal{N}=1$
+  supersymmetric Yang--Mills theory,''
+  \textit{Phys.~Lett.} \textbf{B113} (1982) 231.
+
+\bibitem{CS1998}
+  H.-C.~Cheng and Y.~Shadmi,
+  ``Duality in the presence of supersymmetry breaking,''
+  \textit{Nucl.~Phys.} \textbf{B531} (1998) 275
+  [\texttt{hep-th/9801146}].
+
+\bibitem{Sannino2009}
+  F.~Sannino,
+  ``QCD dual,''
+  \textit{Phys.~Rev.} \textbf{D80} (2009) 065011
+  [\texttt{arXiv:0907.1364}].
+
+\bibitem{RS2008}
+  T.~A.~Ryttov and F.~Sannino,
+  ``Supersymmetry inspired QCD beta function,''
+  \textit{Phys.~Rev.} \textbf{D78} (2008) 065001
+  [\texttt{arXiv:0711.3745}].
+
+\bibitem{Sannino2011}
+  F.~Sannino,
+  ``The Standard Model is natural as magnetic gauge theory,''
+  [\texttt{arXiv:1102.5100}].
+
+\bibitem{MT1996}
+  N.~Maekawa and T.~Takahashi,
+  ``Duality of SUSY model with Pati--Salam group,''
+  \textit{Prog.~Theor.~Phys.} \textbf{95} (1996) 943
+  [\texttt{hep-ph/9510426}].
+
+\bibitem{PS1974}
+  J.~C.~Pati and A.~Salam,
+  ``Lepton number as the fourth `color',''
+  \textit{Phys.~Rev.} \textbf{D10} (1974) 275.
+
+\bibitem{AMPS2011}
+  O.~Antipin, M.~Mojaza, C.~Pica, and F.~Sannino,
+  ``Magnetic fixed points and emergent supersymmetry,''
+  \textit{JHEP} \textbf{1306} (2013) 037
+  [\texttt{arXiv:1105.1510}].
+
+\bibitem{ASU2008}
+  A.~Armoni, M.~Shifman, and M.~Unsal,
+  ``Planar limit of orientifold field theories and emergent
+  center symmetry,''
+  \textit{Phys.~Rev.} \textbf{D77} (2008) 045012
+  [\texttt{arXiv:0712.0672}].
+
+\bibitem{BT2022}
+  Y.~Bi and J.~Terning,
+  ``Chiral gauge dynamics: candidates for non-supersymmetric
+  dualities,''
+  [\texttt{arXiv:2208.07842}].
+
+\bibitem{CacciapagliaSannino2024}
+  G.~Cacciapaglia and F.~Sannino,
+  ``Charting SM duality and its signatures,''
+  [\texttt{arXiv:2407.17281}].
+
+\bibitem{Seiberg1995}
+  N.~Seiberg,
+  ``Electric--magnetic duality in supersymmetric non-Abelian gauge
+  theories,''
+  \textit{Nucl.~Phys.} \textbf{B435} (1995) 129
+  [\texttt{hep-th/9411149}].
+
+\end{thebibliography}
+
+\end{document}
