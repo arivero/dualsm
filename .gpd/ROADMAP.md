@@ -27,7 +27,7 @@ This project produces self-contained Part III lecture notes (~8 lectures) on the
 
 - [x] **Phase 1: Foundations** -- Anomaly matching review, conformal window, conventions, reference corpus download
 - [x] **Phase 2: SUSY and Seiberg Duality** -- Minimal N=1 SUSY, Seiberg duality for N=1 SQCD, N=2 content including Fayet mechanisms, duality verification exercises
-- [ ] **Phase 3: Non-perturbative Dynamics** -- Tumbling/MAC, complementarity, non-SUSY duality extensions (Sannino-Schechter, Maekawa, Pati-Salam embedding, emergent SUSY)
+- [x] **Phase 3: Non-perturbative Dynamics** -- Tumbling/MAC, complementarity, non-SUSY duality extensions (Sannino-Schechter, Maekawa, Pati-Salam embedding, emergent SUSY)
 - [ ] **Phase 4: The Dualised Standard Model** -- Cacciapaglia-Sannino construction, duality map, anomaly matching for full SM, parametric spectrum exercises, scale matching, all validations
 
 ## Phase Details
@@ -148,7 +148,14 @@ Plans:
 
 **Backtracking:** If anomaly matching fails for the full SM gauge group, this is a fundamental problem -- revisit the electric theory field content and duality map before writing exercises. If the parametric spectrum is only qualitatively consistent (wrong scaling, not just O(1) coefficients), trigger stop-and-rethink: the acceptance criterion may need revision. If 8 lectures prove insufficient, flag for scope extension to 10-12 lectures per open contract question.
 
-**Plans:** TBD
+**Plans:** 5 plans
+
+Plans:
+- [ ] 04-01-PLAN.md -- Lecture 7: Dualised SM construction, Pati-Salam embedding, field content, anomaly matching
+- [ ] 04-02-PLAN.md -- VALD-01: SM anomaly matching verification script (symbolic + numerical)
+- [ ] 04-03-PLAN.md -- Lecture 8: Spectrum, scales, outlook (scalar democracy, RG running, collider signatures)
+- [ ] 04-04-PLAN.md -- Exercise Sets 5-6: Parametric fermion mass hierarchy and scale matching exercises
+- [ ] 04-05-PLAN.md -- VALD-03 + VALD-04 + VALD-05: Final validation scripts (spectrum, conventions, 2407.17281 cross-check)
 
 ## Phase Dependencies
 
@@ -189,5 +196,5 @@ Plans:
 | ----- | -------------- | ------ | --------- |
 | 1. Foundations | 3/3 | Complete | 2026-03-20 |
 | 2. SUSY and Seiberg Duality | 4/4 | Complete | 2026-03-20 |
-| 3. Non-perturbative Dynamics | 0/TBD | Not started | - |
+| 3. Non-perturbative Dynamics | 2/2 | Complete | 2026-03-20 |
 | 4. The Dualised Standard Model | 0/TBD | Not started | - |
