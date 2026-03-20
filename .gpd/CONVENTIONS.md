@@ -37,8 +37,8 @@ Equivalently: T(fund) = 1/2 per Weyl fermion.
 | Fundamental N | 1/2 | (N^2-1)/(2N) |
 | Antifundamental N-bar | 1/2 | (N^2-1)/(2N) |
 | Adjoint | N | N |
-| Antisymmetric_2 | (N-2)/2 | (N-1)(N+2)/(2N) |
-| Symmetric_2 | (N+2)/2 | (N-1)(N+4)/(2N) |
+| Antisymmetric_2 | (N-2)/2 | (N-2)(N+1)/N |
+| Symmetric_2 | (N+2)/2 | (N+2)(N-1)/N |
 
 Test: SU(3) fundamental: C_2(fund) = 4/3. Correct.
 
