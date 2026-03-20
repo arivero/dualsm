@@ -1004,6 +1004,56 @@ $\widetilde{l}$).  The extra states (gaugino, mesino) either are
 neutral under $\UU{1}_Y$ (gaugino) or come in $\SU{2}_R$ pairs that
 cancel (mesino).
 
+\subsection{Electric side: why the anomalies also vanish}
+
+In the electric theory, $\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$
+is a \emph{subgroup of the global symmetry} (it is gauged only at
+lower energies, in the magnetic description).  The 't~Hooft anomaly
+coefficients of this subgroup must match between the electric and
+magnetic descriptions.
+
+The electric fermions (Table~\ref{tab:electric-ng3}) decompose under
+$\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$ using the same
+embedding~\eqref{eq:flavour-decomp} and
+hypercharge~\eqref{eq:hypercharge}:
+\begin{itemize}
+  \item $Q$ ($\SU{3}$ triplet, $\SU{6}_L$ fundamental, $Q_V = +1$):
+    decomposes into 3~generations of $\SU{2}_L$ doublets with
+    $Y = +1/6$, each carrying an $\SU{2}_{\text{el}}$ fundamental
+    index (multiplicity~2).
+  \item $\widetilde{Q}$ ($\bar{\mathbf{3}}$, $\SU{6}_R$
+    antifundamental, $Q_V = -1$): decomposes into 3~generations of
+    $\SU{2}_R$ doublets.  The $T_R^3 = +1/2$ component has
+    $Y = 1/2 - 1/6 = 1/3$ and the $T_R^3 = -1/2$ component has
+    $Y = -1/2 - 1/6 = -2/3$.  Each carries
+    $\SU{2}_{\text{el}}$ antifundamental (multiplicity~2).
+  \item $\lambda$ ($\SU{3}$ octet, flavour singlet, $Q_V = 0$,
+    $Y = 0$): carries $\SU{2}_{\text{el}}$ adjoint (multiplicity~3).
+  \item $L$ ($\SU{3}$ singlet, $\SU{6}_L$ fundamental, $Q_V = -3$):
+    decomposes into 3~generations of $\SU{2}_L$ doublets with
+    $Y = -1/2$.  These are $\SU{2}_{\text{el}}$ singlets.
+  \item $\widetilde{L}$ ($\SU{3}$ singlet, $\SU{6}_R$
+    antifundamental, $Q_V = +3$): $\SU{2}_R$ doublets with
+    $Y = +1$ and $Y = 0$.  $\SU{2}_{\text{el}}$ singlets.
+\end{itemize}
+Crucially, the $\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$ quantum
+numbers of the electric fermions are \textbf{identical} to those of
+the corresponding magnetic fermions (compare with
+Table~\ref{tab:magnetic-SM-quantum})---the only difference is the
+$\SU{2}_{\text{el}}$ multiplicity factor.  Since every anomaly
+coefficient of a product group factorises as
+$A = \dim(R_{\text{el}}) \times A_{\text{SM}}$, and $A_{\text{SM}} = 0$
+for each condition (as computed above), the electric anomalies also
+vanish:
+\begin{equation}\label{eq:electric-anomalies}
+  A_{\text{electric}} \;=\; \dim(R_{\SU{2}_{\text{el}}}) \times
+  \underbrace{A_{\SU{3}_c \times \SU{2}_L \times \UU{1}_Y}}_{ = \,0}
+  \;=\; 0\,.
+\end{equation}
+This confirms the anomaly matching between electric and magnetic
+descriptions: $A_{\text{electric}} = A_{\text{magnetic}} = 0$ for all
+six conditions.
+
 \begin{warningbox}[title={Anomaly matching is necessary but not sufficient}]
   The anomaly matching demonstrated in Table~\ref{tab:anomaly-summary}
   is a \textbf{necessary condition} for the conjectured duality between
