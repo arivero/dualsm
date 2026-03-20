@@ -178,29 +178,29 @@ where $c^{abcd}$ are $\mathcal{O}(1)$ dimensionless coefficients.
     \end{equation}
 
     \begin{enumerate}[label=(\roman*)]
-      \item In the scalar democracy framework, the down-type Higgs VEV
-        is suppressed relative to the up-type by the
-        mixing factor from Planck-scale operators.  Express
-        $m_b/m_t$ in the parametric form
-        \begin{equation}\label{eq:mass-ratio-param}
-          \frac{m_b}{m_t}
-          \;\sim\; c_b\,
-          \biggl(\frac{\Lambda_D}{M_{\text{Pl}}}\biggr)^{\!p}\,,
-        \end{equation}
-        where $c_b$ is an $\mathcal{O}(1)$ coefficient and $p$ is a
-        positive integer that depends on the operator structure.
+      \item As shown in part~(b), the generic Planck suppression
+        $(\Lambda_D/M_{\text{Pl}})^2 \sim 10^{-16}$ is far too small
+        to produce $m_b/m_t \approx 0.024$.  Explain why the bottom
+        quark mass instead arises from \textbf{direct}
+        $H_{33}^u$--$H_{33}^d$ mixing through the scalar potential,
+        with the suppression controlled by the ratio
+        $\mu_b^2/M_{d,33}^2 \sim \mathcal{O}(10^{-2})$ of
+        $\mathcal{O}(1)$ parameters in the Planck-scale operator
+        coefficients.
 
-      \item Determine the value of $p$ required to obtain
-        $m_b/m_t \sim 0.024$ with $\Lambda_D = 10^{11}\;\text{GeV}$.
-        \textit{Hint:}
-        $\Lambda_D / M_{\text{Pl}} \approx 10^{-8}$.
+      \item For the \emph{lighter} fermion generations (charm, strange,
+        and below), the mass ratios arise from a cascade of mixing
+        steps in the scalar potential.  Each step is controlled by a
+        ratio $\mu_i^2/M_i^2$ of $\mathcal{O}(1)$ parameters.  Explain
+        why the charm quark ($m_c/m_t \approx 0.007$) sits at a
+        comparable suppression level to the bottom quark (i.e., the
+        same ``tier'' of the VEV hierarchy), while the strange quark
+        ($m_s/m_t \approx 5 \times 10^{-4}$) requires an additional
+        step of suppression (a deeper tier).
 
-      \item Explain why the value of $p$ tells you the
-        ``tier'' of the VEV hierarchy: $p = 2$ corresponds to a
-        first-tier suppression (one insertion of
-        $\Lambda_D^2/M_{\text{Pl}}^2$), $p = 4$ to a second-tier
-        suppression, and so on.  Assign the bottom, charm, and strange
-        quarks to appropriate tiers.
+      \item Assign the bottom, charm, and strange quarks to appropriate
+        ``tiers'' in the VEV hierarchy.  Which quarks share the same
+        tier, and which require additional steps of cascaded mixing?
     \end{enumerate}
 
   \item \textbf{[5 marks]}
@@ -230,7 +230,8 @@ where $c^{abcd}$ are $\mathcal{O}(1)$ dimensionless coefficients.
     stated.
   \item For (b)(iii): compute $\log_{10}(\Lambda_D^2/M_{\text{Pl}}^2)$
     and compare with $\log_{10}(m_f/m_t)$ for each fermion.
-  \item For (c)(ii): taking logs makes the comparison straightforward.
+  \item For (c)(ii): compare the suppression ratios $\mu_f^2/M_f^2$
+    needed for each fermion and group them into tiers.
 \end{itemize}
 
 \bigskip
@@ -369,14 +370,28 @@ Strange ($s$) & $\approx 5 \times 10^{-4}$ & $-3.3$ & 2nd \\
 
 A single Planck suppression gives
 $\log_{10}(\Lambda_D^2/M_{\text{Pl}}^2) \approx -16$, which is far
-too small.  However, the bottom quark mass arises from a
-\textbf{direct} mixing between $H_{33}^u$ and $H_{33}^d$ (not the
-generic Planck suppression $\Lambda_D^2/M_{\text{Pl}}^2$).  The
-relevant suppression is the ratio of the down-type VEV to the up-type
-VEV, controlled by $\mathcal{O}(1)$ coefficients in the Planck
-operators and by the mass splittings among the dormant Higgs doublets.
+too small to reproduce $m_b/m_t \approx 0.024$ or even
+$m_c/m_t \approx 0.007$.
 
-The point is that the \emph{parametric structure}---a cascade of
+\textbf{Key observation.}
+The na\"ive one-step Planck suppression
+$(\Lambda_D/M_{\text{Pl}})^2 \sim 10^{-16}$ is far too small to
+reproduce $m_b/m_t \sim 0.024$.  This indicates that the bottom
+quark mass does \emph{not} arise from the generic Planck-suppressed
+operator mechanism of Eq.~\eqref{eq:mass-ratio-suppression}.
+Instead, the scalar democracy framework provides a different
+mechanism: \textbf{direct mixing} between the dominant Higgs doublet
+$H_{33}^u$ and the subdominant doublet $H_{33}^d$ through the scalar
+potential.  In this route, the suppression is controlled by
+$\mathcal{O}(1)$ coefficients in the Planck operators and by the
+mass splittings among the dormant Higgs doublets, rather than by
+powers of $\Lambda_D/M_{\text{Pl}}$.  We derive this alternative
+route in part~(c).
+
+For the lighter fermions (charm, strange, and below), the generic
+Planck suppression \emph{does} apply, through cascaded insertions of
+$\Lambda_D^2/M_{\text{Pl}}^2$:
+the parametric structure---a cascade of
 progressively smaller VEVs---provides a natural mechanism for the
 mass hierarchy, with the specific ratios set by $\mathcal{O}(1)$
 coefficients $\xi_i$.
@@ -385,63 +400,60 @@ coefficients $\xi_i$.
 
 \textbf{(c) Bottom-to-top mass ratio.}
 
-\textit{(i) Parametric form.}
+\textit{(i) Why the bottom mass requires direct $H^u$--$H^d$ mixing.}
 
-The down-type Higgs VEV is induced by Planck-scale mixing with the
-leading (up-type) Higgs.  Schematically, the mixing arises from
-operators of the form~\eqref{eq:planck-op}, which generate
-$\mu_b^2 \sim c_b \Lambda_D^4 / M_{\text{Pl}}^2$.  Combined with the
-dormant Higgs mass $M_d^2 \sim \Lambda_D^2$:
+If the bottom quark mass arose from the generic Planck-suppressed
+mechanism of part~(b), we would have
+$m_b/m_t \sim (\Lambda_D/M_{\text{Pl}})^2 \sim 10^{-16}$, which is
+fourteen orders of magnitude too small.  This rules out the generic
+tier structure for the bottom quark.
+
+Instead, $H_{33}^d$ acquires its VEV through \textbf{direct mixing}
+with $H_{33}^u$ in the scalar potential.  The Planck operators
+of Eq.~\eqref{eq:planck-op} generate an off-diagonal mass-squared
+$\mu_b^2$ between these two doublets, while the diagonal mass of
+$H_{33}^d$ is $M_{d,33}^2$.  The induced VEV ratio is:
 \[
   \frac{\langle H_{33}^d \rangle}{\langle H_{33}^u \rangle}
-  \;\sim\; \frac{\mu_b^2}{M_d^2}
-  \;\sim\; c_b\, \frac{\Lambda_D^2}{M_{\text{Pl}}^2}\,.
-\]
-Writing this as a power of $\Lambda_D/M_{\text{Pl}}$:
-\[
-  \frac{m_b}{m_t}
-  \;\sim\; c_b\, \biggl(\frac{\Lambda_D}{M_{\text{Pl}}}\biggr)^{\!p}\,.
-\]
-With the above operator structure, $p = 2$
-(one insertion of $\Lambda_D^2/M_{\text{Pl}}^2$).
-
-\textit{(ii) Required value of $p$.}
-
-We have $\Lambda_D / M_{\text{Pl}} \approx 10^{11}/10^{19}
-= 10^{-8}$.  Then:
-\[
-  \biggl(\frac{\Lambda_D}{M_{\text{Pl}}}\biggr)^{\!p}
-  \;=\; 10^{-8p}\,.
-\]
-We require $m_b/m_t \sim 0.024 \sim 10^{-1.6}$:
-\[
-  10^{-8p} \;\sim\; 10^{-1.6}
-  \qquad\Longrightarrow\qquad
-  p \;\approx\; 0.2\,.
-\]
-
-Since $p$ need not be an integer in the general parametric form, the
-key point is that $m_b/m_t \sim 0.024$ requires an $\mathcal{O}(1)$
-coefficient $c_b \sim 0.024 / (\Lambda_D/M_{\text{Pl}})^p$ with
-$p$ close to zero.  In other words, the bottom-to-top ratio is
-\emph{not} generated by the generic Planck suppression
-$(\Lambda_D/M_{\text{Pl}})^2 \sim 10^{-16}$; it is generated by a
-\textbf{direct} mixing between the up-type and down-type $(3,3)$
-Higgs doublets, with the suppression controlled by $\mathcal{O}(1)$
-coefficients in the scalar potential:
-\begin{equation}\label{eq:bottom-direct}
-  \frac{m_b}{m_t}
-  \;\sim\; c_b \,\frac{\mu_b^2}{M_{d,33}^2}
+  \;\sim\; \frac{\mu_b^2}{M_{d,33}^2}
   \;\sim\; c_b \times \mathcal{O}(10^{-2})\,,
-\end{equation}
+\]
 where $c_b \sim \mathcal{O}(1)$ and the ratio
-$\mu_b^2 / M_{d,33}^2 \sim 10^{-2}$ is determined by the specific
-pattern of Planck-scale operator coefficients.
+$\mu_b^2/M_{d,33}^2$ is determined by the specific pattern of
+$\mathcal{O}(1)$ coefficients in the Planck-scale operators.
+Crucially, neither $\mu_b^2$ nor $M_{d,33}^2$ is constrained to
+be a power of $\Lambda_D/M_{\text{Pl}}$; their ratio is an
+$\mathcal{O}(10^{-2})$ number set by the UV dynamics.
+
+\textit{(ii) Lighter fermion tiers.}
+
+The charm and strange masses arise from the same direct-mixing
+mechanism but applied to different entries of the 18-Higgs scalar
+potential:
+\begin{itemize}
+  \item \textbf{Charm} ($m_c/m_t \approx 0.007 \sim 10^{-2.2}$):
+    The charm quark mass comes from the $(2,2)$ sector VEV
+    $\langle H_{22}^u \rangle$, induced by direct mixing with the
+    leading Higgs $H_{33}^u$.  Since
+    $m_c/m_t \sim \mathcal{O}(10^{-2})$, the suppression ratio
+    $\mu_c^2/M_{22}^2$ is of the same order as for the bottom quark.
+    Both bottom and charm sit in the \textbf{first tier} of the VEV
+    hierarchy.
+  \item \textbf{Strange} ($m_s/m_t \approx 5 \times 10^{-4}
+    \sim 10^{-3.3}$): The strange quark requires an additional
+    suppression of $\sim 10^{-1}$ beyond the first tier.  This arises
+    from a \textbf{cascaded} mixing: the $(2,2)$ or $(2,3)$ Higgs
+    doublet mixes with the leading Higgs, and the strange-sector
+    Higgs then mixes with this intermediate doublet.  Two steps of
+    $\mathcal{O}(10^{-2})$ mixing give
+    $\sim 10^{-4}$, consistent with $m_s/m_t$.  The strange quark
+    sits in the \textbf{second tier}.
+\end{itemize}
 \[
-  \boxed{\frac{m_b}{m_t} \;\sim\; c_b \times
-  \frac{\mu_b^2}{M_{d,33}^2}\,,\quad
-  c_b \sim \mathcal{O}(1),\;\;
-  \frac{\mu_b^2}{M_{d,33}^2} \sim 0.024\,.}
+  \boxed{\text{First tier (bottom, charm):}\;
+  m_f/m_t \sim \mu_f^2/M_f^2 \sim 10^{-2};\quad
+  \text{Second tier (strange):}\;
+  m_s/m_t \sim (\mu^2/M^2)^2 \sim 10^{-4}\,.}
 \]
 
 \textit{(iii) VEV tiers.}

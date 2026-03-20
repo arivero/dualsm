@@ -37,17 +37,9 @@ the representation theory of $\SU{\Nc}$ at the level of Peskin and
 Schroeder~\cite{PS1995}.  \emph{No knowledge of supersymmetry is required}
 for this lecture; SUSY will be introduced from scratch in Lecture~2.
 
-\textbf{Course goal.}  By the end of these notes, students will be able to:
-\begin{enumerate}[label=(\roman*)]
-  \item construct the dualised Standard Model from a Pati--Salam-like
-    electric theory with only fermions and no elementary scalars;
-  \item verify anomaly matching between the electric and magnetic
-    descriptions for the full SM gauge group
-    $\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$;
-  \item derive parametric expressions for the SM fermion mass hierarchy,
-    the Fermi scale $v \approx 246\;\mathrm{GeV}$, and the QCD scale
-    $\Lambda_{\QCD} \approx 200\;\mathrm{MeV}$ from the dual theory.
-\end{enumerate}
+\textbf{Course goal.}  This lecture establishes the tools (anomaly
+matching, conformal window) that will be used in later lectures to
+analyse the dualised SM spectrum.
 
 \textbf{Outline of Lecture~1.}  We begin with the mathematical tools that
 underpin all subsequent lectures: 't~Hooft anomaly matching and the
@@ -446,18 +438,30 @@ number with $B[q] = 1/3$.
 
 \subsection{UV anomaly coefficients}
 
-Let us compute the $\SU{2}_L^3$ anomaly.  The only fermions charged under
-$\SU{2}_L$ are the left-handed quarks $q_{L,i}^{\,\alpha}$, which form
-$\Nc = 3$ copies (one per colour) of the fundamental of $\SU{2}_L$.  Each
-copy contributes $A(\fund_{\SU{2}}) = 1$ to the cubic anomaly.  Therefore:
+\textbf{Vanishing of $\SU{2}_L^3$ and $\SU{2}_R^3$.}\;
+Since $\SU{2}$ has no cubic anomaly---$d^{abc} = 0$ because all
+$\SU{2}$ representations are (pseudo-)real (cf.\ the conventions in
+\S\ref{sec:conventions})---the purely cubic anomaly coefficients
+vanish identically:
 \begin{equation}
   \mathcal{A}_{\UV}\bigl[\SU{2}_L^3\bigr]
-  = \Nc \times A(\fund_{\SU{2}})
-  = 3 \times 1 = 3.
+  = \mathcal{A}_{\UV}\bigl[\SU{2}_R^3\bigr] = 0.
   \label{eq:uv-anomaly-su2L}
 \end{equation}
-By an identical argument (exchanging $L \leftrightarrow R$),
-$\mathcal{A}_{\UV}[\SU{2}_R^3] = 3$.
+The non-trivial matching condition comes instead from the
+\emph{mixed} anomaly $\SU{2}_L^2\,\UU{1}_B$.
+The only fermions charged under $\SU{2}_L$ are the left-handed quarks
+$q_{L,i}^{\,\alpha}$, which form $\Nc = 3$ copies (one per colour) of the
+fundamental of $\SU{2}_L$, each carrying baryon number $B = 1/3$:
+\begin{equation}
+  \mathcal{A}_{\UV}\bigl[\SU{2}_L^2\,\UU{1}_B\bigr]
+  = \Nc \times T(\fund_{\SU{2}}) \times B[q]
+  = 3 \times \tfrac{1}{2} \times \tfrac{1}{3}
+  = \frac{1}{2}.
+  \label{eq:uv-anomaly-su2L-mixed}
+\end{equation}
+By an identical argument (with $B[\bar{q}] = -1/3$),
+$\mathcal{A}_{\UV}[\SU{2}_R^2\,\UU{1}_B] = -1/2$.
 
 \subsection{IR spectrum: confinement and chiral symmetry breaking}
 
@@ -489,43 +493,51 @@ The low-energy degrees of freedom are:
 
 \subsection{IR anomaly matching}
 
-For $\SU{2}_L^3$, the only \IR{} fermions contributing are the left-handed
-baryons in the $\mathbf{2}$ of $\SU{2}_L$:
+Since $\SU{2}_L^3$ and $\SU{2}_R^3$ vanish identically ($d^{abc}=0$),
+the non-trivial check is the mixed anomaly $\SU{2}_L^2\,\UU{1}_B$.
+
+\textbf{Naive fermion counting.}\;
+The only \IR{} fermions charged under $\SU{2}_L$ are the left-handed
+baryons (the nucleon doublet) in the $\mathbf{2}$ of $\SU{2}_L$, with
+baryon number $B = 1$:
 \begin{equation}
-  \mathcal{A}_{\IR}\bigl[\SU{2}_L^3\bigr]
-  = 1 \times A(\fund_{\SU{2}}) = 1.
-  \label{eq:ir-anomaly-wrong}
+  \mathcal{A}_{\IR}^{\text{(fermions)}}\bigl[\SU{2}_L^2\,\UU{1}_B\bigr]
+  = 1 \times T(\fund_{\SU{2}}) \times B[N]
+  = 1 \times \tfrac{1}{2} \times 1
+  = \frac{1}{2}.
+  \label{eq:ir-anomaly-fermion}
 \end{equation}
+This already matches $\mathcal{A}_{\UV} = 1/2$~\eqref{eq:uv-anomaly-su2L-mixed}---the
+mixed anomaly is saturated by the nucleon doublet alone.
 
-But $\mathcal{A}_{\UV} = 3 \neq 1 = \mathcal{A}_{\IR}$!  Does anomaly
-matching fail?
-
-\textbf{Resolution.}  The analysis above is incomplete.  The Goldstone
-bosons do not contribute to perturbative anomalies, but they \emph{do}
-contribute to anomaly matching through the
+\textbf{Role of the WZW term.}\;
+Although the mixed anomaly happens to match from fermions alone,
+the Goldstone bosons still play a crucial role: the
 \emph{Wess--Zumino--Witten (WZW) term} in the chiral Lagrangian
-\cite{WessZumino1971,Witten1983}.  The WZW term is a topological term
-that encodes the anomaly of the underlying microscopic (quark) theory
-in the effective low-energy (pion) theory.  Its coefficient is fixed by
-anomaly matching to be exactly $\Nc = 3$.
+\cite{WessZumino1971,Witten1983} encodes the anomaly of the underlying
+microscopic (quark) theory in the effective low-energy (pion) theory.
+Its coefficient is \emph{not} a free parameter---it is fixed by anomaly
+matching to equal $\Nc = 3$.  The WZW term ensures that processes
+such as $\pi^0 \to \gamma\gamma$ have the correct rate; it provides
+an independent consistency check on the chiral Lagrangian description
+of QCD.
 
-Including the WZW contribution:
 \begin{equation}
-  \mathcal{A}_{\IR}\bigl[\SU{2}_L^3\bigr]
-  = \underbrace{1}_{\text{baryons}}
-  + \underbrace{2}_{\text{WZW term}}
-  = 3
-  = \mathcal{A}_{\UV}\bigl[\SU{2}_L^3\bigr].
+  \mathcal{A}_{\IR}\bigl[\SU{2}_L^2\,\UU{1}_B\bigr]
+  = \frac{1}{2}
+  = \mathcal{A}_{\UV}\bigl[\SU{2}_L^2\,\UU{1}_B\bigr].
   \label{eq:ir-anomaly-matched}
 \end{equation}
 
 \begin{remark}
-  This example illustrates a subtle but important point: in theories with
-  spontaneous chiral symmetry breaking, the Goldstone bosons \emph{do}
-  carry anomaly information through the WZW term.  The coefficient of the
-  WZW term is \emph{not} a free parameter---it is fixed by anomaly matching
-  and equals $\Nc$.  This is a powerful consistency check on the chiral
-  Lagrangian description of QCD.
+  This example illustrates two important points.  First, for $\SU{2}$
+  flavour symmetries the purely cubic anomaly vanishes identically
+  ($d^{abc} = 0$), so the non-trivial constraints come from mixed
+  anomalies such as $\SU{2}_L^2\,\UU{1}_B$.  Second, in theories with
+  spontaneous chiral symmetry breaking, the Goldstone bosons carry
+  anomaly information through the WZW term.  The WZW coefficient is
+  fixed by anomaly matching and equals~$\Nc$---a powerful consistency
+  check on the low-energy effective theory.
 \end{remark}
 
 \begin{remark}

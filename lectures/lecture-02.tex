@@ -77,15 +77,14 @@ non-supersymmetric gauge theories.  In particular:
     results for scaling dimensions.
   \item \textbf{Electric--magnetic duality.}  SUSY is the \emph{only}
     known framework in which electric--magnetic duality between strongly-
-    and weakly-coupled gauge theories can be \emph{proved}---that is,
-    verified by exact anomaly matching, moduli space matching, and
+    and weakly-coupled gauge theories can be \emph{established through exact consistency checks}---anomaly matching, moduli space matching, and
     consistency under deformations.  This is Seiberg duality
     \cite{Seiberg1995}, the centrepiece of Lecture~3.
 \end{enumerate}
 
 \begin{remark}[Strategy for the course]
   The logic of this course is: (1)~introduce the minimal SUSY formalism
-  (this lecture); (2)~\emph{prove} Seiberg duality in the supersymmetric
+  (this lecture); (2)~\emph{derive evidence for} Seiberg duality in the supersymmetric
   setting (Lecture~3); (3)~understand its microscopic origin from $\mathcal{N}=2$
   theory (Lecture~4); (4)~extend the duality, with appropriate caveats,
   to the non-supersymmetric Standard Model (Lectures~5--8).
@@ -806,6 +805,13 @@ $\lambda$ (gaugino) & $\adj$ & $\mathbf{1}$ & $\mathbf{1}$ & $0$ & $+1$ \\
 \end{tabular}
 \end{center}
 
+\noindent\textbf{Baryon number convention.}\; In this table we adopt
+$B[Q] = +1$, $B[\widetilde{Q}] = -1$ for the SQCD field content,
+differing from the Seiberg convention $B[Q] = 1/\Nc$ used in Lecture~1.
+The two are related by rescaling $B \to \Nc\, B$; all anomaly matching
+conditions remain valid provided the same convention is used
+consistently on both sides.
+
 \noindent This table, together with the analogous table for the magnetic
 theory, forms the basis for the anomaly matching verification of
 Seiberg duality in Lecture~3.
@@ -888,30 +894,31 @@ Furthermore, the meson matrix has $\mathrm{rank}(M) \leq \Nc$
 classically, since $M^i{}_j = Q^i_a \widetilde{Q}^a_j$ factors through
 colour space.
 
+All dimensions below are \textbf{complex} unless stated otherwise.
+
 The \textbf{dimension} of the classical moduli space is:
 \begin{equation}
   \boxed{
-    \dim(\mathcal{M}_{\text{cl}})
+    \dim_{\mathbb{C}}(\mathcal{M}_{\text{cl}})
     = 2\Nc \Nf - (\Nc^2 - 1)\,,
   }
   \label{eq:moduli-dim}
 \end{equation}
-which counts the $2\Nc\Nf$ real scalar DOF in $(Q, \widetilde{Q})$
-minus the $\Nc^2 - 1$ gauge DOF removed by $\SU{\Nc}$ transformations.
+which counts the $2\Nc\Nf$ complex scalar DOF in $(Q, \widetilde{Q})$
+(each chiral superfield contains one complex scalar) minus the
+$\Nc^2 - 1$ complex parameters of $\SU{\Nc}_{\mathbb{C}}$ gauge
+transformations (the complexified gauge group acts on the chiral fields
+holomorphically).
 
-\begin{remark}[Consistency check]
-For $\Nf = \Nc = 2$: $\dim = 2 \times 2 \times 2 - 3 = 5$.
-The moduli space is parameterised by the $2 \times 2$ meson matrix $M$
-(4 complex $= 8$ real entries) minus the classical constraint
-$\det M = B \widetilde{B}$, which removes 2 real DOF (one complex
-constraint), plus the baryons $B$ and $\widetilde{B}$ (1 complex each
-$= 4$ real)---but then the constraint itself must be imposed.  The
-counting matches: $(4 + 1 + 1 - 1) \times 2_{\mathbb{R}} - 2_{\text{constraint}} = 8$
-real DOF, but the true gauge-invariant dimension is 5 complex $= 10$
-real... In fact, the formula \eqref{eq:moduli-dim} gives $2 \times 2
-\times 2 - 3 = 5$ \emph{complex} dimensions, or 10 real dimensions.
-This is the correct answer: 5 independent complex parameters describe
-the vacuum.
+\begin{remark}[Consistency check: $\Nf = \Nc = 2$]
+The formula gives $\dim_{\mathbb{C}} = 2 \times 2 \times 2 - 3 = 5$.
+We can verify this from gauge-invariant coordinates: the $2 \times 2$
+meson matrix $M$ has 4 complex entries, plus the baryons $B$ and
+$\widetilde{B}$ (1 complex each), giving $4 + 1 + 1 = 6$ complex
+gauge-invariant variables.  Imposing the classical constraint
+$\det M - B\,\widetilde{B} = 0$ (one complex equation) removes one
+complex degree of freedom, leaving $6 - 1 = 5$ complex dimensions,
+in agreement with~\eqref{eq:moduli-dim}.
 \end{remark}
 
 \begin{previewbox}[title={Preview: Quantum Modifications (Lecture 3)}]

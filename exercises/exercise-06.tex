@@ -148,19 +148,19 @@ This exercise derives two physical scales from the duality scale:
         \]
         with $N_c^e = 2$, $n_f^e = 6$ Weyl fundamentals, $T(\fund) = 1/2$, and
         $T(\adj) = N_c^e = 2$.
-        Argue that the electric theory is \emph{not} asymptotically
-        free (or marginally so), which is consistent with the duality
+        Argue that the electric theory \emph{is} asymptotically
+        free ($\bzero^e > 0$), which is consistent with the duality
         requirement that the electric theory becomes strongly coupled
-        in the infrared.
+        in the infrared (the coupling grows as $\mu$ decreases).
 
-      \item The statement that $\alpha_e(\Lambda_D) \sim \mathcal{O}(1)$
-        (strong coupling) implies via
-        Eq.~\eqref{eq:duality-coupling} that
-        $\alphas(\Lambda_D) \sim 1/\alpha_e(\Lambda_D)$.  For a
-        reasonable input $\alphas(\Lambda_D) = 0.3$, use
-        Eq.~\eqref{eq:lambda-qcd-def} with $\mu_0 = \Lambda_D
-        = 10^{11}\;\text{GeV}$ and $\bzero = 7$ to compute
-        $\Lambda_{\QCD}$ numerically.  Show all intermediate steps.
+      \item Using the measured value $\alphas(M_Z) = 0.118$ at
+        $M_Z = 91.2\;\text{GeV}$, first run the coupling up to
+        $\Lambda_D = 10^{11}\;\text{GeV}$ using one-loop RG
+        (Eq.~\eqref{eq:one-loop-running} with $\bzero = 7$) to
+        determine $\alphas(\Lambda_D)$.  Then use
+        Eq.~\eqref{eq:lambda-qcd-def} with $\mu_0 = \Lambda_D$
+        to compute $\Lambda_{\QCD}$ numerically.  Show all
+        intermediate steps.
 
       \item Compare your result with the measured value
         $\Lambda_{\QCD} \approx 200\;\text{MeV}$.  Identify two
@@ -217,7 +217,7 @@ This exercise derives two physical scales from the duality scale:
         $\Lambda_D$ & \rule{3cm}{0.4pt} & $\sim 10^{11}\;\text{GeV}$ \\
         $M_{\text{Pl}}$ & \rule{3cm}{0.4pt}
           & $1.22 \times 10^{19}\;\text{GeV}$ \\
-        $\alphas(\Lambda_D)$ & \rule{3cm}{0.4pt} & $\sim 0.3$ \\
+        $\alphas(\Lambda_D)$ & \rule{3cm}{0.4pt} & $\sim 0.03$ \\
         $v$ & \rule{3cm}{0.4pt} & $\sim 246\;\text{GeV}$ \\
         $\Lambda_{\QCD}$ & \rule{3cm}{0.4pt}
           & $\sim 200\;\text{MeV}$ \\
@@ -250,8 +250,9 @@ This exercise derives two physical scales from the duality scale:
   \item For (a)(ii): set the denominator of
     Eq.~\eqref{eq:one-loop-running} to zero and solve for
     $\mu$.
-  \item For (b)(ii): compute $2\pi/(\bzero \cdot \alphas)$
-    first, then take the exponential.
+  \item For (b)(ii): first evolve $\alphas(M_Z) = 0.118$ to
+    $\Lambda_D$ using Eq.~\eqref{eq:one-loop-running}, then compute
+    $2\pi/(\bzero \cdot \alphas(\Lambda_D))$ and take the exponential.
   \item For (c)(iii): invert the seesaw relation to express
     $\Lambda_D$ as a function of $v$.
 \end{itemize}
