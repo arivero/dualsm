@@ -1,0 +1,1206 @@
+% ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
+%
+% Lecture 10: Physical Mesons as Dual Mesons
+% Part of: The Dualised Standard Model -- Part III Lecture Notes
+%
+% Conventions (Seiberg hep-th/9411149, unchanged from Lectures 1-9):
+%   T(fund) = 1/2 per Weyl fermion
+%   b_0 = (11N_c - 2N_f)/3 for N_f Dirac flavours
+%   A(fund) = 1 (cubic anomaly coefficient per fundamental Weyl fermion)
+%   alpha_s = g_s^2 / (4 pi)
+%   R[Q] = (N_f - N_c)/N_f; R[W] = 2
+%   N_f counts Dirac flavour pairs (each = 2 Weyl fermions)
+%
+% NEW CONVENTIONS FOR THIS LECTURE:
+%   Quark flavour ordering: (u, d, s, c, b, t) = (1, 2, 3, 4, 5, 6) -- PDG standard
+%   Meson naming: PDG 2024 naming conventions
+%   ChPT field: U = exp(2i pi^a T^a / f_pi) (Gasser-Leutwyler convention)
+%   Linear sigma model decomposition: M_{ij} = (v_{ij} + sigma_{ij} + i pi_{ij}) / sqrt(2)
+%   Epistemic: all non-SUSY duality claims carry conjectural qualifiers (P1)
+%
+\documentclass[11pt,a4paper]{article}
+\input{preamble}
+
+%% ---------- Additional macros for this lecture ----------
+\newcommand{\fpi}{f_\pi}
+\newcommand{\Lchi}{\Lambda_\chi}
+\newcommand{\qqbar}{\langle \bar{q}\,q \rangle}
+\newcommand{\ChPT}{\ensuremath{\mathrm{ChPT}}}
+\newcommand{\HQET}{\ensuremath{\mathrm{HQET}}}
+\newcommand{\DSM}{\ensuremath{\mathrm{DSM}}}
+
+\title{\textbf{Lecture 10: Physical Mesons as Dual Mesons}}
+\author{The Dualised Standard Model --- Part III Lecture Notes}
+\date{Lent Term 2027}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%%  CONVENTIONS
+%% ========================================================================
+
+\begin{conventionbox}[title={Conventions for Lecture 10}]
+All conventions from Lectures~1--9 remain in force.  This lecture
+introduces conventions for quark flavour labelling, meson naming, and
+the chiral perturbation theory (ChPT) field parametrisation.
+
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l l l@{}}
+\toprule
+\textbf{Quantity} & \textbf{Convention} & \textbf{Comment} \\
+\midrule
+Units & $\hbar = c = 1$ (natural) & \\
+Metric & $\eta_{\mu\nu} = \mathrm{diag}(+1,-1,-1,-1)$ & mostly minus \\
+Dynkin index & $\Tr(T^a T^b) = \Tfund\, \delta^{ab}$ & fundamental of $\SU{\Nc}$ \\
+Hypercharge & $Y = T_R^3 + \tfrac{1}{6}\,Q_V$ & Lecture~7 \\
+Universal Yukawa & $y$ (single coupling) & Lecture~7 \\
+Epistemic & ``if the duality holds'' & all non-SUSY claims (P1) \\
+\midrule
+\multicolumn{3}{@{}l}{\textbf{New in this lecture:}} \\
+Flavour ordering & $(u, d, s, c, b, t) = (1, 2, 3, 4, 5, 6)$ & PDG standard \\
+Meson naming & PDG 2024 conventions & \cite{PDG2024} \\
+ChPT field & $U = \exp(2i\, \pi^a T^a / \fpi)$ & Gasser--Leutwyler~\cite{GasserLeutwyler1985} \\
+$\fpi$ & $92.1\;\text{MeV}$ (physical convention) & $\fpi = F_\pi \sqrt{2}$ if $F_\pi \approx 65\;\text{MeV}$ \\
+\bottomrule
+\end{tabular}
+
+\medskip
+
+\textbf{Epistemic convention.}  Every statement asserting or assuming
+non-supersymmetric duality carries an explicit conjectural qualifier.
+The meson identification tables are standard QCD flavour physics; the
+\emph{duality interpretation}---that these mesons \emph{are} the
+composites of the magnetic theory---is conjectural.
+\end{conventionbox}
+
+
+%% ========================================================================
+%%  SECTION 1: The Meson Matrix in QCD and SQCD
+%% ========================================================================
+\section{The Meson Matrix in QCD and SQCD}
+\label{sec:meson-matrix-intro}
+
+In Lecture~3, we studied Seiberg duality for $\SU{\Nc}$ SQCD with
+$\Nf$ flavours.  The magnetic theory contains an elementary gauge-singlet
+field~\cite{Seiberg1995}
+\begin{equation}\label{eq:meson-susy}
+  M^i{}_j \;=\; Q^i\,\widetilde{Q}_j\,,
+  \qquad i,j = 1,\ldots,\Nf\,,
+\end{equation}
+which, in the electric theory, corresponds to the composite quark
+bilinear $Q^i\,\widetilde{Q}_j / \Lambda$.  The meson $M$ appears in
+the magnetic superpotential:
+\begin{equation}\label{eq:W-mag}
+  W_{\text{mag}} \;=\; \frac{1}{\mu}\, M^i{}_j\, q_i\,\widetilde{q}^j\,,
+\end{equation}
+where $q_i$, $\widetilde{q}^j$ are the magnetic quarks and $\mu$ is
+a mass scale related to the dynamical scale $\Lambda$.
+
+\begin{warningbox}[title={The meson $M$ is a chiral superfield}]
+In the SUSY theory, $M^i{}_j$ is a \textbf{chiral superfield}.  Its
+lowest component is a \textbf{complex scalar} with spin-parity
+$J^P = 0^+$.  However, the best-known physical mesons---the pions,
+kaons, and $\eta$---are \textbf{pseudoscalars} with $J^P = 0^-$.
+Resolving this mismatch is the central conceptual challenge of this
+lecture.
+\end{warningbox}
+
+In QCD (without supersymmetry), the analogous object is the quark
+bilinear
+\begin{equation}\label{eq:meson-qcd}
+  \mathcal{M}_{ij} \;\sim\; \bar{q}_{R\,j}\, q_{L\,i}\,,
+\end{equation}
+which transforms as $(\Nf, \bar{\Nf})$ under the chiral symmetry group
+$\SU{\Nf}_L \times \SU{\Nf}_R$.  For $\Nf = 6$ quark flavours
+$(u, d, s, c, b, t)$, this is a $6 \times 6$ matrix with $36$ complex
+entries.
+
+The structure of this matrix is the same whether we view it from the
+electric theory (where it is a composite operator) or the magnetic
+theory (where, \emph{if the duality holds}, it is an elementary field).
+The quantum numbers of each entry $\mathcal{M}_{ij}$ are determined
+purely by the quark content $q_i\,\bar{q}_j$ and are independent of
+whether the meson is composite or elementary.
+
+
+%% ========================================================================
+%%  SECTION 2: The 6x6 Meson Matrix
+%% ========================================================================
+\section{The $6 \times 6$ Meson Matrix}
+\label{sec:6x6-matrix}
+
+We now construct the full $6 \times 6$ flavour meson matrix
+$\mathcal{M}_{ij}$ explicitly.  The row index $i$ labels the quark
+flavour; the column index $j$ labels the antiquark flavour.  Each entry
+$\mathcal{M}_{ij}$ corresponds to a meson with quark content
+$q_i\,\bar{q}_j$.
+
+\subsection{Quark quantum numbers}
+
+The six quark flavours carry the following additive quantum numbers
+(all values for quarks; antiquarks carry opposite signs):
+
+\begin{equation}\label{eq:quark-qn}
+\renewcommand{\arraystretch}{1.2}
+\begin{array}{l|cccccc}
+  & u & d & s & c & b & t \\
+\hline
+Q_{\text{em}} & +\tfrac{2}{3} & -\tfrac{1}{3} & -\tfrac{1}{3} & +\tfrac{2}{3} & -\tfrac{1}{3} & +\tfrac{2}{3} \\[3pt]
+I_3 & +\tfrac{1}{2} & -\tfrac{1}{2} & 0 & 0 & 0 & 0 \\[3pt]
+S & 0 & 0 & -1 & 0 & 0 & 0 \\
+C & 0 & 0 & 0 & +1 & 0 & 0 \\
+B_q & 0 & 0 & 0 & 0 & -1 & 0 \\
+T & 0 & 0 & 0 & 0 & 0 & +1 \\
+\end{array}
+\end{equation}
+Here $S$ is strangeness, $C$ is charm, $B_q$ is bottomness (beauty),
+and $T$ is topness.  The electric charge satisfies the generalised
+Gell-Mann--Nishijima formula:
+\begin{equation}\label{eq:GMN}
+  Q_{\text{em}} \;=\; I_3 + \frac{1}{2}(B + S + C + B_q + T)\,,
+\end{equation}
+where $B = 1/3$ for quarks.  For a meson $q_i\,\bar{q}_j$ with
+$B = 0$, the charge is simply:
+\begin{equation}\label{eq:meson-charge}
+  Q_{\text{em}}(\mathcal{M}_{ij})
+  \;=\; Q_{\text{em}}(q_i) - Q_{\text{em}}(q_j)\,.
+\end{equation}
+
+
+\subsection{The light-quark sector: the $3 \times 3$ nonet}
+\label{sec:3x3-block}
+
+The upper-left $3 \times 3$ block of $\mathcal{M}_{ij}$ involves the
+light quarks $(u, d, s)$ and corresponds to the well-known pseudoscalar
+and scalar meson nonets.  In the pseudoscalar sector, the physical
+mesons and their PDG masses~\cite{PDG2024} are:
+
+\begin{equation}\label{eq:3x3-pseudo}
+\renewcommand{\arraystretch}{1.4}
+\begin{array}{c|ccc}
+  q_i \backslash \bar{q}_j & \bar{u} & \bar{d} & \bar{s} \\
+\hline
+  u & \pi^0/\eta/\eta' \;\text{(mix)} & \pi^+\; (139.6) & K^+\; (493.7) \\
+  d & \pi^-\; (139.6) & \pi^0/\eta/\eta' \;\text{(mix)} & K^0\; (497.6) \\
+  s & K^-\; (493.7) & \bar{K}^0\; (497.6) & \eta_s \;\text{(mix with $\eta,\eta'$)} \\
+\end{array}
+\end{equation}
+All masses are in MeV.  The diagonal entries
+$u\bar{u}$, $d\bar{d}$, $s\bar{s}$ do not correspond to individual
+physical mesons; instead, they mix to produce $\pi^0$, $\eta$, and
+$\eta'$.  The $\eta$--$\eta'$ system also involves the $\UU{1}_A$
+anomaly (the resolution of the ``$\UU{1}$ problem''~\cite{tHooft1976}).
+
+In the \textbf{scalar} sector ($J^P = 0^+$), the corresponding nonet
+is~\cite{PDG2024}:
+
+\begin{equation}\label{eq:3x3-scalar}
+\renewcommand{\arraystretch}{1.4}
+\begin{array}{c|ccc}
+  q_i \backslash \bar{q}_j & \bar{u} & \bar{d} & \bar{s} \\
+\hline
+  u & a_0(980)/f_0 \;\text{(mix)} & a_0^+\; (980) & K_0^{*+}\; (700) \\
+  d & a_0^-\; (980) & a_0(980)/f_0 \;\text{(mix)} & K_0^{*0}\; (700) \\
+  s & K_0^{*-}\; (700) & \bar{K}_0^{*0}\; (700) & f_0(980) \;\text{(mix)} \\
+\end{array}
+\end{equation}
+The light scalar mesons (sometimes denoted $\sigma$, $\kappa$, $a_0$,
+$f_0$) have been controversial for decades; the interpretation of the
+$f_0(500)$ (formerly $\sigma$) as a $q\bar{q}$ state versus a
+tetraquark or molecular state remains debated~\cite{PDG2024}.
+
+
+\subsection{The full $6 \times 6$ matrix}
+\label{sec:full-6x6}
+
+The complete meson matrix includes heavy quarks.  We display the
+off-diagonal entries with their standard PDG names and
+masses~\cite{PDG2024}:
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\caption{Physical meson identification for the $6 \times 6$ flavour
+  matrix $\mathcal{M}_{ij} = q_i\,\bar{q}_j$.  Masses in MeV.
+  Diagonal entries (shaded) involve flavour mixing.  The 6th row and
+  column (top quark) are formal only---see
+  Section~\ref{sec:top-caveat}.  Only the lightest pseudoscalar or
+  ground-state meson is shown for each entry.}
+\label{tab:6x6-meson}
+\medskip
+\small
+\begin{tabular}{c|cccccc}
+\toprule
+$q_i \backslash \bar{q}_j$ & $\bar{u}$ & $\bar{d}$ & $\bar{s}$
+  & $\bar{c}$ & $\bar{b}$ & $\bar{t}$ \\
+\midrule
+$u$ & $\pi^0/\eta$ & $\pi^+$ \scriptsize{139.6} & $K^+$ \scriptsize{493.7}
+  & $\bar{D}^0$ \scriptsize{1864.8} & $B^+$ \scriptsize{5279.3}
+  & \textcolor{gray}{---} \\
+$d$ & $\pi^-$ \scriptsize{139.6} & $\pi^0/\eta$ & $K^0$ \scriptsize{497.6}
+  & $D^-$ \scriptsize{1869.7} & $B^0$ \scriptsize{5279.7}
+  & \textcolor{gray}{---} \\
+$s$ & $K^-$ \scriptsize{493.7} & $\bar{K}^0$ \scriptsize{497.6}
+  & $\eta_s/\phi$ & $D_s^-$ \scriptsize{1968.3}
+  & $B_s^0$ \scriptsize{5366.9} & \textcolor{gray}{---} \\
+$c$ & $D^0$ \scriptsize{1864.8} & $D^+$ \scriptsize{1869.7}
+  & $D_s^+$ \scriptsize{1968.3} & $\eta_c/J/\psi$
+  & $B_c^+$ \scriptsize{6274.5} & \textcolor{gray}{---} \\
+$b$ & $B^-$ \scriptsize{5279.3} & $\bar{B}^0$ \scriptsize{5279.7}
+  & $\bar{B}_s^0$ \scriptsize{5366.9}
+  & $B_c^-$ \scriptsize{6274.5} & $\eta_b/\Upsilon$
+  & \textcolor{gray}{---} \\
+$t$ & \textcolor{gray}{---} & \textcolor{gray}{---}
+  & \textcolor{gray}{---} & \textcolor{gray}{---}
+  & \textcolor{gray}{---} & \textcolor{gray}{---} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}[Quark content conventions]
+The PDG convention for charmed mesons is:
+$D^0 = c\bar{u}$ (row $c$, column $\bar{u}$; entry $\mathcal{M}_{41}$),
+$D^+ = c\bar{d}$ ($\mathcal{M}_{42}$),
+$D_s^+ = c\bar{s}$ ($\mathcal{M}_{43}$).
+For bottom mesons:
+$B^+ = u\bar{b}$ ($\mathcal{M}_{15}$),
+$B^0 = d\bar{b}$ ($\mathcal{M}_{25}$),
+$B_s^0 = s\bar{b}$ ($\mathcal{M}_{35}$),
+$B_c^+ = c\bar{b}$ ($\mathcal{M}_{45}$).
+Note that $\mathcal{M}_{ij}$ and $\mathcal{M}_{ji}$ correspond to
+charge-conjugate mesons: $\mathcal{M}_{15} = B^+$ while
+$\mathcal{M}_{51} = B^-$.
+\end{remark}
+
+
+\subsection{The top-quark caveat}
+\label{sec:top-caveat}
+
+\begin{warningbox}[title={Top-quark mesons are formal entries only}]
+The top quark decays via $t \to bW^+$ with a lifetime
+\begin{equation}\label{eq:top-lifetime}
+  \tau_t \;\approx\; \frac{1}{\Gamma_t}
+  \;\approx\; \frac{1}{1.4\;\text{GeV}}
+  \;\approx\; 5 \times 10^{-25}\;\text{s}\,,
+\end{equation}
+which is \textbf{much shorter} than the hadronisation timescale
+\begin{equation}\label{eq:hadronisation-time}
+  \tau_{\text{had}} \;\sim\; \frac{1}{\Lambda_{\QCD}}
+  \;\sim\; \frac{1}{0.3\;\text{GeV}}
+  \;\sim\; 3 \times 10^{-24}\;\text{s}\,.
+\end{equation}
+Since $\Gamma_t \gg \Lambda_{\QCD}$, the top quark decays
+\textbf{before} it can form a bound state.  Consequently, the entries
+in the 6th row and 6th column of the meson matrix---$\mathcal{M}_{6j}$
+and $\mathcal{M}_{i6}$---do \textbf{not} correspond to physical hadrons.
+They are formal entries, included for algebraic completeness of the
+$6 \times 6$ flavour matrix.  No ``top meson'' (sometimes called
+$\Theta$ in the literature) has been or will be observed.
+\end{warningbox}
+
+
+%% ========================================================================
+%%  SECTION 3: Quantum Number Verification
+%% ========================================================================
+\section{Quantum Number Verification}
+\label{sec:qn-verification}
+
+As a consistency check, we verify the electric charge of each meson
+identified in Table~\ref{tab:6x6-meson} using the quark charges from
+Eq.~\eqref{eq:quark-qn} and the charge formula~\eqref{eq:meson-charge}.
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\caption{Electric charge verification for representative mesons.  All
+  charges match the known values.}
+\label{tab:charge-check}
+\medskip
+\begin{tabular}{lccccl}
+\toprule
+\textbf{Meson} & \textbf{Entry} & \textbf{Quark content}
+  & $Q(q_i)$ & $Q(\bar{q}_j)$ & $Q_{\text{meson}}$ \\
+\midrule
+$\pi^+$ & $\mathcal{M}_{12}$ & $u\bar{d}$
+  & $+\tfrac{2}{3}$ & $+\tfrac{1}{3}$ & $+1$ \; \checkmark \\
+$K^+$ & $\mathcal{M}_{13}$ & $u\bar{s}$
+  & $+\tfrac{2}{3}$ & $+\tfrac{1}{3}$ & $+1$ \; \checkmark \\
+$D^0$ & $\mathcal{M}_{41}$ & $c\bar{u}$
+  & $+\tfrac{2}{3}$ & $-\tfrac{2}{3}$ & $0$ \; \checkmark \\
+$D^+$ & $\mathcal{M}_{42}$ & $c\bar{d}$
+  & $+\tfrac{2}{3}$ & $+\tfrac{1}{3}$ & $+1$ \; \checkmark \\
+$B^+$ & $\mathcal{M}_{15}$ & $u\bar{b}$
+  & $+\tfrac{2}{3}$ & $+\tfrac{1}{3}$ & $+1$ \; \checkmark \\
+$B_s^0$ & $\mathcal{M}_{35}$ & $s\bar{b}$
+  & $-\tfrac{1}{3}$ & $+\tfrac{1}{3}$ & $0$ \; \checkmark \\
+$B_c^+$ & $\mathcal{M}_{45}$ & $c\bar{b}$
+  & $+\tfrac{2}{3}$ & $+\tfrac{1}{3}$ & $+1$ \; \checkmark \\
+$D_s^+$ & $\mathcal{M}_{43}$ & $c\bar{s}$
+  & $+\tfrac{2}{3}$ & $+\tfrac{1}{3}$ & $+1$ \; \checkmark \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All eight representative mesons have the correct electric charge.  The
+reader may verify the remaining entries as Exercise~8.1.
+
+\begin{remark}[Flavour quantum number conservation]
+For each off-diagonal entry $\mathcal{M}_{ij}$, the net flavour quantum
+numbers are $(S, C, B_q, T) = (S_i - S_j,\, C_i - C_j,\, B_{q,i} -
+B_{q,j},\, T_i - T_j)$, where the subscripts refer to the quark ($i$)
+and antiquark ($j$).  For example, $D_s^+ = c\bar{s}$ has
+$C = +1$, $S = +1$ (since $\bar{s}$ carries $S = +1$), and all other
+flavour numbers zero.  This is consistent with the PDG
+assignment~\cite{PDG2024}.
+\end{remark}
+
+
+%% ========================================================================
+%%  SECTION 4: The Scalar--Pseudoscalar Question
+%% ========================================================================
+\section{The Scalar--Pseudoscalar Question}
+\label{sec:scalar-pseudo}
+
+This section addresses the central conceptual challenge of this lecture:
+the lowest component of the SUSY chiral superfield $M^i{}_j$ is a
+\emph{scalar} ($J^P = 0^+$), but the most prominent physical mesons
+($\pi$, $K$, $\eta$) are \emph{pseudoscalars} ($J^P = 0^-$).  How can
+the dual meson be identified with the observed spectrum?
+
+\subsection{The problem stated precisely}
+
+In the magnetic theory of Lecture~3, the meson superfield
+$M^i{}_j$ has the component expansion (schematically):
+\begin{equation}\label{eq:meson-components}
+  M^i{}_j \;=\; \phi^i{}_j \;+\; \sqrt{2}\,\theta\,\psi^i{}_j
+  \;+\; \theta^2\, F^i{}_j\,,
+\end{equation}
+where $\phi^i{}_j$ is a \textbf{complex scalar} ($J^P = 0^+$),
+$\psi^i{}_j$ is a Weyl fermion (the mesino), and $F^i{}_j$ is the
+auxiliary field.  The physical meson spectrum, however, includes:
+\begin{itemize}
+  \item \textbf{Pseudoscalar mesons} ($J^P = 0^-$): $\pi^\pm$,
+    $\pi^0$, $K^\pm$, $K^0$, $\bar{K}^0$, $\eta$, $\eta'$, etc.
+    These are the pseudo-Goldstone bosons of chiral symmetry breaking.
+  \item \textbf{Scalar mesons} ($J^P = 0^+$): $f_0(500)$ (formerly
+    $\sigma$), $a_0(980)$, $K_0^*(700)$ (formerly $\kappa$),
+    $f_0(980)$, etc.
+\end{itemize}
+The pseudoscalars \emph{cannot} be identified with the lowest component
+$\phi^i{}_j$ of the chiral superfield, because $\phi$ transforms as a
+scalar, not a pseudoscalar, under parity.
+
+
+\subsection{The resolution: chiral symmetry breaking and the linear
+sigma model}
+\label{sec:linear-sigma}
+
+The resolution comes from the pattern of chiral symmetry breaking.
+In QCD, the chiral condensate
+\begin{equation}\label{eq:condensate}
+  \langle \bar{q}_{R\,j}\, q_{L\,i} \rangle
+  \;=\; -v_0\,\delta_{ij}\,,
+  \qquad v_0 \sim (270\;\text{MeV})^3 / \fpi^2\,,
+\end{equation}
+breaks $\SU{\Nf}_L \times \SU{\Nf}_R \to \SU{\Nf}_V$.  In the SUSY
+theory, the corresponding statement is that the meson field acquires
+a vacuum expectation value:
+\begin{equation}\label{eq:meson-vev}
+  \langle M^i{}_j \rangle \;\neq\; 0\,.
+\end{equation}
+
+We now decompose the meson field into fluctuations around the
+condensate.  Writing the lowest component of the meson superfield
+as a complex matrix field:
+\begin{equation}\label{eq:sigma-pi-decomp}
+  \boxed{
+  \phi_{ij}
+  \;=\; \frac{1}{\sqrt{2}}\bigl(v_{ij} + \sigma_{ij} + i\,\pi_{ij}\bigr)\,,
+  }
+\end{equation}
+where:
+\begin{itemize}
+  \item $v_{ij}$ is the vacuum expectation value (the chiral condensate);
+  \item $\sigma_{ij}$ is the \textbf{radial} (amplitude) fluctuation:
+    a \textbf{scalar} meson with $J^P = 0^+$;
+  \item $\pi_{ij}$ is the \textbf{angular} (phase) fluctuation:
+    a \textbf{pseudoscalar} meson with $J^P = 0^-$.
+\end{itemize}
+This is precisely the linear sigma model
+decomposition~\cite{GellMann1960}, now applied to the SUSY meson
+field.
+
+\begin{warningbox}[title={The pion is NOT the lowest component of $M$}]
+The pseudoscalar mesons $\pi_{ij}$ arise as \textbf{phase fluctuations}
+of the condensate $\langle \phi_{ij} \rangle$.  They are the
+(pseudo-)Goldstone bosons of the spontaneously broken chiral symmetry.
+The \textbf{lowest component} $\phi_{ij}$ of the chiral superfield
+$M_{ij}$ is a complex scalar field that \emph{contains} both the scalar
+mode $\sigma_{ij}$ and the pseudoscalar mode $\pi_{ij}$.  One must
+\textbf{not} write ``$\pi^+ = M_{12}$'' without this qualification.
+The correct statement is:
+
+\medskip
+\emph{The pseudoscalar meson $\pi^+$ corresponds to the phase
+fluctuation of the condensate $\langle \phi_{12} \rangle$ in the
+chiral symmetry breaking pattern $\SU{\Nf}_L \times \SU{\Nf}_R \to
+\SU{\Nf}_V$.}
+\end{warningbox}
+
+
+\subsection{Physical identification of the two sectors}
+\label{sec:physical-id}
+
+After the decomposition~\eqref{eq:sigma-pi-decomp}, the physical
+mesons are identified as follows.
+
+\paragraph{Scalar sector ($\sigma_{ij}$, $J^P = 0^+$).}
+The radial modes $\sigma_{ij}$ correspond to the scalar mesons.
+These are the fields whose quantum numbers match the lowest component
+of the SUSY chiral superfield directly:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lll}
+\toprule
+\textbf{Entry} & \textbf{Scalar meson} & \textbf{Mass (MeV)} \\
+\midrule
+$\sigma_{11} - \sigma_{22}$ (isovector) & $a_0(980)^0$ & $\sim 980$ \\
+$\sigma_{12}$ & $a_0(980)^+$ & $\sim 980$ \\
+$\sigma_{13}$ & $K_0^{*}(700)^+$ & $\sim 700$ \\
+$(\sigma_{11} + \sigma_{22})/\sqrt{2}$
+  & $f_0(500)$ ($\sigma$) & $\sim 400$--$550$ \\
+$\sigma_{33}$ & $f_0(980)$ & $\sim 990$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The light scalar meson spectrum is experimentally challenging and
+theoretically controversial: the $f_0(500)$ is a broad resonance,
+and there is ongoing debate about whether the light scalars are
+$q\bar{q}$ states, tetraquarks, or meson-meson
+molecules~\cite{PDG2024}.  We note this caveat but adopt the
+$q\bar{q}$ interpretation for consistency with the duality
+picture.
+
+\paragraph{Pseudoscalar sector ($\pi_{ij}$, $J^P = 0^-$).}
+The angular modes $\pi_{ij}$ correspond to the pseudo-Goldstone bosons
+of chiral symmetry breaking.  These are the familiar light mesons
+of the pseudoscalar nonet:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lll}
+\toprule
+\textbf{Entry} & \textbf{Pseudoscalar meson} & \textbf{Mass (MeV)} \\
+\midrule
+$\pi_{12}$ & $\pi^+$ & $139.6$ \\
+$\pi_{21}$ & $\pi^-$ & $139.6$ \\
+$\pi_{11} - \pi_{22}$ & $\pi^0$ & $135.0$ \\
+$\pi_{13}$ & $K^+$ & $493.7$ \\
+$\pi_{23}$ & $K^0$ & $497.6$ \\
+$\pi_{33}$ & $\eta_s$ (mixes into $\eta$, $\eta'$) & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+The pseudoscalar mesons are \emph{light} (compared to the chiral
+symmetry breaking scale $\Lchi \sim 1\;\text{GeV}$) precisely because
+they are pseudo-Goldstone bosons: they would be exactly massless if the
+quark masses were zero.  Their non-zero masses arise from the
+\emph{explicit} breaking of chiral symmetry by the quark mass terms
+$m_q\,\bar{q}\,q$.
+
+
+\subsection{The Sannino--Schechter mechanism}
+\label{sec:sannino-schechter}
+
+How does the SUSY meson field $M_{ij}$ give rise to the physical QCD
+mesons when supersymmetry is broken?  Sannino and
+Schechter~\cite{SanninoSchechter1997} showed that the answer lies in
+the \textbf{auxiliary fields} of the SUSY effective Lagrangian.
+
+In the SUSY effective theory, the auxiliary $F$-term of the meson
+superfield is:
+\begin{equation}\label{eq:F-term}
+  F_M^i{}_j \;\sim\; \frac{\partial W}{\partial M^j{}_i}\,.
+\end{equation}
+Sannino and Schechter observed that the $F$-term components contain
+the information about the QCD meson fields.  When SUSY is broken
+(as it is in the real world), the $F$-term components mix with the
+scalar component $\phi_{ij}$, and the physical spectrum reorganises
+into the scalar and pseudoscalar sectors described above.
+
+\begin{remark}[Limitations of the mechanism]
+Sannino and Schechter themselves described their
+approach~\cite{SanninoSchechter1997} as a ``toy model'' for the
+transition from the SUSY effective theory to QCD.  The mechanism
+demonstrates \emph{how} the QCD mesons can emerge from the SUSY
+meson field, but it does not provide quantitative control over the
+hard SUSY-breaking regime relevant to real QCD.  The detailed dynamics
+of the SUSY-to-QCD transition remain an open problem.
+\end{remark}
+
+
+\subsection{Komargodski's bridge: hidden local symmetry}
+\label{sec:komargodski}
+
+A complementary perspective was provided by
+Komargodski~\cite{Komargodski2010}, who showed that the
+\textbf{hidden local symmetry} (HLS) framework---the standard
+effective theory for vector meson dominance in
+QCD~\cite{BandoKugoYamawaki1988}---is \emph{rigorously realised}
+within SQCD.
+
+The key insight is:
+\begin{quote}
+\emph{The magnetic gauge symmetry of Seiberg's dual theory is
+identified with the hidden local symmetry of the meson effective
+action.}
+\end{quote}
+In this picture:
+\begin{itemize}
+  \item The magnetic gauge bosons of $\SU{\Nc - \Nf}$ map to the
+    vector mesons ($\rho$, $K^*$, $\phi$, etc.) of QCD;
+  \item The scalar mesons arise from the amplitude fluctuations of
+    the meson condensate;
+  \item The pseudoscalar mesons arise from the phase fluctuations
+    (Goldstone bosons).
+\end{itemize}
+This provides a conceptual bridge between the SUSY duality and
+hadronic physics.  However, it is important to note that
+Komargodski's result is exact only in the SUSY limit; the extension
+to the non-supersymmetric regime of QCD remains conjectural.
+
+\begin{previewbox}[title={What the duality adds}]
+The standard QCD description of mesons as $q\bar{q}$ bound states
+and Goldstone bosons does not require Seiberg duality.
+\emph{If the duality holds}, the dual perspective provides a
+structural explanation: the meson matrix is an elementary field in
+the magnetic theory, and the hidden local symmetry that governs
+vector meson interactions is the magnetic gauge symmetry.  This is a
+\emph{conceptual} insight, not a new quantitative prediction for
+meson masses.
+\end{previewbox}
+
+
+%% ========================================================================
+%%  SECTION 5: Connection to Chiral Perturbation Theory
+%% ========================================================================
+\section{Connection to Chiral Perturbation Theory}
+\label{sec:chpt}
+
+\subsection{The ChPT Lagrangian}
+
+The low-energy dynamics of the pseudoscalar mesons is described by
+chiral perturbation theory (\ChPT)~\cite{GasserLeutwyler1984,
+GasserLeutwyler1985}.  The leading-order Lagrangian is:
+\begin{equation}\label{eq:chpt-L2}
+  \mathcal{L}_2
+  \;=\; \frac{\fpi^2}{4}\,\Tr\!\bigl(\partial_\mu U^\dagger\,
+    \partial^\mu U\bigr)
+  \;+\; \frac{\fpi^2}{4}\,\Tr\!\bigl(\chi^\dagger U + U^\dagger \chi\bigr)\,,
+\end{equation}
+where the chiral field $U$ parametrises the Goldstone bosons of the
+spontaneous chiral symmetry breaking
+$\SU{\Nf}_L \times \SU{\Nf}_R \to \SU{\Nf}_V$:
+\begin{equation}\label{eq:U-field}
+  \boxed{
+  U \;=\; \exp\!\Bigl(\frac{2i\,\pi^a T^a}{\fpi}\Bigr)\,,
+  }
+\end{equation}
+with $T^a$ the generators of $\SU{\Nf}$ and $\fpi \approx 92.1\;\text{MeV}$
+the pion decay constant~\cite{PDG2024}.  The mass term is
+\begin{equation}\label{eq:chi}
+  \chi \;=\; 2 B_0\, \mathcal{M}_q\,,
+\end{equation}
+where $\mathcal{M}_q = \mathrm{diag}(m_u, m_d, m_s, \ldots)$ is the
+quark mass matrix and $B_0$ is related to the chiral condensate by
+$\qqbar = -\fpi^2 B_0$.
+
+
+\subsection{The bridge to the dual meson matrix}
+
+The connection to the meson matrix of Section~\ref{sec:meson-matrix-intro}
+is now clear.  The pseudoscalar fields $\pi^a$ appearing in the ChPT
+field $U$ are \textbf{exactly} the angular (phase) modes $\pi_{ij}$ of
+the meson condensate from the decomposition~\eqref{eq:sigma-pi-decomp}:
+\begin{equation}\label{eq:bridge}
+  \pi^a T^a
+  \;=\; \frac{1}{\sqrt{2}}
+  \begin{pmatrix}
+    \frac{\pi^0}{\sqrt{2}} + \frac{\eta}{\sqrt{6}} & \pi^+ & K^+ \\
+    \pi^- & -\frac{\pi^0}{\sqrt{2}} + \frac{\eta}{\sqrt{6}} & K^0 \\
+    K^- & \bar{K}^0 & -\frac{2\eta}{\sqrt{6}}
+  \end{pmatrix}\,,
+\end{equation}
+for $\Nf = 3$.  The chiral symmetry breaking in QCD gives the meson
+condensate a VEV, and the phase fluctuations of this VEV are precisely
+the pion, kaon, and eta fields of ChPT.
+
+In the dual picture, \emph{if the duality holds}, the meson condensate
+$\langle M^i{}_j \rangle$ is the elementary meson field acquiring a VEV,
+and the ChPT pion fields are the Goldstone bosons of the same symmetry
+breaking pattern.  The identification is:
+\begin{equation}\label{eq:dual-chpt}
+  \text{Phase of } \langle \phi_{ij} \rangle
+  \;\longleftrightarrow\;
+  \text{ChPT field } U = e^{2i\pi^a T^a/\fpi}\,.
+\end{equation}
+
+
+\subsection{Goldstone boson counting}
+
+For $\SU{\Nf}_L \times \SU{\Nf}_R \to \SU{\Nf}_V$, the number of
+broken generators is $\Nf^2 - 1$ (each factor $\SU{\Nf}$ has $\Nf^2 - 1$
+generators, the diagonal subgroup has $\Nf^2 - 1$, so the number of
+broken generators is $2(\Nf^2 - 1) - (\Nf^2 - 1) = \Nf^2 - 1$).
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{cll}
+\toprule
+$\Nf$ & Goldstone bosons & Physical identification \\
+\midrule
+$2$ & $3$ & $\pi^+$, $\pi^-$, $\pi^0$ \\
+$3$ & $8$ & $\pi^+$, $\pi^-$, $\pi^0$, $K^+$, $K^-$, $K^0$,
+  $\bar{K}^0$, $\eta$ \\
+$6$ & $35$ & Formal only (see below) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For $\Nf = 6$, the $35$ formal Goldstone bosons would include
+pseudo\-scalars with heavy quark content ($D$, $B$, $B_c$, and top
+mesons).  However, the ChPT expansion in powers of $p^2/\Lchi^2$ and
+$m_q/\Lchi$ is valid only for the light quarks
+$(u, d, s)$, where $m_q \ll \Lchi \sim 1\;\text{GeV}$.  The charm
+and bottom quarks are too heavy for ChPT to apply: their masses
+$m_c \approx 1.27\;\text{GeV}$ and $m_b \approx 4.18\;\text{GeV}$
+are comparable to or larger than the chiral symmetry breaking scale.
+
+
+\subsection{The GMOR relation}
+\label{sec:gmor}
+
+The Gell-Mann--Oakes--Renner (GMOR) relation~\cite{GMOR1968} connects
+the pion mass to the quark masses and the chiral condensate:
+\begin{equation}\label{eq:gmor}
+  \boxed{
+  m_\pi^2\, \fpi^2 \;=\; -(m_u + m_d)\,\qqbar\,.
+  }
+\end{equation}
+Using the standard inputs~\cite{PDG2024,FLAG2024}:
+\begin{align}
+  \fpi &\;=\; 92.1\;\text{MeV}\,, \label{eq:fpi-value} \\
+  \qqbar &\;\approx\; -(270\;\text{MeV})^3\,, \label{eq:qqbar-value} \\
+  m_u + m_d &\;\approx\; 8.5\;\text{MeV}
+    \quad (\overline{\text{MS}},\; \mu = 2\;\text{GeV})\,,
+    \label{eq:mq-value}
+\end{align}
+we compute:
+\begin{align}
+  m_\pi^2 &\;=\; \frac{(m_u + m_d)\,|\qqbar|}{\fpi^2}
+  \;=\; \frac{8.5 \times (270)^3}{(92.1)^2}\;\text{MeV}^2
+    \nonumber \\
+  &\;=\; \frac{8.5 \times 1.97 \times 10^7}{8482}\;\text{MeV}^2
+  \;=\; \frac{1.67 \times 10^8}{8482}\;\text{MeV}^2
+  \;\approx\; 19{,}700\;\text{MeV}^2\,, \label{eq:gmor-num}
+\end{align}
+giving:
+\begin{equation}\label{eq:mpi-result}
+  m_\pi \;\approx\; \sqrt{19{,}700}\;\text{MeV}
+  \;\approx\; 140\;\text{MeV}\,.
+\end{equation}
+This matches the observed pion mass $m_{\pi^\pm} = 139.6\;\text{MeV}$
+to within the uncertainties of the input parameters
+($m_u + m_d$ and $\qqbar$ each carry $\sim 10\%$
+uncertainties~\cite{FLAG2024}).
+
+\begin{remark}[What the GMOR relation confirms]
+The GMOR relation is a statement about standard QCD and chiral
+symmetry breaking.  It does \emph{not} depend on the duality.
+Its role here is to verify that the identification
+$\pi_{ij} = \text{pseudo-Goldstone boson of } \langle \phi_{ij} \rangle$
+is consistent with the observed pion mass, using the standard QCD
+parameters.  The duality provides the \emph{structural} interpretation
+(the condensate is the VEV of an elementary magnetic field); the
+\emph{numerical} value of $m_\pi$ comes from QCD alone.
+\end{remark}
+
+
+\subsection{Heavy mesons and the limits of ChPT}
+\label{sec:heavy-mesons}
+
+The ChPT description is limited to the light quark sector.  For mesons
+containing one heavy quark ($c$ or $b$) and one light quark, the
+appropriate effective theory is heavy quark effective theory
+(HQET)~\cite{ManoharWise2000}, which expands in $1/m_Q$ where
+$m_Q \gg \Lambda_{\QCD}$.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{llll}
+\toprule
+\textbf{Meson type} & \textbf{Examples} & \textbf{Effective theory}
+  & \textbf{Expansion parameter} \\
+\midrule
+Light--light & $\pi$, $K$, $\eta$ & ChPT
+  & $m_q/\Lchi$, $p^2/\Lchi^2$ \\
+Heavy--light & $D$, $B$, $B_s$ & HQET
+  & $\Lambda_{\QCD}/m_Q$ \\
+Heavy--heavy & $J/\psi$, $\Upsilon$, $B_c$
+  & NRQCD / pNRQCD & $v/c \sim \alpha_s$ \\
+Top--anything & $t\bar{q}$ & Not applicable
+  & $\Gamma_t / \Lambda_{\QCD} \gg 1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+In the dual picture, the entries $\mathcal{M}_{ij}$ with $i$ or
+$j \in \{4,5\}$ (charm or bottom) still correspond to physical mesons,
+but their dynamics cannot be captured by ChPT.  The duality, \emph{if
+it holds}, provides the flavour matrix structure but not the dynamical
+details that determine individual masses---those are governed by QCD
+at the appropriate energy scale.
+
+
+%% ========================================================================
+%%  SECTION 6: Connection to the Dualised Standard Model
+%% ========================================================================
+\section{Connection to the Dualised Standard Model}
+\label{sec:dsm-connection}
+
+\subsection{The Higgs matrix of Lecture~7}
+
+In Lecture~7, following Cacciapaglia and
+Sannino~\cite{CacciapagliaSannino2024}, we constructed the
+mes-Higgs field $\Phi_H$ of the dualised Standard Model.  This
+field decomposes into 18 Higgs doublets organised by
+generation~(Lecture~7, Eq.~(7)):
+\begin{equation}\label{eq:Phi-H-recall}
+  \Phi_H \;=\; \{H_{ij}\}\,,
+  \qquad i,j = 1,2,3\,,
+\end{equation}
+where each $H_{ij} = (H_{ij}^u,\, H_{ij}^d)$ is a pair of $\SU{2}_L$
+doublets distinguished by hypercharge ($Y = +1/2$ for $H^u$,
+$Y = -1/2$ for $H^d$).
+
+\subsection{From generation indices to flavour indices}
+
+The generation indices $i,j = 1,2,3$ in $H_{ij}$ correspond to the
+three generations of quarks.  In the Pati--Salam decomposition used in
+Lecture~7~\cite{PS1974}, each generation contains one up-type and one
+down-type quark:
+\begin{equation}\label{eq:generation-flavour}
+  \text{Gen.~1:}\; (u, d)\,,\qquad
+  \text{Gen.~2:}\; (c, s)\,,\qquad
+  \text{Gen.~3:}\; (t, b)\,.
+\end{equation}
+When $\SU{2}_L$ acts on the left-handed doublets and $\SU{2}_R$ acts on
+the right-handed fields, the $H^u$ and $H^d$ components of $H_{ij}$
+couple to the up-type and down-type sectors respectively (Lecture~7,
+Eq.~(12)):
+\begin{equation}\label{eq:yukawa-recall}
+  y \sum_{i,j}\bigl(q_L^i\, u_R^j\, H_{ij}^u
+  + q_L^i\, d_R^j\, H_{ij}^d\bigr)\,.
+\end{equation}
+The $3 \times 3$ generation-indexed Higgs matrix $H_{ij}$ is therefore
+related to the $6 \times 6$ flavour-indexed meson matrix
+$\mathcal{M}_{ij}$ as follows:
+\begin{itemize}
+  \item The $H_{ij}^u$ components ($i,j = 1,2,3$) correspond to the
+    up-type flavour block: combinations involving $(u, c, t) \times
+    (\bar{u}, \bar{c}, \bar{t})$.
+  \item The $H_{ij}^d$ components correspond to the down-type flavour
+    block: combinations involving $(d, s, b) \times (\bar{d}, \bar{s},
+    \bar{b})$.
+  \item The off-diagonal mixing between up-type and down-type quarks
+    (the charged-current mesons) arises from the
+    $\SU{2}_L$ doublet structure of the left-handed quarks.
+\end{itemize}
+
+\begin{remark}[The Higgs-meson correspondence]
+\label{rem:higgs-meson}
+The $3 \times 3$ Higgs matrix $\Phi_H = \{H_{ij}\}$ from Lecture~7
+and the $6 \times 6$ meson matrix $\mathcal{M}_{ij}$ from this lecture
+are \textbf{different presentations of the same underlying object}:
+the meson composite of the electric theory, which becomes an elementary
+field in the magnetic theory.  The Higgs matrix uses generation indices
+and separates the $\SU{2}_L \times \SU{2}_R$ structure explicitly;
+the meson matrix uses flavour indices and makes the quark content of
+each entry manifest.
+\end{remark}
+
+
+\subsection{The universal Yukawa and the meson--quark coupling}
+
+From Eq.~\eqref{eq:yukawa-recall}, the Yukawa coupling between quarks
+and Higgs fields is \textbf{universal}: the same coupling $y$ appears
+for every generation pair.  In the meson language, this means that the
+coupling of a quark to ``its'' composite meson is generation-independent.
+
+The effective Yukawa matrices (Lecture~7, Eq.~(14)):
+\begin{equation}\label{eq:eff-yukawa-recall}
+  Y_{ij}^{u} = y\,\frac{\langle H_{ij}^u \rangle}{v}\,,
+  \qquad
+  Y_{ij}^{d} = y\,\frac{\langle H_{ij}^d \rangle}{v}\,,
+\end{equation}
+show that the mass hierarchy arises entirely from the VEV hierarchy:
+\begin{equation}\label{eq:vev-hierarchy}
+  \langle H_{33}^u \rangle \;\gg\; \langle H_{22}^u \rangle
+  \;\gg\; \langle H_{11}^u \rangle\,,
+\end{equation}
+which, as shown in Lecture~8, is generated by Planck-scale
+operators~\cite{CacciapagliaSannino2024}.
+
+\subsection{What the dualised SM adds beyond standard QCD}
+\label{sec:dsm-adds}
+
+It is essential to state clearly what the dualised SM framework
+contributes to our understanding of the meson spectrum, and what it
+does \emph{not}.
+
+\paragraph{What the dualised SM provides:}
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Structural origin of the meson matrix.}
+    In standard QCD, the meson flavour matrix $q_i\bar{q}_j$ is a
+    phenomenological classification scheme.  In the dualised SM,
+    \emph{if the duality holds}, this matrix is inherited from the UV
+    dual theory: the meson field is \emph{elementary} in the magnetic
+    description, and its $\Nf \times \Nf$ structure follows from the
+    gauge and flavour symmetries of the electric theory.
+  \item \textbf{Universal Yukawa coupling.}
+    The single coupling $y$ for all generation pairs explains why there
+    is a universal meson--quark interaction at the level of the magnetic
+    Lagrangian.  The mass hierarchy comes from the VEV hierarchy, not
+    from different couplings.
+  \item \textbf{Connection to the Higgs sector.}
+    The 18 Higgs doublets $H_{ij}^{u,d}$ of Lecture~7 \emph{are} the
+    meson composites after Pati--Salam decomposition.  This
+    unifies the electroweak symmetry breaking sector (Higgs) with the
+    hadronic spectrum (mesons) within a single framework---the mes-Higgs
+    field $\Phi_H$.
+  \item \textbf{Scalar democracy.}
+    The VEV hierarchy $\langle H_{33}^u \rangle \gg \langle H_{22}^u
+    \rangle \gg \langle H_{11}^u \rangle$ from Planck-scale operators
+    (Lecture~8) provides a framework for the fermion mass hierarchy
+    that goes beyond the Standard Model's arbitrary Yukawa couplings.
+\end{enumerate}
+
+\paragraph{What the dualised SM does \textbf{not} provide:}
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{New quantitative predictions for meson masses.}
+    The masses of $\pi$, $K$, $D$, $B$, etc.\ are determined by QCD
+    dynamics (quark masses plus confinement).  The dualised SM does
+    not provide an independent calculation of these quantities.
+  \item \textbf{A derivation of $\fpi$ or $\qqbar$ from the dual
+    theory.}  These are QCD quantities determined by the strong
+    dynamics at $\Lambda_{\QCD}$.
+  \item \textbf{A proof that the SUSY-to-QCD transition preserves the
+    meson identification.}  This is the central unresolved question.
+    The Sannino--Schechter mechanism (Section~\ref{sec:sannino-schechter})
+    and Komargodski's bridge (Section~\ref{sec:komargodski}) provide
+    qualitative arguments, but a rigorous proof is lacking.
+\end{enumerate}
+
+\begin{warningbox}[title={Honest framing}]
+The dualised Standard Model provides a \textbf{dual perspective} on
+the meson spectrum that is \textbf{consistent with}, but does not
+improve upon, standard QCD.  The added value is
+\textbf{conceptual}---why the meson matrix has the structure it
+does---and \textbf{structural}---the connection between the Higgs
+sector and the hadronic spectrum via scalar democracy.  It is
+\textbf{not} a new prediction for the meson spectrum.
+\end{warningbox}
+
+
+%% ========================================================================
+%%  SECTION 7: Summary and Outlook
+%% ========================================================================
+\section{Summary and Outlook}
+\label{sec:summary}
+
+\subsection{Summary of the 10-lecture course}
+
+This lecture completes a 10-lecture course on non-perturbative gauge
+dynamics and the dualised Standard Model.  The arc of the course is:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{cl}
+\toprule
+\textbf{Lectures} & \textbf{Topic} \\
+\midrule
+1--2 & Foundations: anomaly matching, SUSY introduction \\
+3--4 & Seiberg duality: $\SU{\Nc}$ SQCD, $\mathcal{N} = 2$ origin \\
+5--6 & Non-perturbative dynamics: tumbling, complementarity,
+  non-SUSY extensions \\
+7--8 & The dualised Standard Model: construction, spectrum, scales \\
+9--10 & Extensions: the duality landscape, physical meson identification \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The key conceptual arc runs from abstract duality (Lecture~3) through
+its conjectured non-SUSY extension (Lectures~5--6) to the physical
+particle spectrum (Lectures~7--10).  Along the way, we have:
+\begin{itemize}
+  \item Verified anomaly matching as the consistency condition for
+    dualities (Lectures~1--3);
+  \item Constructed the Seiberg duality map and its evidence from
+    holomorphic dynamics and the conformal window (Lectures~3--4);
+  \item Explored the landscape of SUSY dualities for SU, SO, and Sp
+    gauge groups (Lecture~9);
+  \item Applied the non-SUSY duality conjecture to construct the
+    dualised Standard Model (Lectures~7--8);
+  \item Connected the abstract meson matrix of the dual theory to the
+    observed physical meson spectrum (this lecture).
+\end{itemize}
+
+
+\subsection{Open questions}
+
+Several important questions remain open:
+
+\begin{enumerate}
+  \item \textbf{Does the dualised SM predict anything new about
+    collider physics?}  The quasi-SUSY partners (gaugino, squarks,
+    mesino) predicted in Lecture~7 should appear at the scale
+    $\Lambda_S \sim \text{few TeV}$, \emph{if the duality holds}.
+    Their discovery---or non-discovery---at the LHC or future
+    colliders would provide decisive evidence for or against the
+    framework.
+
+  \item \textbf{Can the SUSY-breaking transition be made
+    quantitative?}  The Sannino--Schechter toy model
+    (Section~\ref{sec:sannino-schechter}) and Komargodski's bridge
+    (Section~\ref{sec:komargodski}) provide qualitative arguments, but
+    a quantitative treatment of the hard SUSY-breaking regime
+    ($m_{\text{soft}} \sim \Lambda_{\QCD}$) remains an open challenge.
+
+  \item \textbf{What is the role of the duality cascade
+    (Lecture~9) in the UV completion?}  The Klebanov--Strassler
+    cascade provides a natural mechanism for reducing the rank of the
+    gauge group through successive duality steps.  Whether this
+    mechanism can be applied to the dualised SM's UV completion is
+    an open question.
+
+  \item \textbf{Can lattice simulations constrain the $\mathcal{O}(1)$
+    coefficients?}  The $\mathcal{O}(1)$ coefficients $c^{abcd}$ in
+    the Planck-scale operators (Lecture~8) are currently free
+    parameters.  Lattice simulations of the electric theory could, in
+    principle, constrain these coefficients by computing the meson
+    spectrum directly.
+\end{enumerate}
+
+
+\subsection{Suggestions for further reading}
+
+\begin{itemize}
+  \item \textbf{Seiberg duality:}
+    Intriligator and Seiberg~\cite{IntriligatorSeiberg1996}
+    (comprehensive review); Peskin~\cite{Peskin1997} (TASI lectures,
+    pedagogical); Terning~\cite{Terning2006} (textbook treatment).
+  \item \textbf{Dualised Standard Model:}
+    Cacciapaglia and Sannino~\cite{CacciapagliaSannino2024}
+    (foundational paper).
+  \item \textbf{Chiral perturbation theory:}
+    Gasser and Leutwyler~\cite{GasserLeutwyler1984,GasserLeutwyler1985}
+    (original papers); Scherer~\cite{Scherer2003} (review).
+  \item \textbf{Hidden local symmetry and vector mesons:}
+    Bando, Kugo, and Yamawaki~\cite{BandoKugoYamawaki1988}
+    (original framework); Komargodski~\cite{Komargodski2010}
+    (SQCD connection).
+\end{itemize}
+
+
+%% ========================================================================
+%%  EXERCISES
+%% ========================================================================
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+
+\begin{exercise}[Charge verification]
+\label{ex:charge}
+Verify the electric charge of every off-diagonal entry in the
+$6 \times 6$ meson matrix (Table~\ref{tab:6x6-meson}) using
+$Q_{\text{em}} = Q(q_i) - Q(q_j)$.  Confirm that each matches the
+known meson charge from the PDG~\cite{PDG2024}.
+\end{exercise}
+
+\begin{exercise}[Goldstone boson counting]
+\label{ex:goldstone}
+For $\SU{\Nf}_L \times \SU{\Nf}_R \to \SU{\Nf}_V$:
+\begin{enumerate}[label=(\alph*)]
+  \item Show that the number of Goldstone bosons is $\Nf^2 - 1$.
+  \item For $\Nf = 2$, list the three Goldstone bosons and their
+    quantum numbers.
+  \item For $\Nf = 3$, list the eight Goldstone bosons (the
+    pseudoscalar octet).
+  \item For $\Nf = 6$, how many formal Goldstone bosons would there
+    be?  Why is this count physical only for the light sector?
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[The GMOR relation for kaons]
+\label{ex:gmor-kaon}
+Using the GMOR relation for the kaon:
+\begin{equation*}
+  m_K^2\, \fpi^2 \;=\; -(m_u + m_s)\,\qqbar\,,
+\end{equation*}
+and the inputs $m_u + m_s \approx 103\;\text{MeV}$ (at $\mu =
+2\;\text{GeV}$), $\fpi = 92.1\;\text{MeV}$, $\qqbar \approx
+-(270\;\text{MeV})^3$:
+\begin{enumerate}[label=(\alph*)]
+  \item Compute $m_K$ and compare with the PDG value $m_{K^\pm} =
+    493.7\;\text{MeV}$.
+  \item Comment on the accuracy of the GMOR relation for strange
+    quarks.  Why might you expect larger corrections than for pions?
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Linear sigma model decomposition]
+\label{ex:sigma-model}
+Starting from the complex field $\phi = (v + \sigma + i\pi)/\sqrt{2}$
+with the potential
+$V(\phi) = \lambda(|\phi|^2 - v^2/2)^2$:
+\begin{enumerate}[label=(\alph*)]
+  \item Show that $\sigma$ acquires a mass $m_\sigma^2 = 2\lambda v^2$
+    while $\pi$ is massless (the Goldstone boson).
+  \item Add an explicit symmetry-breaking term $\epsilon\,\text{Re}(\phi)$
+    and show that $\pi$ acquires a mass $m_\pi^2 = \epsilon/v$.
+  \item Identify $\epsilon$ with the quark mass term and recover the
+    GMOR relation.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[The Higgs--meson correspondence]
+\label{ex:higgs-meson}
+Using the generation-to-flavour map of
+Eq.~\eqref{eq:generation-flavour}:
+\begin{enumerate}[label=(\alph*)]
+  \item Write out the $3 \times 3$ matrix $H_{ij}^u$ explicitly,
+    identifying each entry with a specific up-type meson combination.
+  \item Do the same for $H_{ij}^d$.
+  \item Show that the total number of independent meson entries in the
+    $6 \times 6$ matrix exceeds $18$ (the number of Higgs doublets),
+    and explain what happens to the additional entries (charged-current
+    mixing between up-type and down-type quarks).
+\end{enumerate}
+\end{exercise}
+
+
+%% ========================================================================
+%%  BIBLIOGRAPHY
+%% ========================================================================
+\begin{thebibliography}{99}
+
+\bibitem{Seiberg1995}
+  N.~Seiberg,
+  ``Electric--magnetic duality in supersymmetric non-Abelian gauge
+  theories,''
+  \textit{Nucl.~Phys.} \textbf{B435} (1995) 129
+  [\texttt{hep-th/9411149}].
+
+\bibitem{CacciapagliaSannino2024}
+  G.~Cacciapaglia and F.~Sannino,
+  ``Charting Standard Model duality and its signatures,''
+  \textit{Phys.~Rev.} \textbf{D111} (2025) 035013
+  [\texttt{arXiv:2407.17281}].
+
+\bibitem{PDG2024}
+  R.~L.~Workman \textit{et al.}\ (Particle Data Group),
+  ``Review of Particle Physics,''
+  \textit{Phys.~Rev.} \textbf{D110} (2024) 030001.
+
+\bibitem{GasserLeutwyler1984}
+  J.~Gasser and H.~Leutwyler,
+  ``Chiral perturbation theory to one loop,''
+  \textit{Ann.~Phys.} \textbf{158} (1984) 142.
+
+\bibitem{GasserLeutwyler1985}
+  J.~Gasser and H.~Leutwyler,
+  ``Chiral perturbation theory: expansions in the mass of the
+  strange quark,''
+  \textit{Nucl.~Phys.} \textbf{B250} (1985) 465.
+
+\bibitem{GMOR1968}
+  M.~Gell-Mann, R.~J.~Oakes, and B.~Renner,
+  ``Behavior of current divergences under $\mathrm{SU}(3) \times
+  \mathrm{SU}(3)$,''
+  \textit{Phys.~Rev.} \textbf{175} (1968) 2195.
+
+\bibitem{GellMann1960}
+  M.~Gell-Mann and M.~L\'evy,
+  ``The axial vector current in beta decay,''
+  \textit{Nuovo Cim.} \textbf{16} (1960) 705.
+
+\bibitem{SanninoSchechter1997}
+  F.~Sannino and J.~Schechter,
+  ``Chiral symmetry restoration from the effective quark--meson model,''
+  \textit{Phys.~Rev.} \textbf{D57} (1998) 170
+  [\texttt{hep-ph/9708113}].
+
+\bibitem{Komargodski2010}
+  Z.~Komargodski,
+  ``Vector mesons and an interpretation of Seiberg duality,''
+  \textit{JHEP} \textbf{1102} (2011) 019
+  [\texttt{arXiv:1010.4105}].
+
+\bibitem{BandoKugoYamawaki1988}
+  M.~Bando, T.~Kugo, and K.~Yamawaki,
+  ``Nonlinear realization and hidden local symmetries,''
+  \textit{Phys.~Rept.} \textbf{164} (1988) 217.
+
+\bibitem{FLAG2024}
+  Y.~Aoki \textit{et al.}\ (FLAG Collaboration),
+  ``FLAG Review 2024,''
+  \textit{Eur.~Phys.~J.} \textbf{C84} (2024) 227
+  [\texttt{arXiv:2111.09849}].
+
+\bibitem{tHooft1976}
+  G.~'t~Hooft,
+  ``Symmetry breaking through Bell--Jackiw anomalies,''
+  \textit{Phys.~Rev.~Lett.} \textbf{37} (1976) 8.
+
+\bibitem{ManoharWise2000}
+  A.~V.~Manohar and M.~B.~Wise,
+  \textit{Heavy Quark Physics}
+  (Cambridge University Press, 2000).
+
+\bibitem{IntriligatorSeiberg1996}
+  K.~Intriligator and N.~Seiberg,
+  ``Lectures on supersymmetric gauge theories and electric--magnetic
+  duality,''
+  \textit{Nucl.~Phys.~Proc.~Suppl.} \textbf{45BC} (1996) 1
+  [\texttt{hep-th/9509066}].
+
+\bibitem{Peskin1997}
+  M.~E.~Peskin,
+  ``Duality in supersymmetric Yang--Mills theory,''
+  in \textit{Fields, Strings and Duality (TASI 96)},
+  eds.\ C.~Efthimiou and B.~Greene (World Scientific, 1997) 729
+  [\texttt{hep-th/9702094}].
+
+\bibitem{Terning2006}
+  J.~Terning,
+  \textit{Modern Supersymmetry: Dynamics and Duality}
+  (Oxford University Press, 2006).
+
+\bibitem{Scherer2003}
+  S.~Scherer,
+  ``Introduction to chiral perturbation theory,''
+  \textit{Adv.~Nucl.~Phys.} \textbf{27} (2003) 277
+  [\texttt{hep-ph/0210398}].
+
+\bibitem{PS1974}
+  J.~C.~Pati and A.~Salam,
+  ``Lepton number as the fourth `color',''
+  \textit{Phys.~Rev.} \textbf{D10} (1974) 275.
+
+\end{thebibliography}
+
+\end{document}
