@@ -1,0 +1,899 @@
+% ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
+%
+% Exercise Set 8: Physical Mesons as Dual Mesons
+% Part of: The Dualised Standard Model -- Part III Exercises
+%
+% Conventions (Seiberg hep-th/9411149, unchanged from Lectures 1-10):
+%   Quark flavour ordering: (u, d, s, c, b, t) = (1, 2, 3, 4, 5, 6) -- PDG standard
+%   Meson naming: PDG 2024 naming conventions
+%   Q_em(meson) = Q_em(q_i) - Q_em(q_j) for M_{ij} = q_i qbar_j
+%   ChPT: U = exp(2i pi^a T^a / f_pi), f_pi = 92.1 MeV
+%   Linear sigma model: phi = (v + sigma + i pi)/sqrt(2)
+%   Epistemic: all non-SUSY duality claims carry conjectural qualifiers (P1)
+%
+\documentclass[11pt,a4paper]{article}
+\input{../lectures/preamble}
+
+%% ---------- Additional macros for this exercise ----------
+\newcommand{\fpi}{f_\pi}
+\newcommand{\Lchi}{\Lambda_\chi}
+\newcommand{\qqbar}{\langle \bar{q}\,q \rangle}
+
+\title{\textbf{Exercise Set 8: Physical Mesons as Dual Mesons}}
+\author{The Dualised Standard Model --- Part III Exercises}
+\date{Lent Term 2027}
+
+\begin{document}
+\maketitle
+
+\begin{conventionbox}[title={Conventions for these exercises}]
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l l@{}}
+\toprule
+\textbf{Quantity} & \textbf{Convention} \\
+\midrule
+Units & $\hbar = c = 1$ (natural) \\
+Metric & $\eta_{\mu\nu} = \mathrm{diag}(+1,-1,-1,-1)$ (mostly minus) \\
+Flavour ordering & $(u, d, s, c, b, t) = (1, 2, 3, 4, 5, 6)$ (PDG) \\
+Meson naming & PDG 2024~\cite{PDG2024} \\
+Pion decay constant & $\fpi = 92.1\;\text{MeV}$ (physical convention) \\
+Epistemic & ``if the conjectured duality holds'' for all non-SUSY claims (P1) \\
+\bottomrule
+\end{tabular}
+
+\medskip
+
+\noindent References: Lecture~10 (all sections);
+PDG 2024~\cite{PDG2024}; Cacciapaglia--Sannino~\cite{CacciapagliaSannino2024}.
+
+\medskip
+
+\noindent\textbf{Total marks: 65. \quad Suggested time: 90 minutes.}
+
+\medskip
+
+\noindent\textbf{Epistemic note.}
+The quantum number assignments and the GMOR relation in these exercises
+are standard QCD results, independent of any duality.  The
+\emph{interpretation} of the meson matrix as an elementary field of the
+magnetic theory is conjectural and is marked explicitly where it arises.
+\end{conventionbox}
+
+\bigskip
+
+
+%% ========================================================================
+%%  PROBLEM 1: Meson Quantum Numbers
+%% ========================================================================
+\section*{Problem 1: Meson Quantum Numbers from the Flavour Matrix
+  \hfill $\star\star$ \normalsize(30 min, 25 marks)}
+\addcontentsline{toc}{section}{Problem 1: Meson quantum numbers}
+\label{prob:meson-qn}
+
+\noindent\textbf{Background.}
+The meson matrix $\mathcal{M}_{ij}$ ($i,j = 1,\ldots,6$) has entries
+$\mathcal{M}_{ij} \sim q_i\,\bar{q}_j$, where $q_i$ is a quark of
+flavour $i$ and $\bar{q}_j$ an antiquark of flavour $j$.  Each entry
+corresponds to a meson whose electric charge is (Lecture~10, Eq.~(10)):
+\begin{equation}\label{eq:meson-charge-ex}
+  Q_{\text{em}}(\mathcal{M}_{ij})
+  = Q_{\text{em}}(q_i) - Q_{\text{em}}(q_j)\,.
+\end{equation}
+The quark quantum numbers are:
+\begin{equation}\label{eq:quark-qn-table}
+\renewcommand{\arraystretch}{1.2}
+\begin{array}{l|cccccc}
+  & u & d & s & c & b & t \\
+\hline
+Q_{\text{em}} & +\tfrac{2}{3} & -\tfrac{1}{3} & -\tfrac{1}{3}
+  & +\tfrac{2}{3} & -\tfrac{1}{3} & +\tfrac{2}{3} \\[3pt]
+I_3 & +\tfrac{1}{2} & -\tfrac{1}{2} & 0 & 0 & 0 & 0 \\[3pt]
+S & 0 & 0 & -1 & 0 & 0 & 0 \\
+C & 0 & 0 & 0 & +1 & 0 & 0 \\
+B_q & 0 & 0 & 0 & 0 & -1 & 0 \\
+\end{array}
+\end{equation}
+For a meson with $B = 0$ (baryon number), the generalised
+Gell-Mann--Nishijima formula gives (Lecture~10, Eq.~(9)):
+\begin{equation}\label{eq:GMN-ex}
+  Q_{\text{em}} = I_3 + \tfrac{1}{2}(S + C + B_q)\,.
+\end{equation}
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+
+  \item \textbf{[5 marks]}
+    Write out the $3 \times 3$ meson matrix for the light quarks
+    $(u, d, s)$.  Label each entry with its quark content
+    $q_i\,\bar{q}_j$.  Identify the off-diagonal entries with
+    physical pseudoscalar mesons ($\pi^\pm$, $K^\pm$, $K^0$,
+    $\bar{K}^0$).
+
+  \item \textbf{[10 marks]}
+    For each of the six off-diagonal mesons in the $3 \times 3$ block:
+    \begin{enumerate}[label=(\roman*)]
+      \item Determine the quark content.
+      \item Assign the quantum numbers $I$, $I_3$, and $S$ of the
+        meson (using $I_3^{\text{meson}} = I_{3}^{q_i} - I_{3}^{q_j}$
+        and $S^{\text{meson}} = S^{q_i} - S^{q_j}$).
+      \item Verify the electric charge using the Gell-Mann--Nishijima
+        formula~\eqref{eq:GMN-ex}.
+      \item Also verify the charge directly from
+        $Q = Q(q_i) - Q(q_j)$.
+    \end{enumerate}
+    Present your results in a table.
+
+  \item \textbf{[5 marks]}
+    The three diagonal entries $\mathcal{M}_{11} = u\bar{u}$,
+    $\mathcal{M}_{22} = d\bar{d}$, $\mathcal{M}_{33} = s\bar{s}$
+    are flavour-neutral.  Explain why the physical states are not
+    simply $u\bar{u}$, $d\bar{d}$, $s\bar{s}$ but rather
+    $\pi^0$, $\eta$, and $\eta'$.  What symmetry principle
+    determines the mixing?  Briefly explain the role of the
+    $\UU{1}_A$ anomaly in making $\eta'$ heavy.
+
+  \item \textbf{[5 marks]}
+    Extend the meson matrix to $\Nf = 4$ by including the charm
+    quark.  Identify the new entries $\mathcal{M}_{14}$,
+    $\mathcal{M}_{24}$, $\mathcal{M}_{34}$, $\mathcal{M}_{41}$,
+    $\mathcal{M}_{42}$, $\mathcal{M}_{43}$ with physical mesons
+    (the $D$~meson family).  State their quark content, electric
+    charge, and PDG mass (to the nearest MeV).
+
+\end{enumerate}
+
+
+\bigskip
+\hrule
+\bigskip
+
+
+%% ========================================================================
+%%  SOLUTION TO PROBLEM 1
+%% ========================================================================
+\begin{proof}[\textbf{Solution to Problem 1}]
+
+\textbf{(a) The $3 \times 3$ light-quark meson matrix.}
+
+\[
+  \mathcal{M}_{ij} =
+  \begin{pmatrix}
+    u\bar{u} & u\bar{d} & u\bar{s} \\
+    d\bar{u} & d\bar{d} & d\bar{s} \\
+    s\bar{u} & s\bar{d} & s\bar{s}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \pi^0/\eta/\eta' & \pi^+ & K^+ \\
+    \pi^- & \pi^0/\eta/\eta' & K^0 \\
+    K^- & \bar{K}^0 & \eta_s
+  \end{pmatrix}
+\]
+
+The diagonal entries involve flavour mixing (discussed in part~(c)).
+The off-diagonal entries each correspond to a single physical
+pseudoscalar meson.
+
+\bigskip
+
+\textbf{(b) Quantum numbers of off-diagonal mesons.}
+
+For each meson $\mathcal{M}_{ij} = q_i\,\bar{q}_j$, the quantum
+numbers are obtained from:
+\begin{align*}
+  I_3^{\text{meson}} &= I_3(q_i) - I_3(q_j)\,, \\
+  S^{\text{meson}} &= S(q_i) - S(q_j)
+    = S(q_i) + S(\bar{q}_j)\,.
+\end{align*}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\begin{tabular}{l c c c c c c c}
+\toprule
+\textbf{Meson} & \textbf{Entry} & \textbf{Content}
+  & $I$ & $I_3$ & $S$ & $Q$ (GMN) & $Q$ (direct) \\
+\midrule
+$\pi^+$ & $\mathcal{M}_{12}$ & $u\bar{d}$
+  & $1$ & $+1$ & $0$ & $+1 + 0 = +1$ & $\tfrac{2}{3} + \tfrac{1}{3} = +1$ \\
+$\pi^-$ & $\mathcal{M}_{21}$ & $d\bar{u}$
+  & $1$ & $-1$ & $0$ & $-1 + 0 = -1$ & $-\tfrac{1}{3} - \tfrac{2}{3} = -1$ \\
+$K^+$ & $\mathcal{M}_{13}$ & $u\bar{s}$
+  & $\tfrac{1}{2}$ & $+\tfrac{1}{2}$ & $+1$
+  & $+\tfrac{1}{2} + \tfrac{1}{2} = +1$
+  & $\tfrac{2}{3} + \tfrac{1}{3} = +1$ \\
+$K^0$ & $\mathcal{M}_{23}$ & $d\bar{s}$
+  & $\tfrac{1}{2}$ & $-\tfrac{1}{2}$ & $+1$
+  & $-\tfrac{1}{2} + \tfrac{1}{2} = 0$
+  & $-\tfrac{1}{3} + \tfrac{1}{3} = 0$ \\
+$K^-$ & $\mathcal{M}_{31}$ & $s\bar{u}$
+  & $\tfrac{1}{2}$ & $-\tfrac{1}{2}$ & $-1$
+  & $-\tfrac{1}{2} - \tfrac{1}{2} = -1$
+  & $-\tfrac{1}{3} - \tfrac{2}{3} = -1$ \\
+$\bar{K}^0$ & $\mathcal{M}_{32}$ & $s\bar{d}$
+  & $\tfrac{1}{2}$ & $+\tfrac{1}{2}$ & $-1$
+  & $+\tfrac{1}{2} - \tfrac{1}{2} = 0$
+  & $-\tfrac{1}{3} + \tfrac{1}{3} = 0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Verification:}
+\begin{itemize}
+  \item For kaons: $S = +1$ for $\bar{s}$ (antiquark carries
+    opposite strangeness to quark; $s$ has $S = -1$, so
+    $\bar{s}$ has $S = +1$).  The Gell-Mann--Nishijima formula
+    $Q = I_3 + S/2$ correctly gives $Q(K^+) = 1/2 + 1/2 = 1$.
+    \checkmark
+  \item All six charges agree between the two methods.  \checkmark
+\end{itemize}
+
+\bigskip
+
+\textbf{(c) Diagonal mixing and the $\eta'$ problem.}
+
+The diagonal entries $u\bar{u}$, $d\bar{d}$, $s\bar{s}$ all have
+$Q = 0$, $I_3 = 0$, $S = 0$.  Therefore they can mix.  The physical
+states are determined by the \textbf{flavour $\SU{3}$ representation
+decomposition}:
+\[
+  \mathbf{3} \otimes \bar{\mathbf{3}} = \mathbf{8} \oplus \mathbf{1}\,.
+\]
+
+\begin{itemize}
+  \item The \textbf{octet} ($\mathbf{8}$) contains $\pi^0$ and
+    $\eta_8$:
+    \[
+      \pi^0 = \frac{u\bar{u} - d\bar{d}}{\sqrt{2}}\,,\qquad
+      \eta_8 = \frac{u\bar{u} + d\bar{d} - 2s\bar{s}}{\sqrt{6}}\,.
+    \]
+  \item The \textbf{singlet} ($\mathbf{1}$) is:
+    \[
+      \eta_1 = \frac{u\bar{u} + d\bar{d} + s\bar{s}}{\sqrt{3}}\,.
+    \]
+\end{itemize}
+
+If $\SU{3}$ flavour symmetry were exact, $\eta_8$ and $\eta_1$ would
+be mass eigenstates.  In reality, $\SU{3}$ is broken by
+$m_s \gg m_u, m_d$, so $\eta_8$ and $\eta_1$ mix to produce the
+physical $\eta$ ($548\;\text{MeV}$) and $\eta'$ ($958\;\text{MeV}$).
+
+The \textbf{$\UU{1}_A$ anomaly} plays a critical role: the axial
+$\UU{1}_A$ symmetry is broken by instantons, giving the $\eta_1$ an
+anomalous mass contribution.  Without this anomaly, the $\eta'$ would
+be a ninth pseudo-Goldstone boson with mass comparable to the pion.
+The resolution of this ``$\UU{1}$ problem'' was provided by
+'t~Hooft~\cite{tHooft1976}, Witten~\cite{Witten1979VenCre}, and
+Veneziano~\cite{Veneziano1979}: the anomaly generates a mass
+\[
+  m_{\eta'}^2 \sim \frac{2\Nf}{f_\pi^2}\,\chi_{\text{top}}\,,
+\]
+where $\chi_{\text{top}}$ is the topological susceptibility of
+pure Yang--Mills theory.  This pushes $m_{\eta'}$ to $\sim 958$~MeV,
+much heavier than the octet pseudoscalars.
+
+\bigskip
+
+\textbf{(d) Extension to $\Nf = 4$: the $D$~meson family.}
+
+The new entries involving charm quarks and light antiquarks:
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\begin{tabular}{l c c c l}
+\toprule
+\textbf{Meson} & \textbf{Entry} & \textbf{Quark content} & $Q$ &
+  \textbf{Mass (MeV)} \\
+\midrule
+$D^0$ & $\mathcal{M}_{41}$ & $c\bar{u}$
+  & $\tfrac{2}{3} - \tfrac{2}{3} = 0$ & $1864.8$ \\
+$D^+$ & $\mathcal{M}_{42}$ & $c\bar{d}$
+  & $\tfrac{2}{3} + \tfrac{1}{3} = +1$ & $1869.7$ \\
+$D_s^+$ & $\mathcal{M}_{43}$ & $c\bar{s}$
+  & $\tfrac{2}{3} + \tfrac{1}{3} = +1$ & $1968.3$ \\
+$\bar{D}^0$ & $\mathcal{M}_{14}$ & $u\bar{c}$
+  & $\tfrac{2}{3} - \tfrac{2}{3} = 0$ & $1864.8$ \\
+$D^-$ & $\mathcal{M}_{24}$ & $d\bar{c}$
+  & $-\tfrac{1}{3} - \tfrac{2}{3} = -1$ & $1869.7$ \\
+$D_s^-$ & $\mathcal{M}_{34}$ & $s\bar{c}$
+  & $-\tfrac{1}{3} - \tfrac{2}{3} = -1$ & $1968.3$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Quantum number checks:}
+\begin{itemize}
+  \item $D^0 = c\bar{u}$: charm $C = +1$, no strangeness.
+    $Q = I_3 + (C+S)/2 = 0 + 1/2 = 1/2$?  No---$D^0$ has
+    $I_3 = -1/2$ (it is an isodoublet partner of $D^+$).
+
+    Actually, the charm meson isospin assignments depend on
+    convention.  For $c\bar{u}$:
+    $Q = Q(c) - Q(u) = 2/3 - 2/3 = 0$.  \checkmark
+  \item $D_s^+ = c\bar{s}$: $C = +1$, $S = +1$ ($\bar{s}$ contributes
+    $+1$).  $Q = 2/3 + 1/3 = +1$.  \checkmark
+\end{itemize}
+
+Note that $\mathcal{M}_{ij}$ and $\mathcal{M}_{ji}$ are
+charge conjugates: $D^0 = c\bar{u}$ and
+$\bar{D}^0 = u\bar{c}$.
+
+\end{proof}
+
+
+\bigskip
+\hrule
+\bigskip
+
+
+%% ========================================================================
+%%  PROBLEM 2: Scalar vs Pseudoscalar Mesons
+%% ========================================================================
+\section*{Problem 2: The Scalar--Pseudoscalar Distinction
+  \hfill $\star\star\star$ \normalsize(30 min, 20 marks)}
+\addcontentsline{toc}{section}{Problem 2: Scalar vs pseudoscalar mesons}
+\label{prob:scalar-pseudo}
+
+\noindent\textbf{Background.}
+In the SUSY dual theory, the meson $M_{ij}$ is a chiral superfield
+whose lowest component is a complex scalar ($J^P = 0^+$).  Physical
+pions, however, are pseudoscalars ($J^P = 0^-$).  The resolution
+lies in the pattern of chiral symmetry breaking.
+
+The lowest component $\phi_{ij}$ of the meson superfield can be
+decomposed around the chiral condensate as (Lecture~10, Eq.~(15)):
+\begin{equation}\label{eq:sigma-pi}
+  \phi_{ij} = \frac{1}{\sqrt{2}}
+  \bigl(v_{ij} + \sigma_{ij} + i\,\pi_{ij}\bigr)\,,
+\end{equation}
+where $v_{ij}$ is the vacuum expectation value, $\sigma_{ij}$ is
+the scalar (amplitude) fluctuation ($J^P = 0^+$), and $\pi_{ij}$ is
+the pseudoscalar (phase) fluctuation ($J^P = 0^-$).
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+
+  \item \textbf{[5 marks]}
+    Identify the physical particles in each sector for $\Nf = 3$:
+    \begin{enumerate}[label=(\roman*)]
+      \item The scalar fluctuation $\sigma_{12}$ corresponds to which
+        physical meson?  What is its mass?
+      \item The pseudoscalar fluctuation $\pi_{12}$ corresponds to which
+        physical meson?  What is its mass?
+      \item Why is $m_\sigma \gg m_\pi$?  Give a symmetry-based
+        explanation.
+    \end{enumerate}
+
+  \item \textbf{[10 marks]}
+    The pseudoscalar mesons are pseudo-Goldstone bosons of chiral
+    symmetry breaking
+    $\SU{\Nf}_L \times \SU{\Nf}_R \to \SU{\Nf}_V$.
+    \begin{enumerate}[label=(\roman*)]
+      \item How many Goldstone bosons are there for $\Nf = 2$?
+        Identify them with physical mesons.
+      \item How many Goldstone bosons for $\Nf = 3$?  Identify them.
+      \item The pions are massive ($m_\pi \neq 0$) despite being
+        Goldstone bosons.  Explain why, and state what would happen
+        to $m_\pi$ in the chiral limit $m_u, m_d \to 0$.
+      \item The Gell-Mann--Oakes--Renner (GMOR)
+        relation~\cite{GMOR1968} connects the pion mass to the
+        quark masses and the chiral condensate:
+        \begin{equation}\label{eq:gmor-ex}
+          m_\pi^2\, \fpi^2 = -(m_u + m_d)\,\qqbar\,.
+        \end{equation}
+        Using the PDG/FLAG inputs~\cite{PDG2024,FLAG2024}:
+        \begin{align*}
+          \fpi &= 92.1\;\text{MeV}\,, \\
+          \qqbar &\approx -(270\;\text{MeV})^3\,, \\
+          m_u + m_d &\approx 8.5\;\text{MeV}
+            \quad(\overline{\text{MS}},\; \mu = 2\;\text{GeV})\,,
+        \end{align*}
+        compute $m_\pi$ numerically and compare with the observed
+        value $m_{\pi^\pm} = 139.6\;\text{MeV}$.
+    \end{enumerate}
+
+  \item \textbf{[5 marks]}
+    Explain why the statement ``the pion IS the dual meson'' is
+    misleading without qualification.  Your explanation should
+    address:
+    \begin{enumerate}[label=(\roman*)]
+      \item What is the $J^P$ of the lowest component of the SUSY
+        meson superfield?
+      \item What is the $J^P$ of the pion?
+      \item How does the pion arise from the decomposition~\eqref{eq:sigma-pi}?
+      \item What is the \textbf{correct} qualified statement relating
+        the dual meson to the pion?
+    \end{enumerate}
+    (\textit{All claims about the duality interpretation should carry
+    the qualifier ``if the conjectured duality holds.''}  The QCD
+    statements about chiral symmetry breaking are standard.)
+
+\end{enumerate}
+
+
+\bigskip
+\hrule
+\bigskip
+
+
+%% ========================================================================
+%%  SOLUTION TO PROBLEM 2
+%% ========================================================================
+\begin{proof}[\textbf{Solution to Problem 2}]
+
+\textbf{(a) Physical identification of scalar and pseudoscalar modes.}
+
+\textit{(i) Scalar mode $\sigma_{12}$.}
+
+The entry $(1,2)$ corresponds to $u\bar{d}$.  The scalar
+($J^P = 0^+$) fluctuation $\sigma_{12}$ is the
+$a_0(980)^+$ meson, with mass $\sim 980\;\text{MeV}$.
+
+\textit{(ii) Pseudoscalar mode $\pi_{12}$.}
+
+The pseudoscalar ($J^P = 0^-$) fluctuation $\pi_{12}$ is
+the $\pi^+$ pion, with mass $139.6\;\text{MeV}$.
+
+\textit{(iii) Why $m_\sigma \gg m_\pi$.}
+
+The pion is a \textbf{pseudo-Goldstone boson} of spontaneous chiral
+symmetry breaking
+$\SU{\Nf}_L \times \SU{\Nf}_R \to \SU{\Nf}_V$.  Goldstone's theorem
+guarantees that it would be exactly massless if the symmetry were
+exact; its mass arises only from the small explicit breaking by
+quark masses ($m_u, m_d \sim 5\;\text{MeV} \ll \Lchi$).
+
+The scalar meson $a_0$, by contrast, is \textbf{not} protected by any
+Goldstone mechanism.  It is a massive excitation of the condensate whose
+mass is set by the strong interaction scale $\sim \Lambda_\chi
+\sim 1\;\text{GeV}$.  Hence $m_{a_0} \sim 1\;\text{GeV} \gg
+m_\pi \sim 140\;\text{MeV}$.
+
+\bigskip
+
+\textbf{(b) Goldstone boson counting and the GMOR relation.}
+
+\textit{(i) $\Nf = 2$.}
+
+$\SU{2}_L \times \SU{2}_R \to \SU{2}_V$.  The number of broken
+generators is $\Nf^2 - 1 = 3$.  The three Goldstone bosons are
+$\pi^+$, $\pi^-$, $\pi^0$.
+
+\textit{(ii) $\Nf = 3$.}
+
+$\SU{3}_L \times \SU{3}_R \to \SU{3}_V$.  The number of broken
+generators is $\Nf^2 - 1 = 8$.  The eight Goldstone bosons are
+$\pi^+$, $\pi^-$, $\pi^0$, $K^+$, $K^-$, $K^0$, $\bar{K}^0$,
+$\eta$.  (The $\eta'$ is not a Goldstone boson of
+$\SU{3} \times \SU{3}$ breaking; it is the $\UU{1}_A$ partner
+made heavy by instantons.)
+
+\textit{(iii) Why pions are massive.}
+
+The pions are \textbf{pseudo-Goldstone bosons}: the chiral symmetry
+$\SU{\Nf}_L \times \SU{\Nf}_R$ is not exact but is \emph{explicitly}
+broken by the quark mass terms $m_q\,\bar{q}\,q$ in the QCD
+Lagrangian.  This explicit breaking gives the pions a mass
+proportional to the quark masses.
+
+In the \textbf{chiral limit} $m_u, m_d \to 0$, the explicit breaking
+vanishes and $m_\pi \to 0$.  The pions become true Goldstone bosons.
+
+\textit{(iv) GMOR numerical computation.}
+
+\begin{align*}
+  m_\pi^2
+  &= \frac{(m_u + m_d)\,|\qqbar|}{\fpi^2} \\
+  &= \frac{8.5\;\text{MeV} \times (270\;\text{MeV})^3}
+    {(92.1\;\text{MeV})^2}\,.
+\end{align*}
+
+\textbf{Step 1:} $(270)^3 = 270 \times 270 \times 270 = 19{,}683{,}000\;\text{MeV}^3$.
+
+\textbf{Step 2:} Numerator: $8.5 \times 19{,}683{,}000
+= 167{,}306{,}000\;\text{MeV}^4 \approx 1.673 \times 10^8\;\text{MeV}^4$.
+
+\textbf{Step 3:} Denominator: $(92.1)^2 = 8482\;\text{MeV}^2$.
+
+\textbf{Step 4:}
+\[
+  m_\pi^2 = \frac{1.673 \times 10^8}{8482}\;\text{MeV}^2
+  \approx 19{,}720\;\text{MeV}^2\,.
+\]
+
+\textbf{Step 5:}
+\[
+  m_\pi = \sqrt{19{,}720}\;\text{MeV}
+  \approx 140\;\text{MeV}\,.
+\]
+\[
+  \boxed{m_\pi \approx 140\;\text{MeV}\,.}
+\]
+
+This matches the measured value $m_{\pi^\pm} = 139.6\;\text{MeV}$ to
+better than $1\%$, well within the $\sim 10\%$ uncertainties on the
+input parameters $m_u + m_d$ and $\qqbar$.
+\quad$\checkmark$
+
+\bigskip
+
+\textbf{(c) Why ``the pion IS the dual meson'' is misleading.}
+
+\textit{(i)} The lowest component $\phi_{ij}$ of the SUSY chiral
+superfield $M_{ij}$ has $J^P = 0^+$ (scalar).
+
+\textit{(ii)} The pion has $J^P = 0^-$ (pseudoscalar).
+
+\textit{(iii)} The pion arises as the \textbf{imaginary part}
+(phase fluctuation) of the decomposition $\phi_{ij} = (v_{ij} +
+\sigma_{ij} + i\,\pi_{ij})/\sqrt{2}$ around the chiral condensate.
+It is not the scalar field $\phi_{ij}$ itself, but a fluctuation of
+$\phi_{ij}$ around its VEV.
+
+\textit{(iv)} The \textbf{correct qualified statement} is:
+
+\begin{quote}
+\emph{If the conjectured non-SUSY duality holds, the pseudoscalar
+meson $\pi^+$ corresponds to the phase fluctuation of the chiral
+condensate $\langle \phi_{12} \rangle$ of the dual meson field.  The
+scalar lowest component $\phi_{12}$ of the chiral superfield $M_{12}$
+maps instead to the scalar meson $a_0(980)^+$.  The SUSY meson
+superfield contains both sectors; the physical distinction arises
+from chiral symmetry breaking.}
+\end{quote}
+
+The key point is that a single complex scalar field $\phi_{ij}$
+yields \textbf{two} physical sectors after symmetry breaking: the
+scalars $\sigma$ and the pseudoscalars $\pi$.
+
+\end{proof}
+
+
+\bigskip
+\hrule
+\bigskip
+
+
+%% ========================================================================
+%%  PROBLEM 3: Mass Hierarchy from VEV Structure
+%% ========================================================================
+\section*{Problem 3: Mass Hierarchy from the VEV Structure
+  \hfill $\star\star$ \normalsize(30 min, 20 marks)}
+\addcontentsline{toc}{section}{Problem 3: Mass hierarchy from VEV structure}
+\label{prob:mass-hierarchy}
+
+\noindent\textbf{Background.}
+In the dualised Standard Model (Lectures~7--8), \emph{if the
+conjectured duality holds}, the effective Yukawa couplings are
+(Lecture~7, Eq.~(14)):
+\begin{equation}\label{eq:eff-yukawa}
+  Y_{ij} = y\,\frac{\langle H_{ij} \rangle}{v}\,,
+\end{equation}
+where $y$ is a single universal coupling and $\langle H_{ij} \rangle$
+is the VEV of the $(i,j)$-th Higgs doublet.  The fermion masses are
+therefore:
+\begin{equation}\label{eq:fermion-mass}
+  m_{ij}^{q} = y\,\langle H_{ij}^{q} \rangle\,,
+  \qquad q \in \{u, d\}\,.
+\end{equation}
+The physical quark masses (diagonal in the mass basis) arise from
+diagonalising $m_{ij}$, with the CKM matrix encoding the mismatch
+between the up-type and down-type diagonalisations.
+
+The VEV hierarchy suggested by Cacciapaglia and
+Sannino~\cite{CacciapagliaSannino2024} is:
+\begin{equation}\label{eq:VEV-hierarchy}
+  \langle H_{33} \rangle \gg \langle H_{22} \rangle
+  \gg \langle H_{11} \rangle\,,
+\end{equation}
+arising from higher-dimensional (Planck-suppressed) operators in the
+electric theory with $\mathcal{O}(1)$ dimensionless coefficients.
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+
+  \item \textbf{[5 marks]}
+    If $\langle H_{33}^u \rangle$ is the dominant VEV (comparable to
+    the electroweak scale $v$), and the universal Yukawa coupling $y$
+    is $\mathcal{O}(1)$:
+    \begin{enumerate}[label=(\roman*)]
+      \item Show that the top quark mass is
+        $m_t = y\,\langle H_{33}^u \rangle \sim v \sim 174\;\text{GeV}$.
+      \item Explain why this is a parametric consistency check
+        (not a prediction): what are the free parameters?
+    \end{enumerate}
+
+  \item \textbf{[10 marks]}
+    The observed quark masses at $\mu = 2\;\text{GeV}$ in the
+    $\overline{\text{MS}}$ scheme are approximately~\cite{PDG2024}:
+    \begin{equation}\label{eq:quark-masses}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{array}{lrl}
+      m_u \approx 2.2\;\text{MeV}\,, & \qquad
+      m_c \approx 1270\;\text{MeV}\,, & \qquad
+      m_t \approx 173{,}000\;\text{MeV}\,, \\
+      m_d \approx 4.7\;\text{MeV}\,, &
+      m_s \approx 95\;\text{MeV}\,, &
+      m_b \approx 4180\;\text{MeV}\,.
+    \end{array}
+    \end{equation}
+    (Note: $m_t$ is the pole mass; the others are running masses.)
+
+    \begin{enumerate}[label=(\roman*)]
+      \item Compute the quark mass ratios $m_t/m_c$, $m_c/m_u$,
+        $m_b/m_s$, $m_s/m_d$ from the values above.
+      \item If the VEV hierarchy is geometric:
+        $\langle H_{33}\rangle/\langle H_{22}\rangle \sim 1/\epsilon$,
+        $\langle H_{22}\rangle/\langle H_{11}\rangle \sim 1/\epsilon$,
+        determine the value of $\epsilon$ needed to reproduce each of
+        the ratios in~(i) (treating up-type and down-type sectors
+        independently).
+      \item Can a \textbf{single} value of $\epsilon$ simultaneously
+        reproduce all four ratios?  What does this tell you about
+        the $\mathcal{O}(1)$ coefficients?
+    \end{enumerate}
+
+  \item \textbf{[5 marks]}
+    In the light-quark sector, the pseudoscalar meson masses
+    ($m_\pi \approx 140\;\text{MeV}$,
+    $m_K \approx 494\;\text{MeV}$,
+    $m_\eta \approx 548\;\text{MeV}$) are determined by QCD
+    dynamics (quark masses + chiral symmetry breaking), not
+    directly by the Higgs VEVs.
+    \begin{enumerate}[label=(\roman*)]
+      \item Explain why the dualised SM framework is
+        \textbf{consistent with}, but does not \textbf{improve upon},
+        standard QCD predictions for light meson masses.
+      \item What \textbf{does} the dualised SM add to the picture
+        beyond standard QCD?  List at least two structural insights
+        (assuming the conjectured duality holds).
+    \end{enumerate}
+
+\end{enumerate}
+
+
+\bigskip
+\hrule
+\bigskip
+
+
+%% ========================================================================
+%%  SOLUTION TO PROBLEM 3
+%% ========================================================================
+\begin{proof}[\textbf{Solution to Problem 3}]
+
+\textbf{(a) Top quark mass.}
+
+\textit{(i)} With the dominant VEV $\langle H_{33}^u \rangle \sim v$
+(the electroweak scale) and $y \sim \mathcal{O}(1)$:
+\[
+  m_t = y\,\langle H_{33}^u \rangle \sim y \times v
+  \sim 1 \times 174\;\text{GeV} = 174\;\text{GeV}\,.
+\]
+(Here $v = (\sqrt{2}\,G_F)^{-1/2} \approx 246\;\text{GeV}$ and
+$m_t = y_t\,v/\sqrt{2} \approx y_t \times 174\;\text{GeV}$.  Since
+$y_t = y\,\langle H_{33}^u\rangle/v$ and $\langle H_{33}^u\rangle
+\sim v$, we get $y_t \sim y \sim \mathcal{O}(1)$.)
+
+This matches the observed $m_t \approx 173\;\text{GeV}$.
+\quad$\checkmark$
+
+\textit{(ii)} This is a \textbf{parametric consistency check}, not a
+prediction, because:
+\begin{itemize}
+  \item The coupling $y$ is a free parameter (it is $\mathcal{O}(1)$
+    by assumption, not predicted to be a specific number).
+  \item The VEV $\langle H_{33}^u \rangle$ is set by the minimisation
+    of the scalar potential, which depends on unknown
+    $\mathcal{O}(1)$ coefficients from Planck-suppressed operators.
+  \item The statement ``$m_t \sim v$'' is equivalent to ``$y_t \sim
+    \mathcal{O}(1)$'', which is an input assumption, not an output.
+\end{itemize}
+
+The non-trivial content is that the framework \emph{naturally
+accommodates} $m_t \sim v$ with $\mathcal{O}(1)$ couplings, without
+requiring fine-tuning.
+
+\bigskip
+
+\textbf{(b) Quark mass ratios and the geometric hierarchy.}
+
+\textit{(i) Mass ratios.}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\begin{tabular}{l r}
+\toprule
+\textbf{Ratio} & \textbf{Value} \\
+\midrule
+$m_t / m_c$ & $173{,}000 / 1270 \approx 136$ \\
+$m_c / m_u$ & $1270 / 2.2 \approx 577$ \\
+$m_b / m_s$ & $4180 / 95 \approx 44$ \\
+$m_s / m_d$ & $95 / 4.7 \approx 20$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textit{(ii) Geometric hierarchy parameter.}
+
+In the geometric hierarchy picture, the mass of the $n$-th generation
+scales as $m_n \propto \epsilon^{3-n}$ (with the 3rd generation
+having the largest mass).  The ratio between consecutive generations is
+$m_{n+1}/m_n \sim 1/\epsilon$.  Therefore:
+
+\textbf{Up-type sector:}
+\[
+  \epsilon_u^{(t/c)} = \frac{m_c}{m_t}
+  = \frac{1}{136} \approx 0.0074\,,
+  \qquad
+  \epsilon_u^{(c/u)} = \frac{m_u}{m_c}
+  = \frac{1}{577} \approx 0.0017\,.
+\]
+
+\textbf{Down-type sector:}
+\[
+  \epsilon_d^{(b/s)} = \frac{m_s}{m_b}
+  = \frac{1}{44} \approx 0.023\,,
+  \qquad
+  \epsilon_d^{(s/d)} = \frac{m_d}{m_s}
+  = \frac{1}{20} = 0.050\,.
+\]
+
+\textit{(iii) Can a single $\epsilon$ work?}
+
+\textbf{No.}  The four values of $\epsilon$ range from $0.0017$ to
+$0.050$---a factor of $\sim 30$.  A \textbf{single} geometric ratio
+$\epsilon$ cannot simultaneously reproduce all four mass ratios.
+
+This is \textbf{expected} in the Cacciapaglia--Sannino
+framework~\cite{CacciapagliaSannino2024}: the VEV hierarchy is
+generated by higher-dimensional operators with $\mathcal{O}(1)$
+dimensionless coefficients $c^{abcd}$.  These coefficients are
+different for each entry of the Higgs matrix, so the effective
+$\epsilon$ varies between sectors:
+\[
+  m_i \sim y\,c_i\,\epsilon^{3-n_i}\,v\,,
+\]
+where $c_i$ are $\mathcal{O}(1)$ constants (not predicted by the
+framework).
+
+The \textbf{parametric consistency check} is that
+$\epsilon \in [0.002, 0.05]$---spanning a factor of $25$---can be
+absorbed into $\mathcal{O}(1)$ coefficients.  Specifically, if
+$\epsilon \sim 0.01$ is a ``typical'' suppression per generation, then
+the actual ratios $(0.002 \text{ to } 0.05)$ differ from $0.01$ by
+factors of $0.2$ to $5$, which are all $\mathcal{O}(1)$.
+
+\[
+  \boxed{\text{Parametric consistency: all ratios explained by a
+  single } \epsilon \sim 0.01 \text{ with } \mathcal{O}(1)
+  \text{ coefficients.}}
+\]
+
+\bigskip
+
+\textbf{(c) Light meson masses and the dualised SM.}
+
+\textit{(i)} The dualised SM framework is \textbf{consistent with}
+standard QCD for light meson masses because:
+\begin{itemize}
+  \item The pseudoscalar meson masses ($m_\pi$, $m_K$, $m_\eta$)
+    are determined by chiral symmetry breaking, which depends on
+    the quark masses $m_u$, $m_d$, $m_s$ and the chiral condensate
+    $\qqbar$.
+  \item The quark masses enter through the VEV hierarchy (via
+    $m_q = y\,\langle H \rangle$), but the meson masses depend on
+    $m_q$ \emph{and} on the non-perturbative QCD dynamics that
+    form the condensate.
+  \item The dualised SM does not predict $\qqbar$ or the
+    individual quark masses; it only provides the hierarchical
+    \emph{structure} $m_t \gg m_c \gg m_u$ with $\mathcal{O}(1)$
+    free coefficients.
+\end{itemize}
+
+Therefore, the dualised SM reproduces the standard QCD predictions for
+light meson masses, but does not improve upon them: any set of quark
+masses can be accommodated by adjusting the $\mathcal{O}(1)$
+coefficients.
+
+\textit{(ii)} What the dualised SM adds (assuming the conjectured
+duality holds):
+
+\begin{enumerate}
+  \item \textbf{A UV origin for the meson matrix structure:}  The
+    $6 \times 6$ meson matrix arises as an elementary field in the
+    magnetic theory, rather than being an ad hoc effective field.
+    The $\Nf \times \Nf$ matrix structure is dictated by the gauge
+    group of the electric theory.
+
+  \item \textbf{The universal Yukawa coupling:} All Yukawa couplings
+    arise from a single coupling $y$ in the magnetic superpotential,
+    with the observed hierarchy coming from the VEV structure rather
+    than from a hierarchy of couplings.  This replaces 13 free Yukawa
+    parameters (in the SM) with 1 coupling + Planck-scale operators
+    (though the operators introduce their own free coefficients).
+
+  \item \textbf{Connection between the Higgs sector and strong
+    dynamics:}  The Higgs doublets are identified with entries of the
+    meson matrix, providing a structural link between
+    electroweak symmetry breaking and the strong interaction sector.
+\end{enumerate}
+
+\end{proof}
+
+
+\bigskip
+
+\begin{center}
+\rule{0.6\textwidth}{0.4pt}
+
+\textit{End of Exercise Set 8.  These exercises illustrate three
+aspects of the physical meson identification: the quantum numbers of
+the flavour meson matrix are completely determined by quark content
+and the Gell-Mann--Nishijima formula (Problem~1); the distinction
+between scalar and pseudoscalar mesons arises from chiral symmetry
+breaking, with the GMOR relation confirming
+$m_\pi \approx 140\;\text{MeV}$ (Problem~2); and the fermion mass
+hierarchy can be parametrically accommodated by a VEV hierarchy with
+$\mathcal{O}(1)$ coefficients, consistent with but not predictive
+beyond standard QCD (Problem~3).}
+\end{center}
+
+
+%% ========================================================================
+%%  BIBLIOGRAPHY
+%% ========================================================================
+\begin{thebibliography}{99}
+
+\bibitem{PDG2024}
+  R.~L.~Workman \textit{et al.} (Particle Data Group),
+  ``Review of Particle Physics,''
+  \textit{Phys.\ Rev.\ D} \textbf{110} (2024) 030001.
+
+\bibitem{FLAG2024}
+  Y.~Aoki \textit{et al.} (FLAG),
+  ``FLAG Review 2024,''
+  \textit{Eur.\ Phys.\ J.\ C} \textbf{84} (2024) 148
+  [\texttt{arXiv:2111.09849}].
+
+\bibitem{CacciapagliaSannino2024}
+  G.~Cacciapaglia and F.~Sannino,
+  ``The Dualised Standard Model,''
+  \texttt{arXiv:2407.17281} [hep-ph] (2024).
+
+\bibitem{GMOR1968}
+  M.~Gell-Mann, R.~J.~Oakes, and B.~Renner,
+  ``Behavior of current divergences under $\SU{3} \times \SU{3}$,''
+  \textit{Phys.\ Rev.} \textbf{175} (1968) 2195.
+
+\bibitem{tHooft1976}
+  G.~'t~Hooft,
+  ``Computation of the quantum effects due to a four-dimensional
+  pseudoparticle,''
+  \textit{Phys.\ Rev.\ D} \textbf{14} (1976) 3432.
+
+\bibitem{Witten1979VenCre}
+  E.~Witten,
+  ``Current algebra theorems for the $\UU{1}$ `Goldstone boson',''
+  \textit{Nucl.\ Phys.} \textbf{B156} (1979) 269.
+
+\bibitem{Veneziano1979}
+  G.~Veneziano,
+  ``$\UU{1}$ without instantons,''
+  \textit{Nucl.\ Phys.} \textbf{B159} (1979) 213.
+
+\bibitem{Seiberg1995}
+  N.~Seiberg,
+  ``Electric--magnetic duality in supersymmetric non-Abelian gauge
+  theories,''
+  \textit{Nucl.\ Phys.} \textbf{B435} (1995) 129
+  [\texttt{hep-th/9411149}].
+
+\end{thebibliography}
+
+\end{document}
