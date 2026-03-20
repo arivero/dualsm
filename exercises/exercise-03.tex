@@ -1,0 +1,911 @@
+% ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
+%
+% Exercise Set 3: Seiberg Duality in Practice
+% Part of: The Dualised Standard Model -- Part III Exercises
+%
+% Conventions:
+%   R_fermion = R_superfield - 1 for chiral multiplet fermions
+%   R_gaugino = +1 (directly)
+%   B[Q] = +1, B[Q-tilde] = -1
+%   B[q] = N_c/(N_f - N_c), B[q-tilde] = -N_c/(N_f - N_c)
+%   A(fund) = 1, A(antifund) = -1
+%   T(fund) = T(antifund) = 1/2
+%
+\documentclass[11pt,a4paper]{article}
+\input{../lectures/preamble}
+
+\title{\textbf{Exercise Set 3: Seiberg Duality in Practice}}
+\author{The Dualised Standard Model --- Part III Exercises}
+\date{Lent Term 2027}
+
+\begin{document}
+\maketitle
+
+\begin{conventionbox}[title={Conventions for these exercises}]
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l l@{}}
+\toprule
+\textbf{Quantity} & \textbf{Convention} \\
+\midrule
+Dynkin index & $T(\fund) = T(\antifund) = \Tfund$ \\
+Cubic anomaly & $A(\fund) = 1$, \;$A(\antifund) = -1$ \\
+$R$-charge (superfield) & $\Rcharge{Q} = (\Nf - \Nc)/\Nf$; \;$\Rcharge{\Wsup} = 2$ \\
+$R$-charge (fermion) & $R_{\mathrm{ferm}} = R_{\mathrm{sf}} - 1$ (chiral);
+  \;$R_{\lambda} = +1$ (gaugino) \\
+Baryon charges & $B[Q] = +1$, \;$B[\widetilde{Q}] = -1$;\quad
+  $B[q] = \Nc/(\Nf - \Nc)$ \\
+$\Nf$ counting & Dirac pairs $(Q_i, \widetilde{Q}_i)$ \\
+Magnetic theory & $\SU{\Nf - \Nc}$ with $(q, \widetilde{q}, M)$;
+  \quad $\Wsup_{\mathrm{mag}} = \frac{1}{\mu}\, M\, q\, \widetilde{q}$ \\
+\bottomrule
+\end{tabular}
+
+\medskip
+
+\noindent References: Lecture~3 (\S4, anomaly matching); Lecture~4 (\S5, APS deformation).
+
+\medskip
+
+\noindent Solutions can be cross-checked against
+\texttt{scripts/verify\_anomaly\_matching.py}.
+\end{conventionbox}
+
+\bigskip
+
+
+%% ========================================================================
+%%  PROBLEM 1: Anomaly Matching for SU(3) with N_f = 6
+%% ========================================================================
+\section*{Problem 1: Anomaly Matching for $\SU{3}$ with $\Nf = 6$
+  \hfill $\star\star$ \normalsize(30 min)}
+\addcontentsline{toc}{section}{Problem 1: Anomaly matching for SU(3),
+  $\Nf = 6$}
+\label{prob:anomaly-su3-6}
+
+\noindent\textbf{Background.}
+In Lecture~3, we verified all six independent 't~Hooft anomaly
+coefficients as polynomial identities in $\Nc$ and $\Nf$.  In this
+problem, you will carry out the explicit numerical computation for the
+benchmark case $\Nc = 3$, $\Nf = 6$.
+
+\medskip
+
+\noindent\textbf{Setup.}  The electric theory is $\SU{3}$ with
+$6 \times (Q, \widetilde{Q})$ and $\Wsup = 0$.  The magnetic dual
+is $\SU{6 - 3} = \SU{3}$ with $6 \times (q, \widetilde{q})$,
+gauge-singlet mesons $M^i{}_j$ ($6 \times 6$ matrix), and
+$\Wsup_{\mathrm{mag}} = (1/\mu)\, M\, q\, \widetilde{q}$.
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Quantum numbers.}  Write down the complete quantum number
+    tables for both theories, including both superfield and fermion
+    $R$-charges.  Use the values:
+    \begin{align*}
+      R_{\mathrm{sf}}[Q] &= (6-3)/6 = 1/2, &
+      R_{\mathrm{ferm}}[Q] &= -1/2, \\
+      R_{\mathrm{sf}}[q] &= 3/6 = 1/2, &
+      R_{\mathrm{ferm}}[q] &= -1/2, \\
+      R_{\mathrm{sf}}[M] &= 2(6-3)/6 = 1, &
+      R_{\mathrm{ferm}}[M] &= 0, \\
+      B[q] &= 3/(6-3) = 1. &
+    \end{align*}
+
+  \item \textbf{Compute all six anomaly coefficients} on both sides:
+    \begin{enumerate}[label=(\roman*)]
+      \item $\SU{6}_L^3$
+      \item $\SU{6}_R^3$
+      \item $\SU{6}_L^2\,\UU{1}_B$
+      \item $\SU{6}_L^2\,\UU{1}_R$
+      \item $\UU{1}_B^2\,\UU{1}_R$
+      \item $\Tr[R_{\mathrm{ferm}}]$ (gravitational anomaly)
+    \end{enumerate}
+
+  \item Verify that all six coefficients match.
+\end{enumerate}
+
+\medskip
+
+\noindent\textit{Hint:} For the mixed anomaly $\SU{\Nf}_L^2\,\UU{1}_X$,
+the formula is $\mathcal{A} = \sum_f (\text{gauge mult}) \times
+T(R^{(f)}_L) \times X_f$, summed over all fermions charged under
+$\SU{\Nf}_L$.  Remember that only fermion (not superfield) $R$-charges
+appear in anomaly triangles.
+
+\bigskip
+\hrule
+\bigskip
+
+\begin{proof}[\textbf{Solution to Problem 1}]
+
+\textbf{(a) Quantum number tables.}
+
+\textbf{Electric theory} ($\SU{3}$ gauge, $\Nf = 6$):
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\begin{tabular}{@{}l c c c c c c@{}}
+\toprule
+\textbf{Field} & $\SU{3}_{\mathrm{gauge}}$ & $\SU{6}_L$ & $\SU{6}_R$
+  & $\UU{1}_B$ & $R_{\mathrm{sf}}$ & $R_{\mathrm{ferm}}$ \\
+\midrule
+$Q$ & $\fund$ & $\fund$ & $\mathbf{1}$ & $+1$ & $1/2$ & $-1/2$ \\
+$\widetilde{Q}$ & $\antifund$ & $\mathbf{1}$ & $\antifund$ & $-1$
+  & $1/2$ & $-1/2$ \\
+$\lambda$ & $\adj$ & $\mathbf{1}$ & $\mathbf{1}$ & $0$ & $+1$ & $+1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Magnetic theory} ($\SU{3}_{\mathrm{mag}}$ gauge, $\Nf = 6$):
+
+\begin{center}
+\begin{tabular}{@{}l c c c c c c@{}}
+\toprule
+\textbf{Field} & $\SU{3}_{\mathrm{mag}}$ & $\SU{6}_L$ & $\SU{6}_R$
+  & $\UU{1}_B$ & $R_{\mathrm{sf}}$ & $R_{\mathrm{ferm}}$ \\
+\midrule
+$q$ & $\fund$ & $\antifund$ & $\mathbf{1}$ & $+1$
+  & $1/2$ & $-1/2$ \\
+$\widetilde{q}$ & $\antifund$ & $\mathbf{1}$ & $\fund$ & $-1$
+  & $1/2$ & $-1/2$ \\
+$M$ & $\mathbf{1}$ & $\fund$ & $\antifund$ & $0$
+  & $1$ & $0$ \\
+$\lambda_{\mathrm{mag}}$ & $\adj$ & $\mathbf{1}$ & $\mathbf{1}$
+  & $0$ & $+1$ & $+1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Note: $B[q] = \Nc/(\Nf - \Nc) = 3/3 = 1$, which coincidentally equals
+$B[Q]$ for this particular case.
+
+\bigskip
+
+\textbf{(b) Anomaly coefficient computations.}
+
+\medskip
+
+\textbf{(i) $\SU{6}_L^3$.}
+
+\textit{Electric:} Only $Q$ transforms under $\SU{6}_L$
+(as $\fund$), with $3$ gauge colours:
+\[
+  \mathcal{A}^{\mathrm{el}}_1 = 3 \times A(\fund)
+  = 3 \times 1 = \boxed{3}\,.
+\]
+
+\textit{Magnetic:}  Two fields contribute:
+\begin{itemize}
+  \item $q$: $3$ mag.\ colours, $\antifund$ under $\SU{6}_L$:
+    $3 \times A(\antifund) = 3 \times (-1) = -3$.
+  \item $M$: gauge singlet, $\fund$ under $\SU{6}_L$ with $6$ copies
+    (from the $\SU{6}_R$ antifund index):
+    $6 \times A(\fund) = 6 \times 1 = 6$.
+\end{itemize}
+\[
+  \mathcal{A}^{\mathrm{mag}}_1 = -3 + 6 = \boxed{3}\,.
+  \quad\checkmark
+\]
+
+\medskip
+
+\textbf{(ii) $\SU{6}_R^3$.}
+
+By left--right symmetry ($Q \leftrightarrow \widetilde{Q}$,
+$q \leftrightarrow \widetilde{q}$, $M^i{}_j \to M^j{}_i$):
+
+\textit{Electric:} $\widetilde{Q}$ in $\antifund$ of $\SU{6}_R$,
+$3$ colours: $3 \times A(\antifund) = -3$.
+
+\textit{Magnetic:} $\widetilde{q}$ in $\fund$ of $\SU{6}_R$, $3$ mag
+colours: $3 \times A(\fund) = 3$. $M$ in $\antifund$ of $\SU{6}_R$
+with $6$ copies: $6 \times A(\antifund) = -6$. Total: $3 - 6 = -3$.
+
+\[
+  \mathcal{A}^{\mathrm{el}}_2 = -3 = \mathcal{A}^{\mathrm{mag}}_2\,.
+  \quad\checkmark
+\]
+
+\medskip
+
+\textbf{(iii) $\SU{6}_L^2\,\UU{1}_B$.}
+
+Formula: $\mathcal{A} = \sum_f (\text{gauge mult}) \times T(R_L) \times
+B_f$.
+
+\textit{Electric:} $Q$: $3$ colours, $\fund$ of $\SU{6}_L$, $B = +1$:
+\[
+  \mathcal{A}^{\mathrm{el}}_3 = 3 \times \tfrac{1}{2} \times 1
+  = \boxed{\tfrac{3}{2}}\,.
+\]
+
+\textit{Magnetic:}
+\begin{itemize}
+  \item $q$: $3$ colours, $\antifund$ of $\SU{6}_L$, $B = 1$:
+    $3 \times \frac{1}{2} \times 1 = \frac{3}{2}$.
+  \item $M$: $B = 0$, no contribution.
+\end{itemize}
+\[
+  \mathcal{A}^{\mathrm{mag}}_3 = \boxed{\tfrac{3}{2}}\,.
+  \quad\checkmark
+\]
+
+\medskip
+
+\textbf{(iv) $\SU{6}_L^2\,\UU{1}_R$.}
+
+Formula: $\mathcal{A} = \sum_f (\text{gauge mult}) \times T(R_L)
+\times R_{\mathrm{ferm},f}$.
+
+\textit{Electric:} $Q$: $3$ colours, $\fund$ of $\SU{6}_L$,
+$R_{\mathrm{ferm}} = -1/2$:
+\[
+  \mathcal{A}^{\mathrm{el}}_4 = 3 \times \tfrac{1}{2} \times (-\tfrac{1}{2})
+  = \boxed{-\tfrac{3}{4}}\,.
+\]
+
+\textit{Magnetic:}
+\begin{itemize}
+  \item $q$: $3$ mag colours, $\antifund$ of $\SU{6}_L$,
+    $R_{\mathrm{ferm}} = -1/2$:
+    $3 \times \frac{1}{2} \times (-\frac{1}{2}) = -\frac{3}{4}$.
+  \item $M$: $6$ copies, $\fund$ of $\SU{6}_L$,
+    $R_{\mathrm{ferm}} = 0$:
+    $6 \times \frac{1}{2} \times 0 = 0$.
+\end{itemize}
+\[
+  \mathcal{A}^{\mathrm{mag}}_4 = -\tfrac{3}{4} + 0
+  = \boxed{-\tfrac{3}{4}}\,.
+  \quad\checkmark
+\]
+
+\medskip
+
+\textbf{(v) $\UU{1}_B^2\,\UU{1}_R$.}
+
+Formula: $\mathcal{A} = \sum_f n_f \times B_f^2 \times R_{\mathrm{ferm},f}$,
+where $n_f$ is the total multiplicity (gauge $\times$ flavour).
+
+\textit{Electric:}
+\begin{itemize}
+  \item $Q$: $3 \times 6 = 18$ fermions, $B = 1$, $R_{\mathrm{ferm}} = -1/2$:
+    $18 \times 1 \times (-1/2) = -9$.
+  \item $\widetilde{Q}$: $18$ fermions, $B = -1$,
+    $R_{\mathrm{ferm}} = -1/2$:
+    $18 \times 1 \times (-1/2) = -9$.
+  \item Gaugino: $B = 0$, no contribution.
+\end{itemize}
+\[
+  \mathcal{A}^{\mathrm{el}}_5 = -9 + (-9) = \boxed{-18}\,.
+\]
+
+\textit{Magnetic:}
+\begin{itemize}
+  \item $q$: $3 \times 6 = 18$ fermions, $B = 1$, $R_{\mathrm{ferm}} = -1/2$:
+    $18 \times 1 \times (-1/2) = -9$.
+  \item $\widetilde{q}$: $18$ fermions, $B = -1$,
+    $R_{\mathrm{ferm}} = -1/2$:
+    $18 \times 1 \times (-1/2) = -9$.
+  \item $M$: $B = 0$, no contribution.
+  \item Gaugino: $B = 0$, no contribution.
+\end{itemize}
+\[
+  \mathcal{A}^{\mathrm{mag}}_5 = -9 + (-9) = \boxed{-18}\,.
+  \quad\checkmark
+\]
+
+\medskip
+
+\textbf{(vi) $\Tr[R_{\mathrm{ferm}}]$ (gravitational).}
+
+\textit{Electric:}
+\begin{itemize}
+  \item $Q$: $18$ fermions, $R_{\mathrm{ferm}} = -1/2$: $18 \times
+    (-1/2) = -9$.
+  \item $\widetilde{Q}$: $18$ fermions, $R_{\mathrm{ferm}} = -1/2$:
+    $-9$.
+  \item Gaugino: $3^2 - 1 = 8$ fermions, $R_{\mathrm{ferm}} = +1$:
+    $+8$.
+\end{itemize}
+\[
+  \mathcal{A}^{\mathrm{el}}_6 = -9 - 9 + 8 = \boxed{-10}\,.
+\]
+
+\textit{Magnetic:}
+\begin{itemize}
+  \item $q$: $3 \times 6 = 18$ fermions, $R_{\mathrm{ferm}} = -1/2$:
+    $-9$.
+  \item $\widetilde{q}$: $18$ fermions, $R_{\mathrm{ferm}} = -1/2$:
+    $-9$.
+  \item $M$: $6^2 = 36$ fermions, $R_{\mathrm{ferm}} = 0$:
+    $0$.
+  \item Gaugino: $3^2 - 1 = 8$ fermions, $R_{\mathrm{ferm}} = +1$:
+    $+8$.
+\end{itemize}
+\[
+  \mathcal{A}^{\mathrm{mag}}_6 = -9 - 9 + 0 + 8 = \boxed{-10}\,.
+  \quad\checkmark
+\]
+
+\bigskip
+
+\textbf{(c) Summary table.}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l c c c@{}}
+\toprule
+\textbf{Coefficient} & \textbf{Electric} & \textbf{Magnetic} & \textbf{Match?} \\
+\midrule
+$\SU{6}_L^3$ & $3$ & $3$ & $\checkmark$ \\
+$\SU{6}_R^3$ & $-3$ & $-3$ & $\checkmark$ \\
+$\SU{6}_L^2\,\UU{1}_B$ & $3/2$ & $3/2$ & $\checkmark$ \\
+$\SU{6}_L^2\,\UU{1}_R$ & $-3/4$ & $-3/4$ & $\checkmark$ \\
+$\UU{1}_B^2\,\UU{1}_R$ & $-18$ & $-18$ & $\checkmark$ \\
+$\Tr[R]$ (gravitational) & $-10$ & $-10$ & $\checkmark$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+All six independent anomaly coefficients match.  These values are
+consistent with the output of
+\texttt{scripts/verify\_anomaly\_matching.py} for $\Nc = 3$,
+$\Nf = 6$.
+\end{proof}
+
+\newpage
+
+
+%% ========================================================================
+%%  PROBLEM 2: Mass Deformation from N_f = 6 to N_f = 5
+%% ========================================================================
+\section*{Problem 2: Mass Deformation from $\Nf = 6$ to $\Nf = 5$
+  \hfill $\star\star\star$ \normalsize(20 min)}
+\addcontentsline{toc}{section}{Problem 2: Mass deformation
+  $\Nf = 6 \to 5$}
+\label{prob:mass-deformation}
+
+\noindent\textbf{Background.}
+A powerful consistency check of Seiberg duality is that giving a mass
+to one flavour on both sides of the duality produces the correct dual
+pair with $\Nf - 1$ flavours.  This was presented in
+Lecture~3, \S5, for general $(\Nc, \Nf)$.
+
+\medskip
+
+\noindent\textbf{Questions.}
+
+Start with $\SU{3}$ SQCD with $\Nf = 6$ flavours.  Add a mass term for
+the 6th flavour: $\Delta\Wsup = m\, Q_6\, \widetilde{Q}^6$.
+
+\begin{enumerate}[label=(\alph*)]
+  \item What is the resulting \textbf{electric} theory after integrating
+    out the massive quarks?
+
+  \item What is the \textbf{magnetic} dual of this deformed theory?
+    (Use the general Seiberg duality rule.)
+
+  \item On the magnetic side of the \emph{original} $(\Nc = 3, \Nf = 6)$
+    theory, the mass deformation maps to
+    $\Delta\Wsup = m\, M^6{}_6$ (via $M^6{}_6 = Q_6\, \widetilde{Q}^6$).
+    Show that the $F$-term equation for $M^6{}_6$ forces
+    $\langle q_6\, \widetilde{q}^6\rangle \neq 0$, and explain how this
+    \emph{Higgses} the magnetic gauge group from $\SU{3}$ to $\SU{2}$.
+
+  \item As a check, verify the anomaly coefficient $\SU{5}_L^3$ for the
+    deformed dual pair $(\SU{3}, \Nf = 5) \leftrightarrow (\SU{2},
+    \Nf = 5)$.
+\end{enumerate}
+
+\medskip
+
+\noindent\textit{Hint for (c):}  The total magnetic superpotential is
+$\Wsup = (1/\mu)\, M^i{}_j\, q_i\, \widetilde{q}^j + m\, M^6{}_6$.
+Setting $\partial\Wsup/\partial M^6{}_6 = 0$ gives
+$q_6\,\widetilde{q}^6 = -\mu\, m$.
+
+\bigskip
+\hrule
+\bigskip
+
+\begin{proof}[\textbf{Solution to Problem 2}]
+
+\textbf{(a)} The mass term $m\, Q_6\,\widetilde{Q}^6$ makes the 6th
+flavour heavy.  Below the scale $m$, integrating out $Q_6$ and
+$\widetilde{Q}^6$ leaves:
+\[
+  \boxed{\text{Electric:}\quad \SU{3} \text{ with } \Nf = 5
+  \text{ flavours, } \Wsup = 0\,.}
+\]
+
+\textbf{(b)} Applying the Seiberg duality rule to
+$\SU{3}$ with $\Nf = 5$:
+\[
+  \text{Magnetic gauge group:}\quad \SU{\Nf - \Nc} = \SU{5 - 3} = \SU{2}\,,
+\]
+with $5$ magnetic quark pairs $(q_i, \widetilde{q}^i)$, a $5 \times 5$
+meson matrix $M'$, and $\Wsup_{\mathrm{mag}} = (1/\mu')\, M' q \widetilde{q}$.
+
+\[
+  \boxed{\text{Magnetic:}\quad \SU{2} \text{ with } \Nf = 5
+  \text{ flavours } + M' + \Wsup_{\mathrm{mag}}\,.}
+\]
+
+\textbf{(c)} The total superpotential of the magnetic $\SU{3}$ theory
+with the mass deformation is:
+\[
+  \Wsup = \frac{1}{\mu}\, M^i{}_j\, q_i\, \widetilde{q}^j + m\, M^6{}_6\,.
+\]
+The $F$-term equation for $M^6{}_6$ is:
+\[
+  \frac{\partial\Wsup}{\partial M^6{}_6} = 0
+  \qquad\Longrightarrow\qquad
+  \frac{1}{\mu}\, q_6\, \widetilde{q}^6 + m = 0
+  \qquad\Longrightarrow\qquad
+  \langle q_6\, \widetilde{q}^6\rangle = -\mu\, m \neq 0\,.
+\]
+The nonzero VEV of $q_6$ (in the fundamental of $\SU{3}_{\mathrm{mag}}$)
+breaks the magnetic gauge group by the Higgs mechanism:
+\[
+  \SU{3}_{\mathrm{mag}}
+  \;\xrightarrow{\;\langle q_6 \rangle \neq 0\;}
+  \;\SU{2}_{\mathrm{mag}}\,.
+\]
+After integrating out the massive fields ($q_6$, $\widetilde{q}^6$,
+$M^6{}_j$, $M^i{}_6$), the surviving magnetic theory is precisely
+$\SU{2}$ with $5$ flavours plus the $5 \times 5$ meson $M'$, matching
+the prediction of part~(b).\quad$\checkmark$
+
+\textbf{(d)} Check $\SU{5}_L^3$ for $(\SU{3}, \Nf = 5) \leftrightarrow
+(\SU{2}, \Nf = 5)$.
+
+\textit{Electric:} $Q$ in $\fund$ of $\SU{5}_L$, $3$ colours:
+$\mathcal{A}^{\mathrm{el}} = 3 \times 1 = 3$.
+
+\textit{Magnetic:} Magnetic gauge group is $\SU{2}$.
+\begin{itemize}
+  \item $q$: $2$ mag colours, $\antifund$ of $\SU{5}_L$:
+    $2 \times (-1) = -2$.
+  \item $M'$: $5$ copies, $\fund$ of $\SU{5}_L$:
+    $5 \times 1 = 5$.
+\end{itemize}
+$\mathcal{A}^{\mathrm{mag}} = -2 + 5 = 3$.
+
+\[
+  \boxed{\mathcal{A}^{\mathrm{el}} = 3 = \mathcal{A}^{\mathrm{mag}}}\,.
+  \quad\checkmark
+\]
+\end{proof}
+
+\newpage
+
+
+%% ========================================================================
+%%  PROBLEM 3: R-charges and the Superpotential
+%% ========================================================================
+\section*{Problem 3: $R$-charges and the Superpotential
+  \hfill $\star\star$ \normalsize(15 min)}
+\addcontentsline{toc}{section}{Problem 3: $R$-charges and the
+  superpotential}
+\label{prob:r-charges}
+
+\noindent\textbf{Background.}
+The non-anomalous $R$-symmetry plays a central role in Seiberg duality.
+At the superconformal fixed point, the $R$-charge determines the
+scaling dimension of chiral primary operators via
+$\Delta = \tfrac{3}{2}\,|R|$.
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Derive $\Rcharge{Q}$.}  For $\SU{\Nc}$ SQCD with $\Nf$
+    massless flavours, the anomaly-free $R$-symmetry satisfies
+    $\Tr[\SU{\Nc}^2\,\UU{1}_R] = 0$.  Using the fermion $R$-charges
+    and the fact that the gaugino has $R_{\mathrm{ferm}} = +1$, derive:
+    \[
+      \Rcharge{Q} = \frac{\Nf - \Nc}{\Nf}\,.
+    \]
+
+  \item \textbf{Magnetic $R$-charges.}  Using the Seiberg duality
+    map and the requirement $\Rcharge{\Wsup_{\mathrm{mag}}} = 2$,
+    determine $\Rcharge{q}$, $\Rcharge{\widetilde{q}}$, and
+    $\Rcharge{M}$ as functions of $\Nc$ and $\Nf$.
+
+  \item \textbf{Verify $\Rcharge{\Wsup_{\mathrm{mag}}} = 2$.}  Show that
+    \[
+      \Rcharge{M} + \Rcharge{q} + \Rcharge{\widetilde{q}} = 2\,.
+    \]
+
+  \item \textbf{Conformal dimension and the conformal window.}
+    At the IR fixed point, the conformal dimension of a chiral primary
+    scalar operator $\mathcal{O}$ is $\Delta(\mathcal{O}) =
+    \tfrac{3}{2}\,R[\mathcal{O}]$.  Compute the dimension of the
+    meson $M = Q\widetilde{Q}$ in the electric theory.  For which value
+    of $\Nf$ does $\Delta[M] = 1$ (free field)?  What is the physical
+    significance of this value?
+\end{enumerate}
+
+\medskip
+
+\noindent\textit{Hint for (a):} The anomaly coefficient
+$\Tr[\SU{\Nc}^2\,\UU{1}_R]$ receives contributions from all fermions
+charged under the gauge group: $Q$-fermions, $\widetilde{Q}$-fermions,
+and the gaugino.  Each contributes $T(R) \times R_{\mathrm{ferm}}$.
+
+\bigskip
+\hrule
+\bigskip
+
+\begin{proof}[\textbf{Solution to Problem 3}]
+
+\textbf{(a)} The anomaly $\Tr[\SU{\Nc}^2\,\UU{1}_R] = 0$ requires
+the sum over all gauge-charged fermions:
+\begin{align}
+  0 &= \Nf \cdot T(\fund) \cdot R_{\mathrm{ferm}}[Q]
+  + \Nf \cdot T(\antifund) \cdot R_{\mathrm{ferm}}[\widetilde{Q}]
+  + T(\adj) \cdot R_{\mathrm{ferm}}[\lambda] \nonumber \\
+  &= \Nf \cdot \tfrac{1}{2} \cdot (R[Q] - 1)
+  + \Nf \cdot \tfrac{1}{2} \cdot (R[Q] - 1)
+  + \Nc \cdot 1 \nonumber \\
+  &= \Nf\,(R[Q] - 1) + \Nc\,.
+\end{align}
+Solving for $R[Q]$:
+\[
+  \Nf\, R[Q] = \Nf - \Nc
+  \qquad\Longrightarrow\qquad
+  \boxed{R[Q] = \frac{\Nf - \Nc}{\Nf}}\,.
+\]
+
+\textbf{(b)} The meson field $M$ maps to the composite $Q\widetilde{Q}$,
+so its $R$-charge is:
+\[
+  R[M] = R[Q] + R[\widetilde{Q}] = 2\,\frac{\Nf - \Nc}{\Nf}\,.
+\]
+From the requirement $R[W_{\mathrm{mag}}] = R[M] + R[q] + R[\widetilde{q}] = 2$
+and the symmetry $R[q] = R[\widetilde{q}]$:
+\[
+  R[q] = R[\widetilde{q}] = \frac{2 - R[M]}{2}
+  = \frac{2 - 2(\Nf - \Nc)/\Nf}{2}
+  = \frac{\Nc}{\Nf}\,.
+\]
+\[
+  \boxed{R[q] = R[\widetilde{q}] = \frac{\Nc}{\Nf}\,,
+  \qquad R[M] = \frac{2(\Nf - \Nc)}{\Nf}\,.}
+\]
+
+\textbf{(c)} Verification:
+\[
+  R[M] + R[q] + R[\widetilde{q}]
+  = \frac{2(\Nf - \Nc)}{\Nf} + \frac{\Nc}{\Nf} + \frac{\Nc}{\Nf}
+  = \frac{2\Nf - 2\Nc + 2\Nc}{\Nf}
+  = \frac{2\Nf}{\Nf} = 2\,.
+  \quad\checkmark
+\]
+
+\textbf{(d)} The conformal dimension of the meson is:
+\begin{align}
+  \Delta[M] &= \tfrac{3}{2}\,R[M]
+  = \tfrac{3}{2} \times \frac{2(\Nf - \Nc)}{\Nf}
+  = \frac{3(\Nf - \Nc)}{\Nf}\,.
+\end{align}
+Setting $\Delta[M] = 1$ (the dimension of a free scalar field):
+\begin{align}
+  \frac{3(\Nf - \Nc)}{\Nf} &= 1\,, \\
+  3\Nf - 3\Nc &= \Nf\,, \\
+  2\Nf &= 3\Nc\,, \\
+  \Nf &= \frac{3\Nc}{2}\,.
+\end{align}
+
+\[
+  \boxed{\Delta[M] = 1 \quad\text{at}\quad \Nf = \frac{3\Nc}{2}\,.}
+\]
+
+\textbf{Physical significance:} $\Nf = 3\Nc/2$ is the \emph{lower
+boundary of the SUSY conformal window}.  At this value, the meson
+becomes a free field and decouples from the interacting sector.  Below
+$\Nf = 3\Nc/2$, the conformal dimension would fall below the unitarity
+bound $\Delta \geq 1$, signalling that the conformal description breaks
+down.  The magnetic theory enters the free magnetic phase: it is
+IR-free, and the correct description is in terms of the weakly-coupled
+magnetic quarks and mesons.
+
+This connects directly to Exercise Set~2, Problem~3(c), where the
+conformal window was determined from the unitarity bound.
+\end{proof}
+
+\newpage
+
+
+%% ========================================================================
+%%  PROBLEM 4: s-Confinement at N_f = N_c + 1
+%% ========================================================================
+\section*{Problem 4: $s$-Confinement at $\Nf = \Nc + 1$
+  \hfill $\star\star\star$ \normalsize(25 min)}
+\addcontentsline{toc}{section}{Problem 4: $s$-Confinement at
+  $\Nf = \Nc + 1$}
+\label{prob:s-confinement}
+
+\noindent\textbf{Background.}
+The case $\Nf = \Nc + 1$ is a limiting case of Seiberg duality where the
+magnetic gauge group becomes trivial.  The theory \emph{s-confines}:
+it confines without chiral symmetry breaking, and the low-energy
+description consists entirely of gauge-singlet composite fields.  This
+was first analysed by Seiberg~\cite{Seiberg1995} and systematically
+by Intriligator and Seiberg~\cite{IS1995}.
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+  \item In the Seiberg dual of $\SU{\Nc}$ SQCD with $\Nf = \Nc + 1$
+    flavours, what is the magnetic gauge group?
+
+  \item Since the magnetic gauge group is trivial, the magnetic ``quarks''
+    $q_i$ and $\widetilde{q}^j$ are gauge-singlet fields.  These are
+    identified with the electric baryons:
+    \[
+      B_i \;\longleftrightarrow\; q_i\,,
+      \qquad
+      \widetilde{B}^j \;\longleftrightarrow\; \widetilde{q}^j\,.
+    \]
+    Together with the mesons $M^i{}_j$, these form the complete
+    set of light degrees of freedom.  Write the most general
+    superpotential consistent with the global symmetries
+    $\SU{\Nf}_L \times \SU{\Nf}_R \times \UU{1}_B \times \UU{1}_R$.
+
+  \item Show that the exact confining superpotential takes the form:
+    \begin{equation}\label{eq:W-sconf}
+      \Wsup = \frac{1}{\Lambda^{2\Nc - 1}}
+      \left(B_i\, M^i{}_j\, \widetilde{B}^j - \det M\right).
+    \end{equation}
+    Verify the \textbf{dimensional consistency}: show that each term
+    has dimension $[\mathrm{mass}]^3$.
+
+  \item For $\Nc = 3$, $\Nf = 4$, verify the anomaly coefficient
+    $\SU{4}_L^3$ for the confined description (mesons $M$, baryons
+    $B_i$, $\widetilde{B}^j$) against the fundamental description
+    ($Q$, $\widetilde{Q}$, $\lambda$).
+\end{enumerate}
+
+\medskip
+
+\noindent\textit{Hints:}
+
+(a) Apply $\SU{\Nf - \Nc} = \SU{(\Nc+1) - \Nc} = \SU{1}$.
+
+(c) The mesons $M$ have dimension $[\mathrm{mass}]$ (see CONVENTIONS.md).
+The baryons $B$ are products of $\Nc$ fundamental fields, each of
+dimension $[\mathrm{mass}]$, so $[B] = [\mathrm{mass}]^{\Nc}$.
+The dynamical scale $\Lambda$ has $[\Lambda] = [\mathrm{mass}]$.
+
+(d) The baryon $B_i$ transforms as $\antifund$ of $\SU{\Nf}_L$
+(antisymmetric product of $\Nc$ fundamentals with $\Nf = \Nc + 1$
+gives the antifundamental of $\SU{\Nc+1}_L$).
+
+\bigskip
+\hrule
+\bigskip
+
+\begin{proof}[\textbf{Solution to Problem 4}]
+
+\textbf{(a)} The magnetic gauge group is:
+\[
+  \SU{\Nf - \Nc} = \SU{(\Nc + 1) - \Nc} = \SU{1}\,.
+\]
+But $\SU{1}$ is the trivial group (containing only the identity).
+Therefore:
+\[
+  \boxed{\text{There is \textbf{no} magnetic gauge group.}}
+\]
+The magnetic theory has no gauge dynamics: all ``magnetic'' fields are
+gauge singlets.
+
+\textbf{(b)} The confined degrees of freedom and their quantum numbers
+under $\SU{\Nf}_L \times \SU{\Nf}_R \times \UU{1}_B \times \UU{1}_R$:
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\begin{tabular}{@{}l c c c c@{}}
+\toprule
+\textbf{Field} & $\SU{\Nf}_L$ & $\SU{\Nf}_R$ & $\UU{1}_B$ & $R_{\mathrm{sf}}$ \\
+\midrule
+$M^i{}_j$ & $\fund$ & $\antifund$ & $0$
+  & $2(\Nf - \Nc)/\Nf = 2/(\Nc + 1)$ \\
+$B_i$ & $\antifund$ & $\mathbf{1}$ & $+\Nc$
+  & $\Nc(\Nf - \Nc)/\Nf = \Nc/(\Nc + 1)$ \\
+$\widetilde{B}^j$ & $\mathbf{1}$ & $\fund$ & $-\Nc$
+  & $\Nc/(\Nc + 1)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+(Here $B_i = \epsilon^{a_1\cdots a_{\Nc}}\, Q^{i_1}_{a_1} \cdots
+Q^{i_{\Nc}}_{a_{\Nc}}$ transforms as the $\Nc$-th antisymmetric product
+of $\fund$ under $\SU{\Nf}_L$; for $\Nf = \Nc + 1$, this is the
+$\antifund$ of $\SU{\Nc+1}_L$.)
+
+The most general superpotential consistent with these symmetries is:
+\begin{equation}
+  \Wsup = \frac{\alpha}{\Lambda^{2\Nc - 1}}\, B_i\, M^i{}_j\,
+  \widetilde{B}^j
+  + \frac{\beta}{\Lambda^{2\Nc - 1}}\, \det M\,,
+\end{equation}
+where $\alpha$ and $\beta$ are dimensionless constants.  These are the
+only two independent invariants that can be formed:
+\begin{itemize}
+  \item $B_i\, M^i{}_j\, \widetilde{B}^j$ contracts all flavour
+    indices and has the correct $R$-charge, baryon charge, and flavour
+    transformation properties.
+  \item $\det M$ is an $\SU{\Nf}_L \times \SU{\Nf}_R$ invariant with
+    $B = 0$ and $R = \Nf \times 2/(\Nc+1) = 2$ (using
+    $\Nf = \Nc + 1$).
+\end{itemize}
+
+\textbf{(c)} The exact result from~\cite{Seiberg1995,IS1995} is
+$\alpha = 1$, $\beta = -1$:
+\[
+  \boxed{
+    \Wsup = \frac{1}{\Lambda^{2\Nc - 1}}
+    \left(B_i\, M^i{}_j\, \widetilde{B}^j - \det M\right).
+  }
+\]
+(The relative sign and normalisation are fixed by requiring smooth
+limits as various masses are taken to infinity, matching the ADS
+superpotential for $\Nf < \Nc$, and by instanton calculations.)
+
+\textbf{Dimensional check.}  We need
+$[\Wsup] = [\mathrm{mass}]^3$:
+\begin{itemize}
+  \item $[M] = [\mathrm{mass}]$ (elementary meson field).
+  \item $[B] = [\mathrm{mass}]^{\Nc}$ (product of $\Nc$ fundamentals,
+    each of dimension $[\mathrm{mass}]$).
+  \item $[\Lambda] = [\mathrm{mass}]$.
+\end{itemize}
+
+For the first term:
+\[
+  \frac{[B \cdot M \cdot \widetilde{B}]}{[\Lambda^{2\Nc-1}]}
+  = \frac{[\mathrm{mass}]^{\Nc} \cdot [\mathrm{mass}]
+  \cdot [\mathrm{mass}]^{\Nc}}{[\mathrm{mass}]^{2\Nc - 1}}
+  = \frac{[\mathrm{mass}]^{2\Nc + 1}}{[\mathrm{mass}]^{2\Nc - 1}}
+  = [\mathrm{mass}]^2\,.
+\]
+
+Wait --- this gives $[\mathrm{mass}]^2$, not $[\mathrm{mass}]^3$.  We
+need to be more careful about the dimension of $B$.
+
+\textbf{Corrected dimensional analysis.}  In SQCD, the elementary chiral
+superfield $Q$ has classical dimension $[Q] = [\mathrm{mass}]$ (the scalar
+component of a chiral superfield has mass dimension $1$ in $d=4$).
+The baryon operator is:
+\[
+  B = \epsilon^{a_1\cdots a_{\Nc}}\, Q_{a_1}^{i_1} \cdots
+  Q_{a_{\Nc}}^{i_{\Nc}}\,,
+  \qquad [B] = [\mathrm{mass}]^{\Nc}\,.
+\]
+The meson $M^i{}_j = Q^i \widetilde{Q}_j$ has $[M] = [\mathrm{mass}]^2$
+in the \emph{electric} theory (it is a composite of two dimension-1
+fields).
+
+In the \emph{magnetic} (confined) description, $M$ is an elementary
+field with $[M] = [\mathrm{mass}]^2$ inherited from the duality map.
+(Alternatively, at the conformal fixed point, the dimension is
+$\Delta[M] = (3/2)R[M]$; but for the superpotential counting, we use
+the UV dimension.)
+
+Now:
+\[
+  \frac{[B \cdot M \cdot \widetilde{B}]}{[\Lambda^{2\Nc-1}]}
+  = \frac{[\mathrm{mass}]^{\Nc} \cdot [\mathrm{mass}]^2
+  \cdot [\mathrm{mass}]^{\Nc}}{[\mathrm{mass}]^{2\Nc - 1}}
+  = \frac{[\mathrm{mass}]^{2\Nc + 2}}{[\mathrm{mass}]^{2\Nc - 1}}
+  = [\mathrm{mass}]^3\,.
+  \quad\checkmark
+\]
+
+For $\det M$ with $\Nf = \Nc + 1$:
+\[
+  \frac{[\det M]}{[\Lambda^{2\Nc-1}]}
+  = \frac{[\mathrm{mass}]^{2\Nf}}{[\mathrm{mass}]^{2\Nc-1}}
+  = \frac{[\mathrm{mass}]^{2(\Nc+1)}}{[\mathrm{mass}]^{2\Nc-1}}
+  = [\mathrm{mass}]^{2\Nc + 2 - 2\Nc + 1}
+  = [\mathrm{mass}]^3\,.
+  \quad\checkmark
+\]
+
+Both terms have the correct dimension.
+
+\bigskip
+
+\textbf{(d)} Anomaly check for $\SU{4}_L^3$ with $\Nc = 3$,
+$\Nf = 4$.
+
+\textit{Electric (fundamental) theory:}
+\[
+  Q \text{ in } \fund \text{ of } \SU{4}_L\,,\quad 3 \text{ colours:}\quad
+  \mathcal{A}^{\mathrm{el}} = 3 \times A(\fund) = 3 \times 1 = 3\,.
+\]
+
+\textit{Confined theory:}
+\begin{itemize}
+  \item $M^i{}_j$: transforms as $\fund$ under $\SU{4}_L$, with $4$
+    copies (from $\SU{4}_R$ antifund index):
+    $4 \times A(\fund) = 4 \times 1 = 4$.
+  \item $B_i$: transforms as $\antifund$ of $\SU{4}_L$ (the $3$-index
+    antisymmetric product of $\fund$ of $\SU{4}$ is $\antifund$ of
+    $\SU{4}$, since $\binom{4}{3} = 4$ and it transforms as the dual):
+    $1 \times A(\antifund) = 1 \times (-1) = -1$.
+  \item $\widetilde{B}^j$: singlet under $\SU{4}_L$, no contribution.
+\end{itemize}
+\[
+  \mathcal{A}^{\mathrm{conf}} = 4 + (-1) + 0 = 3\,.
+\]
+
+\[
+  \boxed{\mathcal{A}^{\mathrm{el}} = 3
+  = \mathcal{A}^{\mathrm{conf}}}\,.
+  \quad\checkmark
+\]
+
+\begin{remark}[The s-confinement programme]
+  The result $\SU{\Nc}$ with $\Nf = \Nc + 1$ is the simplest case of
+  \emph{s-confinement} (confinement without chiral symmetry breaking).
+  The systematic classification of all s-confining theories was carried
+  out by Csaki, Schmaltz, and Skiba~\cite{CSS1997}.  The existence of an
+  exact confining superpotential~\eqref{eq:W-sconf} is one of the most
+  striking predictions of supersymmetric dynamics.
+\end{remark}
+
+\end{proof}
+
+\bigskip
+
+\begin{center}
+\rule{0.6\textwidth}{0.4pt}
+
+\textit{End of Exercise Set 3.  These exercises provide hands-on
+practice with the core machinery of Seiberg duality: anomaly matching,
+mass deformations, $R$-charge analysis, and s-confinement.
+The tools developed here will be essential when we apply duality
+to the Standard Model in Lectures~5--7.}
+\end{center}
+
+
+%% ========================================================================
+%%  BIBLIOGRAPHY
+%% ========================================================================
+\begin{thebibliography}{99}
+
+\bibitem{Seiberg1995}
+  N.~Seiberg,
+  ``Electric--magnetic duality in supersymmetric non-Abelian gauge
+  theories,''
+  \textit{Nucl.~Phys.} \textbf{B435} (1995) 129
+  [\texttt{hep-th/9411149}].
+
+\bibitem{IS1995}
+  K.~Intriligator and N.~Seiberg,
+  ``Lectures on supersymmetric gauge theories and electric-magnetic
+  duality,''
+  \textit{Nucl.~Phys.~Proc.~Suppl.} \textbf{45BC} (1996) 1
+  [\texttt{hep-th/9509066}].
+
+\bibitem{CSS1997}
+  C.~Cs\'aki, M.~Schmaltz, and W.~Skiba,
+  ``A systematic approach to confinement in $\mathcal{N}=1$
+  supersymmetric gauge theories,''
+  \textit{Phys.~Rev.~Lett.} \textbf{78} (1997) 799
+  [\texttt{hep-th/9610139}].
+
+\bibitem{Sannino2024}
+  F.~Sannino \textit{et al.},
+  ``The Dualised Standard Model,''
+  [\texttt{arXiv:2407.17281}].
+
+\end{thebibliography}
+
+\end{document}
