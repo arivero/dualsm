@@ -1,0 +1,1049 @@
+% ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
+%
+% Lecture 2: Minimal N=1 SUSY Introduction
+% Part of: The Dualised Standard Model -- Part III Lecture Notes
+%
+% SUSY-specific conventions (Wess-Bagger):
+%   Weyl spinors: dotted/undotted, alpha = 1,2
+%   Superspace metric: epsilon^{12} = +1, epsilon_{12} = -1
+%   Superpotential dimension: [W] = [mass]^3
+%   R-charge: R[Q] = (N_f - N_c)/N_f, R[W] = 2
+%   N_f counting: Dirac flavour pairs (Q_i, Q-tilde_i)
+%
+\documentclass[11pt,a4paper]{article}
+\input{preamble}
+
+\title{\textbf{Lecture 2: Minimal $\mathcal{N}=1$ Supersymmetry}}
+\author{The Dualised Standard Model --- Part III Lecture Notes}
+\date{Lent Term 2027}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%%  CONVENTIONS
+%% ========================================================================
+
+\begin{conventionbox}[title={Conventions for Lecture 2}]
+All conventions from Lecture~1 remain in force.  Additional conventions
+for supersymmetry (following Wess--Bagger \cite{WessBagger} and
+Seiberg~\cite{Seiberg1995}):
+
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l l l@{}}
+\toprule
+\textbf{Quantity} & \textbf{Convention} & \textbf{Comment} \\
+\midrule
+Units & $\hbar = c = 1$ (natural) & \\
+Metric & $\eta_{\mu\nu} = \mathrm{diag}(+1,-1,-1,-1)$ & mostly minus \\
+Dynkin index & $\Tr(T^a T^b) = \Tfund\, \delta^{ab}$ & fundamental of $\SU{\Nc}$ \\
+Covariant derivative & $\Dmu = \partial_\mu - i\gs A_\mu^a T^a$ & \\
+Weyl spinors & $\alpha = 1,2$ (undotted); $\dot\alpha = 1,2$ (dotted) & two-component \\
+Superspace metric & $\epsilon^{12} = +1$, $\epsilon_{12} = -1$ & raises/lowers spinor indices \\
+$\sigma$-matrices & $\sigma^\mu = (\mathbf{1}, \vec{\sigma})$,
+  $\bar\sigma^\mu = (\mathbf{1}, -\vec{\sigma})$ & $\sigma^0 = \bar\sigma^0 = \mathbf{1}_{2\times 2}$ \\
+Grassmann coordinates & $\theta^\alpha$, $\bar\theta_{\dot\alpha}$ & $[\theta] = [\text{mass}]^{-1/2}$ \\
+Superpotential & $[\Wsup] = [\text{mass}]^3$ & holomorphic in chiral superfields \\
+$\Nf$ counting & $\Nf$ = Dirac pairs & each pair $= (Q_i, \widetilde{Q}_i) = 2$ Weyl \\
+$R$-charge & $\Rcharge{Q} = (\Nf - \Nc)/\Nf$ & derived from anomaly cancellation \\
+\bottomrule
+\end{tabular}
+\end{conventionbox}
+
+
+%% ========================================================================
+%%  SECTION 1: Motivation
+%% ========================================================================
+\section{Why supersymmetry?}
+\label{sec:motivation}
+
+Supersymmetry (SUSY) has not been observed in nature---no superpartner of
+any known particle has been found.  Why, then, devote a lecture to it?
+The answer is \emph{not} phenomenological but \emph{theoretical}: SUSY
+provides a set of exact analytical tools that are unavailable in
+non-supersymmetric gauge theories.  In particular:
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Holomorphy and non-renormalisation.}  The superpotential,
+    which controls the interactions of a SUSY theory, is a holomorphic
+    function of the fields.  It receives \emph{no} perturbative quantum
+    corrections to \emph{all orders} in perturbation theory.  This
+    drastically constrains the dynamics.
+  \item \textbf{Exact beta functions.}  The NSVZ exact beta function
+    relates the running of the gauge coupling to the anomalous dimensions
+    of matter fields.  At a conformal fixed point, this gives exact
+    results for scaling dimensions.
+  \item \textbf{Electric--magnetic duality.}  SUSY is the \emph{only}
+    known framework in which electric--magnetic duality between strongly-
+    and weakly-coupled gauge theories can be \emph{proved}---that is,
+    verified by exact anomaly matching, moduli space matching, and
+    consistency under deformations.  This is Seiberg duality
+    \cite{Seiberg1995}, the centrepiece of Lecture~3.
+\end{enumerate}
+
+\begin{remark}[Strategy for the course]
+  The logic of this course is: (1)~introduce the minimal SUSY formalism
+  (this lecture); (2)~\emph{prove} Seiberg duality in the supersymmetric
+  setting (Lecture~3); (3)~understand its microscopic origin from $\mathcal{N}=2$
+  theory (Lecture~4); (4)~extend the duality, with appropriate caveats,
+  to the non-supersymmetric Standard Model (Lectures~5--8).
+  Understanding SUSY duality is a \emph{prerequisite} for the conjectural
+  non-SUSY extension that is the main goal of the course.
+\end{remark}
+
+
+%% ========================================================================
+%%  SECTION 2: The SUSY Algebra
+%% ========================================================================
+\section{The $\mathcal{N}=1$ supersymmetry algebra}
+\label{sec:susy-algebra}
+
+\begin{definition}[Supersymmetry]
+\label{def:susy}
+A \textbf{supersymmetry} is a symmetry whose generators $Q_\alpha$
+carry spin~$1/2$.  Unlike the bosonic generators of the Poincar\'e group
+(translations $P_\mu$, Lorentz transformations $M_{\mu\nu}$), the
+supercharges $Q_\alpha$ are \emph{fermionic}: they anticommute rather
+than commute, and they transform bosons into fermions and vice versa.
+\end{definition}
+
+In four spacetime dimensions, the minimal ($\mathcal{N}=1$) supercharges
+form a two-component Weyl spinor $Q_\alpha$ (with $\alpha = 1,2$) and
+its conjugate $\bar{Q}_{\dot\alpha}$ (with $\dot\alpha = 1,2$).  Here
+$\alpha$ is an \emph{undotted} spinor index transforming under
+$\SU{2}_L$, and $\dot\alpha$ is a \emph{dotted} index transforming under
+$\SU{2}_R$, where $\SU{2}_L \times \SU{2}_R$ is the double cover of the
+Lorentz group $\mathrm{SO}(3,1)$.
+
+\begin{definition}[Sigma matrices]
+\label{def:sigma}
+The \textbf{sigma matrices} $\sigma^\mu_{\alpha\dot\alpha}$ and
+$\bar\sigma^{\mu\,\dot\alpha\alpha}$ connect spinor and vector
+indices.  Explicitly:
+\begin{equation}
+  \sigma^\mu = (\mathbf{1}, \sigma^1, \sigma^2, \sigma^3), \qquad
+  \bar\sigma^\mu = (\mathbf{1}, -\sigma^1, -\sigma^2, -\sigma^3),
+  \label{eq:sigma-def}
+\end{equation}
+where $\sigma^i$ are the standard Pauli matrices.  These satisfy
+$\sigma^\mu \bar\sigma^\nu + \sigma^\nu \bar\sigma^\mu
+= 2\eta^{\mu\nu}\mathbf{1}$.
+\end{definition}
+
+The $\mathcal{N}=1$ SUSY algebra extends the Poincar\'e algebra by the
+anticommutation relations:
+\begin{equation}
+  \boxed{
+    \{Q_\alpha,\, \bar{Q}_{\dot\alpha}\}
+    = 2\,\sigma^\mu_{\alpha\dot\alpha}\, P_\mu\,,
+  }
+  \label{eq:susy-algebra}
+\end{equation}
+together with
+\begin{equation}
+  \{Q_\alpha, Q_\beta\} = 0, \qquad
+  \{\bar{Q}_{\dot\alpha}, \bar{Q}_{\dot\beta}\} = 0, \qquad
+  [Q_\alpha, P_\mu] = 0.
+  \label{eq:susy-algebra-rest}
+\end{equation}
+
+\begin{remark}[Key consequences]
+\label{rem:susy-consequences}
+Three immediate consequences of eq.~\eqref{eq:susy-algebra}:
+\begin{enumerate}[label=(\alph*)]
+  \item Since $Q_\alpha$ carries spin~$1/2$, each SUSY multiplet
+    contains particles differing by $\Delta s = 1/2$.  SUSY relates
+    bosons and fermions within the same multiplet.
+  \item Every SUSY multiplet has \textbf{equal numbers of bosonic and
+    fermionic degrees of freedom}.  This follows from
+    $\Tr[(-1)^F] = 0$ in any representation of the algebra,
+    where $F$ is the fermion number.
+  \item The Hamiltonian is $H = P^0 = \tfrac{1}{4}(Q_1 \bar{Q}_{\dot 1}
+    + \bar{Q}_{\dot 1} Q_1 + Q_2 \bar{Q}_{\dot 2}
+    + \bar{Q}_{\dot 2} Q_2)$, which is a sum of squares.  Hence
+    $\langle H \rangle \geq 0$ in any state, and a supersymmetric
+    vacuum has $\langle H \rangle = 0$.
+\end{enumerate}
+\end{remark}
+
+
+%% ========================================================================
+%%  SECTION 3: Chiral Superfields
+%% ========================================================================
+\section{Chiral superfields}
+\label{sec:chiral}
+
+To construct SUSY-invariant Lagrangians efficiently, we use the
+\emph{superfield} formalism, which packages the components of a SUSY
+multiplet into a single object living in \emph{superspace}.
+
+\begin{definition}[Superspace]
+\label{def:superspace}
+\textbf{Superspace} extends ordinary spacetime $x^\mu$ by adjoining
+anticommuting (Grassmann) coordinates:
+\begin{equation}
+  (x^\mu,\; \theta^\alpha,\; \bar\theta_{\dot\alpha}),
+  \label{eq:superspace-coords}
+\end{equation}
+where $\theta^\alpha$ and $\bar\theta_{\dot\alpha}$ are two-component
+Grassmann spinors satisfying $\{\theta^\alpha, \theta^\beta\} = 0$ and
+$\{\bar\theta_{\dot\alpha}, \bar\theta_{\dot\beta}\} = 0$.  Since each
+$\theta^\alpha$ squares to zero, any function of $\theta$ has a
+\emph{finite} Taylor expansion terminating at $\theta^2 \equiv
+\theta^\alpha \theta_\alpha$.
+\end{definition}
+
+\begin{definition}[Grassmann integration]
+\label{def:grassmann-int}
+Integration over Grassmann variables is defined by the Berezin rules:
+\begin{equation}
+  \int d\theta\; 1 = 0, \qquad \int d\theta\; \theta = 1.
+  \label{eq:berezin}
+\end{equation}
+The key consequence is that $\int d^2\theta\; f(\theta)$ \textbf{extracts
+the $\theta^2$ component} of $f$.  Similarly,
+$\int d^2\bar\theta$ extracts the $\bar\theta^2$ component, and
+$\int d^4\theta \equiv \int d^2\theta\, d^2\bar\theta$ extracts the
+$\theta^2\bar\theta^2$ component.
+\end{definition}
+
+\begin{definition}[Chiral superfield]
+\label{def:chiral-superfield}
+A \textbf{chiral superfield} $\Phi$ is a superfield satisfying the
+constraint $\bar{D}_{\dot\alpha} \Phi = 0$, where $\bar{D}_{\dot\alpha}$
+is the supercovariant derivative.  This constraint is solved by writing
+$\Phi$ as a function of the \emph{chiral coordinate}
+$y^\mu = x^\mu + i\theta\sigma^\mu\bar\theta$:
+\begin{equation}
+  \boxed{
+    \Phi(y, \theta)
+    = \phi(y) + \sqrt{2}\,\theta\,\psi(y) + \theta^2\, F(y)\,,
+  }
+  \label{eq:chiral-expansion}
+\end{equation}
+where:
+\begin{itemize}
+  \item $\phi(x)$ is a \textbf{complex scalar field};
+  \item $\psi_\alpha(x)$ is a \textbf{Weyl fermion} (a two-component
+    spinor);
+  \item $F(x)$ is a complex \textbf{auxiliary field} (no kinetic term,
+    eliminated by its equation of motion).
+\end{itemize}
+\end{definition}
+
+\begin{remark}[Degree-of-freedom counting]
+\label{rem:chiral-dof}
+Off-shell, a chiral multiplet has:
+\begin{itemize}
+  \item \textbf{Bosonic:} $\phi$ (complex scalar) $= 2$ real DOF, plus
+    $F$ (complex auxiliary) $= 2$ real DOF $\to$ \textbf{4 bosonic}.
+  \item \textbf{Fermionic:} $\psi_\alpha$ (complex Weyl spinor) $= 4$ real
+    DOF off-shell $\to$ \textbf{4 fermionic}.
+\end{itemize}
+On-shell, the equation of motion sets $F = -(\partial \Wsup / \partial \phi)^*$,
+eliminating 2 bosonic DOF and the Dirac equation reduces $\psi$ to 2 DOF,
+giving \textbf{2~bosonic $=$ 2~fermionic} on-shell, as required by SUSY.
+\end{remark}
+
+\begin{definition}[Mass dimensions in superspace]
+\label{def:superspace-dims}
+Since $\{Q, \bar{Q}\} \sim P_\mu$ and $[P_\mu] = [\text{mass}]$,
+while $Q$ acts on $\theta$ by translation, we have
+$[\theta] = [\text{mass}]^{-1/2}$.  From the expansion
+\eqref{eq:chiral-expansion}:
+\begin{equation}
+  [\Phi] = [\phi] = [\text{mass}], \qquad
+  [\psi] = [\text{mass}]^{3/2}, \qquad
+  [F] = [\text{mass}]^2.
+  \label{eq:chiral-dims}
+\end{equation}
+Also, $[d^2\theta] = [\text{mass}]$ (since $[d\theta] = [\theta]^{-1}
+= [\text{mass}]^{1/2}$) and $[d^4\theta] = [\text{mass}]^2$.
+\end{definition}
+
+
+\subsection{The superpotential}
+\label{sec:superpotential}
+
+\begin{definition}[Superpotential]
+\label{def:superpotential}
+The \textbf{superpotential} $\Wsup(\Phi)$ is a \textbf{holomorphic}
+function of chiral superfields---that is, it depends on $\Phi_i$ but
+\emph{not} on $\Phi_i^\dagger$.  In a renormalisable theory,
+\begin{equation}
+  \Wsup(\Phi) = \frac{1}{2}\, m_{ij}\, \Phi_i \Phi_j
+  + \frac{1}{3}\, y_{ijk}\, \Phi_i \Phi_j \Phi_k\,,
+  \label{eq:superpotential-general}
+\end{equation}
+where $m_{ij}$ and $y_{ijk}$ are symmetric couplings.  Since $[\Phi] =
+[\text{mass}]$ and $[d^2\theta] = [\text{mass}]$, the Lagrangian term
+$\int d^2\theta\, \Wsup$ has $[\Wsup] = [\text{mass}]^3$ and the
+full term has dimension~4 as required.
+\end{definition}
+
+The superpotential contribution to the Lagrangian is:
+\begin{equation}
+  \mathcal{L}_\Wsup
+  = \int d^2\theta\; \Wsup(\Phi) + \text{h.c.}
+  = F_i\, \frac{\partial \Wsup}{\partial \phi_i}
+  - \frac{1}{2}\, \frac{\partial^2 \Wsup}{\partial \phi_i \partial \phi_j}\,
+  \psi_i \psi_j + \text{h.c.}
+  \label{eq:Lsuperpotential}
+\end{equation}
+The first term is the coupling of the auxiliary field $F_i$ to the
+derivative of $\Wsup$, and the second generates Yukawa interactions
+and fermion masses from $\Wsup$.
+
+\begin{definition}[K\"ahler potential]
+\label{def:kahler}
+The \textbf{K\"ahler potential} $K(\Phi^\dagger, \Phi)$ is a real
+function of chiral superfields and their conjugates.  It determines the
+kinetic terms for the matter fields via:
+\begin{equation}
+  \mathcal{L}_K = \int d^4\theta\; K(\Phi^\dagger, \Phi).
+  \label{eq:kahler-lagrangian}
+\end{equation}
+For a renormalisable theory, the canonical choice is
+$K = \Phi_i^\dagger \Phi_i$, which yields the standard kinetic terms
+$\partial_\mu \phi_i^* \partial^\mu \phi_i + i\bar\psi_i \bar\sigma^\mu
+\partial_\mu \psi_i + F_i^* F_i$.
+\end{definition}
+
+
+%% ========================================================================
+%%  SECTION 4: Vector Superfields and Gauge Theories
+%% ========================================================================
+\section{Vector superfields and gauge theories}
+\label{sec:vector}
+
+To describe gauge fields in the superspace formalism, we need a second
+type of superfield.
+
+\begin{definition}[Vector superfield]
+\label{def:vector-superfield}
+A \textbf{vector superfield} $V$ is a superfield satisfying the reality
+condition $V = V^\dagger$.  Under a gauge transformation with chiral
+parameter $\Lambda$, the vector superfield transforms as
+$e^{2gV} \to e^{-2ig\Lambda^\dagger} e^{2gV} e^{2ig\Lambda}$.
+Most of the components of $V$ can be gauged away.
+\end{definition}
+
+\begin{definition}[Wess--Zumino gauge]
+\label{def:wz-gauge}
+The \textbf{Wess--Zumino (WZ) gauge} is a gauge choice that eliminates
+the redundant components of $V$, leaving:
+\begin{equation}
+  \boxed{
+    V_{\mathrm{WZ}} = -\theta \sigma^\mu \bar\theta\, A_\mu
+    + i\,\theta^2\, \bar\theta \bar\lambda
+    - i\,\bar\theta^2\, \theta \lambda
+    + \tfrac{1}{2}\,\theta^2 \bar\theta^2\, D\,,
+  }
+  \label{eq:vector-WZ}
+\end{equation}
+where the component fields are:
+\begin{itemize}
+  \item $A_\mu(x)$: the \textbf{gauge boson} (spin-1);
+  \item $\lambda_\alpha(x)$: the \textbf{gaugino}, a Weyl fermion in
+    the \textbf{adjoint} representation of the gauge group;
+  \item $D(x)$: a real \textbf{auxiliary field} (no kinetic term).
+\end{itemize}
+\end{definition}
+
+\begin{remark}[Degree-of-freedom counting for vector multiplet]
+\label{rem:vector-dof}
+Off-shell, a vector multiplet in WZ gauge has:
+\begin{itemize}
+  \item \textbf{Bosonic:} $A_\mu$ has 3~polarisations (4 components minus
+    1 residual gauge DOF in WZ gauge), plus $D$ (1 real auxiliary)
+    $\to$ \textbf{4 bosonic}.
+  \item \textbf{Fermionic:} $\lambda_\alpha$ (complex Weyl fermion)
+    $= 4$ real DOF off-shell $\to$ \textbf{4 fermionic}.
+\end{itemize}
+On-shell, eliminating $D$ and imposing the equations of motion gives
+\textbf{2~bosonic} (transverse polarisations) \textbf{$=$ 2~fermionic}
+(on-shell gaugino).  The matching $2_B = 2_F$ per multiplet holds in
+both the chiral and vector cases.
+\end{remark}
+
+
+\subsection{The field-strength superfield}
+\label{sec:field-strength}
+
+\begin{definition}[Field-strength superfield]
+\label{def:Walpha}
+The \textbf{field-strength superfield} $W_\alpha$ is defined by
+\begin{equation}
+  W_\alpha = -\frac{1}{4}\, \bar{D}^2 D_\alpha V\,,
+  \label{eq:Walpha-def}
+\end{equation}
+where $D_\alpha$ and $\bar{D}_{\dot\alpha}$ are the supercovariant
+derivatives.  Crucially, $W_\alpha$ is itself a \textbf{chiral} superfield
+($\bar{D}_{\dot\beta} W_\alpha = 0$), even though it is built from the
+real superfield $V$.  Its lowest components are:
+\begin{equation}
+  W_\alpha = -i\lambda_\alpha + \theta_\alpha\, D
+  - \frac{i}{2}(\sigma^\mu \bar\sigma^\nu)_\alpha{}^\beta\, \theta_\beta\, F_{\mu\nu}
+  + \theta^2\, \sigma^\mu_{\alpha\dot\alpha}\, \partial_\mu \bar\lambda^{\dot\alpha}.
+  \label{eq:Walpha-components}
+\end{equation}
+\end{definition}
+
+The gauge kinetic Lagrangian is then:
+\begin{equation}
+  \mathcal{L}_{\text{gauge}}
+  = \frac{1}{4g^2} \int d^2\theta\; \Tr\!\bigl(W^\alpha W_\alpha\bigr) + \text{h.c.}
+  = \Tr\!\Bigl[
+    -\frac{1}{4g^2}\, F_{\mu\nu} F^{\mu\nu}
+    + \frac{i}{g^2}\, \bar\lambda \bar\sigma^\mu D_\mu \lambda
+    + \frac{1}{2g^2}\, D^2
+  \Bigr].
+  \label{eq:L-gauge}
+\end{equation}
+The trace is over gauge indices.  This contains the standard Yang--Mills
+kinetic term, the gaugino kinetic term, and the auxiliary $D$-field.
+
+\subsection{Coupling matter to gauge fields}
+\label{sec:gauge-matter}
+
+A chiral superfield $\Phi$ in representation $R$ of the gauge group
+couples to the vector superfield via the K\"ahler potential:
+\begin{equation}
+  K = \Phi^\dagger\, e^{2gV}\, \Phi\,,
+  \label{eq:kahler-gauge}
+\end{equation}
+where $V = V^a T^a_R$ with $T^a_R$ the generators in representation $R$.
+Expanding in WZ gauge, this produces the gauge-covariant kinetic terms
+for $\phi$ and $\psi$, the gauge interactions, and a coupling of $D$
+to the scalar fields:
+\begin{equation}
+  \int d^4\theta\; \Phi^\dagger e^{2gV} \Phi
+  \;\supset\;
+  (D_\mu \phi)^* (D^\mu \phi) + i\bar\psi \bar\sigma^\mu D_\mu \psi
+  + |F|^2 + g\, \phi^* D^a T^a \phi
+  + \sqrt{2}\, g\, (\phi^* \lambda^a T^a \psi + \text{h.c.})\,,
+  \label{eq:kahler-gauge-components}
+\end{equation}
+where $D_\mu = \partial_\mu - ig A_\mu^a T^a$ is the gauge-covariant
+derivative with our convention.
+
+
+%% ========================================================================
+%%  SECTION 5: The N=1 Lagrangian and Scalar Potential
+%% ========================================================================
+\section{The $\mathcal{N}=1$ Lagrangian and scalar potential}
+\label{sec:lagrangian}
+
+Combining the ingredients from
+\S\S\ref{sec:chiral}--\ref{sec:vector}, the general $\mathcal{N}=1$
+gauge theory Lagrangian is:
+\begin{equation}
+  \boxed{
+    \mathcal{L} = \int d^4\theta\;
+    \Phi_i^\dagger\, e^{2gV}\, \Phi_i
+    + \left[\int d^2\theta\;\Bigl(
+      \Wsup(\Phi) + \frac{\tau}{16\pi i}\,
+      \Tr(W^\alpha W_\alpha)
+    \Bigr) + \text{h.c.}\right],
+  }
+  \label{eq:N1-lagrangian}
+\end{equation}
+where $\tau = \theta_{\text{YM}}/(2\pi) + 4\pi i / g^2$ is the
+\emph{complexified gauge coupling}.  For a renormalisable theory, the
+K\"ahler potential is canonical: $K = \Phi_i^\dagger e^{2gV} \Phi_i$.
+
+\subsection{Eliminating auxiliary fields}
+\label{sec:aux-elim}
+
+The auxiliary fields $F_i$ and $D^a$ have no kinetic terms and are
+eliminated by their algebraic equations of motion:
+\begin{align}
+  F_i^* &= -\frac{\partial \Wsup}{\partial \phi_i}\,,
+  \label{eq:F-eom} \\
+  D^a &= -g\, \sum_i \phi_i^* T^a \phi_i\,.
+  \label{eq:D-eom}
+\end{align}
+
+Substituting back into the Lagrangian yields the \textbf{scalar
+potential}:
+
+\begin{definition}[Scalar potential]
+\label{def:scalar-potential}
+The $\mathcal{N}=1$ scalar potential is
+\begin{equation}
+  \boxed{
+    V = V_F + V_D\,,
+  }
+  \label{eq:V-total}
+\end{equation}
+where the \textbf{$F$-term potential} is
+\begin{equation}
+  \boxed{
+    V_F = \sum_i \left|\frac{\partial \Wsup}{\partial \phi_i}\right|^2,
+  }
+  \label{eq:VF}
+\end{equation}
+and the \textbf{$D$-term potential} is
+\begin{equation}
+  \boxed{
+    V_D = \frac{1}{2}\sum_a
+    \Bigl(g\, \sum_i \phi_i^* T^a \phi_i\Bigr)^2.
+  }
+  \label{eq:VD}
+\end{equation}
+\end{definition}
+
+\begin{warningbox}[title={$V \geq 0$: a special feature of SUSY}]
+Both $V_F$ and $V_D$ are manifestly \textbf{non-negative}
+($V_F$ is a sum of absolute squares, and $V_D$ is a sum of real squares).
+Therefore the total scalar potential satisfies $V \geq 0$.
+
+A \textbf{supersymmetric vacuum} has $V = 0$, which requires
+\emph{both} $F_i = 0$ for all $i$ \emph{and} $D^a = 0$ for all $a$.
+If such a vacuum exists, it is automatically a global minimum of the
+potential---there is no tunnelling to a lower-energy state.  SUSY is
+unbroken if and only if $V = 0$ can be achieved.
+\end{warningbox}
+
+
+%% ========================================================================
+%%  SECTION 6: Non-Renormalisation Theorem
+%% ========================================================================
+\section{The non-renormalisation theorem}
+\label{sec:nonrenorm}
+
+The most powerful consequence of the holomorphy of the superpotential is:
+
+\begin{theorem}[Non-renormalisation \textnormal{(Seiberg~\cite{Seiberg1993})}]
+\label{thm:nonrenorm}
+The superpotential $\Wsup(\Phi)$ receives \textbf{no perturbative
+quantum corrections}---to all orders in perturbation theory.  That is,
+the tree-level superpotential is exact perturbatively.
+Non-perturbative corrections (instantons) \emph{can} modify $\Wsup$,
+but they are exponentially suppressed as $e^{-8\pi^2/g^2}$.
+\end{theorem}
+
+\begin{remark}[Seiberg's spurion argument]
+\label{rem:seiberg-argument}
+Seiberg's elegant proof \cite{Seiberg1993} proceeds as follows.
+Promote all couplings in $\Wsup$ to background chiral superfields.
+For example, in $\Wsup = m \Phi^2 + \lambda \Phi^3$, treat $m$ and
+$\lambda$ as chiral superfields with specific $R$-charge and global
+symmetry assignments.  Then:
+\begin{enumerate}[label=(\roman*)]
+  \item The quantum-corrected superpotential $\Wsup_{\text{eff}}$ must be a
+    \textbf{holomorphic} function of the background superfields
+    (by supersymmetry);
+  \item it must respect all global symmetries and $R$-symmetry;
+  \item it must reduce to $\Wsup_{\text{tree}}$ in the weak-coupling
+    limit $\lambda \to 0$.
+\end{enumerate}
+These three constraints---holomorphy, symmetry, and the weak-coupling
+limit---\emph{uniquely fix} $\Wsup_{\text{eff}} = \Wsup_{\text{tree}}$.
+No perturbative correction is consistent with all three requirements
+simultaneously.  Non-perturbative corrections (involving $e^{-8\pi^2/g^2}$,
+which is non-holomorphic in the coupling) can and do arise, but they
+vanish in perturbation theory.
+\end{remark}
+
+\begin{remark}[What is \emph{not} protected]
+The K\"ahler potential $K(\Phi^\dagger, \Phi)$ \emph{is} renormalised
+and receives corrections at every loop order.  The kinetic terms and
+wave-function renormalisations are \emph{not} protected by holomorphy.
+This is why anomalous dimensions $\gamma_i$ are nontrivial even in
+SUSY theories.
+\end{remark}
+
+
+\subsection{The NSVZ exact beta function}
+\label{sec:NSVZ}
+
+The combination of the non-renormalisation theorem for $\Wsup$ and the
+fact that the gauge kinetic function $\tau(g)$ is holomorphic leads to
+the \textbf{Novikov--Shifman--Vainshtein--Zakharov (NSVZ)} exact beta
+function \cite{NSVZ1983,NSVZ1986}:
+\begin{equation}
+  \boxed{
+    \beta(g) = -\frac{g^3}{16\pi^2}\,
+    \frac{3\,T(G) - \sum_i T(R_i)\,(1 - \gamma_i)}
+         {1 - T(G)\, g^2/(8\pi^2)}\,,
+  }
+  \label{eq:NSVZ}
+\end{equation}
+where $T(G)$ is the Dynkin index of the adjoint representation
+($T(G) = \Nc$ for $\SU{\Nc}$), $T(R_i)$ is the Dynkin index
+of the matter representation $R_i$, and $\gamma_i$ is the anomalous
+dimension of the $i$-th matter field.
+
+\begin{remark}[One-loop verification]
+\label{rem:NSVZ-oneloop}
+At one loop, $\gamma_i = 0$ and the denominator $\to 1$.
+For $\SU{\Nc}$ with $\Nf$ chiral superfield pairs
+$(Q_i, \widetilde{Q}_i)$, each in the fundamental (with
+$T(\fund) = \Tfund$), the numerator gives:
+\begin{equation}
+  3\,T(G) - \sum_i T(R_i) = 3\Nc - 2\Nf \times \Tfund = 3\Nc - \Nf\,.
+  \label{eq:NSVZ-oneloop-num}
+\end{equation}
+The factor of $2\Nf$ arises because each Dirac flavour pair contributes
+two chiral superfields ($Q$ and $\widetilde{Q}$), each with
+$T(\fund) = 1/2$.  Therefore the one-loop SUSY beta function coefficient
+is:
+\begin{equation}
+  b_0^{\SQCD} = 3\Nc - \Nf\,.
+  \label{eq:b0-sqcd}
+\end{equation}
+\textit{Consistency check with Lecture~1:}
+For a non-SUSY gauge theory, the one-loop coefficient is
+$\bzero = (11\Nc - 2\Nf)/3$.  For \SQCD{}, each gauge boson has
+a gaugino partner (contributing $-\Nc/3$ to $\bzero$) and each
+quark has a squark (contributing $+\Nf/3$), giving an additional
+$-(11\Nc/3 - 2\Nf/3) + (3\Nc - \Nf) = (11\Nc - 2\Nf)/3 - (11\Nc - 2\Nf)/3 + (3\Nc - \Nf)$\ldots.  More directly: the $\mathcal{N}=1$ vector multiplet
+contributes $T(G) \times 3 = 3\Nc$ (from gluon + gaugino), and
+each chiral multiplet $(Q_i$ or $\widetilde{Q}_i)$ contributes
+$-T(\fund) = -1/2$ (from scalar + Weyl fermion).  With $2\Nf$
+chiral multiplets: $\bzero^{\SQCD} = 3\Nc - 2\Nf \times (1/2) = 3\Nc - \Nf$.
+This matches eq.~\eqref{eq:b0-sqcd} and is consistent with the
+non-SUSY formula when the SUSY particle content is substituted.
+\end{remark}
+
+
+%% ========================================================================
+%%  SECTION 7: N=1 SQCD -- Field Content and Symmetries
+%% ========================================================================
+\section{$\mathcal{N}=1$ SQCD: field content and symmetries}
+\label{sec:sqcd}
+
+\begin{definition}[$\mathcal{N}=1$ SQCD]
+\label{def:sqcd}
+$\mathcal{N}=1$ \textbf{supersymmetric QCD (SQCD)} is the $\SU{\Nc}$
+gauge theory with $\Nf$ chiral superfields $Q^i$ ($i = 1, \ldots, \Nf$)
+in the \textbf{fundamental} representation and $\Nf$ chiral superfields
+$\widetilde{Q}_i$ in the \textbf{antifundamental} representation, with
+\textbf{zero tree-level superpotential}:
+\begin{equation}
+  \Wsup_{\text{electric}} = 0\,.
+  \label{eq:W-electric}
+\end{equation}
+Each pair $(Q^i, \widetilde{Q}_i)$ constitutes one Dirac flavour; the
+total matter content is $\Nf$ Dirac flavour pairs, consistent with
+our counting convention.
+\end{definition}
+
+The field content of $\mathcal{N}=1$ SQCD, decomposed into component
+fields, is:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l l l l@{}}
+\toprule
+\textbf{Superfield} & \textbf{Boson} & \textbf{Fermion} & \textbf{$\SU{\Nc}$ rep.} \\
+\midrule
+$V$ (vector) & $A_\mu$ (gauge boson) & $\lambda$ (gaugino) & adjoint \\
+$Q^i$ (chiral) & $\tilde{q}^i$ (squark) & $q^i$ (quark) & fundamental \\
+$\widetilde{Q}_i$ (chiral) & $\tilde{\bar{q}}_i$ (anti-squark)
+  & $\bar{q}_i$ (anti-quark) & antifundamental \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Global symmetries}
+\label{sec:global-sym}
+
+The classical global symmetry of SQCD is:
+\begin{equation}
+  G_{\text{classical}}
+  = \SU{\Nf}_L \times \SU{\Nf}_R \times \UU{1}_B \times \UU{1}_A \times \UU{1}_R\,,
+  \label{eq:global-sym-classical}
+\end{equation}
+where $\SU{\Nf}_L$ rotates the $Q^i$, $\SU{\Nf}_R$ rotates the
+$\widetilde{Q}_i$, $\UU{1}_B$ is the baryon number, $\UU{1}_A$ is the
+axial symmetry, and $\UU{1}_R$ is the $R$-symmetry (a symmetry that
+does not commute with SUSY: it rotates the superspace coordinate
+$\theta$).
+
+\begin{definition}[$R$-symmetry]
+\label{def:R-symmetry}
+An \textbf{$R$-symmetry} is a global $\UU{1}$ symmetry under which the
+Grassmann coordinate $\theta$ carries charge $+1$:
+$\theta \to e^{i\alpha} \theta$.  By the structure of the superfield
+expansion \eqref{eq:chiral-expansion}, the component fields of a
+chiral superfield $\Phi$ with $R$-charge $r$ have charges:
+\begin{equation}
+  \Rcharge{\phi} = r, \qquad
+  \Rcharge{\psi} = r - 1, \qquad
+  \Rcharge{F} = r - 2.
+  \label{eq:R-components}
+\end{equation}
+The gaugino $\lambda$, being the $\theta$-component of the vector
+superfield, has $\Rcharge{\lambda} = +1$.  The superpotential must
+carry $\Rcharge{\Wsup} = 2$, since the Lagrangian term
+$\int d^2\theta\, \Wsup$ must be $R$-neutral and $\Rcharge{\theta^2} = 2$.
+\end{definition}
+
+\begin{warningbox}[title={The axial $\UU{1}_A$ is anomalous}]
+Just as in non-supersymmetric QCD (Lecture~1, \S3), the axial symmetry
+$\UU{1}_A$ is broken by the ABJ anomaly: the triangle diagram
+$\SU{\Nc}^2\,\UU{1}_A$ is nonzero.  The anomaly-free global symmetry is
+\begin{equation}
+  G_{\text{quantum}}
+  = \SU{\Nf}_L \times \SU{\Nf}_R \times \UU{1}_B \times \UU{1}_R\,.
+  \label{eq:global-sym-quantum}
+\end{equation}
+\end{warningbox}
+
+
+\subsection{Deriving the anomaly-free $R$-charge}
+\label{sec:R-charge-derivation}
+
+The $R$-charge assignments of the matter fields are \emph{not} a free
+choice.  They are \textbf{uniquely determined} by the requirement that
+the $R$-symmetry be non-anomalous---specifically, that the mixed
+$\SU{\Nc}^2\, \UU{1}_R$ anomaly vanishes.
+
+\begin{remark}[Why uniquely determined]
+\label{rem:R-unique}
+In SQCD with $\Wsup = 0$, the only constraint on the $R$-charges is
+anomaly cancellation together with the requirement $\Rcharge{Q} =
+\Rcharge{\widetilde{Q}}$ (from the $\SU{\Nf}_L \times \SU{\Nf}_R$
+symmetry and the absence of a superpotential).  This is a single
+equation in a single unknown, so the solution is unique.
+\end{remark}
+
+The $\SU{\Nc}^2\,\UU{1}_R$ anomaly coefficient receives contributions
+from all fermions charged under $\SU{\Nc}$:
+\begin{equation}
+  \mathcal{A}\bigl[\SU{\Nc}^2\, \UU{1}_R\bigr]
+  = \sum_{\text{fermions}} T(R_f)\, R_f\,,
+  \label{eq:anomaly-coefficient}
+\end{equation}
+where $T(R_f)$ is the Dynkin index of the representation $R_f$
+and $R_f$ is the $R$-charge of the fermion.
+
+\textbf{Important:} The $R$-charge entering the anomaly formula is the
+\emph{fermion} $R$-charge, not the superfield $R$-charge.
+Eq.~\eqref{eq:R-components} gives $R_{\text{fermion}} = R_{\text{superfield}} - 1$
+for chiral multiplet fermions.  The gaugino, however, is a component
+of the vector multiplet and has $R_{\text{gaugino}} = +1$ directly.
+
+Let $r \equiv \Rcharge{Q} = \Rcharge{\widetilde{Q}}$ denote the
+\emph{superfield} $R$-charge of the quarks.  The fermion contributions
+to the anomaly are:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l c c c c@{}}
+\toprule
+\textbf{Fermion} & \textbf{Rep.} & $T(R)$ & $R_{\text{fermion}}$
+  & \textbf{Multiplicity} \\
+\midrule
+Gaugino $\lambda$ & adjoint & $\Nc$ & $+1$ & 1 \\
+Quark $\psi_Q$ & fund & $\Tfund$ & $r - 1$ & $\Nf$ \\
+Anti-quark $\psi_{\widetilde{Q}}$ & anti-fund & $\Tfund$ & $r - 1$ & $\Nf$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Setting the anomaly to zero:
+\begin{align}
+  0 &= T(\adj) \times (+1) + \Nf\, T(\fund) \times (r - 1)
+       + \Nf\, T(\fund) \times (r - 1) \nonumber \\
+    &= \Nc + 2\Nf \times \Tfund \times (r - 1) \nonumber \\
+    &= \Nc + \Nf\,(r - 1)\,.
+  \label{eq:R-anomaly-cancel}
+\end{align}
+Solving for $r$:
+\begin{equation}
+  \boxed{
+    \Rcharge{Q} = \Rcharge{\widetilde{Q}}
+    = 1 - \frac{\Nc}{\Nf}
+    = \frac{\Nf - \Nc}{\Nf}\,.
+  }
+  \label{eq:R-charge-result}
+\end{equation}
+
+\textbf{This is a derived result, not a convention.}  The value
+$\Rcharge{Q} = (\Nf - \Nc)/\Nf$ is the unique anomaly-free $R$-charge
+assignment for massless SQCD.
+
+\begin{remark}[Verification: $\Rcharge{\Wsup} = 2$]
+\label{rem:R-check}
+Although the electric theory has $\Wsup = 0$, the magnetic dual (Lecture~3)
+has a superpotential
+$\Wsup_{\text{mag}} = (1/\mu)\, M\, q\, \widetilde{q}$.  For self-consistency,
+$\Rcharge{\Wsup} = 2$ must hold.  The meson field $M^i{}_j \sim Q^i
+\widetilde{Q}_j$ has $\Rcharge{M} = 2\Rcharge{Q} = 2(\Nf - \Nc)/\Nf$.
+The magnetic quarks have $\Rcharge{q} = \Rcharge{\widetilde{q}} = \Nc/\Nf$
+(we will derive this in Lecture~3).  Then:
+\begin{equation}
+  \Rcharge{M q\widetilde{q}}
+  = \frac{2(\Nf - \Nc)}{\Nf} + \frac{2\Nc}{\Nf} = 2 = \Rcharge{\Wsup}.
+  \quad\checkmark
+  \label{eq:R-check}
+\end{equation}
+\end{remark}
+
+
+\subsection{Field content and quantum numbers}
+\label{sec:field-content-table}
+
+The full quantum numbers of the electric theory are summarised in the
+following table:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l c c c c c@{}}
+\toprule
+\textbf{Field} & $\SU{\Nc}$ & $\SU{\Nf}_L$ & $\SU{\Nf}_R$ & $\UU{1}_B$ & $\UU{1}_R$ \\
+\midrule
+$Q$ & $\fund$ & $\fund$ & $\mathbf{1}$ & $+1$ & $\dfrac{\Nf - \Nc}{\Nf}$ \\[8pt]
+$\widetilde{Q}$ & $\antifund$ & $\mathbf{1}$ & $\antifund$ & $-1$
+  & $\dfrac{\Nf - \Nc}{\Nf}$ \\[8pt]
+$\lambda$ (gaugino) & $\adj$ & $\mathbf{1}$ & $\mathbf{1}$ & $0$ & $+1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent This table, together with the analogous table for the magnetic
+theory, forms the basis for the anomaly matching verification of
+Seiberg duality in Lecture~3.
+
+
+%% ========================================================================
+%%  SECTION 8: Moduli Space of SQCD
+%% ========================================================================
+\section{Moduli space of SQCD}
+\label{sec:moduli}
+
+\begin{definition}[Moduli space]
+\label{def:moduli}
+The \textbf{moduli space} of a supersymmetric gauge theory is the space
+of inequivalent vacuum configurations satisfying $V = 0$---that is,
+the space of field values for which both $F_i = 0$ and $D^a = 0$.
+The moduli space is parameterised by the vacuum expectation values of
+the scalar fields, modulo gauge equivalence.
+\end{definition}
+
+Since $\Wsup = 0$ for SQCD, the $F$-term conditions are automatically
+satisfied.  The vacuum structure is determined entirely by the $D$-term
+conditions.
+
+\subsection{$D$-flat directions}
+\label{sec:D-flat}
+
+The $D$-term conditions for $\SU{\Nc}$ are:
+\begin{equation}
+  D^a = g\, \bigl(Q^{*\,i}\, T^a\, Q_i
+  - \widetilde{Q}_i\, T^a\, \widetilde{Q}^{*\,i}\bigr) = 0
+  \qquad \forall\; a = 1, \ldots, \Nc^2 - 1.
+  \label{eq:D-flat}
+\end{equation}
+These conditions require, in matrix notation:
+\begin{equation}
+  Q^\dagger Q - \widetilde{Q}\, \widetilde{Q}^\dagger
+  \propto \mathbf{1}_{\Nc \times \Nc}\,,
+  \label{eq:D-flat-matrix}
+\end{equation}
+where $Q$ is viewed as an $\Nc \times \Nf$ matrix and $\widetilde{Q}$
+as an $\Nf \times \Nc$ matrix.  The proportionality to the identity
+can be absorbed by $\SU{\Nc}$ gauge transformations.
+
+\subsection{Gauge-invariant coordinates}
+\label{sec:gauge-invariant}
+
+The \emph{physical} moduli space is the quotient of the $D$-flat
+directions by gauge transformations.  It is most naturally described
+in terms of gauge-invariant composite operators:
+
+\begin{definition}[Mesons and baryons]
+\label{def:mesons-baryons}
+\begin{itemize}
+  \item \textbf{Mesons:}
+    $M^i{}_j = Q^i \widetilde{Q}_j$,
+    an $\Nf \times \Nf$ matrix (colour indices contracted).
+  \item \textbf{Baryons} (for $\Nf \geq \Nc$):
+    $B^{i_1 \cdots i_{\Nc}}
+    = \epsilon^{a_1 \cdots a_{\Nc}} Q^{i_1}_{a_1} \cdots Q^{i_{\Nc}}_{a_{\Nc}}$,
+    antisymmetric in the flavour indices.
+  \item \textbf{Anti-baryons:}
+    $\widetilde{B}_{i_1 \cdots i_{\Nc}}
+    = \epsilon_{a_1 \cdots a_{\Nc}} \widetilde{Q}^{a_1}_{i_1}
+    \cdots \widetilde{Q}^{a_{\Nc}}_{i_{\Nc}}$.
+\end{itemize}
+\end{definition}
+
+\subsection{Classical constraints and moduli space dimension}
+\label{sec:moduli-dim}
+
+The mesons and baryons are not all independent.  Classically, they
+satisfy the constraint:
+\begin{equation}
+  \det M - B\, \widetilde{B} = 0
+  \qquad \text{(classical, for $\Nf \geq \Nc$)}.
+  \label{eq:classical-constraint}
+\end{equation}
+Furthermore, the meson matrix has $\mathrm{rank}(M) \leq \Nc$
+classically, since $M^i{}_j = Q^i_a \widetilde{Q}^a_j$ factors through
+colour space.
+
+The \textbf{dimension} of the classical moduli space is:
+\begin{equation}
+  \boxed{
+    \dim(\mathcal{M}_{\text{cl}})
+    = 2\Nc \Nf - (\Nc^2 - 1)\,,
+  }
+  \label{eq:moduli-dim}
+\end{equation}
+which counts the $2\Nc\Nf$ real scalar DOF in $(Q, \widetilde{Q})$
+minus the $\Nc^2 - 1$ gauge DOF removed by $\SU{\Nc}$ transformations.
+
+\begin{remark}[Consistency check]
+For $\Nf = \Nc = 2$: $\dim = 2 \times 2 \times 2 - 3 = 5$.
+The moduli space is parameterised by the $2 \times 2$ meson matrix $M$
+(4 complex $= 8$ real entries) minus the classical constraint
+$\det M = B \widetilde{B}$, which removes 2 real DOF (one complex
+constraint), plus the baryons $B$ and $\widetilde{B}$ (1 complex each
+$= 4$ real)---but then the constraint itself must be imposed.  The
+counting matches: $(4 + 1 + 1 - 1) \times 2_{\mathbb{R}} - 2_{\text{constraint}} = 8$
+real DOF, but the true gauge-invariant dimension is 5 complex $= 10$
+real... In fact, the formula \eqref{eq:moduli-dim} gives $2 \times 2
+\times 2 - 3 = 5$ \emph{complex} dimensions, or 10 real dimensions.
+This is the correct answer: 5 independent complex parameters describe
+the vacuum.
+\end{remark}
+
+\begin{previewbox}[title={Preview: Quantum Modifications (Lecture 3)}]
+The classical constraint \eqref{eq:classical-constraint} is modified by
+quantum effects:
+\begin{itemize}
+  \item For $\Nf = \Nc$: the constraint becomes
+    $\det M - B\,\widetilde{B} = \Lambda^{2\Nc}$
+    (Seiberg~\cite{Seiberg1995}).
+  \item For $\Nf < \Nc$: the Affleck--Dine--Seiberg (ADS) superpotential
+    is generated non-perturbatively, lifting the moduli space.
+  \item For $\Nf > \Nc$: \textbf{Seiberg duality} provides a dual
+    magnetic description.  The moduli space, described by mesons and
+    baryons on both sides, matches.  Verifying this matching, together
+    with the anomaly matching of all global symmetry anomaly
+    coefficients, constitutes the strongest evidence for the duality.
+\end{itemize}
+\end{previewbox}
+
+
+%% ========================================================================
+%%  SECTION 9: Summary and Preview
+%% ========================================================================
+\section{Summary and preview of Lecture 3}
+\label{sec:summary}
+
+\subsection{Key results}
+
+\begin{enumerate}
+  \item The $\mathcal{N}=1$ SUSY algebra extends the Poincar\'e algebra
+    by fermionic generators $Q_\alpha$, $\bar{Q}_{\dot\alpha}$ satisfying
+    $\{Q_\alpha, \bar{Q}_{\dot\alpha}\} = 2\sigma^\mu_{\alpha\dot\alpha}
+    P_\mu$.  Each multiplet has equal bosonic and fermionic DOF.
+
+  \item \textbf{Chiral superfields} $\Phi = \phi + \sqrt{2}\theta\psi +
+    \theta^2 F$ describe matter: one complex scalar, one Weyl fermion,
+    and one auxiliary field.
+
+  \item \textbf{Vector superfields} in WZ gauge contain a gauge boson
+    $A_\mu$, a gaugino $\lambda$, and an auxiliary $D$-field.
+
+  \item The \textbf{superpotential} $\Wsup(\Phi)$ is holomorphic and
+    receives no perturbative corrections (non-renormalisation theorem).
+
+  \item The \textbf{scalar potential} $V = V_F + V_D \geq 0$, with
+    $V_F = \sum |\partial \Wsup / \partial \phi_i|^2$ and
+    $V_D = \frac{1}{2}\sum_a (g\, \phi^* T^a \phi)^2$.
+    SUSY vacua have $V = 0$.
+
+  \item The \textbf{NSVZ beta function} gives $b_0^{\SQCD} = 3\Nc - \Nf$
+    at one loop.
+
+  \item $\mathcal{N}=1$ \textbf{SQCD} is $\SU{\Nc}$ with $\Nf$ pairs
+    $(Q, \widetilde{Q})$ and $\Wsup = 0$.  The anomaly-free
+    $R$-charge is $\Rcharge{Q} = (\Nf - \Nc)/\Nf$, \textbf{derived}
+    from $\SU{\Nc}^2\,\UU{1}_R$ anomaly cancellation.
+
+  \item The \textbf{moduli space} is parameterised by mesons
+    $M^i{}_j = Q^i \widetilde{Q}_j$ and baryons, with classical
+    dimension $2\Nc\Nf - (\Nc^2 - 1)$.
+\end{enumerate}
+
+\subsection{Preview: Lecture 3}
+
+In Lecture~3, we state Seiberg duality: for $\Nc + 2 \leq \Nf \leq
+\tfrac{3}{2}\Nc$, the \IR{} dynamics of $\SU{\Nc}$ SQCD is described by
+a \emph{magnetic} $\SU{\Nf - \Nc}$ gauge theory with $\Nf$ dual quarks
+$(q, \widetilde{q})$, a gauge-singlet meson $M$, and a superpotential
+$\Wsup_{\text{mag}} = (1/\mu)\, M\, q\, \widetilde{q}$.  We will verify
+this duality by matching all six independent 't~Hooft anomaly coefficients
+and checking consistency under mass deformations, using the tools
+developed in Lectures~1 and~2.
+
+
+%% ========================================================================
+%%  BIBLIOGRAPHY
+%% ========================================================================
+\newpage
+\begin{thebibliography}{99}
+
+\bibitem{Seiberg1995}
+  N.~Seiberg,
+  ``Electric--magnetic duality in supersymmetric non-Abelian gauge theories,''
+  Nucl.\ Phys.\ \textbf{B435}, 129 (1995)
+  [hep-th/9411149].
+
+\bibitem{Seiberg1993}
+  N.~Seiberg,
+  ``Naturalness versus supersymmetric non-renormalization theorems,''
+  Phys.\ Lett.\ \textbf{B318}, 469 (1993)
+  [hep-ph/9309335].
+
+\bibitem{WessBagger}
+  J.~Wess and J.~Bagger,
+  \textit{Supersymmetry and Supergravity},
+  2nd ed.\ (Princeton University Press, 1992).
+
+\bibitem{IntriligatorSeiberg1995}
+  K.~Intriligator and N.~Seiberg,
+  ``Lectures on Supersymmetric Gauge Theories and Electric--Magnetic
+  Duality,''
+  Nucl.\ Phys.\ Proc.\ Suppl.\ \textbf{45BC}, 1 (1996)
+  [hep-th/9509066].
+
+\bibitem{NSVZ1983}
+  V.~A.~Novikov, M.~A.~Shifman, A.~I.~Vainshtein, and V.~I.~Zakharov,
+  ``Exact Gell-Mann--Low Function of Supersymmetric Yang--Mills Theories
+  from Instanton Calculus,''
+  Nucl.\ Phys.\ \textbf{B229}, 381 (1983).
+
+\bibitem{NSVZ1986}
+  V.~A.~Novikov, M.~A.~Shifman, A.~I.~Vainshtein, and V.~I.~Zakharov,
+  ``Beta Function in Supersymmetric Gauge Theories: Instantons versus
+  Traditional Approach,''
+  Phys.\ Lett.\ \textbf{B166}, 329 (1986).
+
+\bibitem{Sannino2024}
+  G.~Cacciapaglia and F.~Sannino,
+  ``The Standard Model as a Dual Gauge Theory,''
+  arXiv:2407.17281 [hep-ph] (2024).
+
+\bibitem{PeskinTASI1996}
+  M.~E.~Peskin,
+  ``Duality in Supersymmetric Yang--Mills Theory,''
+  TASI 1996 lectures,
+  hep-th/9702094.
+
+\bibitem{Terning2002}
+  J.~Terning,
+  ``TASI-2002 Lectures: Non-perturbative Supersymmetry,''
+  hep-th/0306119 (2003).
+
+\end{thebibliography}
+
+\end{document}
