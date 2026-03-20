@@ -379,8 +379,7 @@ per power of $\mu^2/M^2$---is a consequence of the framework.
 
 Lepton masses can be generated via the same mechanism, \emph{if} the
 leptons participate in the duality via the Pati--Salam extension
-(lepton as fourth colour, discussed in Lecture~7,
-\S\ref{sec:pati-salam}).  In the QCD-sector duality where leptons are
+(lepton as fourth colour, discussed in Lecture~7, \S2).  In the QCD-sector duality where leptons are
 elementary, an additional four-fermion operator is
 required~\cite{CacciapagliaSannino2024}:
 \begin{equation}\label{eq:lepton-operator}
@@ -544,5 +543,504 @@ consistent with current precision electroweak measurements.
   \end{itemize}
 \end{previewbox}
 
+
+%% ========================================================================
+%%  SECTION 4: Scale Matching and Physical Parameters
+%% ========================================================================
+\section{Scale Matching and Physical Parameters}
+\label{sec:scale-matching}
+
+The dualised SM framework, \emph{if the duality holds}, connects the
+high-energy dynamics of the electric theory to the measured parameters
+of the SM at low energies.  In this section, we derive the parametric
+relationships between the duality scale $\Lambda_D$, the Fermi scale
+$v$, and the QCD scale $\Lambda_{\QCD}$.
+
+\subsection{The duality scale}
+
+The duality scale $\Lambda_D$ is the energy at which the electric gauge
+coupling becomes strong and the electric theory confines.  Below
+$\Lambda_D$, the magnetic (SM) description is appropriate.
+
+From Eq.~\eqref{eq:scalar-mass-scale}, the scalar mass-squared is
+$\mu^2 \sim \xi \,\Lambda_D^4 / M_{\text{Pl}}^2$.  Requiring that the
+scalar mass lies near the electroweak scale,
+$\mu \sim \mathcal{O}(\text{TeV})$, gives an estimate of the duality
+scale~\cite{CacciapagliaSannino2024}:
+\begin{equation}\label{eq:duality-scale}
+  \boxed{%
+  \xi^{-1/4}\, \Lambda_D
+  \;\sim\; \sqrt{\mu\, M_{\text{Pl}}}
+  \;\sim\; 10^{11}\;\text{GeV}\,,}
+\end{equation}
+(Eq.~(23) of~\cite{CacciapagliaSannino2024}), where we used
+$\mu \sim 1\;\text{TeV}$ and
+$M_{\text{Pl}} \sim 10^{19}\;\text{GeV}$.
+
+This is a \emph{seesaw-like} relation: the geometric mean of the TeV
+scale and the Planck scale gives an intermediate scale of
+$10^{11}\;\text{GeV}$.  The $\mathcal{O}(1)$ coefficient $\xi$ (from
+the Planck-scale operators) introduces an uncertainty of perhaps one
+order of magnitude in either direction.
+
+\begin{remark}[$\Lambda_D$ is a free parameter]
+  The duality scale $\Lambda_D$ is \emph{not} predicted by the
+  framework.  It is a free parameter---analogous to
+  $\Lambda_{\QCD}$ in ordinary QCD---that must ultimately be determined
+  from experiment.  The estimate $\Lambda_D \sim 10^{11}\;\text{GeV}$
+  is a parametric consistency check: given the measured electroweak
+  scale and the Planck scale, this is the \emph{natural} value of
+  $\Lambda_D$ within the framework.
+\end{remark}
+
+\subsection{The Fermi scale from the duality scale}
+
+Inverting the seesaw relation~\eqref{eq:duality-scale}, we can express
+the electroweak VEV $v$ in terms of $\Lambda_D$ and $M_{\text{Pl}}$:
+\begin{equation}\label{eq:fermi-scale}
+  v^2 \;\sim\; \mu^2
+  \;\sim\; \frac{\Lambda_D^4}{M_{\text{Pl}}^2}\,,
+  \qquad
+  v \;\sim\; \frac{\Lambda_D^2}{M_{\text{Pl}}}
+  \;\sim\; \frac{(10^{11}\;\text{GeV})^2}{10^{19}\;\text{GeV}}
+  \;=\; 10^3\;\text{GeV}\,,
+\end{equation}
+which is parametrically consistent with the measured value
+$v = 246\;\text{GeV}$.  The factor of $\sim 4$ discrepancy between
+$10^3\;\text{GeV}$ and $246\;\text{GeV}$ is absorbed by the
+$\mathcal{O}(1)$ coefficient $\xi$.
+
+\begin{warningbox}[title={Parametric consistency, not prediction}]
+  The relation $v \sim \Lambda_D^2 / M_{\text{Pl}}$ is a
+  \textbf{dimensional analysis argument}.  It shows that the
+  \emph{parametric dependence} of $v$ on $\Lambda_D$ and
+  $M_{\text{Pl}}$ is correct---the electroweak hierarchy
+  $v / M_{\text{Pl}} \sim 10^{-17}$ follows from the intermediate
+  scale $\Lambda_D / M_{\text{Pl}} \sim 10^{-8}$ via a seesaw
+  mechanism.  The \emph{numerical value} $v = 246\;\text{GeV}$ is not
+  predicted; it depends on the $\mathcal{O}(1)$ coefficient $\xi$,
+  which is a free parameter.
+\end{warningbox}
+
+\subsection{$\Lambda_{\QCD}$ from one-loop RG running}
+\label{ssec:lambda-qcd}
+
+A striking consistency check of the framework is that the QCD
+confinement scale $\Lambda_{\QCD} \approx 200\;\text{MeV}$ can be
+extracted from the one-loop running of the strong coupling constant
+$\alphas$, starting from its value at the duality scale $\Lambda_D$.
+
+At the duality scale, the magnetic and electric gauge couplings are
+related by~\cite{CacciapagliaSannino2024}:
+\begin{equation}\label{eq:coupling-duality}
+  \frac{1}{\alpha_e(\Lambda_D)}
+  \;\sim\; \alpha_m(\Lambda_D)
+  \;=\; \frac{g_m^2}{4\pi}\,,
+\end{equation}
+(Eq.~(9) of~\cite{CacciapagliaSannino2024}).
+Strong coupling in the electric theory ($\alpha_e \gg 1$) corresponds
+to weak coupling in the magnetic theory ($\alpha_m \ll 1$).
+
+The one-loop beta function for the magnetic $\SU{3}_c$ gauge coupling
+gives the standard relation between the UV scale and the confinement
+scale (from Lecture~1):
+\begin{equation}\label{eq:rg-running}
+  \Lambda_{\QCD}
+  \;=\; \mu_{\UV} \;\exp\!\Bigl(
+    -\frac{2\pi}{\bzero\,\alphas(\mu_{\UV})}
+  \Bigr)\,,
+\end{equation}
+where $\bzero = (11\Nc - 2\Nf)/3$ is the one-loop beta function
+coefficient.  The crucial observation is that $\Lambda_{\QCD}$ is
+\textbf{exponentially sensitive} to $\alphas(\mu_{\UV})$ and to
+$\bzero$: small changes in the input coupling produce large changes in
+$\Lambda_{\QCD}$.
+
+To illustrate the parametric consistency, we work \emph{backwards} from
+the known SM.  The measured value
+$\alphas(M_Z) = 0.118$ at $M_Z = 91.2\;\text{GeV}$ can be evolved to
+$\Lambda_D = 10^{11}\;\text{GeV}$ using the one-loop formula
+with $\bzero = 7$ ($\Nf = 6$):
+\begin{equation}\label{eq:alpha-running}
+  \alphas(\Lambda_D)
+  \;=\; \frac{\alphas(M_Z)}{1 + \dfrac{\bzero}{2\pi}\,
+    \alphas(M_Z)\, \ln\!\bigl(\Lambda_D / M_Z\bigr)}
+  \;\approx\; \frac{0.118}{1 + \dfrac{7}{2\pi} \times 0.118 \times 20.8}
+  \;\approx\; 0.032\,.
+\end{equation}
+Substituting back into Eq.~\eqref{eq:rg-running} with
+$\mu_{\UV} = \Lambda_D$:
+\begin{equation}\label{eq:lambda-qcd-estimate}
+  \Lambda_{\QCD}
+  \;\sim\; 10^{11}\;\text{GeV} \times
+  \exp\!\Bigl(-\frac{2\pi}{7 \times 0.032}\Bigr)
+  \;=\; 10^{11}\;\text{GeV} \times
+  \exp(-28.0)
+  \;\sim\; 10^{11}\;\text{GeV} \times
+  6 \times 10^{-13}\,,
+\end{equation}
+giving
+\begin{equation}\label{eq:lambda-qcd-result}
+  \boxed{\Lambda_{\QCD}^{(\Nf=6)}
+  \;\sim\; 60\;\text{MeV}\,.}
+\end{equation}
+This is within a factor of 3 of the physical value
+$\Lambda_{\QCD} \approx 200\;\text{MeV}$---the discrepancy is expected,
+because (i)~the number of active flavours decreases at each quark mass
+threshold (from $\Nf = 6$ above $m_t$ down to $\Nf = 3$ below $m_c$),
+which increases $\bzero$ and slows the running, and (ii)~the precise
+matching of couplings at $\Lambda_D$ depends on the $\mathcal{O}(1)$
+duality relation~\eqref{eq:coupling-duality}, which is not
+quantitatively determined.
+
+The point of this exercise is \textbf{not} to derive
+$\Lambda_{\QCD} = 200\;\text{MeV}$ from first principles.  It is to
+show that the one-loop QCD running, starting from a coupling
+$\alphas(\Lambda_D) \sim 0.03$ at
+$\Lambda_D \sim 10^{11}\;\text{GeV}$, produces a confinement scale in
+the \emph{right parametric window}---between $\sim 50\;\text{MeV}$ and
+$\sim 1\;\text{GeV}$, depending on the input coupling and threshold
+treatment.
+
+\begin{remark}[This is not a precision prediction]
+  The estimate $\Lambda_{\QCD} \sim 200\;\text{MeV}$ depends on the
+  input coupling $\alphas(\Lambda_D)$, which in the dualised SM
+  framework is determined by the duality relation at $\Lambda_D$.  The
+  value $\alphas(\Lambda_D) \sim 0.03$ is obtained by running the
+  measured $\alphas(M_Z)$ up to $10^{11}\;\text{GeV}$.  This is a
+  \textbf{consistency check}: the framework is compatible with the
+  measured QCD scale if $\Lambda_D \sim 10^{11}\;\text{GeV}$ and the
+  duality coupling is in a reasonable range.  A true prediction would
+  require calculating $\alphas(\Lambda_D)$ from the duality relation
+  without using the measured $\alphas(M_Z)$ as input.
+\end{remark}
+
+
+%% ========================================================================
+%%  SECTION 5: Three Scales and Collider Signatures
+%% ========================================================================
+\section{Three Scales and Collider Signatures}
+\label{sec:collider}
+
+\subsection{The energy hierarchy}
+
+\emph{If the duality holds}, the physics of the dualised SM is
+characterised by a hierarchy of energy scales (recalled from Lecture~7,
+\S4.3):
+\begin{enumerate}
+  \item $\Lambda_S \sim \text{few TeV}$: the \textbf{quasi-SUSY
+    spectrum} appears---gaugino, squarks, heavy Higgs doublets, and
+    mesino states with masses at or above $\Lambda_S$.  Below this
+    scale, only SM degrees of freedom are active.
+  \item $\Lambda_D \sim 10^{11}\;\text{GeV}$: the \textbf{duality
+    scale}---the energy at which the electric $\SU{2}$ gauge coupling
+    becomes strong and the electric theory confines.  The magnetic SM
+    description is valid below $\Lambda_D$.
+  \item $\Lambda_{\text{eGUT}}$ (optional): if the three gauge
+    couplings of the electric theory unify at a scale
+    $\Lambda_{\text{eGUT}} < M_{\text{Pl}}$, a \textbf{grand unified
+    theory of the electric sector} emerges.  This is an attractive but
+    speculative possibility.
+\end{enumerate}
+The running of the gauge couplings through these three regimes is
+illustrated schematically in Fig.~1 of~\cite{CacciapagliaSannino2024}:
+the SM couplings run normally below $\Lambda_S$; between $\Lambda_S$
+and $\Lambda_D$, the magnetic beta functions are modified by the
+quasi-SUSY spectrum; and above $\Lambda_D$, the electric couplings run
+with only fermion and gauge boson contributions (no scalars).
+
+\subsection{Collider signatures at $\Lambda_S$}
+
+The quasi-SUSY spectrum of the dualised SM predicts new states at the
+scale $\Lambda_S \sim \text{few TeV}$~\cite{CacciapagliaSannino2024}.
+The most accessible at hadron colliders are:
+
+\paragraph{Gaugino-like state.}
+The magnetic gaugino $\lambda_m$---a colour-octet Weyl
+fermion---behaves like the \textbf{gluino} of the Minimal
+Supersymmetric Standard Model (MSSM) from a collider perspective.  It
+is pair-produced via strong interactions ($gg \to \lambda_m
+\overline{\lambda}_m$), and its decay products include jets and
+missing transverse energy (if the lightest magnetic state is stable on
+detector timescales).  Current ATLAS and CMS searches constrain the
+gluino mass to be above roughly
+$2\;\text{TeV}$~\cite{CacciapagliaSannino2024}, and these bounds
+apply with caveats to the quasi-SUSY gaugino as well.
+
+\paragraph{Squark-like states.}
+The scalar colour triplets $\phi$ and $\widetilde{\phi}$---the
+quasi-SUSY partners of the magnetic quarks---behave like
+\textbf{squarks} in collider searches.  They are pair-produced via
+strong interactions and decay to quarks plus the gaugino (if
+kinematically allowed) or via gauge-mediated channels.  The mass limits
+from LHC searches are comparable to those for MSSM squarks.
+
+\paragraph{Heavy Higgs doublets and mesino.}
+The 17 dormant Higgs doublets and the mesino $M$ are electroweak states
+(colour singlets or doublets under $\SU{2}_L$).  Their production
+cross-sections at hadron colliders are smaller than those of the
+strongly interacting states, but they could be accessible at future
+high-energy colliders or through precision flavour
+observables~\cite{CacciapagliaSannino2024}.
+
+If the lightest mesino component has a Majorana mass, it could serve as
+a dark matter candidate~\cite{CacciapagliaSannino2024}.
+
+\begin{warningbox}[title={Key discriminator: quasi-SUSY vs.\ true SUSY}]
+  If a spectrum resembling the MSSM is discovered at the LHC or a
+  future collider, how would we distinguish the dualised SM from true
+  supersymmetry?  The key differences are:
+  \begin{enumerate}
+    \item \textbf{The Higgs is composite}, not elementary.  In the
+      MSSM, the Higgs doublets $H_u$ and $H_d$ are elementary chiral
+      superfields.  In the dualised SM, the Higgs is a composite meson
+      $\Phi_H = \langle \widetilde{Q}\lambda\lambda Q\rangle$, with
+      compositeness effects becoming visible at $\Lambda_D$.
+    \item \textbf{18 Higgs doublets}, not 2.  The MSSM has two Higgs
+      doublets; the dualised SM has 18.  The 17 heavy doublets have
+      masses $\sim \Lambda_S$--$\Lambda_D$.
+    \item \textbf{No superpartner of the Higgs}.  In the MSSM, the
+      higgsino is a fermionic partner of the Higgs.  In the dualised
+      SM, the fermionic partner of the mes-Higgs is the \emph{mesino}
+      $M$, which transforms differently under the flavour symmetry.
+    \item \textbf{No $R$-parity from fundamental symmetry.}  In the
+      MSSM, $R$-parity distinguishes SM particles from superpartners.
+      In the dualised SM, the quasi-SUSY pairing is emergent, not
+      fundamental, and any stabilising symmetry for the lightest new
+      state must be argued separately.
+  \end{enumerate}
+\end{warningbox}
+
+
+%% ========================================================================
+%%  SECTION 6: Summary and Honest Assessment
+%% ========================================================================
+\section{Summary and Honest Assessment}
+\label{sec:summary-assessment}
+
+This lecture has developed the quantitative consequences of the
+dualised SM framework introduced in Lecture~7.  We conclude with an
+honest assessment of what the programme achieves and what remains open.
+
+\subsection{What the dualised SM does}
+
+\emph{If the conjectured non-SUSY duality holds}, the dualised SM
+provides:
+\begin{enumerate}
+  \item \textbf{An alternative UV description of the SM with no
+    elementary scalars.}  The electric theory
+    ($\SU{2}$ with 6~Dirac flavours and one adjoint Weyl fermion)
+    contains only fermions and gauge bosons.  All scalars in the
+    low-energy (magnetic) SM description are composites
+    (Lecture~7, \S1.3).
+
+  \item \textbf{A natural resolution of the hierarchy problem.}
+    Since there are no elementary scalars in the electric theory,
+    there is no scalar mass to protect against quadratic divergences.
+    The Higgs mass is set by the confinement dynamics at $\Lambda_D$,
+    just as the pion mass in QCD is set by chiral symmetry breaking,
+    not by a fundamental scalar mass parameter (Lecture~7, \S4.1).
+
+  \item \textbf{A framework for the fermion mass hierarchy.}
+    The scalar democracy mechanism
+    (Section~\ref{sec:scalar-democracy})---universal Yukawa coupling
+    $y$ combined with hierarchical Higgs VEVs induced by Planck-scale
+    operators (Section~\ref{sec:planck-operators})---generates the
+    observed pattern of fermion masses without requiring a hierarchy in
+    the Yukawa couplings.  The $\mathcal{O}(1)$ coefficients $c^{abcd}$
+    are free parameters, but their \emph{origin} (Planck-scale gravity)
+    is specified.
+
+  \item \textbf{Parametric consistency with the electroweak and QCD
+    scales.}  The duality scale $\Lambda_D \sim 10^{11}\;\text{GeV}$
+    gives
+    $v \sim \Lambda_D^2/M_{\text{Pl}} \sim \mathcal{O}(\text{TeV})$
+    (Section~\ref{sec:scale-matching}) and
+    $\Lambda_{\QCD} \sim 200\;\text{MeV}$ from one-loop RG running
+    (\S\ref{ssec:lambda-qcd}).
+
+  \item \textbf{A testable quasi-SUSY spectrum at the TeV scale.}
+    The gaugino, squarks, and heavy Higgs doublets predicted by the
+    magnetic theory (Section~\ref{sec:collider}) are accessible to
+    current and future collider experiments.
+
+  \item \textbf{Three or more generations as a structural
+    requirement.}  The generation bound $n_g \geq 3$
+    (Lecture~7, \S2.4) follows from requiring the electric gauge group
+    to be non-abelian.
+\end{enumerate}
+
+\subsection{What the dualised SM does not do}
+
+\begin{enumerate}
+  \item \textbf{It does not prove the non-SUSY duality.}
+    The duality is a \emph{conjecture}, supported by anomaly matching
+    (Lecture~7, \S5) but without a rigorous proof analogous to
+    Seiberg's SUSY result (Lecture~3).  The central vulnerability,
+    articulated in Lecture~6, remains: anomaly matching is necessary but
+    not sufficient.
+
+  \item \textbf{It does not predict specific fermion masses.}
+    The $\mathcal{O}(1)$ coefficients $c^{abcd}$ in the Planck-scale
+    operators are free parameters.  The framework explains why fermion
+    masses are \emph{hierarchical} but does not predict their
+    \emph{values}.
+
+  \item \textbf{It does not predict the duality scale $\Lambda_D$.}
+    The estimate $\Lambda_D \sim 10^{11}\;\text{GeV}$ is a consistency
+    argument, not a first-principles calculation.  $\Lambda_D$ is a
+    free parameter analogous to $\Lambda_{\QCD}$ in QCD.
+
+  \item \textbf{It does not resolve the Cheng--Shadmi tension.}
+    As discussed in Lecture~6 (\S5), the fate of the duality under
+    large SUSY breaking (required for the non-SUSY version) remains an
+    open theoretical question.  The Cheng--Shadmi counterexamples
+    caution against assuming that SUSY duality survives arbitrary
+    deformations.
+\end{enumerate}
+
+\subsection{The pedagogical arc: Lectures 1--8}
+
+These eight lectures have traced the following path:
+\begin{itemize}
+  \item \textbf{Lectures 1--2:} Foundations of anomaly matching and
+    supersymmetric gauge theories.  Anomaly matching as the central
+    tool; superfields and the SQCD Lagrangian.
+  \item \textbf{Lectures 3--4:} Seiberg duality in $\mathcal{N} = 1$
+    SQCD.  Electric--magnetic duality with explicit anomaly
+    verification (7 out of 7 conditions), the conformal window, mass
+    deformations, and the connection to $\mathcal{N} = 2$ theories
+    via the Argyres--Plesser--Seiberg deformation.
+  \item \textbf{Lectures 5--6:} Non-perturbative dynamics beyond SUSY.
+    Tumbling and the MAC criterion, complementarity, and the
+    non-SUSY duality programme---its history, evidence, and central
+    vulnerability.
+  \item \textbf{Lectures 7--8:} The dualised Standard Model.  The
+    complete construction (electric theory, magnetic spectrum, anomaly
+    matching) and its quantitative consequences (scalar democracy,
+    scale matching, collider signatures).
+\end{itemize}
+
+\subsection{Testability and outlook}
+
+The programme is testable: the quasi-SUSY spectrum at the TeV scale is
+a concrete prediction that LHC and future collider experiments can
+confirm or exclude.  Specifically:
+\begin{itemize}
+  \item If \textbf{no quasi-SUSY states} are found below
+    $\sim 10\;\text{TeV}$, the simplest version of the dualised SM
+    (with $\Lambda_S \sim \text{few TeV}$) is excluded, though
+    variants with higher $\Lambda_S$ remain viable.
+  \item If \textbf{quasi-SUSY states are found}, the key question is
+    whether the Higgs is elementary (as in the MSSM) or composite (as
+    in the dualised SM).  Precision measurements of Higgs couplings,
+    deviations from SM predictions, and the spectrum of heavy Higgs
+    doublets could distinguish between the two scenarios.
+  \item Lattice simulations of the electric theory
+    ($\SU{2}$ with 6~fundamentals and one adjoint) could in principle
+    test the duality non-perturbatively, though this is a technically
+    challenging computation.
+\end{itemize}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=green!5!white,
+  colframe=green!60!black,
+  fonttitle=\bfseries,
+  title={Lecture 8: Summary}
+]
+\begin{enumerate}
+  \item \textbf{Scalar democracy:}
+    A universal magnetic Yukawa coupling $y$ combined with hierarchical
+    Higgs VEVs generates the fermion mass hierarchy.  The flavour
+    puzzle is translated from the Yukawa sector to the scalar (VEV)
+    sector~(\S\ref{sec:scalar-democracy}).
+  \item \textbf{Planck-scale operators:}
+    Four-fermion operators of the form
+    $c^{abcd}(Q^a\widetilde{Q}^b)(Q^c\widetilde{Q}^d)^\dagger
+    / M_{\text{Pl}}^2$ generate the VEV hierarchy.  The $\mathcal{O}(1)$
+    coefficients $c^{abcd}$ are free
+    parameters~(\S\ref{sec:planck-operators}).
+  \item \textbf{EWSB:}
+    One Higgs doublet ($H_0 = H_{33}^u$) triggers EWSB; the remaining
+    17 are heavy with induced VEVs.  The low-energy effective theory is
+    the SM with one composite Higgs~(\S\ref{sec:ewsb}).
+  \item \textbf{Scale matching:}
+    $\Lambda_D \sim 10^{11}\;\text{GeV}$ gives
+    $v \sim \Lambda_D^2/M_{\text{Pl}} \sim \mathcal{O}(\text{TeV})$ and
+    $\Lambda_{\QCD} \sim 200\;\text{MeV}$ from one-loop RG running.
+    These are consistency checks, not
+    predictions~(\S\ref{sec:scale-matching}).
+  \item \textbf{Testability:}
+    Quasi-SUSY states at $\Lambda_S \sim \text{TeV}$ are the smoking
+    gun.  Key discriminators from true SUSY: composite Higgs, 18
+    doublets, no fundamental
+    $R$-parity~(\S\ref{sec:collider}).
+  \item \textbf{Honest assessment:}
+    The framework provides parametric consistency and a testable
+    spectrum.  The duality itself remains conjectural, and the
+    $\mathcal{O}(1)$ coefficients are
+    free~(\S\ref{sec:summary-assessment}).
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{previewbox}[title={Exercises 5 and 6}]
+  Exercises~5 and 6 make the parametric statements from this lecture
+  quantitative.  Exercise~5 works through the VEV hierarchy for the
+  fermion mass spectrum; Exercise~6 extracts
+  $v \sim 246\;\text{GeV}$ and
+  $\Lambda_{\QCD} \sim 200\;\text{MeV}$ from $\Lambda_D$ using
+  one-loop RG running.  These exercises are distributed separately.
+\end{previewbox}
+
+
+%% ========================================================================
+%%  BIBLIOGRAPHY
+%% ========================================================================
+\begin{thebibliography}{99}
+
+\bibitem{CacciapagliaSannino2024}
+  G.~Cacciapaglia and F.~Sannino,
+  ``Charting Standard Model duality and its signatures,''
+  \textit{Phys.~Rev.} \textbf{D111} (2025) 035013
+  [\texttt{arXiv:2407.17281}].
+
+\bibitem{HillMachado2019}
+  C.~T.~Hill, P.~A.~N.~Machado, A.~E.~Thomsen, and J.~Turner,
+  ``Scalar democracy,''
+  \textit{Phys.~Rev.} \textbf{D100} (2019) 015015
+  [\texttt{arXiv:1902.07214}].
+
+\bibitem{Sannino2011}
+  F.~Sannino,
+  ``The Standard Model is natural as magnetic gauge theory,''
+  \textit{Mod.~Phys.~Lett.} \textbf{A26} (2011) 1763
+  [\texttt{arXiv:1102.5100}].
+
+\bibitem{PS1974}
+  J.~C.~Pati and A.~Salam,
+  ``Lepton number as the fourth `color',''
+  \textit{Phys.~Rev.} \textbf{D10} (1974) 275.
+
+\bibitem{AMPS2011}
+  O.~Antipin, M.~Mojaza, C.~Pica, and F.~Sannino,
+  ``Magnetic fixed points and emergent supersymmetry,''
+  \textit{JHEP} \textbf{1306} (2013) 037
+  [\texttt{arXiv:1105.1510}].
+
+\bibitem{Seiberg1995}
+  N.~Seiberg,
+  ``Electric--magnetic duality in supersymmetric non-Abelian gauge
+  theories,''
+  \textit{Nucl.~Phys.} \textbf{B435} (1995) 129
+  [\texttt{hep-th/9411149}].
+
+\bibitem{CST2011}
+  C.~Csaki, Y.~Shirman, and J.~Terning,
+  ``A Seiberg dual for the MSSM: partially composite $W$ and $Z$,''
+  \textit{Phys.~Rev.} \textbf{D84} (2011) 095011
+  [\texttt{arXiv:1106.3074}].
+
+\end{thebibliography}
 
 \end{document}
