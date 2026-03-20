@@ -1,7 +1,7 @@
 # Reference Corpus: The Dualised Standard Model
 
-**Assembled:** 2026-03-20
-**Total papers:** 13
+**Assembled:** 2026-03-20 (updated: 2026-03-20)
+**Total papers:** 16
 
 ## Paper Index
 
@@ -20,6 +20,9 @@
 | 11 | `ryttov-sannino-0711.3745.pdf` | 0711.3745 | Conformal Windows of SP(2N) and SO(N) Gauge Theories | T. Ryttov, F. Sannino | 2007 | method | REFS-01 | TBD |
 | 12 | `chan-tsou-9904406.pdf` | hep-ph/9904406 | Dual Colour | Hong-Mo Chan, Sheung Tsun Tsou | 1999 | disambiguation | REFS-04 | N/A (different programme) |
 | 13 | `tsou-0110256.pdf` | hep-th/0110256 | Concepts in Gauge Theory Leading to Electric-Magnetic Duality | S.T. Tsou | 2001 | disambiguation | REFS-04 | N/A (different programme) |
+| 14 | `argyres-plesser-seiberg-9603042.pdf` | hep-th/9603042 | The Moduli Space of N=2 SUSY QCD and Duality in N=1 SUSY QCD | P. Argyres, M. Plesser, N. Seiberg | 1996 | method | REFS-03 | Expected match (Seiberg conventions) |
+| 15 | `seiberg-witten-9407087.pdf` | hep-th/9407087 | Electric-Magnetic Duality, Monopole Condensation, and Confinement in N=2 Supersymmetric Yang-Mills Theory | N. Seiberg, E. Witten | 1994 | background | REFS-03 | Expected match |
+| 16 | `seiberg-witten-9408099.pdf` | hep-th/9408099 | Monopoles, Duality and Chiral Symmetry Breaking in N=2 Supersymmetric QCD | N. Seiberg, E. Witten | 1994 | background | REFS-03 | Expected match |
 
 ## Organisation by Requirement
 
@@ -33,6 +36,15 @@
 - `maekawa-9510426.pdf` (hep-ph/9510426) -- Pati-Salam duality model; PTP 95 (1996) 1167
 - `maekawa-ptp95-943.pdf` (hep-ph/9509407) -- First dualised SSM; PTP 95 (1996) 943
 - `maekawa-ptp96-979.pdf` (hep-ph/9511395) -- Dualised SSM without R-parity; PTP 96 (1996) 979
+
+### REFS-03: N=2 and Seiberg-Witten Papers (Phase 2)
+- `argyres-plesser-seiberg-9603042.pdf` (hep-th/9603042) -- N=2 moduli space and N=1 duality derivation via mass deformation
+- `seiberg-witten-9407087.pdf` (hep-th/9407087) -- Foundational N=2 SU(2) solution: monopole condensation and confinement
+- `seiberg-witten-9408099.pdf` (hep-th/9408099) -- N=2 SU(2) with matter: monopoles, duality, chiral symmetry breaking
+
+**REFS-03 scope notes:**
+- **Sannino-Schechter paper:** The roadmap listed "hep-th/9708113" as a Sannino-Schechter reference. This arXiv ID does not correspond to a Sannino-Schechter paper on gauge duality. The correct identification is uncertain (may be hep-ph/9708113 or a different paper entirely). Not downloaded pending verification of the correct arXiv ID.
+- **Fayet-Iliopoulos paper:** Fayet and Iliopoulos, Phys. Lett. B 51, 461 (1974) predates arXiv (no preprint available). The FI D-term mechanism (V_FI = xi D for U(1) factors) is a 3-line definition that will be stated with the journal citation in Lecture 4. No download needed.
 
 ### REFS-01: Core References from 2407.17281
 - `sannino-2407.17281.pdf` -- Backbone reference for the dualised SM programme
@@ -53,10 +65,13 @@
 - **Bilal anomalies:** Convention compatibility TBD -- Bilal uses standard anomaly conventions, likely compatible.
 - **Ryttov-Sannino:** Convention compatibility TBD.
 - **Chan-Tsou, Tsou:** Different programme (dual colour, not Seiberg duality). Included for disambiguation only.
+- **Argyres-Plesser-Seiberg:** Uses Seiberg conventions. Expected match (same group).
+- **Seiberg-Witten I (9407087):** N=2 conventions consistent with mostly-minus metric. Expected match.
+- **Seiberg-Witten II (9408099):** Same conventions as SW-I. Expected match.
 
 ## Download Notes
 
-All papers successfully downloaded from arXiv. No manual downloads required.
+All 16 papers successfully downloaded from arXiv. No manual downloads required.
 
 - Maekawa PTP papers were identified via INSPIRE-HEP:
   - PTP 95 (1996) 943 = hep-ph/9509407
