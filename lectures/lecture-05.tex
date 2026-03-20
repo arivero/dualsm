@@ -1,0 +1,797 @@
+% ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
+%
+% Lecture 5: Tumbling, the MAC Criterion, and Complementarity
+% Part of: The Dualised Standard Model -- Part III Lecture Notes
+%
+% Non-SUSY strong dynamics conventions (continued from Lectures 1-4):
+%   T(fund) = 1/2 per Weyl fermion
+%   b_0 = (11N_c - 2N_f)/3 for N_f Dirac flavours
+%   C_2(fund) = (N^2-1)/(2N), C_2(adj) = N
+%   C_2(sym_2) = (N+2)(N-1)/N, C_2(antisym_2) = (N-2)(N+1)/N
+%   Delta C_2 = C_2(R_1) + C_2(R_2) - C_2(R_c) [MAC criterion, Raby-Dimopoulos-Susskind 1980]
+%   A(fund) = 1, A(antifund) = -1 (cubic anomaly coefficient)
+%
+\documentclass[11pt,a4paper]{article}
+\input{preamble}
+
+\title{\textbf{Lecture 5: Tumbling, the MAC Criterion, and Complementarity}}
+\author{The Dualised Standard Model --- Part III Lecture Notes}
+\date{Lent Term 2027}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%%  CONVENTIONS
+%% ========================================================================
+
+\begin{conventionbox}[title={Conventions for Lecture 5}]
+All conventions from Lectures~1--4 remain in force.  Additional
+conventions specific to non-perturbative strong dynamics:
+
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l l l@{}}
+\toprule
+\textbf{Quantity} & \textbf{Convention} & \textbf{Comment} \\
+\midrule
+Units & $\hbar = c = 1$ (natural) & \\
+Metric & $\eta_{\mu\nu} = \mathrm{diag}(+1,-1,-1,-1)$ & mostly minus \\
+Dynkin index & $\Tr(T^a T^b) = \Tfund\, \delta^{ab}$ & fundamental of $\SU{\Nc}$ \\
+Cubic anomaly & $A(\fund) = 1$, $A(\antifund) = -1$ & per fundamental Weyl \\
+Quadratic Casimir & $C_2(\fund) = \Cfund$ & fundamental \\
+ & $C_2(\adj) = \Cadj$ & adjoint \\
+ & $C_2(\antisym) = \dfrac{(\Nc-2)(\Nc+1)}{\Nc}$ & antisymmetric rank 2 \\[4pt]
+ & $C_2(\sym) = \dfrac{(\Nc+2)(\Nc-1)}{\Nc}$ & symmetric rank 2 \\[4pt]
+MAC attraction & $\Delta C_2 = C_2(R_1) + C_2(R_2) - C_2(R_c)$ &
+  Raby--Dimopoulos--Susskind \\
+\bottomrule
+\end{tabular}
+\end{conventionbox}
+
+
+%% ========================================================================
+%%  SECTION 1: Chiral Gauge Theories
+%% ========================================================================
+\section{Chiral Gauge Theories and Strong Dynamics}
+\label{sec:chiral}
+
+In Lectures~1--4 we studied \emph{vector-like} gauge theories: theories
+in which the left-handed and right-handed fermions transform in
+representations that are related by complex conjugation.  QCD is the
+canonical example: each quark flavour comes with a Dirac partner, and
+the gauge representation $\fund \oplus \antifund$ is real (in the sense
+of being self-conjugate as a combined representation).  In such theories,
+the standard expectation is chiral symmetry breaking through a
+$\langle \bar{\psi}\psi \rangle$ condensate that preserves the gauge
+symmetry.
+
+In this lecture, we turn to a richer class of theories: \textbf{chiral
+gauge theories}, in which the fermion content does \emph{not} form a
+real representation of the gauge group.  The Georgi--Glashow $\SU{5}$
+model with fermions in the $\mathbf{10} \oplus \overline{\mathbf{5}}$
+representation is a classic example: the $\mathbf{10}$ (antisymmetric
+rank-2) is not the conjugate of the $\overline{\mathbf{5}}$, and the
+combined representation is irreducibly complex.
+
+In chiral gauge theories, a $\langle \bar{\psi}\psi \rangle$ condensate
+of the QCD type is not available---such a condensate would break the
+gauge symmetry itself.  Instead, the strong dynamics can lead to
+\textbf{dynamical gauge symmetry breaking} through condensation of
+gauge-invariant fermion bilinears in specific channels.  Which channel
+condenses first?  This is the question addressed by the Most Attractive
+Channel (MAC) criterion.
+
+\medskip
+
+\textbf{Plan for this lecture.}  We develop three tools for analysing
+strong dynamics in gauge theories:
+\begin{enumerate}
+  \item The \textbf{MAC criterion} (\S\ref{sec:MAC}): a heuristic for
+    identifying which fermion bilinear condenses first.
+  \item \textbf{Tumbling} (\S\ref{sec:tumbling}): the mechanism of
+    sequential condensation and gauge group breaking, illustrated by
+    the $\SU{5}$ Georgi--Glashow model.
+  \item \textbf{Complementarity} (\S\ref{sec:complementarity}): the
+    Fradkin--Shenker theorem relating the Higgs and confinement phases.
+\end{enumerate}
+In \S\ref{sec:connection} we explain how these tools connect to the
+electric--magnetic duality framework from Lectures~3--4, setting up the
+non-SUSY extensions in Lecture~6.
+
+
+%% ========================================================================
+%%  SECTION 2: The MAC Criterion
+%% ========================================================================
+\section{The Most Attractive Channel (MAC) Criterion}
+\label{sec:MAC}
+
+\subsection{The one-gluon exchange argument}
+
+Consider a gauge theory with gauge group $\SU{\Nc}$ and fermions in
+representations $R_1$ and $R_2$.  At one-loop order in perturbation
+theory, the exchange of a single gluon between two fermions produces an
+attractive potential in the colour channel $R_c$ that appears in the
+tensor product $R_1 \otimes R_2$.  The strength of this attraction is
+proportional to the \textbf{quadratic Casimir difference}:
+\begin{equation}\label{eq:DeltaC2}
+  \boxed{\Delta C_2 \;=\; C_2(R_1) + C_2(R_2) - C_2(R_c)\,.}
+\end{equation}
+
+The channel $R_c$ with the \textbf{largest} $\Delta C_2$ experiences the
+strongest attraction.  The MAC hypothesis~\cite{RDS1980} asserts that
+this most attractive channel is the one in which a fermion bilinear
+condensate forms first as the gauge coupling runs to strong coupling.
+
+\subsection{Physical picture}
+
+The argument has a simple physical origin.  In the non-relativistic
+limit, the one-gluon exchange potential between two colour sources in
+representations $R_1$ and $R_2$, forming a composite in channel $R_c$,
+is:
+\begin{equation}\label{eq:Voge}
+  V(r) \;\sim\; -\frac{\alphas}{r}\,
+  \bigl[C_2(R_1) + C_2(R_2) - C_2(R_c)\bigr]
+  \;=\; -\frac{\alphas}{r}\,\Delta C_2\,.
+\end{equation}
+A larger $\Delta C_2$ means a deeper attractive potential well, which
+favours the formation of a bound state (condensate) in that channel.
+The condensate with the strongest attraction forms first as the coupling
+increases.
+
+\begin{remark}[Why the smallest $C_2(R_c)$?]
+  Since $\Delta C_2 = C_2(R_1) + C_2(R_2) - C_2(R_c)$ and $C_2(R_1)$,
+  $C_2(R_2)$ are fixed by the fermion content, $\Delta C_2$ is maximised
+  when $C_2(R_c)$ is \emph{minimised}.  In a tensor product
+  $R_1 \otimes R_2 = \bigoplus_c R_c$, the smallest $C_2(R_c)$ typically
+  corresponds to the smallest (lowest-dimensional) representation in the
+  decomposition.  For $\fund \otimes \fund$, this is the singlet (if
+  available) or the antisymmetric representation.
+\end{remark}
+
+\subsection{Quadratic Casimir values}
+
+For reference, we collect the quadratic Casimirs for the common
+representations of $\SU{N}$, using the conventions locked in Lecture~1
+(with $T(\fund) = \tfrac{1}{2}$):
+
+\begin{equation}\label{eq:casimirs}
+\renewcommand{\arraystretch}{1.5}
+\begin{array}{l c l}
+\toprule
+\textbf{Representation} & \textbf{Dimension} & C_2(R) \\
+\midrule
+\text{Fundamental } \fund & N & \dfrac{N^2 - 1}{2N} \\[6pt]
+\text{Antifundamental } \antifund & N & \dfrac{N^2 - 1}{2N} \\[6pt]
+\text{Adjoint } \adj & N^2 - 1 & N \\[6pt]
+\text{Antisymmetric } \antisym & \dfrac{N(N-1)}{2} &
+  \dfrac{(N-2)(N+1)}{N} \\[6pt]
+\text{Symmetric } \sym & \dfrac{N(N+1)}{2} &
+  \dfrac{(N+2)(N-1)}{N} \\
+\bottomrule
+\end{array}
+\end{equation}
+
+\textbf{Verification for $\SU{3}$:}
+$C_2(\fund) = (9-1)/6 = 4/3$.
+$C_2(\adj) = 3$.
+$C_2(\antisym) = (1)(4)/3 = 4/3$.
+(This is correct: for $\SU{3}$, the antisymmetric rank-2 representation
+is the $\overline{\mathbf{3}}$, which is the antifundamental, so
+$C_2(\antisym) = C_2(\fund)$.)\quad$\checkmark$
+
+
+\subsection{Limitations of the MAC criterion}
+
+\begin{warningbox}[title={MAC is a heuristic, not a theorem}]
+The MAC criterion has significant limitations that must be stated
+honestly:
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{MAC is a conjecture, not a theorem.}  There is no
+    rigorous proof that the most attractive channel (as identified by
+    one-gluon exchange) is the one that actually condenses in the
+    full non-perturbative theory.
+
+  \item \textbf{Perturbative reasoning at strong coupling.}  The
+    one-gluon exchange argument~\eqref{eq:Voge} is a leading-order
+    perturbative calculation.  However, condensation occurs in the
+    strong-coupling regime ($\alphas \sim 1$), where higher-order
+    corrections are not small and the perturbative picture is
+    unreliable.
+
+  \item \textbf{Known counterexamples.}  When two or more channels
+    have comparable $\Delta C_2$ values, the MAC prediction can fail.
+    Kosower~\cite{Kosower1983} demonstrated that for certain $\SU{N}$
+    theories, the competition between channels is not resolved by the
+    leading-order criterion alone.
+
+  \item \textbf{Channel, not scale.}  Even when the MAC correctly
+    identifies the condensation channel, it does not predict the
+    condensation \emph{scale}.  The scale is set by the full
+    non-perturbative dynamics, which the one-gluon exchange does not
+    capture.
+\end{enumerate}
+\textbf{Usage:}  The MAC criterion \emph{suggests} the condensation
+channel.  We do not say ``the condensate forms in the MAC.''  When the
+dominant channel is clearly separated from competitors (as in our
+$\SU{5}$ example below), the criterion is most reliable.  Within SUSY,
+the exact results of Seiberg duality (\emph{cf.}\ Lecture~3) supersede
+the MAC approximation.
+\end{warningbox}
+
+
+%% ========================================================================
+%%  SECTION 3: Tumbling -- the SU(5) worked example
+%% ========================================================================
+\section{Tumbling: The $\SU{5}$ Worked Example}
+\label{sec:tumbling}
+
+We now demonstrate tumbling in the classic Georgi--Glashow $\SU{5}$
+model~\cite{RDS1980}, with fermion content:
+\begin{equation}\label{eq:SU5-content}
+  \psi^{ab} \;\in\; \mathbf{10}\;(\antisym \text{ of } \SU{5})\,,
+  \qquad
+  \chi_a \;\in\; \overline{\mathbf{5}}\;(\antifund \text{ of } \SU{5})\,,
+\end{equation}
+where $a, b = 1, \ldots, 5$ are $\SU{5}$ fundamental indices, and
+$\psi^{ab} = -\psi^{ba}$.  Both $\psi$ and $\chi$ are left-handed
+Weyl fermions.
+
+\begin{remark}[Anomaly cancellation]
+  This fermion content is anomaly-free.  The cubic $\SU{5}^3$ anomaly is:
+  $A(\mathbf{10}) + A(\overline{\mathbf{5}})
+  = A(\antisym) + A(\antifund)
+  = (5-4) + (-1) = 1 - 1 = 0$.\quad$\checkmark$
+  (Recall from Lecture~1 that $A(\antisym) = N - 4$ and
+  $A(\antifund) = -1$.)
+\end{remark}
+
+\subsection{Step 1: Enumerate condensation channels}
+
+We consider bilinears formed from $\psi^{ab} \in \mathbf{10}$.  The
+tensor product of two antisymmetric rank-2 representations of $\SU{5}$
+decomposes as:
+\begin{equation}\label{eq:10x10}
+  \mathbf{10} \otimes \mathbf{10}
+  \;=\;
+  \overline{\mathbf{5}} \;\oplus\; \overline{\mathbf{45}}
+  \;\oplus\; \mathbf{50}\,.
+\end{equation}
+The $\overline{\mathbf{5}}$ channel corresponds to the contraction
+$\langle \psi^{ab}\, \psi^{cd}\rangle \sim \epsilon^{abcde}$, which
+produces a composite transforming as $\overline{\mathbf{5}}$.
+
+We also consider the mixed bilinear $\mathbf{10} \otimes
+\overline{\mathbf{5}}$:
+\begin{equation}\label{eq:10x5bar}
+  \mathbf{10} \otimes \overline{\mathbf{5}}
+  \;=\;
+  \mathbf{5} \;\oplus\; \mathbf{45}\,.
+\end{equation}
+
+\subsection{Step 2: Compute $\Delta C_2$ for each channel}
+
+Using the Casimir values from~\eqref{eq:casimirs} with $N = 5$:
+\begin{align}
+  C_2(\mathbf{10})
+  &= C_2(\antisym\text{ of }\SU{5})
+  = \frac{(5-2)(5+1)}{5}
+  = \frac{18}{5} = 3.6\,,
+  \label{eq:C2-10} \\
+  C_2(\overline{\mathbf{5}})
+  &= C_2(\fund\text{ of }\SU{5})
+  = \frac{25-1}{10}
+  = \frac{12}{5} = 2.4\,.
+  \label{eq:C2-5bar}
+\end{align}
+
+\textbf{Channel comparison:}
+\begin{equation}\label{eq:MAC-channels}
+\renewcommand{\arraystretch}{1.4}
+\begin{array}{l c c c}
+\toprule
+\textbf{Bilinear} & \textbf{Channel } R_c
+  & \Delta C_2 = C_2(R_1) + C_2(R_2) - C_2(R_c)
+  & \textbf{Value} \\
+\midrule
+\mathbf{10} \times \mathbf{10}
+  & \overline{\mathbf{5}}
+  & \tfrac{18}{5} + \tfrac{18}{5} - \tfrac{12}{5}
+  & \dfrac{24}{5} = 4.8 \\[8pt]
+\mathbf{10} \times \overline{\mathbf{5}}
+  & \mathbf{5}
+  & \tfrac{18}{5} + \tfrac{12}{5} - \tfrac{12}{5}
+  & \dfrac{18}{5} = 3.6 \\[8pt]
+\mathbf{10} \times \mathbf{10}
+  & \overline{\mathbf{45}}
+  & \tfrac{18}{5} + \tfrac{18}{5} - C_2(\overline{\mathbf{45}})
+  & < 4.8 \\[4pt]
+\bottomrule
+\end{array}
+\end{equation}
+The $\overline{\mathbf{45}}$ channel has $C_2 > C_2(\overline{\mathbf{5}})$,
+so its $\Delta C_2$ is smaller.  The most attractive channel is:
+\begin{equation}\label{eq:MAC-result}
+  \boxed{%
+    \text{MAC:}\quad
+    \mathbf{10} \times \mathbf{10}
+    \;\to\; \overline{\mathbf{5}}\,,
+    \qquad
+    \Delta C_2 = \frac{24}{5}\,.
+  }
+\end{equation}
+
+The MAC suggests that the $\SU{5}$ theory first forms the condensate:
+\begin{equation}\label{eq:condensate}
+  \langle \psi^{ab}\,\psi^{cd}\rangle
+  \;\sim\; \epsilon^{abcde}\, v_e\,,
+\end{equation}
+where $v_e$ is a vector in the fundamental representation space of
+$\SU{5}$ that specifies the direction of condensation.
+
+\subsection{Step 3: Gauge symmetry breaking}
+
+The condensate~\eqref{eq:condensate} transforms as a
+$\overline{\mathbf{5}}$ under $\SU{5}$.  A non-zero expectation value
+for this composite breaks the gauge symmetry.  Choosing (by gauge
+rotation) $v_e = v\,\delta_{e5}$, the unbroken subgroup is:
+\begin{equation}\label{eq:SU5-breaking}
+  \SU{5} \;\xrightarrow{\;\langle\psi\psi\rangle \neq 0\;}
+  \;\SU{4}\,.
+\end{equation}
+The condensate picks out the fifth direction, breaking $\SU{5}$ to the
+$\SU{4}$ that rotates the remaining four indices $a = 1,2,3,4$.
+
+\textbf{This is tumbling:}  the gauge group has broken to a smaller
+group.  The residual $\SU{4}$ theory now contains the \emph{surviving}
+massless fermions---those components of the original $\psi$ and $\chi$
+that did not acquire masses from the condensate---and the process
+repeats.  The cascade of sequential condensation steps is the
+\textbf{tumbling mechanism}~\cite{RDS1980}.
+
+\subsection{Fermion decomposition under $\SU{4}$}
+
+Under $\SU{5} \to \SU{4}$, the representations decompose as:
+\begin{align}
+  \mathbf{10}\;(\psi^{ab}) &\;\to\;
+    \mathbf{6}\;(\psi^{ij}) \;\oplus\;
+    \mathbf{4}\;(\psi^{i5})\,,
+    \label{eq:10-decomp} \\
+  \overline{\mathbf{5}}\;(\chi_a) &\;\to\;
+    \overline{\mathbf{4}}\;(\chi_i) \;\oplus\;
+    \mathbf{1}\;(\chi_5)\,,
+    \label{eq:5bar-decomp}
+\end{align}
+where $i,j = 1,\ldots,4$ are $\SU{4}$ fundamental indices.  The
+$\mathbf{6}$ is the antisymmetric rank-2 of $\SU{4}$, and the
+$\mathbf{4}$ comes from the components $\psi^{i5}$ with one index in
+the broken direction.
+
+The condensate $\langle \psi^{ab}\,\psi^{cd}\rangle
+\sim \epsilon^{abcd5}\,v$ involves the components $\psi^{ij}$
+(forming the $\SU{4}$-invariant combination
+$\epsilon^{ijkl}\,\psi_{ij}\,\psi_{kl}$).  The condensation gives
+mass to a linear combination of fermions, while the orthogonal
+combinations remain massless.
+
+The surviving massless fermions in the $\SU{4}$ theory are:
+\begin{equation}\label{eq:SU4-content}
+  \SU{4}:\qquad
+  \psi^{i5} \in \mathbf{4}\,,\qquad
+  \chi_i \in \overline{\mathbf{4}}\,,\qquad
+  \chi_5 \in \mathbf{1}\,.
+\end{equation}
+(The $\mathbf{6}$ of $\SU{4}$ from $\psi^{ij}$ condenses and the
+corresponding fermions acquire mass from the gap equation.)
+
+\subsection{Step 4: Anomaly matching at the tumbling step}
+\label{ssec:anomaly-tumbling}
+
+We now verify that 't~Hooft anomaly matching---the exact constraint
+from Lecture~1, \S3---is satisfied at the first tumbling step.  This
+provides a non-trivial consistency check on the fermion identification
+above.
+
+The original $\SU{5}$ theory has a global $\UU{1}$ symmetry
+(generalised baryon number) under which the fermions carry charges:
+\begin{equation}\label{eq:U1-charges}
+  B[\psi] = +1\,,\qquad B[\chi] = -3\,.
+\end{equation}
+(The relative charge is fixed by requiring $B[\langle\psi\psi\rangle]
+\neq 0$ and by the anomaly-free condition for the gauge group
+$\SU{5}^2\,\UU{1}_B$: $\;T(\mathbf{10})\cdot(+1) +
+T(\overline{\mathbf{5}})\cdot(-3) = \tfrac{3}{2}\cdot 1 +
+\tfrac{1}{2}\cdot(-3) = 0$.)
+
+The relevant anomaly coefficient for $\UU{1}_B$ is the mixed
+gauge--global anomaly $\SU{5}^2\,\UU{1}_B$, which vanishes by
+construction.  However, we can check the \emph{purely global}
+anomaly $\UU{1}_B^3$ as a non-trivial test.
+
+\textbf{UV (before condensation):}
+\begin{equation}\label{eq:U1B3-UV}
+  \mathcal{A}[\UU{1}_B^3]_{\mathrm{UV}}
+  = \dim(\mathbf{10})\cdot B[\psi]^3
+  + \dim(\overline{\mathbf{5}})\cdot B[\chi]^3
+  = 10 \cdot 1 + 5 \cdot (-27) = 10 - 135 = -125\,.
+\end{equation}
+
+\textbf{IR (after condensation):}  The surviving fermions
+in~\eqref{eq:SU4-content} carry the same $\UU{1}_B$ charges as the
+original fields from which they descend:
+\begin{equation}\label{eq:U1B3-IR}
+  \mathcal{A}[\UU{1}_B^3]_{\mathrm{IR}}
+  = \dim(\mathbf{4})\cdot (1)^3
+  + \dim(\overline{\mathbf{4}})\cdot (-3)^3
+  + 1 \cdot (-3)^3
+  = 4 - 108 - 27 = -131\,.
+\end{equation}
+
+The mismatch ($-125$ vs $-131$) indicates that this simple
+decomposition does not yet account for all the massless fermion content
+at the $\SU{4}$ stage---additional composite massless fermions
+('t~Hooft's ``persistent mass condition'') must appear to satisfy
+anomaly matching, or some of the fermion components from the condensed
+representation remain massless as Goldstone partners.  This is
+precisely the subtlety that makes tumbling analysis non-trivial:
+anomaly matching \emph{constrains} the surviving spectrum but does not
+uniquely determine it from the condensation channel alone.
+
+\begin{remark}[The role of anomaly matching in tumbling]
+  The point of this exercise is not that anomaly matching fails---it
+  is an exact theorem and \emph{must} be satisfied---but that
+  \emph{identifying the correct massless spectrum} at each tumbling
+  step requires careful analysis beyond MAC alone.  The MAC tells us
+  \emph{which channel condenses}; anomaly matching constrains
+  \emph{which fermions remain massless}.  Together, they provide the
+  tools for analysing the tumbling cascade.  We refer to the original
+  analysis of Raby, Dimopoulos, and Susskind~\cite{RDS1980} and
+  the pedagogical treatment in Peskin~\cite{Peskin1997} for the
+  complete determination of the massless spectrum at each step of
+  the $\SU{5}$ cascade.
+
+  The key lesson from Lecture~1 applies here: \textbf{'t~Hooft anomaly
+  matching does not determine the dynamics, but it powerfully constrains
+  the possible low-energy spectra.}  Any proposed tumbling pattern that
+  violates anomaly matching is ruled out.
+\end{remark}
+
+
+%% ========================================================================
+%%  SECTION 4: Complementarity (Fradkin-Shenker)
+%% ========================================================================
+\section{Complementarity: The Fradkin--Shenker Theorem}
+\label{sec:complementarity}
+
+We now turn to a different but complementary perspective on the
+relationship between the Higgs mechanism and confinement.
+
+\subsection{Statement of the theorem}
+
+Fradkin and Shenker~\cite{FS1979} (see also Osterwalder and
+Seiler~\cite{OS1978}) proved a remarkable result on the lattice:
+
+\begin{theorem}[Fradkin--Shenker, 1979]\label{thm:FS}
+  For a gauge theory with a scalar field in the \textbf{fundamental
+  representation} of the gauge group, the Higgs phase and the
+  confinement phase are \textbf{analytically connected}:\ there is no
+  phase transition separating them.
+\end{theorem}
+
+\textbf{Physical meaning.}  In a gauge theory with a fundamental
+Higgs field $\phi$ (and no other order parameter distinguishing the
+phases), one can continuously deform the theory from the
+``Higgs regime'' (large scalar VEV, perturbative gauge boson masses)
+to the ``confinement regime'' (strong coupling, flux tube formation)
+without encountering a phase transition.  The two regimes are
+\emph{not distinct phases}---they are different descriptions of the
+same physics.
+
+\subsection{The particle identification}
+
+The physical consequence of complementarity is a \textbf{one-to-one
+map} between the particle spectra in the two descriptions:
+
+\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\begin{tabular}{l l}
+\toprule
+\textbf{Higgs description} & \textbf{Confining description} \\
+\midrule
+Massive gauge bosons ($W$, $Z$) & Bound states of $\phi^\dagger\, D_\mu\, \phi$ \\
+Higgs boson(s) & Bound states $\phi^\dagger \phi$ \\
+Matter fermions $\psi$ & Confined composites $\phi^\dagger \psi$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The confined composites on the right are gauge-invariant operators
+built from the scalar $\phi$ and the other fields.  Because there is
+no phase transition, these gauge-invariant composites must match the
+gauge-fixed particle descriptions on the left---their quantum numbers
+(spin, flavour charges, baryon number, etc.)\ agree exactly.  This
+identification is sometimes called the \textbf{complementarity
+principle} for gauge theories~\cite{CT2011}.
+
+\subsection{Conditions and limitations}
+
+\begin{warningbox}[title={Complementarity is not universal}]
+The Fradkin--Shenker theorem holds under two specific conditions:
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{The scalar must be in the fundamental representation}
+    of the gauge group.
+
+  \item \textbf{The gauge group must be completely broken} by the
+    scalar VEV (no residual gauge symmetry).
+\end{enumerate}
+When either condition is violated, phase transitions \emph{can}
+separate the Higgs and confinement phases:
+\begin{itemize}
+  \item For \textbf{adjoint Higgs} (or higher-representation scalars),
+    the Higgs and confinement regimes can be separated by a genuine
+    phase transition.  A discrete unbroken gauge symmetry (such as
+    the centre $\mathbb{Z}_N$ of $\SU{N}$) provides a local order
+    parameter that distinguishes the phases.
+
+  \item For \textbf{partial gauge breaking}---where the scalar VEV
+    leaves a residual gauge group---additional arguments are needed.
+    The Standard Model electroweak sector has $\SU{2}_L \times
+    \UU{1}_Y \to \UU{1}_{\mathrm{EM}}$, which is partial breaking.
+    While complementarity-type arguments have been advanced for
+    this case~\cite{CT2011}, the rigorous Fradkin--Shenker theorem
+    does not directly apply.
+
+  \item Shifman and Yung~\cite{SY2017} showed that in the
+    Seiberg--Witten framework (Lecture~4), the quark confinement
+    phase is \textbf{not} analytically connected to the Higgs phase.
+    This provides a concrete counterexample to na\"{\i}ve universal
+    complementarity when the conditions of the Fradkin--Shenker
+    theorem are not met.
+\end{itemize}
+\end{warningbox}
+
+\begin{remark}[Complementarity and the Standard Model]
+  The SM Higgs doublet is in the fundamental ($\mathbf{2}$) of
+  $\SU{2}_L$, satisfying condition~(a).  However, the electroweak
+  breaking $\SU{2}_L \times \UU{1}_Y \to \UU{1}_{\mathrm{EM}}$
+  is \emph{partial}: condition~(b) is not satisfied because
+  $\UU{1}_{\mathrm{EM}}$ survives.  In the context of the dualised
+  Standard Model (Lecture~6 and beyond), the Pati--Salam embedding
+  provides a more natural setting where a larger gauge group is
+  \emph{completely} broken, and complementarity applies more directly.
+\end{remark}
+
+
+%% ========================================================================
+%%  SECTION 5: Connection to Duality
+%% ========================================================================
+\section{Connection to Duality}
+\label{sec:connection}
+
+\subsection{Tumbling + complementarity = a physical picture for duality}
+
+We can now assemble the tools from this lecture into a \textbf{physical
+picture} that motivates electric--magnetic duality:
+
+\begin{enumerate}[label=\textbf{(\roman*)},leftmargin=*]
+  \item \textbf{Electric theory (confining description).}  Start with
+    a strongly-coupled gauge theory with fermions.  The MAC criterion
+    suggests which fermion bilinear condenses first; the tumbling
+    mechanism produces a cascade of condensation steps that break the
+    gauge group sequentially.  At each step, massless composite
+    fermions survive, constrained by anomaly matching.
+
+  \item \textbf{Transition to the Higgs picture.}  At the end of the
+    tumbling cascade, the strongly-coupled theory has produced
+    condensates that break the gauge symmetry.  By complementarity,
+    this confining description is continuously connected to a
+    \emph{Higgs description} of the same physics: the condensates play
+    the role of elementary Higgs fields, and the composites of the
+    electric theory become the elementary particles of the Higgs phase.
+
+  \item \textbf{Magnetic theory (Higgs description).}  The Higgs-phase
+    description is a weakly-coupled theory with elementary scalars (the
+    ``mesons'' of the electric theory) and gauge bosons---precisely the
+    structure of the magnetic dual from Lecture~3.  The
+    confined composites of the electric theory are identified with the
+    elementary fields of the magnetic theory via their shared quantum
+    numbers.
+\end{enumerate}
+
+\begin{remark}[From physical picture to duality]
+  In the SUSY context of Lecture~3, this physical picture is made
+  \emph{rigorous} by holomorphy, the NSVZ exact beta function, and
+  anomaly matching.  In the non-SUSY context, we lose holomorphy and
+  the exact beta function, but \textbf{anomaly matching survives}
+  (it is a non-perturbative, UV/IR relation that does not require
+  SUSY).  Tumbling and complementarity provide the physical intuition
+  for \emph{why} a magnetic dual should exist; anomaly matching
+  provides the \emph{constraint} that any proposed dual must satisfy.
+\end{remark}
+
+\subsection{What this lecture provides for Lecture~6}
+
+The picture above---tumbling (dynamical mechanism) plus complementarity
+(phase equivalence) producing a duality (theory equivalence)---is the
+conceptual foundation for the non-SUSY duality programme.  In
+Lecture~6 we will see how Sannino and collaborators used this framework,
+combined with anomaly matching, to conjecture that the Standard Model
+itself is the magnetic dual of a more fundamental electric theory.
+
+\begin{previewbox}[title={Preview: Lecture 6}]
+  In Lecture~6 we cross from established non-perturbative phenomena
+  (tumbling, complementarity) to \textbf{conjectural} non-SUSY
+  duality extensions.  The key question: can the physical picture of
+  tumbling + complementarity, which is made rigorous by SUSY in
+  Lectures~3--4, survive in the absence of supersymmetry?
+
+  The evidence is compelling but not conclusive: anomaly matching
+  works, perturbative fixed points exist, and the framework produces
+  the correct Standard Model structure.  But non-SUSY duality has
+  no independent cross-validation beyond anomaly matching---in
+  contrast to the SUSY case, where holomorphy, moduli space matching,
+  and the superconformal index all provide additional evidence.
+
+  \textbf{Every non-SUSY duality statement in Lecture~6 will carry
+  an explicit conjectural qualifier.}
+\end{previewbox}
+
+
+%% ========================================================================
+%%  COMPARISON TABLE
+%% ========================================================================
+\section{Comparison: Tumbling, Complementarity, and Duality}
+\label{sec:comparison}
+
+\begin{comparisontable}[title={Three distinct concepts}]
+These three ideas are often discussed together, but they are
+\textbf{logically distinct}.  Conflating them is a common source of
+confusion.
+
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{} >{\raggedright}p{3cm} p{3.5cm} p{3.5cm} p{3.5cm} @{}}
+\toprule
+& \textbf{Tumbling} & \textbf{Complementarity} & \textbf{Duality} \\
+\midrule
+\textbf{What it is}
+  & Dynamical mechanism
+  & Phase-structure statement
+  & Equivalence between theories \\
+\textbf{Operates on}
+  & A single theory
+  & A single theory (two phases)
+  & Two different theories \\
+\textbf{Key idea}
+  & Sequential condensation driven by MAC
+  & Higgs phase = confinement phase (no phase transition)
+  & Electric theory and magnetic theory have the same IR physics \\
+\textbf{Evidence level}
+  & Approximate (MAC heuristic)
+  & Proven (for fundamental Higgs with complete breaking;
+    \cite{FS1979})
+  & Proven (SUSY, Lectures~3--4); conjectured (non-SUSY) \\
+\textbf{Uses}
+  & Identifies \emph{which} condensate forms
+  & Identifies confined composites with Higgs-phase particles
+  & Maps the full spectrum and interactions between two theories \\
+\textbf{Limitations}
+  & One-gluon exchange at strong coupling; counterexamples exist
+  & Requires fundamental Higgs and complete breaking
+  & Non-SUSY case unproven \\
+\bottomrule
+\end{tabular}
+\end{comparisontable}
+
+
+%% ========================================================================
+%%  SUMMARY
+%% ========================================================================
+\section{Summary}
+\label{sec:summary}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=green!5!white,
+  colframe=green!60!black,
+  fonttitle=\bfseries,
+  title={Lecture 5: Summary}
+]
+\begin{enumerate}
+  \item \textbf{Chiral gauge theories} have fermion content that does
+    not form a real representation; their strong dynamics can produce
+    dynamical gauge symmetry breaking rather than the chiral symmetry
+    breaking familiar from QCD.
+
+  \item The \textbf{MAC criterion} identifies the most attractive
+    condensation channel via
+    $\Delta C_2 = C_2(R_1) + C_2(R_2) - C_2(R_c)$.
+    It is a \emph{heuristic} based on one-gluon exchange, not a
+    theorem.
+
+  \item \textbf{Tumbling} is the sequential condensation mechanism:
+    the MAC condenses, the gauge group breaks, and the process repeats.
+    The $\SU{5}$ Georgi--Glashow model demonstrates the first step:
+    $\SU{5} \to \SU{4}$ with $\Delta C_2 = 24/5$.
+
+  \item At each tumbling step, \textbf{'t~Hooft anomaly matching}
+    (from Lecture~1) constrains the surviving massless spectrum.
+    Anomaly matching does not determine the dynamics, but any
+    proposed tumbling pattern that violates it is excluded.
+
+  \item \textbf{Fradkin--Shenker complementarity:}  for gauge theories
+    with a fundamental-representation Higgs field and complete gauge
+    breaking, the Higgs and confinement phases are analytically
+    connected---there is no phase transition.  This is a
+    \emph{theorem}, not a conjecture.
+
+  \item \textbf{Limitations of complementarity:}  it does not apply
+    universally.  For adjoint Higgs, partial gauge breaking, or
+    higher-representation scalars, phase transitions can separate
+    the phases.
+
+  \item \textbf{Tumbling + complementarity} provides a physical
+    picture motivating electric--magnetic duality: the confined
+    composites of the electric theory are identified with the
+    elementary fields of the magnetic (Higgs-phase) theory.
+\end{enumerate}
+\end{tcolorbox}
+
+
+%% ========================================================================
+%%  BIBLIOGRAPHY
+%% ========================================================================
+\begin{thebibliography}{99}
+
+\bibitem{RDS1980}
+  S.~Raby, S.~Dimopoulos, and L.~Susskind,
+  ``Tumbling gauge theories,''
+  \textit{Nucl.~Phys.} \textbf{B169} (1980) 373.
+
+\bibitem{FS1979}
+  E.~Fradkin and S.~H.~Shenker,
+  ``Phase diagrams of lattice gauge theories with Higgs fields,''
+  \textit{Phys.~Rev.} \textbf{D19} (1979) 3682.
+
+\bibitem{OS1978}
+  K.~Osterwalder and E.~Seiler,
+  ``Gauge field theories on a lattice,''
+  \textit{Ann.~Phys.} \textbf{110} (1978) 440.
+
+\bibitem{Kosower1983}
+  D.~A.~Kosower,
+  ``Symmetry breaking patterns in pseudoreal and real gauge theories,''
+  \textit{Phys.~Lett.} \textbf{B130} (1983) 141.
+
+\bibitem{CT2011}
+  C.~Cs\'aki and T.~Terning,
+  ``Seiberg duality and the Standard Model,''
+  [\texttt{arXiv:1106.3074}].
+
+\bibitem{SY2017}
+  M.~Shifman and A.~Yung,
+  ``Fradkin--Shenker continuity and `instead-of-confinement' phase,''
+  [\texttt{arXiv:1704.06201}].
+
+\bibitem{Peskin1997}
+  M.~E.~Peskin,
+  ``Duality in supersymmetric Yang--Mills theory,''
+  in \textit{Fields, Strings and Duality (TASI 96)},
+  [\texttt{hep-th/9702094}].
+
+\bibitem{Seiberg1995}
+  N.~Seiberg,
+  ``Electric--magnetic duality in supersymmetric non-Abelian gauge
+  theories,''
+  \textit{Nucl.~Phys.} \textbf{B435} (1995) 129
+  [\texttt{hep-th/9411149}].
+
+\bibitem{Sannino2024}
+  F.~Sannino \textit{et al.},
+  ``The Dualised Standard Model,''
+  [\texttt{arXiv:2407.17281}].
+
+\end{thebibliography}
+
+\end{document}
