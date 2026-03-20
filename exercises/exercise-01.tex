@@ -1,0 +1,878 @@
+% ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
+%
+% Exercise Set 1: 't Hooft Anomaly Matching
+% Part of: The Dualised Standard Model -- Part III Lecture Notes
+% Convention: A(fund) = 1, T(fund) = 1/2, B[Q] = 1/N_c (Seiberg)
+%
+\documentclass[11pt,a4paper]{article}
+\input{../lectures/preamble}
+
+\title{\textbf{Exercise Set 1: 't~Hooft Anomaly Matching}}
+\author{The Dualised Standard Model --- Part III Exercises}
+\date{Lent Term 2027}
+
+\begin{document}
+\maketitle
+
+\begin{conventionbox}[title={Conventions for these exercises}]
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l l@{}}
+\toprule
+\textbf{Quantity} & \textbf{Convention} \\
+\midrule
+Dynkin index & $T(\fund) = \Tfund$ per Weyl fermion \\
+Anomaly coefficient & $A(\fund) = 1$, $A(\antifund) = -1$ \\
+Baryon number & $B[Q] = 1/\Nc$, $B[\widetilde{Q}] = -1/\Nc$ \\
+Anomaly matching & $\mathcal{A}_{\UV} = \mathcal{A}_{\IR}$ for global symmetries \\
+\bottomrule
+\end{tabular}
+
+\medskip
+
+\noindent References: Lecture~1, \S\S\ref*{sec:gauge-anomaly}--\ref*{sec:general-anomaly}.
+Anomaly coefficient definition: $A(R)\,d^{abc} = \Tr_R[T^a\{T^b,T^c\}]$.
+\end{conventionbox}
+
+\bigskip
+
+%% ========================================================================
+%%  PROBLEM 1: Gauge anomaly cancellation in the SM (warm-up)
+%% ========================================================================
+\section*{Problem 1: Gauge anomaly cancellation in the Standard Model \hfill $\star$ \normalsize(15 min)}
+\addcontentsline{toc}{section}{Problem 1: Gauge anomaly cancellation in the SM}
+\label{prob:sm-anomaly}
+
+\noindent\textbf{Background.}
+Gauge anomaly cancellation is a \emph{consistency requirement}: if
+$\sum_{\text{L-handed Weyl}} \Tr[T^a\{T^b, T^c\}] \neq 0$ for the gauge
+group generators, the theory is quantum mechanically inconsistent.
+In this problem, you will verify that the Standard Model fermion content
+satisfies this requirement.
+
+\medskip
+\noindent\textbf{Setup.}
+One generation of SM fermions under $\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l c c c c@{}}
+\toprule
+\textbf{Field} & $\SU{3}_c$ & $\SU{2}_L$ & $Y$ & Chirality \\
+\midrule
+$Q_L = (u_L,\, d_L)$ & $\mathbf{3}$ & $\mathbf{2}$ & $+1/6$ & L \\
+$u_R$ & $\mathbf{3}$ & $\mathbf{1}$ & $+2/3$ & R \\
+$d_R$ & $\mathbf{3}$ & $\mathbf{1}$ & $-1/3$ & R \\
+$L_L = (\nu_L,\, e_L)$ & $\mathbf{1}$ & $\mathbf{2}$ & $-1/2$ & L \\
+$e_R$ & $\mathbf{1}$ & $\mathbf{1}$ & $-1$ & R \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textit{Convention:} All anomaly computations use left-handed Weyl
+fermions.  Right-handed Weyl fermions $\psi_R$ are converted to left-handed
+via $\psi_R \to \overline{\psi}_L$ with conjugate representation and
+\emph{negated} $\UU{1}$ charges.
+
+\medskip
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+  \item Verify that the $\SU{3}_c^2\,\UU{1}_Y$ anomaly vanishes.
+  \item Verify that the $\SU{2}_L^2\,\UU{1}_Y$ anomaly vanishes.
+  \item Verify that the $\UU{1}_Y^3$ anomaly vanishes.
+\end{enumerate}
+
+\noindent\textit{Hint:} Convert all right-handed fields to left-handed
+conjugates before summing.  For $\SU{N}^2\,\UU{1}$, the anomaly is
+$\sum_i T(R_i)\,Y_i$ summed over left-handed Weyl fermions only.
+
+\bigskip
+\hrule
+\bigskip
+
+\begin{proof}[\textbf{Solution to Problem 1}]
+
+\textbf{First, convert to all left-handed Weyl fermions.}  The right-handed
+fields become left-handed conjugates with negated hypercharge:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l c c c@{}}
+\toprule
+\textbf{L-handed Weyl field} & $\SU{3}_c$ & $\SU{2}_L$ & $Y$ \\
+\midrule
+$Q_L = (u_L,\, d_L)$ & $\mathbf{3}$ & $\mathbf{2}$ & $+1/6$ \\
+$u_L^c$ & $\overline{\mathbf{3}}$ & $\mathbf{1}$ & $-2/3$ \\
+$d_L^c$ & $\overline{\mathbf{3}}$ & $\mathbf{1}$ & $+1/3$ \\
+$L_L = (\nu_L,\, e_L)$ & $\mathbf{1}$ & $\mathbf{2}$ & $-1/2$ \\
+$e_L^c$ & $\mathbf{1}$ & $\mathbf{1}$ & $+1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{(a) $\SU{3}_c^2\,\UU{1}_Y$:}
+
+The anomaly coefficient is $\mathcal{A} = \sum_i T(R_i^{(\SU{3})})\,Y_i$,
+where the sum runs over all left-handed Weyl fermions that carry $\SU{3}_c$
+charge:
+
+\begin{align}
+  \mathcal{A}[\SU{3}_c^2\,\UU{1}_Y]
+  &= \underbrace{T(\fund) \times 2 \times (+\tfrac{1}{6})}_{Q_L:\;\text{2 doublet components}}
+   + \underbrace{T(\fund) \times 1 \times (-\tfrac{2}{3})}_{u_L^c}
+   + \underbrace{T(\fund) \times 1 \times (+\tfrac{1}{3})}_{d_L^c} \nonumber \\
+  &= \tfrac{1}{2}\bigl(\tfrac{2}{6} - \tfrac{2}{3} + \tfrac{1}{3}\bigr)
+   = \tfrac{1}{2}\bigl(\tfrac{1}{3} - \tfrac{2}{3} + \tfrac{1}{3}\bigr)
+   = \tfrac{1}{2} \times 0 = 0. \quad\checkmark
+\end{align}
+
+\textbf{(b) $\SU{2}_L^2\,\UU{1}_Y$:}
+
+The anomaly coefficient is $\mathcal{A} = \sum_i T(R_i^{(\SU{2})})\,Y_i$,
+summing over left-handed Weyl fermions carrying $\SU{2}_L$ charge:
+
+\begin{align}
+  \mathcal{A}[\SU{2}_L^2\,\UU{1}_Y]
+  &= \underbrace{T(\fund_{\SU{2}}) \times 3 \times (+\tfrac{1}{6})}_{Q_L:\;\text{3 colours}}
+   + \underbrace{T(\fund_{\SU{2}}) \times 1 \times (-\tfrac{1}{2})}_{L_L} \nonumber \\
+  &= \tfrac{1}{2}\bigl(\tfrac{3}{6} - \tfrac{1}{2}\bigr)
+   = \tfrac{1}{2}\bigl(\tfrac{1}{2} - \tfrac{1}{2}\bigr)
+   = 0. \quad\checkmark
+\end{align}
+
+\textbf{(c) $\UU{1}_Y^3$:}
+
+The anomaly coefficient is $\mathcal{A} = \sum_i Y_i^3$, summing over all
+left-handed Weyl fermions with their multiplicities:
+
+\begin{align}
+  \mathcal{A}[\UU{1}_Y^3]
+  &= \underbrace{3 \times 2 \times (+\tfrac{1}{6})^3}_{Q_L:\;3\text{ colours}\times 2\text{ doublet}}
+   + \underbrace{3 \times 1 \times (-\tfrac{2}{3})^3}_{u_L^c:\;3\text{ colours}}
+   + \underbrace{3 \times 1 \times (+\tfrac{1}{3})^3}_{d_L^c:\;3\text{ colours}} \nonumber \\
+  &\quad + \underbrace{1 \times 2 \times (-\tfrac{1}{2})^3}_{L_L:\;2\text{ doublet}}
+   + \underbrace{1 \times 1 \times (+1)^3}_{e_L^c} \nonumber \\
+  &= 6 \times \tfrac{1}{216}
+   + 3 \times (-\tfrac{8}{27})
+   + 3 \times \tfrac{1}{27}
+   + 2 \times (-\tfrac{1}{8})
+   + 1 \nonumber \\
+  &= \tfrac{6}{216} - \tfrac{24}{27} + \tfrac{3}{27} - \tfrac{2}{8} + 1 \nonumber \\
+  &= \tfrac{1}{36} - \tfrac{21}{27} - \tfrac{1}{4} + 1.
+\end{align}
+Converting to a common denominator of 108:
+\begin{align}
+  &= \tfrac{3}{108} - \tfrac{84}{108} - \tfrac{27}{108} + \tfrac{108}{108}
+   = \tfrac{3 - 84 - 27 + 108}{108}
+   = \tfrac{0}{108} = 0. \quad\checkmark
+\end{align}
+
+\textbf{Key point:} All three anomalies vanish. This is a \emph{consistency
+check} on the SM fermion content---if any anomaly were non-zero, the Standard
+Model would be quantum mechanically inconsistent. Note that this is
+\emph{not} anomaly matching; it is anomaly \emph{cancellation}.
+\end{proof}
+
+\newpage
+
+%% ========================================================================
+%%  PROBLEM 2: 't Hooft anomaly matching for SU(3) QCD with N_f = 2
+%% ========================================================================
+\section*{Problem 2: 't~Hooft anomaly matching for $\SU{3}$ QCD with $\Nf = 2$
+  \hfill $\star\star$ \normalsize(30 min)}
+\addcontentsline{toc}{section}{Problem 2: Anomaly matching for SU(3), $N_f = 2$}
+\label{prob:su3-nf2}
+
+\noindent\textbf{Background.}
+'t~Hooft anomaly matching is a constraint on the \IR{} spectrum: the
+anomaly coefficients of exact global symmetries must be equal when computed
+using \UV{} or \IR{} degrees of freedom (Lecture~1, Theorem~\ref*{thm:anomaly-matching}).
+
+\medskip
+\noindent\textbf{Setup.}
+Consider $\SU{3}$ QCD with $\Nf = 2$ massless Dirac quarks $(u, d)$ in the
+fundamental representation.
+
+\begin{itemize}
+  \item \textbf{UV theory:} 2 Dirac quarks, each decomposing into a
+    left-handed Weyl fermion $q_L^i$ ($i=1,2$) in the $(\fund, \fund_L)$
+    of $\SU{3}_c \times \SU{2}_L$ and a right-handed Weyl fermion
+    $q_R^i$ in the $(\fund, \fund_R)$ of $\SU{3}_c \times \SU{2}_R$.
+    Equivalently, in all-left-handed notation: $q_L^i$ in
+    $(\fund, \fund_L, \mathbf{1}_R)$ and $\tilde{q}_L^i$ in
+    $(\antifund, \mathbf{1}_L, \fund_R)$.
+  \item \textbf{Exact global symmetry:}
+    $G_{\text{global}} = \SU{2}_L \times \SU{2}_R \times \UU{1}_B$
+    (the axial $\UU{1}_A$ is broken by the ABJ anomaly and is \emph{not}
+    matched).
+  \item \textbf{Baryon number:} $B[q_L] = 1/3$, $B[\tilde{q}_L] = -1/3$.
+  \item \textbf{IR hypothesis:} Confinement with chiral symmetry breaking
+    $\SU{2}_L \times \SU{2}_R \to \SU{2}_V$.  The massless \IR{} spectrum
+    consists of 3 Goldstone pions $\pi^a$ ($a=1,2,3$, adjoint of
+    $\SU{2}_V$, $B = 0$) and we need to check whether composite baryons
+    contribute to anomaly matching.
+\end{itemize}
+
+\medskip
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+  \item Compute the \UV{} anomaly coefficients: $\SU{2}_L^3$, $\SU{2}_R^3$,
+    $\SU{2}_L^2\,\UU{1}_B$, $\UU{1}_B^3$, $\UU{1}_B$-gravitational.
+  \item The \IR{} theory has 3 massless Goldstone pions. Pions are bosons
+    and do not contribute to fermion triangle anomalies. What massless
+    fermion must exist in the \IR{} for anomaly matching to work?
+  \item Assuming the massless baryon is a nucleon doublet
+    $(p, n)$ in the fundamental of $\SU{2}_V$ (embedded as
+    $(\fund_L, \fund_R)$ of $\SU{2}_L \times \SU{2}_R$) with $B = 1$,
+    compute the \IR{} anomaly coefficients and verify $\mathcal{A}_{\UV}
+    = \mathcal{A}_{\IR}$ for each.
+\end{enumerate}
+
+\noindent\textit{Hint for (b):} The pions have $B = 0$ and are bosons.
+The $\SU{2}_L^3$ anomaly is non-zero in the \UV{}.  What fermion can
+match it?
+
+\bigskip
+\hrule
+\bigskip
+
+\begin{proof}[\textbf{Solution to Problem 2}]
+
+\textbf{(a) UV anomaly coefficients.}
+
+The \UV{} theory has $\Nc = 3$ colours and $\Nf = 2$ flavours.  In the
+all-left-handed convention:
+\begin{itemize}
+  \item $q_L^{i\alpha}$ ($i=1,2$; $\alpha=1,2,3$): 6 Weyl fermions in
+    $(\fund_3, \fund_2, \mathbf{1})$ with $B = 1/3$.
+  \item $\tilde{q}_L^{i\alpha}$: 6 Weyl fermions in
+    $(\overline{\fund}_3, \mathbf{1}, \fund_2)$ with $B = -1/3$.
+\end{itemize}
+
+\underline{$\SU{2}_L^3$:} Only $q_L$ transforms under $\SU{2}_L$.  There
+are $\Nc = 3$ colour copies of the fundamental of $\SU{2}_L$:
+\begin{equation}
+  \mathcal{A}_{\UV}[\SU{2}_L^3] = \Nc \times A(\fund_{\SU{2}}) = 3 \times 1 = 3.
+\end{equation}
+(We use $A(\fund) = 1$.)
+
+\underline{$\SU{2}_R^3$:} By $L \leftrightarrow R$ symmetry:
+\begin{equation}
+  \mathcal{A}_{\UV}[\SU{2}_R^3] = 3.
+\end{equation}
+
+\underline{$\SU{2}_L^2\,\UU{1}_B$:} The mixed anomaly involves
+$T(R_{\SU{2}})$ and the $\UU{1}_B$ charge.  Only $q_L$ contributes:
+\begin{equation}
+  \mathcal{A}_{\UV}[\SU{2}_L^2\,\UU{1}_B]
+  = \Nc \times T(\fund_{\SU{2}}) \times B[q_L]
+  = 3 \times \tfrac{1}{2} \times \tfrac{1}{3}
+  = \tfrac{1}{2}.
+\end{equation}
+
+\underline{$\UU{1}_B^3$:} Both $q_L$ and $\tilde{q}_L$ contribute:
+\begin{equation}
+  \mathcal{A}_{\UV}[\UU{1}_B^3]
+  = \Nc\Nf \times B[q_L]^3 + \Nc\Nf \times B[\tilde{q}_L]^3
+  = 6 \times \tfrac{1}{27} + 6 \times (-\tfrac{1}{27})
+  = 0.
+\end{equation}
+
+\underline{$\UU{1}_B$-gravitational:} Proportional to $\sum_i B_i$:
+\begin{equation}
+  \mathcal{A}_{\UV}[\UU{1}_B\text{-grav}]
+  = \Nc\Nf \times B[q_L] + \Nc\Nf \times B[\tilde{q}_L]
+  = 6 \times \tfrac{1}{3} + 6 \times (-\tfrac{1}{3})
+  = 0.
+\end{equation}
+
+\textbf{Summary of UV anomalies:}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l c@{}}
+\toprule
+\textbf{Anomaly} & $\mathcal{A}_{\UV}$ \\
+\midrule
+$\SU{2}_L^3$ & $3$ \\
+$\SU{2}_R^3$ & $3$ \\
+$\SU{2}_L^2\,\UU{1}_B$ & $1/2$ \\
+$\UU{1}_B^3$ & $0$ \\
+$\UU{1}_B$-grav & $0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{(b) The pions do not match the anomalies.}
+
+Pions are Goldstone bosons and have no fermion triangle diagrams.  The
+$\SU{2}_L^3$ anomaly is $3$ in the \UV{}, so there must be massless
+\emph{fermions} in the \IR{} to produce a non-zero anomaly coefficient.
+
+The lightest baryons in 2-flavour QCD are the nucleons $(p, n)$, which
+form a doublet under the unbroken $\SU{2}_V$.  If the nucleons remain
+massless (or light compared to $\Lambda_{\QCD}$---which is the hypothesis
+for the chiral limit), they provide the required fermionic degrees of
+freedom.
+
+\textbf{(c) IR anomaly matching with a nucleon doublet.}
+
+The massless nucleon doublet $(p, n)$ transforms as follows under the
+unbroken $\SU{2}_V \subset \SU{2}_L \times \SU{2}_R$:
+
+\begin{itemize}
+  \item As a left-handed Weyl fermion, it is in the $(\fund_L, \fund_R)$
+    of $\SU{2}_L \times \SU{2}_R$ (it transforms as a fundamental under
+    both, which is the correct embedding of the $\SU{2}_V$ fundamental
+    into $\SU{2}_L \times \SU{2}_R$).
+  \item Baryon number: $B[N] = 1$ (the nucleon is a 3-quark state).
+\end{itemize}
+
+More precisely, the nucleon doublet consists of a left-handed Weyl component
+$N_L$ in $(\fund_L, \mathbf{1}_R)$ and a right-handed Weyl component
+$N_R$ in $(\mathbf{1}_L, \fund_R)$.  In the all-left-handed convention,
+$N_R$ becomes $\widetilde{N}_L$ in $(\mathbf{1}_L, \antifund_R)$.
+
+However, this does not produce the right matching.  The correct approach
+is to recognise that the nucleon is a \emph{Dirac} fermion: the Dirac
+nucleon doublet contains $N_L$ (left-handed, $\fund$ of $\SU{2}_L$,
+$\mathbf{1}$ of $\SU{2}_R$, $B = 1$) and $N_R$ (right-handed,
+$\mathbf{1}$ of $\SU{2}_L$, $\fund$ of $\SU{2}_R$, $B = 1$).  In the
+all-left-handed convention, $N_R \to \tilde{N}_L$ with $\antifund_R$
+and $B = -1$ (as conjugation negates the $\UU{1}$ charge for the
+right-handed component when converting to a left-handed antiparticle).
+
+Wait---this is actually subtle.  Let us be careful.  For a Dirac nucleon
+with baryon number $B = 1$:
+\begin{itemize}
+  \item $N_L$: left-handed, $\fund_L$, $\mathbf{1}_R$, $B = +1$.
+  \item $N_R$: right-handed, $\mathbf{1}_L$, $\fund_R$, $B = +1$.
+\end{itemize}
+Convert $N_R$ to a left-handed field: $N_R \to \tilde{N}_L^c$ (left-handed,
+$\mathbf{1}_L$, $\antifund_R$, $B = -1$).
+
+Now compute the \IR{} anomalies:
+
+\underline{$\SU{2}_L^3$:} Only $N_L$ contributes (it is the only field
+with $\SU{2}_L$ charge):
+\begin{equation}
+  \mathcal{A}_{\IR}[\SU{2}_L^3]
+  = 1 \times A(\fund_{\SU{2}})
+  = 1.
+\end{equation}
+
+This gives $\mathcal{A}_{\IR} = 1$, but $\mathcal{A}_{\UV} = 3$.
+The matching fails!
+
+\textbf{Resolution:} For $\SU{2}$ specifically, $A(\fund_{\SU{2}}) = 1$,
+but $\SU{2}$ has no cubic anomaly: $d^{abc} = 0$ for $\SU{2}$.  The
+purely cubic anomaly $\SU{2}^3$ actually vanishes identically for all
+representations of $\SU{2}$, because $\SU{2}$ has only pseudo-real
+representations.
+
+Therefore, the $\SU{2}_L^3$ anomaly matching condition is trivially
+$0 = 0$ for both \UV{} and \IR{}.  This is a peculiarity of $\SU{2}$:
+the non-trivial anomaly matching constraints come from the mixed anomalies,
+not the purely cubic ones.
+
+\medskip
+
+Let us redo the analysis using the \emph{non-trivial} anomaly matching
+conditions.  For $\SU{2}$, the meaningful anomalies to match are those
+involving the Witten $\SU{2}$ global anomaly (discrete, $\pi_4(\SU{2}) = \mathbb{Z}_2$)
+and the mixed anomalies $\SU{2}^2\,\UU{1}$.
+
+\underline{$\SU{2}_L^2\,\UU{1}_B$ (the key non-trivial check):}
+
+\UV:
+\begin{equation}
+  \mathcal{A}_{\UV}[\SU{2}_L^2\,\UU{1}_B]
+  = 3 \times T(\fund_{\SU{2}}) \times \tfrac{1}{3}
+  = 3 \times \tfrac{1}{2} \times \tfrac{1}{3}
+  = \tfrac{1}{2}.
+\end{equation}
+
+\IR{} ($N_L$ contributes with $B = 1$):
+\begin{equation}
+  \mathcal{A}_{\IR}[\SU{2}_L^2\,\UU{1}_B]
+  = 1 \times T(\fund_{\SU{2}}) \times 1
+  = \tfrac{1}{2}.
+\end{equation}
+
+Match: $\tfrac{1}{2} = \tfrac{1}{2}$. \quad$\checkmark$
+
+\underline{$\SU{2}_R^2\,\UU{1}_B$:}
+
+\UV:
+\begin{equation}
+  \mathcal{A}_{\UV}[\SU{2}_R^2\,\UU{1}_B]
+  = 3 \times T(\fund_{\SU{2}}) \times (-\tfrac{1}{3})
+  = -\tfrac{1}{2}.
+\end{equation}
+(Using $B[\tilde{q}_L] = -1/3$ for the fields transforming under $\SU{2}_R$.)
+
+\IR{} ($\tilde{N}_L^c$ has $\antifund_R$ and $B = -1$): the Dynkin index
+$T(\antifund) = T(\fund) = 1/2$, so
+\begin{equation}
+  \mathcal{A}_{\IR}[\SU{2}_R^2\,\UU{1}_B]
+  = 1 \times T(\fund_{\SU{2}}) \times (-1)
+  = -\tfrac{1}{2}.
+\end{equation}
+
+Match: $-\tfrac{1}{2} = -\tfrac{1}{2}$. \quad$\checkmark$
+
+\underline{$\UU{1}_B^3$:}
+
+\UV: $0$ (computed above).
+
+\IR: $N_L$ has $B = +1$, $\tilde{N}_L^c$ has $B = -1$:
+\begin{equation}
+  \mathcal{A}_{\IR}[\UU{1}_B^3]
+  = 2 \times (+1)^3 + 2 \times (-1)^3
+  = 2 - 2 = 0.
+\end{equation}
+(The factor of 2 accounts for the two components of each $\SU{2}$
+doublet.)
+
+Match: $0 = 0$. \quad$\checkmark$
+
+\underline{$\UU{1}_B$-gravitational:}
+
+\UV: $0$.
+
+\IR:
+\begin{equation}
+  \mathcal{A}_{\IR}[\UU{1}_B\text{-grav}]
+  = 2 \times (+1) + 2 \times (-1)
+  = 0.
+\end{equation}
+
+Match: $0 = 0$. \quad$\checkmark$
+
+\bigskip
+
+\textbf{Conclusion:} All anomaly matching conditions are satisfied by the
+\IR{} spectrum consisting of 3 massless Goldstone pions (which do not
+contribute to anomalies) plus a massless nucleon Dirac doublet.  The
+$\SU{2}^3$ purely cubic anomaly vanishes identically for $\SU{2}$ (no
+$d$-symbol), so the non-trivial checks are the mixed anomalies
+$\SU{2}_{L,R}^2\,\UU{1}_B$.
+
+\textit{Remark:} In the real world, the nucleon mass $m_N \approx 940$~MeV
+is not zero.  Anomaly matching applies in the \emph{chiral limit}
+$m_q \to 0$.  The matching tells us that if the quarks were exactly
+massless, the nucleon would need to be massless too (or else the anomaly
+matching would require massless baryonic fermions in another
+representation).
+\end{proof}
+
+\newpage
+
+%% ========================================================================
+%%  PROBLEM 3: General anomaly matching for SU(N_c) with N_f fundamentals
+%% ========================================================================
+\section*{Problem 3: General anomaly matching for $\SU{\Nc}$ with $\Nf$
+  fundamentals \hfill $\star\star$ \normalsize(30 min)}
+\addcontentsline{toc}{section}{Problem 3: General anomaly matching for $\SU{N_c}$}
+\label{prob:general-anomaly}
+
+\noindent\textbf{Background.}
+We now compute the \UV{} anomaly coefficients for the most general case
+that underpins all subsequent anomaly matching in these lectures.
+
+\medskip
+\noindent\textbf{Setup.}
+$\SU{\Nc}$ gauge theory with $\Nf$ massless Dirac flavours in the
+fundamental representation.  In the all-left-handed convention:
+\begin{itemize}
+  \item $Q_i^\alpha$ ($i = 1,\ldots,\Nf$; $\alpha = 1,\ldots,\Nc$):
+    $\Nc\Nf$ left-handed Weyl fermions in
+    $(\fund_{\SU{\Nc}},\,\fund_{\SU{\Nf}_L},\,\mathbf{1}_{\SU{\Nf}_R})$
+    with baryon number $B[Q] = 1/\Nc$.
+  \item $\widetilde{Q}^{i\alpha}$:
+    $\Nc\Nf$ left-handed Weyl fermions in
+    $(\antifund_{\SU{\Nc}},\,\mathbf{1}_{\SU{\Nf}_L},\,\fund_{\SU{\Nf}_R})$
+    with baryon number $B[\widetilde{Q}] = -1/\Nc$.
+\end{itemize}
+
+Exact global symmetry for anomaly matching:
+$G_{\text{exact}} = \SU{\Nf}_L \times \SU{\Nf}_R \times \UU{1}_B$.
+(The axial $\UU{1}_A$ is anomalous under $\SU{\Nc}$ and is
+\emph{not} matched.)
+
+\medskip
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+  \item Compute all 6 independent \UV{} anomaly coefficients:
+    \begin{enumerate}[label=(\roman*)]
+      \item $\SU{\Nf}_L^3$
+      \item $\SU{\Nf}_R^3$
+      \item $\SU{\Nf}_L^2\,\UU{1}_B$
+      \item $\SU{\Nf}_R^2\,\UU{1}_B$
+      \item $\UU{1}_B^3$
+      \item $\UU{1}_B$-gravitational
+    \end{enumerate}
+  \item State which of these must be matched by any proposed \IR{} spectrum.
+  \item Explain why $\UU{1}_A$ is not included in the matching conditions.
+\end{enumerate}
+
+\noindent\textit{Hint:} For $\SU{\Nf}_L^3$, the $Q_i$ transform as the
+fundamental of $\SU{\Nf}_L$, and there are $\Nc$ copies (one per colour).
+
+\bigskip
+\hrule
+\bigskip
+
+\begin{proof}[\textbf{Solution to Problem 3}]
+
+\textbf{(a) UV anomaly coefficients.}
+
+\underline{(i) $\SU{\Nf}_L^3$:}
+Only $Q_i^\alpha$ transforms under $\SU{\Nf}_L$.  For each fixed colour
+$\alpha$, the $\Nf$ fields $Q_i^\alpha$ form the fundamental of $\SU{\Nf}_L$
+with anomaly coefficient $A(\fund) = 1$.  Summing over $\Nc$ colours:
+\begin{equation}
+  \boxed{%
+  \mathcal{A}_{\UV}[\SU{\Nf}_L^3] = \Nc.
+  }
+\end{equation}
+
+\underline{(ii) $\SU{\Nf}_R^3$:}
+By $L \leftrightarrow R$ symmetry (the $\widetilde{Q}^i$ play the role
+of $Q_i$ for $\SU{\Nf}_R$):
+\begin{equation}
+  \boxed{%
+  \mathcal{A}_{\UV}[\SU{\Nf}_R^3] = \Nc.
+  }
+\end{equation}
+
+\underline{(iii) $\SU{\Nf}_L^2\,\UU{1}_B$:}
+This is a mixed anomaly: two $\SU{\Nf}_L$ generators and one $\UU{1}_B$
+generator.  The $Q_i^\alpha$ contribute with Dynkin index $T(\fund_{\SU{\Nf}})
+= 1/2$ and baryon number $B = 1/\Nc$:
+\begin{equation}
+  \boxed{%
+  \mathcal{A}_{\UV}[\SU{\Nf}_L^2\,\UU{1}_B]
+  = \Nc \times T(\fund_{\SU{\Nf}}) \times \frac{1}{\Nc}
+  = \Nc \times \frac{1}{2} \times \frac{1}{\Nc}
+  = \frac{1}{2}.
+  }
+\end{equation}
+
+\underline{(iv) $\SU{\Nf}_R^2\,\UU{1}_B$:}
+The $\widetilde{Q}^i$ have $T(\fund_{\SU{\Nf}}) = 1/2$ and $B = -1/\Nc$:
+\begin{equation}
+  \boxed{%
+  \mathcal{A}_{\UV}[\SU{\Nf}_R^2\,\UU{1}_B]
+  = \Nc \times \frac{1}{2} \times \Bigl(-\frac{1}{\Nc}\Bigr)
+  = -\frac{1}{2}.
+  }
+\end{equation}
+
+\underline{(v) $\UU{1}_B^3$:}
+Summing $B^3$ over all left-handed Weyl fermions:
+\begin{equation}
+  \mathcal{A}_{\UV}[\UU{1}_B^3]
+  = \Nc\Nf \times \Bigl(\frac{1}{\Nc}\Bigr)^3
+  + \Nc\Nf \times \Bigl(-\frac{1}{\Nc}\Bigr)^3
+  = \frac{\Nf}{\Nc^2} - \frac{\Nf}{\Nc^2}
+  = 0.
+\end{equation}
+\begin{equation}
+  \boxed{%
+  \mathcal{A}_{\UV}[\UU{1}_B^3] = 0.
+  }
+\end{equation}
+
+\underline{(vi) $\UU{1}_B$-gravitational:}
+The gravitational anomaly coefficient is $\sum_i B_i$:
+\begin{equation}
+  \mathcal{A}_{\UV}[\UU{1}_B\text{-grav}]
+  = \Nc\Nf \times \frac{1}{\Nc}
+  + \Nc\Nf \times \Bigl(-\frac{1}{\Nc}\Bigr)
+  = \Nf - \Nf = 0.
+\end{equation}
+\begin{equation}
+  \boxed{%
+  \mathcal{A}_{\UV}[\UU{1}_B\text{-grav}] = 0.
+  }
+\end{equation}
+
+\textbf{Summary:}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l c l@{}}
+\toprule
+\textbf{Anomaly triple} & $\mathcal{A}_{\UV}$ & \textbf{Depends on} \\
+\midrule
+$\SU{\Nf}_L^3$ & $\Nc$ & $A(\fund) = 1$, colour multiplicity \\
+$\SU{\Nf}_R^3$ & $\Nc$ & $L \leftrightarrow R$ symmetry \\
+$\SU{\Nf}_L^2\,\UU{1}_B$ & $+1/2$ & $T(\fund) = 1/2$, $B = 1/\Nc$ \\
+$\SU{\Nf}_R^2\,\UU{1}_B$ & $-1/2$ & $T(\fund) = 1/2$, $B = -1/\Nc$ \\
+$\UU{1}_B^3$ & $0$ & $Q$ and $\widetilde{Q}$ cancel \\
+$\UU{1}_B$-grav & $0$ & $Q$ and $\widetilde{Q}$ cancel \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+These are exactly the UV anomaly coefficients tabulated in Lecture~1,
+\S\ref*{sec:general-anomaly}.  They will be the primary tool for verifying
+Seiberg duality in Exercise Set~3.
+
+\textbf{(b)} \emph{All six} anomaly coefficients must be matched by any
+proposed \IR{} spectrum.  If even one coefficient fails to match, the
+proposed spectrum is ruled out.
+
+\textbf{(c) Why $\UU{1}_A$ is excluded.}
+The axial symmetry $\UU{1}_A$ (under which $Q \to e^{i\alpha}Q$ and
+$\widetilde{Q} \to e^{i\alpha}\widetilde{Q}$) is \emph{anomalous} with
+respect to the gauge group $\SU{\Nc}$.  The ABJ anomaly explicitly breaks
+$\UU{1}_A$ to the discrete subgroup $\mathbb{Z}_{2\Nf}$.  Since $\UU{1}_A$
+is not an exact symmetry of the quantum theory, the 't~Hooft matching
+argument (which relies on gauging the global symmetry via spectator fields)
+does not apply to it.  The $\UU{1}_A$ anomaly is a genuine symmetry
+\emph{breaking}, not a matching constraint.
+\end{proof}
+
+\newpage
+
+%% ========================================================================
+%%  PROBLEM 4: Anomaly matching with antisymmetric matter (challenge)
+%% ========================================================================
+\section*{Problem 4: Anomaly matching with antisymmetric matter
+  \hfill $\star\star\star\star$ \normalsize(45 min)}
+\addcontentsline{toc}{section}{Problem 4: Antisymmetric matter (challenge)}
+\label{prob:antisymmetric}
+
+\noindent\textbf{Background.}
+This problem extends anomaly matching to representations beyond the
+fundamental.  The antisymmetric representation $\antisym$ appears in
+theories with $\SU{5}$ unification and will feature prominently in the
+dualised Standard Model (Lectures~6--7).
+
+\medskip
+\noindent\textbf{Setup.}
+Consider $\SU{N}$ gauge theory with the following matter content (all
+Weyl fermions, left-handed):
+\begin{itemize}
+  \item One Weyl fermion $\Psi$ in the antisymmetric representation
+    $\antisym$ (dimension $N(N-1)/2$).
+  \item $(N-4)$ Weyl fermions $\chi_j$ ($j = 1,\ldots,N-4$) in the
+    antifundamental $\antifund$ (dimension $N$).
+\end{itemize}
+
+\medskip
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Gauge anomaly cancellation.}
+    Using $A(\antisym) = N-4$ and $A(\antifund) = -1$,
+    verify that the gauge anomaly vanishes:
+    \[
+      A(\antisym) + (N-4)\times A(\antifund) = (N-4) + (N-4)\times(-1) = 0.
+    \]
+  \item \textbf{Global symmetries.}
+    Identify the global symmetry group.  The $(N-4)$ antifundamentals
+    $\chi_j$ transform as the fundamental of a global $\SU{N-4}$ flavour
+    symmetry.  What $\UU{1}$ global symmetries exist?
+  \item \textbf{UV anomaly coefficient.}
+    Compute the $\SU{N-4}^3$ anomaly in the \UV.  Only the $\chi_j$
+    transform under $\SU{N-4}$.
+  \item \textbf{Special case: $\SU{5}$.}
+    For $N = 5$: the theory has one antisymmetric ($\mathbf{10}$) and
+    one antifundamental ($\overline{\mathbf{5}}$).  This is a \emph{chiral}
+    gauge theory (the fermion content is not vector-like).
+    \begin{enumerate}[label=(\roman*)]
+      \item Verify gauge anomaly cancellation for $\SU{5}$:
+        $A(\antisym) = 5 - 4 = 1$ and $A(\antifund) = -1$.
+      \item Explain why this theory has no gauge-invariant mass term
+        (unlike vector-like theories with $Q + \widetilde{Q}$).
+      \item Discuss why anomaly matching is particularly constraining
+        for chiral theories.
+    \end{enumerate}
+\end{enumerate}
+
+\noindent\textit{Hint for (b):} Assign $\UU{1}$ charges by requiring that
+no gauge-invariant operator is charged under the supposed $\UU{1}$.
+
+\bigskip
+\hrule
+\bigskip
+
+\begin{proof}[\textbf{Solution to Problem 4}]
+
+\textbf{(a) Gauge anomaly cancellation.}
+
+The gauge anomaly coefficient is:
+\begin{align}
+  \mathcal{A}_{\text{gauge}}
+  &= A(\antisym) + (N-4) \times A(\antifund) \nonumber \\
+  &= (N-4) + (N-4) \times (-1) \nonumber \\
+  &= (N-4) - (N-4) = 0. \quad\checkmark
+\end{align}
+
+This is the requirement for quantum consistency: the antisymmetric
+representation and $(N-4)$ antifundamentals produce equal and opposite
+cubic anomaly coefficients.
+
+\textbf{(b) Global symmetries.}
+
+The $(N-4)$ antifundamentals $\chi_j$ rotate into each other under a
+global $\SU{N-4}$ flavour symmetry.  The antisymmetric $\Psi$ is a
+singlet under this $\SU{N-4}$.
+
+There is also a non-anomalous $\UU{1}$ symmetry.  To find it, we
+assign charges $q_\Psi$ and $q_\chi$ to $\Psi$ and $\chi$ respectively,
+and require:
+\begin{enumerate}[label=(\roman*)]
+  \item The $\SU{N}^2\,\UU{1}$ mixed anomaly vanishes (for the global
+    $\UU{1}$ to be non-anomalous with respect to the gauge group):
+    \[
+      T(\antisym) \times q_\Psi + (N-4) \times T(\antifund) \times q_\chi = 0.
+    \]
+    Using $T(\antisym) = (N-2)/2$ and $T(\antifund) = 1/2$:
+    \[
+      \frac{N-2}{2}\,q_\Psi + (N-4) \times \frac{1}{2}\,q_\chi = 0,
+    \]
+    giving $q_\Psi / q_\chi = -(N-4)/(N-2)$.
+\end{enumerate}
+
+A convenient normalisation is:
+\begin{equation}
+  q_\Psi = -(N-4), \qquad q_\chi = (N-2).
+\end{equation}
+
+The full global symmetry is:
+\begin{equation}
+  G_{\text{global}} = \SU{N-4} \times \UU{1}.
+\end{equation}
+
+\textbf{(c) $\SU{N-4}^3$ anomaly in the UV.}
+
+Only the $\chi_j$ transform under $\SU{N-4}$.  Each $\chi_j$ is in the
+antifundamental of $\SU{N}$, which has $N$ colour components.  For each
+colour $\alpha = 1,\ldots,N$, the fields $\chi_j^\alpha$
+($j = 1,\ldots,N-4$) form the fundamental of $\SU{N-4}$ (note: the
+flavour index runs over $j$, and each $\chi_j$ is in the $\antifund$ of
+$\SU{N}$, so there are $N$ colour copies).
+
+\begin{equation}
+  \boxed{%
+  \mathcal{A}_{\UV}[\SU{N-4}^3] = N \times A(\fund_{\SU{N-4}}) = N.
+  }
+\end{equation}
+
+This is the anomaly coefficient that any proposed \IR{} spectrum must
+match.
+
+\textbf{(d) Special case: $\SU{5}$.}
+
+For $N = 5$:
+\begin{itemize}
+  \item Antisymmetric $\antisym$ of $\SU{5}$: the $\mathbf{10}$
+    representation (dimension $5 \times 4 / 2 = 10$).
+  \item $(N-4) = 1$ antifundamental: $\overline{\mathbf{5}}$.
+  \item Global symmetry: $\SU{1} \times \UU{1} = \UU{1}$ (trivial
+    flavour group since there is only one antifundamental).
+\end{itemize}
+
+\textbf{(i)} Gauge anomaly cancellation:
+\begin{equation}
+  A(\antisym_{\SU{5}}) + 1 \times A(\antifund_{\SU{5}})
+  = (5-4) + (-1) = 1 - 1 = 0. \quad\checkmark
+\end{equation}
+
+\textbf{(ii)} This is a \emph{chiral} gauge theory.  In a vector-like
+theory (such as QCD with $Q + \widetilde{Q}$), the fermions come in
+conjugate pairs and one can always write a gauge-invariant mass term
+$m\,Q\widetilde{Q}$.
+
+Here, the $\mathbf{10}$ and $\overline{\mathbf{5}}$ are \emph{not}
+conjugate representations of $\SU{5}$---the $\mathbf{10}$ is the
+antisymmetric tensor $\Psi^{[\alpha\beta]}$ and the $\overline{\mathbf{5}}$
+is $\chi_\alpha$.  The only gauge-invariant bilinear one could form is
+$\epsilon_{\alpha\beta\gamma\delta\epsilon}\Psi^{[\alpha\beta]}\Psi^{[\gamma\delta]}\chi^\epsilon$,
+but this is a cubic (Yukawa-type) coupling, not a mass term.  There is
+\emph{no} gauge-invariant fermion bilinear $\bar{\psi}\psi$, so no mass
+term is possible.
+
+\textbf{(iii)} Anomaly matching is particularly constraining for chiral
+theories because:
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{No decoupling.}  In a vector-like theory, fermions can
+    acquire a mass and decouple without affecting anomaly matching (their
+    contribution vanishes from both \UV{} and \IR{} simultaneously).
+    In a chiral theory, fermions cannot be given an arbitrary mass, so
+    the anomaly coefficients are ``protected'' and provide strong
+    constraints on the \IR{} spectrum.
+  \item \textbf{No continuous deformation.}  A chiral theory cannot be
+    continuously deformed to a weakly-coupled theory (by adding a mass
+    and taking it large), so one must rely on non-perturbative arguments.
+    Anomaly matching is one of the few exact tools available.
+  \item \textbf{Topological robustness.}  The anomaly coefficient is an
+    integer (or rational, depending on normalisation) that cannot change
+    under continuous deformation of the theory.  For chiral theories, this
+    integer is generically non-zero and thus provides a ``topological''
+    constraint on the \IR{} physics.
+\end{enumerate}
+
+\textit{Preview:}  The matter content $\mathbf{10} + \overline{\mathbf{5}}$
+of $\SU{5}$ is exactly the matter content of one generation of SM fermions
+in the Georgi--Glashow $\SU{5}$ GUT.  The anomaly cancellation we verified
+above is the GUT-level statement of the SM anomaly cancellation from
+Problem~1.  This type of chiral matter content will appear in the dualised
+SM construction (Lectures~6--7).
+\end{proof}
+
+\bigskip
+
+\begin{center}
+\rule{0.6\textwidth}{0.4pt}
+
+\textit{End of Exercise Set 1.  These anomaly coefficients will be used
+in Exercise Set~3 to verify Seiberg duality.}
+\end{center}
+
+%% ========================================================================
+%%  BIBLIOGRAPHY
+%% ========================================================================
+% References are shared with the lecture notes.
+% For standalone compilation, include minimal references here:
+\begin{thebibliography}{99}
+\bibitem{Seiberg1995}
+  N.~Seiberg, ``Electric--magnetic duality in supersymmetric non-Abelian
+  gauge theories,'' Nucl.\ Phys.\ B \textbf{435} (1995) 129
+  [hep-th/9411149].
+
+\bibitem{tHooft1980}
+  G.~'t~Hooft, ``Naturalness, chiral symmetry, and spontaneous chiral
+  symmetry breaking,'' in \textit{Recent Developments in Gauge Theories}
+  (Carg\`ese 1979), ed.\ G.~'t~Hooft et al., Plenum Press, 1980.
+
+\bibitem{IntriligatorSeiberg1995}
+  K.~Intriligator and N.~Seiberg, ``Lectures on supersymmetric gauge
+  theories and electric--magnetic duality,'' Nucl.\ Phys.\ Proc.\ Suppl.\
+  \textbf{45BC} (1996) 1 [hep-th/9509066].
+
+\bibitem{Adler1969}
+  S.~L.~Adler, ``Axial vector vertex in spinor electrodynamics,''
+  Phys.\ Rev.\ \textbf{177} (1969) 2426.
+
+\bibitem{BellJackiw1969}
+  J.~S.~Bell and R.~Jackiw, ``A PCAC puzzle: $\pi^0 \to \gamma\gamma$
+  in the sigma model,'' Nuovo Cim.\ A \textbf{60} (1969) 47.
+
+\bibitem{AdlerBardeen1969}
+  S.~L.~Adler and W.~A.~Bardeen, ``Absence of higher order corrections
+  in the anomalous axial vector divergence equation,'' Phys.\ Rev.\
+  \textbf{182} (1969) 1517.
+
+\bibitem{PS1995}
+  M.~E.~Peskin and D.~V.~Schroeder, \textit{An Introduction to Quantum
+  Field Theory}, Addison-Wesley, 1995.
+
+\bibitem{PeskinTASI1996}
+  M.~E.~Peskin, ``Duality in supersymmetric Yang--Mills theory,''
+  hep-th/9702094 (TASI 96 lectures).
+\end{thebibliography}
+
+\end{document}
