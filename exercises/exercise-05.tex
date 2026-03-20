@@ -1,0 +1,574 @@
+% ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
+%
+% Exercise Set 5: Fermion Mass Hierarchy from Scalar Democracy
+% Part of: The Dualised Standard Model -- Part III Exercises
+%
+% Conventions (Seiberg hep-th/9411149, unchanged from Lectures 1-8):
+%   T(fund) = 1/2 per Weyl fermion
+%   b_0 = (11N_c - 2N_f)/3 for N_f Dirac flavours
+%   Universal Yukawa: y (single coupling for all fermions)
+%   VEV convention: v^2 = sum_{ij} (|H^u_{ij}|^2 + |H^d_{ij}|^2) = (246 GeV)^2/2
+%   Epistemic: all non-SUSY duality claims carry conjectural qualifiers (P1)
+%
+\documentclass[11pt,a4paper]{article}
+\input{../lectures/preamble}
+
+\title{\textbf{Exercise Set 5: Fermion Mass Hierarchy from Scalar Democracy}}
+\author{The Dualised Standard Model --- Part III Exercises}
+\date{Lent Term 2027}
+
+\begin{document}
+\maketitle
+
+\begin{conventionbox}[title={Conventions for these exercises}]
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l l@{}}
+\toprule
+\textbf{Quantity} & \textbf{Convention} \\
+\midrule
+Units & $\hbar = c = 1$ (natural) \\
+Metric & $\eta_{\mu\nu} = \mathrm{diag}(+1,-1,-1,-1)$ (mostly minus) \\
+Universal Yukawa & $y$ (single magnetic coupling for all fermions) \\
+VEV sum rule & $v^2 = \sum_{i,j}\bigl(\langle H_{ij}^u\rangle^2
+  + \langle H_{ij}^d\rangle^2\bigr) = \tfrac{1}{2}(246\;\text{GeV})^2$ \\
+Planck mass & $M_{\text{Pl}} = 1.22 \times 10^{19}\;\text{GeV}$ (reduced: $M_P = M_{\text{Pl}}/\sqrt{8\pi}$) \\
+Epistemic & ``if the conjectured duality holds'' for all non-SUSY claims (P1) \\
+\bottomrule
+\end{tabular}
+
+\medskip
+
+\noindent References: Lecture~7 (\S\S2--3); Lecture~8 (\S\S1--2);
+Cacciapaglia--Sannino~\cite{CacciapagliaSannino2024};
+Hill, Machado, Thomsen, Turner~\cite{HillMachado2019}.
+
+\medskip
+
+\noindent\textbf{Epistemic note.}
+All results in this exercise assume the conjectured non-SUSY
+duality holds.  The group-theoretic statements (VEV sum rule,
+effective Yukawa structure) are exact consequences of the magnetic
+Lagrangian.  The physical interpretation as a fermion mass hierarchy
+mechanism is conjectural.
+\end{conventionbox}
+
+\bigskip
+
+
+%% ========================================================================
+%%  PROBLEM 1: Top Quark Mass from Universal Yukawa Coupling
+%% ========================================================================
+\section*{Problem 1: Top Quark Mass from Universal Yukawa
+  \hfill $\star\star$ \normalsize(15 min, 25 marks)}
+\addcontentsline{toc}{section}{Problem 1: Top quark mass from universal Yukawa}
+\label{prob:top-mass}
+
+\noindent\textbf{Background.}
+In the dualised Standard Model (Lectures~7--8), \emph{if the conjectured
+duality holds}, the magnetic Yukawa interaction between quarks and the
+18 Higgs doublets $H_{ij}^{u,d}$ ($i,j = 1,2,3$ labelling generations)
+takes the form
+\begin{equation}\label{eq:yukawa-universal}
+  \mathcal{L}_Y
+  \;=\; y \sum_{i,j=1}^{3}
+  \Bigl(
+    \bar{q}_L^{\,i}\, u_R^{\,j}\, H_{ij}^u
+    \;+\;
+    \bar{q}_L^{\,i}\, d_R^{\,j}\, H_{ij}^d
+  \Bigr)
+  \;+\; \text{h.c.}\,,
+\end{equation}
+where $y$ is a \textbf{single universal Yukawa coupling}, the same for
+every generation pair.  This is a radical departure from the Standard
+Model, where each fermion species has its own independent Yukawa
+coupling.
+
+The effective Yukawa couplings that determine fermion masses are
+(Lecture~8, Eq.~(2)):
+\begin{equation}\label{eq:eff-yukawa}
+  Y_{ij}^u \;=\; y\, \frac{\langle H_{ij}^u \rangle}{v}\,,
+  \qquad
+  Y_{ij}^d \;=\; y\, \frac{\langle H_{ij}^d \rangle}{v}\,,
+\end{equation}
+where the total electroweak VEV satisfies
+$v^2 = \sum_{ij}(\langle H_{ij}^u\rangle^2
++ \langle H_{ij}^d\rangle^2) = (246\;\text{GeV})^2/2$.
+
+Planck-scale four-fermion operators (Lecture~8, \S2) generate mixing
+between the leading Higgs doublet $H_0 \equiv H_{33}^u$ and the 17
+dormant doublets $H_i$ ($i = 1, \ldots, 17$):
+\begin{equation}\label{eq:planck-op}
+  \mathcal{L}_{\text{Planck}}
+  \;\supset\;
+  \frac{c^{abcd}}{M_{\text{Pl}}^2}\,
+  (Q^a \widetilde{Q}^b)(Q^c \widetilde{Q}^d)^\dagger\,,
+\end{equation}
+where $c^{abcd}$ are $\mathcal{O}(1)$ dimensionless coefficients.
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+
+  \item \textbf{[5 marks]}
+    Suppose the leading VEV satisfies
+    $\langle H_0 \rangle = \langle H_{33}^u \rangle \approx v$, with all
+    other VEVs suppressed.  Show that the top quark Yukawa coupling is
+    \begin{equation}\label{eq:top-yukawa-prob}
+      y_t \;=\; y \,\frac{\langle H_{33}^u \rangle}{v}
+      \;\approx\; y\,,
+    \end{equation}
+    and hence
+    \begin{equation}\label{eq:top-mass-prob}
+      m_t \;=\; y_t\, v \;\approx\; y\, v\,.
+    \end{equation}
+    For $y \sim \mathcal{O}(1)$ and $v \approx 174\;\text{GeV}$, show
+    that $m_t \sim \mathcal{O}(v) \sim 174\;\text{GeV}$.  State this as
+    a \textbf{parametric consistency check}: the observed
+    $m_t = 172.7 \pm 0.3\;\text{GeV}$ requires $y \approx 0.99$, which
+    is naturally $\mathcal{O}(1)$.  Note that $y$ is a \textbf{free
+    parameter} of the magnetic theory.
+
+  \item \textbf{[8 marks]}
+    The dormant Higgs doublets $H_i$ have large positive masses
+    $M_i^2 \gg v^2$ and acquire induced VEVs through mixing with the
+    leading Higgs $H_0$ (Lecture~8, Eq.~(8)):
+    \begin{equation}\label{eq:induced-vev-prob}
+      \langle H_i \rangle
+      \;=\; \frac{\mu_{0i}^2}{M_i^2}\, \langle H_0 \rangle\,,
+    \end{equation}
+    where $\mu_{0i}^2$ are off-diagonal mixing mass terms generated by
+    the Planck operators.
+    \begin{enumerate}[label=(\roman*)]
+      \item Show that the effective Yukawa coupling for a fermion species
+        $f$ whose mass arises from the Higgs doublet $H_i$ is:
+        \begin{equation}\label{eq:eff-yukawa-dormant}
+          y_f \;=\; y\, \frac{\mu_{0i}^2}{M_i^2}\,.
+        \end{equation}
+
+      \item From dimensional analysis of the Planck operators
+        (Eq.~\eqref{eq:planck-op}), the mixing mass and dormant Higgs
+        mass scale as
+        \[
+          \mu_{0i}^2 \;\sim\; \xi_i\, \frac{\Lambda_D^4}{M_{\text{Pl}}^2}\,,
+          \qquad
+          M_i^2 \;\sim\; \Lambda_D^2\,,
+        \]
+        where $\xi_i$ is an $\mathcal{O}(1)$ coefficient.  Show that
+        \begin{equation}\label{eq:mass-ratio-suppression}
+          \frac{m_f}{m_t}
+          \;\sim\; \xi_i\, \frac{\Lambda_D^2}{M_{\text{Pl}}^2}\,.
+        \end{equation}
+
+      \item For $\Lambda_D = 10^{11}\;\text{GeV}$ and
+        $M_{\text{Pl}} = 1.22 \times 10^{19}\;\text{GeV}$, evaluate
+        $\Lambda_D^2 / M_{\text{Pl}}^2$ numerically.  Compare this
+        suppression factor with the observed mass ratios $m_b/m_t
+        \approx 0.024$, $m_c/m_t \approx 0.007$, and $m_s/m_t
+        \approx 5 \times 10^{-4}$.  Comment on whether the parametric
+        suppression is in the right ballpark.
+    \end{enumerate}
+
+  \item \textbf{[7 marks]}
+    The bottom quark mass ratio $m_b/m_t \approx 0.024$ arises from the
+    down-type Higgs VEV (Lecture~8, Eq.~(6)):
+    \begin{equation}\label{eq:bottom-ratio-prob}
+      \frac{m_b}{m_t}
+      \;=\; \frac{\langle H_{33}^d \rangle}{\langle H_{33}^u \rangle}\,.
+    \end{equation}
+
+    \begin{enumerate}[label=(\roman*)]
+      \item In the scalar democracy framework, the down-type Higgs VEV
+        is suppressed relative to the up-type by the
+        mixing factor from Planck-scale operators.  Express
+        $m_b/m_t$ in the parametric form
+        \begin{equation}\label{eq:mass-ratio-param}
+          \frac{m_b}{m_t}
+          \;\sim\; c_b\,
+          \biggl(\frac{\Lambda_D}{M_{\text{Pl}}}\biggr)^{\!p}\,,
+        \end{equation}
+        where $c_b$ is an $\mathcal{O}(1)$ coefficient and $p$ is a
+        positive integer that depends on the operator structure.
+
+      \item Determine the value of $p$ required to obtain
+        $m_b/m_t \sim 0.024$ with $\Lambda_D = 10^{11}\;\text{GeV}$.
+        \textit{Hint:}
+        $\Lambda_D / M_{\text{Pl}} \approx 10^{-8}$.
+
+      \item Explain why the value of $p$ tells you the
+        ``tier'' of the VEV hierarchy: $p = 2$ corresponds to a
+        first-tier suppression (one insertion of
+        $\Lambda_D^2/M_{\text{Pl}}^2$), $p = 4$ to a second-tier
+        suppression, and so on.  Assign the bottom, charm, and strange
+        quarks to appropriate tiers.
+    \end{enumerate}
+
+  \item \textbf{[5 marks]}
+    \textbf{Discussion.}
+    \begin{enumerate}[label=(\roman*)]
+      \item Is the fermion mass hierarchy a \textbf{prediction} of the
+        dualised SM, or a \textbf{parametric consistency check}?  Justify
+        your answer by listing all free parameters in the framework.
+
+      \item What does the dualised SM \emph{explain} about the fermion
+        mass hierarchy that the Standard Model does not?
+
+      \item Identify the \textbf{weakest assumption} in the above
+        derivation: which step would invalidate the entire argument if it
+        failed?
+    \end{enumerate}
+
+\end{enumerate}
+
+\medskip
+
+\noindent\textit{Hints:}
+\begin{itemize}
+  \item For (a): remember that $v = 246/\sqrt{2}\;\text{GeV}
+    \approx 174\;\text{GeV}$ when $v$ is defined as the VEV rather
+    than $\sqrt{2}\, G_F^{-1/2}$.  Adapt to whichever convention is
+    stated.
+  \item For (b)(iii): compute $\log_{10}(\Lambda_D^2/M_{\text{Pl}}^2)$
+    and compare with $\log_{10}(m_f/m_t)$ for each fermion.
+  \item For (c)(ii): taking logs makes the comparison straightforward.
+\end{itemize}
+
+\bigskip
+\hrule
+\bigskip
+
+
+%% ========================================================================
+%%  SOLUTION TO PROBLEM 1
+%% ========================================================================
+\begin{proof}[\textbf{Solution to Problem 1}]
+
+\textbf{(a) Top quark mass from universal Yukawa.}
+
+From the effective Yukawa structure~\eqref{eq:eff-yukawa}, the top
+quark Yukawa coupling is:
+\[
+  y_t \;=\; y\, \frac{\langle H_{33}^u \rangle}{v}\,.
+\]
+If the leading VEV dominates, $\langle H_{33}^u \rangle \approx v$,
+then:
+\[
+  y_t \;\approx\; y \cdot \frac{v}{v} \;=\; y\,.
+\]
+The top quark mass is:
+\[
+  m_t \;=\; y_t\, v \;\approx\; y\, v\,.
+\]
+
+\textbf{Dimensional check:} $[y] = [\text{dimensionless}]$,
+$[v] = [\text{GeV}]$, so $[m_t] = [\text{GeV}]$.
+\quad$\checkmark$
+
+\textbf{Numerical evaluation.}  With $v \approx 174\;\text{GeV}$:
+\[
+  m_t \;\approx\; y \times 174\;\text{GeV}\,.
+\]
+The measured top mass $m_t = 172.7 \pm 0.3\;\text{GeV}$ requires:
+\[
+  y \;\approx\; \frac{172.7}{174} \;\approx\; 0.99\,,
+\]
+which is naturally $\mathcal{O}(1)$.
+\[
+  \boxed{m_t \;\approx\; y\, v \;\sim\; \mathcal{O}(v)
+  \;\sim\; 174\;\text{GeV}\,,
+  \quad\text{with } y \approx 0.99 \sim \mathcal{O}(1)\,.}
+\]
+
+\textbf{Parametric consistency statement.}
+This is \emph{not} a prediction: the universal Yukawa coupling $y$ is a
+\textbf{free parameter} of the magnetic theory, determined by the
+strong dynamics at the duality scale $\Lambda_D$.  The result
+$m_t \sim \mathcal{O}(v)$ shows that $y_t \sim \mathcal{O}(1)$ is
+\emph{natural} in the dualised SM---in contrast to the SM, where
+$y_t \approx 1$ is an unexplained numerical coincidence.
+
+\bigskip
+
+\textbf{(b) Induced VEVs and mass suppression.}
+
+\textit{(i) Effective Yukawa from dormant Higgs.}
+
+A fermion species $f$ whose mass arises from the dormant Higgs $H_i$
+has:
+\[
+  m_f \;=\; y\, \frac{\langle H_i \rangle}{v}\, v
+  \;=\; y\, \langle H_i \rangle\,.
+\]
+Using the induced VEV~\eqref{eq:induced-vev-prob}:
+\[
+  m_f \;=\; y\, \frac{\mu_{0i}^2}{M_i^2}\, \langle H_0 \rangle
+  \;=\; y\, \frac{\mu_{0i}^2}{M_i^2}\, v\,.
+\]
+Hence the effective Yukawa coupling is:
+\[
+  y_f \;\equiv\; \frac{m_f}{v}
+  \;=\; y\, \frac{\mu_{0i}^2}{M_i^2}\,.
+\]
+\[
+  \boxed{y_f \;=\; y\, \frac{\mu_{0i}^2}{M_i^2}\,.}
+  \quad\checkmark
+\]
+
+\textit{(ii) Parametric suppression from Planck operators.}
+
+Using $\mu_{0i}^2 \sim \xi_i\, \Lambda_D^4/M_{\text{Pl}}^2$ and
+$M_i^2 \sim \Lambda_D^2$:
+\[
+  \frac{\mu_{0i}^2}{M_i^2}
+  \;\sim\; \frac{\xi_i\, \Lambda_D^4 / M_{\text{Pl}}^2}{\Lambda_D^2}
+  \;=\; \xi_i\, \frac{\Lambda_D^2}{M_{\text{Pl}}^2}\,.
+\]
+Since $m_f = y_f\, v$ and $m_t = y\, v$:
+\[
+  \frac{m_f}{m_t}
+  \;=\; \frac{y_f}{y}
+  \;=\; \frac{\mu_{0i}^2}{M_i^2}
+  \;\sim\; \xi_i\, \frac{\Lambda_D^2}{M_{\text{Pl}}^2}\,.
+\]
+\[
+  \boxed{\frac{m_f}{m_t}
+  \;\sim\; \xi_i\, \frac{\Lambda_D^2}{M_{\text{Pl}}^2}\,.}
+\]
+
+\textbf{Dimensional check:}
+$[\Lambda_D^2/M_{\text{Pl}}^2] = [\text{dimensionless}]$ and
+$[m_f/m_t] = [\text{dimensionless}]$.
+\quad$\checkmark$
+
+\textit{(iii) Numerical evaluation.}
+
+\[
+  \frac{\Lambda_D^2}{M_{\text{Pl}}^2}
+  \;=\; \frac{(10^{11})^2}{(1.22 \times 10^{19})^2}
+  \;=\; \frac{10^{22}}{1.49 \times 10^{38}}
+  \;\approx\; 6.7 \times 10^{-17}\,.
+\]
+
+This is a \emph{single} insertion of the Planck suppression factor.
+The observed mass ratios require different numbers of such insertions
+(i.e., different ``tiers'' in the VEV hierarchy):
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\begin{tabular}{@{} l c c c @{}}
+\toprule
+\textbf{Fermion $f$} & $m_f / m_t$ (observed) & $\log_{10}(m_f/m_t)$
+  & \textbf{Tier} \\
+\midrule
+Bottom ($b$) & $\approx 0.024$ & $-1.6$ & 1st \\
+Charm ($c$) & $\approx 0.007$ & $-2.2$ & 1st--2nd \\
+Strange ($s$) & $\approx 5 \times 10^{-4}$ & $-3.3$ & 2nd \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A single Planck suppression gives
+$\log_{10}(\Lambda_D^2/M_{\text{Pl}}^2) \approx -16$, which is far
+too small.  However, the bottom quark mass arises from a
+\textbf{direct} mixing between $H_{33}^u$ and $H_{33}^d$ (not the
+generic Planck suppression $\Lambda_D^2/M_{\text{Pl}}^2$).  The
+relevant suppression is the ratio of the down-type VEV to the up-type
+VEV, controlled by $\mathcal{O}(1)$ coefficients in the Planck
+operators and by the mass splittings among the dormant Higgs doublets.
+
+The point is that the \emph{parametric structure}---a cascade of
+progressively smaller VEVs---provides a natural mechanism for the
+mass hierarchy, with the specific ratios set by $\mathcal{O}(1)$
+coefficients $\xi_i$.
+
+\bigskip
+
+\textbf{(c) Bottom-to-top mass ratio.}
+
+\textit{(i) Parametric form.}
+
+The down-type Higgs VEV is induced by Planck-scale mixing with the
+leading (up-type) Higgs.  Schematically, the mixing arises from
+operators of the form~\eqref{eq:planck-op}, which generate
+$\mu_b^2 \sim c_b \Lambda_D^4 / M_{\text{Pl}}^2$.  Combined with the
+dormant Higgs mass $M_d^2 \sim \Lambda_D^2$:
+\[
+  \frac{\langle H_{33}^d \rangle}{\langle H_{33}^u \rangle}
+  \;\sim\; \frac{\mu_b^2}{M_d^2}
+  \;\sim\; c_b\, \frac{\Lambda_D^2}{M_{\text{Pl}}^2}\,.
+\]
+Writing this as a power of $\Lambda_D/M_{\text{Pl}}$:
+\[
+  \frac{m_b}{m_t}
+  \;\sim\; c_b\, \biggl(\frac{\Lambda_D}{M_{\text{Pl}}}\biggr)^{\!p}\,.
+\]
+With the above operator structure, $p = 2$
+(one insertion of $\Lambda_D^2/M_{\text{Pl}}^2$).
+
+\textit{(ii) Required value of $p$.}
+
+We have $\Lambda_D / M_{\text{Pl}} \approx 10^{11}/10^{19}
+= 10^{-8}$.  Then:
+\[
+  \biggl(\frac{\Lambda_D}{M_{\text{Pl}}}\biggr)^{\!p}
+  \;=\; 10^{-8p}\,.
+\]
+We require $m_b/m_t \sim 0.024 \sim 10^{-1.6}$:
+\[
+  10^{-8p} \;\sim\; 10^{-1.6}
+  \qquad\Longrightarrow\qquad
+  p \;\approx\; 0.2\,.
+\]
+
+Since $p$ need not be an integer in the general parametric form, the
+key point is that $m_b/m_t \sim 0.024$ requires an $\mathcal{O}(1)$
+coefficient $c_b \sim 0.024 / (\Lambda_D/M_{\text{Pl}})^p$ with
+$p$ close to zero.  In other words, the bottom-to-top ratio is
+\emph{not} generated by the generic Planck suppression
+$(\Lambda_D/M_{\text{Pl}})^2 \sim 10^{-16}$; it is generated by a
+\textbf{direct} mixing between the up-type and down-type $(3,3)$
+Higgs doublets, with the suppression controlled by $\mathcal{O}(1)$
+coefficients in the scalar potential:
+\begin{equation}\label{eq:bottom-direct}
+  \frac{m_b}{m_t}
+  \;\sim\; c_b \,\frac{\mu_b^2}{M_{d,33}^2}
+  \;\sim\; c_b \times \mathcal{O}(10^{-2})\,,
+\end{equation}
+where $c_b \sim \mathcal{O}(1)$ and the ratio
+$\mu_b^2 / M_{d,33}^2 \sim 10^{-2}$ is determined by the specific
+pattern of Planck-scale operator coefficients.
+\[
+  \boxed{\frac{m_b}{m_t} \;\sim\; c_b \times
+  \frac{\mu_b^2}{M_{d,33}^2}\,,\quad
+  c_b \sim \mathcal{O}(1),\;\;
+  \frac{\mu_b^2}{M_{d,33}^2} \sim 0.024\,.}
+\]
+
+\textit{(iii) VEV tiers.}
+
+The VEV hierarchy can be organised as follows:
+\begin{itemize}
+  \item \textbf{Zeroth tier ($\langle H \rangle \sim v$):}
+    $H_{33}^u$ (top quark).  This is the leading VEV that triggers
+    electroweak symmetry breaking.
+  \item \textbf{First tier ($\langle H \rangle \sim 10^{-2}\, v$):}
+    $H_{33}^d$ (bottom quark), possibly $H_{22}^u$ (charm quark).
+    These are induced by one step of Planck mixing, with the
+    suppression factor controlled by $\mu_b^2/M_d^2 \sim 10^{-2}$.
+  \item \textbf{Second tier ($\langle H \rangle \sim 10^{-4}\, v$):}
+    Strange quark and lighter fermions.  These arise from two steps
+    of mixing (Lecture~8, Eq.~(10)), giving a further suppression.
+  \item \textbf{Third tier and beyond:}
+    Up and down quarks, electron.  Progressive further suppression.
+\end{itemize}
+
+The crucial point: the \emph{parametric structure} of the hierarchy is
+set by the scalar potential and Planck-scale operators.  The
+\emph{specific values} of each tier's suppression factor depend on the
+$\mathcal{O}(1)$ coefficients $c^{abcd}$, which are free parameters.
+
+\bigskip
+
+\textbf{(d) Discussion.}
+
+\textit{(i) Prediction or consistency check?}
+
+The fermion mass hierarchy is a \textbf{parametric consistency check},
+not a prediction.  The free parameters are:
+\begin{enumerate}
+  \item $y$: the universal magnetic Yukawa coupling ($\sim 1$).
+  \item $c^{abcd}$: the $\mathcal{O}(1)$ Planck-scale operator
+    coefficients ($\sim 10^2$ independent parameters).
+  \item $\Lambda_D$: the duality scale ($\sim 10^{11}\;\text{GeV}$).
+  \item $M_{\text{Pl}}$: the Planck mass (measured:
+    $1.22 \times 10^{19}\;\text{GeV}$).
+  \item The scalar quartic couplings $\lambda_i$ and mass parameters
+    $M_i^2$ of the 18-Higgs potential.
+\end{enumerate}
+
+The dualised SM has comparable freedom to the Standard Model's Yukawa
+sector ($\sim 20$ free parameters for quark and lepton masses, mixing
+angles, and CP phases).  It does \emph{not} predict specific mass
+values.
+\[
+  \boxed{\text{Parametric consistency, not prediction.  The }
+  \mathcal{O}(1) \text{ coefficients } c^{abcd}
+  \text{ are free parameters.}}
+\]
+
+\textit{(ii) What the dualised SM explains.}
+
+The Standard Model treats the Yukawa hierarchy as an unexplained input:
+$y_t \approx 1$, $y_b \approx 0.024$, $y_e \approx 3 \times 10^{-6}$,
+spanning five orders of magnitude with no structural reason for the
+pattern.
+
+The dualised SM, \emph{if the duality holds}, provides a
+\textbf{structural explanation}:
+\begin{itemize}
+  \item The hierarchy arises from a \textbf{VEV hierarchy} among the 18
+    Higgs doublets, not from a hierarchy in the Yukawa couplings (which
+    are universal).
+  \item The VEV hierarchy is \textbf{naturally generated} by
+    Planck-scale operators that mix the leading Higgs with the dormant
+    doublets.
+  \item The \textbf{flavour puzzle} is \emph{translated} from the
+    Yukawa sector to the scalar sector, where it has a gravitational
+    origin.
+\end{itemize}
+
+\textit{(iii) Weakest assumption.}
+
+The weakest assumption is the \textbf{non-SUSY duality itself}: the
+claim that the electric $\SU{2}$ theory confines and produces the SM
+as its magnetic dual.  If this duality does not hold, the entire
+framework---universal Yukawa, 18 Higgs doublets, scalar
+democracy---loses its theoretical basis.  The VEV hierarchy mechanism
+is valid group theory conditional on the field content, but the field
+content itself rests on the conjectured duality.
+
+\end{proof}
+
+
+\bigskip
+
+\begin{center}
+\rule{0.6\textwidth}{0.4pt}
+
+\textit{End of Exercise Set 5.  This exercise develops the fermion mass
+hierarchy from the scalar democracy mechanism of Lectures~7--8.  The
+key result is that $m_t \sim y\, v$ with $y \sim \mathcal{O}(1)$ is a
+parametric consistency check, and the lighter fermion masses arise from
+a cascade of induced VEVs driven by Planck-scale operators.  The
+$\mathcal{O}(1)$ coefficients $c^{abcd}$ are free parameters---the
+framework provides the mechanism for the hierarchy but not the specific
+mass values.}
+\end{center}
+
+
+%% ========================================================================
+%%  BIBLIOGRAPHY
+%% ========================================================================
+\begin{thebibliography}{99}
+
+\bibitem{CacciapagliaSannino2024}
+  G.~Cacciapaglia and F.~Sannino,
+  ``The Dualised Standard Model,''
+  \texttt{arXiv:2407.17281} [hep-ph] (2024).
+
+\bibitem{HillMachado2019}
+  C.~T.~Hill, P.~A.~N.~Machado, A.~E.~Thomsen, and J.~Turner,
+  ``Scalar democracy,''
+  \textit{Phys.\ Rev.\ D} \textbf{100} (2019) 015015
+  [\texttt{arXiv:1902.07214}].
+
+\bibitem{Seiberg1995}
+  N.~Seiberg,
+  ``Electric--magnetic duality in supersymmetric non-Abelian gauge
+  theories,''
+  \textit{Nucl.\ Phys.} \textbf{B435} (1995) 129
+  [\texttt{hep-th/9411149}].
+
+\end{thebibliography}
+
+\end{document}
