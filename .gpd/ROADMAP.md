@@ -26,7 +26,7 @@ This project produces self-contained Part III lecture notes (~8 lectures) on the
 - Decimal phases (e.g. 2.1): Urgent insertions if needed (marked INSERTED)
 
 - [x] **Phase 1: Foundations** -- Anomaly matching review, conformal window, conventions, reference corpus download
-- [ ] **Phase 2: SUSY and Seiberg Duality** -- Minimal N=1 SUSY, Seiberg duality for N=1 SQCD, N=2 content including Fayet mechanisms, duality verification exercises
+- [x] **Phase 2: SUSY and Seiberg Duality** -- Minimal N=1 SUSY, Seiberg duality for N=1 SQCD, N=2 content including Fayet mechanisms, duality verification exercises
 - [ ] **Phase 3: Non-perturbative Dynamics** -- Tumbling/MAC, complementarity, non-SUSY duality extensions (Sannino-Schechter, Maekawa, Pati-Salam embedding, emergent SUSY)
 - [ ] **Phase 4: The Dualised Standard Model** -- Cacciapaglia-Sannino construction, duality map, anomaly matching for full SM, parametric spectrum exercises, scale matching, all validations
 
@@ -118,7 +118,11 @@ Plans:
 
 **Backtracking:** If tumbling analysis is inconsistent with anomaly matching from Phase 1, revisit the condensation channel assignment. If Maekawa's Pati-Salam construction proves incompatible with Sannino's later work, document the tension and present both.
 
-**Plans:** TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 03-01-PLAN.md -- Lecture 5: Tumbling dynamics, MAC criterion, complementarity
+- [ ] 03-02-PLAN.md -- Lecture 6: Non-SUSY duality extensions (chronological narrative with conjectural qualifiers)
 
 ### Phase 4: The Dualised Standard Model
 
@@ -184,6 +188,6 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 | ----- | -------------- | ------ | --------- |
 | 1. Foundations | 3/3 | Complete | 2026-03-20 |
-| 2. SUSY and Seiberg Duality | 0/TBD | Not started | - |
+| 2. SUSY and Seiberg Duality | 4/4 | Complete | 2026-03-20 |
 | 3. Non-perturbative Dynamics | 0/TBD | Not started | - |
 | 4. The Dualised Standard Model | 0/TBD | Not started | - |
