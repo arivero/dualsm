@@ -28,7 +28,8 @@ This project produces self-contained Part III lecture notes (~8 lectures) on the
 - [x] **Phase 1: Foundations** -- Anomaly matching review, conformal window, conventions, reference corpus download
 - [x] **Phase 2: SUSY and Seiberg Duality** -- Minimal N=1 SUSY, Seiberg duality for N=1 SQCD, N=2 content including Fayet mechanisms, duality verification exercises
 - [x] **Phase 3: Non-perturbative Dynamics** -- Tumbling/MAC, complementarity, non-SUSY duality extensions (Sannino-Schechter, Maekawa, Pati-Salam embedding, emergent SUSY)
-- [ ] **Phase 4: The Dualised Standard Model** -- Cacciapaglia-Sannino construction, duality map, anomaly matching for full SM, parametric spectrum exercises, scale matching, all validations
+- [x] **Phase 4: The Dualised Standard Model** -- Cacciapaglia-Sannino construction, duality map, anomaly matching for full SM, parametric spectrum exercises, scale matching, all validations
+- [ ] **Phase 5: Extensions** -- Two additional lectures extending the course: Lecture 9 (landscape of SUSY dualities), Lecture 10 (physical mesons as dual mesons), Exercise Sets 7-8
 
 ## Phase Details
 
@@ -157,6 +158,37 @@ Plans:
 - [ ] 04-04-PLAN.md -- Exercise Sets 5-6: Parametric fermion mass hierarchy and scale matching exercises
 - [ ] 04-05-PLAN.md -- VALD-03 + VALD-04 + VALD-05: Final validation scripts (spectrum, conventions, 2407.17281 cross-check)
 
+### Phase 5: Extensions
+
+**Goal:** Two additional lectures extending the 8-lecture course: Lecture 9 on the landscape of established SUSY dualities beyond SQCD (Kutasov-Schwimmer, SO/Sp, s-confining, product groups, cascades), and Lecture 10 on the identification of physical mesons (pi, K, D, B, B_c) as dual theory mesons via the 6x6 meson matrix, scalar-pseudoscalar distinction, and ChPT connection
+
+**Depends on:** Phase 1 (conventions), Phase 2 (Seiberg duality from Lecture 3), Phase 3 (non-SUSY extensions), Phase 4 (dualised SM construction from Lectures 7-8)
+
+**Requirements:** EXTD-LECT-09, EXTD-LECT-10, EXTD-EXER-07, EXTD-EXER-08
+
+**Contract Coverage:**
+- Advances: claim-lecture-notes (Lectures 9-10), deliv-latex-notes (extended notes), deliv-exercises (duality extension + meson identification exercises)
+- Deliverables: Lectures 9-10 LaTeX; Exercise sets 7-8 with full solutions
+- Anchor coverage: ref-seiberg-duality (all generalisations reduce to it), Intriligator-Seiberg hep-th/9509066 (SO/Sp dualities), Kutasov-Schwimmer hep-th/9505004 (adjoint duality), PDG 2024 (meson masses), Sannino-Schechter hep-ph/9708113 (SUSY-to-QCD transition)
+- Forbidden proxies: All non-SUSY claims carry conjectural qualifiers (P1); meson identification framed as "dual perspective consistent with QCD" not "prediction" (P4)
+
+**Success Criteria** (what must be TRUE):
+
+1. Lecture 9 presents KS, SO, Sp, s-confining, product group, and cascade dualities with a master comparison table and anomaly matching as unifying thread; KS k=1 limit reproduces Seiberg duality; at least one anomaly coefficient verified for SO and Sp
+2. Lecture 10 constructs the 6x6 meson matrix with explicit quantum number assignments, identifies entries with physical mesons (PDG masses), resolves the scalar-pseudoscalar question via linear sigma model decomposition, connects to ChPT (GMOR verified), and maps to the dualised SM Higgs matrix from Lectures 7-8
+3. Exercise Set 7 has SO/Sp anomaly matching and KS duality problems with complete worked solutions
+4. Exercise Set 8 has meson quantum number, scalar-pseudoscalar, and mass hierarchy problems with complete worked solutions
+5. All conventions consistent with Lectures 1-8 and Exercise Sets 1-6; Sp(N_c) naming convention stated explicitly
+
+**Backtracking:** If SO/Sp anomaly coefficients do not match, check Dynkin index normalisation against IS 9509066. If meson quantum numbers do not reproduce correct charges, check flavour assignment conventions.
+
+**Plans:** 3 plans
+
+Plans:
+- [ ] 05-01-PLAN.md -- Lecture 9: The landscape of SUSY dualities (KS, SO, Sp, s-confining, cascades)
+- [ ] 05-02-PLAN.md -- Lecture 10: Physical mesons as dual mesons (6x6 matrix, scalar-pseudoscalar, ChPT)
+- [ ] 05-03-PLAN.md -- Exercise Sets 7-8: Duality extension and meson identification exercises
+
 ## Phase Dependencies
 
 | Phase | Depends On | Enables | Critical Path? |
@@ -164,9 +196,10 @@ Plans:
 | 1 - Foundations | -- | 2, 3 | Yes |
 | 2 - SUSY and Seiberg Duality | 1 | 3, 4 | Yes |
 | 3 - Non-perturbative Dynamics | 1, 2 | 4 | Yes |
-| 4 - The Dualised Standard Model | 1, 2, 3 | -- | Yes |
+| 4 - The Dualised Standard Model | 1, 2, 3 | 5 | Yes |
+| 5 - Extensions | 1, 2, 3, 4 | -- | No |
 
-**Critical path:** 1 -> 2 -> 3 -> 4 (4 phases, strictly sequential)
+**Critical path:** 1 -> 2 -> 3 -> 4 (4 phases, strictly sequential). Phase 5 is an extension.
 
 **Parallelization note:** No parallel phases. Each phase builds on the conceptual machinery of the prior phase. Phase 3 could in principle begin its non-SUSY content (tumbling, MAC) concurrently with Phase 2's SUSY content, since tumbling is non-SUSY and only requires Phase 1. However, complementarity and the non-SUSY duality extensions require the Seiberg duality framework from Phase 2. The sequential ordering reflects the pedagogical dependency: students must see the established SUSY case before the conjectural non-SUSY extension.
 
@@ -178,6 +211,8 @@ Plans:
 | 2 | N=2 content (Fayet, Argyres-Plesser-Seiberg) too heavy for one lecture | MEDIUM | MEDIUM | Condense to executive summary; detailed derivations in exercises; flag scope extension if needed |
 | 3 | Conflating conjectural non-SUSY duality with established SUSY results (P1) | MEDIUM | HIGH | Maintain strict "if the duality holds" language; separate SUSY (established) from non-SUSY (conjectured) lectures |
 | 4 | Fermion mass predictions are only qualitative, not parametric (P2) | LOW | CRITICAL | Frame exercises as "parametric consistency" with O(1) free coefficients; if even parametric consistency fails, trigger stop-and-rethink |
+| 5 | Conflating SUSY scalar meson (0^+) with physical pseudoscalar pion (0^-) (P2-ext) | MEDIUM | HIGH | Explicit scalar-pseudoscalar decomposition via linear sigma model; warningbox on parity; forbidden proxy fp-pi-equals-M |
+| 5 | SO/Sp Dynkin index normalisation error propagating to anomaly matching (P5-ext) | MEDIUM | MEDIUM | Use IS 9509066 conventions consistently; cross-check T(vector SO(N)) = 1, T(fund Sp(N)) = 1/2 |
 
 ## Backtracking Triggers
 
@@ -187,14 +222,17 @@ Plans:
 - **Phase 4 -> Phase 3/2/1:** If full SM anomaly matching fails, systematically trace the error: first check Phase 4 duality map, then Phase 3 non-SUSY extensions, then Phase 2 Seiberg duality conventions, then Phase 1 anomaly matching conventions
 - **Phase 4 -> STOP:** If the dualised SM program does not produce even parametric fermion mass predictions (stop-and-rethink condition from contract)
 - **Phase 4 -> SCOPE:** If 8 lectures cannot cover the material (stop-and-rethink condition from contract), flag for extension to 10-12 lectures
+- **Phase 5 -> Phase 5:** If SO/Sp anomaly coefficients do not match, check Dynkin index normalisation against IS 9509066
+- **Phase 5 -> Phase 5:** If meson quantum numbers do not reproduce correct electric charges, check flavour assignment conventions
 
 ## Progress
 
-**Execution Order:** 1 -> 2 -> 3 -> 4
+**Execution Order:** 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 | ----- | -------------- | ------ | --------- |
 | 1. Foundations | 3/3 | Complete | 2026-03-20 |
 | 2. SUSY and Seiberg Duality | 4/4 | Complete | 2026-03-20 |
 | 3. Non-perturbative Dynamics | 2/2 | Complete | 2026-03-20 |
-| 4. The Dualised Standard Model | 0/TBD | Not started | - |
+| 4. The Dualised Standard Model | 5/5 | Complete | 2026-03-20 |
+| 5. Extensions | 0/3 | Planned | -- |
