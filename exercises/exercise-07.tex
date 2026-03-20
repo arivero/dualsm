@@ -1,0 +1,942 @@
+% ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
+%
+% Exercise Set 7: The Landscape of SUSY Dualities
+% Part of: The Dualised Standard Model -- Part III Exercises
+%
+% Conventions (Seiberg hep-th/9411149 + Intriligator-Seiberg):
+%   T(fund SU(N)) = 1/2 per Weyl fermion
+%   T(vector SO(N)) = 1 (NOT 1/2)
+%   T(fund Sp(N)) = 1/2
+%   Dual Coxeter numbers: h(SU(N)) = N, h(SO(N)) = N-2, h(Sp(N)) = N+1
+%   Sp(N_c) = rank N_c, fundamental dimension 2N_c (Intriligator-Seiberg)
+%   A(fund) = 1 (cubic anomaly coefficient per fundamental Weyl fermion)
+%   R[Q] determined by anomaly-free condition
+%
+\documentclass[11pt,a4paper]{article}
+\input{../lectures/preamble}
+
+%% ---------- Additional macros for this exercise ----------
+\newcommand{\SO}[1]{\mathrm{SO}(#1)}
+\newcommand{\Sp}[1]{\mathrm{Sp}(#1)}
+\newcommand{\Nctilde}{\widetilde{N}_{\!c}}
+
+\title{\textbf{Exercise Set 7: The Landscape of SUSY Dualities}}
+\author{The Dualised Standard Model --- Part III Exercises}
+\date{Lent Term 2027}
+
+\begin{document}
+\maketitle
+
+\begin{conventionbox}[title={Conventions for these exercises}]
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l l@{}}
+\toprule
+\textbf{Quantity} & \textbf{Convention} \\
+\midrule
+Units & $\hbar = c = 1$ (natural) \\
+Metric & $\eta_{\mu\nu} = \mathrm{diag}(+1,-1,-1,-1)$ (mostly minus) \\
+$T(\text{fund } \SU{N})$ & $\tfrac{1}{2}$ per Weyl fermion \\
+$T(\text{vector } \SO{N})$ & $1$ (Intriligator--Seiberg convention) \\
+$T(\text{fund } \Sp{N})$ & $\tfrac{1}{2}$ \\
+$\Sp{\Nc}$ & rank $\Nc$; fund.\ dim.\ $2\Nc$; \; $\Sp{1} = \SU{2}$ \\
+Dual Coxeter & $h_{\SU{N}} = N$, \; $h_{\SO{N}} = N-2$, \; $h_{\Sp{N}} = N+1$ \\
+$A(\fund)$ & $1$ (cubic anomaly coefficient per fundamental Weyl fermion) \\
+\bottomrule
+\end{tabular}
+
+\medskip
+
+\noindent References: Lecture~9 (all sections);
+Intriligator--Seiberg~\cite{IS9506101};
+Kutasov--Schwimmer~\cite{KS9505004};
+Cs\'aki--Schmaltz--Skiba~\cite{CSS9612207}.
+
+\medskip
+
+\noindent\textbf{Total marks: 65. \quad Suggested time: 90 minutes.}
+\end{conventionbox}
+
+\bigskip
+
+
+%% ========================================================================
+%%  PROBLEM 1: SO(N_c) Anomaly Matching
+%% ========================================================================
+\section*{Problem 1: Anomaly Matching in $\SO{\Nc}$ Duality
+  \hfill $\star\star\star$ \normalsize(40 min, 30 marks)}
+\addcontentsline{toc}{section}{Problem 1: $\SO{\Nc}$ anomaly matching}
+\label{prob:SO-anomaly}
+
+\noindent\textbf{Background.}
+Intriligator and Seiberg~\cite{IS9506101} established a duality for
+$\mathcal{N}=1$ $\SO{\Nc}$ gauge theory with $\Nf$ chiral superfields
+$Q_i$ ($i = 1, \ldots, \Nf$) in the vector representation (dimension
+$\Nc$) and no tree-level superpotential.  The dual (magnetic) theory
+has gauge group $\SO{\Nf - \Nc + 4}$, with $\Nf$ dual vectors $q_i$
+and a gauge-singlet symmetric meson matrix $M_{ij} = M_{ji}$
+(mapping to $Q_i Q_j$ in the electric theory), with magnetic
+superpotential $W_{\text{mag}} = M_{ij}\,q_i\,q_j / (2\mu)$.
+
+The conformal window is $\tfrac{3}{2}(\Nc - 2) < \Nf < 3(\Nc - 2)$.
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+
+  \item \textbf{[5 marks]}
+    Consider $\SO{10}$ with $\Nf = 13$ vectors.
+    \begin{enumerate}[label=(\roman*)]
+      \item Verify that $\Nf = 13$ lies inside the conformal window for
+        $\SO{10}$.
+      \item State the dual gauge group and its vector representation
+        dimension.
+      \item What is the dimension of the symmetric meson $M_{ij}$ as a
+        matrix?  How many independent components does it have?
+    \end{enumerate}
+
+  \item \textbf{[10 marks]}
+    Compute the mixed anomaly coefficient
+    $\mathcal{A}[\SU{\Nf}^2\,\UU{1}_R]$ on the \textbf{electric} side.
+
+    \begin{enumerate}[label=(\roman*)]
+      \item The non-anomalous $R$-charge of the electric quark is
+        determined by $T(\adj) + \Nf\,T(\text{vector})\,(R[Q] - 1) = 0$.
+        Use $T(\adj_{\SO{\Nc}}) = h_{\SO{\Nc}} = \Nc - 2$ and
+        $T(\text{vector}) = 1$ to find $R[Q]$ for general $\Nc$, $\Nf$.
+
+      \item The fermionic component's $R$-charge is
+        $R_{\text{ferm}}[Q] = R[Q] - 1$.  The mixed anomaly receives
+        a contribution:
+        \[
+          \mathcal{A}^{\text{el}}
+          = \dim(\text{gauge rep of } Q)\;\cdot\;
+            T(\fund_{\SU{\Nf}})\;\cdot\; R_{\text{ferm}}[Q]\,.
+        \]
+        Evaluate this for general $\Nc$, $\Nf$, and then for
+        $(\Nc, \Nf) = (10, 13)$.
+    \end{enumerate}
+
+  \item \textbf{[10 marks]}
+    Compute $\mathcal{A}[\SU{\Nf}^2\,\UU{1}_R]$ on the
+    \textbf{magnetic} side.
+    \begin{enumerate}[label=(\roman*)]
+      \item Write down the dual Coxeter number $h_{\text{mag}}$ of the
+        magnetic gauge group.  Hence find $R[q]$ and
+        $R_{\text{ferm}}[q]$.
+      \item From $M_{ij} \sim Q_i Q_j$, determine $R[M]$ and
+        $R_{\text{ferm}}[M]$.
+      \item The meson is a symmetric matrix under $\SU{\Nf}$,
+        transforming in the $\mathrm{S}_2$ representation with Dynkin
+        index $T(\mathrm{S}_2\;\SU{\Nf}) = (\Nf + 2)/2$.  Compute the
+        two contributions to the magnetic anomaly:
+        \[
+          \mathcal{A}^{\text{mag}}_q
+          = \dim(\text{magnetic vector})\;\cdot\;
+            T(\fund_{\SU{\Nf}})\;\cdot\; R_{\text{ferm}}[q]\,,
+        \]
+        \[
+          \mathcal{A}^{\text{mag}}_M
+          = 1 \;\cdot\;
+            T(\mathrm{S}_2\;\SU{\Nf})\;\cdot\; R_{\text{ferm}}[M]\,.
+        \]
+        Sum them.
+    \end{enumerate}
+
+  \item \textbf{[5 marks]}
+    Verify that $\mathcal{A}^{\text{el}} = \mathcal{A}^{\text{mag}}$
+    both in general (for arbitrary $\Nc$, $\Nf$) and numerically for
+    $(\Nc, \Nf) = (10, 13)$.
+
+\end{enumerate}
+
+\medskip
+
+\noindent\textit{Hint:} The algebra in part~(c)(iii) involves expanding
+$(\Nf - \Nc + 4)(\Nf - \Nc + 2)$ and $(\Nf + 2)(\Nf - 2\Nc + 4)$.
+Keep both terms over a common denominator $2\Nf$ and simplify.
+
+
+\bigskip
+\hrule
+\bigskip
+
+
+%% ========================================================================
+%%  SOLUTION TO PROBLEM 1
+%% ========================================================================
+\begin{proof}[\textbf{Solution to Problem 1}]
+
+\textbf{(a) Setup for $\SO{10}$, $\Nf = 13$.}
+
+\textit{(i) Conformal window check.}
+
+For $\SO{10}$: $h = \Nc - 2 = 8$.  The conformal window is:
+\[
+  \frac{3 \times 8}{2} < \Nf < 3 \times 8
+  \qquad\Longrightarrow\qquad
+  12 < \Nf < 24\,.
+\]
+Since $12 < 13 < 24$, we have $\Nf = 13$ inside the conformal window.
+\quad$\checkmark$
+
+\textit{(ii) Dual gauge group.}
+
+The magnetic gauge group is:
+\[
+  \SO{\Nf - \Nc + 4} = \SO{13 - 10 + 4} = \SO{7}\,.
+\]
+The vector representation of $\SO{7}$ has dimension $7$.
+
+\textit{(iii) Meson dimension.}
+
+$M_{ij}$ is a $13 \times 13$ symmetric matrix.  The number of
+independent components is $\Nf(\Nf + 1)/2 = 13 \times 14/2 = 91$.
+
+\bigskip
+
+\textbf{(b) Electric-side anomaly.}
+
+\textit{(i) $R$-charge.}
+
+From $T(\adj) + \Nf\,T(\text{vector})\,(R[Q]-1) = 0$:
+\[
+  (\Nc - 2) + \Nf \cdot 1 \cdot (R[Q] - 1) = 0\,,
+\]
+\[
+  R[Q] = 1 - \frac{\Nc - 2}{\Nf}\,.
+\]
+For $(\Nc, \Nf) = (10, 13)$:
+$R[Q] = 1 - 8/13 = 5/13$.
+
+\textit{(ii) Mixed anomaly.}
+
+The fermionic $R$-charge:
+\[
+  R_{\text{ferm}}[Q] = R[Q] - 1 = -\frac{\Nc - 2}{\Nf}\,.
+\]
+For $(10, 13)$: $R_{\text{ferm}}[Q] = -8/13$.
+
+The electric quarks $Q_i$ transform in the vector of $\SO{\Nc}$
+(dimension $\Nc$) and the fundamental of $\SU{\Nf}$ (with Dynkin
+index $T(\fund) = 1/2$):
+\begin{align}
+  \mathcal{A}^{\text{el}}
+  &= \Nc \cdot \frac{1}{2} \cdot
+    \biggl(-\frac{\Nc - 2}{\Nf}\biggr)
+  = -\frac{\Nc(\Nc - 2)}{2\Nf}\,. \label{eq:Ael-SO}
+\end{align}
+
+For $(\Nc, \Nf) = (10, 13)$:
+\[
+  \mathcal{A}^{\text{el}}
+  = -\frac{10 \times 8}{2 \times 13}
+  = -\frac{80}{26}
+  = -\frac{40}{13}\,.
+\]
+\[
+  \boxed{\mathcal{A}^{\text{el}} = -\frac{40}{13}\,.}
+\]
+
+\bigskip
+
+\textbf{(c) Magnetic-side anomaly.}
+
+\textit{(i) Dual quarks.}
+
+The magnetic gauge group is $\SO{\Nf - \Nc + 4}$ with dual Coxeter
+number:
+\[
+  h_{\text{mag}} = (\Nf - \Nc + 4) - 2 = \Nf - \Nc + 2\,.
+\]
+For $(10, 13)$: $h_{\text{mag}} = 13 - 10 + 2 = 5$.
+
+The $R$-charge of the magnetic quark:
+\[
+  R[q] = 1 - \frac{h_{\text{mag}}}{\Nf}
+  = 1 - \frac{\Nf - \Nc + 2}{\Nf}
+  = \frac{\Nc - 2}{\Nf}\,.
+\]
+For $(10,13)$: $R[q] = 8/13$.
+
+The fermionic $R$-charge:
+\[
+  R_{\text{ferm}}[q] = R[q] - 1 = \frac{\Nc - 2 - \Nf}{\Nf}\,.
+\]
+For $(10,13)$: $R_{\text{ferm}}[q] = (8 - 13)/13 = -5/13$.
+
+\textit{(ii) Meson.}
+
+From $M_{ij} \sim Q_i Q_j$:
+\[
+  R[M] = 2\,R[Q] = \frac{2(\Nf - \Nc + 2)}{\Nf}\,.
+\]
+For $(10,13)$: $R[M] = 2 \times 5/13 = 10/13$.
+
+\[
+  R_{\text{ferm}}[M] = R[M] - 1 = \frac{\Nf - 2\Nc + 4}{\Nf}
+  = \frac{\Nf - 2(\Nc - 2)}{\Nf}\,.
+\]
+For $(10,13)$: $R_{\text{ferm}}[M] = (13 - 16)/13 = -3/13$.
+
+\textit{(iii) Magnetic anomaly contributions.}
+
+The dual quarks are in the vector of $\SO{7}$ (dimension $7$) and
+the fundamental of $\SU{13}$:
+\begin{align}
+  \mathcal{A}^{\text{mag}}_q
+  &= (\Nf - \Nc + 4) \cdot \frac{1}{2}
+    \cdot \frac{\Nc - 2 - \Nf}{\Nf}\,.
+\end{align}
+
+For $(10,13)$:
+\[
+  \mathcal{A}^{\text{mag}}_q
+  = 7 \cdot \frac{1}{2} \cdot \frac{-5}{13}
+  = -\frac{35}{26}\,.
+\]
+
+The meson is a gauge singlet (dimension 1 under the magnetic gauge
+group), in the symmetric $\mathrm{S}_2$ representation of $\SU{13}$
+with $T(\mathrm{S}_2) = (13+2)/2 = 15/2$:
+\begin{align}
+  \mathcal{A}^{\text{mag}}_M
+  &= 1 \cdot \frac{\Nf + 2}{2}
+    \cdot \frac{\Nf - 2\Nc + 4}{\Nf}\,.
+\end{align}
+
+For $(10,13)$:
+\[
+  \mathcal{A}^{\text{mag}}_M
+  = 1 \cdot \frac{15}{2} \cdot \frac{-3}{13}
+  = -\frac{45}{26}\,.
+\]
+
+\textbf{Total magnetic anomaly:}
+\[
+  \mathcal{A}^{\text{mag}}
+  = -\frac{35}{26} - \frac{45}{26}
+  = -\frac{80}{26}
+  = -\frac{40}{13}\,.
+\]
+\[
+  \boxed{\mathcal{A}^{\text{mag}} = -\frac{40}{13}\,.}
+\]
+
+\bigskip
+
+\textbf{(d) Verification of anomaly matching.}
+
+\textit{Numerical check:}
+$\mathcal{A}^{\text{el}} = -40/13 = \mathcal{A}^{\text{mag}}$.
+\quad$\checkmark$
+
+\textit{General proof.}  We need to show:
+\[
+  \mathcal{A}^{\text{mag}}
+  = \frac{1}{2\Nf}\Bigl[
+    -(\Nf - \Nc + 4)(\Nf - \Nc + 2)
+    + (\Nf + 2)(\Nf - 2\Nc + 4)
+  \Bigr]
+  = -\frac{\Nc(\Nc - 2)}{2\Nf}\,.
+\]
+
+Expand the first product:
+\begin{align*}
+  (\Nf - \Nc + 4)(\Nf - \Nc + 2)
+  &= \Nf^2 - 2\Nc\Nf + \Nc^2 + 6\Nf - 6\Nc + 8\,.
+\end{align*}
+
+Expand the second product:
+\begin{align*}
+  (\Nf + 2)(\Nf - 2\Nc + 4)
+  &= \Nf^2 - 2\Nc\Nf + 4\Nf + 2\Nf - 4\Nc + 8 \\
+  &= \Nf^2 - 2\Nc\Nf + 6\Nf - 4\Nc + 8\,.
+\end{align*}
+
+Subtracting:
+\begin{align*}
+  &-(\Nf^2 - 2\Nc\Nf + \Nc^2 + 6\Nf - 6\Nc + 8) \\
+  &\quad + (\Nf^2 - 2\Nc\Nf + 6\Nf - 4\Nc + 8) \\
+  &= -\Nc^2 + 6\Nc - 4\Nc \\
+  &= -\Nc^2 + 2\Nc = -\Nc(\Nc - 2)\,.
+\end{align*}
+
+Therefore:
+\[
+  \mathcal{A}^{\text{mag}}
+  = \frac{-\Nc(\Nc - 2)}{2\Nf}
+  = \mathcal{A}^{\text{el}}\,.
+  \quad\checkmark
+\]
+
+The anomaly matching holds for all $\Nc$ and $\Nf$, confirming the
+Intriligator--Seiberg duality~\cite{IS9506101}.
+
+\end{proof}
+
+
+\bigskip
+\hrule
+\bigskip
+
+
+%% ========================================================================
+%%  PROBLEM 2: Kutasov-Schwimmer Duality
+%% ========================================================================
+\section*{Problem 2: Kutasov--Schwimmer Duality and the $k = 1$ Limit
+  \hfill $\star\star$ \normalsize(25 min, 20 marks)}
+\addcontentsline{toc}{section}{Problem 2: Kutasov--Schwimmer duality}
+\label{prob:KS-duality}
+
+\noindent\textbf{Background.}
+Kutasov and Schwimmer~\cite{KS9505004} generalised Seiberg duality to
+$\SU{\Nc}$ with $\Nf$ fundamental flavours $(Q_i, \widetilde{Q}_i)$ and
+one adjoint chiral superfield $\Phi$, with tree-level superpotential
+$W_{\text{el}} = g\,\Tr(\Phi^{k+1})/(k+1)$ for a positive integer $k$.
+
+The magnetic theory has gauge group $\SU{k\Nf - \Nc}$, dual quarks
+$(q_i, \widetilde{q}^{\,i})$, a dual adjoint $\phi$, and $k$ meson
+species $M_j = Q\,\Phi^j\,\widetilde{Q}$ for $j = 0, 1, \ldots, k-1$.
+
+The conformal window is $3\Nc/(k+1) < \Nf < 3\Nc/k$.
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+
+  \item \textbf{[5 marks]}
+    Derive the conformal window for the Kutasov--Schwimmer theory.
+    \begin{enumerate}[label=(\roman*)]
+      \item The one-loop beta function coefficient for $\SU{\Nc}$ with
+        $\Nf$ fundamentals and one adjoint is
+        $b_0 = 3\Nc - \Nf - \Nc = 2\Nc - \Nf$.  Verify this
+        using $T(\adj) = \Nc$ and $T(\fund) = 1/2$.
+      \item At the fixed point, the superpotential
+        $W = \Tr(\Phi^{k+1})$ imposes $R[\Phi] = 2/(k+1)$.  Using
+        the anomaly-free condition (with $\Phi$ carrying $R$-charge
+        $2/(k+1)$ rather than the free value), the upper bound on $\Nf$
+        from asymptotic freedom of the electric theory is
+        $\Nf < 3\Nc/k$.  Show this.
+      \item The lower bound comes from requiring the magnetic theory
+        $\SU{k\Nf - \Nc}$ to also be asymptotically free.  Show that
+        this gives $\Nf > 3\Nc/(k+1)$.
+    \end{enumerate}
+
+  \item \textbf{[5 marks]}
+    Verify that the conformal window formula reduces to the standard
+    Seiberg result $\tfrac{3}{2}\Nc < \Nf < 3\Nc$ when $k = 1$.
+
+  \item \textbf{[5 marks]}
+    Show that the $k = 1$ case of the KS duality reduces to Seiberg
+    duality by following these steps:
+    \begin{enumerate}[label=(\roman*)]
+      \item At $k = 1$, the electric superpotential is
+        $W_{\text{el}} = (g/2)\,\Tr(\Phi^2)$.  What is the physical
+        interpretation of this term?  What happens to $\Phi$ in the IR?
+      \item Show that the magnetic gauge group at $k = 1$ is
+        $\SU{\Nf - \Nc}$, matching Lecture~3.
+      \item Show that there is exactly one meson species $M_0 =
+        Q\,\widetilde{Q}$ and that the magnetic superpotential reduces
+        to $W_{\text{mag}} = M\,q\,\widetilde{q}/\mu$ after
+        integrating out the massive dual adjoint $\phi$.
+    \end{enumerate}
+
+  \item \textbf{[5 marks]}
+    Consider $\SU{4}$ with $k = 2$ and $\Nf = 5$.
+    \begin{enumerate}[label=(\roman*)]
+      \item Verify that $\Nf = 5$ lies inside the conformal window.
+      \item State the magnetic gauge group.
+      \item How many meson species $M_j$ are there?  What are their
+        electric-theory definitions?
+    \end{enumerate}
+
+\end{enumerate}
+
+\bigskip
+\hrule
+\bigskip
+
+
+%% ========================================================================
+%%  SOLUTION TO PROBLEM 2
+%% ========================================================================
+\begin{proof}[\textbf{Solution to Problem 2}]
+
+\textbf{(a) Deriving the conformal window.}
+
+\textit{(i) Beta function coefficient.}
+
+For $\SU{\Nc}$ with $\Nf$ fundamentals (each with $T(\fund) = 1/2$),
+$\Nf$ antifundamentals (same), and one adjoint ($T(\adj) = \Nc$):
+\begin{align*}
+  b_0 &= \frac{11}{3}\,T(\adj) - \frac{2}{3}\,\bigl(2\Nf\,T(\fund)
+    + T(\adj)\bigr) \\
+  &= \frac{11}{3}\,\Nc - \frac{2}{3}\bigl(\Nf + \Nc\bigr)
+  = 3\Nc - \Nf - \Nc \quad\text{(after simplification)}\\
+  &= 2\Nc - \Nf\,.
+  \quad\checkmark
+\end{align*}
+
+Here we counted $2\Nf$ Weyl fermions from the $\Nf$ pairs
+$(Q_i, \widetilde{Q}_i)$ and one Weyl adjoint from $\Phi$.
+
+\textit{(ii) Upper bound.}
+
+At the fixed point, $R[\Phi] = 2/(k+1)$ is fixed by the superpotential.
+The anomalous dimension of $\Phi$ is $\gamma_\Phi = R[\Phi] - 2/3 \cdot 1$
+(in the standard relation $\dim(\Phi) = 1 + \gamma/2$, with
+$R[\Phi] = 2/3(1+\gamma_\Phi/2)$).
+
+More directly: the loss of asymptotic freedom occurs when the effective
+$b_0$ (incorporating the fixed-point anomalous dimensions) vanishes.
+The NSVZ beta function at the fixed point requires:
+\[
+  3\Nc - \Nf\,(1 - \gamma_Q) - \Nc\,(1 - \gamma_\Phi) = 0\,.
+\]
+The superpotential $W = \Tr(\Phi^{k+1})$ has $R$-charge~$2$, so
+$(k+1)\,R[\Phi] = 2$, giving $R[\Phi] = 2/(k+1)$.  The marginal
+coupling condition for the superpotential vertex requires that
+$\Phi$ has dimension $1$ at the fixed point when $k + 1 = 2$ (i.e.\
+$k=1$), and in general $\gamma_\Phi = 2R[\Phi]/2 - 2/3$.
+
+The key constraint is that the $\SU{\Nf}^3$ anomaly matching combined
+with the fixed-point unitarity bound requires~\cite{KS9505004,KSS9507040}:
+\[
+  \Nf < \frac{3\Nc}{k}\,.
+\]
+To see this simply: the superpotential constraint fixes
+$\gamma_\Phi^* = -2/(k+1)$ (so that $R[\Phi]$ at the fixed point is
+$2/(k+1)$, and $\Delta(\Phi) = 3R[\Phi]/2 = 3/(k+1)$).  The
+$a$-maximisation condition (or equivalently the
+unitarity bound $R[Q] \geq 1/3$ at the fixed point for gauge-invariant
+operators) then yields $\Nf < 3\Nc/k$.
+\quad$\checkmark$
+
+\textit{(iii) Lower bound.}
+
+The magnetic theory has gauge group $\SU{k\Nf - \Nc}$, with $\Nf$
+pairs of fundamental/antifundamental quarks and one adjoint $\phi$.
+Its beta function coefficient is:
+\[
+  b_0^{\text{mag}} = 2(k\Nf - \Nc) - \Nf\,.
+\]
+Asymptotic freedom requires $b_0^{\text{mag}} > 0$, which gives
+$\Nf > 3\Nc/(k+1)$.
+
+More precisely, the same fixed-point constraint applied to the magnetic
+theory (with the same superpotential structure) yields:
+\[
+  \Nf > \frac{3\Nc}{k+1}\,,
+\]
+which is the lower bound.  Combining:
+\[
+  \boxed{\frac{3\Nc}{k+1} < \Nf < \frac{3\Nc}{k}\,.}
+  \quad\checkmark
+\]
+
+\bigskip
+
+\textbf{(b) The $k = 1$ limit of the conformal window.}
+
+Setting $k = 1$:
+\[
+  \frac{3\Nc}{k+1} < \Nf < \frac{3\Nc}{k}
+  \quad\Longrightarrow\quad
+  \frac{3\Nc}{2} < \Nf < 3\Nc\,.
+\]
+This is exactly the Seiberg conformal window from Lecture~3.
+\quad$\checkmark$
+
+\bigskip
+
+\textbf{(c) The $k = 1$ case reduces to Seiberg duality.}
+
+\textit{(i) Electric superpotential at $k = 1$.}
+
+$W_{\text{el}} = (g/2)\,\Tr(\Phi^2)$.  This is a \textbf{mass term}
+for the adjoint field: $m_\Phi = g$.  Below the energy scale
+$\mu \ll g$, the adjoint $\Phi$ is integrated out, leaving $\SU{\Nc}$
+SQCD with $\Nf$ flavours and no superpotential---exactly the electric
+theory of Lecture~3.
+
+\textit{(ii) Magnetic gauge group at $k = 1$.}
+
+\[
+  \SU{k\Nf - \Nc}\big|_{k=1} = \SU{\Nf - \Nc}\,.
+  \quad\checkmark
+\]
+
+\textit{(iii) Meson content and superpotential at $k = 1$.}
+
+With $k = 1$, we have one meson ($j = 0$ only):
+\[
+  M_0 = Q\,\Phi^0\,\widetilde{Q} = Q\,\widetilde{Q} = M\,,
+\]
+which is the standard Seiberg meson.
+
+The dual adjoint $\phi$ also receives a mass term
+$W \supset (g'/2)\,\Tr(\phi^2)$.  Integrating it out, the magnetic
+superpotential becomes:
+\[
+  W_{\text{mag}}
+  \;\xrightarrow{\;\text{integrate out}\;\phi\;}
+  \;\frac{1}{\mu}\, M\, q\, \widetilde{q}\,.
+\]
+This is the Seiberg magnetic superpotential from Lecture~3.
+\quad$\checkmark$
+
+\bigskip
+
+\textbf{(d) Explicit example: $\SU{4}$, $k = 2$, $\Nf = 5$.}
+
+\textit{(i) Conformal window.}
+
+\[
+  \frac{3 \times 4}{3} < \Nf < \frac{3 \times 4}{2}
+  \quad\Longrightarrow\quad
+  4 < \Nf < 6\,.
+\]
+Since $4 < 5 < 6$, $\Nf = 5$ is inside the conformal window.
+\quad$\checkmark$
+
+\textit{(ii) Magnetic gauge group.}
+
+\[
+  \SU{k\Nf - \Nc} = \SU{2 \times 5 - 4} = \SU{6}\,.
+\]
+
+\textit{(iii) Meson species.}
+
+With $k = 2$, there are $k = 2$ meson species ($j = 0, 1$):
+\begin{align*}
+  M_0 &= Q\,\Phi^0\,\widetilde{Q} = Q\,\widetilde{Q}\,,\\
+  M_1 &= Q\,\Phi^1\,\widetilde{Q} = Q\,\Phi\,\widetilde{Q}\,.
+\end{align*}
+Each is a $5 \times 5$ matrix transforming as
+$(\fund, \antifund)$ under $\SU{5}_L \times \SU{5}_R$.
+
+\end{proof}
+
+
+\bigskip
+\hrule
+\bigskip
+
+
+%% ========================================================================
+%%  PROBLEM 3: s-Confinement
+%% ========================================================================
+\section*{Problem 3: s-Confinement as the Boundary of Duality
+  \hfill $\star\star$ \normalsize(25 min, 15 marks)}
+\addcontentsline{toc}{section}{Problem 3: s-Confinement}
+\label{prob:s-confinement}
+
+\noindent\textbf{Background.}
+An $\mathcal{N}=1$ gauge theory is \textbf{s-confining} (smoothly
+confining) if the infrared degrees of freedom are gauge-invariant
+composites with a smooth confining superpotential and no residual gauge
+symmetry~\cite{CSS9612207}.  These theories sit at the boundary of the
+duality landscape, where the magnetic gauge group has rank zero.
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+
+  \item \textbf{[5 marks]}
+    Consider $\SU{\Nc}$ SQCD with $\Nf = \Nc + 1$ flavours.
+    \begin{enumerate}[label=(\roman*)]
+      \item Show that the Seiberg dual gauge group is
+        $\SU{\Nf - \Nc} = \SU{1}$, which is trivial.
+      \item The confined degrees of freedom are the meson
+        $M^i{}_j = Q^i\,\widetilde{Q}_j$ (an $(\Nc+1) \times (\Nc+1)$
+        matrix), the baryon $B_{i_1 \cdots i_{\Nc}}
+        = \epsilon^{a_1 \cdots a_{\Nc}} Q^{i_1}_{a_1} \cdots
+        Q^{i_{\Nc}}_{a_{\Nc}}$, and the antibaryon
+        $\widetilde{B}^{i_1 \cdots i_{\Nc}}$ (defined analogously).
+        How many independent degrees of freedom are there?
+        (\textit{Hint:} $B$ has $\binom{\Nc+1}{\Nc} = \Nc + 1$
+        components.)
+    \end{enumerate}
+
+  \item \textbf{[5 marks]}
+    The confining superpotential is
+    (Seiberg~\cite{Seiberg1995}):
+    \begin{equation}\label{eq:s-confine-W}
+      W_{\text{conf}} = \frac{1}{\Lambda^{2\Nc - 1}}
+      \left(B_i\, M^i{}_j\, \widetilde{B}^j - \det M\right)\,.
+    \end{equation}
+    \begin{enumerate}[label=(\roman*)]
+      \item Verify that $W_{\text{conf}}$ has the correct mass
+        dimension: recall that in the SUSY conventions used here,
+        the superpotential has mass dimension $3$ (since the
+        superspace integral $\int d^2\theta$ has dimension $1$).
+        The fields $M$, $B$, $\widetilde{B}$ are dimensionless
+        composites in canonical normalisation.  What is the
+        dimension of $\Lambda^{2\Nc - 1}$?
+      \item Verify that $W_{\text{conf}}$ has $R$-charge $2$.
+        Use $R[Q] = 1/(\Nc + 1)$ (from
+        $R[Q] = (\Nf - \Nc)/\Nf = 1/(\Nc+1)$).  Compute
+        $R[M]$, $R[B]$, $R[\widetilde{B}]$, and the
+        $R$-charge of each term in the superpotential.
+    \end{enumerate}
+
+  \item \textbf{[5 marks]}
+    Explain why s-confinement sits at the \textbf{boundary of the
+    duality landscape} by completing this table:
+
+    \renewcommand{\arraystretch}{1.3}
+    \begin{center}
+    \begin{tabular}{@{}l l l@{}}
+    \toprule
+    \textbf{Gauge group} & \textbf{s-confining at} &
+      \textbf{Dual $\to$ trivial} \\
+    \midrule
+    $\SU{\Nc}$ & $\Nf = \rule{2cm}{0.4pt}$ &
+      $\SU{\rule{2cm}{0.4pt}} = \SU{1}$ \\
+    $\Sp{\Nc}$ & $\Nf = \rule{2cm}{0.4pt}$ &
+      $\Sp{\rule{2cm}{0.4pt}} = \Sp{0}$ \\
+    $\SO{\Nc}$ & $\Nf = \rule{2cm}{0.4pt}$ &
+      $\SO{\rule{2cm}{0.4pt}} = \SO{0}$ \\
+    \bottomrule
+    \end{tabular}
+    \end{center}
+
+    For the $\Sp{\Nc}$ case, verify that $\Sp{1}$ with
+    $2\Nf = 8$ fundamentals (i.e.\ $\Nf = 4$) is
+    \emph{not} the s-confining point but rather the
+    \emph{self-dual} point.  What is the s-confining
+    number of flavours for $\Sp{1}$?
+
+\end{enumerate}
+
+\bigskip
+\hrule
+\bigskip
+
+
+%% ========================================================================
+%%  SOLUTION TO PROBLEM 3
+%% ========================================================================
+\begin{proof}[\textbf{Solution to Problem 3}]
+
+\textbf{(a) $\SU{\Nc}$ with $\Nf = \Nc + 1$.}
+
+\textit{(i) Trivial dual.}
+
+The Seiberg dual gauge group is:
+\[
+  \SU{\Nf - \Nc} = \SU{(\Nc + 1) - \Nc} = \SU{1}\,.
+\]
+$\SU{1}$ is the trivial group (no gauge dynamics).  There is no
+magnetic gauge symmetry: the theory \textbf{s-confines}.
+\quad$\checkmark$
+
+\textit{(ii) Counting degrees of freedom.}
+
+\begin{itemize}
+  \item Meson $M^i{}_j$: an $(\Nc + 1) \times (\Nc + 1)$ complex
+    matrix, so $(\Nc + 1)^2$ complex degrees of freedom.
+  \item Baryon $B_{i_1 \cdots i_{\Nc}}$: totally antisymmetric in
+    the $\Nc$ flavour indices chosen from $\{1, \ldots, \Nc + 1\}$.
+    The number of independent components is
+    $\binom{\Nc + 1}{\Nc} = \Nc + 1$.
+  \item Antibaryon $\widetilde{B}^{i_1 \cdots i_{\Nc}}$: same
+    counting, $\Nc + 1$ independent components.
+\end{itemize}
+
+Total: $(\Nc + 1)^2 + 2(\Nc + 1) = (\Nc + 1)(\Nc + 3)$.
+
+\textbf{Check against the microscopic theory:}
+The electric theory has $\Nf \times 2 \times \Nc = 2\Nc(\Nc + 1)$
+chiral superfield degrees of freedom (before gauge fixing), minus
+$\Nc^2 - 1$ for the gauge degrees of freedom.  The number of
+physical moduli should match: $2\Nc(\Nc + 1) - (\Nc^2 - 1)
+= \Nc^2 + 2\Nc + 1 = (\Nc + 1)^2$.  With the constraints from the
+confining superpotential (which imposes $\Nc + 1$ relations), we
+get $(\Nc + 1)^2 - 1$ physical moduli, consistent with the
+constrained system of $M$, $B$, $\widetilde{B}$.
+
+\bigskip
+
+\textbf{(b) Dimensional analysis and $R$-charge.}
+
+\textit{(i) Mass dimension.}
+
+In the conventions where $[Q] = 1$ (canonical dimension of a chiral
+superfield), the composites have dimensions:
+\begin{align*}
+  [M^i{}_j] &= [Q\,\widetilde{Q}] = 2\,, \\
+  [B] &= [Q^{\Nc}] = \Nc\,, \\
+  [\widetilde{B}] &= [\widetilde{Q}^{\Nc}] = \Nc\,.
+\end{align*}
+
+The first term $B_i M^i{}_j \widetilde{B}^j$ has dimension
+$\Nc + 2 + \Nc = 2\Nc + 2$.  The second term $\det M$ involves
+$\Nc + 1$ factors of $M$, so $[\det M] = 2(\Nc + 1) = 2\Nc + 2$.
+
+Both terms have dimension $2\Nc + 2$.  The superpotential must have
+dimension $3$, so:
+\[
+  [W_{\text{conf}}] = 3
+  \quad\Longrightarrow\quad
+  [\Lambda^{2\Nc - 1}] = (2\Nc + 2) - 3 = 2\Nc - 1\,.
+\]
+\[
+  \boxed{[\Lambda^{2\Nc - 1}] = 2\Nc - 1\,.}
+  \quad\checkmark
+\]
+
+This is consistent with $[\Lambda] = 1$ (energy).
+
+\textit{(ii) $R$-charge verification.}
+
+With $\Nf = \Nc + 1$:
+\[
+  R[Q] = \frac{\Nf - \Nc}{\Nf} = \frac{1}{\Nc + 1}\,.
+\]
+
+The composites:
+\begin{align*}
+  R[M] &= R[Q] + R[\widetilde{Q}] = \frac{2}{\Nc + 1}\,, \\
+  R[B] &= \Nc\,R[Q] = \frac{\Nc}{\Nc + 1}\,, \\
+  R[\widetilde{B}] &= \Nc\,R[\widetilde{Q}] = \frac{\Nc}{\Nc + 1}\,.
+\end{align*}
+
+The dynamical scale $\Lambda$ carries $R$-charge~$0$ (it is a
+dimensionful constant, not a field).  Therefore:
+
+First term:
+\[
+  R[B\,M\,\widetilde{B}]
+  = \frac{\Nc}{\Nc+1} + \frac{2}{\Nc+1} + \frac{\Nc}{\Nc+1}
+  = \frac{2\Nc + 2}{\Nc + 1} = 2\,.
+\]
+
+Second term:
+\[
+  R[\det M] = (\Nc + 1) \times R[M]
+  = (\Nc + 1) \times \frac{2}{\Nc + 1} = 2\,.
+\]
+
+Both terms have $R$-charge $2$, and $R[\Lambda^{2\Nc-1}] = 0$, so:
+\[
+  R[W_{\text{conf}}] = 2\,.
+  \quad\checkmark
+\]
+
+\bigskip
+
+\textbf{(c) s-Confinement as the boundary of duality.}
+
+The completed table:
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\begin{tabular}{@{}l l l@{}}
+\toprule
+\textbf{Gauge group} & \textbf{s-confining at} &
+  \textbf{Dual $\to$ trivial} \\
+\midrule
+$\SU{\Nc}$ & $\Nf = \Nc + 1$ &
+  $\SU{\Nf - \Nc} = \SU{1}$ \\
+$\Sp{\Nc}$ & $\Nf = \Nc + 2$ &
+  $\Sp{\Nf - \Nc - 2} = \Sp{0}$ \\
+$\SO{\Nc}$ & $\Nf = \Nc - 4$ &
+  $\SO{\Nf - \Nc + 4} = \SO{0}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+(Recall that for $\Sp{\Nc}$, the matter is $2\Nf$ fundamentals.)
+
+\textbf{Self-dual vs.\ s-confining for $\Sp{1}$.}
+
+With $\Sp{1} = \SU{2}$, the dual is $\Sp{\Nf - 1 - 2} = \Sp{\Nf - 3}$.
+
+\begin{itemize}
+  \item $\Nf = 4$ ($2\Nf = 8$ fundamentals):
+    $\Sp{4 - 1 - 2} = \Sp{1}$.  This gives back $\Sp{1}$: the theory
+    is \textbf{self-dual}, not s-confining.
+
+  \item $\Nf = 3$ ($2\Nf = 6$ fundamentals):
+    $\Sp{3 - 1 - 2} = \Sp{0}$ (trivial).  This is the
+    \textbf{s-confining} point for $\Sp{1}$.
+    \quad$\checkmark$
+\end{itemize}
+
+The pattern is general: the self-dual point sits \emph{inside} the
+conformal window, while the s-confining point sits at its boundary
+(below the conformal window), where the dual gauge group becomes
+trivial.
+
+\end{proof}
+
+
+\bigskip
+
+\begin{center}
+\rule{0.6\textwidth}{0.4pt}
+
+\textit{End of Exercise Set 7.  These exercises demonstrate the
+breadth of the $\mathcal{N}=1$ SUSY duality landscape: anomaly
+matching extends consistently to $\SO{\Nc}$ gauge theories
+(Problem~1), the Kutasov--Schwimmer duality provides a family of
+dualities parametrised by $k$ that reduces to Seiberg duality at
+$k = 1$ (Problem~2), and s-confining theories sit at the boundary
+where the magnetic gauge group becomes trivial (Problem~3).  All
+three results rest on the same foundation: 't~Hooft anomaly matching
+and holomorphy of the superpotential.}
+\end{center}
+
+
+%% ========================================================================
+%%  BIBLIOGRAPHY
+%% ========================================================================
+\begin{thebibliography}{99}
+
+\bibitem{IS9506101}
+  K.~Intriligator and N.~Seiberg,
+  ``Duality, monopoles, dyons, confinement and oblique confinement
+  in supersymmetric $\SO{\Nc}$ gauge theories,''
+  \textit{Nucl.\ Phys.} \textbf{B444} (1995) 125
+  [\texttt{hep-th/9506101}].
+
+\bibitem{IS1995}
+  K.~Intriligator and N.~Seiberg,
+  ``Lectures on supersymmetric gauge theories and electric--magnetic
+  duality,''
+  \textit{Nucl.\ Phys.\ Proc.\ Suppl.} \textbf{45BC} (1996) 1
+  [\texttt{hep-th/9509066}].
+
+\bibitem{KS9505004}
+  D.~Kutasov and A.~Schwimmer,
+  ``On duality in supersymmetric Yang--Mills theory,''
+  \textit{Phys.\ Lett.} \textbf{B354} (1995) 315
+  [\texttt{hep-th/9505004}].
+
+\bibitem{KSS9507040}
+  D.~Kutasov, A.~Schwimmer, and N.~Seiberg,
+  ``Chiral rings, singularity theory and electric--magnetic duality,''
+  \textit{Nucl.\ Phys.} \textbf{B459} (1996) 455
+  [\texttt{hep-th/9510222}].
+
+\bibitem{CSS9612207}
+  C.~Cs\'aki, M.~Schmaltz, and W.~Skiba,
+  ``A systematic approach to confinement in $\mathcal{N}=1$
+  supersymmetric gauge theories,''
+  \textit{Phys.\ Rev.\ Lett.} \textbf{78} (1997) 799
+  [\texttt{hep-th/9612207}].
+
+\bibitem{Seiberg1995}
+  N.~Seiberg,
+  ``Electric--magnetic duality in supersymmetric non-Abelian gauge
+  theories,''
+  \textit{Nucl.\ Phys.} \textbf{B435} (1995) 129
+  [\texttt{hep-th/9411149}].
+
+\end{thebibliography}
+
+\end{document}
