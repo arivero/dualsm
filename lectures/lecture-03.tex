@@ -1,0 +1,877 @@
+% ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
+%
+% Lecture 3: Seiberg Duality for N=1 SQCD
+% Part of: The Dualised Standard Model -- Part III Lecture Notes
+%
+% SUSY-specific conventions (Wess-Bagger, continued from Lecture 2):
+%   R-charge: R[Q] = (N_f - N_c)/N_f, R[W] = 2
+%   R_fermion = R_superfield - 1 for chiral multiplet fermions
+%   R_gaugino = +1 (directly; gaugino is NOT a chiral superfield component)
+%   B[Q] = +1, B[Q-tilde] = -1
+%   B[q] = N_c/(N_f - N_c), B[q-tilde] = -N_c/(N_f - N_c)
+%   T(fund) = 1/2 per Weyl fermion
+%   A(fund) = 1, A(antifund) = -1 (cubic anomaly coefficient)
+%   N_f counts Dirac flavour pairs
+%
+\documentclass[11pt,a4paper]{article}
+\input{preamble}
+
+\title{\textbf{Lecture 3: Seiberg Duality for $\mathcal{N}=1$ SQCD}}
+\author{The Dualised Standard Model --- Part III Lecture Notes}
+\date{Lent Term 2027}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+\newpage
+
+%% ========================================================================
+%%  CONVENTIONS
+%% ========================================================================
+
+\begin{conventionbox}[title={Conventions for Lecture 3}]
+All conventions from Lectures~1 and~2 remain in force.  Additional
+conventions specific to Seiberg duality (following
+Seiberg~\cite{Seiberg1995} and Intriligator--Seiberg~\cite{IS1995}):
+
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l l l@{}}
+\toprule
+\textbf{Quantity} & \textbf{Convention} & \textbf{Comment} \\
+\midrule
+Units & $\hbar = c = 1$ (natural) & \\
+Metric & $\eta_{\mu\nu} = \mathrm{diag}(+1,-1,-1,-1)$ & mostly minus \\
+Dynkin index & $\Tr(T^a T^b) = \Tfund\, \delta^{ab}$ & fundamental of $\SU{\Nc}$ \\
+Cubic anomaly & $A(\fund) = 1$, $A(\antifund) = -1$ & normalised per fundamental Weyl \\
+$R$-charge (superfield) & $\Rcharge{Q} = (\Nf - \Nc)/\Nf$ & anomaly-free $\UU{1}_R$ \\
+$R$-charge (fermion) & $R_{\text{ferm}} = R_{\text{sf}} - 1$ & \textbf{chiral multiplet fermions only} \\
+Gaugino $R$ & $R_{\lambda} = +1$ & directly; not shifted \\
+Baryon charge & $B[Q] = +1$,\; $B[\widetilde{Q}] = -1$ & electric theory \\
+$\Nf$ counting & $\Nf$ = Dirac pairs & each pair $= (Q_i, \widetilde{Q}_i)$ \\
+\bottomrule
+\end{tabular}
+\end{conventionbox}
+
+
+%% ========================================================================
+%%  SECTION 1: SQCD Recap and Phase Structure
+%% ========================================================================
+\section{$\mathcal{N}=1$ SQCD Recap and Phase Structure}
+\label{sec:recap}
+
+We recall the setup from Lecture~2.  The \emph{electric theory} is
+$\mathcal{N}=1$ supersymmetric QCD:
+\begin{itemize}
+  \item \textbf{Gauge group:} $\SU{\Nc}$.
+  \item \textbf{Matter:} $\Nf$ chiral superfields $Q^i$ in the fundamental
+    ($\fund$) and $\Nf$ chiral superfields $\widetilde{Q}_i$ in the
+    antifundamental ($\antifund$), where $i = 1, \ldots, \Nf$.
+  \item \textbf{Superpotential:} $W_{\text{el}} = 0$ (massless quarks).
+  \item \textbf{Global symmetry:}
+    $\SU{\Nf}_L \times \SU{\Nf}_R \times \UU{1}_B \times \UU{1}_R$.
+\end{itemize}
+
+The anomaly-free $R$-charge, derived in Lecture~2 from the condition
+$\SU{\Nc}^2 \,\UU{1}_R$ anomaly $= 0$, is:
+\begin{equation}\label{eq:Rcharge}
+  \Rcharge{Q} = \Rcharge{\widetilde{Q}}
+  = \frac{\Nf - \Nc}{\Nf}\,.
+\end{equation}
+
+\subsection{Phase structure of $\SU{\Nc}$ SQCD}
+
+The dynamics depends dramatically on the ratio $\Nf / \Nc$.  We summarise the
+complete picture:
+
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=*]
+  \item \textbf{$\Nf = 0$:} Pure $\SU{\Nc}$ super-Yang--Mills.  Gaugino
+    condensation produces $\Nc$ isolated SUSY vacua.
+
+  \item \textbf{$1 \leq \Nf < \Nc$:} The
+    Affleck--Dine--Seiberg (ADS) superpotential is generated non-perturbatively:
+    \begin{equation}\label{eq:ADS}
+      W_{\mathrm{ADS}} = (\Nc - \Nf)
+      \left(\frac{\Lambda^{3\Nc - \Nf}}{\det M}\right)^{\!\!1/(\Nc - \Nf)}\,,
+    \end{equation}
+    where $M^i{}_j = Q^i \widetilde{Q}_j$ is the meson matrix and $\Lambda$
+    is the dynamical scale.  This generates a runaway potential with no stable
+    vacuum at finite field values.
+
+  \item \textbf{$\Nf = \Nc$:} The classical moduli space is
+    \emph{quantum-modified}.  The classical constraint
+    $\det M - B\widetilde{B} = 0$ is replaced by the exact quantum relation:
+    \begin{equation}\label{eq:quantum-constraint}
+      \det M - B\widetilde{B} = \Lambda^{2\Nc}\,,
+    \end{equation}
+    where $B = \epsilon^{i_1 \cdots i_{\Nc}} Q_{i_1} \cdots Q_{i_{\Nc}}$ and
+    $\widetilde{B} = \epsilon_{i_1 \cdots i_{\Nc}} \widetilde{Q}^{i_1} \cdots
+    \widetilde{Q}^{i_{\Nc}}$ are the baryonic operators.  The origin $M = B =
+    \widetilde{B} = 0$ is \emph{removed} from the quantum moduli space.
+
+  \item \textbf{$\Nf = \Nc + 1$:} The theory \emph{s-confines}: it confines
+    without chiral symmetry breaking.  The low-energy degrees of freedom are
+    mesons~$M$, baryons~$B_i$, $\widetilde{B}^i$, with the exact confining
+    superpotential:
+    \begin{equation}\label{eq:s-confinement}
+      W = \frac{1}{\Lambda^{2\Nc - 1}}
+      \left(B_i\, M^i{}_j\, \widetilde{B}^j - \det M\right).
+    \end{equation}
+
+  \item \textbf{$\Nc + 2 \leq \Nf \leq \tfrac{3}{2}\Nc$:}
+    The \emph{free magnetic phase}.
+    The electric theory confines, and the low-energy physics is described by a
+    \emph{weakly-coupled magnetic dual} --- an IR-free $\SU{\Nf - \Nc}$ gauge
+    theory.  This is the regime where Seiberg duality is most powerful.
+
+  \item \textbf{$\tfrac{3}{2}\Nc < \Nf < 3\Nc$:}
+    The \emph{conformal window} (from Lecture~1, \S6).  Both the electric and
+    magnetic theories flow to the same interacting superconformal fixed point
+    in the IR.
+
+  \item \textbf{$\Nf \geq 3\Nc$:} The electric theory loses asymptotic
+    freedom ($b_0^{\text{el}} = 3\Nc - \Nf \leq 0$) and is IR-free.
+\end{enumerate}
+
+\begin{remark}[Self-duality at the conformal window]
+  Within the conformal window $\tfrac{3}{2}\Nc < \Nf < 3\Nc$, the electric
+  and magnetic descriptions are \emph{equally valid}: neither is weakly coupled
+  in the UV, and both flow to the same fixed point.  The duality exchanges
+  strong and weak coupling while preserving all IR physics.
+\end{remark}
+
+
+%% ========================================================================
+%%  SECTION 2: The Seiberg Duality Statement
+%% ========================================================================
+\section{The Seiberg Duality Statement}
+\label{sec:duality-statement}
+
+Seiberg's electric--magnetic duality~\cite{Seiberg1995} asserts that the
+IR physics of the electric $\SU{\Nc}$ SQCD with $\Nf$ flavours (in the range
+$\Nc + 1 < \Nf < 3\Nc$) is equivalently described by a \textbf{magnetic
+theory}:
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=blue!5!white,
+  colframe=blue!70!black,
+  fonttitle=\bfseries\large,
+  title={Seiberg Duality for $\mathcal{N}=1$ SQCD},
+  breakable
+]
+\textbf{Electric theory:} $\SU{\Nc}$ with $\Nf \times (Q, \widetilde{Q})$,
+\quad $W_{\text{el}} = 0$.
+
+\textbf{Magnetic theory:}
+\begin{itemize}
+  \item \textbf{Gauge group:} $\SU{\Nf - \Nc}$.
+  \item \textbf{Magnetic quarks:} $\Nf$ chiral superfields $q_i$ in the
+    fundamental ($\fund$) and $\Nf$ chiral superfields $\widetilde{q}^{\,i}$
+    in the antifundamental ($\antifund$) of $\SU{\Nf - \Nc}$.
+  \item \textbf{Gauge-singlet mesons:} $M^i{}_j$, an $\Nf \times \Nf$ matrix
+    of chiral superfields, singlets under the magnetic gauge group.
+  \item \textbf{Magnetic superpotential:}
+    \begin{equation}\label{eq:W-mag}
+      W_{\text{mag}} = \frac{1}{\mu}\, M^i{}_j\, q_i\, \widetilde{q}^{\,j}\,,
+    \end{equation}
+    where $\mu$ is a dimensionful scale ($[\mu] = [\text{mass}]$).
+\end{itemize}
+\end{tcolorbox}
+
+\begin{warningbox}[title={The meson $M$ is elementary in the magnetic theory}]
+  Although the meson field $M^i{}_j$ in the magnetic theory maps to the
+  \emph{composite} operator $Q^i \widetilde{Q}_j$ in the electric theory, it
+  is an \emph{elementary} gauge-singlet field in the magnetic description.
+  Its inclusion is essential: without $M$, the magnetic theory would not
+  reproduce the correct anomaly matching, and the moduli spaces would
+  not agree.
+\end{warningbox}
+
+\subsection{Scale matching relation}
+
+The dynamical scales of the electric and magnetic theories are related by:
+\begin{equation}\label{eq:scale-matching}
+  \Lambda_{\text{el}}^{3\Nc - \Nf}\;
+  \Lambda_{\text{mag}}^{3(\Nf - \Nc) - \Nf}
+  = (-1)^{\Nf - \Nc}\, \mu^{\Nf}\,.
+\end{equation}
+
+\textbf{Dimensional consistency check.}  The exponent on the left-hand side
+is:
+\[
+  (3\Nc - \Nf) + (2\Nf - 3\Nc) = \Nf\,,
+\]
+matching the right-hand side.  Since $[\Lambda] = [\text{mass}]$ and
+$[\mu] = [\text{mass}]$, both sides have mass dimension $\Nf$.\quad\checkmark
+
+\begin{remark}[Magnetic beta function]
+  The one-loop beta function coefficient for $\SU{\Nf - \Nc}$ with $\Nf$
+  flavours is $b_0^{\text{mag}} = 3(\Nf - \Nc) - \Nf = 2\Nf - 3\Nc$.
+  In the free magnetic phase ($\Nc + 2 \leq \Nf \leq \tfrac{3}{2}\Nc$), we have
+  $b_0^{\text{mag}} \leq 0$, confirming that the magnetic theory is IR-free.
+  At $\Nf = \tfrac{3}{2}\Nc$, we have $b_0^{\text{mag}} = 0$ --- the boundary
+  of the conformal window from the magnetic side.
+\end{remark}
+
+
+%% ========================================================================
+%%  SECTION 3: Quantum Numbers of the Magnetic Theory
+%% ========================================================================
+\section{Quantum Numbers of the Magnetic Theory}
+\label{sec:quantum-numbers}
+
+To verify the duality, we need the complete quantum numbers of all fields
+under the global symmetry $\SU{\Nf}_L \times \SU{\Nf}_R \times \UU{1}_B
+\times \UU{1}_R$.  We list both the \emph{superfield} $R$-charge and the
+\emph{fermion} $R$-charge, since anomaly matching uses the latter.
+
+\subsection{Electric theory field content}
+
+\begin{equation}\label{eq:electric-table}
+\renewcommand{\arraystretch}{1.4}
+\begin{array}{l|c|c|c|c|c|c}
+\toprule
+\textbf{Field} & \SU{\Nc} & \SU{\Nf}_L & \SU{\Nf}_R & \UU{1}_B
+  & R_{\text{sf}} & R_{\text{ferm}} \\
+\midrule
+Q & \fund & \fund & \mathbf{1} & +1
+  & \dfrac{\Nf - \Nc}{\Nf} & -\dfrac{\Nc}{\Nf} \\[8pt]
+\widetilde{Q} & \antifund & \mathbf{1} & \antifund & -1
+  & \dfrac{\Nf - \Nc}{\Nf} & -\dfrac{\Nc}{\Nf} \\[8pt]
+\lambda & \adj & \mathbf{1} & \mathbf{1} & 0
+  & +1 & +1 \\
+\bottomrule
+\end{array}
+\end{equation}
+
+The fermion $R$-charge is obtained from the superfield $R$-charge by the
+shift $R_{\text{ferm}} = R_{\text{sf}} - 1$ for chiral multiplet components
+($Q$, $\widetilde{Q}$).  The gaugino~$\lambda$ is a fermion in the
+\emph{vector} multiplet; its $R$-charge is $+1$ directly and does
+\emph{not} receive the $-1$ shift.
+
+\subsection{Magnetic theory field content}
+
+\begin{equation}\label{eq:magnetic-table}
+\renewcommand{\arraystretch}{1.4}
+\begin{array}{l|c|c|c|c|c|c}
+\toprule
+\textbf{Field} & \SU{\Nf\!-\!\Nc} & \SU{\Nf}_L & \SU{\Nf}_R & \UU{1}_B
+  & R_{\text{sf}} & R_{\text{ferm}} \\
+\midrule
+q & \fund & \antifund & \mathbf{1}
+  & +\dfrac{\Nc}{\Nf - \Nc}
+  & \dfrac{\Nc}{\Nf}
+  & \dfrac{\Nc - \Nf}{\Nf} \\[8pt]
+\widetilde{q} & \antifund & \mathbf{1} & \fund
+  & -\dfrac{\Nc}{\Nf - \Nc}
+  & \dfrac{\Nc}{\Nf}
+  & \dfrac{\Nc - \Nf}{\Nf} \\[8pt]
+M & \mathbf{1} & \fund & \antifund & 0
+  & \dfrac{2(\Nf - \Nc)}{\Nf}
+  & \dfrac{\Nf - 2\Nc}{\Nf} \\[8pt]
+\lambda_{\text{mag}} & \adj & \mathbf{1} & \mathbf{1} & 0
+  & +1 & +1 \\
+\bottomrule
+\end{array}
+\end{equation}
+
+\begin{warningbox}[title={Fermion $R$-charges in anomaly matching}]
+  All anomaly triangle computations below use the \textbf{fermion} $R$-charges
+  $R_{\text{ferm}}$ from the rightmost column.
+  Using the superfield $R$-charge $R_{\text{sf}}$ without the $-1$ shift is the
+  single most common error in anomaly matching and gives \emph{wrong} results.
+\end{warningbox}
+
+\subsection{Derivation of the magnetic baryon charge}
+
+The baryon charge of the magnetic quarks is \emph{not} $+1$; it is determined
+by the baryon operator map.  The electric baryon is:
+\[
+  B = \epsilon^{i_1 \cdots i_{\Nc}}\, Q_{i_1} \cdots Q_{i_{\Nc}}\,,
+  \qquad B[B] = \Nc\,.
+\]
+The magnetic baryon is:
+\[
+  b = \epsilon^{i_1 \cdots i_{\Nf - \Nc}}\, q_{i_1} \cdots q_{i_{\Nf - \Nc}}\,,
+  \qquad B[b] = (\Nf - \Nc)\,B[q]\,.
+\]
+The duality identifies $b \leftrightarrow B$, so we require $B[b] = B[B]$:
+\begin{equation}\label{eq:B-charge-q}
+  (\Nf - \Nc)\,B[q] = \Nc
+  \qquad\Longrightarrow\qquad
+  \boxed{B[q] = \frac{\Nc}{\Nf - \Nc}}\,.
+\end{equation}
+
+\subsection{$R$-charge consistency of the magnetic superpotential}
+
+The magnetic superpotential~\eqref{eq:W-mag} must have $R$-charge $2$ (since
+$\int d^2\theta\, W$ requires $R[W] = 2$).  Using the \emph{superfield}
+$R$-charges from the table:
+\begin{equation}\label{eq:R-Wmag}
+  \Rcharge{W_{\text{mag}}} = \Rcharge{M} + \Rcharge{q} + \Rcharge{\widetilde{q}}
+  = \frac{2(\Nf - \Nc)}{\Nf} + \frac{\Nc}{\Nf} + \frac{\Nc}{\Nf}
+  = \frac{2\Nf - 2\Nc + 2\Nc}{\Nf} = 2\,.
+  \quad\checkmark
+\end{equation}
+The scale $\mu$ carries $R[\mu] = 0$ (it is a dimensionful parameter, not a
+dynamical field).
+
+
+%% ========================================================================
+%%  SECTION 4: Anomaly Matching Verification
+%% ========================================================================
+\section{'t~Hooft Anomaly Matching Verification}
+\label{sec:anomaly-matching}
+
+The strongest evidence for Seiberg duality is the exact matching of all
+\emph{independent} 't~Hooft anomaly coefficients between the electric and
+magnetic theories.  Recall from Lecture~1 that 't~Hooft anomaly matching is
+an \emph{exact} constraint: the anomaly coefficients of global symmetries,
+computed from the UV degrees of freedom, must equal those computed from the
+IR degrees of freedom.
+
+The global symmetry group is
+$G = \SU{\Nf}_L \times \SU{\Nf}_R \times \UU{1}_B \times \UU{1}_R$, giving
+the following independent anomaly coefficients.  We use:
+\begin{itemize}
+  \item $T(R)$: Dynkin index.  $T(\fund) = T(\antifund) = \tfrac{1}{2}$.
+  \item $A(R)$: cubic anomaly coefficient.  $A(\fund) = 1$, $A(\antifund) = -1$.
+  \item \textbf{Fermion} $R$-charges throughout (not superfield $R$-charges).
+\end{itemize}
+
+\subsection{Coefficient 1: $\SU{\Nf}_L^3$}
+\label{ssec:anom1}
+
+This is the cubic anomaly for the $\SU{\Nf}_L$ factor.  Only fermions
+transforming under $\SU{\Nf}_L$ contribute.
+
+\textbf{Electric side.}  Only $Q$ transforms under $\SU{\Nf}_L$ (as $\fund$),
+with $\Nc$ gauge-colour copies:
+\[
+  \mathcal{A}^{\text{el}}_1 = \Nc \cdot A(\fund) = \Nc \cdot 1 = \Nc\,.
+\]
+
+\textbf{Magnetic side.}  Two fields transform under $\SU{\Nf}_L$:
+\begin{itemize}
+  \item $q$ transforms as $\antifund$ under $\SU{\Nf}_L$, with $(\Nf - \Nc)$
+    gauge-colour copies: contributes $(\Nf - \Nc) \cdot A(\antifund)
+    = (\Nf - \Nc)(-1) = -(\Nf - \Nc)$.
+  \item $M$ transforms as $\fund$ under $\SU{\Nf}_L$ (with $\Nf$ copies from
+    the $\SU{\Nf}_R$ antifundamental index): contributes
+    $\Nf \cdot A(\fund) = \Nf \cdot 1 = \Nf$.
+\end{itemize}
+Total:
+\begin{equation}\label{eq:anom1}
+  \boxed{\mathcal{A}^{\text{el}}_1 = \Nc = -(\Nf - \Nc) + \Nf
+    = \mathcal{A}^{\text{mag}}_1}\,.
+  \quad\checkmark
+\end{equation}
+
+\subsection{Coefficient 2: $\SU{\Nf}_R^3$}
+\label{ssec:anom2}
+
+By the left--right symmetry of the theory ($Q \leftrightarrow \widetilde{Q}$,
+$q \leftrightarrow \widetilde{q}$, $M^i{}_j \leftrightarrow (M^j{}_i)^*$),
+this is identical to Coefficient~1:
+\begin{equation}\label{eq:anom2}
+  \boxed{\mathcal{A}^{\text{el}}_2 = \Nc
+    = \mathcal{A}^{\text{mag}}_2}\,.
+  \quad\checkmark
+\end{equation}
+
+\subsection{Coefficient 3: $\SU{\Nf}_L^2\,\UU{1}_B$}
+\label{ssec:anom3}
+
+The mixed anomaly is $\sum_f T(R^{(f)}_L) \cdot B_f$, summed over all
+fermions $f$ charged under $\SU{\Nf}_L$.
+
+\textbf{Electric side.}  $Q$: $\Nc$ colours, $\fund$ under $\SU{\Nf}_L$,
+$B = +1$:
+\[
+  \mathcal{A}^{\text{el}}_3 = \Nc \cdot T(\fund) \cdot (+1)
+  = \Nc \cdot \tfrac{1}{2} \cdot 1 = \frac{\Nc}{2}\,.
+\]
+
+\textbf{Magnetic side.}
+\begin{itemize}
+  \item $q$: $(\Nf - \Nc)$ colours, $\antifund$ under $\SU{\Nf}_L$,
+    $B = \Nc/(\Nf - \Nc)$:
+    \[
+      (\Nf - \Nc) \cdot T(\antifund) \cdot \frac{\Nc}{\Nf - \Nc}
+      = (\Nf - \Nc) \cdot \tfrac{1}{2} \cdot \frac{\Nc}{\Nf - \Nc}
+      = \frac{\Nc}{2}\,.
+    \]
+  \item $M$: $B[M] = 0$, so no contribution.
+\end{itemize}
+Total:
+\begin{equation}\label{eq:anom3}
+  \boxed{\mathcal{A}^{\text{el}}_3 = \frac{\Nc}{2}
+    = \mathcal{A}^{\text{mag}}_3}\,.
+  \quad\checkmark
+\end{equation}
+
+\subsection{Coefficient 4: $\SU{\Nf}_L^2\,\UU{1}_R$}
+\label{ssec:anom4}
+
+The mixed anomaly is $\sum_f T(R^{(f)}_L) \cdot R_{\text{ferm},f}$.
+
+\textbf{Electric side.}  $Q$: $\Nc$ colours, $\fund$ under $\SU{\Nf}_L$,
+$R_{\text{ferm}} = -\Nc/\Nf$:
+\[
+  \mathcal{A}^{\text{el}}_4 = \Nc \cdot \tfrac{1}{2} \cdot
+  \left(-\frac{\Nc}{\Nf}\right) = -\frac{\Nc^2}{2\Nf}\,.
+\]
+
+\textbf{Magnetic side.}
+\begin{itemize}
+  \item $q$: $(\Nf - \Nc)$ colours, $\antifund$ under $\SU{\Nf}_L$,
+    $R_{\text{ferm}} = (\Nc - \Nf)/\Nf$:
+    \[
+      (\Nf - \Nc) \cdot \tfrac{1}{2} \cdot \frac{\Nc - \Nf}{\Nf}
+      = -\frac{(\Nf - \Nc)^2}{2\Nf}\,.
+    \]
+  \item $M$: $\Nf$ copies of $\fund$ under $\SU{\Nf}_L$,
+    $R_{\text{ferm}} = (\Nf - 2\Nc)/\Nf$:
+    \[
+      \Nf \cdot \tfrac{1}{2} \cdot \frac{\Nf - 2\Nc}{\Nf}
+      = \frac{\Nf - 2\Nc}{2}\,.
+    \]
+\end{itemize}
+Total magnetic:
+\begin{align*}
+  \mathcal{A}^{\text{mag}}_4
+  &= -\frac{(\Nf - \Nc)^2}{2\Nf} + \frac{\Nf - 2\Nc}{2} \\
+  &= \frac{-(\Nf - \Nc)^2 + \Nf(\Nf - 2\Nc)}{2\Nf} \\
+  &= \frac{-\Nf^2 + 2\Nc\Nf - \Nc^2 + \Nf^2 - 2\Nc\Nf}{2\Nf}
+  = -\frac{\Nc^2}{2\Nf}\,.
+\end{align*}
+
+\begin{equation}\label{eq:anom4}
+  \boxed{\mathcal{A}^{\text{el}}_4 = -\frac{\Nc^2}{2\Nf}
+    = \mathcal{A}^{\text{mag}}_4}\,.
+  \quad\checkmark
+\end{equation}
+
+\subsection{Coefficient 5: $\UU{1}_B^2\,\UU{1}_R$}
+\label{ssec:anom5}
+
+The anomaly is $\sum_f n_f \cdot B_f^2 \cdot R_{\text{ferm},f}$, where $n_f$
+is the total multiplicity (gauge $\times$ flavour) of fermion species $f$.
+
+\textbf{Electric side.}
+\begin{itemize}
+  \item $Q$: $\Nc \Nf$ fermions, $B = +1$, $R_{\text{ferm}} = -\Nc/\Nf$:
+    \;$\Nc \Nf \cdot 1 \cdot (-\Nc/\Nf) = -\Nc^2$.
+  \item $\widetilde{Q}$: $\Nc \Nf$ fermions, $B = -1$,
+    $R_{\text{ferm}} = -\Nc/\Nf$:
+    \;$\Nc \Nf \cdot 1 \cdot (-\Nc/\Nf) = -\Nc^2$.
+  \item Gaugino: $B = 0$, no contribution.
+\end{itemize}
+Total:
+\[
+  \mathcal{A}^{\text{el}}_5 = -2\Nc^2\,.
+\]
+
+\textbf{Magnetic side.}
+\begin{itemize}
+  \item $q$: $(\Nf - \Nc)\Nf$ fermions,
+    $B = \Nc/(\Nf - \Nc)$,
+    $R_{\text{ferm}} = (\Nc - \Nf)/\Nf$:
+    \begin{align*}
+      (\Nf - \Nc)\Nf \cdot \frac{\Nc^2}{(\Nf - \Nc)^2}
+      \cdot \frac{\Nc - \Nf}{\Nf}
+      &= \frac{\Nc^2(\Nc - \Nf)}{(\Nf - \Nc)}
+      = -\Nc^2\,.
+    \end{align*}
+  \item $\widetilde{q}$: same as $q$ (with $B = -\Nc/(\Nf - \Nc)$, but
+    $B^2$ is the same):
+    $= -\Nc^2$.
+  \item $M$: $B[M] = 0$, no contribution.
+  \item Gaugino: $B = 0$, no contribution.
+\end{itemize}
+Total:
+\begin{equation}\label{eq:anom5}
+  \boxed{\mathcal{A}^{\text{el}}_5 = -2\Nc^2
+    = \mathcal{A}^{\text{mag}}_5}\,.
+  \quad\checkmark
+\end{equation}
+
+\subsection{Coefficient 6: $\UU{1}_R$ (gravitational) and $\UU{1}_R^3$}
+\label{ssec:anom6}
+
+The gravitational anomaly $\Tr[R_{\text{ferm}}]$ counts the total weighted
+$R$-charge of all fermions in the theory.
+
+\subsubsection*{$\UU{1}_R$ gravitational anomaly: $\Tr[R]$}
+
+\textbf{Electric side.}
+\begin{itemize}
+  \item $Q$: $\Nc \Nf$ fermions with $R = -\Nc/\Nf$: $\to -\Nc^2$.
+  \item $\widetilde{Q}$: $\Nc \Nf$ fermions with $R = -\Nc/\Nf$: $\to -\Nc^2$.
+  \item Gaugino: $(\Nc^2 - 1)$ fermions with $R = +1$: $\to \Nc^2 - 1$.
+\end{itemize}
+Total:
+\[
+  \mathcal{A}^{\text{el}}_{6\text{a}}
+  = -2\Nc^2 + \Nc^2 - 1 = -\Nc^2 - 1\,.
+\]
+
+\textbf{Magnetic side.}
+\begin{itemize}
+  \item $q$: $(\Nf - \Nc)\Nf$ fermions with $R = (\Nc - \Nf)/\Nf$:
+    $\to -(\Nf - \Nc)^2$.
+  \item $\widetilde{q}$: same: $\to -(\Nf - \Nc)^2$.
+  \item $M$: $\Nf^2$ fermions with $R = (\Nf - 2\Nc)/\Nf$:
+    $\to \Nf(\Nf - 2\Nc)$.
+  \item Gaugino: $((\Nf - \Nc)^2 - 1)$ fermions with $R = +1$:
+    $\to (\Nf - \Nc)^2 - 1$.
+\end{itemize}
+Total:
+\begin{align*}
+  \mathcal{A}^{\text{mag}}_{6\text{a}}
+  &= -2(\Nf - \Nc)^2 + \Nf^2 - 2\Nc\Nf + (\Nf - \Nc)^2 - 1 \\
+  &= -(\Nf - \Nc)^2 + \Nf^2 - 2\Nc\Nf - 1 \\
+  &= -(\Nf^2 - 2\Nc\Nf + \Nc^2) + \Nf^2 - 2\Nc\Nf - 1 \\
+  &= -\Nc^2 - 1\,.
+\end{align*}
+
+\begin{equation}\label{eq:anom6a}
+  \boxed{\mathcal{A}^{\text{el}}_{6\text{a}} = -\Nc^2 - 1
+    = \mathcal{A}^{\text{mag}}_{6\text{a}}}\,.
+  \quad\checkmark
+\end{equation}
+
+\subsubsection*{$\UU{1}_R^3$ anomaly: $\Tr[R^3]$}
+
+\textbf{Electric side.}
+\begin{align*}
+  \mathcal{A}^{\text{el}}_{6\text{b}}
+  &= 2 \cdot \Nc\Nf \cdot \left(-\frac{\Nc}{\Nf}\right)^{\!3}
+  + (\Nc^2 - 1) \cdot 1^3 \\
+  &= -\frac{2\Nc^4}{\Nf^2} + \Nc^2 - 1\,.
+\end{align*}
+
+\textbf{Magnetic side.}
+\begin{align*}
+  \mathcal{A}^{\text{mag}}_{6\text{b}}
+  &= 2 \cdot (\Nf - \Nc)\Nf \cdot \left(\frac{\Nc - \Nf}{\Nf}\right)^{\!3}
+  + \Nf^2 \cdot \left(\frac{\Nf - 2\Nc}{\Nf}\right)^{\!3}
+  + \bigl((\Nf - \Nc)^2 - 1\bigr) \cdot 1 \\[4pt]
+  &= -\frac{2(\Nf - \Nc)^4}{\Nf^2}
+  + \frac{(\Nf - 2\Nc)^3}{\Nf}
+  + (\Nf - \Nc)^2 - 1\,.
+\end{align*}
+
+The equality $\mathcal{A}^{\text{el}}_{6\text{b}} =
+\mathcal{A}^{\text{mag}}_{6\text{b}}$ can be verified by expanding and
+simplifying; this is a polynomial identity in $\Nc$ and $\Nf$.  We verify
+it computationally in the companion script
+\texttt{scripts/verify\_anomaly\_matching.py}.
+
+\begin{equation}\label{eq:anom6b}
+  \boxed{\mathcal{A}^{\text{el}}_{6\text{b}}
+    = -\frac{2\Nc^4}{\Nf^2} + \Nc^2 - 1
+    = \mathcal{A}^{\text{mag}}_{6\text{b}}}\,.
+  \quad\checkmark
+\end{equation}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=green!5!white,
+  colframe=green!60!black,
+  fonttitle=\bfseries,
+  title={Anomaly Matching Summary}
+]
+All six independent 't~Hooft anomaly coefficients match exactly between the
+electric $\SU{\Nc}$ theory and the magnetic $\SU{\Nf - \Nc}$ theory, as
+polynomial identities in $\Nc$ and $\Nf$:
+
+\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\begin{tabular}{l c c}
+\toprule
+\textbf{Coefficient} & \textbf{Electric} & \textbf{Magnetic} \\
+\midrule
+$\SU{\Nf}_L^3$ & $\Nc$ & $\Nc$ \\
+$\SU{\Nf}_R^3$ & $\Nc$ & $\Nc$ \\
+$\SU{\Nf}_L^2\,\UU{1}_B$ & $\Nc/2$ & $\Nc/2$ \\
+$\SU{\Nf}_L^2\,\UU{1}_R$ & $-\Nc^2/(2\Nf)$ & $-\Nc^2/(2\Nf)$ \\
+$\UU{1}_B^2\,\UU{1}_R$ & $-2\Nc^2$ & $-2\Nc^2$ \\
+$\Tr[R]$ (gravitational) & $-\Nc^2 - 1$ & $-\Nc^2 - 1$ \\
+$\Tr[R^3]$ & $-2\Nc^4/\Nf^2 + \Nc^2 - 1$ & (same) \\
+\bottomrule
+\end{tabular}
+\end{center}
+The $\Tr[R^3]$ equality is verified computationally in
+\texttt{scripts/verify\_anomaly\_matching.py}.
+\end{tcolorbox}
+
+
+%% ========================================================================
+%%  SECTION 5: Mass Deformation Consistency
+%% ========================================================================
+\section{Mass Deformation Consistency}
+\label{sec:mass-deformation}
+
+A powerful consistency check is to deform both theories by adding a mass for
+one flavour and verifying that the duality maps correctly.
+
+\subsection{Electric side: $\Nf \to \Nf - 1$}
+
+Add a mass term for the $\Nf$-th flavour:
+\begin{equation}\label{eq:mass-el}
+  \Delta W_{\text{el}} = m\, Q_{\Nf} \widetilde{Q}^{\Nf}\,.
+\end{equation}
+In the IR, the massive quarks $Q_{\Nf}$, $\widetilde{Q}^{\Nf}$ are integrated
+out, leaving:
+\begin{equation}\label{eq:electric-deformed}
+  \text{Electric:}\quad \SU{\Nc} \text{ with } (\Nf - 1)
+  \text{ flavours}, \quad W = 0\,.
+\end{equation}
+
+\subsection{Magnetic side: $\SU{\Nf - \Nc} \to \SU{\Nf - \Nc - 1}$}
+
+On the magnetic side, the mass deformation appears through the meson coupling:
+\begin{equation}\label{eq:mass-mag}
+  W_{\text{mag}} = \frac{1}{\mu}\, M^i{}_j\, q_i\, \widetilde{q}^{\,j}
+  + m\, M^{\Nf}{}_{\Nf}\,.
+\end{equation}
+The $F$-term equation for $M^{\Nf}{}_{\Nf}$ is:
+\[
+  \frac{\partial W}{\partial M^{\Nf}{}_{\Nf}} = 0
+  \qquad\Longrightarrow\qquad
+  \frac{1}{\mu}\, q_{\Nf}\, \widetilde{q}^{\,\Nf} + m = 0
+  \qquad\Longrightarrow\qquad
+  \langle q_{\Nf}\, \widetilde{q}^{\,\Nf} \rangle = -\mu\, m\,.
+\end{equation}
+This nonzero vacuum expectation value \emph{Higgses} the magnetic gauge group:
+\[
+  \SU{\Nf - \Nc} \;\xrightarrow{\;\langle q_{\Nf} \rangle \neq 0\;}
+  \;\SU{\Nf - \Nc - 1}\,.
+\]
+After integrating out the massive fields ($q_{\Nf}$, $\widetilde{q}^{\Nf}$,
+$M^{\Nf}{}_j$, $M^i{}_{\Nf}$), the remaining theory is:
+\begin{equation}\label{eq:magnetic-deformed}
+  \text{Magnetic:}\quad \SU{\Nf - \Nc - 1} \text{ with } (\Nf - 1)
+  \text{ flavours } + M' + W_{\text{mag}}'\,.
+\end{equation}
+
+This is \emph{exactly the Seiberg dual} of~\eqref{eq:electric-deformed} with
+$\Nf \to \Nf - 1$:
+\[
+  \text{dual gauge group:}\quad \SU{(\Nf - 1) - \Nc}
+  = \SU{\Nf - \Nc - 1}\,. \quad\checkmark
+\]
+
+\begin{remark}[Iterative mass deformation]
+  Starting from $\Nf$ flavours and giving mass to one flavour at a time, the
+  duality maps:
+  \[
+    \SU{\Nc} \text{ with } \Nf
+    \;\;\longleftrightarrow\;\;
+    \SU{\Nf - \Nc} \text{ with } \Nf
+  \]
+  \[
+    \SU{\Nc} \text{ with } \Nf - 1
+    \;\;\longleftrightarrow\;\;
+    \SU{\Nf - \Nc - 1} \text{ with } \Nf - 1
+  \]
+  \[
+    \vdots
+  \]
+  This process terminates when the number of flavours reaches $\Nc + 1$
+  (s-confinement) or $\Nc$ (quantum-modified moduli space), recovering the
+  known non-perturbative results in these regimes.  This is a powerful
+  consistency check.
+\end{remark}
+
+\subsection{Scale matching under mass deformation}
+
+The scale matching relation~\eqref{eq:scale-matching} transforms consistently.
+The matching for $\Nf$ flavours:
+\[
+  \Lambda_{\text{el}}^{3\Nc - \Nf}\,
+  \Lambda_{\text{mag}}^{2\Nf - 3\Nc}\,
+  = (-1)^{\Nf - \Nc}\, \mu^{\Nf}\,.
+\]
+After integrating out the massive $\Nf$-th flavour:
+\[
+  \Lambda_{\text{el},\Nf-1}^{3\Nc - (\Nf-1)}\,
+  \Lambda_{\text{mag},\Nf-1}^{2(\Nf-1) - 3\Nc}\,
+  = (-1)^{(\Nf-1) - \Nc}\, \mu^{\Nf-1}\,,
+\]
+with the standard scale matching relation
+$\Lambda_{\text{el},\Nf-1}^{3\Nc - \Nf + 1} = m\,
+\Lambda_{\text{el}}^{3\Nc - \Nf}$ relating the scales before and after
+decoupling.  The magnetic side has a corresponding relation from the Higgsing.
+The consistency of the full system can be verified; we refer to~\cite{Seiberg1995} for the complete argument.
+
+
+%% ========================================================================
+%%  SECTION 6: Moduli Space Matching and Further Evidence
+%% ========================================================================
+\section{Moduli Space Matching and Further Evidence}
+\label{sec:moduli-space}
+
+\subsection{Classical moduli space}
+
+The classical moduli space of the electric theory is parametrised by
+gauge-invariant operators:
+\begin{itemize}
+  \item \textbf{Mesons:} $M^i{}_j = Q^i \widetilde{Q}_j$, an
+    $\Nf \times \Nf$ matrix.
+  \item \textbf{Baryons:}
+    $B^{i_1 \cdots i_{\Nc}} = \epsilon^{a_1 \cdots a_{\Nc}}
+    Q^{i_1}_{a_1} \cdots Q^{i_{\Nc}}_{a_{\Nc}}$ and similarly
+    $\widetilde{B}_{i_1 \cdots i_{\Nc}}$, subject to classical constraints.
+\end{itemize}
+
+The \textbf{dimension} of the classical moduli space can be counted as:
+\begin{equation}\label{eq:moduli-dim}
+  \dim(\mathcal{M}_{\text{cl}})
+  = 2\Nc\Nf - (\Nc^2 - 1)\,,
+\end{equation}
+which counts the number of scalar field components ($2\Nc\Nf$ from $Q$ and
+$\widetilde{Q}$) minus the dimension of the gauge group orbit ($\Nc^2 - 1$).
+
+In the magnetic theory, the classical moduli space is similarly parametrised:
+\begin{itemize}
+  \item The elementary meson $M^i{}_j$ (which maps to the electric meson).
+  \item Magnetic baryons $b_{i_1 \cdots i_{\Nf - \Nc}} =
+    \epsilon^{a_1 \cdots a_{\Nf - \Nc}} q_{i_1 a_1} \cdots
+    q_{i_{\Nf - \Nc} a_{\Nf - \Nc}}$ and $\widetilde{b}$.
+\end{itemize}
+The number of independent gauge invariants agrees between the two descriptions,
+providing another consistency check.
+
+\subsection{Conformal window from duality}
+
+Within the conformal window $\tfrac{3}{2}\Nc < \Nf < 3\Nc$, the electric theory
+has $b_0^{\text{el}} = 3\Nc - \Nf > 0$ (asymptotically free) and the magnetic
+theory has $b_0^{\text{mag}} = 2\Nf - 3\Nc > 0$ (also asymptotically free).
+Both flow to the same interacting superconformal fixed point in the IR.
+
+At the fixed point, Seiberg duality relates the anomalous dimensions of the
+two theories.  From the NSVZ beta function with $\beta(g^*) = 0$:
+\[
+  \gamma_Q^* = -1 + \frac{3\Nc}{\Nf}\,,
+  \qquad
+  \gamma_q^* = -1 + \frac{3(\Nf - \Nc)}{\Nf}\,,
+\]
+satisfying $\gamma_Q^* + \gamma_q^* = 1$ --- a consistency relation.
+
+\subsection{Summary: evidence for Seiberg duality}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=yellow!5!white,
+  colframe=yellow!60!black,
+  fonttitle=\bfseries,
+  title={Seiberg Duality: Status as a Conjecture}
+]
+Seiberg duality is a \textbf{conjecture}: it has not been mathematically
+proved from the microscopic definition of the theory.  However, it is
+supported by an overwhelming body of evidence:
+
+\begin{enumerate}
+  \item \textbf{Anomaly matching:} All 6 independent 't~Hooft anomaly
+    coefficients match exactly (\S\ref{sec:anomaly-matching}).
+  \item \textbf{Moduli space matching:} The classical moduli spaces of the
+    electric and magnetic theories agree (\S\ref{sec:moduli-space}).
+  \item \textbf{Mass deformation consistency:} Giving mass to one flavour
+    on both sides produces the correct dual pair with $\Nf - 1$ flavours
+    (\S\ref{sec:mass-deformation}).
+  \item \textbf{Limiting cases:} The duality reduces to independently
+    verified results for $\Nf = \Nc$ (quantum-modified constraint) and
+    $\Nf = \Nc + 1$ (s-confinement).
+  \item \textbf{Superconformal index:} Modern checks using the
+    superconformal index provide even stronger evidence.
+\end{enumerate}
+
+For the purposes of this course, we shall treat Seiberg duality as
+\emph{established within the SUSY context} and use it as the foundation
+for extending duality ideas to the non-supersymmetric Standard Model.
+\end{tcolorbox}
+
+
+%% ========================================================================
+%%  SUMMARY
+%% ========================================================================
+\section{Summary and Preview of Lecture 4}
+\label{sec:summary}
+
+In this lecture we have:
+\begin{enumerate}
+  \item Reviewed the phase structure of $\mathcal{N}=1$ SQCD as a function
+    of $\Nf/\Nc$.
+  \item Stated Seiberg duality: the IR equivalence between the electric
+    $\SU{\Nc}$ theory and the magnetic $\SU{\Nf - \Nc}$ theory with
+    gauge-singlet mesons~$M$ and superpotential $W_{\text{mag}} =
+    (1/\mu)\, M q \widetilde{q}$.
+  \item Derived the quantum numbers of the magnetic theory, including
+    the non-trivial baryon charge $B[q] = \Nc/(\Nf - \Nc)$.
+  \item Verified all 6 independent 't~Hooft anomaly coefficients match
+    exactly as polynomial identities in $\Nc$ and $\Nf$.
+  \item Checked consistency under mass deformation: $\Nf \to \Nf - 1$ on
+    both sides produces the correct dual pair.
+  \item Discussed moduli space matching and the conformal window.
+\end{enumerate}
+
+\begin{previewbox}[title={Preview: Lecture 4}]
+  Where do the magnetic quarks \emph{come from}?  In Lecture~4, we will see
+  that $\mathcal{N}=2$ supersymmetric gauge theory provides a microscopic
+  explanation: the magnetic quarks are identified with monopoles and dyons
+  on the Coulomb branch of the $\mathcal{N}=2$ theory.  Breaking
+  $\mathcal{N}=2 \to \mathcal{N}=1$ by an adjoint mass deformation produces
+  precisely the Seiberg dual picture.  This provides the deepest understanding
+  of why electric--magnetic duality holds.
+\end{previewbox}
+
+
+%% ========================================================================
+%%  BIBLIOGRAPHY
+%% ========================================================================
+\begin{thebibliography}{99}
+
+\bibitem{Seiberg1995}
+  N.~Seiberg,
+  ``Electric--magnetic duality in supersymmetric non-Abelian gauge theories,''
+  \textit{Nucl. Phys.} \textbf{B435} (1995) 129
+  [\texttt{hep-th/9411149}].
+
+\bibitem{IS1995}
+  K.~Intriligator and N.~Seiberg,
+  ``Lectures on supersymmetric gauge theories and electric-magnetic duality,''
+  \textit{Nucl. Phys. Proc. Suppl.} \textbf{45BC} (1996) 1
+  [\texttt{hep-th/9509066}].
+
+\bibitem{ADS1984}
+  I.~Affleck, M.~Dine, and N.~Seiberg,
+  ``Dynamical supersymmetry breaking in supersymmetric QCD,''
+  \textit{Nucl. Phys.} \textbf{B241} (1984) 493.
+
+\bibitem{Sannino2024}
+  F.~Sannino \textit{et al.},
+  ``The Dualised Standard Model,''
+  [\texttt{arXiv:2407.17281}].
+
+\bibitem{CT2011}
+  C.~Cs\'aki and T.~Terning,
+  ``Seiberg duality and the Standard Model,''
+  [\texttt{arXiv:1106.3074}].
+
+\bibitem{WessBagger}
+  J.~Wess and J.~Bagger,
+  \textit{Supersymmetry and Supergravity},
+  Princeton University Press, 2nd ed.\ (1992).
+
+\bibitem{PS1995}
+  M.~E.~Peskin and D.~V.~Schroeder,
+  \textit{An Introduction to Quantum Field Theory},
+  Addison-Wesley (1995).
+
+\end{thebibliography}
+
+\end{document}
