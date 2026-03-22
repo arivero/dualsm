@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }} — Dualised SM</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2em auto; padding: 0 1.5em; background: #f8f9fa; color: #212529; }
+  h1 { border-bottom: 2px solid #3a5a8a; padding-bottom: 0.3em; color: #3a5a8a; }
+  nav { margin-bottom: 1.5em; font-size: 0.9em; color: #888; }
+  nav a { color: #555; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+  th { background: #3a5a8a; color: white; padding: 0.5em 0.8em; text-align: left; font-weight: normal; }
+  tr:nth-child(even) { background: #eef2f7; }
+  tr:hover { background: #dbe8f5; }
+  td { padding: 0.45em 0.8em; border-bottom: 1px solid #dee2e6; }
+  a { color: #1a5a8a; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .badge { display: inline-block; font-size: 0.73em; padding: 0.1em 0.45em; border-radius: 3px; font-family: monospace; vertical-align: middle; margin-left: 0.3em; }
+  .pdf  { background: #c0392b; color: #fff; }
+  .tex  { background: #2c7a3a; color: #fff; }
+  .md   { background: #6c5ce7; color: #fff; }
+  .other{ background: #888;    color: #fff; }
+  p.empty { color: #888; font-style: italic; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="{{ site.baseurl }}/">&#8962; root</a>
+  {% assign parts = page.dir | remove_first: "/" | split: "/" %}
+  {% assign built = "" %}
+  {% for part in parts %}
+    {% if part != "" %}
+      {% assign built = built | append: "/" | append: part %}
+      / <a href="{{ site.baseurl }}{{ built }}/">{{ part }}</a>
+    {% endif %}
+  {% endfor %}
+</nav>
+
+<h1>{{ page.title }}</h1>
+{% if page.description %}<p>{{ page.description }}</p>{% endif %}
+
+<table>
+<thead><tr><th>Name</th><th>Type</th></tr></thead>
+<tbody>
+{% assign folder = page.dir %}
+{% assign found = false %}
+{% for file in site.static_files %}
+  {% if file.path contains folder %}
+    {% assign relative = file.path | remove_first: folder %}
+    {% if page.recursive %}
+      {% if file.extname == ".pdf" %}
+        {% assign found = true %}
+        <tr>
+          <td><a href="{{ relative }}">{{ relative }}</a></td>
+          <td><span class="badge pdf">PDF</span></td>
+        </tr>
+      {% endif %}
+    {% else %}
+      {% unless relative contains "/" %}
+        {% assign found = true %}
+        <tr>
+          <td><a href="{{ file.name }}">{{ file.basename }}</a></td>
+          <td>
+            {% if file.extname == ".pdf" %}<span class="badge pdf">PDF</span>
+            {% elsif file.extname == ".tex" %}<span class="badge tex">TEX</span>
+            {% elsif file.extname == ".md" %}<span class="badge md">MD</span>
+            {% else %}<span class="badge other">{{ file.extname | remove_first: "." | upcase }}</span>
+            {% endif %}
+          </td>
+        </tr>
+      {% endunless %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{% unless found %}<tr><td colspan="2"><p class="empty">No files found.</p></td></tr>{% endunless %}
+</tbody>
+</table>
+
+</body>
+</html>

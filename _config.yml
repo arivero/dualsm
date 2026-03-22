@@ -1,0 +1,14 @@
+title: Dualised Standard Model
+description: Lecture course and research papers on Sp(1) Seiberg duality as UV completion of the electroweak sector
+baseurl: /dualsm
+url: https://arivero.github.io
+
+exclude:
+  - nohup.out
+  - REVISION-PLAN.md
+  - "3"
+  - "4"
+  - "5"
+  - "6"
+  - .gpd/
+  - scripts/
