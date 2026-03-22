@@ -1,0 +1,1275 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,geometry,booktabs,xcolor}
+\geometry{margin=2.5cm}
+\title{Exact Koide Chain from $\delta=15^\circ$}
+\author{Notebook -- phys6gpd}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Tuple 1: $(0,\, q_2^2,\, q_3^2)$ with $\delta = 15^\circ$}
+
+The Koide parametrization writes the three charges (square roots of masses) as
+\[
+  q_k = \sqrt{M_0}\!\left(1 + \sqrt{2}\,\cos\!\left(\tfrac{2\pi k}{3} + \delta\right)\right),
+  \qquad k=1,2,3.
+\]
+Setting $\delta = \pi/12 = 15^\circ$, the $k\!=\!1$ entry vanishes:
+\[
+  \cos\!\left(\tfrac{2\pi}{3}+\tfrac{\pi}{12}\right)
+  = \cos\tfrac{3\pi}{4} = -\tfrac{1}{\sqrt{2}},
+\]
+so $q_1 = \sqrt{M_0}(1-1)=0$.  The surviving charges are
+\begin{align}
+  q_2 &= \sqrt{M_0}\!\left(1+\sqrt{2}\cos\tfrac{17\pi}{12}\right)
+       = \sqrt{M_0}\,\frac{3-\sqrt{3}}{2}, \\[4pt]
+  q_3 &= \sqrt{M_0}\!\left(1+\sqrt{2}\cos\tfrac{\pi}{12}\right)
+       = \sqrt{M_0}\,\frac{3+\sqrt{3}}{2}.
+\end{align}
+The unnormalised masses are $q_k^2$; their sum is
+\[
+  q_2^2 + q_3^2 = M_0\!\left(\frac{(3-\sqrt3)^2+(3+\sqrt3)^2}{4}\right)
+  = M_0\,\frac{24}{4} = 6\,M_0.
+\]
+Setting $\sqrt{M_0}=1$ henceforth, the Koide scale parameter is
+$Q_0^{(1)} = (0 + q_2^2 + q_3^2)/3 = 2$.
+
+Normalising so that $0 + x^2 + y^2 = 1$ (with $x < y$):
+\[
+  \boxed{x^2 = \frac{2-\sqrt{3}}{4}\approx 0.0670,
+  \qquad
+  y^2 = \frac{2+\sqrt{3}}{4}\approx 0.9330.}
+\]
+These correspond to $m_s$ and $m_c$ in the $(u,s,c)$ triplet of the Koide chain,
+with $m_u=0$.
+
+\section{Tuple 2: $(-q_2,\, q_3,\, z)$ --- predicting the $b$ charge}
+
+The next link in the chain takes charges $(-q_2,\,q_3,\,z)$ with $z>0$,
+corresponding to the $(s,c,b)$ triplet with the sign flip $-\!\sqrt{m_s}$.
+The Koide condition reads
+\[
+  \frac{(-q_2+q_3+z)^2}{q_2^2+q_3^2+z^2} = \frac{3}{2}.
+\]
+
+\subsection{Key intermediate: $q_3 - q_2 = \sqrt{3}$}
+
+\[
+  q_3 - q_2 = \frac{(3+\sqrt3)-(3-\sqrt3)}{2} = \sqrt{3},
+  \qquad q_2^2 + q_3^2 = 6.
+\]
+
+\subsection{Solving the quadratic}
+
+The Koide equation becomes
+\[
+  (\sqrt{3}+z)^2 = \tfrac{3}{2}(6+z^2),
+\]
+\[
+  3 + 2\sqrt{3}\,z + z^2 = 9 + \tfrac{3}{2}z^2,
+\]
+\[
+  \tfrac{1}{2}z^2 - 2\sqrt{3}\,z + 6 = 0
+  \qquad\Longrightarrow\qquad
+  z^2 - 4\sqrt{3}\,z + 12 = 0.
+\]
+The discriminant is $\Delta = 48 - 48 = 0$: a \textbf{double root},
+\[
+  \boxed{z = 2\sqrt{3}, \qquad z^2 = m_b = 12.}
+\]
+
+\subsection{Verification and Koide angle}
+
+\[
+  Q = \frac{(\sqrt{3}+2\sqrt{3})^2}{6 + 12}
+  = \frac{27}{18} = \frac{3}{2}.\;\checkmark
+\]
+
+The scale parameter is $Q_0^{(2)} = (6+12)/3 = 6 = 3\,Q_0^{(1)}$.
+The Koide angle evaluates to $\delta_2 = 45^\circ = 3\times 15^\circ$
+in the same phase convention, confirming
+$\delta_{scb} = 3\,\delta_{0sc}$ at the exact chain point.
+
+\subsection{Mass ratios}
+
+\[
+  m_s : m_c : m_b
+  = \tfrac{(3-\sqrt3)^2}{4} : \tfrac{(3+\sqrt3)^2}{4} : 12
+  = (2-\sqrt{3}) : (2+\sqrt{3}) : 8.
+\]
+
+\section{Charges vs.\ masses: when does a Koide continuation exist?}
+
+\subsection{The general discriminant}
+
+Given two charges $a$ and $b$,
+we seek a third charge $c$ satisfying
+$(a+b+c)^2 = \tfrac{3}{2}(a^2+b^2+c^2)$.
+This is a quadratic in $c$ with discriminant
+\[
+  \boxed{\Delta = 12\bigl(a^2 + 4ab + b^2\bigr).}
+\]
+
+\subsection{Same-sign charges always continue}
+
+When $a$ and $b$ have the same sign, $4ab > 0$,
+so $\Delta > 0$: there are always two real solutions for $c$.
+
+\subsection{Opposite-sign charges have a forbidden band}
+
+When $a$ and $b$ have opposite signs, write $a/b = -r$ with $r>0$.
+Then $\Delta = 12\,b^2(r^2 - 4r + 1)$.
+The roots of $r^2 - 4r + 1 = 0$ are $r = 2 \pm \sqrt{3}$, so:
+\begin{itemize}
+  \item $\Delta > 0$ (two solutions) when
+    $r < 2-\sqrt{3}$ or $r > 2+\sqrt{3}$;
+  \item $\Delta = 0$ (double root) when $r = 2 \pm \sqrt{3}$;
+  \item $\Delta < 0$ (no real solutions) when
+    $2-\sqrt{3} < r < 2+\sqrt{3}$.
+\end{itemize}
+In terms of the mass ratio $m_1/m_2 = r^2$, the forbidden band is
+$(7-4\sqrt3) < m_1/m_2 < (7+4\sqrt3)$.\footnote{Throughout
+this work, masses are obtained from charges by squaring,
+$m = q^2$, preserving holomorphy in $q$ as a complex variable.
+An alternative construction using $m = |q|^2$ (i.e.\ $q\bar q$, where
+the mass arises from phase cancellation between a charge and its conjugate)
+would break holomorphy and is left for future investigation.}
+
+\subsection{Masses vs.\ charges}
+
+Given two \emph{masses}, one can always choose the same-sign
+pattern, which always yields two Koide continuations.
+\textbf{A pair of masses always has Koide descendants.}
+But a pair of \emph{charges} with signs already fixed may not:
+the opposite-sign pattern fails in the forbidden band.
+
+\subsection{$\delta = 15^\circ$ sits exactly at the boundary}
+
+At $\delta = 15^\circ$, the charge ratio $q_2/q_3 = 2 - \sqrt{3}$
+is \emph{exactly} the lower boundary of the forbidden band.
+This is why Tuple~2 has a double root.
+
+\section{Perturbation: $\delta = \pi/12 + \varepsilon$}
+
+\subsection{Perturbed charges of Tuple 1}
+
+To first order in $\varepsilon$:
+\begin{align}
+  q_1 &= -\varepsilon + O(\varepsilon^2), \\
+  q_2 &= \tfrac{3-\sqrt3}{2} + \tfrac{1+\sqrt3}{2}\,\varepsilon + O(\varepsilon^2), \\
+  q_3 &= \tfrac{3+\sqrt3}{2} + \tfrac{1-\sqrt3}{2}\,\varepsilon + O(\varepsilon^2).
+\end{align}
+For $\varepsilon\neq 0$, the ``up quark'' acquires a
+small mass $m_u = \varepsilon^2 + O(\varepsilon^3)$.
+
+\subsection{Discriminant of Tuple 2}
+
+The charge ratio $q_2/q_3$ moves away from the critical value $2-\sqrt{3}$:
+$q_2/q_3 = (2-\sqrt3)\!\left(1 + \frac{4\sqrt3}{3}\,\varepsilon + O(\varepsilon^2)\right)$.
+The discriminant of the Koide quadratic for Tuple~2 evaluates to
+\[
+  \Delta = 3\,\varepsilon\,(\varepsilon - 12) + O(\varepsilon^3).
+\]
+\begin{itemize}
+  \item $\varepsilon = 0$: $\Delta = 0$, double root $z = 2\sqrt{3}$.
+  \item $\varepsilon < 0$ (continuation-preserving side):
+    $\Delta \approx 36\,|\varepsilon| > 0$, two solutions
+    $z = 2\sqrt{3} \pm 6\sqrt{|\varepsilon|} + O(\varepsilon)$.
+  \item $\varepsilon > 0$: $\Delta < 0$,
+    no real continuation with the $(-,+)$ sign pattern.
+\end{itemize}
+
+This local bifurcation analysis concerns the exact opposite-sign continuation
+of Tuple~2.  The measured positive-sign $(0,s,c)$ tuple discussed later sits
+slightly on the $\varepsilon>0$ side of the critical point, whereas the
+continuation branches used in the inverse-tuple analysis are tracked from the
+$\varepsilon<0$ side where the real opposite-sign continuation still exists.
+
+\section{Inverse-mass Koide tuples: $K(1/m_d,\,1/m_s,\,1/m_b)$}
+
+We now ask: given the known masses $m_s$ and $m_b$ from the chain,
+what values of $m_d$ make the \emph{inverse-mass} triplet
+$(1/m_d,\,1/m_s,\,1/m_b)$ satisfy the Koide equation?
+
+Define the \textbf{inverse charges}
+\[
+  w_x \equiv \frac{1}{q_x} = \frac{1}{\sqrt{m_x}},
+\]
+so that the ``masses'' in the inverse tuple are $w_x^2 = 1/m_x$.
+With our exact values:
+\[
+  w_s = \frac{1}{q_2} = \frac{2}{3-\sqrt3} = \frac{3+\sqrt3}{3},
+  \qquad
+  w_b = \frac{1}{2\sqrt3} = \frac{\sqrt3}{6}.
+\]
+
+\subsection{Sign patterns}
+
+The charge ratio $w_s/w_b = q_b/q_s = 4\sqrt{3}/(3-\sqrt3) = 2(1+\sqrt3) \approx 5.46$,
+which exceeds $2+\sqrt3\approx 3.73$, so the opposite-sign pair $(-w_s,\,w_b)$
+lies \emph{outside} the forbidden band. Both sign patterns yield real solutions:
+
+\medskip\noindent
+\textbf{Case~I:} same-sign $(+w_s,\,+w_b,\,w_d)$.\\
+\textbf{Case~II:} opposite-sign $(-w_s,\,+w_b,\,w_d)$.
+
+\subsection{Case I: $(+w_s,\,+w_b,\,w_d)$}
+
+The quadratic in $w_d$ is
+\[
+  w_d^2 - 2(2+\sqrt3)\,w_d + \tfrac{3}{4} = 0,
+\]
+with discriminant $\Delta_{\rm I} = 25 + 16\sqrt{3}$
+(not a perfect square).  The solutions are
+\[
+  w_d = (2+\sqrt3) \pm \tfrac{1}{2}\sqrt{25+16\sqrt3}\,,
+\]
+giving $m_d = 1/w_d^2$.
+
+\subsection{Case II: $(-w_s,\,+w_b,\,w_d)$}
+
+The quadratic in $w_d$ becomes
+\[
+  w_d^2 + \tfrac{2(6+\sqrt3)}{3}\,w_d + \tfrac{25+16\sqrt3}{12} = 0.
+\]
+The discriminant simplifies dramatically:
+\[
+  \boxed{\Delta_{\rm II} = 9, \qquad \sqrt{\Delta_{\rm II}} = 3.}
+\]
+The two solutions are
+\[
+  w_d = -\frac{3+2\sqrt3}{6}
+  \qquad\text{and}\qquad
+  w_d = -\frac{21+2\sqrt3}{6}\,,
+\]
+both negative (consistent with the opposite-sign pattern
+$(-w_s,\,+w_b,\,w_d)$ having $w_d < 0$).
+
+\subsubsection{Solution II-1: $w_d = -(3+2\sqrt3)/6$}
+
+\[
+  w_d^2 = \frac{(3+2\sqrt3)^2}{36} = \frac{7+4\sqrt3}{12},
+  \qquad
+  m_d = \frac{12}{7+4\sqrt3} = 12(7-4\sqrt3) = 12(2-\sqrt3)^2.
+\]
+The inverse-mass Koide angle of this solution is
+$\delta = 15^\circ$ \textbf{exactly}, matching Tuple~1.
+
+\subsubsection{Solution II-2: $w_d = -(21+2\sqrt3)/6$}
+
+\[
+  w_d^2 = \frac{(21+2\sqrt3)^2}{36} = \frac{151+28\sqrt3}{12},
+  \qquad
+  m_d = \frac{12}{151+28\sqrt3} = \frac{12(151-28\sqrt3)}{143^2}.
+\]
+
+\subsection{Summary table}
+
+Define $W_0 = (w_d^2+w_s^2+w_b^2)/3$ for the inverse tuple and
+recall $Q_0 = Q_0^{(2)} = 6$ for the direct $(s,c,b)$ tuple.
+
+\newcommand{\dec}[1]{{\scriptscriptstyle\color{gray}(#1)}}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}l c c c c c c@{}}
+\toprule
+Case & $w_d$ & $w_d^2=\frac{1}{m_d}$ & $m_d=\frac{1}{w_d^2}$ & $W_0$ & $\frac{Q_0}{W_0}$ & $\delta_w$ \\
+\midrule
+I-1 & $(2\!+\!\sqrt3)+\frac{\sqrt{25\!+\!16\sqrt3}}{2}$ &
+  $54.20$ & $0.0184$ &
+  $18.92$ & $0.317$ & $9.85^\circ$ \\
+  & $\dec{7.362}$ & & & & & \\[4pt]
+I-2 & $(2\!+\!\sqrt3)-\frac{\sqrt{25\!+\!16\sqrt3}}{2}$ &
+  $0.0104$ & $96.36$ &
+  $0.861$ & $6.97$ & $6.68^\circ$ \\
+  & $\dec{0.102}$ & & & & & \\[4pt]
+II-1 & $\displaystyle -\frac{3+2\sqrt3}{6}$ &
+  $\displaystyle\frac{7+4\sqrt3}{12}$ &
+  $12(2\!-\!\sqrt3)^2$ &
+  $\displaystyle\frac{2+\sqrt3}{3}$ &
+  $18(2\!-\!\sqrt3)$ &
+  $\mathbf{15.00}^\circ$ \\
+  & $\dec{-1.077}$ & $\dec{1.161}$ & $\dec{0.862}$ & $\dec{1.244}$ & $\dec{4.82}$ & \\[4pt]
+II-2 & $\displaystyle -\frac{21+2\sqrt3}{6}$ &
+  $\displaystyle\frac{151+28\sqrt3}{12}$ &
+  $\displaystyle\frac{12(151\!-\!28\sqrt3)}{143^2}$ &
+  $\displaystyle\frac{14+3\sqrt3}{3}$ &
+  $\displaystyle\frac{18(14\!-\!3\sqrt3)}{169}$ &
+  $34.79^\circ$ \\
+  & $\dec{-4.077}$ & $\dec{16.62}$ & $\dec{0.060}$ & $\dec{6.399}$ & $\dec{0.94}$ & \\[2pt]
+\bottomrule
+\end{tabular}
+\caption{All Koide solutions for $K(1/m_d,\,1/m_s,\,1/m_b)$ at $\delta=15^\circ$.
+  Cases~I use $(+w_s,+w_b)$, Cases~II use $(-w_s,+w_b)$.
+  I-1 is the large-$|w_d|$ (small-$m_d$) branch; I-2 the small-$|w_d|$
+  (large-$m_d$) branch.
+  Grey numbers are decimal evaluations of the exact expressions.
+  Only solution~II-1 has an angle in exact degrees.
+  Units: $\sqrt{M_0}=1$.}
+\label{tab:inverse-solutions}
+\end{table}
+
+\noindent
+Solution~II-1 is distinguished: its discriminant is a perfect square,
+its $m_d$ is a clean radical $12(2-\sqrt3)^2$, and its Koide angle
+is $15^\circ$---the same angle as Tuple~1.  This self-referential
+property singles it out among the four solutions.
+
+\subsection{Galois duality: seed $(-1/q_s,\,+1/q_b)$ and its conjugate partner}
+
+The alternative seed pair $(+1/q_c,\,+1/q_b)$ is, up to an overall sign, the
+Galois conjugate
+of $(-w_s,\,w_b)$ under $\sqrt3 \to -\sqrt3$ (which exchanges
+$q_s\leftrightarrow q_c$). Since $q_s q_c = 3$ and $q_b = 2\sqrt3$,
+the discriminant is again $\Delta = 9$ and the conjugate solutions are:
+\[
+  m_d^{(\pm)} = 12(7 \pm 4\sqrt3),
+  \qquad
+  m_d^{(\pm)} = \frac{12(151\pm 28\sqrt3)}{143^2}.
+\]
+Each solution is the Galois conjugate of the corresponding one from
+Table~\ref{tab:inverse-solutions}, with the product
+$m_d \cdot m_d^{(\text{conj})} = 144$
+(resp.\ $144/143^2$).
+
+The solution $m_d = 12(7+4\sqrt3)$ has Koide angle $\delta_w = 45^\circ$
+---echoing Tuple~2, just as our $m_d = 12(7-4\sqrt3)$ echoes Tuple~1.
+The solution $m_d = 12(151+28\sqrt3)/143^2$ has angle
+$\pi - \arctan(4\sqrt3-5)\approx 117.4^\circ$ in a
+$k=0,1,2$ input-ordered convention; in the Zenczykowski (magnitude-sorted)
+convention this becomes $\approx 2.6^\circ$.  This angle is algebraically
+exact in $\mathbb{Q}(\sqrt3)$ but is \emph{not} a rational multiple of
+$\pi$.
+
+In total, both seed pairs produce exactly three angles that are multiples
+of $\pi/12$: the two forward-chain angles ($15^\circ$, $45^\circ$) plus
+one seesaw angle that echoes one of them.  The apparent abundance of
+``exact'' angles in the $k$-ordered convention is partly an artifact:
+the phase depends on the $k$-assignment of the charges, and different
+assignments give different (but equally algebraic) values.
+
+\subsubsection{A complement near the lepton angle}\label{sec:galois-complement}
+
+The Zenczykowski angle of $m_d = 12(151+28\sqrt3)/143^2$
+(the Galois conjugate of our~II-2) is
+\[
+  \delta_{d+} = \arctan\frac{7\sqrt3-10}{47} \approx 2.59^\circ.
+\]
+Its complement with respect to $15^\circ$ has an exact tangent:
+\[
+  \tan(15^\circ - \delta_{d+}) = \frac{5\sqrt3-8}{3}\approx 0.2201,
+  \qquad 15^\circ - \delta_{d+} = 12.41^\circ.
+\]
+This is close to the experimental lepton Koide angle
+$\delta_{e\mu\tau} = 12.73^\circ$
+($\tan\delta_{e\mu\tau}\approx 0.2260$), suggesting the decomposition
+\[
+  \delta_{d+} + \delta_{e\mu\tau} \approx 15^\circ.
+\]
+At the exact $\delta=15^\circ$ chain, the match is only approximate
+(deficit $0.32^\circ$); along the continuation-preserving branch with
+$\varepsilon < 0$, the gap
+could close.
+
+\section{Perturbation of the inverse-mass tuples}
+
+When $\delta = 15^\circ + \varepsilon$ with $\varepsilon < 0$,
+the double root $q_b = 2\sqrt{3}$ splits into two branches
+$q_{b\pm} = 2\sqrt{3} \pm 6\sqrt{|\varepsilon|} + O(\varepsilon)$.
+Each branch provides its own $w_{b\pm} = 1/q_{b\pm}$, and the
+inverse-mass Koide analysis of \S5 must be repeated for each.
+This doubles the number of solutions from 4 to 8.
+
+\subsection{Exact projective II-1 identity along the deformed chain}
+\label{sec:projective-ii}
+
+Let $q_b$ denote either real continuation root of the direct Koide triple
+$(-q_s,q_c,q_b)$.  Its Koide condition is
+\[
+  q_b^2 - 4(q_c-q_s)\,q_b + (q_s^2 + 4q_s q_c + q_c^2) = 0.
+\]
+
+The key observation is the projective identity
+\[
+  \left(-\frac{1}{q_s},\,\frac{1}{q_b},\,-\frac{q_c}{q_s q_b}\right)
+  = -\frac{1}{q_s q_b}\,(q_b,\,-q_s,\,q_c).
+\]
+Since the Koide condition is homogeneous of degree two and symmetric under
+permutations of the three entries, any overall rescaling or permutation of
+a Koide triple is again Koide.  Therefore, once $(-q_s,q_c,q_b)$ is Koide,
+\[
+  \left(-\frac{1}{q_s},\,\frac{1}{q_b},\,-\frac{q_c}{q_s q_b}\right)
+\]
+is automatically Koide as well.
+
+For completeness, the same statement can be checked directly at the level of
+the inverse quadratic.  Consider the opposite-sign inverse seed
+$(-1/q_s,\,+1/q_b,\,w_d)$.  Its Koide polynomial is
+\[
+  w_d^2 + 4\!\left(\frac{1}{q_s}-\frac{1}{q_b}\right) w_d
+  + \left(\frac{1}{q_s^2} + \frac{4}{q_s q_b} + \frac{1}{q_b^2}\right)=0.
+\]
+Substituting
+\[
+  w_d = -\frac{q_c}{q_s q_b}
+\]
+\[
+  \frac{q_b^2 - 4(q_c-q_s)\,q_b + q_s^2 + 4q_s q_c + q_c^2}{q_s^2 q_b^2}=0,
+\]
+whose numerator is exactly the direct polynomial above.
+This direct substitution is redundant once the projective identity is
+noticed, but it gives a useful quadratic cross-check.  The coincidence is
+therefore a projective/factorised identity, not an identity of the centred
+additive variables $z_0,z_i,w_0,\omega_i$.
+
+Among the six permutations of $(-q_s,q_c,q_b)$, this is the only generic
+direct/inverse proportionality with fixed second inverse entry $+1/q_b$:
+the others collapse only on special loci such as $q_b=q_c$ or
+$q_b^2=q_s q_c$.  By continuity from the exact $\varepsilon=0$ point, the
+matched opposite-sign inverse root is precisely the II-1 branch on both
+$b_+$ and $b_-$ continuations.
+
+One isolated special locus is worth recording because it fixes an angle.
+On the lower direct branch, imposing $q_{b-}=q_c$ in the direct quadratic
+gives
+\[
+  -2q_c^2 + 8q_s q_c + q_s^2 = 0
+  \qquad\Longrightarrow\qquad
+  \frac{q_c}{q_s} = 2 + \frac{3\sqrt2}{2}.
+\]
+Numerically this occurs at
+\[
+  \varepsilon_{\rm eq} \approx -0.04158609,
+  \qquad
+  \delta_{\rm eq} \approx 12.61729^\circ.
+\]
+This does not create a second generic direct/inverse coincidence family, but
+it marks a distinguished angle at which two direct entries become equal and
+the existing II-1 permutation becomes partially degenerate.
+
+\subsection{Numerical example: $\varepsilon = -0.001$}
+
+At $\varepsilon = -0.001$ (i.e.\ $\delta \approx 14.94^\circ$),
+the perturbed Tuple~1 charges are
+$q_1 = 0.001$, $q_2 = 0.6326$, $q_3 = 2.3664$,
+and the $b$ charge splits into $q_{b+} = 3.6573$ and $q_{b-} = 3.2778$.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}l l r r r r r@{}}
+\toprule
+Case & Branch & $w_d$ & $w_d^2$ & $m_d = 1/w_d^2$ & $W_0$ & $\delta_w$ \\
+\midrule
+I-1  & $b_+$ & $+7.301$ & $53.30$ & $0.019$ & $18.63$ & $10.07^\circ$ \\
+I-1  & $b_-$ & $+7.454$ & $55.57$ & $0.018$ & $19.39$ & $9.63^\circ$ \\[3pt]
+I-2  & $b_+$ & $+0.116$ & $0.013$ & $74.71$ & $0.862$ & $5.63^\circ$ \\
+I-2  & $b_-$ & $+0.089$ & $0.008$ & $126.49$ & $0.867$ & $7.70^\circ$ \\[3pt]
+II-1 & $b_+$ & $-1.023$ & $1.046$ & $0.956$ & $1.207$ & $17.05^\circ$ \\
+II-1 & $b_-$ & $-1.141$ & $1.302$ & $0.768$ & $1.298$ & $12.87^\circ$ \\[3pt]
+II-2 & $b_+$ & $-4.207$ & $17.70$ & $0.057$ & $6.756$ & $35.68^\circ$ \\
+II-2 & $b_-$ & $-3.961$ & $15.69$ & $0.064$ & $6.095$ & $33.83^\circ$ \\
+\bottomrule
+\end{tabular}
+\caption{All eight inverse-mass Koide solutions at $\varepsilon=-0.001$.
+  Each solution from Table~\ref{tab:inverse-solutions} forks into a $b_+$
+  and $b_-$ branch.}
+\label{tab:inverse-perturbed}
+\end{table}
+
+\subsection{Observations}
+
+\begin{itemize}
+  \item Each of the four $\varepsilon=0$ solutions splits smoothly into
+    a pair, one from each $q_b$ branch.
+  \item The Cases~I discriminant $\Delta_{\rm I} = 25+16\sqrt3 + O(\sqrt{|\varepsilon|})$
+    remains positive; Cases~II discriminant perturbs from $9$ but stays positive.
+  \item The distinguished solution II-1 ($\delta_w = 15^\circ$ at $\varepsilon=0$)
+    splits into $\delta_w = 17.05^\circ$ ($b_+$) and $\delta_w = 12.87^\circ$ ($b_-$).
+    The $b_-$ branch is notable: at the experimental lepton angle
+    $\delta_{e\mu\tau}\approx 12.73^\circ$
+    ($\varepsilon\approx -0.040$), this branch would approach
+    a value near the physical lepton angle itself.
+\end{itemize}
+
+\section{Comparison with experimental masses}
+
+We now confront the algebraic results of \S\S1--6 with
+the experimental quark and lepton masses.
+
+\subsection{Reference angles for the standard Koide chain}
+
+Using PDG~2024 $\overline{\rm MS}$ masses ($m_d = 4.67$~MeV,
+$m_s = 93.4$~MeV, $m_c = 1.27$~GeV, $m_b = 4.18$~GeV
+at $\mu=2$~GeV or $m_q(m_q)$; $m_t = 172.69$~GeV pole;
+$m_e,m_\mu,m_\tau$ pole):
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}l l r r l@{}}
+\toprule
+Tuple & Signs & $\delta$ & $Q$ & Note \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Standard Koide chain}} \\
+$e,\mu,\tau$ (pole) & $(+,+,+)$ & $12.73^\circ$ & $1.50001$ & exact Koide \\
+$(u,s,c)$ & $(+,+,+)$ & $13.28^\circ$ & $1.602$ & \\
+$(0,s,c)$ [$m_u\!\to\!0$] & $(+,+,+)$ & $15.20^\circ$ & $1.505$ & near Koide \\
+$(s,c,b)$ & $(-,+,+)$ & $37.21^\circ$ & $1.482$ & $\approx 3\delta_{e\mu\tau}$ \\
+$(c,b,t)$ & $(+,+,+)$ & $3.93^\circ$ & $1.494$ & near Koide \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Other quark triples}} \\
+$(d,s,b)$ & $(+,+,+)$ & $6.31^\circ$ & $1.367$ & \\
+$(d,s,c)$ & $(+,+,+)$ & $12.33^\circ$ & $1.647$ & $\approx\delta_{e\mu\tau}$ \\
+$(u,c,t)$ & $(+,+,+)$ & $4.26^\circ$ & $1.178$ & \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Inverse-mass tuples}} \\
+$K(1/d,1/s,1/b)$ & $(+,+,+)$ & $10.70^\circ$ & $1.503$ & near Koide \\
+$K(1/e,1/\mu,1/\tau)$ & $(+,+,+)$ & $2.73^\circ$ & $1.174$ & $\approx\delta_{d+}$ \\
+$K(1/u,1/c,1/t)$ & $(+,+,+)$ & $1.91^\circ$ & $1.090$ & \\
+\bottomrule
+\end{tabular}
+\caption{Koide angles and $Q$-parameters for chain tuples, other quark
+  triples, and inverse-mass tuples (PDG~2024, $m_q(m_q)$ convention).
+  Only $K(1/d,1/s,1/b)$ among inverse-mass tuples approaches $Q=3/2$.}
+\label{tab:reference-angles}
+\end{table}
+
+\subsubsection*{Observations on Table~\ref{tab:reference-angles}}
+
+\begin{itemize}
+  \item The $(0,s,c)$ tuple at $\delta = 15.20^\circ$ confirms that
+    the idealised $\delta = 15^\circ$ of \S1 is a good approximation.
+    The $(-s,c,b)$ angle of $37.21^\circ$
+    is close to $3\times 12.73^\circ = 38.2^\circ$, consistent with
+    the factor-of-three relation $\delta_{scb}\approx 3\,\delta_{e\mu\tau}$.
+
+  \item Among all inverse-mass tuples, \textbf{only $K(1/d,1/s,1/b)$
+    approaches Koide}: $Q = 1.503$ ($0.2\%$ from $3/2$).
+    The inverse lepton tuple $K(1/e,1/\mu,1/\tau)$ gives $Q = 1.17$
+    and the inverse up-type $K(1/u,1/c,1/t)$ gives $Q=1.09$---both
+    far from $3/2$.  This singles out the down-type quarks.
+
+  \item The inverse lepton angle $\delta(K(1/e,1/\mu,1/\tau)) = 2.73^\circ$
+    is remarkably close to the Galois conjugate seesaw angle
+    $\delta_{d+} = 2.59^\circ$ from \S\ref{sec:galois-complement}.  While the inverse lepton
+    tuple does \emph{not} satisfy Koide ($Q=1.17$), the near-coincidence
+    of angles is intriguing.
+
+  \item The ratios $\delta_w/\delta_{e\mu\tau} = 10.70/12.73 = 0.840$
+    and $\delta_{e\mu\tau}/\delta_{0sc} = 12.73/15.20 = 0.837$
+    are nearly identical, suggesting a geometric progression
+    $\delta_w \approx \delta_{e\mu\tau}^2/\delta_{0sc}$.
+
+  \item The $(d,s,c)$ tuple has $\delta = 12.33^\circ$, close to
+    $\delta_{e\mu\tau} = 12.73^\circ$.  This is natural: in the exact
+    chain, the $(0,s,c)$ tuple has $\delta = 15^\circ$, and
+    replacing the zero by $m_d > 0$ pushes the angle downward.
+    The $(d,s,c)$ tuple is the ``wrong light quark'' version of $(u,s,c)$
+    ($\delta = 13.28^\circ$); both sit below $15^\circ$ and bracket
+    the lepton angle.  The proximity of $(d,s,c)$ to $\delta_{e\mu\tau}$
+    may reflect the same mechanism that links quark and lepton
+    Koide angles in the chain.
+\end{itemize}
+
+\subsection{The inverse-mass tuple $K(1/m_d,\,1/m_s,\,1/m_b)$}
+
+With all positive signs and PDG central values in the $m_q(m_q)$ convention:
+\[
+  Q = 1.503,\qquad \delta_w = 10.70^\circ.
+\]
+The deviation from Koide, $|Q - 3/2| = 3.3\times 10^{-3}$, is
+larger than the lepton Koide ($1.4\times 10^{-5}$) but much
+smaller than the direct $(d,s,b)$ tuple ($Q=1.37$).
+
+To achieve $Q = 3/2$ exactly, one needs
+$m_d = 4.61$~MeV, a $-1.4\%$ shift from the PDG central value
+$4.67 \pm 0.48$~MeV---well within the $10\%$ experimental
+uncertainty.
+
+\subsection{RG running}
+
+At one-loop QCD, all quark masses of the same charge run with a
+common anomalous dimension, so their ratios---and hence the Koide
+angle---are RG invariants within each flavour-number regime.
+Threshold corrections at $\mu = m_b$ and $\mu = m_t$ introduce
+small shifts.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}l r r r r@{}}
+\toprule
+Convention & $m_d$ (MeV) & $m_s$ (MeV) & $m_c$ (GeV) & $m_b$ (GeV) \\
+\midrule
+Common $\mu = 2$~GeV & $4.67$ & $93.4$ & $1.167$ & $4.667$ \\
+$m_q(m_q)$ & $4.67$ & $93.4$ & $1.270$ & $4.180$ \\
+\bottomrule
+\end{tabular}
+
+\medskip
+
+\begin{tabular}{@{}l c r c r c r@{}}
+\toprule
+Convention
+  & $\delta_{0sc}$ & $Q_{0sc}$
+  & $\delta_{-scb}$ & $Q_{-scb}$
+  & $\delta_w$ & $Q_w$
+  \\
+\midrule
+Common $\mu = 2$~GeV
+  & $15.93^\circ$ & $1.524$
+  & $34.09^\circ$ & $1.453$
+  & $10.79^\circ$ & $1.4992$
+  \\
+$m_q(m_q)$
+  & $15.20^\circ$ & $1.505$
+  & $37.21^\circ$ & $1.482$
+  & $10.70^\circ$ & $1.5033$
+  \\
+\bottomrule
+\end{tabular}
+\caption{Koide angles for the chain tuples and the inverse-mass tuple
+  $K(1/d,1/s,1/b)$ in two mass conventions.
+  At 1-loop QCD the mass anomalous dimension is flavour-universal,
+  so all angles are exactly scale-invariant within each convention---only
+  the choice of convention matters, not the RG scale.
+  The $\delta_{-scb}/\delta_{0sc}$ ratio is $2.14$ at common scale
+  vs.\ $2.45$ in $m_q(m_q)$.}
+\label{tab:rg-angles}
+\end{table}
+
+\subsubsection*{Observations}
+
+\begin{itemize}
+  \item \textbf{$(0,s,c)$ is above $15^\circ$ in both conventions.}
+    $\delta_{0sc} = 15.93^\circ$ (common scale) or $15.20^\circ$
+    ($m_q(m_q)$).  In both cases $\varepsilon > 0$ in the language
+    of \S4, placing us past the bifurcation where the exact
+    opposite-sign continuation has no real solutions.
+    The experimental $(-s,c,b)$ tuple has $Q = 1.45$--$1.48$,
+    close to but not equal to $3/2$---consistent with being
+    near but past the critical angle.
+
+  \item \textbf{1-loop QCD preserves all angles trivially.}
+    The mass anomalous dimension is flavour-universal at one loop,
+    so all quark mass ratios are exactly preserved under running.
+    The angles in Table~\ref{tab:rg-angles} are strictly scale-invariant; only
+    the choice of mass convention (common scale vs.\ $m_q(m_q)$)
+    matters.  Yukawa contributions to the running, which are
+    flavour-dependent (dominated by the top Yukawa), would break
+    this invariance---particularly for $m_b$.  The question of how
+    much $\delta_w$ and $\delta_{-scb}$ actually run under full
+    SM RGEs is the natural next step for this programme.
+
+  \item \textbf{$Q_w$ is closest to $3/2$ at common scale.}
+    $Q_w = 1.4992$ vs.\ $1.5033$ in $m_q(m_q)$.
+    The exact-Koide prediction at $\mu=2$~GeV
+    is $m_d = 4.69$~MeV ($+0.4\%$ from PDG).
+    With pole $m_b = 4.78$~GeV, $Q_w = 1.4983$.
+\end{itemize}
+
+\section{Which branch are we on?}
+
+The exact chain at $\delta = 15^\circ$ has a double root for $m_b$
+and four seesaw solutions for $m_d$.  At the physical point,
+$\delta_{0sc}$ from Table~\ref{tab:rg-angles} lies slightly above
+$15^\circ$, i.e.\ on the $\varepsilon>0$ side of the bifurcation.  For branch
+selection, however, we follow the real continuation-preserving side
+$\varepsilon < 0$, where the double root splits into $q_{b\pm}$ and
+each seesaw solution forks into two branches, giving eight candidates.
+We now ask: for which branches does the inverse-mass Koide angle
+$\delta_w$ match the experimental value $\approx 10.70^\circ$,
+and does the rest of the chain produce sensible mass ratios?
+
+\subsection{Matching $\delta_w = 10.70^\circ$}
+
+Here $\delta_w$ is the Zenczykowski angle of the \emph{mass triple}
+$(m_d,m_s,m_b)$ generated by a given signed seed, with the sign pattern
+recorded separately in the branch label.  The observable inverse-mass tuple
+$K(1/d,1/s,1/b)$ uses all positive entries; the signed seeds are an auxiliary
+device for selecting which exact Koide continuation produces that positive
+mass spectrum.  The comparison is therefore between two descriptions of the
+same masses, not between two incompatible observables.
+
+A numerical scan over $\varepsilon \in (-0.15,\,0)$ finds exactly
+three branches where $\delta_w$ passes through $10.70^\circ$:
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}l r r r r r r r r@{}}
+\toprule
+Branch & $\varepsilon$ & $\delta_1$ & $m_d/m_s$ & $m_s/m_c$ & $m_b/m_c$
+  & $\delta_{-scb}$ & $m_d$ & $m_b$ \\
+  & (rad) & & & & & & (MeV) & (MeV) \\
+\midrule
+\textbf{I-1/$b_+$} & $\mathbf{-0.0137}$ & $\mathbf{14.2^\circ}$ & $\mathbf{0.050}$ & $\mathbf{0.067}$ & $\mathbf{3.16}$
+  & $\mathbf{37.8^\circ}$ & $\mathbf{4.3}$ & $\mathbf{4033}$ \\
+I-2/$b_-$ & $-0.0169$ & $14.0^\circ$ & $944$ & $0.066$ & $1.34$
+  & $54.2^\circ$ & $80021$ & $1707$ \\
+II-1/$b_-$ & $-0.1101$ & $8.7^\circ$ & $0.58$ & $0.041$ & $0.58$
+  & $49.3^\circ$ & $31$ & $763$ \\
+\bottomrule
+\end{tabular}
+\caption{Branches matching $\delta_w\approx 10.70^\circ$.
+  Physical masses obtained by scaling $Z_0 = m_s + m_c$ to $1363$~MeV.
+  Experimental ratios: $m_d/m_s\approx 0.050$, $m_b/m_c\approx 3.3$.}
+\label{tab:branch-match}
+\end{table}
+
+\subsection{Filtering by mass ratios}
+
+\begin{itemize}
+  \item \textbf{I-2/$b_-$: excluded.}  $m_d/m_s = 944$: the down quark
+    is heavier than the bottom.
+  \item \textbf{II-1/$b_-$: excluded.}  $m_b/m_c = 0.58$: the bottom
+    is lighter than charm.
+  \item \textbf{I-1/$b_+$: viable.}  All mass ratios are close to
+    experiment:
+    \begin{itemize}
+      \item $m_d/m_s = 0.050$ (exp: $0.050$),
+      \item $m_s/m_c = 0.067$ (exp: $0.074$),
+      \item $m_b/m_c = 3.16$ (exp: $3.29$),
+      \item $\delta_{-scb} = 37.8^\circ$ (vs.\ $3\delta_{e\mu\tau} = 38.2^\circ$).
+    \end{itemize}
+\end{itemize}
+
+\subsection{The surviving solution}
+
+The unique viable branch is \textbf{I-1/$b_+$}: the same-sign seesaw
+$(+w_s,\,+w_b,\,w_d)$ with the heavy $b$-branch, at
+$\varepsilon = -0.0137$ ($\delta_1 = 14.2^\circ$).
+
+At this point the chain predicts (scaling to $Z_0 = 1363$~MeV):
+\[
+  m_u = 0.04~\text{MeV},\quad
+  m_d = 4.3~\text{MeV},\quad
+  m_s = 86~\text{MeV},\quad
+  m_c = 1277~\text{MeV},\quad
+  m_b = 4033~\text{MeV}.
+\]
+All except the very small $m_u$ lie within about $1$--$2\sigma$ of PDG
+central values; $m_u$ comes out parametrically too light in this fit.
+The $(-s,c,b)$ angle $37.8^\circ$ is within $1\%$ of
+$3\delta_{e\mu\tau} = 38.2^\circ$, preserving the Zenczykowski
+relation.
+
+Note that $\delta_1 = 14.2^\circ$ is the angle of the \emph{first}
+tuple $(0,s,c)$ at this $\varepsilon$ --- intermediate between the
+idealised $15^\circ$ and the experimental lepton angle $12.73^\circ$.
+The seesaw lives on the same-sign, $b_+$ branch: the only combination
+that simultaneously satisfies the inverse-mass Koide equation and
+produces a realistic quark spectrum.
+
+\subsection{Near-compatibility of two constraints}
+
+The system has one free parameter ($\varepsilon$) and two
+natural constraints:
+\begin{enumerate}
+  \item[(A)] $\delta_w = 10.70^\circ$ (experimental inverse-mass angle),
+  \item[(B)] $\delta_{-scb} = 3\,\delta_{e\mu\tau} = 38.20^\circ$
+    (Zenczykowski relation).
+\end{enumerate}
+Fixing (A) gives $\varepsilon_A = -0.0137$, $\delta_{-scb} = 37.79^\circ$
+(miss $-0.41^\circ$).
+Fixing (B) gives $\varepsilon_B = -0.0121$, $\delta_w = 10.65^\circ$
+(miss $-0.05^\circ$).
+The gap $|\varepsilon_A - \varepsilon_B| = 0.0016$~rad ($0.09^\circ$)
+is small: the two constraints are nearly compatible, with a residual
+of $\sim 1\%$ in $\delta_{-scb}$.
+This residual could plausibly be absorbed by Yukawa corrections
+to $m_b$ running, which we have not included.
+
+\section{Other tuples}
+
+\subsection{The chiral tuple $(m_d,\,0,\,m_s)$}
+
+Descending the chain from $(0,\,m_s,\,m_c)$ with $m_u = 0$,
+the previous link is $(m_d,\,0,\,m_s)$.  The Koide equation
+gives $q_d = (2\pm\sqrt3)\,q_s$, i.e.
+\[
+  q_{d+} = (2+\sqrt3)\,q_s = \frac{3+\sqrt3}{2} = q_c,
+  \qquad
+  q_{d-} = (2-\sqrt3)\,q_s = \frac{9-5\sqrt3}{2}.
+\]
+The ``$+$'' solution gives back the charm charge---the chain
+\emph{loops}: descending from $(0,s,c)$ recovers $m_c$ as one branch.
+The physical solution is $q_{d-}$, with
+\[
+  m_{d-} = (7-4\sqrt3)\,m_s,
+  \qquad
+  M_0^{(d,0,s)} = (7-4\sqrt3)\,M_0^{(0,s,c)}.
+\]
+Both solutions have $\delta = 15^\circ$ exactly (a zero entry
+always reproduces the seed angle).  The scale parameter
+$M_0$ is multiplied by $(2-\sqrt3)^2 = 7-4\sqrt3$---the same
+factor that relates consecutive Koide tuples in the chain.
+
+\medskip\noindent
+Replacing $m_d$ by the \emph{chiral mass} $m_u + m_d$
+(the quantity entering the chiral condensate) gives a physical
+near-Koide tuple:
+\[
+  (m_u\!+\!m_d,\; 0,\; m_s) = (6.83,\;0,\;93.4)\text{ MeV}:
+  \qquad Q = 1.504,\quad \delta = 15.15^\circ.
+\]
+The chiral combination works better than $m_d$ alone
+(which gives $Q=1.43$, $\delta=12.3^\circ$): it sits just
+above $15^\circ$, consistent with the bifurcation analysis of \S4.
+
+\subsection{The $(s,\,b,\,t)$ tuple}
+
+The top charge from $(c,b,t)$ at $\delta = 15^\circ$ simplifies
+via $\sqrt{4+2\sqrt3} = 1+\sqrt3$:
+\[
+  q_t = \frac{15+19\sqrt3}{2},
+  \qquad
+  m_t = \frac{654+285\sqrt3}{2}.
+\]
+The key mass ratios in the exact chain are:
+\[
+  \frac{m_t}{m_c} = 151-28\sqrt3,
+  \qquad
+  \frac{m_b}{m_c} = 16-8\sqrt3 = 8(2-\sqrt3),
+  \qquad
+  \frac{m_c}{m_s} = 7+4\sqrt3.
+\]
+Note that $151$ and $28$ are the same integers appearing
+in the inverse-mass seesaw solution
+$m_d^{(\text{II-2})} = 12(151-28\sqrt3)/143^2$.
+
+The $(s,b,t)$ tuple gives
+\[
+  Q_{sbt} = 1.342,\qquad \delta_{sbt} = 6.38^\circ
+  \qquad\text{(exact chain)},
+\]
+far from $3/2$. With PDG masses: $Q = 1.36$, $\delta = 7.2^\circ$.
+Neither sign pattern helps ($Q_{-s,b,t} = 1.22$).
+This tuple is genuinely non-Koide at every scale.
+
+\subsection{The corrected inverse tuple $K(1/s,\,1/c,\,\pm 1/t)$}
+
+The tuple $K(1/s,\,1/c,\,0)$ is the inversion of $(0,\,s,\,c)$
+and has $\delta = 15^\circ$, $Q = 3/2$ exactly.
+The inverse top charge is
+\[
+  \frac{1}{q_t} = \frac{19\sqrt3-15}{429},
+  \qquad 429 = 3\times 11\times 13.
+\]
+Adding $\pm 1/q_t$ as a correction to the zero entry:
+
+\begin{center}
+\begin{tabular}{@{}l r r r r@{}}
+\toprule
+Tuple & $\delta$ (exact) & $Q$ (exact) & $\delta$ (PDG) & $Q$ (PDG) \\
+\midrule
+$K(1/s,\,1/c,\,0)$ & $15.00^\circ$ & $1.500$ & $15.20^\circ$ & $1.505$ \\
+$K(1/s,\,1/c,\,+\!1/t)$ & $13.78^\circ$ & $1.562$ & $14.13^\circ$ & $1.560$ \\
+$K(1/s,\,1/c,\,-\!1/t)$ & $16.17^\circ$ & $1.437$ & $16.23^\circ$ & $1.450$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Adding $+1/q_t$ pushes $\delta$ \emph{below} $15^\circ$ (toward
+the lepton angle); adding $-1/q_t$ pushes it above.
+Neither achieves $Q=3/2$, but the $(+)$ correction brings $\delta$
+closer to $\delta_{e\mu\tau}=12.73^\circ$ ($13.78^\circ$ at the
+chain point, $14.13^\circ$ with PDG masses).
+The correction is small ($\sim 1^\circ$) because
+$1/q_t = 0.042 \ll 1/q_c = 0.423$---the top mass suppresses the
+third entry by an order of magnitude.
+
+\section{Meson Koide tuples}
+
+The Koide equation can be applied to meson masses.
+We scan all triples of pseudoscalar mesons with both sign
+patterns $(+,+,+)$ and $(-,+,+)$.
+
+\subsection{Best pseudoscalar triples}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}l l r r l@{}}
+\toprule
+Tuple & Signs & $\delta$ & $Q$ & $|Q\!-\!3/2|$ \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Type $(-\pi,\,D_s,\,X)$}} \\
+$(\pi^0,\, D_s,\, \eta_c)$ & $(-,+,+)$ & $51.73^\circ$ & $1.5006$ & $6\times 10^{-4}$ \\
+$(\pi^\pm,\, D_s,\, B^\pm)$ & $(-,+,+)$ & $40.79^\circ$ & $1.4984$ & $1.6\times 10^{-3}$ \\
+$(\pi^\pm,\, D_s,\, B_s)$ & $(-,+,+)$ & $40.49^\circ$ & $1.4978$ & $2.2\times 10^{-3}$ \\
+$(\pi^0,\, D_s,\, B_c)$ & $(-,+,+)$ & $37.65^\circ$ & $1.4962$ & $3.8\times 10^{-3}$ \\[3pt]
+\multicolumn{5}{@{}l}{\emph{Type $(-\pi,\,D,\,B)$}} \\
+$(\pi^0,\, D^\pm,\, B^\pm)$ & $(-,+,+)$ & $39.89^\circ$ & $1.4929$ & $7.1\times 10^{-3}$ \\
+$(\pi^\pm,\, D^\pm,\, B^\pm)$ & $(-,+,+)$ & $39.94^\circ$ & $1.4864$ & $1.4\times 10^{-2}$ \\[3pt]
+\multicolumn{5}{@{}l}{\emph{Other}} \\
+$(\pi^\pm,\, \pi^0,\, \eta_b)$ & $(+,+,+)$ & $0.11^\circ$ & $1.4981$ & $1.9\times 10^{-3}$ \\
+\bottomrule
+\end{tabular}
+\caption{Best pseudoscalar meson Koide tuples (PDG~2024 masses).
+  The $(-\pi, D_s, \eta_c)$ tuple rivals the lepton Koide in
+  precision.  All require a sign flip on the pion.}
+\end{table}
+
+\noindent
+The $(-\pi^0,\, D_s,\, \eta_c)$ tuple is remarkable:
+$|Q - 3/2| = 6\times 10^{-4}$, only $40\times$ worse than the
+lepton Koide.  The pattern is consistent: \emph{all} good meson
+triples involve a sign flip on the pion (the lightest member)
+and pair it with a charmed and a heavier meson.
+The $D_s$ (containing an $s$ quark) works better than the $D$,
+suggesting the strange content improves the match.
+
+\subsection{Vector mesons}
+
+No triple of vector mesons ($\rho, \omega, K^*, \phi, D^*, B^*,
+J/\psi, \Upsilon$) comes close to Koide: the best is
+$(-\rho,\, B_s^*,\, \Upsilon)$ with $Q = 1.31$.
+Vector mesons do not form Koide tuples.
+
+\subsection{Inverse-mass mesons}
+
+Among pure meson triples, no inverse-mass tuple approaches Koide:
+the best is $K(1/\pi^0,\,1/B_c,\,1/\eta_b)$ with $Q = 1.55$.
+
+\subsection{Including $W$, $Z$, and $H$}
+
+Adding the electroweak bosons ($M_W = 80.36$, $M_Z = 91.19$,
+$M_H = 125.2$~GeV) to the scan produces several near-Koide
+mixed meson-boson tuples:
+
+\begin{center}
+\small
+\begin{tabular}{@{}l l r r r@{}}
+\toprule
+Tuple & Signs & $\delta$ & $Q$ & $|Q\!-\!3/2|$ \\
+\midrule
+$K(1/\pi^0,\,1/\eta_c,\,1/W)$ & $(+,+,+)$ & $9.66^\circ$ & $1.5013$ & $1.3\times 10^{-3}$ \\
+$(\pi^0,\,B_c,\,H)$ & $(+,+,+)$ & $10.75^\circ$ & $1.5024$ & $2.4\times 10^{-3}$ \\
+$(D^\pm,\,D^0,\,H)$ & $(+,+,+)$ & $0.01^\circ$ & $1.5033$ & $3.3\times 10^{-3}$ \\
+$(\eta',\,D^0,\,Z)$ & $(+,+,+)$ & $2.29^\circ$ & $1.5047$ & $4.7\times 10^{-3}$ \\
+$(-B_c,\,Z,\,H)$ & $(-,+,+)$ & $53.70^\circ$ & $1.4931$ & $6.9\times 10^{-3}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The pure boson triple $(W,Z,H)$ gives $Q = 2.97$---not Koide.
+But mixed meson-boson tuples can achieve $|Q-3/2| \sim 10^{-3}$,
+comparable to $K(1/d,1/s,1/b)$.  The inverse-mass tuple
+$K(1/\pi^0,1/\eta_c,1/W)$ is particularly clean: all positive signs,
+$\delta = 9.7^\circ$, and $Q$ within $0.1\%$ of $3/2$.
+Whether these reflect structure or coincidence across
+the meson-boson mass landscape requires further investigation.
+
+\subsection{Baryons: direct and inverse}
+
+Using PDG~2025 baryon masses, we scan all triples among the
+22 ground-state baryons ($p$, $n$, $\Lambda$, $\Sigma^{+,0,-}$,
+$\Xi^{0,-}$, $\Omega^-$, $\Lambda_c^+$, $\Sigma_c^{++,+,0}$,
+$\Xi_c^{+,0}$, $\Omega_c^0$, $\Lambda_b^0$, $\Sigma_b^{+,-}$,
+$\Xi_b^{0,-}$, $\Omega_b^-$).
+
+\medskip\noindent
+\textbf{Direct:}  The best triple is
+$(-p,\,\Sigma_b^-,\,\Omega_b^-)$ with $Q = 1.19$---far from $3/2$.
+No baryon triple with any sign pattern approaches Koide.
+
+\medskip\noindent
+\textbf{Inverse:}  The best is
+$K(1/p,\,1/\Sigma_b^-,\,1/\Omega_b^-)$ with $Q = 2.45$---even
+farther.
+
+\medskip\noindent
+The Koide property appears specific to: charged leptons (exact),
+the quark chain $\{(0sc),(-scb),(cbt)\}$ and its inverse-mass
+descendant $K(1/d,1/s,1/b)$ (approximate), and certain
+pseudoscalar meson triples with sign-flipped pion (approximate).
+Baryons do not participate.
+
+\section{Preon charge patterns}
+
+For any signed direct tuple with charges
+$q_i = s_i\sqrt{m_i}$, one can extract a common piece $z_0$ and a traceless
+part $z_i$ by
+\[
+  q_i = z_0 + z_i,
+  \qquad
+  z_0 = \frac{q_1+q_2+q_3}{3},
+  \qquad
+  z_1+z_2+z_3 = 0.
+\]
+Likewise, for any inverse tuple with signed inverse charges
+$w_i = s_i/\sqrt{m_i}$,
+\[
+  w_i = w_0 + \omega_i,
+  \qquad
+  w_0 = \frac{w_1+w_2+w_3}{3},
+  \qquad
+  \omega_1+\omega_2+\omega_3 = 0.
+\]
+The observed masses are recovered as
+\[
+  m_i = (z_0 + z_i)^2,
+  \qquad
+  \frac{1}{m_i} = (w_0 + \omega_i)^2.
+\]
+If one wishes to interpret the constituents themselves as ``mean preon
+masses'', the corresponding scales are obtained by squaring the direct charges
+or inverse-squaring the inverse charges:
+$z_0^2,z_i^2$ and $1/w_0^2,1/\omega_i^2$.
+
+It is also convenient to define the centred ratios
+\[
+  R_z \equiv \frac{z_1^2+z_2^2+z_3^2}{3z_0^2},
+  \qquad
+  R_w \equiv \frac{\omega_1^2+\omega_2^2+\omega_3^2}{3w_0^2}.
+\]
+Since $Q = 9z_0^2/(3z_0^2+z_1^2+z_2^2+z_3^2)$ (and similarly for $w$),
+one has
+\[
+  R = \frac{3}{Q} - 1.
+\]
+Thus exact Koide corresponds simply to $R=1$, while near-Koide tuples have
+$R$ close to $1$.
+
+\subsection{Direct tuples}
+
+For the two exact quark-chain anchors, the decomposition is especially simple:
+\[
+  (0,s,c):
+  \qquad
+  z_0 = 1,
+  \qquad
+  (z_1,z_2,z_3)
+  = \left(-1,\frac{1-\sqrt3}{2},\frac{1+\sqrt3}{2}\right),
+\]
+\[
+  (-s,c,b):
+  \qquad
+  z_0 = \sqrt3,
+  \qquad
+  (z_1,z_2,z_3)
+  = \left(-\frac{3+\sqrt3}{2},\frac{3-\sqrt3}{2},\sqrt3\right).
+\]
+It is also useful to record an alternative \emph{factorised} normalization
+for the exact tuples.  Writing $q_i = \bar z\,\hat z_i$ with
+$\bar z = (q_1+q_2+q_3)/3$ and $\hat z_1+\hat z_2+\hat z_3=3$, and defining
+\[
+  a \equiv \frac{3-\sqrt3}{2},
+  \qquad
+  b \equiv \frac{3+\sqrt3}{2},
+\]
+one has the exact reduced shapes
+\[
+  (0,s,c) = 1\cdot(0,a,b),\qquad
+  (d,0,s)_{\rm phys} = (2-\sqrt3)\cdot(a,0,b),\qquad
+  (-s,c,b) = \sqrt3\cdot(a-1,b-1,2).
+\]
+This factorised notation is not the centred preon decomposition used in the
+tables below, but it makes the exact shape relations transparent.
+
+The same centred decomposition exists for the other exact and empirical tuples:
+
+\begin{table}[h]
+\centering
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}l c c c c c@{}}
+\toprule
+Tuple & Signs & preon masses & $z_0$ & $(z_1,z_2,z_3)$ & $R_z$ \\
+\midrule
+\multicolumn{6}{@{}l}{\emph{Exact tuples, $\sqrt{M_0}=1$ so masses are unitless}} \\
+exact $(0,s,c)$ & $(+,+,+)$ & $(1.000;1.000,0.134,1.866)$ & $1.000$ & $(-1.000,-0.366,1.366)$ & $1.000$ \\
+exact $(-s,c,b)$ & $(-,+,+)$ & $(3.000;5.598,0.402,3.000)$ & $1.732$ & $(-2.366,0.634,1.732)$ & $1.000$ \\
+exact $(d,0,s)$ [phys.] & $(+,+,+)$ & $(0.072;0.010,0.072,0.134)$ & $0.268$ & $(-0.098,-0.268,0.366)$ & $1.000$ \\
+exact $(c,b,t)$ & $(+,+,+)$ & $(98.57;57.19,41.78,196.7)$ & $9.928$ & $(-7.562,-6.464,14.026)$ & $1.000$ \\
+exact $(s,b,t)$ & $(+,+,+)$ & $(87.44;75.98,34.65,213.3)$ & $9.351$ & $(-8.717,-5.887,14.604)$ & $1.235$ \\
+\midrule
+\multicolumn{6}{@{}l}{\emph{Empirical / fitted tuples, masses in MeV}} \\
+fit $(-s,c,b)$ [I-1/$b_+$] & $(-,+,+)$ & $(899.3;1541.6,33.02,1123.4)$ & $29.989$ & $(-39.263,5.746,33.517)$ & $1.000$ \\
+chiral $(u+d,0,s)$ & $(+,+,+)$ & $(16.75;2.188,16.75,31.05)$ & $4.093$ & $(-1.479,-4.093,5.572)$ & $0.995$ \\
+$(e,\mu,\tau)$ & $(+,+,+)$ & $(313.8;289.0,55.30,597.2)$ & $17.716$ & $(-17.001,-7.437,24.437)$ & $1.000$ \\
+$(u,s,c)$ & $(+,+,+)$ & $(243.1;199.4,35.12,401.9)$ & $15.590$ & $(-14.121,-5.926,20.047)$ & $0.873$ \\
+$(0,s,c)$ & $(+,+,+)$ & $(228.0;228.0,29.55,421.8)$ & $15.100$ & $(-15.100,-5.436,20.537)$ & $0.993$ \\
+$(-s,c,b)$ & $(-,+,+)$ & $(912.6;1589.8,29.47,1186.4)$ & $30.209$ & $(-39.873,5.429,34.444)$ & $1.025$ \\
+$(d,s,c)$ & $(+,+,+)$ & $(250.3;186.6,37.90,392.7)$ & $15.821$ & $(-13.660,-6.156,19.816)$ & $0.822$ \\
+$(d,s,b)$ & $(+,+,+)$ & $(649.9;544.4,250.5,1533.5)$ & $25.493$ & $(-23.332,-15.828,39.160)$ & $1.194$ \\
+$(c,b,t)$ & $(+,+,+)$ & $(29566.8;18581.2,11512.7,59345.8)$ & $171.9$ & $(-136.3,-107.3,243.6)$ & $1.008$ \\
+$(u,c,t)$ & $(+,+,+)$ & $(22767.5;22326.1,13283.0,70050.7)$ & $150.9$ & $(-149.4,-115.3,264.7)$ & $1.547$ \\
+PDG $(s,b,t)$ & $(+,+,+)$ & $(26664.4;23601.6,9729.7,63638.9)$ & $163.3$ & $(-153.6,-98.639,252.3)$ & $1.212$ \\
+\bottomrule
+\end{tabular}
+\caption{Direct charge decompositions $q_i = z_0 + z_i$ for the quark/lepton
+  tuples discussed in the text.  The mass column lists the preon component masses
+  $(z_0^2; z_1^2,z_2^2,z_3^2)$.  Exact Koide corresponds to $R_z=1$.
+  Empirical rows use the same PDG conventions as
+  Table~\ref{tab:reference-angles}.}
+\end{table}
+
+The direct patterns suggest a clear hierarchy.  The lepton tuple and the
+exact/fitted quark-chain tuples all sit very close to $R_z=1$.
+The empirical $(0,s,c)$ and $(-s,c,b)$ tuples remain near this surface,
+whereas $(d,s,b)$, $(u,c,t)$ and $(s,b,t)$ drift farther away.
+A simple scan over the centred charges and their preon masses shows that the
+quark chain is unusually rigid.  In the exact solutions, passing from
+$(0,s,c)$ to $(-s,c,b)$ multiplies each centred preon mass by a factor of
+$3$.  Empirically the pattern softens but survives in recognisable form:
+the common piece nearly doubles, $z_0:15.10\to 30.21$, so its preon mass
+nearly quadruples, $z_0^2:228\to 913$ MeV.  Few other families exhibit such
+a clean component-wise scaling.
+
+\subsection{Inverse tuples}
+
+For inverse tuples there are two natural conventions.  One may either
+decompose the observable positive inverse-mass triple
+$K(1/m_1,1/m_2,1/m_3)$, or keep the signed inverse charges that define a
+specific seesaw branch.  To preserve the branch information, the exact
+I/II solutions below are written with their signed inverse charges in the
+$(d,s,b)$ order.
+
+\begin{table}[h]
+\centering
+\tiny
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}l c c c c c@{}}
+\toprule
+Tuple / seed & Signs & preon masses & $w_0$ & $(\omega_1,\omega_2,\omega_3)$ & $R_w$ \\
+\midrule
+\multicolumn{6}{@{}l}{\emph{Exact inverse solutions, $\sqrt{M_0}=1$ so preon masses are unitless}} \\
+I-1 & $(+,+,+)$ & $(0.106;0.054,0.445,0.129)$ & $3.076$ & $(4.286,-1.499,-2.787)$ & $1.000$ \\
+I-2 & $(+,+,+)$ & $(2.324;3.257,1.178,7.413)$ & $0.656$ & $(-0.554,0.921,-0.367)$ & $1.000$ \\
+II-1 & $(-,-,+)$ & $(1.608;12.000,1.608,0.862)$ & $-0.789$ & $(-0.289,-0.789,1.077)$ & $1.000$ \\
+II-2 & $(-,-,+)$ & $(0.313;0.191,22.392,0.232)$ & $-1.789$ & $(-2.289,0.211,2.077)$ & $1.000$ \\
+exact $K(1/s,1/c,0)$ & $(+,+,0)$ & $(2.250;1.206,16.794,2.250)$ & $0.667$ & $(0.911,-0.244,-0.667)$ & $1.000$ \\
+exact $K(1/s,1/c,+1/t)$ & $(+,+,+)$ & $(2.159;1.244,15.031,2.450)$ & $0.681$ & $(0.897,-0.258,-0.639)$ & $0.920$ \\
+exact $K(1/s,1/c,-1/t)$ & $(+,+,-)$ & $(2.347;1.170,18.887,2.073)$ & $0.653$ & $(0.925,-0.230,-0.694)$ & $1.088$ \\
+\midrule
+\multicolumn{6}{@{}l}{\emph{Empirical / fitted inverse tuples, preon masses in MeV}} \\
+PDG $K(1/d,1/s,1/b)$ & $(+,+,+)$ & $(26.60;13.84,122.3,31.41)$ & $0.194$ & $(0.269,-0.090,-0.178)$ & $0.996$ \\
+PDG $K(1/e,1/\mu,1/\tau)$ & $(+,+,+)$ & $(3.896;1.256,5.968,4.288)$ & $0.507$ & $(0.892,-0.409,-0.483)$ & $1.554$ \\
+PDG $K(1/u,1/c,1/t)$ & $(+,+,+)$ & $(17.81;5.085,22.915,18.177)$ & $0.237$ & $(0.443,-0.209,-0.235)$ & $1.753$ \\
+PDG $K(1/s,1/c,0)$ & $(+,+,0)$ & $(520.2;281.3,4014.0,520.2)$ & $0.044$ & $(0.060,-0.016,-0.044)$ & $0.993$ \\
+PDG $K(1/s,1/c,+1/t)$ & $(+,+,+)$ & $(501.7;289.0,3635.1,560.5)$ & $0.045$ & $(0.059,-0.017,-0.042)$ & $0.923$ \\
+PDG $K(1/s,1/c,-1/t)$ & $(+,+,-)$ & $(539.8;273.8,4455.3,484.1)$ & $0.043$ & $(0.060,-0.015,-0.045)$ & $1.069$ \\
+fit $K(1/d,1/s,1/b)$ [I-1/$b_+$] & $(+,+,+)$ & $(24.52;12.73,112.9,28.85)$ & $0.202$ & $(0.280,-0.094,-0.186)$ & $0.998$ \\
+\bottomrule
+\end{tabular}
+\caption{Inverse charge decompositions $w_i = w_0 + \omega_i$.
+  The mass column lists the inverse preon-component masses
+  $(1/w_0^2; 1/\omega_1^2,1/\omega_2^2,1/\omega_3^2)$.
+  The exact branch solutions use the signed inverse charges that generate
+  the seesaw branches; the empirical inverse tuples use the observable
+  positive inverse masses.}
+\end{table}
+
+The distinguished inverse down-type solutions again sit near $R_w=1$:
+exact II-1 gives $R_w=1$ exactly, the empirical
+$K(1/d,1/s,1/b)$ gives $R_w=0.996$, and the fitted surviving branch gives
+$R_w=0.998$.  By contrast, the inverse lepton and inverse up-type tuples
+move far away from this centred surface.
+In the corresponding factorised notation $w_i=\bar w\,\hat w_i$, the stronger
+statement proved in \S\ref{sec:projective-ii} is that the continued II-1 branch is projectively
+identical to the direct continued branch for both $q_{b\pm}$:
+\[
+  \left(-\frac{1}{q_s},\,\frac{1}{q_b},\,-\frac{q_c}{q_s q_b}\right)
+  = -\frac{1}{q_s q_b}\,(q_b,\,-q_s,\,q_c).
+\]
+At the exact $\delta=15^\circ$ point this reduces to the simple radical shape
+\[
+  ( -w_s,\,+w_b,\,w_d )_{\rm II-1}
+  = -\frac{3+\sqrt3}{6}\cdot\left(2,\frac{1-\sqrt3}{2},\frac{1+\sqrt3}{2}\right),
+\]
+which is the permutation partner of the exact direct $(-s,c,b)$ shape.
+This coincidence lives at the factorised/projective level; it is not an exact
+identity of the centred additive preon components.
+Beyond this exact one-parameter II-1 family, a continuity-tracked scan of the
+local $\varepsilon<0$ branches
+reveals one additional off-diagonal recurrence: on the $I$-2/$b_-$ branch,
+at
+\[
+  \varepsilon_\star \approx -0.01014665808,
+\]
+the factorised reduced shape coincides with the exact $I$-1 shape,
+again up to permutation.  Unlike the weaker drifts seen near the edge of a
+finite scan window, this is an interior recurrence and therefore appears to
+reflect a genuine algebraic relation rather than a boundary artefact.
+The same scan finds many exact sum and difference identities among
+$K(1/s,1/c,0)$ and $K(1/s,1/c,\pm 1/t)$, but these largely reflect the
+fact that the centred inverse charges differ only by the small top entry.
+This inverse family is therefore structured, but not in a mysterious way:
+the algebra is real, yet much of it is inherited from the simple
+$0,\pm 1/t$ deformation of the same seed.
+
+\subsection{Pion-led composite patterns}
+
+The retained meson tuples of \S11 can also be centred in the same way.
+If one interprets the common piece $z_0$ as a string-like background
+charge shared by the tuple, the pion-led direct tuples exhibit a fairly
+stable background scale together with a large negative pion residual:
+
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}l c c c c c@{}}
+\toprule
+Tuple & Type & preon masses [MeV] & $Q$ & common piece & residuals \\
+\midrule
+$(0,\pi^0,D^\pm)$ & seed & $(334.4;334.4,44.46,622.7)$ & $1.5012$ & $z_0 = 18.286$ & $(-18.286,-6.668,24.954)$ \\
+$(0,\pi^\pm,D_s)$ & seed & $(350.7;350.7,47.79,657.4)$ & $1.4973$ & $z_0 = 18.727$ & $(-18.727,-6.913,25.639)$ \\
+$(-\pi^0,D_s,\eta_c)$ & direct & $(848.2;1659.9,232.3,650.3)$ & $1.5006$ & $z_0 = 29.124$ & $(-40.742,15.242,25.501)$ \\
+$(-\pi^\pm,D_s,B^\pm)$ & direct & $(1229.9;2198.2,86.41,1412.9)$ & $1.4984$ & $z_0 = 35.070$ & $(-46.884,9.296,37.589)$ \\
+$(-\pi^\pm,D_s,B_s)$ & direct & $(1244.0;2216.9,82.73,1443.1)$ & $1.4978$ & $z_0 = 35.270$ & $(-47.084,9.096,37.989)$ \\
+$(-\pi^0,D_s,B_c)$ & direct & $(1392.9;2395.1,49.61,1755.3)$ & $1.4962$ & $z_0 = 37.322$ & $(-48.940,7.044,41.896)$ \\
+$(\pi^\pm,\pi^0,\eta_b)$ & direct & $(1610.1;801.6,812.7,3228.5)$ & $1.4981$ & $z_0 = 40.126$ & $(-28.312,-28.508,56.820)$ \\
+$K(1/\pi^0,1/\eta_c,1/W)$ & inverse & $(772.9;398.3,3205.5,950.1)$ & $1.5013$ & $w_0 = 0.036$ & $(0.050,-0.018,-0.032)$ \\
+\bottomrule
+\end{tabular}
+\caption{Centred charge decompositions for the zero-entry pion seeds and the
+  retained pion-led composite tuples.  The seed rows isolate the
+  $(0,\pi,D)$-type background before the sign-flipped heavy continuation to
+  $(-\pi,D,X)$.  The mass column lists the preon masses of the common and
+  residual pieces.}
+\end{table}
+
+Two qualitative features stand out.
+\begin{itemize}
+  \item The zero-entry $(0,\pi,D)$-type seeds form a lower common-piece band,
+    $z_0 \sim 18$--$19$ in MeV$^{1/2}$ units, already near Koide.
+    The retained $(-\pi,D,X)$ continuations sit in a distinct higher band
+    $z_0 \sim 29$--$40$.  Hence the pion sector does \emph{not} exhibit a
+    single universal background charge: the common piece depends strongly on
+    whether one is looking at a seed tuple or at its heavy continuation.
+  \item The direct pion tuples share a common pattern: the pion supplies the
+    dominant negative residual, the middle meson supplies a modest positive
+    one, and the heaviest state supplies the large positive counterweight.
+    In this sense the pion behaves like the exceptional light constituent
+    around which the rest of the tuple organizes.
+  \item The direct pion families and the retained inverse tuple do \emph{not}
+    point to a single universal background scale: the direct families have
+    $z_0 \sim 30$--$40$ in MeV$^{1/2}$ units, whereas the retained inverse
+    tuple has $w_0 \sim 0.036$ in MeV$^{-1/2}$ units.
+\end{itemize}
+
+Taken together, the scan points to three robust regularities rather than a
+large zoo of numerology: the factor-$3$ exact scaling along the quark chain,
+the split pion common-piece bands separating the $(0,\pi,D)$ seeds from the
+$(-\pi,D,X)$ continuations, and the coherence of the inverse down-type
+family near $R_w=1$.  By contrast, the direct/inverse near-reciprocal hits
+occur only sporadically, often with an additional overall minus sign, so the
+present data do not support a single universal electric-magnetic or seesaw
+duality between all direct and inverse preon charges.
+
+Among the retained meson benchmarks of \S11, no kaon appears.
+Moreover, the current benchmark set does not distinguish the neutral-kaon
+basis $(K^0,\bar K^0)$ from the mass basis $(K_S,K_L)$.
+If kaons are to participate in the same preon-pattern game, a dedicated
+scan in those alternative kaon bases is still needed.
+
+\end{document}

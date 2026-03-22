@@ -1,0 +1,867 @@
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\UU}{\mathrm{U}}
+\newcommand{\Nf}{N_{\!f}}
+\newcommand{\Nc}{N_{\!c}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\adj}{\mathrm{adj}}
+\newcommand{\MeV}{\,\mathrm{MeV}}
+\newcommand{\GeV}{\,\mathrm{GeV}}
+\newcommand{\TeV}{\,\mathrm{TeV}}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Quadratic charge--mass relation from gauged family symmetry}
+
+\author{XXXXX}
+\address{XXXXX}
+
+\begin{abstract}
+In any gauge theory, the classical field energy of a static source
+scales as the square of its charge:
+Gauss's law gives $F \propto q$, and the gauge kinetic term
+$\mathcal{L} \supset F^2$ gives energy~$\propto q^2$.
+Applied to a $\UU(3)$ family symmetry with charges
+$q_i = z_0 + z_i$, this motivates the mass ansatz
+$m_i = \mu\,q_i^2$, whose ratio
+$K \equiv \sum q_i^2/(\sum q_i)^2 = 2/3$
+is an algebraic identity of the charge normalisation.
+We show that $n = 2$ is the unique nontrivial power
+for which this ratio is independent of the charge direction
+in the Cartan subalgebra
+(proven analytically for integer~$n$;
+verified numerically for real~$n$): the binomial coefficient
+$n(n{-}1)(n{-}2)/6$ is nonzero for all real $n \neq 0,1,2$,
+introducing $\alpha$-dependent terms through
+$\sum z_i^3 \propto \cos 3\alpha$.
+In a minimal $\mathcal{N}=1$ supersymmetric $\SU(3)$ gauge theory
+with $\Nf = \Nc = 3$, the confined meson sector and its adjugate
+preserve two holomorphic mass spectra satisfying
+$K = 2/3$ and $K^{-1} = 2/3$ respectively,
+where the $q^2$ dependence is an input hypothesis
+protected by the non-renormalisation theorem.
+Applied to the charged-lepton spectrum
+(one-parameter prediction:
+$m_\tau^{\rm pred} = 1776.97\MeV$,
+$0.9\sigma$ from experiment)
+and the down-quark spectrum
+(zero-parameter phenomenological test: $1.2\sigma$),
+the ratios agree with $K = 2/3$
+to $0.001\%$ and $0.3\%$ respectively.
+\end{abstract}
+
+\end{frontmatter}
+
+%----------------------------------------------------------------------
+\section{Introduction}
+The fermion masses and mixing parameters account for
+13 of the 19 free parameters of the Standard Model
+(9 masses, 3 CKM angles, 1 CP phase),
+yet no principle within the SM constrains their values.
+The empirical observation by Koide~\cite{Koide:1983qe}
+that the charged-lepton masses satisfy
+$(\sum m_i)/(\sum\sqrt{m_i})^2 = 2/3$ to $0.001\%$
+has resisted a compelling theoretical explanation
+for four decades, despite extensive work on
+flavour symmetries~\cite{FroggattNielsen:1979},
+composite models~\cite{Rivero:2005},
+and discrete family groups~\cite{Ma:2006}.
+We show that gauging a $\UU(3)$ family symmetry with the
+standard gauge kinetic term motivates a quadratic
+mass--charge relation,
+$m_i = \mu\,q_i^2$,
+and that if this ansatz is adopted as input,
+$\mathcal{N}{=}1$ supersymmetric confinement
+\emph{preserves} it to the infrared and simultaneously
+generates an inverse sector, linking two
+distinct fermion spectra through
+the meson--adjugate duality of the confined phase.
+
+The argument proceeds in three steps.
+First, we present a \emph{field-energy argument}:
+in any $\UU(1)$ gauge theory, the classical field energy
+of a static charged source scales as~$q^2$.
+Second, we show a \emph{uniqueness result}:
+$n = 2$ is the only monomial power for which the
+ratio $K = \sum q_i^n / (\sum q_i^{n/2})^2$ is independent
+of the charge direction in the family Cartan subalgebra.
+Third, we exhibit a minimal $\SU(3)$ SQCD model
+whose confined phase preserves $K = 2/3$ (direct)
+and simultaneously generates $K^{-1} = 2/3$ (inverse)
+from a single gauge sector.
+
+%----------------------------------------------------------------------
+\section{Field-energy argument}
+
+In any theory containing a $\UU(1)$ gauge field
+with kinetic term
+$\mathcal{L} \supset -(1/4g^2)F_{\mu\nu}^2$,
+the classical field energy of a static source of charge~$q$
+scales as~$q^2$.
+Gauss's law is linear: $\nabla\!\cdot\!\mathbf{E} = g^2\rho$,
+with $\rho_i(\mathbf{x}) = q_i\,\rho_0(\mathbf{x})$
+for a source whose spatial profile~$\rho_0$ is
+charge-independent.  Therefore
+$\mathbf{E}_i(\mathbf{x}) = q_i\,\mathbf{E}_0(\mathbf{x})$
+by linearity, and the stored field energy is
+\begin{equation}
+  U_i = \frac{1}{2g^2}\!\int\!d^3x\;\mathbf{E}_i^2
+  \;=\; q_i^2\;\mu\,,
+  \label{eq:field_energy}
+\end{equation}
+with $\mu = (2g^2)^{-1}\!\int\!d^3x\,\mathbf{E}_0^2$
+generation-independent.
+
+The result is universal: the quadratic gauge kinetic term
+is the leading low-energy action for any abelian gauge field.
+It is the gauge-theoretic version of the capacitor formula
+$E = Q^2/(2C)$.
+The integral in Eq.~(\ref{eq:field_energy}) is formally
+UV-divergent for a point source;
+confinement of the family gauge group provides the
+finite size and renders~$\mu$ a finite function of
+$\Lambda_F$ and~$g_F$, determined in principle by
+the confining dynamics~\cite{Sumino:2009}.
+
+We emphasise that the extension from classical field
+energy to the mass of a confined composite is a
+\emph{hypothesis}: the $q^2$ scaling is rigorous for
+a static abelian source in the weak-field regime.
+In a non-abelian confining theory, string tensions
+depend on the full representation, not just
+the Cartan charges; however, since the family
+charges $q_i$ are Cartan eigenvalues of a single
+representation, the abelian scaling
+$q_i^2$ is the natural leading-order result.
+We conjecture that it survives in the strongly-coupled
+confining dynamics of the family gauge group.
+
+The same $q^2$ structure persists in $\mathcal{N}{=}1$
+supersymmetry: the bosonic Hamiltonian after $D$-term
+elimination contains $\mathbf{E}^2/(2g_F^2)$ and
+$g_F^2(\sum_i q_i|\phi_i|^2)^2/2$, again positive
+forms sourced by~$q_i$.
+This does not add probative force beyond the
+classical argument---it merely confirms that SUSY
+does not alter the $q^2$ scaling of the gauge
+kinetic contribution.
+In the confining phase, the total composite mass is
+conjectured to receive a generation-dependent
+piece $\Delta M_i = q_i^2\,\mu$, with $\mu$ set by
+the non-perturbative dynamics.
+If this is the dominant generation-dependent contribution
+to the composite mass---i.e.\ any charge-independent
+binding energy is universal---then
+$m_i \approx m_0 + q_i^2\,\mu$.
+Since $K$ involves $\sqrt{m_i}$, a nonzero $m_0$
+would spoil $K = 2/3$; we therefore require
+$m_0 \ll q_{\rm min}^2\,\mu \sim m_e$.
+In the supersymmetric model of Section~5,
+this is natural: the charge-independent part
+of the superpotential is a constant
+(the cosmological-constant term),
+which vanishes in the SUSY limit and is
+protected by the non-renormalisation theorem.
+Physical SUSY breaking introduces
+$m_0 \sim F/\Lambda$, negligible for
+$F \ll m_e\,\Lambda$.
+This is not the BPS mass $M \geq |Z|$
+(linear in charge), which applies to
+point-like dyons on the Coulomb branch.
+Our composites are extended objects on the
+confining branch: their mass receives
+contributions from the field energy stored
+in the confining flux tube, which has a
+charge-independent spatial profile set
+by~$\Lambda$ and~$g_F$.
+The $q^2$ scaling is therefore a consequence
+of the gauge kinetic term, not of the
+central-charge algebra.
+
+%----------------------------------------------------------------------
+\section{Family charges}
+Consider a $\UU(3)$ family symmetry.
+The Cartan subalgebra is parametrised by a traceless
+matrix $T = \mathrm{diag}(z_1, z_2, z_3)$ with
+$\sum z_i = 0$ and a universal component $z_0 = 1/\sqrt{6}$
+fixed by canonical normalisation
+(see e.g.~\cite{Georgi:1999,Foot:1994}).
+The total family charge of the $i$-th species is
+\begin{equation}
+  q_i \;=\; z_0 + z_i
+  \;=\; \frac{1}{\sqrt{6}}
+    + \frac{1}{\sqrt{3}}\cos\!\bigl(\alpha + \tfrac{2\pi(i{-}1)}{3}\bigr),
+  \quad i = 1,2,3\,,
+  \label{eq:qi}
+\end{equation}
+where $\alpha$ parametrises the direction in the
+two-dimensional Cartan plane.
+The normalisation conditions are
+$\sum q_i = 3z_0 = \sqrt{3/2}$ and
+$\sum q_i^2 = 3z_0^2 + \sum z_i^2 = 1/2 + 1/2 = 1$
+(using $\sum z_i^2 = (1/3)\sum\cos^2(\alpha{+}2\pi i/3) = 1/2$).
+Positivity of all three charges requires
+$|z_i| < z_0$ for each~$i$, i.e.\
+$\alpha$ is bounded to the interval in which
+no $q_i$ vanishes; the physical value
+$\alpha_{\rm lep} = 0.222$~rad lies well within
+this domain.
+
+%----------------------------------------------------------------------
+\section{Why \texorpdfstring{$n=2$}{n=2}}
+Since
+$z_i = (1/\sqrt{3})\cos(\alpha + 2\pi i/3)$,
+the power sums $\sum z_i^p$ vanish for $p = 1$
+and are $\alpha$-independent for $p = 2$
+(since $\sum \cos^2(\alpha + 2\pi i/3) = 3/2$
+by the triple-angle identity), but
+$\sum z_i^3 \propto \cos 3\alpha$ varies with~$\alpha$.
+Now expand $\sum q_i^n = \sum(z_0+z_i)^n$
+by the binomial theorem: the term
+$\binom{n}{3}z_0^{n-3}\sum z_i^3$ is present
+and $\alpha$-dependent for every $n \geq 3$.
+For $n = 2$, only $p = 0,1,2$ contribute
+and the numerator $\sum q_i^2 = 1$ is constant;
+the denominator $(\sum q_i)^2 = 3/2$ is likewise
+constant, giving
+$K_2 = 2/3$ independent of~$\alpha$.
+For any real $n \neq 0, 1, 2$, the generalised binomial
+coefficient $n(n{-}1)(n{-}2)/6$ is nonzero,
+so the numerator $\sum q_i^n$ acquires $\alpha$-dependent
+terms through $\sum z_i^3 \propto \cos 3\alpha$.
+For integer $n \geq 3$, this constitutes an
+analytical proof that $K_n$ depends on~$\alpha$.
+For non-integer $n$, the binomial expansion is an
+infinite series; the leading Fourier mode
+$\cos 3\alpha$ enters with nonzero coefficient, and
+cancellation among the infinitely many higher-order
+modes would require a fine-tuned identity.
+We have verified numerically that no such
+cancellation occurs for any tested value:
+$K_n$ varies with~$\alpha$ for all sampled
+real $n$ in $[-5, 10]$ at spacing $0.001$,
+except~$n = 2$ (and the trivial $n = 0$);
+we conjecture that no further exceptions exist.
+For $n = 1$, the numerator is $\alpha$-independent
+but the denominator $(\sum q_i^{1/2})^2$ is not.
+For $n = 0$, $K_0 = 1/3$ trivially.
+The argument generalises to $\UU(N)$: for
+any~$N$, $\sum q_i^2$ is direction-independent
+in the Cartan subalgebra
+(since $\sum z_i^2 = \Tr(T^2)$ is a Casimir),
+so $K_2 = 2/3$ holds for all~$N$.
+The choice $N = 3$ is fixed by the
+three observed generations.
+
+%----------------------------------------------------------------------
+\section{The minimal model: s-confinement}
+
+We consider $\SU(3)$ supersymmetric QCD with
+$\Nf = \Nc = 3$ flavours of chiral superfields:
+fundamentals~$Q^i$ and antifundamentals~$\tilde{Q}_i$
+($i = 1,2,3$), all neutral under the Standard Model.
+We briefly review the infrared dynamics,
+following~\cite{Seiberg:1994bz,IntriligatorSeibergShenker:1995,Csaki:1996zb};
+the reader familiar with s-confinement may skip
+to~Eq.~(\ref{eq:W}).
+
+For $\Nf = \Nc$, the theory \emph{s-confines}:
+unlike ordinary QCD, there is no chiral symmetry
+breaking and no phase transition.
+Instead, the moduli space is smoothly described
+at all scales by gauge-invariant composite operators.
+The infrared degrees of freedom are:
+\begin{itemize}
+\item $3 \times 3 = 9$ mesons: $M^i{}_j = Q^i\tilde{Q}_j$\,,
+\item $1$ baryon: $B = \epsilon_{abc}\,Q^a Q^b Q^c$\,,
+\item $1$ antibaryon: $\tilde{B} = \epsilon^{abc}\,
+  \tilde{Q}_a\tilde{Q}_b\tilde{Q}_c$\,,
+\end{itemize}
+subject to the \emph{quantum-modified constraint}
+\begin{equation}
+  \det M - B\tilde{B} = \Lambda^6\,,
+  \label{eq:constraint}
+\end{equation}
+where $\Lambda$ is the dynamical scale.
+The constraint is enforced in the superpotential
+by a Lagrange multiplier~$X$.
+
+Each meson $M^i{}_j$ is a chiral superfield
+containing a complex scalar and a Weyl fermion.
+The fermionic components are called \emph{mesinos}:
+they are the composite fermions of the confined theory,
+analogous to constituent quarks in hadronic physics
+but carrying no colour.
+
+The mass deformation breaks $\UU(3)_L \times \UU(3)_R$
+to its Cartan, ensuring $M$ is diagonal at the vacuum.
+We deform the theory by UV mass terms motivated
+by the field-energy argument:
+\begin{equation}
+  W = X\bigl(\det M - B\tilde{B} - \Lambda^6\bigr)
+    + \sum_i m_i\,M^i{}_i\,,
+  \label{eq:W}
+\end{equation}
+with $m_i = \mu\,q_i^2$, where $q_i = z_0 + z_i$ are
+the family charges defined in Eq.~(\ref{eq:qi}).
+On the mesonic branch ($B = \tilde{B} = 0$),
+the $F$-flatness conditions
+$\partial W/\partial M^i{}_i = 0$ and
+$\partial W/\partial X = 0$ give the vacuum
+(writing $P \equiv m_1 m_2 m_3$):
+\begin{equation}
+  \langle M_i \rangle = \frac{\Lambda^2\,P^{1/3}}{m_i}
+  \;\propto\; \frac{1}{q_i^2}\,.
+  \label{eq:Mvev}
+\end{equation}
+The key observation is that the VEVs are \emph{inversely}
+proportional to the UV masses:
+a heavy preon produces a light meson VEV, and vice versa.
+
+The mesino mass matrix is obtained from
+$\partial^2 W / \partial M_i \partial M_j$
+evaluated at the vacuum.
+The $F$-term condition
+$\partial W/\partial M^i{}_i = X\,\adj(M)_i + m_i = 0$
+gives $X = -m_i/\adj(M)_i$.
+Since $\adj(M)_i = \Lambda^6/M_i$ and
+$M_i = \Lambda^2 P^{1/3}/m_i$ (Eq.~\ref{eq:Mvev}),
+one finds $\adj(M)_i = \Lambda^4 m_i/P^{1/3}$,
+so $m_i/\adj(M)_i = P^{1/3}/\Lambda^4$
+is generation-independent.
+Therefore $X = -(P/\Lambda^{12})^{1/3}$.
+Since $X$ is generation-independent,
+the mass matrix
+$\partial^2 W/\partial M_i\partial M_j$
+is diagonal with entries
+$m_i + X\,\partial\adj(M)_i/\partial M_i$.
+Evaluating on the vacuum~\cite{Csaki:1996zb},
+the diagonal mesinos acquire holomorphic masses
+\begin{equation}
+  m_{\tilde{M}_i} \;\propto\; m_i \;=\; \mu\,q_i^2\,,
+  \label{eq:mesino_mass}
+\end{equation}
+where the proportionality constant is
+generation-independent (it depends on $\Lambda$
+and $P$ but not on~$i$) and therefore cancels
+in $K$.
+This is exact at the holomorphic level: by the
+non-renormalisation theorem~\cite{Seiberg:1993vc},
+the superpotential mass parameters $m_i$ receive no
+perturbative corrections.
+The physical (pole) masses of the mesinos are
+$m_{\rm phys,\,i} = Z_i^{-1}\,m_i$,
+where $Z_i$ is the K\"ahler metric for the
+composite field~$M^i{}_i$.
+For physical masses to satisfy $K = 2/3$,
+one requires $Z_i$ to be generation-independent
+at leading order.
+This is an assumption whose justification
+proceeds as follows.
+Before the mass deformation, the microscopic theory
+has an $\SU(3)_L \times \SU(3)_R$ global symmetry
+under which all flavours are equivalent, so
+$Z_i = Z$ identically.
+The mass deformation $W \supset m_i M_i$ breaks this
+symmetry; corrections to the K\"ahler metric are
+constrained by dimensional analysis and reality to
+enter as $\delta Z_i/Z \sim c\,(m_i/\Lambda)^2$,
+where $c$ is an $\mathcal{O}(1)$ coefficient.
+For the heaviest lepton ($m_\tau \approx 1.78\GeV$)
+with $\Lambda \sim 1\TeV$,
+$\delta Z_\tau/Z \sim 3 \times 10^{-6}$,
+below the observed $0.001\% = 10^{-5}$ precision
+of the lepton ratio.
+For the inverse (quark) sector, the relevant
+masses enter through the meson VEVs
+$\langle M_i \rangle \propto 1/m_i$;
+the same estimate gives
+$\delta Z_b/Z \sim (m_b/\Lambda)^2 \sim 2 \times 10^{-5}$,
+consistent with the coarser $0.3\%$ quark-sector
+precision but only marginally so.
+QCD corrections are an additional source of
+generation-dependent K\"ahler dressing;
+however, since QCD is flavour-blind
+(the anomalous dimension $\gamma_m$ is
+flavour-universal to five loops~\cite{Martin:2019}),
+these enter only at order
+$\alpha_s \times (m_i/\Lambda)^2$, which is subdominant.
+A rigorous determination of~$Z_i$ requires the
+non-perturbative K\"ahler potential,
+which is beyond current techniques;
+the estimates above are necessary-order checks,
+not proofs of generation-universality.
+The $q_i^2$ pattern is an input (set in the UV by the
+field-energy argument); the virtue of the s-confining
+model is that it \emph{preserves} this pattern to
+the infrared and simultaneously generates the
+inverse sector.
+
+\section{Direct and inverse sectors}
+
+The confined theory produces two distinct mass spectra
+from a single meson matrix.
+To see why, note that $M$ enters the physics in two ways.
+
+\paragraph{Direct sector: mesino masses.}
+The mesinos---the fermionic partners of the meson
+scalars---have masses $m_i = \mu\,q_i^2$.
+These are the UV mass parameters themselves, protected
+by holomorphy.
+Since $m_i \propto q_i^2$, the ratio
+$K = \sum q_i^2/(\sum q_i)^2 = 2/3$ is automatic.
+
+\paragraph{Inverse sector: meson VEVs.}
+The scalar meson VEVs are
+$\langle M_i \rangle \propto 1/m_i \propto 1/q_i^2$
+(Eq.~\ref{eq:Mvev}).
+If an additional field acquires its mass through a
+flavour-diagonal Yukawa coupling to
+$\langle M \rangle$, it will have
+$m_{\rm phys} \propto \langle M_i \rangle \propto 1/q_i^2$.
+The identification of such a field with the
+down-type quarks is an additional input to the
+framework, motivated by three observations:
+(i)~the down-quark hierarchy
+$m_d \ll m_s \ll m_b$ matches
+the inverse-charge ordering
+$1/q_1^2 \ll 1/q_2^2 \ll 1/q_3^2$;
+(ii)~$K^{-1}(u,c,t) = 0.92$
+deviates from $2/3$ by $38\%$,
+ruling out the up quarks;
+and (iii)~among the $\binom{6}{3} = 20$
+quark triples, $(d,s,b)$ gives the smallest
+$|K^{-1} - 2/3|$.
+A first-principles derivation would require
+specifying the SM embedding
+(see ``Open sectors'' below);
+the present letter treats the sector assignment
+as phenomenological, with the statistical
+significance addressed under ``Look-elsewhere.''
+Denoting these inverse-sector masses by
+$\hat m_i \propto 1/q_i^2$
+(to distinguish them from the direct-sector
+$m_i \propto q_i^2$), the \emph{inverse} ratio
+(we write $K^{-1}$ as shorthand for
+``$K$ evaluated on inverse masses,''
+i.e.\ $K(1/\hat m_1,1/\hat m_2,1/\hat m_3)$,
+not the reciprocal~$1/K$)
+\begin{equation}
+  K^{-1} \;\equiv\;
+  K\!\left(\frac{1}{\hat m_1},\frac{1}{\hat m_2},
+  \frac{1}{\hat m_3}\right)
+  = \frac{\sum q_i^2}{\bigl(\sum q_i\bigr)^2}
+  = \frac{2}{3}
+  \label{eq:Kinv_derived}
+\end{equation}
+is equally automatic: since
+$1/\hat m_i \propto q_i^2$,
+the ratio reduces to the same normalisation identity.
+
+This is the central structural result.
+The same $\SU(3)$ gauge dynamics that confines the
+preons into mesons automatically provides two sets
+of composite operators---$M$ and $M^{-1}$---whose
+mass spectra are related by inversion.
+One set gives $K = 2/3$; the other gives $K^{-1} = 2/3$.
+Both are consequences of the same underlying
+charge normalisation, not separate numerical accidents.
+
+\paragraph{The adjugate matrix.}
+The relationship $M \leftrightarrow M^{-1}$ can be
+stated invariantly using the adjugate (classical adjoint):
+\begin{equation}
+  \adj(M) \;=\; (\det M)\,M^{-1}
+  \;=\; \Lambda^6\,M^{-1}\,,
+  \label{eq:adjugate}
+\end{equation}
+where the last equality uses the quantum
+constraint~(\ref{eq:constraint}).
+The adjugate eigenvalues are
+$\adj(M)_i = \Lambda^6/\langle M_i\rangle
+\propto m_i \propto q_i^2$.
+Thus $\adj(M)$ and $M$ carry complementary information:
+\begin{equation}
+  \langle M_i\rangle \propto 1/q_i^2\,,
+  \qquad
+  \adj(M)_i \propto q_i^2\,.
+  \label{eq:dual_pair}
+\end{equation}%
+\footnote{The composite pair $(M_i, \adj(M)_i)$ has the
+mathematical structure of an $\mathcal{N}{=}2$
+hypermultiplet~\cite{SeibergWitten:1994a};
+this doublet structure emerges from confinement
+plus isospin and provides a natural pairing
+of the direct and inverse branches.
+A quantitative derivation of the inter-branch
+coupling is left to future work.}
+
+The $\SU(3)_F^3$ anomaly cancels
+automatically ($\Nf$ fundamentals vs.\ $\Nf$ antifundamentals),
+and 't~Hooft anomaly matching between UV quarks and
+IR composites is satisfied for
+$\Nf = \Nc$~\cite{Csaki:1996zb}.
+
+%----------------------------------------------------------------------
+\section{Experimental verification}
+We now compare the
+predictions of the framework with data.
+The sector angle~$\alpha$ is a free parameter
+(a modulus of the family-charge direction).
+
+\paragraph{Direct sector (charged leptons).}
+The two parameters $\alpha_{\rm lep}$ and $\mu$
+are jointly determined from the two inputs
+$m_e$ and $m_\mu$, giving
+$\alpha_{\rm lep} = 0.2222\,\mathrm{rad}$ and
+$\mu = 1883\MeV$.
+The formula $m_i = \mu\,q_i^2$ then predicts
+$m_\tau = 1776.97\MeV$, to be compared with
+$m_\tau^{\rm exp} = 1776.86 \pm 0.12\MeV$~\cite{PDG:2024}
+($0.9\sigma$; the model encodes a one-parameter
+relation among three observables).
+Equivalently, the experimental Koide ratio
+\begin{equation}
+  K(e,\mu,\tau) \;=\;
+  \frac{\sum m_i}{\bigl(\sum \sqrt{m_i}\bigr)^2}
+  \;=\; 0.666661\,,
+  \label{eq:K_lep}
+\end{equation}
+deviates from the predicted value $2/3$
+by $0.001\%$~\cite{PDG:2024}.
+This ratio was first observed empirically by
+Koide~\cite{Koide:1983qe} in a formulation using
+square roots of masses; the charge-squared form
+makes the gauge origin transparent.
+The radiative stability of the relation was
+studied by Sumino~\cite{Sumino:2009}
+in the context of a gauged $\UU(3)$ family
+symmetry~\cite{Koide:2006},
+and independently by
+G\'erard~\cite{Gerard:2022}.
+
+\paragraph{Inverse sector (down quarks).}
+Since $K$ is a ratio of mass sums, it is invariant
+under a common rescaling $m_i \to c\,m_i$
+(the factor~$c$ cancels between numerator
+and denominator).
+When the QCD anomalous dimension $\gamma_m$ is
+flavour-universal---as it is to five-loop
+order~\cite{Martin:2019}---all $\overline{\rm MS}$
+masses at scale~$Q$ are related by such a common
+rescaling, so $K^{-1}$ is scale-independent
+to the accuracy of the flavour-universal
+QCD anomalous dimension.
+Using the PDG~2024 recommended
+values~\cite{PDG:2024}
+($m_d(2\GeV) = 4.70 \pm 0.07\MeV$,
+$m_s(2\GeV) = 93.5 \pm 0.8\MeV$,
+$m_b(m_b) = 4.183 \pm 0.007\GeV$),
+the inverse ratio is
+\begin{equation}
+  K^{-1}(d,s,b) \;\equiv\;
+  \frac{\sum_i m_i^{-1}}
+  {\bigl(\sum_i m_i^{-1/2}\bigr)^2}
+  \;=\; 0.6647\,,
+  \label{eq:Kinv}
+\end{equation}
+a $0.3\%$ deviation from $2/3$.
+(This is a conservative estimate from the
+mixed-scale PDG convention; at a common scale
+$Q = 2\GeV$, the deviation shrinks to $\sim 0.03\%$.)
+The deviation is well within the $\pm 1\sigma$ error band
+(Table~\ref{tab:K}) and is small compared with the
+naive K\"ahler correction scale
+$\alpha_s/\pi \sim 7\%$ at $Q = m_b$,
+suggesting partial cancellation between
+perturbative and non-perturbative
+contributions~\cite{Koide:2005,Zenczykowski:2012,RodejohannZhang:2011}.
+
+\begin{table}[b]
+\caption{Predicted and observed ratios.
+  Lepton masses: pole values~\cite{PDG:2024}.
+  Quark masses: PDG~2024 recommended
+  values~\cite{PDG:2024}
+  ($m_d = 4.70 \pm 0.07$,
+  $m_s = 93.5 \pm 0.8\MeV$ at $Q = 2\GeV$;
+  $m_b(m_b) = 4.183 \pm 0.007\GeV$;
+  the mixed-scale convention is justified
+  by the flavour-universal QCD $\gamma_m$).
+  Since $K$ is invariant under $m_i \to c\,m_i$
+  and $\gamma_m$ is flavour-universal,
+  $K^{-1}$ is scale-independent;
+  Fig.~\ref{fig:running} confirms stability across
+  14 decades.
+  Uncertainties propagated from mass errors via
+  numerical $\partial K / \partial m_i$.
+  The lepton sector has two fitted parameters
+  ($\alpha_{\rm lep}$, $\mu$); the genuine
+  one-parameter prediction is $m_\tau^{\rm pred} =
+  1776.97\MeV$ vs.\ $m_\tau^{\rm exp} =
+  1776.86 \pm 0.12\MeV$~\cite{PDG:2024} ($0.9\sigma$).
+  The quark sector is a zero-parameter phenomenological test.}
+\label{tab:K}
+{\small
+\begin{tabular}{lcccc}
+  \hline\hline
+  Sector & Predicted & Observed & $1\sigma$ & Dev.\ ($n\sigma$) \\
+  \hline
+  $(e,\mu,\tau)$ direct    & $2/3$  & $0.666661$ & $0.000007$ & $0.9$ \\
+  $(d,s,b)$ inverse        & $2/3$  & $0.6647$   & $0.0017$ & $1.2$   \\
+  \hline\hline
+\end{tabular}}
+\end{table}
+
+Rather than proposing an isolated mass relation,
+the framework exhibits a nontrivial reduction
+of fermion-sector structure:
+the charged-lepton (direct) and inverse down-quark
+tuples appear as two faces of a common
+supersymmetric origin.
+
+\paragraph{RG stability.}
+Using the five-loop $\overline{\rm MS}$ running
+implemented in SMDR~\cite{Martin:2019},
+Fig.~\ref{fig:running} shows $K^{-1}(d,s,b)$
+and $K(e,\mu,\tau)$ from $Q = 1\GeV$ to the Planck scale.
+The $\pm 1\sigma$ bands (propagated from PDG mass uncertainties)
+demonstrate that both ratios remain within $0.3\%$
+of~$2/3$ across the entire range.
+The inverse down-quark relation is consistent with
+$K^{-1} = 2/3$ at every scale tested.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/koide_inv_bw.pdf}
+\caption{Running of $K^{-1}(d,s,b)$ (solid) and $K(e,\mu,\tau)$
+(dashed) from $Q = 1\GeV$ to the Planck scale,
+computed with SMDR 5-loop RG evolution~\cite{Martin:2019}.
+The purpose of the figure is to demonstrate
+scale-independence, not to read off absolute values
+(which should be taken from Table~\ref{tab:K},
+since the SMDR default light-quark inputs differ from
+PDG~2024 by up to~$7\%$).
+Shaded: $\pm 1\sigma$ from PDG mass uncertainties.
+Dotted: particle thresholds.}
+\label{fig:running}
+\end{figure}
+
+%----------------------------------------------------------------------
+\section{Discussion}
+The overall scale
+$\mu \approx 1883\MeV$ and the sector angle~$\alpha$
+are not determined by the present argument.
+Computing~$\mu$ requires the K\"ahler metric on the
+quantum-modified moduli space, which is not constrained
+by holomorphy.
+
+\paragraph{Falsifiable bound.}
+The radiative stability of $K = 2/3$ constrains the
+family symmetry breaking scale.
+Below~$\Lambda_F$, SM gauge loops (principally
+electromagnetic) generate flavour-dependent
+self-energy corrections that would spoil
+$K = 2/3$ unless compensated by family gauge
+boson exchange.
+Sumino~\cite{Sumino:2009} showed that the leading
+electromagnetic correction is cancelled by the
+exchange of degenerate $\UU(3)_F$ gauge bosons,
+with the residual correction suppressed by
+family gauge boson mass splittings.
+The observed $\delta K < 10^{-5}$ for charged leptons
+then requires the family gauge boson masses
+$M_F \lesssim \mathcal{O}(10)\TeV$.
+In our framework, Higgs--confinement
+complementarity~\cite{Csaki:1996zb}
+ensures that the confining phase is smoothly
+connected to a Higgsed phase in which the
+$\SU(3)_F$ gauge bosons acquire masses
+$M_F \sim g_F \langle M \rangle^{1/2}$
+and can mediate the Sumino cancellation.
+(Since the meson VEVs span a large dynamical
+range, the resulting gauge boson masses are
+non-degenerate; whether the residual corrections
+preserve $\delta K < 10^{-5}$ requires a
+quantitative analysis that we leave to future work.)
+Non-observation of flavour-changing neutral currents
+(e.g.\ $\mu \to e\gamma$, $K$--$\bar{K}$ mixing)
+from family gauge boson exchange constrains
+$M_F \gtrsim \mathcal{O}(1)\TeV$;
+the window $1$--$10\TeV$ is testable,
+contingent on the Sumino cancellation surviving
+the non-degeneracy noted above.
+
+\paragraph{Look-elsewhere.}
+The framework predicts that if $K = 2/3$ holds
+for a direct sector, there exists an inverse sector
+satisfying $K^{-1} = 2/3$, but does not specify
+which SM fermions populate each sector.
+The direct branch (charged leptons) is selected
+a~priori by the Koide relation
+itself~\cite{Koide:1983qe}.
+The inverse branch (down quarks) is a phenomenological
+identification; its statistical weight must
+account for the freedom to search among
+alternative triples.
+Since the inverse sector arises from meson VEVs
+in the \emph{same} confined gauge theory
+that produces the direct (lepton) sector,
+only colour-carrying composites---i.e.\ quarks---are
+candidates; cross-sector (lepton--quark) triples are
+excluded by this structural constraint.
+Among the $\binom{6}{3} = 20$ triples of the
+six quarks, only $(d,s,b)$ satisfies
+$|K^{-1} - 2/3| < 0.5\%$;
+a Monte Carlo estimate using $10^7$ random mass
+spectra (6~quark masses drawn log-uniformly on
+$[2, 1.8 \times 10^5]\MeV$) gives a probability
+$\sim 5 \times 10^{-3}$ of the best inverse
+triple lying within~$0.3\%$.
+If both sectors are taken as pre-selected,
+the joint probability drops to~$< 10^{-6}$.
+
+\paragraph{Open sectors.}
+The up-quark sector and neutrino masses are not addressed;
+both require additional structure
+(a seesaw or Majorana mechanism for the latter).
+The 9~mesinos $M^i{}_j$ transform as
+$(\mathbf{3},\bar{\mathbf{3}})$ under the
+$\SU(3)_L \times \SU(3)_R$ flavour symmetry.
+If $\SU(2)_L$ is embedded in $\SU(3)_L$ as the
+upper $2 \times 2$ block, the decomposition
+$\mathbf{3} \to \mathbf{2} + \mathbf{1}$
+provides a natural split into doublet and singlet
+composites, from which the SM quantum numbers
+can in principle be assigned.
+The full Standard Model embedding, electroweak charges,
+and the origin of the CKM matrix through non-holomorphic
+K\"ahler dressing are deferred to a companion work.
+
+%----------------------------------------------------------------------
+\section{Summary}
+We have shown that:
+(i)~the classical field energy of any $\UU(1)$ gauge
+theory scales as $U \propto q^2$, motivating
+the mass ansatz $m \propto q^2$
+which we hypothesise survives in
+the confining regime;
+(ii)~$n = 2$ is the unique monomial for which the ratio
+$K = \sum q_i^2/(\sum q_i)^2$ is direction-independent;
+(iii)~a minimal $\mathcal{N}{=}1$ $\SU(3)$ gauge theory
+with three flavours realises both the direct and inverse
+sectors through its meson and adjugate composites.
+The quadratic charge dependence of the
+holomorphic masses is exact
+(protected by the non-renormalisation theorem);
+extending $K = 2/3$ to physical masses
+requires a generation-universal K\"ahler metric,
+which is natural at leading order but receives
+non-perturbative corrections.
+The one-parameter lepton prediction gives
+$m_\tau = 1776.97\MeV$ ($0.9\sigma$ from experiment);
+the zero-parameter inverse down-quark
+phenomenological test agrees at~$1.2\sigma$.
+If the Sumino cancellation mechanism~\cite{Sumino:2009}
+can be adapted to the non-degenerate gauge boson
+spectrum of the complementary Higgs phase---which
+requires further quantitative analysis---family
+gauge boson masses would be bounded to
+$1$--$10\TeV$.
+
+\paragraph*{Acknowledgments.}
+During the preparation of this work the author used Claude
+(Anthropic) for algebraic verification, numerical checks,
+and drafting assistance.
+The author reviewed and edited all content and takes full
+responsibility for the publication.
+
+\begin{thebibliography}{99}
+
+\bibitem{Georgi:1999}
+  H.~Georgi,
+  \textit{Lie Algebras in Particle Physics},
+  2nd ed.\ (Westview, 1999).
+
+\bibitem{Foot:1994}
+  R.~Foot,
+  arXiv:hep-ph/9402242 (1994).
+
+\bibitem{Seiberg:1994bz}
+  N.~Seiberg,
+  Nucl.\ Phys.\ B \textbf{435}, 129 (1995).
+
+\bibitem{Csaki:1996zb}
+  C.~Cs\'aki, M.~Schmaltz, and W.~Skiba,
+  Phys.\ Rev.\ Lett.\ \textbf{78}, 799 (1997).
+
+\bibitem{Seiberg:1993vc}
+  N.~Seiberg,
+  Phys.\ Lett.\ B \textbf{318}, 469 (1993).
+
+\bibitem{SeibergWitten:1994a}
+  N.~Seiberg and E.~Witten,
+  Nucl.\ Phys.\ B \textbf{426}, 19 (1994);
+  \textbf{431}, 484 (1994).
+
+\bibitem{PDG:2024}
+  S.~Navas \textit{et al.} (Particle Data Group),
+  Phys.\ Rev.\ D \textbf{110}, 030001 (2024).
+
+\bibitem{Koide:1983qe}
+  Y.~Koide,
+  Phys.\ Lett.\ B \textbf{120}, 161 (1983).
+
+\bibitem{Zenczykowski:2012}
+  P.~Zenczykowski,
+  Phys.\ Rev.\ D \textbf{86}, 117303 (2012).
+
+\bibitem{Sumino:2009}
+  Y.~Sumino,
+  JHEP \textbf{0905}, 075 (2009).
+
+\bibitem{Gerard:2022}
+  J.-M.~G\'erard,
+  arXiv:2208.00364 (2022).
+
+\bibitem{Koide:2005}
+  Y.~Koide,
+  Phys.\ Lett.\ B \textbf{595}, 163 (2004).
+
+\bibitem{Koide:2006}
+  Y.~Koide,
+  Phys.\ Rev.\ D \textbf{73}, 057901 (2006).
+
+\bibitem{Martin:2019}
+  S.P.~Martin and D.G.~Robertson,
+  Phys.\ Rev.\ D \textbf{100}, 073004 (2019).
+
+\bibitem{FroggattNielsen:1979}
+  C.D.~Froggatt and H.B.~Nielsen,
+  Nucl.\ Phys.\ B \textbf{147}, 277 (1979).
+
+\bibitem{IntriligatorSeibergShenker:1995}
+  K.~Intriligator, N.~Seiberg, and S.H.~Shenker,
+  Phys.\ Lett.\ B \textbf{342}, 152 (1995).
+
+\bibitem{RodejohannZhang:2011}
+  W.~Rodejohann and H.~Zhang,
+  Phys.\ Rev.\ D \textbf{83}, 073012 (2011).
+
+\bibitem{Rivero:2005}
+  A.~Rivero,
+  arXiv:hep-ph/0505220 (2005).
+
+\bibitem{Ma:2006}
+  E.~Ma,
+  Phys.\ Lett.\ B \textbf{649}, 287 (2007).
+
+\end{thebibliography}
+
+\end{document}

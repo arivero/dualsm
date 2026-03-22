@@ -1,0 +1,1082 @@
+% ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
+%
+% Paper 4: Why Three Generations -- The n_g >= 3 Bound Across Duality Types
+%
+% Conventions (Seiberg hep-th/9411149 + Intriligator-Seiberg hep-th/9509066):
+%   T(fund SU(N)) = 1/2 per Weyl fermion
+%   T(vector SO(N)) = 1
+%   T(fund Sp(N)) = 1/2
+%   Sp(N_c) = rank N_c, fund dim 2N_c.  Sp(1) = SU(2).
+%   h(SU(N)) = N, h(SO(N)) = N-2, h(Sp(N)) = N+1
+%   b_0(SU(N_c)) = (11N_c - 2N_f)/3 for N_f Dirac flavours (no adjoint)
+%   b_0(SO(N_c)) = 3(N_c - 2) - N_f for N_f vectors
+%   b_0(Sp(N_c)) = 3(N_c + 1) - N_f for 2N_f fundamentals
+%   N_f counts Dirac flavour pairs for SU; vectors for SO; 2N_f = total funds for Sp
+%   Non-SUSY extrapolation: ALL claims carry conjectural qualifiers
+%
+\documentclass[11pt,a4paper]{article}
+
+%% ---------- Packages ----------
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{slashed}
+\usepackage{cite}
+\usepackage[margin=2.5cm]{geometry}
+
+%% ---------- Hyperref configuration ----------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!70!black,
+  citecolor=green!50!black,
+  urlcolor=blue!80!black,
+}
+
+%% ---------- Theorem environments ----------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+%% ---------- Physics macros ----------
+\newcommand{\Nc}{N_{\!c}}
+\newcommand{\Nf}{N_{\!f}}
+\newcommand{\ngen}{n_g}
+\newcommand{\SU}[1]{\mathrm{SU}(#1)}
+\newcommand{\UU}[1]{\mathrm{U}(#1)}
+\newcommand{\SO}[1]{\mathrm{SO}(#1)}
+\newcommand{\Sp}[1]{\mathrm{Sp}(#1)}
+\newcommand{\fund}{\square}
+\newcommand{\antifund}{\overline{\square}}
+\newcommand{\adj}{\mathrm{adj}}
+\newcommand{\antisym}{\wedge^{\!2}}
+\newcommand{\sym}{\mathrm{S}_2}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\eg}{\textit{e.g.}}
+\newcommand{\cf}{\textit{cf.}}
+\newcommand{\IR}{\ensuremath{\mathrm{IR}}}
+\newcommand{\UV}{\ensuremath{\mathrm{UV}}}
+\newcommand{\SM}{\ensuremath{\mathrm{SM}}}
+
+%% ---------- Layout ----------
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{0em}
+
+%% ================================================================
+%%  DOCUMENT
+%% ================================================================
+\begin{document}
+
+\title{\textbf{Why Three Generations:\\
+The $\ngen \geq 3$ Bound Across Duality Types}}
+\author{Notes from the Dualised Standard Model Programme}
+\date{March 2026}
+\maketitle
+
+\begin{abstract}
+The Cacciapaglia--Sannino construction identifies the Standard Model as the
+magnetic (infrared) dual of an asymptotically free electric gauge theory,
+yielding a lower bound $\ngen \geq 3$ on the number of fermion generations
+from the requirement that the electric gauge group be non-abelian.  We
+systematically derive the analogous generation bound for \emph{every}
+established $\mathcal{N}=1$ Seiberg-type duality: $\SU{\Nc}$ (Seiberg),
+$\SO{\Nc}$ and $\Sp{\Nc}$ (Intriligator--Seiberg), and $\SU{\Nc}$ with
+adjoint matter (Kutasov--Schwimmer).  For each duality type, we identify
+the electric gauge group as a function of~$\ngen$, impose the non-abelian
+condition, and check compatibility with the conformal window.  Our main
+results are: (i)~the $\SU{}$ and $\Sp{}$ routes independently constrain
+$\ngen \geq 3$ and $2 \leq \ngen \leq 3$ respectively, and their intersection
+\emph{uniquely} selects $\ngen = 3$; (ii)~the $\SO{}$ route requires
+$\ngen \geq 4$ for conformal window compatibility, excluding it as a
+duality frame for the observed Standard Model; (iii)~Kutasov--Schwimmer
+duality with $k \geq 2$ admits no integer generation number in the
+conformal window, ruling out higher-$k$ adjoint deformations.  Within the chosen duality-embedding framework, and conditional on importing SUSY conformal-window formulas, $\ngen = 3$ emerges as the unique
+solution compatible with the intersection of all viable Seiberg-type
+dualities.  All claims regarding non-supersymmetric duality are
+conjectural.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+%% ================================================================
+%%  SECTION 1: INTRODUCTION
+%% ================================================================
+\section{Introduction}
+\label{sec:introduction}
+
+The Standard Model of particle physics contains three generations of
+quarks and leptons.  No compelling explanation for this number exists
+within the Standard Model itself; the generation structure is an input
+rather than a prediction.  The question ``why three generations?'' has
+been called one of the deepest puzzles in fundamental
+physics~\cite{Frampton1992}.
+
+A novel perspective on this question emerged from the programme of
+Cacciapaglia and Sannino~\cite{CacciapagliaSannino2024,Sannino2011},
+who proposed that the entire Standard Model can be understood as the
+\emph{magnetic} (infrared) dual of an asymptotically free electric gauge
+theory, extrapolating the pattern of Seiberg
+duality~\cite{Seiberg1995} beyond supersymmetry.  In their construction,
+the QCD gauge group $\SU{3}_c$ is the magnetic dual of an $\SU{N}$
+electric theory embedded in a Pati--Salam~\cite{PS1974} framework, with
+the electric gauge group determined as $\SU{2\ngen - 4}$.  The requirement
+that this group be non-abelian ($2\ngen - 4 \geq 2$) immediately yields
+\begin{equation}\label{eq:CS-bound}
+  \ngen \geq 3\,.
+\end{equation}
+If the conjectured non-supersymmetric duality
+holds~\cite{AMPS2011,Sannino2011}, the existence of at least three
+generations is not an accident but a mathematical necessity for the
+electric theory to be a non-trivial gauge theory.
+
+This is a striking result, but it relies on a specific choice of duality
+type ($\SU{\Nc}$ Seiberg duality in the Pati--Salam embedding).  The
+landscape of established $\mathcal{N}=1$ Seiberg-type dualities is far
+richer, including:
+\begin{itemize}
+  \item $\SU{\Nc}$ with fundamentals (Seiberg~\cite{Seiberg1995}),
+  \item $\SO{\Nc}$ with vectors
+    (Intriligator--Seiberg~\cite{IS9506101}),
+  \item $\Sp{\Nc}$ with fundamentals
+    (Intriligator--Seiberg~\cite{IS9506101}),
+  \item $\SU{\Nc}$ with fundamentals and adjoint
+    (Kutasov--Schwimmer~\cite{KS9505004}).
+\end{itemize}
+Each duality type has a different map between electric and magnetic gauge
+groups, different conformal windows, and potentially different generation
+bounds.
+
+In this paper, we systematically derive the generation bound for each of
+these duality types.  The logic is uniform: identify a Standard Model
+gauge group sector as the magnetic theory, use the duality map to
+determine the electric gauge group as a function of~$\ngen$, require the
+electric group to be non-abelian, and check conformal window
+compatibility.  We then ask: \emph{does the intersection of all bounds
+uniquely select $\ngen = 3$?}
+
+Previous work~\cite{Paper1} established that the intersection of the
+$\SU{}$ (Cacciapaglia--Sannino) and $\Sp{}$ (Intriligator--Seiberg)
+routes selects $\ngen = 3$ uniquely, using the fact that the Sp~route
+provides an \emph{upper} bound $\ngen \leq 3$ from conformal window
+constraints.  Here we extend this analysis to include the $\SO{}$ and
+Kutasov--Schwimmer dualities, providing a complete survey across all
+classical group duality types.
+
+\medskip
+
+\textbf{Epistemic convention.}  The SUSY Seiberg-type dualities are
+established results of $\mathcal{N}=1$ supersymmetric gauge theory.  All
+claims extrapolating these dualities to the non-supersymmetric Standard
+Model are \textbf{conjectural} and carry an implicit qualifier ``if the
+non-SUSY duality holds.''  The generation bounds derived here are exact
+consequences of the group-theoretic structure; the physical relevance
+to the Standard Model depends on the dynamical assumption that such
+dualities extend beyond SUSY.
+
+\medskip
+
+\textbf{Summary of results.}
+\begin{enumerate}
+  \item The $\SU{}$ Seiberg route and the $\SU{}$ Pati--Salam route both
+    give $\ngen \geq 3$, with conformal window compatibility for
+    $\ngen \in \{3, 4\}$ and $\ngen \in \{3, 4, 5, 6\}$ respectively
+    (\S\ref{sec:SU-duality}).
+  \item The $\Sp{}$ route gives $\ngen \geq 2$ from group theory and
+    $\ngen \leq 3$ from the conformal window, yielding
+    $2 \leq \ngen \leq 3$
+    (\S\ref{sec:Sp-duality}).
+  \item The $\SO{}$ route gives $\ngen \geq 3$ from group theory but
+    requires $\ngen \geq 4$ for conformal window compatibility,
+    \emph{excluding} $\ngen = 3$
+    (\S\ref{sec:SO-duality}).
+  \item Kutasov--Schwimmer duality with $k \geq 2$ admits no integer
+    $\ngen$ in the conformal window; only $k = 1$ (recovering Seiberg
+    duality) is viable (\S\ref{sec:KS-duality}).
+  \item The intersection of all viable duality-type bounds uniquely
+    selects $\ngen = 3$ (\S\ref{sec:master-table}).
+\end{enumerate}
+
+
+%% ================================================================
+%%  SECTION 2: FRAMEWORK AND CONVENTIONS
+%% ================================================================
+\section{Framework and Conventions}
+\label{sec:framework}
+
+\subsection{The duality programme}
+
+We follow the framework of Cacciapaglia and
+Sannino~\cite{CacciapagliaSannino2024}: a Standard Model gauge group
+factor $G_{\SM}$ is identified as the \emph{magnetic} gauge group of a
+Seiberg-type duality, and the electric theory provides the UV completion.
+The matter content of the magnetic theory is fixed by the Standard Model
+spectrum, which determines the number of flavours~$\Nf$ as a function
+of the generation number~$\ngen$.
+
+The generation bound arises from two independent constraints:
+\begin{enumerate}
+  \item \textbf{Non-abelian condition:} The electric gauge group must be
+    non-abelian (\ie, non-trivial as a gauge theory).  For $\SU{N}$,
+    this means $N \geq 2$; for $\SO{N}$, $N \geq 3$; for $\Sp{N}$,
+    $N \geq 1$ (where $\Sp{N}$ has rank~$N$).
+  \item \textbf{Conformal window:} Both the electric and magnetic
+    theories must lie within or at the boundary of the conformal window
+    for the duality to produce a non-trivial interacting fixed point.
+\end{enumerate}
+
+\subsection{Conventions}
+
+We follow the conventions of Seiberg~\cite{Seiberg1995} and
+Intriligator--Seiberg~\cite{IS9506101,IS1995}:
+\begin{itemize}
+  \item $\Sp{\Nc}$ denotes the symplectic group of rank~$\Nc$, with
+    fundamental representation of dimension~$2\Nc$.  Thus
+    $\Sp{1} = \SU{2}$.
+  \item $\SO{\Nc}$ has an $\Nc$-dimensional vector representation.
+  \item Dynkin indices: $T(\mathrm{fund}\;\SU{N}) = \tfrac{1}{2}$,
+    $T(\mathrm{vector}\;\SO{N}) = 1$,
+    $T(\mathrm{fund}\;\Sp{N}) = \tfrac{1}{2}$.
+  \item Dual Coxeter numbers: $h(\SU{N}) = N$, $h(\SO{N}) = N - 2$,
+    $h(\Sp{N}) = N + 1$.
+  \item $\Nf$ counts Dirac flavour pairs for SU duality, vector fields
+    for SO duality, and $2\Nf$ total fundamentals for Sp duality.
+\end{itemize}
+
+\subsection{SM matter content as a function of $\ngen$}
+\label{ssec:SM-matter}
+
+The Standard Model with $\ngen$ generations contains:
+\begin{itemize}
+  \item \textbf{QCD sector ($\SU{3}_c$):} $2\ngen$ Dirac quarks
+    (each generation contributes one up-type and one down-type quark),
+    hence $\Nf^{\mathrm{QCD}} = 2\ngen$.
+  \item \textbf{EW sector ($\SU{2}_L$):} $4\ngen$ Weyl doublets per
+    generation (3~quark doublets from colour $+$ 1~lepton doublet),
+    hence $2\Nf^{\mathrm{EW}} = 4\ngen$, giving
+    $\Nf^{\mathrm{EW}} = 2\ngen$ in the Sp counting convention.
+  \item \textbf{Pati--Salam ($\SU{4}_{\mathrm{PS}}$):}
+    $2\ngen$ Dirac ``quarks'' in the fundamental of $\SU{4}$, but the
+    specific embedding introduces an additional offset (see
+    \S\ref{ssec:pati-salam}).
+\end{itemize}
+
+
+%% ================================================================
+%%  SECTION 3: SU(N_c) SEIBERG DUALITY
+%% ================================================================
+\section{$\SU{\Nc}$ Seiberg Duality}
+\label{sec:SU-duality}
+
+\subsection{Seiberg duality map}
+
+The electric theory is $\mathcal{N}=1$ $\SU{\Nc}$ SQCD with $\Nf$
+fundamental flavours.  The magnetic dual is $\SU{\Nf - \Nc}$ with $\Nf$
+dual quarks and an $\Nf \times \Nf$ meson
+matrix~\cite{Seiberg1995}.
+
+The conformal window is
+\begin{equation}\label{eq:SU-CW}
+  \frac{3}{2}\,\Nc < \Nf < 3\Nc\,.
+\end{equation}
+
+\subsection{Direct QCD route}
+\label{ssec:direct-QCD}
+
+We identify $\SU{3}_c$ as the magnetic gauge group:
+\begin{equation}\label{eq:SU-magnetic}
+  \Nf - \Nc = 3
+  \qquad\Longrightarrow\qquad
+  \Nc = \Nf - 3\,.
+\end{equation}
+The number of QCD Dirac flavours is $\Nf = 2\ngen$
+(\cf~\S\ref{ssec:SM-matter}).  The electric gauge group is therefore
+\begin{equation}\label{eq:SU-electric}
+  \boxed{\SU{2\ngen - 3}}\,.
+\end{equation}
+
+\paragraph{Non-abelian condition.}
+$2\ngen - 3 \geq 2$ requires
+\begin{equation}\label{eq:SU-bound}
+  \boxed{\ngen \geq \frac{5}{2}
+  \qquad\Longrightarrow\qquad \ngen \geq 3}\,.
+\end{equation}
+
+\paragraph{Conformal window.}
+From~\eqref{eq:SU-CW} with $\Nc = 2\ngen - 3$:
+\begin{align}
+  \text{Lower:}&\quad \frac{3(2\ngen - 3)}{2} < 2\ngen
+  \quad\Longrightarrow\quad
+  6\ngen - 9 < 4\ngen
+  \quad\Longrightarrow\quad
+  \ngen < \frac{9}{2}\,,
+  \label{eq:SU-CW-lower} \\
+  \text{Upper:}&\quad 2\ngen < 3(2\ngen - 3) = 6\ngen - 9
+  \quad\Longrightarrow\quad
+  \ngen > \frac{9}{4}\,.
+  \label{eq:SU-CW-upper}
+\end{align}
+So the conformal window requires $\frac{9}{4} < \ngen < \frac{9}{2}$,
+\ie,
+\begin{equation}\label{eq:SU-CW-ng}
+  \ngen \in \{3, 4\}\,.
+\end{equation}
+
+\paragraph{Numerical check ($\ngen = 3$).}
+$\Nc = 3$, $\Nf = 6$.  Electric $\SU{3}$ with 6~flavours.
+Conformal window: $4.5 < 6 < 9$.  \checkmark
+
+\subsection{Pati--Salam route (Cacciapaglia--Sannino)}
+\label{ssec:pati-salam}
+
+In the Pati--Salam embedding~\cite{PS1974,CacciapagliaSannino2024}, the
+electric theory is an $\SU{N}$ gauge theory with $\Nf$ Dirac
+fundamentals \emph{and} one adjoint Weyl fermion~$\lambda$.  The
+magnetic theory contains $\SU{3}_c$ as a subgroup of $\SU{4}_{\mathrm{PS}}$,
+with the ``fourth colour'' corresponding to lepton number.
+
+The specific Pati--Salam embedding yields an electric gauge group of
+\begin{equation}\label{eq:PS-electric}
+  \boxed{\SU{2\ngen - 4}}
+\end{equation}
+(see~\cite{CacciapagliaSannino2024} and Lecture~7 of the accompanying
+notes).
+
+\paragraph{Non-abelian condition.}
+$2\ngen - 4 \geq 2$ requires
+\begin{equation}\label{eq:PS-bound}
+  \boxed{\ngen \geq 3}\,.
+\end{equation}
+
+\paragraph{Conformal window.}
+The beta function with an adjoint is
+$b_0 = 2\Nc - \Nf$ (using $3\Nc - \Nc = 2\Nc$ from the adjoint
+contribution).  The conformal window for the KS duality at $k = 1$
+(\ie, massive adjoint, reducing to Seiberg) is
+$\frac{3}{2}\Nc < \Nf < 3\Nc$, identical to~\eqref{eq:SU-CW}.
+With $\Nc = 2\ngen - 4$ and $\Nf = 2\ngen$:
+\begin{align}
+  \text{Lower:}&\quad 3(2\ngen - 4)/2 < 2\ngen
+  \;\Longrightarrow\;
+  3\ngen - 6 < 2\ngen
+  \;\Longrightarrow\;
+  \ngen < 6\,,
+  \label{eq:PS-CW-lower} \\
+  \text{Upper:}&\quad 2\ngen < 3(2\ngen - 4) = 6\ngen - 12
+  \;\Longrightarrow\;
+  \ngen > 3\,.
+  \label{eq:PS-CW-upper}
+\end{align}
+Thus $3 < \ngen < 6$, giving $\ngen \in \{4, 5\}$ strictly inside the
+conformal window.
+
+For $\ngen = 3$: $\Nc = 2$, $\Nf = 6$.  Lower boundary:
+$\frac{3}{2} \times 2 = 3 < 6$ (\checkmark); upper: $6 < 6$
+(\emph{not} satisfied).  So $\ngen = 3$ is at the upper boundary of
+asymptotic freedom, corresponding to the free electric phase.  In
+Sannino's analysis~\cite{Sannino2011}, this boundary case is still
+considered viable because the magnetic theory ($\SU{3}_c$) is
+asymptotically free and the duality relation connects the two theories
+in the vicinity of the conformal window.
+
+Combined PS constraint (non-abelian + approximate CW):
+\begin{equation}\label{eq:PS-combined}
+  3 \leq \ngen \leq 6\,.
+\end{equation}
+
+
+%% ================================================================
+%%  SECTION 4: Sp(N_c) DUALITY
+%% ================================================================
+\section{$\Sp{\Nc}$ Duality}
+\label{sec:Sp-duality}
+
+\subsection{Sp duality map}
+
+The electric theory is $\mathcal{N}=1$ $\Sp{\Nc}$ with $2\Nf$
+fundamentals~\cite{IS9506101}.  The magnetic dual is $\Sp{\Nf - \Nc - 2}$
+with $2\Nf$ dual fundamentals and an antisymmetric meson.
+
+The conformal window is
+\begin{equation}\label{eq:Sp-CW}
+  \frac{3(\Nc + 1)}{2} < \Nf < 3(\Nc + 1)\,.
+\end{equation}
+
+\subsection{EW sector: $\SU{2}_L = \Sp{1}$ as magnetic}
+
+We identify $\SU{2}_L \cong \Sp{1}$ as the magnetic gauge group
+(following~\cite{Paper1}):
+\begin{equation}\label{eq:Sp-constraint}
+  \Nf - \Nc - 2 = 1
+  \qquad\Longrightarrow\qquad
+  \Nc = \Nf - 3\,.
+\end{equation}
+
+The electroweak sector contains $2\Nf = 4\ngen$ Weyl doublets (see
+\S\ref{ssec:SM-matter}), giving $\Nf = 2\ngen$.
+The electric gauge group is
+\begin{equation}\label{eq:Sp-electric}
+  \boxed{\Sp{2\ngen - 3}}\,.
+\end{equation}
+
+\paragraph{Non-abelian condition.}
+$\Sp{\Nc}$ requires $\Nc \geq 1$, so $2\ngen - 3 \geq 1$:
+\begin{equation}\label{eq:Sp-bound}
+  \boxed{\ngen \geq 2}\,.
+\end{equation}
+
+\paragraph{Conformal window.}
+From~\eqref{eq:Sp-CW} with $\Nc = 2\ngen - 3$:
+\begin{align}
+  \text{Lower:}&\quad \frac{3(2\ngen - 2)}{2} < 2\ngen
+  \;\Longrightarrow\;
+  3\ngen - 3 < 2\ngen
+  \;\Longrightarrow\;
+  \ngen < 3\,,
+  \label{eq:Sp-CW-lower} \\
+  \text{Upper:}&\quad 2\ngen < 3(2\ngen - 2) = 6\ngen - 6
+  \;\Longrightarrow\;
+  \ngen > \frac{3}{2}\,.
+  \label{eq:Sp-CW-upper}
+\end{align}
+So $\frac{3}{2} < \ngen < 3$ inside the conformal window, giving
+\begin{equation}
+  \ngen = 2 \quad\text{(inside CW)}\,.
+\end{equation}
+
+For $\ngen = 3$: $\Nc = 3$, $\Nf = 6$.  Lower boundary:
+$\frac{3}{2}(3 + 1) = 6 = \Nf$.  So $\ngen = 3$ sits \emph{exactly at
+the lower boundary} of the conformal window (the free magnetic phase
+boundary), where the magnetic description is weakly coupled and the
+duality is at its most useful~\cite{Paper1}.
+
+The combined Sp constraint is therefore:
+\begin{equation}\label{eq:Sp-combined}
+  \boxed{2 \leq \ngen \leq 3}\,.
+\end{equation}
+
+
+%% ================================================================
+%%  SECTION 5: SO(N_c) DUALITY
+%% ================================================================
+\section{$\SO{\Nc}$ Duality}
+\label{sec:SO-duality}
+
+\subsection{SO duality map}
+
+The electric theory is $\mathcal{N}=1$ $\SO{\Nc}$ with $\Nf$
+vectors~\cite{IS9506101}.  The magnetic dual is
+\begin{equation}\label{eq:SO-dual}
+  \SO{\Nf - \Nc + 4}
+\end{equation}
+with $\Nf$ dual vectors and a symmetric meson.  Note the crucial
+$+4$ shift, which distinguishes SO from SU duality.
+
+The conformal window is
+\begin{equation}\label{eq:SO-CW}
+  \frac{3(\Nc - 2)}{2} < \Nf < 3(\Nc - 2)\,.
+\end{equation}
+
+\subsection{Embedding: $\SO{6} \cong \SU{4}_{\mathrm{PS}}$ as magnetic}
+
+The Standard Model gauge groups are $\SU{3}_c \times \SU{2}_L
+\times \UU{1}_Y$.  None of these is an SO group.  However, in the
+Pati--Salam framework, $\SU{3}_c$ extends to $\SU{4}_{\mathrm{PS}}$,
+and we may use the local isomorphism
+$\SO{6} \cong \SU{4}$ to embed the Pati--Salam sector in an SO
+duality~\cite{IS9506101,PS1974}.
+
+The 6-dimensional vector of $\SO{6}$ decomposes under
+$\SU{3}_c \subset \SU{4}$ as $\mathbf{3} \oplus \overline{\mathbf{3}}$.
+Each vector therefore accommodates one quark plus one antiquark.  With
+$2\ngen$ Dirac quarks in the Standard Model, we need
+\begin{equation}
+  \Nf = 2\ngen
+\end{equation}
+vectors of $\SO{6}$.
+
+Setting the magnetic gauge group to $\SO{6}$:
+\begin{equation}
+  \Nf - \Nc + 4 = 6
+  \qquad\Longrightarrow\qquad
+  \Nc = \Nf - 2 = 2\ngen - 2\,.
+\end{equation}
+The electric gauge group is
+\begin{equation}\label{eq:SO-electric}
+  \boxed{\SO{2\ngen - 2}}\,.
+\end{equation}
+
+\paragraph{Non-abelian condition.}
+$\SO{\Nc}$ is non-abelian for $\Nc \geq 3$:
+\begin{equation}\label{eq:SO-bound}
+  2\ngen - 2 \geq 3
+  \qquad\Longrightarrow\qquad
+  \boxed{\ngen \geq \frac{5}{2} \;\Longrightarrow\; \ngen \geq 3}\,.
+\end{equation}
+
+\paragraph{Conformal window.}
+From~\eqref{eq:SO-CW} with $\Nc = 2\ngen - 2$:
+\begin{align}
+  \text{Lower:}&\quad \frac{3(2\ngen - 4)}{2} < 2\ngen
+  \;\Longrightarrow\;
+  3\ngen - 6 < 2\ngen
+  \;\Longrightarrow\;
+  \ngen < 6\,,
+  \label{eq:SO-CW-lower} \\
+  \text{Upper:}&\quad 2\ngen < 3(2\ngen - 4) = 6\ngen - 12
+  \;\Longrightarrow\;
+  \ngen > 3\,.
+  \label{eq:SO-CW-upper}
+\end{align}
+So the conformal window requires $3 < \ngen < 6$:
+\begin{equation}\label{eq:SO-CW-ng}
+  \ngen \in \{4, 5\} \quad\text{(strictly inside CW)}\,.
+\end{equation}
+
+\paragraph{The $\ngen = 3$ case.}
+For $\ngen = 3$: $\Nc = 4$, $\Nf = 6$.  The one-loop beta function:
+\begin{equation}
+  b_0 = 3(\Nc - 2) - \Nf = 3(2) - 6 = 0\,.
+\end{equation}
+The electric $\SO{4}$ theory with 6~vectors has a \emph{vanishing}
+one-loop beta function and is \emph{not} asymptotically free.  Moreover,
+$\SO{4} \cong \SU{2} \times \SU{2}$ is not simple; it is a product of
+two abelian-looking SU(2) factors.
+
+This means the SO~route is \textbf{incompatible with $\ngen = 3$}: the
+electric theory is neither asymptotically free nor inside the conformal
+window.
+
+\paragraph{Combined SO constraint.}
+The non-abelian condition gives $\ngen \geq 3$, but the conformal window
+requires $\ngen \geq 4$:
+\begin{equation}\label{eq:SO-combined}
+  \boxed{\ngen \geq 4 \quad\text{(SO route)}}\,.
+\end{equation}
+This is a stronger bound than SU or Sp, and it \emph{excludes} the
+observed value $\ngen = 3$.  The SO~duality therefore cannot serve as the
+duality frame for the Standard Model with three generations.
+
+\begin{remark}[Physical interpretation]
+\label{rem:SO-exclusion}
+The exclusion of the SO~route has a clear physical origin: the shift
+$+4$ in the SO duality map $\SO{\Nf - \Nc + 4}$ (compared to $+0$ for
+SU) means the electric gauge group is \emph{smaller} relative to the
+magnetic one than in the SU case.  For a given number of generations,
+the electric SO group has too few ``colours'' relative to ``flavours''
+to maintain asymptotic freedom.  This is a direct consequence of the
+different group-theoretic structure of orthogonal vs.\ unitary groups.
+\end{remark}
+
+
+%% ================================================================
+%%  SECTION 6: KUTASOV-SCHWIMMER DUALITY
+%% ================================================================
+\section{Kutasov--Schwimmer Duality}
+\label{sec:KS-duality}
+
+\subsection{KS duality map}
+
+The electric theory is $\mathcal{N}=1$ $\SU{\Nc}$ with $\Nf$
+fundamentals, one adjoint~$\Phi$, and superpotential
+$W = \frac{g}{k+1}\Tr(\Phi^{k+1})$, where $k \geq 1$ is a positive
+integer~\cite{KS9505004,KSS9507040}.
+
+The magnetic dual is $\SU{k\Nf - \Nc}$ with $\Nf$ dual quarks, one
+dual adjoint~$\phi$, and $k$~meson species $M_j \sim Q\Phi^j
+\widetilde{Q}$ ($j = 0, \ldots, k-1$).
+
+The conformal window is~\cite{KS9505004}
+\begin{equation}\label{eq:KS-CW}
+  \frac{3\Nc}{k+1} < \Nf < \frac{3\Nc}{k}\,.
+\end{equation}
+For $k = 1$, this reduces to the Seiberg window
+$\frac{3}{2}\Nc < \Nf < 3\Nc$.
+
+\subsection{Generation bound as a function of $k$}
+
+We identify $\SU{3}_c$ as the magnetic gauge group for the QCD sector:
+\begin{equation}
+  k\Nf - \Nc = 3
+  \qquad\Longrightarrow\qquad
+  \Nc = k\Nf - 3 = 2k\ngen - 3\,,
+\end{equation}
+using $\Nf = 2\ngen$.
+
+The electric gauge group is
+\begin{equation}\label{eq:KS-electric}
+  \SU{2k\ngen - 3}\,.
+\end{equation}
+
+\paragraph{Non-abelian condition.}
+$2k\ngen - 3 \geq 2$ requires $\ngen \geq \frac{5}{2k}$:
+\begin{equation}\label{eq:KS-bound}
+  \ngen \geq \left\lceil \frac{5}{2k} \right\rceil
+  \;=\; \begin{cases}
+    3 & k = 1\,, \\
+    2 & k = 2\,, \\
+    1 & k \geq 3\,.
+  \end{cases}
+\end{equation}
+
+\paragraph{Conformal window.}
+Substituting $\Nc = 2k\ngen - 3$ into~\eqref{eq:KS-CW}:
+\begin{align}
+  \text{Lower:}&\quad 2\ngen > \frac{3(2k\ngen - 3)}{k+1}
+  = \frac{6k\ngen - 9}{k+1}\,,
+  \label{eq:KS-lower} \\
+  \text{Upper:}&\quad 2\ngen < \frac{3(2k\ngen - 3)}{k}
+  = 6\ngen - \frac{9}{k}\,.
+  \label{eq:KS-upper}
+\end{align}
+
+\textbf{Lower bound.}  From~\eqref{eq:KS-lower}:
+$2\ngen(k+1) > 6k\ngen - 9$, so $(2 - 4k)\ngen > -9$.  For $k \geq 1$:
+$2 - 4k < 0$, giving
+\begin{equation}\label{eq:KS-lower-ng}
+  \ngen < \frac{9}{4k - 2}\,.
+\end{equation}
+
+\textbf{Upper bound.}  From~\eqref{eq:KS-upper}:
+$2\ngen < 6\ngen - 9/k$, so $4\ngen > 9/k$, giving
+\begin{equation}\label{eq:KS-upper-ng}
+  \ngen > \frac{9}{4k}\,.
+\end{equation}
+
+The conformal window in the $\ngen$ variable is
+\begin{equation}\label{eq:KS-CW-ng}
+  \frac{9}{4k} < \ngen < \frac{9}{4k - 2}\,.
+\end{equation}
+
+\subsection{Survey over $k$}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{c c c c c}
+\toprule
+$k$ & Non-abelian bound & CW range for $\ngen$ &
+  Integer $\ngen$ in CW & Status \\
+\midrule
+1 & $\ngen \geq 3$ & $2.25 < \ngen < 4.5$ & $\{3, 4\}$ & viable \\
+2 & $\ngen \geq 2$ & $1.125 < \ngen < 1.5$ & $\emptyset$ &
+  \textbf{ruled out} \\
+3 & $\ngen \geq 1$ & $0.75 < \ngen < 0.9$ & $\emptyset$ &
+  \textbf{ruled out} \\
+$k \geq 4$ & $\ngen \geq 1$ & $< 1$ & $\emptyset$ &
+  \textbf{ruled out} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For $k \geq 2$, the conformal window is too narrow to contain any
+positive integer.  The width of the window in $\ngen$ is
+\begin{equation}
+  \Delta\ngen = \frac{9}{4k-2} - \frac{9}{4k}
+  = \frac{9 \cdot 2}{4k(4k-2)} = \frac{9}{k(4k-2)}\,,
+\end{equation}
+which decreases rapidly: $\Delta\ngen(k{=}1) = 2.25$,
+$\Delta\ngen(k{=}2) = 0.375$, $\Delta\ngen(k{=}3) \approx 0.15$.
+Only $k = 1$ has a window wide enough to contain integers.
+
+\begin{remark}[Physical interpretation]
+The narrowing of the conformal window for $k \geq 2$ is a consequence
+of the adjoint superpotential $W = \Tr(\Phi^{k+1})$, which constrains
+the anomalous dimension of~$\Phi$ and thereby restricts the range of
+$\Nf$ compatible with the IR fixed point.  Higher~$k$ corresponds to a
+more relevant deformation that squeezes the window from both sides.
+The result is that the only Kutasov--Schwimmer theory compatible with
+integer generation numbers is $k = 1$, which reduces to ordinary
+Seiberg duality.
+\end{remark}
+
+
+%% ================================================================
+%%  SECTION 7: MASTER TABLE AND INTERSECTION
+%% ================================================================
+\section{Master Comparison Table}
+\label{sec:master-table}
+
+We collect the generation bounds from all duality types in a single
+table.
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{@{}l l l c c l@{}}
+\toprule
+\textbf{Duality} & \textbf{Magnetic} & \textbf{Electric} &
+  \textbf{Group thy.} & \textbf{CW} &
+  \textbf{Combined} \\
+& \textbf{= SM sector} & \textbf{gauge group} &
+  \textbf{bound} & \textbf{range} & \\
+\midrule
+SU Seiberg & $\SU{3}_c$ & $\SU{2\ngen - 3}$ &
+  $\ngen \geq 3$ & $\{3,4\}$ & $\ngen \in \{3,4\}$ \\
+SU Pati--Salam & $\SU{3}_c$ via $\SU{4}$ & $\SU{2\ngen - 4}$ &
+  $\ngen \geq 3$ & $\{3,4,5,6\}$ & $\ngen \in \{3,...,6\}$ \\
+$\Sp{}$ (IS) & $\Sp{1} = \SU{2}_L$ & $\Sp{2\ngen - 3}$ &
+  $\ngen \geq 2$ & $\{2, 3\}$ & $\ngen \in \{2,3\}$ \\
+$\SO{}$ (IS) & $\SO{6} \cong \SU{4}$ & $\SO{2\ngen - 2}$ &
+  $\ngen \geq 3$ & $\{4,5\}$ & $\ngen \in \{4,5\}$ \\
+KS ($k=1$) & $\SU{3}_c$ & $\SU{2\ngen - 3}$ + adj &
+  $\ngen \geq 3$ & $\{3,4\}$ & $\ngen \in \{3,4\}$ \\
+KS ($k \geq 2$) & $\SU{3}_c$ & $\SU{2k\ngen - 3}$ + adj &
+  various & $\emptyset$ & \textbf{ruled out} \\
+\bottomrule
+\end{tabular}
+\caption{Generation bounds across all Seiberg-type duality types.
+``Group thy.''\ is the lower bound from requiring a non-abelian electric
+gauge group.  ``CW'' is the range of integer $\ngen$ compatible with the
+conformal window (including boundary cases).  ``Combined'' is the
+intersection.  The Pati--Salam CW includes the $\ngen = 3$ boundary case
+following~\cite{Sannino2011}.}
+\label{tab:master}
+\end{table}
+
+\subsection{Intersection of all bounds}
+
+The viable duality types for the Standard Model are those that can
+accommodate $\SU{}$ or $\Sp{}$ gauge groups (since the SM gauge groups
+are $\SU{3}_c$, $\SU{2}_L \cong \Sp{1}$, and $\UU{1}_Y$).  The SO
+route is excluded because it requires $\ngen \geq 4$.  KS with $k \geq 2$
+is excluded because it has no integer solutions.
+
+From the remaining viable routes:
+\begin{equation}\label{eq:intersection}
+  \underbrace{\ngen \geq 3}_{\text{SU route}}
+  \;\;\cap\;\;
+  \underbrace{2 \leq \ngen \leq 3}_{\text{Sp route}}
+  \qquad\Longrightarrow\qquad
+  \boxed{\ngen = 3}\,.
+\end{equation}
+
+This is the central result of this paper: \textbf{if both the QCD and
+electroweak sectors of the Standard Model admit UV completions via
+Seiberg-type dualities, the number of generations is uniquely determined
+to be three.}
+
+\subsection{Role of the SO exclusion}
+
+The SO~route provides a complementary constraint: it demonstrates that
+\emph{not all} duality types are compatible with the Standard Model
+spectrum.  Specifically, the $+4$ shift in the SO dual gauge group
+formula~\eqref{eq:SO-dual} pushes the conformal window to $\ngen \geq 4$,
+making $\SO{}$ duality incompatible with $\ngen = 3$.
+
+This exclusion is physically meaningful: it implies that the duality
+frame of the Standard Model, \emph{if one exists}, must be of the
+$\SU{}$ or $\Sp{}$ type---precisely the types that match the Standard
+Model gauge groups $\SU{3}_c$ and $\SU{2}_L \cong \Sp{1}$.  The
+orthogonal duality is a ``wrong fit'' for the Standard Model.
+
+\subsection{Robustness of the $\ngen = 3$ selection}
+
+The result $\ngen = 3$ depends on:
+\begin{enumerate}
+  \item The SU~route lower bound $\ngen \geq 3$ (from requiring
+    $\SU{2\ngen - 3}$ or $\SU{2\ngen - 4}$ to be non-abelian).
+  \item The Sp~route upper bound $\ngen \leq 3$ (from the conformal
+    window of $\Sp{2\ngen - 3}$).
+\end{enumerate}
+The lower bound is purely group-theoretic and does not depend on
+dynamical assumptions.  The upper bound depends on the SUSY conformal
+window formula~\eqref{eq:Sp-CW}, which is exact in the SUSY context
+but whose extrapolation to non-SUSY theories is uncertain.
+
+If the non-SUSY conformal window for Sp theories is wider than the
+SUSY one (as suggested by some lattice studies), the upper bound on
+$\ngen$ would relax.  However, the lower bound $\ngen \geq 3$ from the SU
+route is robust, and the lower bound $\ngen \geq 2$ from the Sp route is
+purely group-theoretic.
+
+
+%% ================================================================
+%%  SECTION 8: CONFORMAL WINDOW DETAILS
+%% ================================================================
+\section{Conformal Window Compatibility}
+\label{sec:conformal-details}
+
+For completeness, we present the conformal window analysis for each
+duality type at the physically relevant values of~$\ngen$.
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{@{}l c c c c c c@{}}
+\toprule
+\textbf{Route} & $\ngen$ & $\Nc$ & $\Nf$ &
+  $b_0^{\text{el}}$ & CW lower & CW upper \\
+\midrule
+\multirow{3}{*}{SU Seiberg} & 3 & 3 & 6 & 7 & 4.5 & 9 \\
+  & 4 & 5 & 8 & 9.67 & 7.5 & 15 \\
+  & 5 & 7 & 10 & 12.33 & 10.5 & 21 \\
+\midrule
+\multirow{3}{*}{SU PS} & 3 & 2 & 6 & 0 & 3 & 6 \\
+  & 4 & 4 & 8 & 4 & 6 & 12 \\
+  & 5 & 6 & 10 & 8 & 9 & 18 \\
+\midrule
+\multirow{3}{*}{Sp} & 2 & 1 & 4 & 2 & 3 & 6 \\
+  & 3 & 3 & 6 & 6 & 6 & 12 \\
+  & 4 & 5 & 8 & 10 & 9 & 18 \\
+\midrule
+\multirow{3}{*}{SO} & 3 & 4 & 6 & 0 & 3 & 6 \\
+  & 4 & 6 & 8 & 4 & 6 & 12 \\
+  & 5 & 8 & 10 & 8 & 9 & 18 \\
+\bottomrule
+\end{tabular}
+\caption{Conformal window analysis for each duality route.
+$b_0^{\text{el}}$ is the one-loop beta function coefficient of the
+electric theory.  ``CW lower'' and ``CW upper'' are the boundaries
+$\frac{3}{2} \times (\text{dual Coxeter})$ and
+$3 \times (\text{dual Coxeter})$ expressed in terms of $\Nf$.
+The entry is ``inside CW'' when
+lower~${}<\Nf<{}$~upper, ``at boundary'' when $\Nf$ equals a
+boundary, and ``outside'' otherwise.  For the SU PS route,
+$b_0 = 2\Nc - \Nf$ (with adjoint).}
+\label{tab:conformal}
+\end{table}
+
+\textbf{Key observations:}
+\begin{itemize}
+  \item \textbf{SU Seiberg, $\ngen = 3$:} $\Nf = 6$ is well inside the
+    conformal window ($4.5 < 6 < 9$).  This is the most favourable case.
+  \item \textbf{Sp, $\ngen = 3$:} $\Nf = 6$ equals the lower CW boundary
+    exactly (free magnetic phase).
+  \item \textbf{SO, $\ngen = 3$:} $b_0 = 0$; the electric theory is not
+    asymptotically free.  The theory is at the upper boundary of the
+    CW, which is the loss-of-AF boundary.  This confirms the SO
+    exclusion.
+  \item \textbf{SU PS, $\ngen = 3$:} $b_0 = 0$; similar to SO, at the
+    boundary of AF.  The difference from the SU Seiberg route is that
+    the PS route uses a smaller electric gauge group ($\SU{2}$ vs
+    $\SU{3}$) due to the Pati--Salam embedding's additional offset.
+\end{itemize}
+
+
+%% ================================================================
+%%  SECTION 9: DISCUSSION
+%% ================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{The uniqueness of $\ngen = 3$}
+
+Our analysis demonstrates that $\ngen = 3$ is the unique number of
+generations compatible with the intersection of Seiberg-type duality
+bounds across the $\SU{}$ and $\Sp{}$ routes.  The result can be
+understood as follows:
+\begin{itemize}
+  \item The \emph{SU~route} provides a lower bound ($\ngen \geq 3$) because
+    too few generations would make the electric gauge group abelian or
+    trivial.
+  \item The \emph{Sp~route} provides an upper bound ($\ngen \leq 3$)
+    because too many generations would push the electric Sp theory below
+    the conformal window, where the duality ceases to be operative.
+  \item These two constraints ``squeeze'' from opposite sides, leaving
+    $\ngen = 3$ as the only integer solution.
+\end{itemize}
+
+The SO~route provides independent confirmation of this picture: it
+requires $\ngen \geq 4$, which is incompatible with $\ngen = 3$ and
+therefore \emph{self-consistently excludes SO} as a viable duality frame
+for the Standard Model.
+
+\subsection{Model dependence}
+
+The generation bounds depend on how the Standard Model matter content
+is embedded in the duality framework:
+\begin{enumerate}
+  \item \textbf{Flavour counting:} The number of ``flavours'' $\Nf$
+    depends on whether we count quarks only (direct QCD route) or
+    quarks and leptons together (Pati--Salam route).  Both choices give
+    $\ngen \geq 3$ for the SU route.
+  \item \textbf{Embedding of $\SU{2}_L$:} The Sp~route requires
+    identifying all $\SU{2}_L$ doublets (quarks and leptons) as
+    fundamentals of the electric Sp group, which is unambiguous.
+  \item \textbf{Extension to non-SUSY:} The conformal window bounds are
+    exact in the SUSY context.  Their non-SUSY extrapolation may modify
+    the quantitative bounds but is unlikely to change the qualitative
+    picture of the SU lower bound vs.\ Sp upper bound squeeze.
+\end{enumerate}
+
+\subsection{Comparison with other generation-number arguments}
+
+Previous arguments for $\ngen = 3$ include:
+\begin{itemize}
+  \item \textbf{Anomaly cancellation:} The SM is anomaly-free for any
+    $\ngen$; this does not constrain the generation number.
+  \item \textbf{CP violation:} The CKM matrix has a physical phase only
+    for $\ngen \geq 3$, but this does not explain \emph{why} the phase
+    should be nonzero.
+  \item \textbf{Asymptotic freedom of QCD:} $b_0 = 11 - 2\Nf/3 > 0$
+    requires $\Nf < 16.5$, \ie, $\ngen \leq 8$.  This is an upper bound
+    but a weak one.
+  \item \textbf{Cosmological and precision constraints:}
+    Limits from $Z$-boson width, BBN, and CMB give $\ngen = 3$ for
+    light neutrinos, but these are experimental measurements, not
+    theoretical explanations.
+\end{itemize}
+
+The duality argument is qualitatively different: it derives $\ngen = 3$
+from the \emph{internal consistency} of identifying the SM as a magnetic
+dual, without reference to specific experimental data.  However, it
+rests on the unproven assumption that Seiberg-type dualities extend to
+non-supersymmetric theories.
+
+\subsection{Testability}
+
+The duality framework makes additional predictions beyond the generation
+number:
+\begin{itemize}
+  \item \textbf{Composite Higgs:} In the SU~route, the Higgs is a
+    composite meson with specific quantum numbers and coupling
+    structure~\cite{CacciapagliaSannino2024}.
+  \item \textbf{Scalar diquarks and leptoquarks:} In the Sp~route, the
+    meson content includes colour-triplet scalars that could be
+    observable at colliders~\cite{Paper1}.
+  \item \textbf{Conformal window boundary:} The electric theory for
+    $\ngen = 3$ sits at or near the conformal window boundary for both
+    the SU and Sp routes.  Lattice studies of theories in this
+    regime could test the existence of the IR fixed point.
+\end{itemize}
+
+
+%% ================================================================
+%%  SECTION 10: CONCLUSIONS
+%% ================================================================
+\section{Conclusions}
+\label{sec:conclusions}
+
+We have systematically derived the generation bound $\ngen$ for the
+Standard Model across all established $\mathcal{N}=1$ Seiberg-type
+dualities.  Our results are:
+
+\begin{enumerate}
+  \item \textbf{SU Seiberg duality} ($\SU{3}_c$ as magnetic):
+    electric $\SU{2\ngen - 3}$, bound $\ngen \geq 3$, CW-compatible for
+    $\ngen \in \{3, 4\}$.
+
+  \item \textbf{SU Pati--Salam} ($\SU{3}_c$ via $\SU{4}_{\mathrm{PS}}$):
+    electric $\SU{2\ngen - 4}$, bound $\ngen \geq 3$, CW-compatible for
+    $\ngen \in \{3, 4, 5, 6\}$.
+
+  \item \textbf{Sp duality} ($\SU{2}_L \cong \Sp{1}$ as magnetic):
+    electric $\Sp{2\ngen - 3}$, bound $\ngen \geq 2$, CW-compatible for
+    $\ngen \in \{2, 3\}$.  Upper bound $\ngen \leq 3$.
+
+  \item \textbf{SO duality} ($\SO{6} \cong \SU{4}$ as magnetic):
+    electric $\SO{2\ngen - 2}$, bound $\ngen \geq 3$, CW-compatible only
+    for $\ngen \in \{4, 5\}$.  \textbf{Excludes $\ngen = 3$.}
+
+  \item \textbf{Kutasov--Schwimmer} ($k \geq 2$): no integer $\ngen$ in
+    the conformal window.  \textbf{Ruled out.}  Only $k = 1$ (Seiberg
+    duality) is viable.
+\end{enumerate}
+
+Within the chosen duality-embedding framework, the intersection of the SU and Sp bounds uniquely selects
+\begin{equation}
+  \boxed{\ngen = 3}\,.
+\end{equation}
+The SO~route independently confirms the consistency of this result by
+excluding itself as a viable duality frame for $\ngen = 3$.
+
+If the conjectured non-supersymmetric extension of Seiberg duality holds,
+the three-generation structure of the Standard Model is not a free
+parameter but a \emph{mathematical consequence} of requiring both the QCD
+and electroweak sectors to admit self-consistent UV completions via
+electric--magnetic duality.
+
+
+%% ================================================================
+%%  ACKNOWLEDGEMENTS
+%% ================================================================
+\section*{Acknowledgements}
+
+This work is part of the Dualised Standard Model lecture programme.
+The analysis builds on the Cacciapaglia--Sannino
+construction~\cite{CacciapagliaSannino2024} and the Sp-route analysis
+of~\cite{Paper1}.
+
+
+%% ================================================================
+%%  REFERENCES
+%% ================================================================
+\begin{thebibliography}{99}
+
+\bibitem{Seiberg1995}
+N.~Seiberg,
+``Electric-magnetic duality in supersymmetric non-Abelian gauge theories,''
+\textit{Nucl.\ Phys.\ B} \textbf{435} (1995) 129--146,
+\href{https://arxiv.org/abs/hep-th/9411149}{hep-th/9411149}.
+
+\bibitem{IS9506101}
+K.~Intriligator and N.~Seiberg,
+``Duality, monopoles, dyons, confinement and oblique confinement
+in supersymmetric $\SO{\Nc}$ gauge theories,''
+\textit{Nucl.\ Phys.\ B} \textbf{444} (1995) 125--160,
+\href{https://arxiv.org/abs/hep-th/9503179}{hep-th/9503179}.
+
+\bibitem{IS1995}
+K.~Intriligator and N.~Seiberg,
+``Lectures on supersymmetric gauge theories and electric-magnetic duality,''
+\textit{Nucl.\ Phys.\ Proc.\ Suppl.} \textbf{45BC} (1996) 1--28,
+\href{https://arxiv.org/abs/hep-th/9509066}{hep-th/9509066}.
+
+\bibitem{KS9505004}
+D.~Kutasov and A.~Schwimmer,
+``On duality in supersymmetric Yang-Mills theory,''
+\textit{Phys.\ Lett.\ B} \textbf{354} (1995) 315--321,
+\href{https://arxiv.org/abs/hep-th/9505004}{hep-th/9505004}.
+
+\bibitem{KSS9507040}
+D.~Kutasov, A.~Schwimmer, and N.~Seiberg,
+``Chiral rings, singularity theory and electric-magnetic duality,''
+\textit{Nucl.\ Phys.\ B} \textbf{459} (1996) 455--496,
+\href{https://arxiv.org/abs/hep-th/9510222}{hep-th/9510222}.
+
+\bibitem{CacciapagliaSannino2024}
+G.~Cacciapaglia and F.~Sannino,
+``The Standard Model as a Seiberg dual,''
+\href{https://arxiv.org/abs/2407.17281}{arXiv:2407.17281} (2024).
+
+\bibitem{Sannino2011}
+F.~Sannino,
+``Magnetic S-parameter,''
+\textit{Phys.\ Rev.\ Lett.} \textbf{105} (2010) 232002,
+\href{https://arxiv.org/abs/1007.0254}{arXiv:1007.0254}.
+
+\bibitem{PS1974}
+J.~C.~Pati and A.~Salam,
+``Lepton number as the fourth 'color',''
+\textit{Phys.\ Rev.\ D} \textbf{10} (1974) 275--289.
+
+\bibitem{AMPS2011}
+A.~Armoni, M.~Shifman, and G.~Veneziano,
+``Refining the proof of planar equivalence,''
+\textit{Phys.\ Rev.\ D} \textbf{71} (2005) 045015,
+\href{https://arxiv.org/abs/hep-th/0412203}{hep-th/0412203}.
+
+\bibitem{Paper1}
+``Sp(1) Seiberg duality as an alternative UV completion of the
+electroweak sector,''
+Notes from the Dualised Standard Model Programme, 2026.
+
+\bibitem{Frampton1992}
+P.~H.~Frampton,
+``Chiral Duality and the Generation Problem,''
+\textit{Phys.\ Rev.\ Lett.} \textbf{69} (1992) 2889.
+
+\end{thebibliography}
+
+\end{document}

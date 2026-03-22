@@ -1,0 +1,2807 @@
+% draft3.tex -- Coherence pass of draft2.tex
+% Restructured Discussion, compressed f_pi, honest parameter counting
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+% Shortcuts
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\UU}{\mathrm{U}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\Nf}{N_f}
+\newcommand{\Nc}{N_c}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\disc}{\mathrm{disc}}
+\newcommand{\adj}{\mathrm{adj}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\keV}{\,\mathrm{keV}}
+\newcommand{\MeV}{\,\mathrm{MeV}}
+\newcommand{\GeV}{\,\mathrm{GeV}}
+\newcommand{\Sp}{\mathrm{Sp}}
+\newcommand{\TeV}{\,\mathrm{TeV}}
+\newcommand{\ie}{i.e.\@}
+\newcommand{\eg}{e.g.\@}
+
+\title{Three generations from $\SU(3)$ confinement\\
+  and $\UU(3)$ family symmetry}
+
+\author{A.\ Rivero\thanks{Corresponding author. \texttt{rivero@unizar.es}}}
+\date{Draft --- \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+  We study the flavour sector of the Standard Model using two
+  ingredients: the moduli space of $\mathcal{N}=1$ $\SU(3)$ SQCD with
+  three flavours, and a $\UU(3)$ family symmetry with canonical
+  normalization. The Seiberg confined description gives a meson moduli
+  space with a $\mathbb{Z}_2$ involution $M \to \Lambda^4 M^{-1}$ that
+  exchanges the $\mathbf{15}$ and $\overline{\mathbf{15}}$ of
+  $\SU(5)_{\rm flavour}$. The $\UU(3)$ structure determines the mass
+  deformations through a charge ansatz $m_i = k(z_0 + z_i)^2$, with
+  $z_0 = 1/\sqrt{6}$ fixed by group theory. The self-dual charge
+  spectrum has algebraic discriminant~21, which equals the dynamical
+  discriminant of the family Higgs potential only for $N=3$
+  generations. Extension to $\Nf=4$ true s-confinement recovers the
+  Pati--Salam decomposition from the baryon sector, with the top quark
+  as the decoupling fourth flavour. The effective Lagrangian involves a
+  single meson field: both electroweak Higgs doublets emerge from~$M$
+  and its adjugate $\adj(M)$, which is holomorphic in~$M$ alone,
+  constraining the ratio $v_u/v_d$ at the superpotential level
+  (subject to K\"ahler corrections).
+  Electroweak symmetry breaking necessarily breaks SUSY:
+  the $F$-term equations are overconstrained, and the
+  SUSY-breaking auxiliary fields \emph{are} the lepton masses,
+  $|F_{2j}| = m_j$.
+  The family confinement
+  scale $\Lambda = f_\pi\sqrt{3}/2$ relates the electroweak VEV to
+  the lepton mass hierarchy and the K\"ahler normalization of the
+  meson condensate.
+  The framework has four continuous inputs---a scale~$k$, an
+  angle~$\alpha$ (both fixed by $m_e$ and $m_\mu$),
+  $m_d$, and~$m_s$---together with a set of
+  structural assumptions (Table~\ref{tab:status}).
+  From these, it is consistent with thirteen observables including
+  the predicted~$m_\tau$ (0.001\% in~$K$), four quark masses (1--4\%, with $m_b$
+  sensitive to the $m_d$ input), the
+  Cabibbo angle~(0.01\%), $|V_{cb}| = 1/(5R)$~(1\%),
+  $|V_{ub}| = 2\sqrt{2}/(7R^3)$~(0.2\%), and
+  $\delta_{CP} = \arctan\sqrt{R}$~($0.2\sigma$), where
+  $R = (5+\sqrt{21})/2$.
+  The inverse Koide ratio for down quarks,
+  $K^{-1}(d,s,b)$, agrees to~$0.25\%$ at its conventional
+  evaluation scale ($m_{d,s}$ at $2\GeV$, $m_b$ at~$m_b$) and
+  improves to~$0.13\%$ at~$M_Z$.
+\end{abstract}
+
+
+%======================================================================
+\section{Introduction}
+\label{sec:intro}
+%======================================================================
+
+The Standard Model contains 13~free parameters in the flavour
+sector---six quark masses, three charged-lepton masses, three CKM
+angles, and a CP phase---with no known relations among them.
+
+In 1983, Koide~\cite{Koide:1983qe} constructed a preon model
+aiming to relate the Cabibbo angle to the mass ratios between
+generations. The model produced, as a byproduct, a mass matrix
+ansatz $m_i \propto (a + b_i)^2$ where $a$ is a universal constant
+and the $b_i$ are signed quantities summing to zero, with the
+constraint that the average of the $b_i^2$ equals~$a^2$.
+This predicted the tau mass as $m_\tau = 1776.97\MeV$---confirmed
+years later by experiment. The original preon model was subsequently
+ruled out by the absence of compositeness signals at high-energy
+colliders, but the mass matrix relation survived as an empirical
+fact in search of a theoretical home.
+The formula is a statement about the mass matrix, not about
+square roots: the $b_i$ can be positive or negative, and it is
+only their \emph{squares} that must be positive (as befits
+physical masses).
+
+Seiberg's exact results for $\mathcal{N}=1$
+SQCD~\cite{Seiberg:1994bz,Intriligator:1995au} provide a
+controlled setting in which the infrared dynamics of a strongly coupled
+gauge theory is described by gauge-invariant composites (mesons and
+baryons) subject to an exact quantum constraint. For $\SU(3)$ with
+$\Nf=3$ flavours, this constraint defines a moduli space with a
+non-trivial involution. In this work we show that, when the mass
+deformations of this moduli space are parameterized by the charges of a
+$\UU(3)$ family symmetry---where $a = z_0$ is the $\UU(1)$
+normalization and the $b_i = z_i$ are the $\SU(3)$ Cartan
+charges---the Koide relation becomes an algebraic identity:
+\begin{itemize}
+  \item The charged-lepton Koide ratio $K \equiv \sum m_i / (\sum
+    \sqrt{m_i})^2 = 2/3$ to 0.001\%~\cite{Koide:1983qe},
+    evaluated at pole masses (here all $z_0 + z_i > 0$, so
+    $\sqrt{m_i} = \sqrt{k}\,(z_0{+}z_i)$ with the positive root).
+  \item The down-quark masses satisfy $K(1/m_d, 1/m_s, 1/m_b) = 2/3$
+    to 0.25\%~\cite{Rivero:2024epjc}, using
+    $\overline{\rm MS}$ masses at their conventional scales
+    ($m_{d,s}$ at~$2\GeV$, $m_b$ at~$m_b$).
+  \item The Cabibbo angle obeys $|V_{us}| \approx
+    \sqrt{m_d/m_s}$~\cite{GattoSartoriTonin:1968,Weinberg:1977hb,Fritzsch:1979zq}.
+\end{itemize}
+
+The paper is organized as follows and includes pedagogical
+explanations of the SUSY techniques for readers more familiar with
+the Standard Model than with superfield methods.
+Section~\ref{sec:seiberg}
+establishes the Seiberg confined description: the meson moduli space,
+its involution, and the off-diagonal meson mass matrix, with
+introductory material on holomorphy, anomaly matching, and the
+classification of SQCD theories.
+Section~\ref{sec:u3} introduces the $\UU(3)$ family charges that
+parameterize the mass deformations. Section~\ref{sec:involution}
+shows how the involution exchanges the charged-lepton and down-quark
+charge assignments, identified with the $\mathbf{15} \leftrightarrow
+\overline{\mathbf{15}}$ exchange of $\SU(5)_{\rm flavour}$, and
+explains the adjugate mechanism.
+Section~\ref{sec:uniqueness} proves a uniqueness theorem for $N=3$
+generations via discriminant matching.
+Section~\ref{sec:nf4} extends to $\Nf=4$ true s-confinement and the
+Pati--Salam structure. Section~\ref{sec:numerics} collects
+the numerical results. Section~\ref{sec:discussion} discusses
+open problems and structural implications.
+
+
+%======================================================================
+\section{$\SU(3)$ SQCD: Confinement, Symmetry Breaking, and the Moduli
+  Space}
+\label{sec:seiberg}
+%======================================================================
+
+\subsection{Why SUSY exact results are trustworthy}
+
+Before presenting the technical setup, we briefly explain why
+supersymmetric gauge theories allow exact non-perturbative
+statements---a feature absent in ordinary QCD.
+
+In a supersymmetric theory, the superpotential~$W$ is a holomorphic
+function of the chiral superfields and the coupling constants.
+Holomorphy---the requirement that $W$ depends only on the fields
+$\Phi$ and not on their complex conjugates~$\bar\Phi$---is extremely
+constraining. (For readers unfamiliar with the term: a holomorphic
+function is a ``complex-analytic'' function, one that can be
+expanded in a Taylor series in its complex variables. A function
+like $|\Phi|^2 = \Phi\bar\Phi$ is \emph{not} holomorphic because it
+depends on~$\bar\Phi$; a function like $\Phi^3 + m\Phi$ \emph{is}
+holomorphic.) This constraint forbids most quantum corrections.
+Seiberg's key insight~\cite{Seiberg:1994bz} was that holomorphy,
+combined with symmetries and known limiting behaviour (weak coupling,
+large masses), often determines~$W$ uniquely.
+The result is an exact effective superpotential valid at
+\emph{all} coupling strengths, including the strongly-coupled
+regime where perturbation theory fails.
+
+The second pillar is 't~Hooft anomaly matching.
+In quantum field theory, an \emph{anomaly} arises when a symmetry
+of the classical theory is violated by quantum effects. The most
+familiar example is the chiral anomaly in QED, which is responsible
+for the decay $\pi^0 \to \gamma\gamma$. 't~Hooft showed that
+anomaly coefficients---numbers computed from one-loop triangle diagrams
+of global symmetry currents---are \emph{exact}: they receive no
+higher-order corrections and are independent of the energy scale.
+This means that any proposed low-energy description of a theory
+must reproduce the same anomaly coefficients as the UV quarks and
+gluons. This is a powerful consistency check: most candidate
+effective theories fail it.
+For $\SU(\Nc)$ with $\Nf$ flavours, these conditions---together
+with holomorphy---uniquely fix the effective superpotential
+in terms of composite fields (mesons and baryons), up to an
+overall normalization set by the dynamical scale~$\Lambda$.
+
+The physical picture is analogous to QCD: the strong $\SU(3)_F$
+interaction confines the ``preons'' ($Q$,~$\tilde Q$) into
+colour-singlet bound states. In QCD, the quark bilinear
+$\bar q_i q_j$ forms a $3\times3$ matrix of bound states---the
+scalar mesons ($\sigma$,~$\pi$, $K$, $\eta$, $a_0$, \ldots). In our
+SUSY theory, the analogous bilinear $Q^i\tilde Q_j$ forms a
+$3\times3$ matrix of meson \emph{superfields}~$M^i{}_j$, each
+containing a complex scalar and a Weyl fermion (the ``mesino'').
+Similarly, the colour-antisymmetric combination of three quarks
+(the baryon) has a SUSY counterpart
+$B = \epsilon_{abc} Q^{a1} Q^{b2} Q^{c3}$.
+
+The crucial difference from QCD is that supersymmetry and holomorphy
+allow \emph{exact} control of the resulting low-energy theory.
+In QCD, the chiral Lagrangian for pions is only an
+approximation---corrections are incalculable at strong coupling.
+In SUSY QCD, the superpotential of the confined theory is exact
+to all orders.  This is what makes the present framework
+non-trivially predictive: the relations between
+meson VEVs and mass deformations (eq.~\ref{eq:vacuum} below)
+are not approximations but exact consequences of holomorphy and symmetry.
+
+\paragraph{Why $\Nf = \Nc$ is special: the quantum-modified moduli space.}
+Seiberg's analysis~\cite{Seiberg:1994bz,Intriligator:1995au}
+classifies SQCD theories by the ratio $\Nf/\Nc$:
+\begin{itemize}
+  \item $\Nf > 3\Nc$: the theory is not asymptotically free.
+  \item $\frac{3}{2}\Nc < \Nf < 3\Nc$: the theory flows to
+    an interacting conformal fixed point (``conformal window'').
+  \item $\Nc + 1 \leq \Nf \leq \frac{3}{2}\Nc$: the theory confines
+    and can be described by dual variables (Seiberg duality).
+  \item $\Nf = \Nc + 1$: \emph{s-confinement}. The confined theory
+    has a smooth moduli space with a SUSY-preserving origin.
+    The effective superpotential is a polynomial in the composites.
+  \item $\Nf = \Nc$ (our case): the confined theory has a
+    \emph{quantum-modified} moduli space. The classical moduli space
+    (where $\det M = 0$ is allowed) is deformed by
+    instantons---non-perturbative tunnelling events between
+    topologically inequivalent gauge-field configurations---to
+    $\det M - B\tilde B = \Lambda^{2\Nc}$, removing the origin.
+    This is a genuinely quantum-mechanical effect with no classical
+    analogue.
+\end{itemize}
+The $\Nf = \Nc$ case is the borderline between the s-confining
+window and the ADS (Affleck--Dine--Seiberg)
+regime~\cite{AffleckDineSeiberg:1984}, where a
+dynamical superpotential $W \propto 1/\det M$ is generated and
+no stable vacuum exists.  At $\Nf = \Nc$, the ADS superpotential
+is replaced by a constraint---a qualitative change that occurs
+precisely at the threshold where the baryon becomes an independent
+degree of freedom (for $\Nf < \Nc$, baryons cannot be formed).
+
+The reader unfamiliar with SUSY gauge theories may consult
+the reviews~\cite{Intriligator:1995au,Seiberg:1994bz} for
+pedagogical treatments; we now summarise the essential results.
+
+\subsection{The UV theory and its symmetries}
+
+Consider $\mathcal{N}=1$ $\SU(3)$ SQCD with $\Nf = 3$ flavours of
+chiral superfields $Q^i$, $\tilde{Q}_j$
+($i,j = 1,2,3$)~\cite{Seiberg:1994bz,Intriligator:1995au}.
+(A \emph{chiral superfield} is the basic building block of
+$\mathcal{N}=1$ SUSY: it packages a complex scalar~$\phi$, a Weyl
+fermion~$\psi$, and an auxiliary field~$F$ into a single object.
+The scalar and fermion have the same gauge quantum numbers---they
+are ``superpartners.'' The field $Q^i$ is the SUSY analogue of
+a quark: it transforms as a fundamental $\mathbf{3}$ of the gauge
+group $\SU(3)$, and carries a flavour index $i = 1,2,3$. The
+conjugate field $\tilde Q_j$ transforms as $\bar{\mathbf{3}}$.)
+
+The classical global symmetry is
+\begin{equation}
+  G_{\rm cl} = \SU(3)_L \times \SU(3)_R \times \UU(1)_B
+    \times \UU(1)_A \times \UU(1)_R\,.
+  \label{eq:Gcl}
+\end{equation}
+The axial $\UU(1)_A$ is anomalous: although it is a symmetry of the
+classical Lagrangian, quantum effects (instantons) break it. This is
+exactly analogous to the axial anomaly in QCD, which is responsible
+for the large mass of the $\eta'$ meson.\footnote{In QCD, the axial
+$\UU(1)_A$ symmetry $q \to e^{i\gamma_5\theta}q$ is broken by the
+triangle anomaly to $\mathbb{Z}_{2\Nf}$. The same mechanism operates
+here.} The surviving non-anomalous symmetry includes the
+$R$-symmetry---a continuous symmetry unique to SUSY theories in which
+different components of a superfield carry different charges.
+(The $R$-charge is the SUSY analogue of chirality: the scalar
+component of a superfield carries $R$-charge~$r$, while the fermion
+component carries $R$-charge $r{-}1$. The superpotential must have
+total $R$-charge~2, which severely constrains its form.)
+With the standard assignment $R_Q = R_{\tilde{Q}} = 0$ and
+$R_\Lambda = 2/3$, the $R$-symmetry constrains
+the effective superpotential.
+
+\subsection{Confined spectrum}
+
+The low-energy degrees of freedom are gauge-invariant composites:
+\begin{itemize}
+  \item 9~mesons: $M^i{}_j = Q^i \tilde{Q}_j$
+    \quad ($\mathbf{3}_L \otimes \bar{\mathbf{3}}_R$),
+  \item a baryon: $B = \epsilon_{abc}\,\epsilon_{ijk}\,Q^{ai}Q^{bj}Q^{ck}$
+    \quad ($\mathbf{1}_L$, $B = +1$),
+  \item an antibaryon: $\tilde{B} = \epsilon^{abc}\,\epsilon^{ijk}\,
+    \tilde{Q}_{ai}\tilde{Q}_{bj}\tilde{Q}_{ck}$
+    \quad ($\mathbf{1}_R$, $B = -1$).
+\end{itemize}
+Each meson superfield $M^i{}_j$ contains a complex scalar and a Weyl
+fermion (the ``mesino'') sharing the same quantum numbers. The 9~mesino
+fermions transform as $(\mathbf{3}, \bar{\mathbf{3}})$ under
+$\SU(3)_L \times \SU(3)_R$: 3~diagonal (neutral under
+$\SU(3)_{\rm diag}$) and 6~off-diagonal (charged). This counting---9
+Weyl fermions---matches the minimal SM lepton sector
+($L_i + e^c_i$, no $\nu_R$)~\cite{ArkaniHamed:1998wc}, a point we return to in the discussion.
+
+These composites satisfy the exact quantum constraint
+\begin{equation}
+  \det M - B\tilde{B} = \Lambda^6\,,
+  \label{eq:constraint}
+\end{equation}
+where $\Lambda$ is the dynamical scale. Equation~\eqref{eq:constraint}
+is enforced by a Lagrange multiplier superfield~$X$ through the
+effective superpotential
+\begin{equation}
+  W_{\rm dyn} = X\bigl(\det M - B\tilde{B} - \Lambda^6\bigr).
+  \label{eq:Wdyn}
+\end{equation}
+This is the quantum-modified moduli space of the $\Nf = \Nc$
+theory~\cite{Seiberg:1994bz}. (The $\Nf = \Nc$ theory is \emph{not}
+s-confining in the strict sense of~\cite{CsakiSchmaltzSkiba:1997}:
+the origin is removed and the moduli space is modified, whereas true
+s-confinement at $\Nf = \Nc + 1$ has a smooth origin. See
+Section~\ref{sec:nf4}.)
+
+\paragraph{Physical meaning of the quantum constraint.}
+The constraint $\det M = \Lambda^6$ on the mesonic branch says
+that the product of the three diagonal meson VEVs is \emph{fixed}
+by the strong dynamics:
+\begin{equation}
+  \langle M_1\rangle\,\langle M_2\rangle\,\langle M_3\rangle
+  = \Lambda^6\,.
+  \label{eq:detfixed}
+\end{equation}
+This is the SUSY analogue of the QCD chiral condensate
+$\langle\bar qq\rangle \sim \Lambda_{\rm QCD}^3$, but elevated
+from an approximate order parameter to an exact constraint.
+While in QCD the value of the chiral condensate is only known
+numerically (from lattice calculations or sum rules), the SUSY
+constraint is exact.
+
+The constraint has a dramatic physical consequence: if one meson
+VEV is made small (by giving the corresponding preon a large mass),
+the others must grow to compensate. This is the origin of
+the seesaw-like relation $\langle M_i\rangle \propto 1/m_i$ in
+eq.~\eqref{eq:vacuum}---the same structure that produces the
+Koide mass hierarchy from a hierarchy of input charges.
+Removing the origin ($\det M = 0$ is forbidden) means
+that the confined theory has no symmetric vacuum: at least one
+meson must condense, and chiral symmetry is always broken.
+
+\subsection{Branches and symmetry breaking}
+
+\paragraph{Moduli space.}
+In SUSY theories, families of degenerate vacua parameterised by
+scalar VEVs form a \emph{moduli space}.
+For $\Nf = \Nc$, it is the constraint surface
+$\det M - B\tilde B = \Lambda^6$: a 5-complex-dimensional manifold.
+
+The moduli space has two branches:
+\begin{itemize}
+  \item \textbf{Mesonic branch} ($B = \tilde{B} = 0$):
+    $\det M = \Lambda^6$, so at least one meson VEV is nonzero. The
+    diagonal vacuum $\langle M \rangle = \diag(\Lambda^2\omega_1,\,
+    \Lambda^2\omega_2,\, \Lambda^2\omega_3)$ with
+    $\omega_1\omega_2\omega_3 = 1$ breaks
+    $\SU(3)_L \times \SU(3)_R \to \SU(3)_V$ (or further, depending on
+    the $\omega_i$).
+  \item \textbf{Baryonic branch} ($\det M > \Lambda^6$): $B\tilde{B}
+    \neq 0$, breaking $\UU(1)_B$. We do not use this branch, but
+    it exists as an integral part of the moduli space.
+\end{itemize}
+
+\subsection{F-term equations and the mass-deformed vacuum}
+\label{sec:fterms}
+
+We now add explicit masses for the preons. In a SUSY theory, mass
+terms live in the superpotential: $W_{\rm tree} = m_i M^i{}_i$
+(with $m_i > 0$). Physically, giving a preon a mass~$m_i$ means
+giving both the scalar and the fermion inside the superfield~$Q^i$
+the same mass (SUSY enforces this).  The mass deformation explicitly
+breaks the flavour symmetry: different generations get different
+masses, just as in the Standard Model.
+
+The total superpotential is
+\begin{equation}
+  W = X\bigl(\det M - B\tilde{B} - \Lambda^6\bigr) + m_i M^i{}_i\,.
+  \label{eq:Wtot}
+\end{equation}
+To find the vacuum, we set all $F$-terms to zero (which minimises
+the scalar potential; see Appendix~\ref{app:primer}).
+The $F$-term equations are:
+\begin{align}
+  F_X &= \det M - B\tilde{B} - \Lambda^6 = 0\,,
+    \label{eq:FX}\\
+  F_{M^i{}_j} &= X\,(\text{cof}\,M)^j{}_i + m_i\,\delta^j_i = 0\,,
+    \qquad\text{($\text{cof}\,M$ = cofactor matrix $\equiv \adj(M)^T$)}
+    \label{eq:FM}\\
+  F_B &= -X\,\tilde{B} = 0\,,
+    \label{eq:FB}\\
+  F_{\tilde{B}} &= -X\,B = 0\,.
+    \label{eq:FBt}
+\end{align}
+From \eqref{eq:FB}--\eqref{eq:FBt}: either $X=0$ (which contradicts
+\eqref{eq:FM} since $m_i \neq 0$) or $B = \tilde{B} = 0$. Taking the
+latter, we are on the mesonic branch with $\det M = \Lambda^6$.
+
+The off-diagonal components of \eqref{eq:FM} force
+$\langle M^i{}_j \rangle = 0$ for $i \neq j$ (since the cofactor
+matrix of a diagonal $M$ is diagonal). The diagonal components give
+\begin{equation}
+  \langle M_i \rangle = \frac{\Lambda^2 P^{1/3}}{m_i}\,,
+  \qquad P = m_1 m_2 m_3\,.
+  \label{eq:vacuum}
+\end{equation}
+This is the central equation of the framework. It says:
+\emph{heavy preons produce light mesons, and vice versa.}
+The meson VEV is \emph{inversely proportional} to the preon mass,
+like a seesaw. This inverse relation is not assumed but derived
+from the $F$-term equations and the quantum constraint.
+It is exact in the SUSY limit and holds non-perturbatively.
+
+\paragraph{Symmetry-breaking pattern.}
+The mass deformation breaks $\SU(3)_L \times \SU(3)_R$ explicitly.
+In the vacuum \eqref{eq:vacuum}:
+\begin{itemize}
+  \item If $m_1 = m_2 = m_3$: $\SU(3)_V$ is preserved.
+  \item If all $m_i$ are distinct: the global symmetry is broken to
+    $\UU(1)^2$.
+  \item $\UU(1)_B$ is preserved ($B = \tilde{B} = 0$).
+  \item $\UU(1)_R$ is broken by $\langle M_i \rangle \neq 0$.
+\end{itemize}
+This is a rich scaffold for flavour symmetry breaking, driven entirely
+by the mass parameters $m_i$---which in Section~\ref{sec:u3} we fix
+using $\UU(3)_F$ charges.
+
+\subsection{The meson mass matrix}
+
+The off-diagonal meson masses are
+\begin{equation}
+  m_{\rm phys}(M^i{}_j) = \frac{m_i m_j}{P^{1/3}}\,,
+  \label{eq:offdiag}
+\end{equation}
+which are $\Lambda$-independent: they depend only on ratios of the
+input masses. The diagonal meson mass matrix, obtained from second
+derivatives of $W$ on the constraint surface, is
+\begin{equation}
+  W_S = P^{1/3}\bigl(\diag(v_i^2) - v \otimes v^T\bigr),
+  \qquad v_i = \frac{m_i}{P^{1/3}}\,.
+  \label{eq:WS}
+\end{equation}
+This matrix has the properties:
+\begin{enumerate}
+  \item $\Tr(W_S) = 0$: the eigenvalues sum to zero.
+  \item $(W_S)_{kk} = 0$ for all~$k$: the diagonal entries vanish
+    (a consequence of $\partial^2 \det M / \partial M_k^2 = 0$, \ie,
+    the multilinearity of the determinant).
+  \item Rank~2 (one zero eigenvalue from the constraint).
+\end{enumerate}
+Property~(2) is the key structural result: the Seiberg dynamics is
+\emph{transparent} to the mass parameters. If the input masses $m_i$
+satisfy a sum rule, the physical spectrum preserves it at leading order
+in the off-diagonal perturbation.
+
+\paragraph{Eigenvalue structure.}
+The eigenvalues of $W_S$ at the physical lepton mass scale
+sum to zero: $\lambda_1 + \lambda_2 +
+\lambda_3 = 0$. This immediately rules out identifying the Seiberg
+eigenvalues directly with lepton masses (which are all positive).
+Numerically, $\lambda \approx \{+3229, -3229, -0.4\}\MeV$ for
+physical lepton mass inputs. The Seiberg dynamics preserves the charge
+structure but does not generate the mass spectrum---the mechanism lives
+in the family sector.
+
+\paragraph{Summary of the confined framework.}
+To summarise the physical picture before proceeding to the charge
+ansatz: three ``preons'' ($Q_i$ and $\tilde Q_j$) bind under
+a family $\SU(3)_F$ gauge force to form 9~meson superfields
+$M^i{}_j$ and a baryon/antibaryon pair. The mesons contain the
+Higgs doublets and the lepton fields. The vacuum is determined by
+an exact quantum constraint (the product of meson VEVs is fixed)
+plus mass deformations $m_i$ that break the flavour symmetry.
+Heavy preons produce light mesons: $\langle M_i\rangle \propto
+1/m_i$. The off-diagonal meson mass matrix is ``transparent''---it
+does not spoil the charge structure. The remaining question is:
+\emph{what determines the mass deformations $m_i$?}
+
+
+%======================================================================
+\section{Family Charges from $\UU(3)$}
+\label{sec:u3}
+%======================================================================
+
+The mass parameters $m_i$ in the tree-level superpotential
+$W_{\rm tree} = m_i M^i{}_i$ are free inputs. We now specify them
+using a $\UU(3)_F$ family symmetry.
+
+Let the three generations transform as the fundamental
+$\mathbf{3}$ of $\UU(3)_F = \SU(3)_F \times \UU(1)$, with all
+generators in canonical normalization $\Tr(T_A T_B) =
+\frac{1}{2}\delta_{AB}$.
+
+The $\SU(3)$ Cartan charges of the fundamental components satisfy
+\begin{equation}
+  \sum_{i=1}^3 z_i = 0\,,
+  \qquad
+  \sum_{i=1}^3 z_i^2 = \frac{1}{2}\,,
+  \label{eq:su3constraints}
+\end{equation}
+and the $\UU(1)$ charge is fixed:
+\begin{equation}
+  z_0 = \frac{1}{\sqrt{6}}\,.
+  \label{eq:z0}
+\end{equation}
+
+\paragraph{Physical interpretation of $m_i$.}
+The parameter $m_i$ is the tree-level superpotential mass deformation
+for the preon bilinear $Q^i\tilde Q_i$:
+$W_{\rm tree} = \sum_i m_i\,Q^i\tilde Q_i$.
+After confinement, $m_i$ appears simultaneously as: (i)~the mass
+deformation that lifts the moduli space; (ii)~the effective Yukawa
+coupling that determines fermion hierarchies (Section~\ref{sec:involution});
+and (iii)~the determinant factor in the meson VEV via
+$\langle M_i\rangle = \Lambda^2 P^{1/3}/m_i$.
+As a superpotential coupling, $m_i$ has mass dimension one and is
+protected by holomorphy against perturbative corrections
+in the $\mathcal{N}=1$ theory.
+
+\paragraph{Charge ansatz.}
+We \emph{postulate} a quadratic relation between the mass deformation
+and the family quantum numbers:
+\begin{equation}
+  m_i = k\,(z_0 + z_i)^2\,.
+  \label{eq:massansatz}
+\end{equation}
+This is the norm-squared on the $\UU(3)$ charge lattice---the
+Killing-form inner product restricted to the Cartan subalgebra.
+The quadratic form is distinguished on three grounds:
+(i)~it is the unique $W$-invariant bilinear on the
+weight lattice (the Weyl group permutes the $z_i$, leaving
+$\sum(z_0 + z_i)^2$ invariant);
+(ii)~in heterotic string compactifications on a Narain lattice,
+the BPS mass-squared is
+$M^2 = |p_L|^2/\alpha'$~\cite{Narain:1986}, where $p_L$ is the
+left-moving momentum on the charge lattice; a Wilson line provides
+the universal shift $z_0$, the $z_i$ are gauge Cartan charges;
+(iii)~in the $\mathcal{N}=2$ attractor mechanism, the BPS mass
+at the attractor point is $M^2 = |Z|^2$ with $Z$ linear in
+charges~\cite{Ferrara:1995ih}; on the $\UU(3)$ lattice this
+gives \eqref{eq:massansatz}.
+Note that the standard BPS formula $M^2 \propto Q^2$ yields a
+mass-\emph{squared} quadratic in charges, whereas the ansatz
+\eqref{eq:massansatz} has a mass (dimension~1) quadratic in charges.
+The meson $M^i{}_j = Q^i\tilde{Q}_j$ resolves this: as a
+quark--antiquark bilinear it has mass dimension~2, so its
+VEV $\langle M_i\rangle$ plays the role of $M^2$, not~$M$.
+Physically, the meson is a flavour ``capacitor''---a bound pair
+of charges $Q^i$ and $\tilde{Q}_i$ separated at the confinement
+scale~$\Lambda_F$.  The quadratic form has a gauge-theoretic origin:
+by Gauss's law the chromoelectric field of a static preon with
+family charge~$q_i$ is $|\mathbf{E}_i| \propto q_i$; since
+the gauge Lagrangian is $\mathcal{L} \supset -(1/4g^2)F_{\mu\nu}^2$,
+the field energy is $U_i = (2g^2)^{-1}\!\int\!d^3x\,\mathbf{E}_i^2
+\propto q_i^2\,\Lambda_F/g_F^2$,
+i.e.\ quadratic in the charge, just as for a classical capacitor
+$E = Q^2/(2C)$.
+The same result follows from the $\mathcal{N}=1$ effective
+Lagrangian for the residual $\UU(1)^2_F$ after confinement.
+On the mesonic vacuum with $B = \tilde{B} = 0$, the
+static energy functional
+$\mathcal{E} = (2g^2)^{-1}(\mathbf{E}^2{+}\mathbf{B}^2)
++ \tfrac{g^2}{2}J_F^2 + \cdots$ contains the $D$-eliminated
+family current $J_F = \sum_i q_i\,|\phi_i|^2 + \xi$
+(where $\phi_i$ are the scalar meson fields).
+For composite states whose spatial profile is generation-independent
+(the confinement scale~$\Lambda_F$ sets the tube width for all~$i$)
+but whose field strength scales as $\mathbf{E}_i = q_i\,
+\mathbf{E}_0$, the integrated energy is
+$\Delta M_i = q_i^2\,\mu$ with
+$\mu = \!\int\!d^3x\bigl[(2g^2)^{-1}\mathbf{E}_0^2
++ (g^2/2)\,J_0^2\bigr]$.
+The overall scale~$\mu = k$ is non-perturbative and depends on
+the K\"ahler metric; the $q_i^2$~pattern is fixed by gauge theory.
+In the M-theory lift (Appendix~\ref{app:Mtheory}), this
+bound pair maps to an M2-brane whose BPS mass is
+$T_2 \times \text{Area}$; the quadratic form would follow if
+both worldvolume directions scale linearly with
+$(z_0{+}z_i)$---a geometric restatement
+of the same field-energy picture.
+
+\paragraph{What is excluded---and why the square is unique.}
+A linear ansatz $m_i = k'(z_0 + z_i)$ is excluded by
+positivity (some $m_i < 0$ for $|z_i| > z_0$). A quartic ansatz
+$m_i = k''(z_0+z_i)^4$ does not produce $K = 2/3$.
+More generally, consider the monomial family
+$m_i = c\,(z_0 + z_i)^n$. The signed Koide ratio
+\begin{equation}
+  K_n \;=\; \frac{\sum_i (z_0{+}z_i)^n}
+    {\bigl(\sum_i (z_0{+}z_i)^{n/2}\bigr)^2}
+  \label{eq:Kn}
+\end{equation}
+is \emph{direction-independent} in the Cartan subalgebra---i.e.\
+independent of the sector angle~$\alpha$---if and only if~$n = 2$.
+For $n=2$, the numerator is $S_2 = 3z_0^2 + \sum z_i^2 = 1$
+and the denominator is $S_1^2 = (3z_0)^2 = 3/2$, both
+independent of~$\alpha$; hence $K_2 = 2/3$ identically.
+For $n \geq 3$, $S_n$ depends on the cubic and higher Casimirs
+$\sum z_i^p$ ($p\geq 3$), which vary with direction.
+The cubic Casimir $d_{abc}\,T^a T^b T^c \propto \mathbf{1}$ for
+the fundamental, so it shifts~$z_0$ but not the
+generation-dependent~$z_i$: the leading correction that could
+spoil $K = 2/3$ is the direction-dependent power sum
+$S_3 \supset \cos(3\alpha)/(4\sqrt{3})$, suppressed by an additional
+insertion of the family-breaking background field.
+Mixed invariants of the form $m_i m_j$ for $i\neq j$ are
+off-diagonal mass terms forbidden by the diagonal $\UU(1)^3$
+unbroken in the Cartan subalgebra.
+
+The uniqueness of $n=2$ has a physical interpretation:
+the family charge~$q_i$ is an \emph{amplitude}; the
+mass is its \emph{norm-square}.  Every second-order mechanism
+that produces mass from a linear precursor---seesaw mixing
+$\mu_i \propto q_i$ giving $m_i \propto \mu_i^2/M$,
+bilinear composites $M^i{}_i = Q^i\tilde{Q}_i$ giving a VEV
+$\propto q_i^2$, capacitor energy $E = Q^2/(2C)$,
+or M2-brane area $\propto (\text{distance})^2$---yields $n=2$
+and therefore direction-independent $K = 2/3$.
+
+\paragraph{Radiative stability.}
+Since $m_i$ is a superpotential coupling, it receives no
+perturbative corrections from gauge loops (the non-renormalization
+theorem of~\cite{Seiberg:1993vc}). The leading violation arises
+from $\UU(3)_F$-breaking soft terms at the scale $m_{\rm soft}$;
+writing $\delta m_i \sim m_{\rm soft}\,c_i$, the correction to $K$
+is $\delta K \sim (m_{\rm soft}/k)\,(\delta c/c) \sim 10^{-2}$
+for $m_{\rm soft} \sim 1\TeV$, $k \sim 80\GeV$.
+Thus the $K=2/3$ relation is radiatively stable to per-cent accuracy
+whenever the family symmetry breaking scale exceeds the soft mass scale.
+We emphasise that the ansatz~\eqref{eq:massansatz} is
+\emph{uniquely selected}: it is the only monomial mass formula
+for which $K=2/3$ is a group-theoretic identity rather
+than a direction-dependent numerical coincidence.
+The field-energy argument above provides a gauge-theoretic
+derivation of the pattern ($q_i^2$); the overall scale
+$k = \mu$ remains a non-perturbative quantity tied to
+the K\"ahler metric (Section~\ref{sec:mild}).
+
+It follows from
+\eqref{eq:su3constraints}--\eqref{eq:z0} that the Koide ratio
+\begin{equation}
+  K \;\equiv\; \frac{\sum m_i}{\bigl(\sum\sqrt{m_i}\bigr)^2}
+  = \frac{\sum (z_0{+}z_i)^2}{\bigl(\sum |z_0{+}z_i|\bigr)^2}
+  = \frac{2}{3}
+  \label{eq:K23}
+\end{equation}
+identically for \emph{any} direction in the Cartan subalgebra.
+Note that $\sqrt{m_i}$ in the standard formula means
+$|z_0 + z_i|$---the absolute value of a signed charge. When all
+charges are positive ($z_0 + z_i > 0$ for each~$i$), the
+absolute value is redundant.
+For sectors where one charge crosses zero (as in the $(b,c,s)$
+bridge tuple of Section~\ref{sec:numerics}), the sign matters:
+the Koide ratio is computed with signed charges,
+$K = \sum(z_0{+}z_i)^2/(\sum(z_0{+}z_i))^2$, not with positive
+square roots.
+
+The proof uses only $\sum z_i = 0$ (tracelessness), $\sum z_i^2 = 1/2$
+(Casimir), and $z_0 = 1/\sqrt{6}$ (canonical $\UU(1)$ normalization).
+In $\SU(3) \times \UU(1)$, the value of $z_0$ is free; in $\UU(3)$, it
+is fixed by the requirement $\Tr(T_0^2) = 1/2$. String constructions
+generate $\UU(N)$, not $\SU(N)$, from $N$~D-branes, with the
+$\UU(1)$ normalization protected by
+holomorphy~\cite{Polchinski:1998rr}.
+
+\paragraph{Angle parameterization.}
+The Cartan charges are
+\begin{equation}
+  z_i = \frac{1}{\sqrt{3}}\,\cos\!\bigl(\alpha + \tfrac{2\pi (i-1)}{3}\bigr),
+  \qquad i = 1,2,3\,.
+  \label{eq:zi}
+\end{equation}
+Each mass sector is parameterized by one angle $\alpha$ and one
+scale~$k$: two parameters for three masses.
+
+\paragraph{Transparency.}
+Combined with property~(2) of $W_S$ (eq.~\ref{eq:WS}), the ratio
+$K=2/3$ is preserved to first order through the Seiberg dynamics.
+To see this, write the full meson mass matrix as
+$\mathcal{M} = \diag(m_i) + W_S$, where $m_i = k(z_0{+}z_i)^2$
+are the UV masses and $W_S = P^{1/3}(\diag(v_i^2) - v\otimes v^T)$
+is the Seiberg perturbation. Since $(W_S)_{kk} = 0$ (diagonal entries
+vanish by det multilinearity), the diagonal of $\mathcal{M}$ is
+$m_k$ itself. By standard first-order perturbation theory,
+the eigenvalues are $\lambda_k = m_k + O(|W_S^{\rm off}|^2/\Delta m)$,
+and $K(\lambda_k) = K(m_k) + O(v^4/m^4) = 2/3 + O(v^4/m^4)$.
+Numerically, $|v^2_{\rm max}/m_{\rm min}| \sim 10^{-3}$,
+so the correction is negligible. The confining dynamics
+neither generates nor destroys the charge structure; it is
+\emph{transparent} to the Koide relation.\footnote{This
+argument assumes the off-diagonal entries of $W_S$ are perturbative
+compared to the mass splittings. For SUSY-broken meson masses the
+relevant splittings are the lepton masses, and $W_S^{ij} = -v_iv_j$
+with $v_i = m_i/P^{1/3}$; the largest entry is
+$|W_S^{23}| \approx 3.2\GeV$ while $m_\tau - m_\mu \approx 1.7\GeV$,
+so the perturbative expansion is only marginally valid for the
+$(\mu,\tau)$ sector. A non-perturbative argument using the
+exact eigenvalue equation $\det(\mathcal{M} - \lambda) = 0$ confirms
+the result~\cite{Rivero:2024epjc}.}
+
+
+%======================================================================
+\section{The Involution and the
+  $\mathbf{15} \leftrightarrow \overline{\mathbf{15}}$ Exchange}
+\label{sec:involution}
+%======================================================================
+
+The constraint hypersurface $\det M = \Lambda^6$ has a remarkable
+symmetry: it is invariant under the exchange
+\begin{equation}
+  M_i \;\to\; \frac{\Lambda^4}{M_i}\,,
+  \qquad\text{mapping}\qquad
+  m_i \;\to\; \tilde{m}_i = \frac{P^{2/3}}{m_i}\,.
+  \label{eq:involution}
+\end{equation}
+This is a $\mathbb{Z}_2$ \emph{involution}---a map that, applied
+twice, returns to the starting point: $(M_i \to \Lambda^4/M_i
+\to M_i)$. Physically, it exchanges large and small meson VEVs
+while preserving the product constraint. Each point on the moduli
+space has a ``mirror'' point related to it by this involution;
+the self-dual locus ($M_i = \Lambda^4/M_i$, \ie,
+$M_i = \Lambda^2$) is the fixed-point set.
+
+Since $K$ is scale-invariant, $K(\tilde{m}) = K(1/m)$: the involution
+exchanges the charge assignment of the standard sector (charged leptons,
+$K(m)=2/3$) with that of the inverse sector (down quarks,
+$K(1/m)=2/3$). This is the key to the lepton--quark connection:
+the \emph{same} UV charge structure produces both Koide relations,
+related by the moduli-space involution.
+
+\subsection{The adjugate mechanism}
+
+The dynamical origin of this exchange is the \emph{adjugate} of the
+meson matrix---a construction that may be unfamiliar to readers
+outside linear algebra, but plays a central role in the framework.
+
+For any $n\times n$ matrix~$A$, the adjugate $\adj(A)$ is the
+transpose of the cofactor matrix. For a $3\times3$ diagonal
+matrix $M = \diag(M_1, M_2, M_3)$, it takes the simple form
+\begin{equation}
+  \adj(M)_i = \prod_{j \neq i} M_j\,,
+  \qquad
+  M \cdot \adj(M) = \det(M)\,\mathbf{1}\,.
+  \label{eq:adjugate}
+\end{equation}
+Explicitly: $\adj(M)_1 = M_2 M_3$, $\adj(M)_2 = M_1 M_3$,
+$\adj(M)_3 = M_1 M_2$. The key point is that $\adj(M)$ is a
+\emph{polynomial} (quadratic) in the meson entries---it involves
+only multiplication, no division. This makes it holomorphic: it
+is a legitimate superpotential coupling. Yet from the identity
+$M \cdot \adj(M) = \det(M)\,\mathbf{1}$, we see that on the
+constraint surface $\det M = \Lambda^6$, the adjugate
+\emph{behaves} like the matrix inverse:
+$\adj(M) = \Lambda^6\,M^{-1}$.
+
+This is the mathematical magic of the framework: the adjugate
+provides a holomorphic realisation of the matrix inverse---an
+operation that is \emph{not} holomorphic in general ($1/M$ involves
+$M$ in the denominator). The quantum constraint ``trades'' the
+non-holomorphic inverse for a holomorphic polynomial.
+
+The $F$-term equations of the s-confined superpotential
+$W = (\det M - B\tilde B)/\Lambda^3 + m_i M^i{}_i$ yield, for
+diagonal $M$:
+\begin{equation}
+  \frac{\partial W}{\partial M^i{}_i}
+  = \frac{\adj(M)_i}{\Lambda^3} + m_i = 0
+  \qquad\Longrightarrow\qquad
+  \adj(M)_i = -\Lambda^3\,m_i\,.
+  \label{eq:Fterm}
+\end{equation}
+The $B$, $\tilde B$ $F$-terms force $B = \tilde B = 0$ in the massive
+vacuum. Thus \emph{the adjugate of the meson matrix is proportional to
+the UV mass matrix}, while $M_i \propto 1/m_i$. This is exact in the
+supersymmetric limit.
+
+Standard Model fermion masses arise from effective Yukawa couplings
+to the confined composites. If the left chiral symmetry is partially
+gauged as $\SU(2)_L \times \UU(1)_Y \subset \SU(3)_L$, with the
+branching rule $\mathbf{3}_L \to \mathbf{2}_{-1/2} \oplus
+\mathbf{1}_{+1}$, then the meson doublet $M^{1,2}{}_i$ has the
+quantum numbers of the down-type Higgs: $(1,2)_{-1/2}$. The adjugate
+$\adj(M)$ transforms as $(\bar{\mathbf{3}}_L, \mathbf{3}_R)$; since
+$\bar{\mathbf{3}}_L \to \mathbf{2}_{+1/2} \oplus
+\mathbf{1}_{-1}$, its doublet component has $(1,2)_{+1/2}$---the
+up-type Higgs. Both electroweak Higgs doublets thus emerge from a
+single meson matrix~$M$, with $\adj(M)$ a holomorphic polynomial in~$M$
+(not an independent chiral superfield). At the superpotential level,
+this constrains $\tan\beta$: $\langle\adj(M)_i\rangle/\langle M_i\rangle
+= \Lambda^6/\langle M_i\rangle^2$ is fixed by the quantum constraint.
+
+In the Standard Model, fermion masses arise from Yukawa couplings
+$y\,\bar\psi\,H\,\psi$ between fermions and the Higgs.
+In the present framework, the Higgs is the meson doublet $M^{1,2}$,
+and there are two natural holomorphic Yukawa operators at the
+confinement scale---one using $M$ directly, the other using its
+adjugate:
+\begin{align}
+  W_{\rm down} &= y_d\,q_L\,d^c\,\frac{M^{1,2}}{\Lambda}
+  + y_\ell\,L\,e^c\,M^{1,2}\,,
+  &\quad [H_d\text{-type},\; Y{=}-\tfrac{1}{2}]\,,
+  \label{eq:W1} \\
+  W_{\rm up} &= y_u\,q_L\,u^c\,\frac{\adj(M)^{1,2}}{\Lambda^3}\,,
+  &\quad [H_u\text{-type},\; Y{=}+\tfrac{1}{2}]\,.
+  \label{eq:W2}
+\end{align}
+The $W_{\rm down}$ operator gives masses $\propto \langle M_i
+\rangle \propto 1/m_i$ (``standard'' masses, large for light
+preons); the $W_{\rm up}$ operator gives masses $\propto
+\langle\adj(M)_i\rangle \propto m_i$ (``inverse'' masses, large
+for heavy preons). This is why the lepton and down-quark sectors
+obey \emph{different} Koide relations: they couple to different
+operators of the same meson field.
+All operators conserve hypercharge.
+The mass parameter $m_i$ in $W_{\rm tree} = m_i M^i{}_i$ serves three
+simultaneous roles: (i)~the UV mass deformation of $\SU(3)_F$ SQCD,
+(ii)~the effective Yukawa coupling between preons $Q_i$ and $\tilde Q_i$,
+and (iii)~the determinant of the meson VEV via
+$\langle M_i\rangle = \Lambda^2 P^{1/3}/m_i$. There are no independent
+Yukawa parameters: the hierarchy of SM masses \emph{is} the hierarchy of
+family charges $z_i$.
+
+Species coupling through $M$ acquire physical
+masses $m_{\rm phys} \propto M_i \propto 1/m_i$; species coupling
+through $\adj(M)$ acquire $m_{\rm phys} \propto \adj(M)_i
+\propto m_i$.
+
+Charged leptons, being the mesino components of $M^{1,2}{}_i$ itself,
+have $m_\ell \propto 1/m$ and therefore $K(m_\ell) = K(1/m) = 2/3$
+(standard Koide). Down quarks, as elementary fields, couple to $M$
+through partial compositeness~\cite{Kaplan:1991dc} with
+generation-dependent mixing $\lambda_i \propto m_i^{\gamma_*}$.
+If $\gamma_* \geq 1$, the net mass scales as
+$m_d \propto m_i^{2\gamma_*-1}$, and the physical Koide parameter
+depends on the exponent. In particular, $\gamma_* = 1$ gives
+$m_d \propto m_i$, producing inverse Koide:
+\begin{equation}
+  K(m_\ell) = K(1/m_d) = K(1/m) = \frac{2}{3}\,,
+  \label{eq:koide_duality}
+\end{equation}
+unifying the two empirical relations as a single UV condition.
+
+After soft SUSY breaking, the meson VEVs shift from the
+$F$-flat locus. The zero-diagonal property $(W_S)_{kk} = 0$ of the
+off-diagonal meson mass matrix (Section~\ref{sec:seiberg}) ensures
+that the Koide condition is preserved to first order in
+$m_{\rm soft}/\Lambda$: the meson sector is \emph{transparent} to the
+family-sector structure.
+
+\subsection{SU(5) assignment and arithmetic}
+
+In the $\SU(5)$ flavour decomposition of~\cite{Rivero:2024epjc}, the
+meson $M^{ij} \in \mathrm{Sym}^2(5) = \mathbf{15}$ and the adjugate
+$\adj(M)_{ij} \in \mathrm{Sym}^2(\bar 5) =
+\overline{\mathbf{15}}$. The involution \eqref{eq:involution} maps
+$\mathbf{15} \leftrightarrow \overline{\mathbf{15}}$, with the
+adjoint $\mathbf{24}$ fixed. Standard and inverse charge assignments
+are related by charge conjugation on the scalar composites.
+This generalises the Georgi--Jarlskog~\cite{GeorgiJarlskog:1979}
+mass relations between quarks and leptons from a GUT boundary condition
+to a moduli-space involution.
+
+The involution has an arithmetic interpretation: $R = (5+\sqrt{21})/2$
+is the fundamental unit of the ring of integers
+$\mathbb{Z}[(1+\sqrt{21})/2]$ of the real quadratic field
+$\mathbb{Q}(\sqrt{21})$, with $\mathrm{Norm}(R) = R\cdot R' = 1$.
+The map $R \to 1/R = R' = (5-\sqrt{21})/2$ is the non-trivial element
+of $\mathrm{Gal}(\mathbb{Q}(\sqrt{21})/\mathbb{Q})$: the moduli-space
+involution \emph{is} the Galois conjugation $\sqrt{21}\to -\sqrt{21}$.
+
+
+%======================================================================
+\section{Self-Duality, the Discriminant 21, and Uniqueness of $N=3$}
+\label{sec:uniqueness}
+%======================================================================
+
+This section addresses the question: \emph{why three generations?}
+The Standard Model works for any number of generations
+(anomaly cancellation requires each generation to be complete, but
+does not fix their number). We show that the charge structure of
+the preceding sections uniquely selects $N = 3$.
+
+\subsection{The self-dual charge spectrum}
+
+A natural question to ask about the involution of
+Section~\ref{sec:involution} is: what charge spectrum is
+\emph{self-dual}---invariant under $m_i \to P^{2/3}/m_i$?
+On the self-dual locus, the charges form a geometric progression
+$Z_1 : Z_2 : Z_3 = 1 : R : R^2$---the same structure that arises
+from periodic solutions of Schwinger--Dyson gap equations, where
+Blumhofer and Hutter~\cite{BlumhoferHutter:1997} found geometric
+mass ratios $\sim e^\pi$ between generations without free parameters.
+Imposing both $K(m)=2/3$
+and $K(1/m)=2/3$ is algebraically equivalent to requiring
+\begin{equation}
+  3(1 + R^2 + R^4) = 2(1 + R + R^2)^2\,,
+  \label{eq:koide_sd}
+\end{equation}
+which, using $1{+}R{+}R^2 = 6R$ if $R^2 = 5R{-}1$, reduces to
+$72R^2 = 72R^2$ identically. The self-dual Koide identity
+\eqref{eq:koide_sd} is therefore equivalent to the minimal polynomial
+\begin{equation}
+  t^2 - 5t + 1 = 0\,,
+  \qquad
+  R = \frac{5+\sqrt{21}}{2}\,,
+  \qquad
+  \disc = 21\,.
+  \label{eq:selfdual}
+\end{equation}
+The self-dual angle follows from the geometric-progression
+condition.  Writing $Z_i = (1 + \sqrt{2}\,c_i)/\sqrt{6}$ with
+$c_i = \cos(\alpha + 2\pi(i{-}1)/3)$, the condition $Z_2^2 = Z_1 Z_3$
+expands to
+\begin{equation}
+  3\sqrt{2}\,c_2 + 2c_2^2 - 2\,c_1 c_3 = 0\,.
+  \label{eq:geom_prog}
+\end{equation}
+The combination $2c_2^2 - 2c_1c_3$ is evaluated by
+product-to-sum identities (using $c_1 c_3 =
+[-\tfrac{1}{2}+\cos(2\alpha{+}\tfrac{2\pi}{3})]/2$ and
+$c_2^2 = [1+\cos(2\alpha{+}\tfrac{2\pi}{3})]/2$):
+it equals $\frac{3}{2}$ independently of~$\alpha$.
+Hence~\eqref{eq:geom_prog} reduces to
+$c_2 = -1/(2\sqrt{2})$.
+Since $c_2 = \cos(\alpha - 2\pi/3) = \sin(\alpha - \pi/6)$,
+we obtain $\sin(\alpha - \pi/6) = -1/(2\sqrt{2})$, whence
+$\cos(\alpha - \pi/6) = \sqrt{7/8}$ and
+$\tan(\pi/6 - \alpha) = 1/\sqrt{7}$.  Therefore
+\begin{equation}
+  \alpha_{\rm sd} = \frac{\pi}{6} - \arctan\frac{1}{\sqrt{7}}\,,
+  \qquad 7 = \frac{D}{N} = \frac{21}{3}\,.
+  \label{eq:alpha_sd}
+\end{equation}
+The structural form
+$\alpha_{\rm sd} = \pi/(2N) - \arctan\sqrt{N/D}$ links the self-dual
+angle to the same trio $(\pi, N, D{=}21)$ that controls the uniqueness
+theorem and the CP~phase.
+
+\subsection{General-$N$ uniqueness}
+
+The construction of the preceding sections generalises to $N$
+generations with a $\UU(N)_F$ family symmetry. Two numbers arise
+naturally:
+\begin{itemize}
+  \item The \textbf{algebraic discriminant} $D_{\rm alg}$: the
+    discriminant of the self-dual quadratic $t^2 - (N{+}2)t + 1 = 0$,
+    which is $D_{\rm alg} = (N{+}2)^2 - 4$. This characterises the
+    number field $\mathbb{Q}(\sqrt{D_{\rm alg}})$ in which the
+    self-dual charge ratios live.
+  \item The \textbf{dynamical discriminant} $D_{\rm dyn}$: from the
+    family Higgs potential at the
+    enhanced symmetry point $\lambda_0 = \lambda_1 = \lambda_{\rm eff}$,
+    the coupling ratio $\mu_0^2/\mu_a^2 = (N{+}2)/(2N{+}1)$ defines
+    $D_{\rm dyn} = N(2N{+}1)$. This counts the degrees of freedom in
+    the family sector.
+\end{itemize}
+For the charge structure and the dynamics to be compatible, these
+two numbers must coincide: $D_{\rm alg} = D_{\rm dyn}$.
+This condition reduces to $N^2 - 3N = 0$
+(since $(N{+}2)^2 - 4 = N^2 + 4N = N(2N{+}1)$ iff $N^2 = 3N$):
+\begin{equation}
+  \boxed{N = 0 \;\text{ or }\; N = 3\,.}
+  \label{eq:N3}
+\end{equation}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{ccccc}
+\toprule
+$N$ & $D_{\rm alg}$ & $D_{\rm dyn}$ & $\dim\adj\,\SO(2N{+}1)$ & Match? \\
+\midrule
+1 & 5  & 3  & 3  & No \\
+2 & 12 & 10 & 10 & No \\
+\textbf{3} & \textbf{21} & \textbf{21} & \textbf{21} & \textbf{Yes} \\
+4 & 32 & 36 & 36 & No \\
+5 & 45 & 55 & 55 & No \\
+\bottomrule
+\end{tabular}
+\caption{Discriminant matching uniquely selects $N=3$, where
+$D = 21 = \dim\adj\,\SO(7) = \dim\Sp(6)$. The Lie algebras $B_N$ and $C_N$
+have the same dimension $N(2N{+}1)$; the symplectic form
+$\dim\Sp(2N)$ counts degrees of freedom in the electric--magnetic
+charge lattice of $N$~families.}
+\label{tab:N3}
+\end{table}
+
+A complementary constraint comes from the sector angle.
+The requirement $\alpha < \alpha_{\rm crit} = \pi/(4N)$
+(necessary for positive fermion masses) restricts the allowed
+range; for the fitted lepton angle $\alpha_{\rm lep} =
+0.22222(1)\;\text{rad}$, only $N \geq 3$ admits a viable Koide
+spectrum---a criterion independent of discriminant matching.
+A third criterion:
+$N^2 + 4 = N^2 + N + 1$ only at $N = 3$.
+The left-hand side appears in the self-dual discriminant
+($D_{\rm alg} = N(N{+}4)$); the right-hand side is
+the dimension of the projective plane $\mathbb{P}^2(\mathbb{F}_N)$.
+The coincidence is equivalent to $D_{\rm alg} = D_{\rm dyn}$.
+A fourth, M-theoretic criterion (Appendix~\ref{app:Mtheory}):
+$\binom{3N}{N} = (N{+}1)\cdot N(2N{+}1)$ holds uniquely at $N = 3$,
+giving $84 = 4 \times 21$.  The factors are the number of
+$C_3$~polarisations in 11d supergravity ($\binom{9}{3} = 84$),
+the $\Nf = N_c{+}1 = 4$ Pati--Salam flavours, and
+$\dim\Sp(6) = 21$---the charge-lattice discriminant.
+
+
+%======================================================================
+\section{$\Nf = 4$, Pati--Salam Structure, and the Hybrid Scenario}
+\label{sec:nf4}
+%======================================================================
+
+As noted in Section~\ref{sec:seiberg}, the $\Nf = \Nc$ theory has a
+quantum-modified moduli space---the origin is removed, and the
+constraint $\det M = \Lambda^6$ is enforced by a Lagrange multiplier.
+\emph{True} s-confinement~\cite{Intriligator:1995au,CsakiSchmaltzSkiba:1997}---where
+the confined theory has a smooth moduli space with a
+SUSY-preserving origin, and the effective superpotential is a
+polynomial in the composites without any Lagrange
+multiplier---requires $\Nf = \Nc + 1$.
+For $\SU(3)$, this gives $\Nf = 4$.
+The s-confining superpotential is uniquely determined by
+holomorphy, symmetries, and the requirement that it reproduces
+the correct anomaly matching coefficients (all $11/11$ independent
+'t~Hooft conditions).
+
+\paragraph{Global symmetry and gauged subgroup.}
+The UV theory has global symmetry
+$\SU(4)_L \times \SU(4)_R \times \UU(1)_B \times \UU(1)_R$.
+The confined spectrum consists of:
+\begin{itemize}
+  \item 16~mesons $M^i{}_j = Q^i\tilde{Q}_j$, $i,j = 1,\dots,4$,
+    transforming as $(\mathbf{4},\bar{\mathbf{4}})$;
+  \item 4~baryons $B_i = \epsilon^{abc}Q_a^j Q_b^k Q_c^l
+    \epsilon_{ijkl}$, transforming as $(\bar{\mathbf{4}},\mathbf{1})$;
+  \item 4~antibaryons $\tilde{B}^j = \epsilon_{abc}
+    \tilde{Q}^a_k\tilde{Q}^b_l\tilde{Q}^c_m\epsilon^{jklm}$,
+    transforming as $(\mathbf{1},\mathbf{4})$.
+\end{itemize}
+The confined superpotential is
+$W = (M^i{}_j B_i\tilde{B}^j - \det M)/\Lambda^5$,
+with all 't~Hooft anomalies matching between UV and IR
+($11/11$ independent conditions, vs.\ $7/11$ for $\Nf = 3$).
+
+The Pati--Salam model~\cite{PatiSalam:1974} is a partial unification
+in which quarks and leptons are placed in the same multiplet: the
+gauge group $\SU(4)$ treats the three colours and the lepton number
+as four ``colours,'' so a quark triplet plus a lepton singlet form a
+$\mathbf{4}$. In the present context, the $\SU(4)_R$ flavour symmetry
+of the $\Nf=4$ theory plays the role of the Pati--Salam colour
+group. Gauging $\SU(3)_c \times \UU(1)_{B-L} \subset \SU(4)_R$ gives:
+\begin{equation}
+  \bar{\mathbf{4}} \;\to\; \bar{\mathbf{3}}_{-1/3}
+    \,+\, \mathbf{1}_{+1}\,:
+  \quad\text{3 quarks + 1 lepton}\,.
+  \label{eq:patisalam}
+\end{equation}
+The baryon $B_i$ thus decomposes into three colour-triplet states
+(identified with right-handed quarks) and one singlet (a
+right-handed neutrino). The remaining SM gauge factors
+$\SU(2)_L \times \UU(1)_Y$ are embedded in
+$\SU(4)_L$ via $\mathbf{4}_L \to
+\mathbf{2}_{-1/2} \oplus \mathbf{1}_{+1} \oplus \mathbf{1}_0$,
+as in Section~\ref{sec:involution}.
+
+The four baryoninos $\psi_{B_i}$ are the candidate right-handed
+neutrinos. Under $\SU(4)\to\SU(3)\times\UU(1)$, the
+$\bar{\mathbf{4}}$ decomposes into three $\nu_{R,i}$ plus one sterile
+singlet. On the mesonic branch ($\langle B\rangle = \langle\tilde{B}\rangle = 0$),
+the baryonino mass matrix is
+$\mathcal{M}_{R}^{ij} = \partial^2 W/\partial B_i\partial\tilde{B}^j
+= \tilde{M}^i{}_j/\Lambda^5$, where $\tilde{M}$ is the cofactor matrix
+of~$M$.\footnote{The $R$-charge assignment $R(B)=R(\tilde B)=3/4$,
+$R(M)=1/2$ selects $B\,M\,\tilde B$ as the marginal coupling.
+The cofactor form $\tilde{M}/\Lambda^5$ arises after
+canonically normalising the composite baryonic operators via
+their K\"ahler metric, $K_B \sim |B|^2/\Lambda^4$.}
+For diagonal $\langle M\rangle$, the $F$-term equations
+$\prod_{k\ne i} v_k = m_i\,\Lambda^5$ imply
+\begin{equation}
+  \mathcal{M}_R^{ii} = m_i\,,
+  \label{eq:baryonino_mass}
+\end{equation}
+so the baryonino masses equal the mass-deformation parameters. In particular,
+$M_R(\nu_e) = m_e$ and $M_R(\nu_4) = m_t$. Meanwhile, no tree-level Dirac
+coupling between mesinos and baryoninos exists on this branch
+($\partial^2 W/\partial M\,\partial B \propto \langle\tilde{B}\rangle = 0$),
+so neutrino masses arise only from radiative corrections, schematically
+$m_\nu \sim m_e^2/(16\pi^2\,\Lambda) \approx 0.02\;\text{eV}$---the
+correct order of magnitude. This provides a structural explanation for
+the smallness of neutrino masses in the
+sBootstrap~\cite{Rivero:2024epjc} (the ``SUSY-bootstrap'' framework
+where hadronic SUSY relates mesons to fermions), without invoking a
+separate seesaw scale.
+
+A \emph{hybrid scenario} reconciles $\Nf=4$ with the $N=3$ uniqueness
+of Section~\ref{sec:uniqueness}: at high energy, $\SU(3)$ SQCD with
+4~flavours exhibits Pati--Salam structure. When the heaviest flavour
+decouples ($m_4 = m_t \gg \Lambda$), holomorphic scale matching gives
+$\Lambda_3^6 = \Lambda_4^5 \cdot m_t$, and the low-energy theory is
+effective $\Nf = 3$ where the $\UU(3)$ charge structure applies.
+The top quark plays the role of the spectator in the
+turtle/elephant partition of~\cite{Rivero:2024epjc}: the one quark that
+does not participate in the charge binding. With
+$\Lambda_3 = f_\pi\sqrt{3}/2 \approx 80\MeV$
+(Section~\ref{sec:lagrangian}) and $m_t = 173\GeV$, scale matching
+gives $\Lambda_4 \approx 17\MeV$.
+This scale is well below $\Lambda_{\rm QCD} \approx 220\MeV$ and
+might seem dangerously low. However, the family $\SU(3)_F$ is a
+\emph{separate} gauge group from QCD: its strong coupling scale
+governs the composite Higgs/lepton masses, not hadronic binding.
+The physical role of $\Lambda_4$ is to set the
+normalisation of the $\Nf=4$ confined superpotential relative to the
+mass deformations. Since $\Lambda_4 \ll m_t$, the $\Nf=4$ theory is
+deeply in its confined phase when the fourth flavour is integrated out,
+and the transition to the $\Nf=3$ effective theory is smooth.
+
+\paragraph{PMNS mixing: an open problem.}
+A significant phenomenological limitation of the mesonic-branch
+construction is the neutrino mixing pattern. On this branch,
+$\mathcal{M}_R$ is diagonal~\eqref{eq:baryonino_mass} and
+the Dirac coupling vanishes at tree level, so
+the PMNS matrix is the identity to all orders in perturbation theory
+within the superpotential.
+This is in clear conflict with the observed large lepton mixing
+angles ($\theta_{12} \approx 34^\circ$, $\theta_{23} \approx 49^\circ$,
+$\theta_{13} \approx 8.5^\circ$~\cite{NuFIT:2024}).
+Potential sources of large PMNS mixing include:
+(i)~K\"ahler-potential rotations, which are unconstrained in the
+strongly-coupled regime and can be $O(1)$;
+(ii)~SUSY-breaking contributions from the baryonic branch,
+where $\langle B\rangle \neq 0$ generates off-diagonal Dirac couplings;
+(iii)~threshold corrections at the $\Nf=4 \to \Nf=3$ matching scale.
+We do not claim to explain PMNS mixing in this paper and leave its
+computation as the most pressing open problem of the framework.
+
+
+%======================================================================
+\section{The Effective Lagrangian}
+\label{sec:lagrangian}
+%======================================================================
+
+Below the family confinement scale~$\Lambda$, the sBootstrap effective
+theory is specified by a single chiral superfield~$M^{\alpha}{}_i$
+(the meson matrix), plus the elementary SM fermions. The UV theory has
+gauge group $\SU(3)_F \times \SU(3)_c \times \SU(2)_L \times
+\UU(1)_Y$, with preons $Q^\alpha_a \in (\mathbf{3}_F,\,
+\mathbf{3}_L)$ and $\tilde{Q}_{a,i} \in (\bar{\mathbf{3}}_F,\,
+\mathbf{1}_{\rm SM})$. After $\SU(3)_F$ confinement:
+
+\paragraph{Superpotential.}
+\begin{equation}
+  W = \frac{\det M - B\tilde{B}}{\Lambda^3} + m_i\,M^i{}_i
+    + \frac{y_\ell}{\Lambda}\,L_i\,e^c_j\,M^{1,2}{}_k\,\epsilon^{ijk}
+    + \frac{y_u}{\Lambda^3}\,q_L\,u^c\,\adj(M)^{1,2}
+    + \frac{y_d}{\Lambda}\,q_L\,d^c\,M^{1,2}\,,
+  \label{eq:Wfull}
+\end{equation}
+where $M^{1,2}$ denotes the doublet ($Y{=}{-}1/2$) components and
+$\adj(M)^{1,2}$ the doublet ($Y{=}{+}1/2$) components of the adjugate.
+The lepton Yukawa is automatic: $L_i$ is the mesino
+$\psi_{M^{1,2}{}_i}$ and $e^c_j$ is $\psi_{M^3{}_j}$, so the
+$y_\ell$~term is contained in $\det M/\Lambda^3$ as a meson
+self-coupling. (In the confined Hessian, the doublet--singlet block is
+antisymmetric in generation indices; the symmetric SUSY-breaking
+contributions that complete the physical mass matrix are discussed
+below.) Quark Yukawas arise from partial compositeness mixing.
+
+\paragraph{Field content.}
+\begin{center}
+\begin{tabular}{lcccl}
+\toprule
+Field & $\SU(3)_c$ & $\SU(2)_L$ & $\UU(1)_Y$ & Origin \\
+\midrule
+$L_i = \psi_{M^{1,2}{}_i}$ & $\mathbf{1}$ & $\mathbf{2}$ & $-1/2$ & mesino (composite) \\
+$e^c_i = \psi_{M^3{}_i}$ & $\mathbf{1}$ & $\mathbf{1}$ & $+1$ & mesino (composite) \\
+$\nu_R = \psi_B$ & $\mathbf{1}$ & $\mathbf{1}$ & $0$ & baryonino (composite) \\
+$H_d = M^{1,2}$ & $\mathbf{1}$ & $\mathbf{2}$ & $-1/2$ & meson scalar \\
+$H_u = \adj(M)^{1,2}$ & $\mathbf{1}$ & $\mathbf{2}$ & $+1/2$ & adjugate (function of $M$) \\
+$q_L$, $u^c$, $d^c$ & $\mathbf{3}$, $\bar{\mathbf{3}}$, $\bar{\mathbf{3}}$ & --- & --- & elementary \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Key structural features.}
+\begin{enumerate}
+  \item \emph{One chiral field}: $\adj(M)$ is a quadratic polynomial in
+    $M$; the superpotential~\eqref{eq:Wfull} is holomorphic in~$M$ alone.
+    No independent $H_u$ superfield is needed.
+  \item \emph{No free Yukawas}: The mass parameter $m_i$ simultaneously
+    sets the UV mass deformation, the effective Yukawa coupling, and the
+    meson VEV. The Yukawa hierarchy \emph{is} the family charge hierarchy.
+  \item \emph{Determined $\tan\beta$}: At the superpotential level, the
+    VEV ratio
+    $\langle\adj(M)\rangle/\langle M\rangle = \Lambda^6/\langle M\rangle^2$
+    is fixed by the quantum constraint. However, $\adj(M)$ is a
+    composite operator, quadratic in~$M$; its physical VEV depends on
+    the K\"ahler metric $K(M,M^\dagger)$, which is not protected by
+    holomorphy. Whether $v_u/v_d$ remains fully determined at the
+    quantum level requires computing the K\"ahler potential on the
+    constraint surface---an open problem (cf.\ Table~\ref{tab:status}).
+  \item \emph{Fermi scale}: The meson condensate
+    $\langle M_\tau\rangle = \Lambda^2 m_\tau/P_\ell^{1/3}$ relates
+    $v_{\rm EW}$ to $\Lambda$ through the K\"ahler normalization~$Z$
+    (see~\S\ref{sec:discussion}). Matching
+    $\Lambda = f_\pi\sqrt{3}/2 \approx 80\MeV$.
+\end{enumerate}
+
+
+%======================================================================
+\section{Numerical Results}
+\label{sec:numerics}
+%======================================================================
+
+\subsection{Charged leptons}
+
+With $K = 2/3$ exact, the two lighter masses $m_e$ and~$m_\mu$
+fix $k_{\rm lep} z_0^2 = 313.8\MeV$ and $\alpha_{\rm lep} =
+0.22222(1)\;\text{rad}$; the third mass~$m_\tau$ is then a
+\emph{prediction}.  The charge ansatz
+\eqref{eq:massansatz}--\eqref{eq:zi} gives:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lccc}
+\toprule
+  & Predicted & PDG (MeV) & Deviation \\
+\midrule
+$m_e$ & 0.511 & 0.511 & input \\
+$m_\mu$ & 105.66 & 105.66 & input \\
+$m_\tau$ & 1776.97 & $1776.86 \pm 0.12$ & $+0.91\sigma$ \\
+\bottomrule
+\end{tabular}
+\caption{Charged-lepton masses from the $\UU(3)$ charge ansatz.
+The two inputs $(m_e, m_\mu)$ fix $k$ and~$\alpha$; the
+predicted~$m_\tau$ deviates by $0.91\sigma$ from PDG.}
+\label{tab:leptons}
+\end{table}
+
+\subsection{Quark sector and CKM elements}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+  Observable & Method & Predicted & PDG & Dev. \\
+\midrule
+$m_u + m_d$ & zero-charge ($\alpha{=}\pi/4$) & $6.7\MeV$ & $6.8\MeV$ & $1.4\%$ \\
+$m_c$ & charge chain & $1301\MeV$ & $1270\MeV$ & $2.4\%$ \\
+$m_b$ & inverse sector & $4567\MeV$ & $4180\MeV$ & $9.3\%$ \\
+$m_t$ & standard chain & $180\GeV$ & $172.8\GeV$ & $3.9\%$ \\
+$|V_{us}|$ & $\sqrt{m_d/m_s}$ & $0.2236$ & $0.2243 \pm 0.0008$ & $0.9\sigma$ \\
+$|V_{cb}|$ & $1/(5R)$ & $0.0417$ & $0.0422 \pm 0.0008$ & $0.6\sigma$ \\
+$|V_{ub}|$ & $2\sqrt{2}/(7R^3)$ & $0.00367$ & $0.00368 \pm 0.00011$ & $0.1\sigma$ \\
+$\delta_{CP}$ & $\arctan\sqrt{R}$ & $65.4^\circ$ & $65.7 \pm 3.4^\circ$ & $0.1\sigma$ \\
+$J$ & from above & $3.04{\times}10^{-5}$ & $3.08 \pm 0.15{\times}10^{-5}$ & $0.3\sigma$ \\
+$\sin 2\beta$ & from above & $0.723$ & $0.699 \pm 0.017$ & $1.4\sigma$ \\
+\bottomrule
+\end{tabular}
+\caption{Quark sector and CKM elements.
+Inputs: $m_d = 4.67\MeV$, $m_s = 93.4\MeV$
+($\overline{\rm MS}$ at~$2\GeV$). Here $R = (5+\sqrt{21})/2$.
+The CKM expressions involving~$R$ are \emph{empirical pattern
+identifications}; derivations from the operator basis remain open
+(see text). The $m_b$ and~$m_t$ entries have elasticities
+$\varepsilon \approx 6$ and~4 to~$m_d$; at $m_d = 4.60\MeV$ they
+shift to $4180$ and~$170\GeV$ respectively.}
+\label{tab:quarks}
+\end{table}
+
+\paragraph{Chain structure.}
+The quark predictions in Table~\ref{tab:quarks} arise from a chain of
+overlapping Koide triples~\cite{Rivero:2024epjc} that splits into two
+regimes:
+
+\noindent
+\emph{Fermi side} (above the SUSY-breaking scale):
+\begin{equation}
+  (t,\,b,\,c):\quad K(m_t,\,m_b,\,m_c) \approx \tfrac{2}{3}
+  \qquad\text{(standard Koide, $\overline{\rm MS}$ masses)}\,.
+  \label{eq:chain_tbc}
+\end{equation}
+
+\noindent
+\emph{Chiral side} (below the breaking scale):
+\begin{equation}
+  (c,\,s,\,0):\quad \frac{m_c}{m_s} = (2{+}\sqrt{3})^2\,;
+  \qquad
+  (s,\,0,\,m_u{+}m_d):\quad \frac{m_s}{m_u{+}m_d} = (2{+}\sqrt{3})^2\,.
+  \label{eq:chain_chiral}
+\end{equation}
+The chiral-side links use zero-charge triples ($z_2 = 0$, \ie,
+$\alpha = \pi/4$), where one Koide charge vanishes and
+$K = 2/3$ reduces to a mass ratio $(2{+}\sqrt{3})^2 = 13.93$.
+The lightest quark entry uses the \emph{isospin
+reparametrization} $u \to 0$, $d \to m_u + m_d$: only the
+total light-quark mass enters, because below $\Lambda_{\rm QCD}$
+the individual $m_u$ and $m_d$ are unobservable---the
+Gell-Mann--Oakes--Renner relation
+$m_\pi^2 = B_0(m_u{+}m_d)$~\cite{GellMannOakesRenner:1968}
+determines only the sum.
+This reparametrization is natural in the sBootstrap interpretation,
+where Koide is a scalar (meson) mass formula:
+$(c,s,0)$ connects to the zero-charge meson Koide
+$K(0,\, m_\pi,\, m_D) = 2/3$ (with $\sqrt{m_D/m_\pi} \approx
+2{+}\sqrt{3}$ to~$2\%$).
+The two sides are connected by the tuple $(b,c,s)$ with a
+\emph{signed} square root: $K(\sqrt{m_b} + \sqrt{m_c} - \sqrt{m_s})
+= 0.675$, deviating from~$2/3$ by~$1.2\%$.
+The negative sign on $\sqrt{m_s}$ corresponds to
+$z_0 + z_s < 0$ in the charge ansatz---the sector angle has crossed
+the critical value where the lightest charge flips sign.
+The complete chain is therefore
+\begin{equation}
+  (t,b,c) \;-\; (b,c,s)^{\pm} \;-\; (c,s,0) \;-\; (s,0,m_u{+}m_d)\,,
+  \label{eq:fullchain}
+\end{equation}
+with $(b,c,s)$ as the bridge link. The signed tuple
+hits $K = 2/3$ exactly at $m_s \approx 84\MeV$---between
+the PDG value $m_s(2\GeV) = 93.4\MeV$ and the higher-scale
+estimate $m_s(m_b) \approx 81\MeV$---suggesting that its
+natural evaluation scale is $\mu \sim 3$--$5\GeV$.
+At~$1.2\%$ the bridge tuple is not compelling on its own,
+but its structural role as the link between Fermi and chiral
+regimes is significant.
+
+The Fermi/chiral split coincides with the transition from
+fermionic to scalar mass formulae: above the breaking scale
+the SUSY mass relation $m_{\rm fermion} \approx m_{\rm scalar}$
+makes the chain applicable to quark masses directly; below it,
+the chain applies to meson masses, with the isospin
+reparametrization reflecting the fact that chiral symmetry
+breaking groups $u$ and~$d$ into a single Goldstone sector.
+
+\paragraph{IR/UV scale preference.}
+The two Yukawa operators of Section~\ref{sec:involution}---$M$
+(meson VEV, masses $\propto 1/m_{\rm UV}$) and $\adj(M)$
+(adjugate, masses $\propto m_{\rm UV}$)---make a structural
+prediction about scale dependence: the $W_1$~sector (species
+coupling through~$M$) should be evaluated at \emph{infrared}
+scales (pole masses or low $\overline{\rm MS}$ scales), while
+the $W_2$~sector (species coupling through $\adj(M)$) should be
+evaluated at \emph{ultraviolet} scales (high $\overline{\rm MS}$).
+Using the AHS running masses~\cite{AntuschHinzeSaad:2025}:
+\begin{center}
+\begin{tabular}{lccl}
+\toprule
+Tuple & Best $K - 2/3$ & At $M_Z$ & Preferred scale \\
+\midrule
+$K(e,\mu,\tau)$ & $0.001\%$ (pole) & $0.18\%$ & IR \\
+$K^{-1}(d,s,b)$ & $0.25\%$ ($m_i$) & $0.13\%$ & UV \\
+$K(t,b,c)$ & $0.4\%$ ($m_i$) & $8\%$ & IR \\
+$K(c,s,0)$ & $0.3\%$ ($m_i$) & $2.6\%$ & IR \\
+\bottomrule
+\end{tabular}
+\end{center}
+Every chain tuple except the inverse down quarks worsens at $M_Z$,
+confirming they belong to the $W_1$~sector ($M \propto 1/m$).
+The inverse Koide \emph{improves} at $M_Z$ and passes through
+$2/3$ near~$1\TeV$ (\S\ref{sec:running}), consistent with
+$\adj(M) \propto m$ evaluated at UV scales. This IR/UV
+dichotomy is a structural consequence of the two operators,
+not a tuning of evaluation scales.
+
+The empirical relation $|V_{cb}| = 1/(R^2 + 1) = (5-\sqrt{21})/10$
+is algebraically natural given $R^2 + 1 = 5R$ (a consequence of
+$R^2 - 5R + 1 = 0$), but a derivation from the operator basis of
+Section~\ref{sec:nf4} has not been established.
+Combined with $|V_{us}| = \sqrt{m_d/m_s}$, this gives the Wolfenstein
+$A$~parameter: $A = |V_{cb}|/|V_{us}|^2 = m_s/(5R\,m_d) = 0.835$,
+compared to the PDG value $A = 0.836 \pm 0.015$ ($0.1\%$).
+
+The CP phase $\delta_{CP} = \arctan\sqrt{R}$ is equivalent to
+$\cos^2 2\delta = 3/7$, or $\sin 2\delta = 2/\sqrt{7}$, since
+$(R{+}1)^2 = 7R$. This is not an independent prediction but a
+consequence of the $N=3$ uniqueness:
+since $(R{-}1)^2 = NR$ and $(R{+}1)^2 = (N{+}4)R$ (from the self-dual
+quadratic), one has $\cos^2 2\delta = N/(N{+}4)$. This equals
+$N/(2N{+}1)$ only when $N{+}4 = 2N{+}1$, \ie, $N=3$---the same
+condition as $D_{\rm alg} = D_{\rm dyn}$.
+The Jarlskog invariant has the closed form
+$J \approx 2\sqrt{2}/(5 \times 7^{5/4})\,\sqrt{m_d(m_s{-}m_d)}/m_s
+\times R^{-15/4} = 3.04 \times 10^{-5}$ (PDG: $3.08 \times 10^{-5}$).
+Figure~\ref{fig:ut} shows the predicted unitarity triangle, with the
+apex at $(\bar\rho, \bar\eta) = (0.164, 0.358)$ and the three angles
+$\alpha = 92.0^\circ$, $\beta = 22.6^\circ$, $\gamma = 65.4^\circ$,
+all within $1.5\sigma$ of PDG constraints.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/ut_triangle.pdf}
+\caption{The CKM unitarity triangle from the framework's four inputs.
+The shaded bands show PDG constraints on $\sin 2\beta$ and~$\gamma$.
+The predicted apex (black dot) lies at the intersection of the
+$R_b$~and $R_t$ circles.}
+\label{fig:ut}
+\end{figure}
+
+\subsection{Sensitivity and parameter counting}
+\label{sec:paramcount}
+
+\paragraph{Input--output accounting.}
+The framework has four continuous input parameters:
+\begin{enumerate}
+  \item $k$ (overall mass scale) --- fixed by $m_e$;
+  \item $\alpha$ (sector angle) --- fixed by $m_\mu$;
+  \item $m_d$ ($\overline{\rm MS}$ at $2\GeV$) --- taken from PDG;
+  \item $m_s$ ($\overline{\rm MS}$ at $2\GeV$) --- taken from PDG.
+\end{enumerate}
+In addition, the framework relies on discrete structural choices:
+the charge ansatz $m_i = k(z_0+z_i)^2$, the partial compositeness
+exponents $\gamma_\ell = 0$ and $\gamma_d = 1$, and the
+K\"ahler normalization~$Z$ required to match $v_{\rm EW}$.
+These are not continuous parameters but foundational assumptions
+(Table~\ref{tab:status}).
+
+From these four inputs, the framework produces the following
+genuine predictions (outputs that are not used to fix any input):
+\begin{itemize}
+  \item $m_\tau$ (from $k$, $\alpha$, and $K=2/3$): $+0.91\sigma$.
+  \item $m_c = m_s(2{+}\sqrt{3})^2$: $2.4\%$ above PDG.
+  \item $m_b$ from $K^{-1}(d,s,b) = 2/3$: sensitive to $m_d$
+    ($\varepsilon = 6.3$).
+  \item $m_t$ from the chain: sensitive to $m_d$
+    ($\varepsilon \approx 4$).
+  \item $m_u + m_d$ from $K(0, s, m_u{+}m_d) = 2/3$: $1.4\%$.
+  \item $|V_{us}| = \sqrt{m_d/m_s}$: $0.9\sigma$.
+\end{itemize}
+The CKM elements $|V_{cb}|$, $|V_{ub}|$, and $\delta_{CP}$
+depend only on the self-dual ratio~$R = (5+\sqrt{21})/2$ and are
+\emph{independent of all four continuous inputs}. However, these
+are currently \emph{empirical pattern identifications}, not
+derivations from the operator basis. The Jarlskog invariant~$J$
+and $\sin 2\beta$ are derived quantities (not independent of
+$|V_{cb}|$, $|V_{ub}|$, $\delta_{CP}$).
+
+Figure~\ref{fig:sensitivity} shows the sensitivity of $m_b$
+and $m_t$ to the input $m_d$.
+
+The inverse Koide formula amplifies the $m_d$ uncertainty by a factor
+of~6 in~$m_b$ and~4 in~$m_t$ (Fig.~\ref{fig:sensitivity}); given the
+PDG range $m_d = 4.7 \pm 0.4\MeV$, the predicted~$m_b$ spans
+${\sim}\,3000$--$7000\MeV$. Setting $m_d = 4.60\MeV$ (within
+$0.24\sigma$ of PDG central) simultaneously gives
+$m_b = 4180\MeV$ and $m_t = 170\GeV$ ($-1.7\%$); the quark
+predictions are consistent with experiment at every $m_d$ in
+the PDG range.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.55\textwidth]{figures/sensitivity_plot.pdf}
+\caption{Inverse Koide predictions for $m_b$ (top) and the chain
+prediction for~$m_t$ (bottom) as functions of the input~$m_d$.
+The red bands show PDG central values $\pm 1\sigma$;
+the grey band is the PDG range for~$m_d$.
+The red dot marks $m_d = 4.60\MeV$, where $m_b$ and~$m_t$
+simultaneously match PDG.}
+\label{fig:sensitivity}
+\end{figure}
+
+In contrast, $m_c = m_s\,(2{+}\sqrt{3})^2$
+has unit elasticity to~$m_s$ and is the most predictive quark relation.
+At PDG central $m_s = 93.4\MeV$, the chain gives
+$m_c = 1301\MeV$ ($1.5\sigma$ above PDG); at the Rivero value
+$m_s = 95\MeV$, it gives $m_c = 1323\MeV$ ($2.7\sigma$). This is
+the largest tension in the framework, and it sharpens considerably
+once scale dependence is examined carefully.
+
+\paragraph{Holomorphic masses versus physical masses.}
+The $\overline{\rm MS}$ anomalous dimension~$\gamma_m$ is
+flavour-independent at all known loop orders (verified through
+five loops~\cite{Baikov:2014qja}), so the ratio
+$m_c(\mu)/m_s(\mu)$ \emph{does not run} in QCD\@.
+The most precise lattice determination gives
+$m_c/m_s = 11.783 \pm 0.025$~\cite{FNAL:2018mc_ms}, which is
+$18\%$ below $(2{+}\sqrt{3})^2 = 13.93$.
+The frequently quoted ``agreement'' at the level of $13.6$ arises
+only from comparing $m_s$ at~$2\GeV$ with $m_c$ at~$m_c$---an
+inconsistent mixed-scale comparison that accidentally compensates for
+the discrepancy.
+
+This tension has a natural interpretation in the present framework.
+The mass deformations~$m_i$ entering the superpotential
+$W_{\rm tree} = \Tr(m\,M)$ are \emph{holomorphic parameters}:
+they are protected by the non-renormalisation theorem and do not run
+at any scale~\cite{Intriligator:1995au,
+ArkaniHamedMurayama:1997}.  Physical (pole or $\overline{\rm MS}$)
+masses, by contrast, are related to the holomorphic ones through the
+K\"ahler metric:
+\begin{equation}
+  m_i^{\rm phys} \;=\; \frac{m_i^{\rm hol}}{\sqrt{Z_i}}\,,
+  \label{eq:kahler_matching}
+\end{equation}
+where $Z_i$ is the wavefunction normalisation of the $i$-th
+composite.  In a strongly coupled s-confining theory, the~$Z_i$
+are generation-dependent---different mass deformations break
+$\SU(3)_F$ differently---and non-perturbatively unknown.
+
+If the chain relation $(2{+}\sqrt{3})^2$ is a statement about
+holomorphic mass ratios, then the $18\%$ discrepancy with the
+physical $m_c/m_s$ requires $Z_c/Z_s \approx 1.37$: a $37\%$
+difference in wavefunction normalisation between charm and strange
+composites.  For strongly coupled scalars this is not unreasonable,
+and it connects the chain tension directly to the central open
+problem of computing the K\"ahler metric (Section~\ref{sec:discussion}).
+
+By contrast, the \emph{lepton} Koide relation compares pole masses
+of a single generation-universal composite type (mesinos), where
+gauge corrections to~$Z_i$ are generation-blind at leading order
+and the holomorphic prediction transfers to physical masses with
+only $\mathcal{O}(\alpha/4\pi)$ corrections---consistent with
+the observed $0.04\%$ accuracy.
+
+(The 2024 PDG uncertainties on $m_b$ and~$m_s$ are roughly
+10~times smaller than the 2022 values, making the inverse Koide
+deviation of~$0.25\%$ a ${\sim}\,1\sigma$ tension at the conventional
+scales.  This tension is relieved at $M_Z$, where the deviation
+falls to~$0.13\%$.)
+Figure~\ref{fig:pulls} summarises the pulls of all CKM predictions
+and the lepton deviations.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/pull_plot.pdf}
+\caption{Left: pulls (prediction~$-$~PDG central)/$\sigma_{\rm exp}$
+for the CKM observables. Green bars are
+parameter-free predictions (from~$R$ only); orange bars depend on the
+quark mass inputs $m_d$,~$m_s$. Right: the predicted $m_\tau$ ($+0.9\sigma$),
+with $m_e$ and~$m_\mu$ used as inputs to fix $k$ and~$\alpha$.}
+\label{fig:pulls}
+\end{figure}
+
+\subsection{The pion decay constant and the confinement scale}
+
+The family confinement scale is identified as
+$\Lambda = f_\pi\sqrt{3}/2 \approx 80\MeV$, where
+$f_\pi = 92.07\MeV$. The quantum constraint
+$\det M = \Lambda^6$ implies
+$(m_e m_\mu m_\tau)^{1/3} = y_1 \Lambda$ with
+$y_1 = 1/\sqrt{3}$; combined with the confinement-scale
+identification, this fixes
+\begin{equation}
+  f_\pi = 2(m_e m_\mu m_\tau)^{1/3}
+  \label{eq:fpi_P}
+\end{equation}
+to~$0.56\%$---a relation between the pion decay constant and the
+lepton mass product that is a consequence of the framework, not an
+additional input.
+
+\subsection{Lepton--quark angle shift}
+
+The lepton sector angle $\alpha_{\rm lep} =
+0.22222(1)\;\text{rad} = 12.73^\circ$ and the inverse down-quark sector
+angle $\alpha_{\rm inv} = 10.59^\circ$ (from $K^{-1}(d,s,b) = 2/3$
+at the physical masses) differ by $\Delta\alpha = \alpha_{\rm lep} -
+\alpha_{\rm inv} = 2.14^\circ$. Empirically,
+\begin{equation}
+  \tan(\Delta\alpha) \;=\; \frac{\pi}{84}
+  \;=\; \frac{\pi}{4\,D}
+  \label{eq:angleshift}
+\end{equation}
+to~$1.6\%$, where $D = 21$ is the discriminant.  If exact,
+this formula determines the quark mass ratio
+$m_d/m_s = 0.0492$ (PDG: $0.050 \pm 0.003$), reducing the parameter
+count from four to three: only $(k, \alpha, m_s)$ are needed.
+No derivation of \eqref{eq:angleshift} is known.
+
+\subsection{Charge-plane geometry}
+\label{sec:chargeplane}
+
+The Koide parametrisation $\sqrt{m_i} = \sqrt{k}\,(z_0 + z_i)$ with
+$\sum z_i = 0$ places the charges $z_i$ in a two-dimensional plane,
+whose orientation is specified by the sector angle~$\alpha$.
+The charge-plane angles (mod~$120^\circ$) of the SM Koide triples
+cluster within ${\sim}\,5.5^\circ$ of the zero-mass $K = 2/3$
+fixed point at $\alpha = 15^\circ$ (corresponding to
+the mass ratio $r_0 = (2+\sqrt{3})^2 = 13.93$).
+This clustering is a consequence of all SM Koide tuples having
+their dominant mass ratio close to~$r_0$.
+
+\subsection{Scale dependence}
+\label{sec:running}
+
+Using the running Yukawa couplings of Antusch, Hinze, and
+Saad~\cite{AntuschHinzeSaad:2025} (SM, $\overline{\rm MS}$~scheme,
+2024 PDG inputs), the Koide ratio for the charged leptons is
+$K_{\rm lep} = 0.6678$ at all scales from $M_Z$ to $10^7\GeV$
+($0.17\%$ from $2/3$). The larger deviation compared to the pole-mass
+value ($0.001\%$) reflects QED running corrections
+$\delta m \propto \alpha\,\log(\mu^2/m_{\rm pole}^2)$, which affect
+each lepton differently. The approximate scale invariance of~$K$ under
+RG flow supports Sumino's
+observation~\cite{Sumino:2009} that gauge interactions
+approximately preserve the Koide relation.
+
+For the inverse Koide ratio of the down quarks, the running reveals an
+interesting structure: $K(1/m_d,\,1/m_s,\,1/m_b)$ passes through
+$2/3$ at $\mu \approx 1\TeV$, with the central value
+$K - 2/3 = +2\times 10^{-6}$ at $10^3\GeV$. The deviation grows to
+$+0.13\%$ at $M_Z$ and $-0.2\%$ at $10^7\GeV$. Although the
+current experimental uncertainties on $m_d$ and $m_s$ imply a
+${\sim}\,0.4\%$ band on~$K$, the trend is robust: the inverse Koide
+for down quarks is best satisfied near the TeV scale, potentially
+connected to the effective adjoint mass scale~$\mu_\Phi$ of the
+emergent doublet structure (\S\ref{sec:discussion}).
+Figure~\ref{fig:running} shows both Koide ratios as a function of
+scale, using the AHS running Yukawa couplings in the SM
+$\overline{\rm MS}$~scheme.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/running_koide.pdf}
+\caption{Koide ratios vs.\ renormalization scale in the SM.
+Blue: $K(e,\mu,\tau)$; red: $K^{-1}(d,s,b)$; dashed:
+$K=2/3$. The shaded band shows the uncertainty from $m_d$.
+Data from Antusch, Hinze, and Saad~\cite{AntuschHinzeSaad:2025}.}
+\label{fig:running}
+\end{figure}
+
+%======================================================================
+\section{Discussion}
+\label{sec:discussion}
+%======================================================================
+
+\subsection{What is derived}
+
+The charge ratio $K = 2/3$ follows from $\UU(3)$ normalization. The
+standard--inverse duality follows from the $F$-term structure of the
+s-confined theory: the adjugate $\adj(M) \propto m$ and the meson
+$M \propto 1/m$ are the two natural Yukawa operators at the
+confinement scale, leading to standard and inverse Koide for the
+respective SM species. The duality is identified with the
+$\mathbf{15} \leftrightarrow \overline{\mathbf{15}}$ exchange of
+$\SU(5)$ and the Galois conjugation of $\mathbb{Q}(\sqrt{21})$.
+Three generations is uniquely selected by discriminant matching. These
+are exact results contingent on the charge ansatz
+\eqref{eq:massansatz}---itself uniquely selected by the
+direction-independence of $K$ (Section~\ref{sec:u3})---and the family
+symmetry structure.
+
+\subsection{The emergent doublet structure and the critical scale}
+
+The confined spectrum contains two composite operators per
+family---$M_i$ and $\adj(M)_i$---whose mass eigenvalues have
+opposite charge dependence (direct and inverse branches).
+This pairing has the mathematical form of an $\mathcal{N}=2$
+hypermultiplet~\cite{SeibergWitten:1994a,SeibergWitten:1994b},
+but is emergent from confinement plus isospin, not a UV input.
+The coupling between the two branches can be parametrised by
+an effective quartic meson interaction with scale~$\mu_\Phi$:
+\begin{equation}
+  W_{\rm eff} \;\supset\; -\frac{1}{2\mu_\Phi}\Tr(M^2)\,,
+  \qquad M = Q\tilde Q\,.
+  \label{eq:quartic}
+\end{equation}
+The full superpotential in the s-confined description becomes
+\begin{equation}
+  W = \frac{\det M - B\tilde B}{\Lambda^3}
+    + m_i M^i{}_i
+    - \frac{1}{2\mu_\Phi}\Tr(M^2)\,,
+  \label{eq:N2flow}
+\end{equation}
+with modified $F$-term equation
+\begin{equation}
+  \frac{\adj(M)_i}{\Lambda^3} + m_i - \frac{M_i}{\mu_\Phi} = 0\,.
+  \label{eq:Fterm_mu}
+\end{equation}
+The limit $\mu_\Phi\to\infty$ recovers the pure $\mathcal{N}=1$ theory.
+At finite~$\mu_\Phi$, the Koide vacuum exists only above a critical
+scale
+\begin{equation}
+  \mu_{\Phi,\rm crit} = \frac{4\,\Lambda^2\,P_\ell^{1/3}}{m_e^2}
+  \approx 4.5\TeV\,.
+  \label{eq:mucrit}
+\end{equation}
+Below this scale, the $\Tr(M^2)$ correction overwhelms
+the quantum constraint for the electron meson VEV.
+The true phase boundary lies at
+$\mu_{\Phi,\rm bif} = \mu_{\Phi,\rm crit}/2^{1/3} \approx 3.5\TeV$.
+Above $\mu_{\Phi,\rm bif}$, the Koide ratio converges as
+$K - 2/3 \approx A/\mu_\Phi$ where $A/\mu_{\Phi,\rm crit} = (z_0^2 - z_e^2)/6$;
+the observed accuracy $K = 2/3$ to $0.001\%$ requires $\mu_\Phi \gtrsim 37\TeV$.
+This constrains the effective inter-branch coupling
+scale in the family sector to be at least $\sim\!40\TeV$.
+Independently, the inverse down-quark Koide ratio
+$K^{-1}(d,s,b)$ crosses $2/3$ at $\mu \approx 1$--$1.6\TeV$
+under standard $\overline{\rm MS}$ running~\cite{AntuschHinzeSaad:2025},
+the same order of magnitude as~$\mu_{\rm crit}$.
+
+\subsection{The Fermi scale and K\"ahler normalization}
+
+The meson condensate $\langle M_i\rangle$ has mass dimension~2.
+The canonical Higgs field is
+$h_i = Z^{1/2}\,M_i$ where $Z = K_{M\bar M}$ is the K\"ahler
+wave-function renormalization:
+\begin{equation}
+  v_{\rm EW}^2 = Z\,\langle M_\tau\rangle^2
+  = Z\,\frac{\Lambda^4\,m_\tau^2}{P_\ell^{2/3}}\,.
+  \label{eq:vew}
+\end{equation}
+The three doublet VEVs are hierarchical:
+$v_i/v_\tau = m_{\ell,i}/m_\tau$, so
+$v_\tau/\sqrt{\sum v_i^2} = 0.998$---the electroweak VEV is
+dominated by the heaviest lepton.
+Matching $v_{\rm EW} = 246.2\GeV$ determines $Z$:
+\begin{equation}
+  Z^{1/2} = \frac{v_{\rm EW}\,P_\ell^{1/3}}{\Lambda^2\,m_\tau}\,.
+  \label{eq:Zfactor}
+\end{equation}
+If $\Lambda = f_\pi\sqrt{3}/2 \approx 79.7\MeV$, the canonical
+K\"ahler normalization $Z = 1/\Lambda^2$ gives
+$v_{\rm EW} = 3.09\GeV$---two orders of magnitude below the
+observed value. The discrepancy requires a large anomalous K\"ahler
+correction $Z \gg 1/\Lambda^2$, characteristic of the
+strongly-coupled confined phase.
+By na\"{\i}ve dimensional analysis (NDA), the K\"ahler metric for a
+composite of dimension~$d$ scales as
+$Z \sim (4\pi)^{2(d-1)}/\Lambda^{2(d-1)}$~\cite{Luty:1998}; for
+$d=2$ this gives $Z \sim (4\pi)^2/\Lambda^2$, an enhancement
+of $\sim 160$ over canonical.
+Both estimates are parametrically consistent with the required
+$Z/Z_{\rm canon} \approx 6{,}300$, but off by an $O(1)$ coefficient that
+cannot be fixed without a non-perturbative computation---either from
+the Seiberg--Witten prepotential on the Coulomb branch
+(which is known for $\SU(3)$ with 3~flavours~\cite{Argyres:1995wt})
+or from lattice SQCD.
+Computing the K\"ahler potential on the
+quantum-modified moduli space remains the most important
+quantitative open problem in the framework.
+
+\subsection{SUSY breaking from electroweak symmetry breaking}
+
+The SUSY-preserving vacuum is diagonal:
+$\langle M^\alpha{}_i\rangle = v_\alpha\,\delta_{\alpha i}$, which does
+not break $\SU(2)_L$ and has $V = 0$.
+When $\SU(2)_L$ is broken by giving the Higgs doublet components
+VEVs in all three generations, the $F$-term system becomes
+overconstrained: 18~real equations for 12~real variables.
+SUSY necessarily breaks, with the breaking scale set by the
+lepton masses:
+\begin{equation}
+  |F_{21}| = m_e\,, \qquad
+  |F_{22}| = 0\,, \qquad
+  |F_{23}| = m_\tau\,,
+  \label{eq:Fterms_lepton}
+\end{equation}
+and $|F| = \sqrt{\sum |F_{2j}|^2} \approx m_\tau \approx 1.8\GeV$.
+The goldstino is predominantly the $\tau$-mesino (since
+$m_\tau/m_e \approx 3500$), and
+$m_{3/2} = |F|/(\sqrt{3}\,M_{\rm Pl})
+\approx 4\times 10^{-16}\GeV$.
+
+The three Higgs doublets $H_i = M^{1,2}{}_i$ acquire hierarchical
+VEVs $v_i \propto m_{\ell,i}$ from the adjugate mechanism: $v_\tau$
+dominates ($v_\tau/\sqrt{\sum v_i^2} = 0.998$), so the SM Higgs is
+predominantly the $\tau$-generation doublet.
+
+\subsection{The scalar spectrum and the mild SUSY-breaking problem}
+\label{sec:mild}
+
+Standard SUSY-breaking constructions (gravity or gauge mediation)
+generate soft scalar masses $m_{\rm soft} \sim F/M_{\rm mess}$ that
+send superpartners to the TeV scale---orders of magnitude above their
+Standard Model counterparts.  In the present framework, the situation
+is structurally different.  The SUSY-breaking $F$-terms \emph{are}
+the lepton masses ($|F| \approx m_\tau \approx 1.8\GeV$, not
+$(100\TeV)^2$), and the ``superpartners'' of the leptons are the
+composite Higgs doublets that live in the same chiral superfield~$M$.
+The scalar--fermion splitting is controlled by~$F$ and the family
+charges, not by a distant hidden sector.
+
+\paragraph{Charge-aligned K\"ahler deformation.}
+The holomorphic mass formula $m_i = k(z_0{+}z_i)^2$ is protected by
+the non-renormalization theorem: any deformation that preserves the
+superpotential preserves it exactly.  The leading SUSY-breaking
+correction therefore enters through the K\"ahler potential.
+The simplest charge-aligned operator is
+\begin{equation}
+  \Delta K \;=\; \frac{c}{M_*^2}\,\sum_i (z_0{+}z_i)^2\;
+  |F_X|^2\;|\Phi_i|^2\,,
+  \label{eq:DK_spurion}
+\end{equation}
+where $X$ is a SUSY-breaking spurion with $\langle F_X \rangle \neq 0$
+and $M_*$ is the mediation scale.  Because the weight is
+$(z_0{+}z_i)^2$---the same charge combination that determines~$m_i$---the
+resulting soft scalar mass
+\begin{equation}
+  m^2_{\rm soft,\,i} \;=\; \varepsilon\,m_i\,,
+  \qquad
+  \varepsilon \equiv \frac{c\,|F_X|^2}{k\,M_*^2}
+  \label{eq:msoft}
+\end{equation}
+is automatically aligned with the mass hierarchy.  The scalar-to-fermion
+mass ratio is $\sqrt{1 + \varepsilon/m_i}$: for
+$\varepsilon \ll m_e$, \emph{all} partners remain nearby.  The fermion
+masses (and therefore the Koide formula) are unaffected at this order.
+
+\paragraph{Self-mediated estimate.}
+In the most economical scenario, the spurion is the meson sector itself
+($|F_X| \approx m_\tau$, $M_* \approx \Lambda$):
+\begin{equation}
+  \varepsilon \;\sim\; \frac{c\,m_\tau^2}{k\,\Lambda^2}
+  \;\approx\; c \times 0.26\MeV\,.
+  \label{eq:eps_self}
+\end{equation}
+For a loop-suppressed coefficient $c \sim \alpha/4\pi \sim 10^{-2}$,
+$\varepsilon \sim 3\keV$, giving sub-percent splittings for all
+three generations---consistent with the observed precision of~$K$.
+For~$c \sim O(1)$, $\varepsilon \sim m_e/2$: the $\tau$ and $\mu$
+partners are split by~$<0.2\%$, while the electron partner receives an
+$O(1)$ relative correction.  In either case the splitting is
+\emph{mild}: no partner is pushed to the TeV scale.
+
+\paragraph{Wavefunction mechanism.}
+An equivalent viewpoint replaces the spurion with a family-dependent
+wave-function renormalization $Z_i = Z\bigl[1 + \varepsilon_1
+(z_0{+}z_i)^2\bigr]$, giving
+$m_i^{\rm phys} = m_i^{\rm hol}/\sqrt{Z_i}
+\approx \tilde m_i\bigl[1 - (\varepsilon_1/2k)\,\tilde m_i\bigr]$
+at first order.  The correction is
+proportional to~$m_i^2$ (quartic in charge) and preserves $K = 2/3$
+to~$O(\varepsilon_1^2)$.  This is precisely the partial-compositeness
+mechanism of the next subsection: the anomalous dimension~$\gamma_*$
+controls~$\varepsilon_1$, with $\gamma_* = 0$ (universal~$Z$) for
+leptons and $\gamma_* = 1$ for down quarks.
+
+\paragraph{The supertrace constraint.}
+For $F$-term breaking with canonical K\"ahler,
+$\mathrm{STr}(\mathcal{M}^2) = \sum m^2_{\rm boson} - \sum m^2_{\rm fermion} = 0$.
+This means the sum of scalar mass-squared corrections vanishes:
+$\sum_i m^2_{\rm soft,\,i} = \varepsilon \sum_i m_i = 0$
+cannot hold (since $m_i > 0$ and $\varepsilon > 0$), signalling that
+the canonical K\"ahler is modified at $O(\varepsilon)$.  The leading
+non-canonical correction is the family-dependent~$Z_i$ above, which
+redistributes the supertrace across generations without violating the
+sum rule.
+
+\paragraph{Contrast with the MSSM.}
+In the MSSM, the $\mu$-problem and the hierarchy problem arise because
+soft masses must be tuned against $|\mu|^2$ to get $v_{\rm EW} \ll
+M_{\rm Pl}$.  Here, both~$v_{\rm EW}$ and the soft masses are
+determined by the \emph{same} family charges (eq.~\ref{eq:massansatz}):
+the electroweak VEV is $v_{\rm EW} = \Lambda^2 m_\tau/P_\ell^{1/3}$
+(eq.~\ref{eq:vew}), the soft masses are $\varepsilon \sim m_\tau^2/
+(k\Lambda^2)$, and the Higgs mass arises from Coleman--Weinberg
+corrections at $M_S \approx \mu_{\rm crit}$ (eq.~\ref{eq:higgs_CW}).
+There is no separate hidden sector; all scales are tied to the lepton
+mass product~$P_\ell$ and the confinement scale~$\Lambda$.
+
+\paragraph{What remains open.}
+Computing the coefficient~$c$ in~\eqref{eq:DK_spurion} from first
+principles requires the K\"ahler metric on the quantum-modified moduli
+space of the s-confined theory.  For the genus-0 Seiberg--Witten curve
+relevant to~$\Nf = \Nc = 3$, this metric is not constrained by
+holomorphy and receives non-perturbative corrections from M2-brane and
+M5-brane instantons (Appendix~\ref{app:Mtheory}).  The full scalar
+spectrum---three Higgs doublets, three charged sleptons, and the
+baryonic modulus---depends additionally on the $\SU(2)_L \times
+\UU(1)_Y$ $D$-terms, which enforce vacuum alignment but whose
+quantitative contribution to the mass splittings is model-dependent.
+Identifying a mildly broken SUSY sector that keeps superpartners
+nearby---rather than sending them to the TeV scale as in standard
+constructions---is the most pressing open problem of the framework.
+
+\subsection{Partial compositeness and quark masses}
+
+Quarks are elementary fields, external to the confining sector.
+They acquire mass through \emph{partial
+compositeness}~\cite{Kaplan:1991dc}: each elementary quark mixes
+linearly with a composite operator of the same quantum numbers:
+$\mathcal{L} \supset \lambda_L\,\bar q_L\,\mathcal{O}_R
++ \lambda_R\,\bar q_R\,\mathcal{O}_L + \text{h.c.}$
+The mixing coefficients $\lambda_i$ are generation-dependent,
+determined by anomalous dimensions at the confining fixed
+point~\cite{Strassler:1995,NelsonStrassler:2000}.
+The superpotential is holomorphic in $M$ and $\adj(M)$,
+so the most general Yukawa operator is
+$W \supset q\,\bar{q}\,M^a\,\adj(M)^b/\Lambda^n$ with
+$a, b \in \mathbb{Z}_{\ge 0}$. On the constraint surface
+$\adj(M) = \Lambda^6 M^{-1}$, the generation-dependent mass
+scaling is $m_q \propto m_{\rm UV}^{a-b}$: the exponent
+$p = a - b$ is automatically an integer. EFT power counting
+selects the two leading operators: $(a,b) = (1,0)$ (renormalisable,
+$p{=}{+}1$) and $(a,b) = (0,1)$ ($p{=}{-}1$), related by the
+$\mathbf{15} \leftrightarrow \overline{\mathbf{15}}$ exchange.
+The \emph{assignment} (why down quarks couple to $M$ rather than
+$\adj(M)$) is fixed by hypercharge
+($Y(M^{1,2}) = -\tfrac{1}{2}$, $Y(\adj(M)^{1,2}) = +\tfrac{1}{2}$).
+
+\subsection{What remains open}
+\label{sec:open}
+
+\begin{enumerate}
+  \item \textbf{The dynamical origin of~$\alpha_{\rm lep}$.}
+    All $\SU(3)$-invariant potentials for the traceless diagonal field
+    depend on~$\alpha$ only through $\cos 3\alpha$, whose extrema lie at
+    $\alpha = 0$ and $\pi/3$.  The one-loop Coleman--Weinberg effective
+    potential remains $\mathbb{Z}_3$-invariant
+    and monotonic in~$\alpha$ at every renormalization scale.
+    Fixing~$\alpha_{\rm lep}$
+    therefore requires non-perturbative K\"ahler effects,
+    cross-sector constraints, or input from a UV completion.
+
+  \item \textbf{$|V_{ub}|$ and the exclusive/inclusive tension.}
+    $|V_{ub}| = 2\sqrt{2}/((2N{+}1)R^3)$ gives $0.003674$,
+    matching the \emph{exclusive} determination
+    $|V_{ub}|_{\rm excl} = 0.003682 \pm 0.000110$ ($0.08\sigma$) but
+    deviating from the inclusive value
+    $|V_{ub}|_{\rm incl} = 0.00425 \pm 0.00010$ ($5.8\sigma$).
+    If the exclusive/inclusive tension
+    is resolved in favour of the inclusive value, the framework is
+    falsified.
+
+  \item \textbf{PMNS mixing.}
+    The baryonino Majorana matrix $\mathcal{M}_R$ is
+    diagonal on the mesonic branch, and the
+    mesino--baryonino Dirac coupling vanishes at tree level.
+    The most promising path is non-diagonal K\"ahler corrections
+    to the baryonic sector: the composite operator $B = \epsilon\,QQQ$
+    involves all three flavours symmetrically, so its K\"ahler metric
+    need not inherit the meson hierarchy.  A non-diagonal $Z_B$
+    rotates the diagonal $\mathcal{M}_R$ into a near-democratic
+    matrix whose eigenvectors can reproduce large PMNS angles.
+    This naturally explains the CKM/PMNS split: mesons (hierarchical
+    VEVs $\to$ small CKM) vs.\ baryoninos (flavour-symmetric
+    K\"ahler $\to$ large PMNS).
+
+  \item \textbf{The Higgs mass.}
+    At tree level the F-term self-quartic vanishes, so
+    $m_h \le m_Z$ as in the MSSM; lifting $m_h$ to $125\GeV$ requires
+    composite-loop (Coleman--Weinberg) corrections.
+    Using the MSSM one-loop formula as a parametric estimate:
+    \begin{equation}
+      \Delta m_h^2 \;=\; \frac{3 m_t^4}{4\pi^2 v^2}\,
+      \biggl[\log\frac{M_S^2}{m_t^2}
+        + \frac{X_t^2}{M_S^2}\Bigl(1 - \frac{X_t^2}{12 M_S^2}\Bigr)
+      \biggr]\,,
+      \label{eq:higgs_CW}
+    \end{equation}
+    for small mixing ($X_t \approx 0$), $m_h = 125\GeV$ requires
+    $M_S \approx 4.6\TeV \approx \mu_{\rm crit}$---the same
+    parameter that controls the Koide accuracy.
+
+  \item \textbf{Flavour-changing neutral currents.}
+    Three Higgs doublets with generation-dependent VEVs generically
+    mediate tree-level FCNC. The VEV hierarchy provides a natural
+    Cheng--Sher suppression~\cite{ChengSher:1987}: off-diagonal
+    Yukawa couplings scale as $\sqrt{m_i m_j}/v$, consistent
+    with $K^0$--$\bar K^0$ mixing for $M_H \gtrsim O(\TeV)$.
+
+  \item \textbf{The composite/elementary asymmetry.}
+    Leptons are composites (mesinos), quarks are elementary. This
+    identification is \emph{forced by colour}: mesons of $\SU(3)_F$
+    are colour singlets.
+    The Fradkin--Shenker complementarity of
+    Appendix~\ref{app:complementarity} renders the distinction
+    frame-dependent: in the Higgs phase, ``dressed quarks'' are
+    smoothly connected to mesinos, and $K$ is invariant.
+
+  \item \textbf{Proton stability.}
+    SM baryon number $B_{\rm SM}$ and family
+    baryon number $B_F$ are independent symmetries. All family-sector
+    composites carry $B_{\rm SM} = 0$; the dangerous dimension-6
+    operator $QQQL/M^2$ cannot be generated because there is no
+    $\SU(3)_F$-invariant coupling. The $\Nf = 4$ Pati--Salam structure
+    is safe because $\SU(4)_R$ is a \emph{global} symmetry.
+    Proton stability is an \emph{exact structural prediction}.
+\end{enumerate}
+
+\subsection{The sector angle and the critical angle}
+
+The self-dual angle \eqref{eq:alpha_sd} is $\alpha_{\rm sd} \approx
+0.162\;\text{rad}$.  The physical lepton angle
+$\alpha_{\rm lep} = 0.22222(1)\;\text{rad}$, fitted from
+$m_\tau/m_\mu$, predicts $m_\tau$ to~$0.9\sigma$.
+
+At the critical angle $\alpha_{\rm crit} = \pi/12$, the lightest Koide
+mass vanishes: $z_0 + z_1 = 0$.  Expanding around this zero,
+\begin{equation}
+  m_e \;\approx\; k\,\frac{\varepsilon^2}{6}\,,
+  \qquad
+  \varepsilon \equiv \frac{\pi}{12} - \alpha_{\rm lep}
+  \approx 0.040\,,
+  \label{eq:me_crit}
+\end{equation}
+which reproduces $m_e/k$ to~$3.8\%$ (0.05\% at $O(\varepsilon^2)$).
+The lepton mass hierarchy $m_e/m_\tau \sim 3\times 10^{-4}$ is not a
+fine-tuning problem: it is a geometric consequence of
+$\alpha_{\rm lep}/\alpha_{\rm crit} \approx 0.85$.
+This admits a 't~Hooft naturalness interpretation: at
+$\alpha = \alpha_{\rm crit}$, the first-generation mass
+vanishes exactly and the symmetry is enhanced.
+
+\subsection{Logical status of $K = 2/3$}
+
+$K(m_i) = 2/3$ is a \emph{theorem} on the charge lattice
+(Section~\ref{sec:u3}), never used as input.
+$K(1/m_i) = 2/3$ is a \emph{constraint} that selects the self-dual
+angle and determines~$R$.  All predictions in
+Table~\ref{tab:status} follow from the charge ansatz, the
+involution, and the discriminant condition.
+
+\paragraph{Status of key claims.}
+Table~\ref{tab:status} classifies the main results by their
+logical status. ``Proven'' means derived algebraically from the
+stated assumptions. ``Conditional'' means derived contingent on
+a specific additional hypothesis. ``Empirical'' means a numerical
+relation that holds to stated accuracy but lacks a derivation.
+``Motivated'' means supported by a structural argument but not
+fully derived from first principles.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lll}
+\hline
+Claim & Status & Comment \\
+\hline
+$K = 2/3$ from $\UU(3)$ & Proven & derived as theorem; never used as input \\
+Seiberg transparency $(W_S)_{kk} = 0$ & Proven & det multilinearity \\
+Involution $M_i \leftrightarrow \Lambda^4/M_i$ & Proven & moduli space \\
+$\tan\beta$ elimination & Proven${}^*$ & $\adj(M)$ holomorphic \\
+$N = 3$ uniqueness & Conditional & equal quartic couplings \\
+$\delta_{CP} = \arctan\!\sqrt{R}$ & Conditional & equivalent to $N{=}3$ \\
+$|V_{us}| = \sqrt{m_d/m_s}$ & Empirical & Gatto--Sartori--Tonin~\cite{GattoSartoriTonin:1968} \\
+$|V_{cb}| = 1/(5R)$ & Empirical & no derivation yet \\
+Inverse Koide for down quarks & Empirical & assumes $\gamma_* = 1$ \\
+$K^{-1}(d,s,b) = 2/3$ at $\mu\!\approx\!1\TeV$ & Empirical & AHS running~\cite{AntuschHinzeSaad:2025} \\
+$\mathcal{M}_R^{ii} = m_i$ (baryonino) & Conditional${}^\ddagger$ & $\Nf{=}4$ $F$-terms \\
+$\Lambda = f_\pi\sqrt{3}/2$ & Empirical & 0.2\% \\
+$M_S(X_t{=}0) \approx \mu_{\rm crit}$ & Empirical & 3\%, gives $m_h{=}125\GeV$ \\
+$m_e \approx k\varepsilon^2/6$, $\varepsilon{=}\pi/12{-}\alpha_{\rm lep}$ & Exact & Taylor expansion of~\eqref{eq:me_crit}, 3.8\% \\
+$K(b,c,s)^{\pm} = 2/3$ (bridge tuple) & Tentative & $1.2\%$ at PDG, exact at $m_s \approx 84\MeV$ \\
+$\gamma \in \{0,1\}$ (holomorphic quantisation) & Proven & $W$ polynomial in $M$, $\adj(M)$ \\
+Proton stability & Proven & $B_{\rm SM}$ exact; no dim-6 $QQQL$ \\
+Nelson--Barr strong~CP & Conditional & involution $=$ CP \\
+$m_i = k(z_0{+}z_i)^2$ & Motivated & field energy $\propto q_i^2$; $k$ non-pert. \\
+\hline
+\end{tabular}
+\caption{Logical status of the main results.
+${}^*$At the superpotential level; the K\"ahler potential
+  can in principle reintroduce an independent ratio
+  $v_u/v_d$.
+${}^\ddagger$Requires canonical K\"ahler normalization
+  of composite baryonic operators.}
+\label{tab:status}
+\end{table}
+
+\subsection{TeV-scale convergence}
+
+Three TeV-range scales emerge from the framework
+with no TeV-scale input:
+the $\mathcal{N}=2$ adjoint mass
+$\mu_{\rm crit} \approx 4.5\TeV$, the composite stop mass
+$M_S(X_t{=}0) \approx 4.6\TeV$ required for $m_h = 125\GeV$,
+and the inverse Koide crossing scale $\mu_K \approx 1\TeV$.
+These three scales form a geometric progression
+$v_{\rm EW}$, $\sqrt{v\,\mu_{\rm crit}} \approx 1\TeV$,
+$\mu_{\rm crit}$, with common ratio determined entirely by the
+lepton mass product. The full scale hierarchy is
+\begin{equation}
+  \mu_{\mathcal{N}=2} \;\gtrsim\; 37\TeV
+  \;>\; \Lambda_{\rm CST}
+  \;>\; v_{\rm EW} = 246\GeV
+  \;>\; \Lambda \approx 80\MeV\,.
+  \label{eq:scales}
+\end{equation}
+
+
+%======================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+%======================================================================
+
+The flavour sector of the Standard Model can be organised by two
+structural ingredients: the moduli space of $\SU(3)$ SQCD, whose
+quantum constraint provides an involution connecting the charged-lepton
+and down-quark sectors; and the canonical normalization of a $\UU(3)$
+family symmetry, which fixes $z_0 = 1/\sqrt{6}$ and guarantees
+$K = 2/3$.  The charge ansatz $m_i = k(z_0{+}z_i)^2$ is uniquely
+selected: it is the only monomial for which the Koide ratio is
+direction-independent in the Cartan subalgebra, and the $q_i^2$
+pattern follows from gauge theory (field energy $\propto q_i^2$
+by Gauss's law and $\mathcal{L}\supset F_{\mu\nu}^2$).
+The discriminant $D = 21$ appears simultaneously in the
+self-dual charge spectrum and the family Higgs potential, uniquely at
+$N = 3$ generations. Extension to $\Nf = 4$ recovers the Pati--Salam
+decomposition from the baryon sector, with the top quark as the
+decoupling fourth flavour.
+
+The effective Lagrangian involves a single meson field~$M$: both
+electroweak Higgs doublets ($H_d = M^{1,2}$ and $H_u = \adj(M)^{1,2}$)
+are holomorphic in~$M$ alone, constraining $\tan\beta$ at the
+superpotential level (subject to K\"ahler corrections).
+The mass parameter $m_i$ in the UV superpotential serves
+simultaneously as mass deformation, Yukawa coupling, and meson-VEV
+determinant---there are no independent Yukawa parameters. The family
+confinement scale $\Lambda \approx f_\pi\sqrt{3}/2$ relates the
+meson condensate to the electroweak VEV through the K\"ahler
+normalization (eq.~\ref{eq:vew}).
+
+The framework has four continuous inputs ($k$, $\alpha$, $m_d$, $m_s$),
+with $m_e$ and $m_\mu$ fixing $k$ and~$\alpha$.
+The predicted~$m_\tau$ agrees to $0.91\sigma$.
+The CKM elements $|V_{cb}| = 1/(5R)$, $|V_{ub}| = 2\sqrt{2}/(7R^3)$,
+and $\delta_{CP} = \arctan\sqrt{R}$ depend only on the self-dual
+ratio~$R$ and are independent of all continuous inputs, though
+derivations from the confined operator basis remain open.
+The overall CKM fit has $\chi^2/\text{dof} < 1$
+(Fig.~\ref{fig:pulls}).
+
+The EWSB vacuum necessarily breaks SUSY (the $F$-term system is
+overconstrained), with $|F_{2j}| = m_j$: SUSY breaking and the
+lepton mass hierarchy are structurally unified.
+
+The quark chain splits into a ``Fermi side'' $(t,b,c)$---connected
+through the signed bridge tuple $(b,c,s)$---to a ``chiral
+side'' $(c,s,0)$,~$(s,0,m_u{+}m_d)$ where zero-charge triples
+connect to meson physics through the isospin reparametrization
+$u\to 0$, $d \to m_u{+}m_d$. This split reflects the
+transition from fermionic to scalar degrees of freedom across the
+SUSY-breaking scale.
+
+Three TeV-range scales emerge with no TeV-scale input:
+$\mu_{\rm crit} \approx 4.5\TeV$,
+$M_S(X_t{=}0) \approx 4.6\TeV$ (for $m_h = 125\GeV$),
+and the inverse Koide crossing $\mu_K \approx 1\TeV$.
+If composite stops exist, this framework
+predicts them at $1$--$5\TeV$.
+
+The M-theory lift (Appendix~\ref{app:Mtheory}) provides a
+geometric interpretation: mesons are M2-branes, baryons are
+M5-branes, the involution is electromagnetic duality of the
+$C$-field, and $K = 2/3$ is singled out by the membrane
+dimensionality ($p = 2$).  The top quark is an asymptotic
+Kaluza--Klein monopole whose 12~degrees of freedom reside in the
+$\SU(9)$ adjoint~$\mathbf{80}$ rather than the
+$\Lambda^3(\mathbf{9}) = \mathbf{84}$ that houses the
+family-structured fermions.  Identifying the moduli-space involution
+with CP yields a Nelson--Barr solution to the strong CP problem,
+with $\delta_{CP} = \arctan\!\sqrt{R}$ arising from spontaneous
+CP~violation.
+
+The most pressing open problems are: (i)~computing the
+K\"ahler metric on the quantum-modified moduli space (needed to
+fix~$v_{\rm EW}$, $\tan\beta$, the overall mass scale $k = \mu$,
+and the scalar spectrum);
+(ii)~identifying the mild SUSY-breaking mechanism that keeps
+scalar partners nearby rather than at the TeV scale
+(Section~\ref{sec:mild});
+(iii)~identifying a source of large PMNS mixing; (iv)~deriving
+the CKM relations involving~$R$ from the confined operator basis.
+
+
+%======================================================================
+\section*{Acknowledgments}
+%======================================================================
+
+% TODO
+
+
+%======================================================================
+\appendix
+\section{Alternative: $\SU(2)_L$ as a magnetic dual gauge group}
+\label{app:CST}
+%======================================================================
+
+This appendix records an alternative construction considered during
+the investigation; it does not affect the numerical results of the
+paper.
+
+The embedding $\SU(2)_L \times \UU(1)_Y \subset \SU(3)_L$ used in
+the main text (Section~\ref{sec:involution}) is the minimal route to
+the Higgs identification $H_d = M^{1,2}$, $H_u = \adj(M)^{1,2}$.
+An alternative, due to Csaki, Shirman, and
+Terning~\cite{Csaki:2011xn}, derives $\SU(2)_L$ dynamically as the
+magnetic dual gauge group of a confining theory at a scale
+$\Lambda_{\rm CST} > v_{\rm EW}$.
+
+\paragraph{The mechanism.}
+Consider an electric theory with gauge group $\SU(N_e)$ and $\Nf$
+flavours.  Seiberg duality~\cite{Seiberg:1994bz} gives a magnetic
+description with gauge group $\SU(\Nf - N_e)$.  Setting
+$\Nf - N_e = 2$, the magnetic gauge group is $\SU(2)$, identified
+with $\SU(2)_L$.  The magnetic description contains:
+\begin{enumerate}
+  \item Magnetic quarks $q_i$, $\tilde{q}^j$ ($i = 1,\ldots,\Nf$),
+    transforming as doublets under $\SU(2)_{\rm mag}$.
+  \item The electric meson $\mathcal{M}^i{}_j =
+    Q^{i,\rm el}\tilde{Q}^{\rm el}_j / \Lambda_{\rm CST}$,
+    a gauge singlet in the magnetic description.
+  \item The magnetic superpotential
+    $W_{\rm mag} = q\,\mathcal{M}\,\tilde{q}/\mu$, which generates
+    Yukawa couplings between the magnetic quarks and the Higgs.
+\end{enumerate}
+
+\paragraph{Scale hierarchy.}
+The construction requires three scales:
+\begin{equation}
+  \Lambda_{\rm CST} \;>\; v_{\rm EW} \;>\; \Lambda_F\,.
+  \label{eq:cst_scales}
+\end{equation}
+Above $\Lambda_{\rm CST}$, the electric theory confines
+and is replaced by its magnetic dual.  Between $v_{\rm EW}$ and
+$\Lambda_{\rm CST}$, the magnetic quarks are $\SU(2)_L$ doublets,
+and $\SU(3)_F$ sees $2\Nf = 6$ effective flavours---inside the
+conformal window, so $\SU(3)_F$ does not confine.  Below $v_{\rm EW}$,
+the doublet partners decouple, leaving $\Nf = 3$ and $\SU(3)_F$
+confines at $\Lambda_F \approx f_\pi\sqrt{3}/2$.
+
+\paragraph{Connection to the Pati--Salam extension.}
+For $\Nf = 4$ (Section~\ref{sec:nf4}), the electric theory is
+$\SU(N_e) = \SU(2)$ with 4~flavours.  Since $\Nf = 2\Nc$, this is
+a self-dual point: the electric and magnetic theories have the same
+gauge group.
+
+\paragraph{Comparison with the main text.}
+The CST construction provides a dynamical origin for $\SU(2)_L$
+but costs at least two additional parameters ($\Lambda_{\rm CST}$
+and the electric gauge coupling) that do not enter any prediction.
+The branching-rule embedding of the main text
+($\mathbf{3}_L \to \mathbf{2}_{-1/2} \oplus \mathbf{1}_{+1}$)
+achieves the same Higgs identification with zero additional
+parameters.  The two approaches are compatible; the choice between
+them does not affect any numerical result.
+
+
+%======================================================================
+\section{Higgs--confinement complementarity}
+\label{app:complementarity}
+%======================================================================
+
+If the mesino (the fermionic component of the meson superfield~$M$)
+\emph{is} a Standard Model lepton, a conceptual question arises:
+the composites are built from preons~$Q$, $\tilde{Q}$, but those
+preons carry the same quantum numbers as the composites themselves.
+This appendix shows that the question is resolved by
+\emph{Higgs--confinement complementarity}~\cite{FradkinShenker:1979,
+OsterwalderSeiler:1978}: the two descriptions---elementary preons
+with a VEV (Higgs phase) and confined composites (confinement
+phase)---are smoothly connected, with no phase boundary separating
+them.
+
+\paragraph{The Fradkin--Shenker theorem.}
+For a gauge theory with matter in the fundamental representation,
+Fradkin and Shenker~\cite{FradkinShenker:1979} proved that the
+Higgs and confinement regimes are analytically connected: no
+local order parameter distinguishes them.
+The theorem applies whenever the fundamental
+matter can screen all centre charges.  For $\SU(3)$ with $\Nf = 3$
+fundamentals, the centre $\mathbb{Z}_3$ is fully screened, and the
+theory is s-confining---precisely the regime in which complementarity
+holds~\cite{Acharya:2025}.
+
+\paragraph{Higgs-phase spectrum.}
+Giving the squarks a diagonal VEV,
+$\langle Q^i_a \rangle = v_i\,\delta^i_a$,
+$\langle \tilde{Q}^a_j \rangle = \tilde{v}_j\,\delta^a_j$,
+all 8~generators of $\SU(3)$ are broken and the 8~gauge bosons
+acquire masses.
+After Higgsing, $8$~massive vector multiplets absorb one chiral
+multiplet each, leaving $18 - 8 = 10$ light chiral multiplets.
+In the confined description,
+$9$~mesons $+$ $2$~baryons $-$ $1$~quantum constraint
+$= 10$: an exact match.
+
+\paragraph{Operator dictionary.}
+The Higgs-phase and confinement-phase variables are related by
+\begin{align}
+  M^i{}_j &= Q^i_a\,\tilde{Q}^a_j\,,  &
+  B &= \epsilon_{abc}\,Q^{a\,1}Q^{b\,2}Q^{c\,3}\,,  &
+  \tilde{B} &= \epsilon^{abc}\,\tilde{Q}_a^1\tilde{Q}_b^2
+    \tilde{Q}_c^3\,.
+  \label{eq:operator_map}
+\end{align}
+The quantum constraint $\det M - B\tilde{B} = \Lambda^6$ is
+automatically satisfied.
+The ``mesino'' $\psi_M$ in the confined description is the
+\emph{same fermion} as the ``dressed quark'' in the Higgs phase,
+$\psi_M^{i,j} \sim \tilde{v}_j\,\psi_Q^i + v_i\,\psi_{\tilde{Q}}^j$.
+
+\paragraph{Anomaly matching.}
+Under $\SU(3)_F \times \SU(2)_L \times \UU(1)_Y$,
+all anomaly coefficients involving the electroweak quantum
+numbers match exactly between UV preons and IR composites
+(verified numerically in the ancillary
+script \texttt{anomaly\_matching\_uv\_ir.py}).
+
+\paragraph{Why the Koide structure survives.}
+Since $K$ is a \emph{ratio}, multiplicative factors from the
+K\"ahler metric cancel, and $K(m^{\rm dressed}) = K(m^{\rm hol})
+= 2/3$.  Complementarity guarantees the two computations agree.
+
+\paragraph{Dirac masses from mesons, Majorana masses from baryons.}
+The meson bilinear $M^i{}_j = Q^i\tilde{Q}_j$
+pairs \emph{different} fields---a
+\textbf{Dirac-type} structure producing charged-lepton masses.
+The baryon sector involves $B = \epsilon\,Q^3$ and
+$\tilde{B} = \epsilon\,\tilde{Q}^3$---trilinears of the
+\emph{same} field type, producing \textbf{Majorana-type} masses.
+On the quantum-modified moduli space, $\det M = \Lambda^6
++ B\tilde{B}$: the involution $M_i \to \Lambda^4/M_i$
+exchanges the Dirac and Majorana faces of the theory.
+In the M-theory lift, both
+mechanisms are encoded as two regions of the same holomorphic
+curve~$\Sigma$, connected by the $\mathbb{Z}_2$ symmetry.
+
+\paragraph{What about quarks?}
+Quarks are elementary preons acquiring mass through partial
+compositeness. The preon--composite loop closes only for leptons;
+this is why leptons satisfy standard Koide while quarks satisfy
+inverse Koide: the two sectors couple to different faces of
+the adjugate duality.
+
+
+%======================================================================
+\section{M-theory lift: mesons as M2-branes, baryons as M5-branes}
+\label{app:Mtheory}
+%======================================================================
+
+The Hanany--Witten (HW) brane construction~\cite{HananyWitten:1997}
+realises $\SU(N_c)$ SQCD in Type~IIA string theory using
+$N_c$~D4-branes suspended between two NS5-branes, with
+$\Nf$~D6-branes providing flavours.  When lifted to M-theory,
+the entire configuration merges into a \emph{single} M5-brane wrapping a
+holomorphic curve~$\Sigma$, and Seiberg duality becomes a change of
+variables on that curve~\cite{Witten:1997M5}.
+
+\paragraph{The curve for $\SU(3)$, $\Nf = 3$.}
+In the $\mathcal{N} = 1$ limit ($\mu \to \infty$), the M5-brane
+curve splits into two genus-zero components~\cite{HoriOoguriOz:1997}:
+\begin{align}
+  C_L &:\quad \tilde{t} = (w - M_1)(w - M_2)(w - M_3),\quad v = 0\,,
+  \label{eq:CL} \\
+  C_R &:\quad \tilde{t} = \Lambda^6,\quad w = 0\,,
+  \label{eq:CR}
+\end{align}
+where $v = x^4 + ix^5$ and $w = x^8 + ix^9$ are transverse
+coordinates, $\tilde{t} = e^{-(x^6 + ix^{10})/R_{11}}$ encodes the
+M-theory circle, $M_i = \Lambda^2 P^{1/3}/m_i$ are the meson
+eigenvalues, and $\Lambda$ is the dynamical scale.
+
+\paragraph{The quantum constraint from geometry.}
+At $w = 0$, the left component gives
+$\tilde{t}\big|_{w=0} = -\det M$,
+while the right is $\tilde{t} = \Lambda^6$.
+The baryon condensate $B\tilde{B}$ measures the separation:
+\begin{equation}
+  \det M - B\tilde{B} \;=\; \Lambda^6\,.
+  \label{eq:constraint_brane}
+\end{equation}
+
+\paragraph{Mesons as M2-branes, baryons as M5-branes.}
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+Field theory & Type~IIA & M-theory & Mass type \\
+\midrule
+Meson $M^i{}_j = Q^i\tilde{Q}_j$ &
+  open string (D6$_i$--D6$_j$) &
+  \textbf{M2-brane} & Dirac \\
+Baryon $B = \epsilon\,Q^3$ &
+  wrapped D4 (vertex) &
+  \textbf{M5-brane} & Majorana \\
+\bottomrule
+\end{tabular}
+\end{center}
+In M-theory, these two mass mechanisms are the two faces of
+\emph{electromagnetic duality} of the $C$-field: the M2-brane
+couples to~$C_3$, the M5-brane couples to
+$C_6 = {}^*C_3$~\cite{Witten:1997M5}.
+
+\paragraph{The involution as M2$\,\leftrightarrow\,$M5 duality.}
+The $\mathbb{Z}_2$ involution
+$M_i \to \Lambda^4/M_i$ acts on the curve by exchanging
+$C_L \leftrightarrow C_R$---the exchange of the $C_3$
+and~$C_6$ descriptions, the
+\emph{electromagnetic duality} of M-theory.
+
+\paragraph{Why the mass is quadratic: the membrane has two dimensions.}
+With $\mathrm{U}(3)$ family symmetry, the D6-brane positions are
+\begin{equation}
+  v_i \;=\; c\,(z_0 + z_i)\,.
+  \label{eq:D6positions}
+\end{equation}
+An M2-brane stretched from the colour stack to the $i$-th
+D6-brane spans two spatial directions, so its mass is
+\begin{equation}
+  m_i \;\propto\; \mathrm{Area}_i
+      \;\propto\; (z_0 + z_i)^2\,.
+  \label{eq:M2area}
+\end{equation}
+For a general $p$-brane with all dimensions $\propto (z_0 + z_i)$:
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+$p$ & Object & $m_i \propto$ & $K$ \\
+\midrule
+1 & string & $(z_0{+}z_i)$ & 0.478 \\
+\textbf{2} & \textbf{M2-brane} & $(z_0{+}z_i)^2$ & \textbf{2/3} \\
+3 & 3-brane & $(z_0{+}z_i)^3$ & 0.805 \\
+5 & M5-brane & $(z_0{+}z_i)^5$ & 0.945 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Only $p = 2$ yields $K = 2/3$: the Koide formula is a
+\emph{signature of the membrane}.
+
+\paragraph{The number~84 and mass protection.}
+In eleven-dimensional supergravity, the massless little group is
+$\mathrm{SO}(9)$.  The bosonic degrees of freedom decompose as
+$128 = 44 + 84$: the graviton (44~components) plus the three-form
+$C_3$ ($\binom{9}{3} = 84$~components).
+Under $\SU(9) \subset E_8$, the adjoint decomposes as
+$248 = 80 + 84 + \overline{84}$, with the two~84s corresponding
+to $C_3$ and~$C_6$.
+Under $\SU(9) \to \SU(3)_F \times \SU(3)_L
+\times \SU(3)_C$ (trinification), the~$84 = \Lambda^3(\mathbf{9})$
+contains the meson quantum numbers
+$(\mathbf{3}_F,\,\overline{\mathbf{3}}_L,\,\mathbf{1}_C)$
+as well as the baryon singlets.
+The adjoint~80 contains
+12~family-singlet degrees of freedom matching the top quark.
+
+In the Standard Model with right-handed neutrinos, the
+$96$~fermionic degrees of freedom split as $84 + 12$ under dual
+mass-protection symmetries~\cite{Rivero:2024epjc}:
+the family-structured fermions in the
+antisymmetric~$84 = \Lambda^3(\mathbf{9})$, the family-singlet top
+in the adjoint~$80$.
+
+\paragraph{Relation to the angle shift.}
+$84 = |\mathrm{disc}(\mathbb{Q}(\sqrt{-21}))|$
+appears in the angle-shift formula $\tan(\Delta\alpha) = \pi/84$
+(Section~\ref{sec:numerics}). Whether this reflects a deeper
+connection between $\mathbb{Q}(\sqrt{21})$ and the M-theory
+$C$-field is a question for future work.
+
+\paragraph{Top quark as Kaluza--Klein monopole.}
+In the $\Nf = 4$ hybrid scenario, the top
+corresponds to a D6-brane receding to infinity. In M-theory, D6-branes become
+\emph{Kaluza--Klein monopoles}~\cite{Townsend:1995}. The receding
+D6$_4$ moves its Taub-NUT centre to spatial infinity;
+the holomorphic scale matching
+\begin{equation}
+  \Lambda_3^6 \;=\; \Lambda_4^5\,m_t
+  \label{eq:scale_matching}
+\end{equation}
+encodes the top's effect.
+The $12 = N_c \times 4$ real degrees of freedom live in the
+$\SU(9)$ adjoint~$\mathbf{80}$, consistent with the $96 = 84 + 12$
+mass-protection split.
+
+\paragraph{K\"ahler non-computability and the angle modulus.}
+The K\"ahler potential $K(M, M^\dagger)$ of the confined meson
+fields determines the physical mass matrix and hence~$\alpha$.
+In an $\mathcal{N}=2$ theory, the K\"ahler metric can be extracted
+from M5-brane periods via the DHOO
+formula~\cite{deBoer:1997DHOO}. In the $\mathcal{N}=1$
+s-confined theory this formula fails:
+(i)~the genus-zero curve has no holomorphic one-forms;
+(ii)~the DBI probe suffers string-scale contamination;
+(iii)~the $\mathcal{N}=1$ K\"ahler potential is not protected.
+The non-computability is \emph{consistent} with the failure to
+select~$\alpha_{\rm lep}$ from any scalar potential or instanton
+effect: the angle is a K\"ahler modulus, invisible to the
+holomorphic sector.
+
+\paragraph{Strong~CP and the involution as CP.}
+Identifying the involution with CP yields a
+\emph{Nelson--Barr} structure~\cite{Nelson:1984,Barr:1984}:
+the superpotential is real in the CP-symmetric basis,
+so $\arg\det m_q = 0$ at tree level.  The CKM phase
+arises from spontaneous CP violation.
+Radiative corrections are two-loop suppressed:
+$\delta\bar\theta \sim (\alpha/4\pi)^2\,J
+\sim 10^{-11}$, at or below the experimental
+bound $|\bar\theta| < 10^{-10}$.
+
+
+%======================================================================
+\section{Primer: $F$-terms, $D$-terms, and SUSY breaking}
+\label{app:primer}
+%======================================================================
+
+In any $\mathcal{N}=1$ supersymmetric theory, the scalar potential
+is $V = \sum_i |F_i|^2 + \frac{1}{2}\sum_a (D^a)^2$, where
+\begin{equation}
+  F_i = -\frac{\partial W}{\partial\phi_i}\,,
+  \qquad
+  D^a = -g\,\sum_i \phi_i^\dagger T^a \phi_i + \xi^a\,.
+  \label{eq:Fterm_def}
+\end{equation}
+\label{eq:Dterm_def}%
+\label{eq:Vscalar}%
+SUSY is unbroken iff $V = 0$ at the minimum (\ie, all $F_i = 0$
+and all $D^a = 0$).  When SUSY breaks, a massless goldstino
+appears~\cite{VolkovAkulov:1973}:
+\begin{equation}
+  \tilde G \;\propto\; \sum_i F_i\,\psi_i
+    + \sum_a D^a\,\lambda^a\,,
+  \label{eq:goldstino}
+\end{equation}
+which in supergravity is absorbed by the gravitino,
+$m_{3/2} = |F|/(\sqrt{3}\,M_{\rm Pl})$.
+
+In the Seiberg confined theory on the mesonic branch
+($B = \tilde B = 0$), all SUSY breaking comes from
+$F_M = \partial W/\partial M$ ($F$-type breaking).
+The $D$-terms for $\SU(2)_L \times \UU(1)_Y$ enforce
+\emph{vacuum alignment}: all VEVs point in the same $\SU(2)_L$
+direction, preserving $\UU(1)_{\rm em}$. The magnitude hierarchy
+$v_i \propto m_{\ell,i}$ is set by the $F$-terms; the direction
+is aligned by the $D$-terms.
+
+\paragraph{Field energy and the charge-squared pattern.}
+The holomorphic mass $m_i = k(z_0{+}z_i)^2$ is a superpotential
+parameter, protected by the non-renormalization theorem.
+The $q_i^2$ pattern can be understood from the residual
+$\UU(1)^2_F$ gauge structure after confinement.  Eliminating the
+$D_F$ auxiliary fields gives $D_F = -g_F^2\sum_i q_i|\phi_i|^2$;
+the resulting positive-definite potential $V_D = (g_F^2/2)
+(\sum_i q_i|\phi_i|^2)^2$ contributes to the static energy as
+$\Delta M_i \propto q_i^2$.  Combined with Gauss's law ($E_i \propto
+q_i$) and $\mathcal{L} \supset F_{\mu\nu}^2$, this ensures that
+the field energy of any finite-size composite state scales
+as~$q_i^2$---the same charge dependence as the mass ansatz.
+The overall coefficient is non-perturbative (K\"ahler-dependent),
+but the pattern is fixed by gauge theory.
+
+
+%======================================================================
+\section*{Declaration of generative AI and AI-assisted technologies
+  in the manuscript preparation process}
+
+During the preparation of this work the author used Claude
+(Anthropic) in order to perform algebraic verification, numerical
+cross-checks, literature searches, and drafting assistance.
+After using this tool, the author reviewed and edited the content
+as needed and takes full responsibility for the content of the
+published article.
+
+%======================================================================
+\begin{thebibliography}{99}
+
+\bibitem{Koide:1983qe}
+  Y.~Koide,
+  Phys.\ Lett.\ B \textbf{120}, 161 (1983).
+
+\bibitem{Rivero:2024epjc}
+  A.~Rivero,
+  Eur.\ Phys.\ J.\ C \textbf{84}, 1058 (2024),
+  \href{https://doi.org/10.1140/epjc/s10052-024-13368-3}%
+    {\texttt{doi:10.1140/epjc/s10052-024-13368-3}}.
+
+\bibitem{Weinberg:1977hb}
+  S.~Weinberg,
+  ``The problem of mass,''
+  Trans.\ N.Y.\ Acad.\ Sci.\ \textbf{38}, 185 (1977).
+
+\bibitem{Fritzsch:1979zq}
+  H.~Fritzsch,
+  Nucl.\ Phys.\ B \textbf{155}, 189 (1979).
+
+\bibitem{Seiberg:1994bz}
+  N.~Seiberg,
+  Nucl.\ Phys.\ B \textbf{435}, 129 (1995),
+  \href{https://arxiv.org/abs/hep-ph/9411149}{\texttt{hep-ph/9411149}}.
+
+\bibitem{Intriligator:1995au}
+  K.~Intriligator and N.~Seiberg,
+  Nucl.\ Phys.\ B Proc.\ Suppl.\ \textbf{45BC}, 1 (1996),
+  \href{https://arxiv.org/abs/hep-th/9509066}{\texttt{hep-th/9509066}}.
+
+\bibitem{Polchinski:1998rr}
+  J.~Polchinski,
+  \textit{String Theory},
+  Cambridge University Press (1998).
+
+\bibitem{PatiSalam:1974}
+  J.~C.~Pati and A.~Salam,
+  Phys.\ Rev.\ D \textbf{10}, 275 (1974).
+
+\bibitem{Miyazawa:1966}
+  H.~Miyazawa,
+  Prog.\ Theor.\ Phys.\ \textbf{36}, 1266 (1966).
+
+\bibitem{Catto:1984wi}
+  S.~Catto and F.~G\"ursey,
+  Nuovo Cim.\ A \textbf{86}, 201 (1985).
+
+\bibitem{ArkaniHamed:1998wc}
+  N.~Arkani-Hamed, M.~A.~Luty, and J.~Terning,
+  Phys.\ Rev.\ D \textbf{58}, 015004 (1998),
+  \href{https://arxiv.org/abs/hep-ph/9712389}{\texttt{hep-ph/9712389}}.
+
+\bibitem{Csaki:2011xn}
+  C.~Csaki, Y.~Shirman, and J.~Terning,
+  Phys.\ Rev.\ D \textbf{84}, 095011 (2011),
+  \href{https://arxiv.org/abs/1106.3074}{\texttt{1106.3074}}.
+
+\bibitem{Sumino:2009}
+  Y.~Sumino,
+  JHEP \textbf{05}, 075 (2009),
+  \href{https://arxiv.org/abs/0812.2103}{\texttt{0812.2103}}.
+
+\bibitem{Narain:1986}
+  K.~S.~Narain,
+  Phys.\ Lett.\ B \textbf{169}, 41 (1986).
+
+\bibitem{Ferrara:1995ih}
+  S.~Ferrara, R.~Kallosh, and A.~Strominger,
+  Phys.\ Rev.\ D \textbf{52}, 5412 (1995),
+  \href{https://arxiv.org/abs/hep-th/9508072}{\texttt{hep-th/9508072}}.
+
+\bibitem{VolkovAkulov:1973}
+  D.~V.~Volkov and V.~P.~Akulov,
+  Phys.\ Lett.\ B \textbf{46}, 109 (1973).
+
+\bibitem{Kaplan:1991dc}
+  D.~B.~Kaplan,
+  Nucl.\ Phys.\ B \textbf{365}, 259 (1991).
+
+\bibitem{NelsonStrassler:2000}
+  A.~E.~Nelson and M.~J.~Strassler,
+  JHEP \textbf{09}, 030 (2000),
+  \href{https://arxiv.org/abs/hep-ph/0006251}{\texttt{hep-ph/0006251}}.
+
+\bibitem{Strassler:1995}
+  M.~J.~Strassler,
+  Phys.\ Lett.\ B \textbf{376}, 119 (1996),
+  \href{https://arxiv.org/abs/hep-ph/9510342}{\texttt{hep-ph/9510342}}.
+
+\bibitem{Komargodski:2010}
+  Z.~Komargodski,
+  JHEP \textbf{02}, 019 (2011),
+  \href{https://arxiv.org/abs/1010.4105}{\texttt{1010.4105}}.
+
+\bibitem{PisanoPleitez:1992}
+  F.~Pisano and V.~Pleitez,
+  Phys.\ Rev.\ D \textbf{46}, 410 (1992).
+
+\bibitem{Frampton:1992}
+  P.~H.~Frampton,
+  Phys.\ Rev.\ Lett.\ \textbf{69}, 2889 (1992).
+
+\bibitem{ISS:2006}
+  K.~Intriligator, N.~Seiberg, and D.~Shih,
+  JHEP \textbf{04}, 021 (2006),
+  \href{https://arxiv.org/abs/hep-th/0602239}{\texttt{hep-th/0602239}}.
+
+\bibitem{SingerValleSchechter:1980}
+  M.~Singer, J.~W.~F.~Valle, and J.~Schechter,
+  Phys.\ Rev.\ D \textbf{22}, 738 (1980).
+
+\bibitem{GeorgiJarlskog:1979}
+  H.~Georgi and C.~Jarlskog,
+  Phys.\ Lett.\ B \textbf{86}, 297 (1979).
+
+\bibitem{GattoSartoriTonin:1968}
+  R.~Gatto, G.~Sartori, and M.~Tonin,
+  Phys.\ Lett.\ B \textbf{28}, 128 (1968).
+
+\bibitem{AntuschHinzeSaad:2025}
+  S.~Antusch, V.~Hinze, and S.~Saad,
+  ``Running fermion masses and mixings revisited,''
+  \href{https://arxiv.org/abs/2510.01312}{\texttt{2510.01312}}.
+
+\bibitem{HananyWitten:1997}
+  A.~Hanany and E.~Witten,
+  Nucl.\ Phys.\ B \textbf{492}, 152 (1997),
+  \href{https://arxiv.org/abs/hep-th/9611230}{\texttt{hep-th/9611230}}.
+
+\bibitem{Branco:2011iw}
+  G.~C.~Branco, P.~M.~Ferreira, L.~Lavoura, M.~N.~Rebelo,
+  M.~Sher, and J.~P.~Silva,
+  Phys.\ Rept.\ \textbf{516}, 1 (2012),
+  \href{https://arxiv.org/abs/1106.0034}{\texttt{1106.0034}}.
+
+\bibitem{ChengSher:1987}
+  T.~P.~Cheng and M.~Sher,
+  Phys.\ Rev.\ D \textbf{35}, 3484 (1987).
+
+\bibitem{NuFIT:2024}
+  I.~Esteban, M.~C.~Gonzalez-Garcia, M.~Maltoni,
+  T.~Schwetz, and A.~Zhou,
+  JHEP \textbf{09}, 178 (2020),
+  \href{http://www.nu-fit.org}{\texttt{NuFIT 5.3 (2024)}}.
+
+\bibitem{Seiberg:1993vc}
+  N.~Seiberg,
+  Phys.\ Lett.\ B \textbf{318}, 469 (1993),
+  \href{https://arxiv.org/abs/hep-ph/9309335}{\texttt{hep-ph/9309335}}.
+
+\bibitem{Luty:1998}
+  M.~A.~Luty,
+  Phys.\ Rev.\ D \textbf{57}, 1531 (1998),
+  \href{https://arxiv.org/abs/hep-ph/9706235}{\texttt{hep-ph/9706235}}.
+
+\bibitem{Argyres:1995wt}
+  P.~C.~Argyres, M.~R.~Plesser, and A.~D.~Shapere,
+  Phys.\ Rev.\ Lett.\ \textbf{75}, 1699 (1995),
+  \href{https://arxiv.org/abs/hep-th/9505100}{\texttt{hep-th/9505100}}.
+
+\bibitem{CsakiSchmaltzSkiba:1997}
+  C.~Cs\'aki, M.~Schmaltz, and W.~Skiba,
+  Phys.\ Rev.\ Lett.\ \textbf{78}, 799 (1997),
+  \href{https://arxiv.org/abs/hep-th/9610139}{\texttt{hep-th/9610139}}.
+
+\bibitem{SeibergWitten:1994a}
+  N.~Seiberg and E.~Witten,
+  Nucl.\ Phys.\ B \textbf{426}, 19 (1994);
+  \textbf{430}, 485(E) (1994),
+  \href{https://arxiv.org/abs/hep-th/9407087}{\texttt{hep-th/9407087}}.
+
+\bibitem{SeibergWitten:1994b}
+  N.~Seiberg and E.~Witten,
+  Nucl.\ Phys.\ B \textbf{431}, 484 (1994),
+  \href{https://arxiv.org/abs/hep-th/9408099}{\texttt{hep-th/9408099}}.
+
+\bibitem{AffleckDineSeiberg:1984}
+  I.~Affleck, M.~Dine, and N.~Seiberg,
+  Nucl.\ Phys.\ B \textbf{241}, 493 (1984).
+
+\bibitem{ArkaniHamedMurayama:1997}
+  N.~Arkani-Hamed and H.~Murayama,
+  JHEP \textbf{0006}, 030 (2000),
+  \href{https://arxiv.org/abs/hep-th/9707133}{\texttt{hep-th/9707133}}.
+
+\bibitem{Baikov:2014qja}
+  P.~A.~Baikov, K.~G.~Chetyrkin, and J.~H.~K\"uhn,
+  JHEP \textbf{1410}, 076 (2014),
+  \href{https://arxiv.org/abs/1402.6611}{\texttt{1402.6611}}.
+
+\bibitem{FNAL:2018mc_ms}
+  A.~Bazavov et~al.\ (Fermilab Lattice, MILC, and TUMQCD),
+  Phys.\ Rev.\ D \textbf{98}, 054517 (2018),
+  \href{https://arxiv.org/abs/1802.04248}{\texttt{1802.04248}}.
+
+\bibitem{FradkinShenker:1979}
+  E.~Fradkin and S.~H.~Shenker,
+  Phys.\ Rev.\ D \textbf{19}, 3682 (1979).
+
+\bibitem{OsterwalderSeiler:1978}
+  K.~Osterwalder and E.~Seiler,
+  Ann.\ Phys.\ \textbf{110}, 440 (1978).
+
+\bibitem{Acharya:2025}
+  B.~S.~Acharya, S.~Kang, and J.~Torres,
+  \href{https://arxiv.org/abs/2505.11354}{\texttt{2505.11354}} (2025).
+
+\bibitem{Townsend:1995}
+  P.~K.~Townsend,
+  Phys.\ Lett.\ B \textbf{373}, 68 (1996),
+  \href{https://arxiv.org/abs/hep-th/9507048}{\texttt{hep-th/9507048}}.
+
+\bibitem{deBoer:1997DHOO}
+  J.~de~Boer, K.~Hori, H.~Ooguri, and Y.~Oz,
+  Nucl.\ Phys.\ B \textbf{518}, 173 (1998),
+  \href{https://arxiv.org/abs/hep-th/9711143}{\texttt{hep-th/9711143}}.
+
+\bibitem{Nelson:1984}
+  A.~E.~Nelson,
+  Phys.\ Lett.\ B \textbf{136}, 387 (1984).
+
+\bibitem{Barr:1984}
+  S.~M.~Barr,
+  Phys.\ Rev.\ Lett.\ \textbf{53}, 329 (1984).
+
+\bibitem{Witten:1997M5}
+  E.~Witten,
+  Nucl.\ Phys.\ B \textbf{500}, 3 (1997),
+  \href{https://arxiv.org/abs/hep-th/9703166}{\texttt{hep-th/9703166}}.
+
+\bibitem{HoriOoguriOz:1997}
+  K.~Hori, H.~Ooguri, and Y.~Oz,
+  Adv.\ Theor.\ Math.\ Phys.\ \textbf{1}, 1 (1997),
+  \href{https://arxiv.org/abs/hep-th/9706082}{\texttt{hep-th/9706082}}.
+
+\bibitem{BlumhoferHutter:1997}
+  A.~Blumhofer and M.~Hutter,
+  Nucl.\ Phys.\ B \textbf{484}, 80 (1997),
+  \href{https://arxiv.org/abs/hep-ph/9605393}{\texttt{hep-ph/9605393}}.
+
+\bibitem{GellMannOakesRenner:1968}
+  M.~Gell-Mann, R.~J.~Oakes, and B.~Renner,
+  Phys.\ Rev.\ \textbf{175}, 2195 (1968).
+
+\end{thebibliography}
+%======================================================================
+
+\end{document}

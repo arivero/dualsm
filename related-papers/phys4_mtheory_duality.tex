@@ -1,0 +1,993 @@
+% mtheory_duality.tex -- Physical Review D submission
+\documentclass[aps,prd,twocolumn,showpacs,preprintnumbers,superscriptaddress,floatfix]{revtex4-2}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\UU}{\mathrm{U}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\Sp}{\mathrm{Sp}}
+\newcommand{\Nf}{N_{\!f}}
+\newcommand{\Nc}{N_{\!c}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\adj}{\mathrm{adj}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\keV}{\,\mathrm{keV}}
+\newcommand{\MeV}{\,\mathrm{MeV}}
+\newcommand{\GeV}{\,\mathrm{GeV}}
+\newcommand{\TeV}{\,\mathrm{TeV}}
+\newcommand{\ie}{i.e.\@}
+\newcommand{\eg}{e.g.\@}
+\newcommand{\zch}{\mathfrak{z}}
+\newcommand{\dd}{\mathrm{d}}
+
+\begin{document}
+
+\title{Dirac--Majorana duality from the M-theory lift
+  of the sBootstrap}
+
+\author{A.~Rivero}
+\email{rivero@unizar.es}
+\affiliation{Departamento de F\'{\i}sica Te\'orica,
+  Universidad de Zaragoza, 50009 Zaragoza, Spain}
+
+\date{\today}
+
+\begin{abstract}
+The sBootstrap identifies Standard Model leptons with mesino
+composites of a confining $\SU(3)_F$ family gauge theory at
+$\Nf = \Nc = 3$.
+In the Hanany--Witten brane construction, mesons lift to
+M2-branes coupling to the 3-form~$C_3$, while baryons lift to
+M5-branes coupling to the 6-form~$C_6$.
+We show that this M2/M5 correspondence maps onto the distinction
+between Dirac and Majorana mass types: the bilinear meson
+$M = Q\tilde{Q}$ produces Hermitian (Dirac) mass matrices, while
+the trilinear baryon $B = \varepsilon Q^3$ produces symmetric
+(Majorana) mass matrices, with the involution
+$M_i \leftrightarrow \adj(M)_i$ lifting to $C_3 \leftrightarrow C_6$
+electromagnetic duality.
+The meson K\"ahler metric is approximately diagonal (protecting
+small CKM angles), whereas the baryon K\"ahler metric is
+generically democratic (allowing large PMNS angles).
+The holomorphic superpotential $W = BM\tilde{B}/\Lambda^5$
+generates a type-I seesaw structure with
+$M_R^{ii} = m_i$ (exact from $s$-confinement); however, the
+physical neutrino mass scale requires non-perturbatively large
+K\"ahler suppression factors of order~$10^5$, which cannot be
+computed from holomorphy alone.
+Using multi-loop SM running of Yukawa couplings, the inverse
+Koide ratio $K^{-1}(d,s,b)$ crosses~$2/3$ at
+$Q \approx 10\TeV$ in the Standard Model with no new thresholds,
+while in the MSSM it remains $0.23$--$0.65\%$
+above~$2/3$ at~$M_{\rm GUT}$ for all~$\tan\beta$---disfavouring
+conventional low-energy supersymmetry.
+\end{abstract}
+
+\maketitle
+
+
+%======================================================================
+\section{Introduction}
+\label{sec:intro}
+%======================================================================
+
+The sBootstrap~\cite{Rivero:2005b,Rivero:2024epjc} is a structural
+effective field theory that identifies Standard Model fermions with
+composites of a confining $\SU(3)_F$ family gauge theory at
+$\Nf = \Nc = 3$.
+The nine mesinos of the meson matrix
+$M^i{}_j = Q^i\tilde{Q}_j$ decompose under the electroweak
+branching $\mathbf{3}_L \to \mathbf{2}_{-1/2} \oplus
+\mathbf{1}_{+1}$ into three lepton doublets~$L_i$ and three
+charged-lepton singlets~$e^c_i$.
+Quarks, which carry colour and therefore cannot be family-singlet
+composites, enter through partial
+compositeness~\cite{Kaplan:1991dc}.
+The adjugate $\adj(M) = \det(M)\,M^{-1}$ provides the second
+MSSM Higgs doublet, and the charge-squared mass law
+$m_i = \mu\,\zch_i^2$ yields the Koide relation
+$K = 2/3$ as a trace identity of the canonical
+$\UU(3)_F$ normalisation~\cite{Rivero:2024epjc}.
+
+The Seiberg seesaw~\cite{Seiberg:1994bz} produces a direct branch
+($\langle M_i \rangle \propto 1/m_i$) and an inverse branch
+($\adj(M)_i \propto m_i$).
+In the M-theory lift of the Hanany--Witten
+construction~\cite{HananyWitten:1997}, mesons are M2-branes
+stretched between separated parts of the M5 worldvolume curve,
+coupling to the 3-form potential~$C_3$; baryons are M5-branes
+wrapping compact 4-cycles, coupling to the
+6-form~$C_6$~\cite{Witten:1997M5,Witten:1998baryon}.
+The Hodge duality $*G_4 = G_7$ in 11-dimensional
+supergravity~\cite{CremmerJuliaScherk:1978} is the field-strength
+avatar of M2/M5 electromagnetic duality.
+
+In this paper we develop the observation that this M2/M5
+correspondence maps onto the distinction between Dirac and Majorana
+mass types.
+Specifically:
+(i)~the bilinear meson $M = Q\tilde{Q}$ produces Hermitian (Dirac)
+mass matrices, while the trilinear baryon $B = \varepsilon Q^3$
+produces symmetric (Majorana) mass matrices;
+(ii)~the meson K\"ahler metric is approximately diagonal (small CKM
+angles), while the baryon K\"ahler metric is generically democratic
+(large PMNS angles);
+(iii)~the holomorphic superpotential
+$W = BM\tilde{B}/\Lambda^5$ generates a type-I seesaw structure.
+
+We also present updated renormalisation group evidence for the
+inverse Koide relation in the down-quark sector, using the
+multi-loop running Yukawa couplings of Antusch, Hinze, and
+Saad (AHS)~\cite{AHS:2024}, and show that the SM desert
+uniquely produces the crossing $K^{-1}(d,s,b) = 2/3$ at
+$Q \approx 10\TeV$, while the MSSM fails to reach this value.
+
+The paper is organised as follows.
+Section~\ref{sec:dictionary} establishes the brane dictionary at
+each stage of the breaking chain.
+Section~\ref{sec:duality} develops the $C_3 \leftrightarrow C_6$
+Dirac--Majorana duality.
+Section~\ref{sec:kahler} discusses the K\"ahler protection
+asymmetry.
+Section~\ref{sec:seesaw} derives the geometric seesaw and
+honestly assesses its limitations.
+Section~\ref{sec:RG} presents the RG evidence for the SM desert.
+Section~\ref{sec:discussion} discusses implications, including
+the debunking of a previously noted coincidence with the
+Pendleton--Ross fixed point.
+Section~\ref{sec:conclusions} summarises and identifies
+experimental tests.
+
+Throughout, we work in natural units ($\hbar = c = 1$)
+with metric signature $(-,+,+,+)$ and generators normalised as
+$\Tr(T^a T^b) = \frac{1}{2}\delta^{ab}$.
+The 11d supergravity conventions follow
+Cremmer--Julia--Scherk~\cite{CremmerJuliaScherk:1978}: $C_3$ is
+the 3-form potential, $G_4 = \dd C_3$, $G_7 = *G_4 = \dd C_6$.
+
+
+%======================================================================
+\section{The brane dictionary}
+\label{sec:dictionary}
+%======================================================================
+
+We first establish the M-theory lift of each sBootstrap composite.
+The type~IIA Hanany--Witten construction for $\SU(3)$ SQCD with
+$\Nf = 3$ places $\Nc = 3$ D4-branes suspended between two
+NS5-branes, with three D6-branes providing fundamental
+flavours~\cite{HananyWitten:1997}.
+Lifting to M-theory by opening the $x^{10}$
+circle~\cite{Witten:1997M5}:
+the D4-branes become an M5-brane wrapping a holomorphic curve
+$\Sigma$ in the $(x^4, x^5, x^6, x^{10})$ space;
+the D6-branes become Taub-NUT centres; the NS5-branes remain
+as~M5.
+
+The composites have direct brane interpretations, collected in
+Table~\ref{tab:dictionary}.
+
+\begin{table}
+\centering\small
+\caption{M-theory dictionary for $\SU(3)$ SQCD with $\Nf = \Nc = 3$.
+  The column ``$C$-field'' indicates the dominant coupling.
+  The mass-type column identifies the fermion bilinear structure
+  in the low-energy effective theory.}
+\label{tab:dictionary}
+\begin{tabular}{llllll}
+\toprule
+Composite & IIA & M-theory & $C$-field & Mass type & $p$ \\
+\midrule
+$M = Q\tilde{Q}$ & D6--D6 & M2 & $C_3$ & Dirac & 2 \\
+$B = \varepsilon Q^3$ & wrapped D4 & wrapped M5 & $C_6$ & Majorana & 5 \\
+$\adj(M)$ & thr.\ D4 & thr.\ M5 & mixed & inv.\ branch & --- \\
+$M \leftrightarrow \adj(M)$ & T-dual & EM dual & $C_3{\leftrightarrow}C_6$ & --- & --- \\
+$\Phi$ (aux.\ adj.) & D4--D4 & M5 modulus & metric & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{M2-branes and mesons.}
+The meson $M^i{}_j = Q^i\tilde{Q}_j$ lifts to an M2-brane
+ending on the M5 worldvolume.
+The M2 worldvolume action contains the Wess--Zumino term
+$\int C_3$, so the meson couples electrically to~$C_3$.
+The M2-brane area encodes the meson mass: for a $p$-brane
+whose worldvolume dimensions scale with the family
+charge~$\zch_i$, the mass scales as
+$m_i \propto \zch_i^p$~\cite{Rivero:2024epjc}.
+The generalised Koide ratio
+$K_p = \sum \zch_i^{2p}/(\sum \zch_i^p)^2$ is independent of the
+Cartan direction only for $p = 2$---the M2-brane.
+This consistency check does not constitute a derivation of the
+charge-squared law, since assuming both worldvolume directions
+scale with $\zch_i$ is equivalent to the bilinear structure
+$M = Q\tilde{Q}$.
+
+\paragraph{M5-branes and baryons.}
+The baryon $B = \varepsilon_{ijk}Q^iQ^jQ^k$ lifts to an M5-brane
+wrapping $S^4$ in the near-horizon geometry of the D6-branes,
+with three string
+endpoints~\cite{Witten:1998baryon,HoriOoguriOz:1997}.
+The M5 couples electrically to $C_6$.
+For $p = 5$, the ratio $K_5$ depends on the Cartan angle;
+baryon masses are determined algebraically
+($M_R^{ii} = m_i$, exact from $s$-confinement~\cite{Seiberg:1994bz})
+rather than by a power law in~$\zch_i$.
+The baryon mass is a topological quantity (the volume of $S^4$
+in the Taub-NUT geometry), while the meson mass is a modular
+quantity (the area of a 2-cycle on~$\Sigma$).
+
+\paragraph{The adjugate.}
+The adjugate $\adj(M)_i = \varepsilon_{ijk} M_j M_k / \Lambda^3$
+involves the $\varepsilon$ tensor but is a product of two mesons
+with an $\varepsilon$ contraction.
+In M-theory, this corresponds to three M2-branes joined at a
+baryon-like vertex---a mixed $C_3/C_6$ configuration, not a pure
+$C_6$ coupling.
+Only $B = \varepsilon Q^3$ is a pure $C_6$ object.
+The involution $M_i \leftrightarrow \adj(M)_i$ exchanges pure
+$C_3$ with mixed $C_3/C_6$, not pure $C_3$ with pure~$C_6$.
+
+\paragraph{The breaking chain.}
+The full correspondence across the breaking chain
+$\text{M-theory} \to \mathcal{N}{=}2 \to \mathcal{N}{=}1 \to
+\text{SM}$ is:
+\begin{itemize}
+\item The M5-brane wrapping $\Sigma$ gives $\mathcal{N}{=}2$ in
+  4d; the genus-2 curve encodes the Seiberg--Witten
+  prepotential~\cite{SeibergWitten:1994}.
+\item The adjoint mass $\mu_\Phi$ deforms $\Sigma$, breaking
+  $\mathcal{N}{=}2 \to \mathcal{N}{=}1$.
+  The hypermultiplet $(M_i, \adj(M)_i)$ splits into two
+  independent $\mathcal{N}{=}1$ chirals---the two periods
+  of~$\Sigma$.
+\item At confinement, the 9~mesinos identify with the SM
+  lepton content: $3L_i + 3e^c_i$.
+  Baryoninos provide sterile (Majorana) neutrinos.
+\end{itemize}
+
+\paragraph{Colour-3 impossibility.}
+The 11d 3-form decomposes as
+$C_3 \in \Lambda^3(\mathbb{R}^9) = \mathbf{84}$, which under
+$\SU(3)_c$ contains $\mathbf{1}_c$, $\mathbf{3}_c$,
+$\overline{\mathbf{3}}_c$ but never $\mathbf{6}_c$.
+The colour-sextet representation appears only in the symmetric
+(gravitational) sector
+$g_{MN} \in \mathrm{Sym}^2(\mathbb{R}^9) = \mathbf{45}$.
+This is consistent with the field-theory result that
+$\SU(3)_F$ composites with $\Nf = \Nc = 3$ never carry the
+colour representation required for quarks to be fully
+composite~\cite{Rivero:2024epjc}.
+
+
+%======================================================================
+\section{Dirac--Majorana duality}
+\label{sec:duality}
+%======================================================================
+
+We now develop the central observation: the $C_3/C_6$ distinction
+maps onto the Dirac/Majorana mass distinction.
+
+\subsection{Electric and magnetic mass types}
+
+In 11d supergravity, the 4-form field strength
+$G_4 = \dd C_3$ and its Hodge dual $G_7 = *G_4 = \dd C_6$
+satisfy~\cite{CremmerJuliaScherk:1978,Townsend:1995}:
+\begin{align}
+  \dd * G_4 &= *j_3 \quad (\text{M2 source, electric})\,,
+  \label{eq:M2source} \\
+  \dd G_4 &= j_6 \quad
+  (\text{M5 source, magnetic})\,.
+  \label{eq:M5source}
+\end{align}
+The M2-brane is the electric source (appearing on the right-hand
+side of $\dd*F = j$); the M5-brane is the magnetic source
+(modifying the Bianchi identity).
+
+In the sBootstrap, the algebraic structure of each composite
+determines the symmetry of its mass matrix:
+\begin{itemize}
+\item \textbf{Meson} $M^i{}_j = Q^i\tilde{Q}_j$ (bilinear):
+  the mass matrix is Hermitian, coupling left-handed to
+  right-handed fermions---Dirac type.
+\item \textbf{Baryon} $B = \varepsilon_{ijk}Q^iQ^jQ^k$ (trilinear):
+  the mass matrix is symmetric, coupling a fermion to itself and
+  violating lepton number by two units---Majorana type.
+\end{itemize}
+This is an algebraic fact of
+$s$-confinement~\cite{Seiberg:1994bz,CsakiSchmaltzSkiba:1997},
+independent of M-theory.
+The M-theory lift upgrades this field-theory observation to a
+geometric statement: the Dirac/Majorana distinction is the
+electric/magnetic distinction of the
+$C$-field~(Table~\ref{tab:duality}).
+
+\begin{table}
+\centering\small
+\caption{Structural correspondence between $C$-field sectors and
+  fermion mass types.  The identification is algebraic at the
+  field-theory level and geometric in M-theory.}
+\label{tab:duality}
+\begin{tabular}{lll}
+\toprule
+Property & Electric ($C_3$, M2) & Magnetic ($C_6$, M5) \\
+\midrule
+Brane & M2 & M5 \\
+Composite & Meson $Q\tilde{Q}$ & Baryon $\varepsilon Q^3$ \\
+Mass type & Dirac (bilinear) & Majorana (trilinear) \\
+Matrix symmetry & Hermitian & Symmetric \\
+Protected by & Chiral symmetry & Lepton number \\
+SM sector & Charged fermions & Neutrinos \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The involution and A/B period duality}
+
+The Seiberg--Witten curve $\Sigma$ for $\SU(3)$ with $\Nf = 3$ is
+a genus-2 hyperelliptic
+surface~\cite{SeibergWitten:1994,ArgyresPlesserShapere:1996}:
+\begin{equation}
+  y^2 = \bigl[x^3 - u_2\,x - u_3\bigr]^2
+    - 4\Lambda^3\prod_{i=1}^{3}(x + m_i)\,,
+  \label{eq:SWcurve}
+\end{equation}
+where $u_2 = \Tr(\Phi^2)$ and $u_3 = \det(\Phi)$ are Coulomb-branch
+moduli.
+In the confining vacuum, these are fixed by the fermion mass
+matrix $D = \diag(m_1, m_2, m_3)$ via the Cayley--Hamilton
+equation of the $\mathcal{N}{=}2$ adjoint~$\Phi$:
+\begin{equation}
+  u_2 = \Tr(D^2) = \sum_i m_i^2\,,\quad
+  u_3 = 2\det(D) = 2\prod_i m_i\,.
+  \label{eq:Coulomb_moduli}
+\end{equation}
+The four periods of $\Sigma$---two $A$-periods
+$a_i = \oint_{A_i}\lambda_{\rm SW}$ and two $B$-periods
+$a_{D,i} = \oint_{B_i}\lambda_{\rm SW}$---encode both mass
+hierarchies:
+\begin{align}
+  A\text{-periods:}\quad &\langle M_i \rangle
+    \propto 1/m_i
+    \quad (\text{direct branch})\,,
+    \label{eq:direct} \\
+  B\text{-periods:}\quad &\adj(M)_i
+    \propto m_i
+    \quad (\text{inverse branch})\,.
+    \label{eq:inverse}
+\end{align}
+The involution $M_i \leftrightarrow \adj(M)_i$ exchanges
+$A$-periods with $B$-periods.
+In M-theory, this is precisely the electromagnetic duality
+$C_3 \leftrightarrow C_6$, exchanging M2 and M5
+brane data.
+
+\subsection{Scope and caveats}
+
+Two important qualifications:
+
+(i)~The $C_3 \leftrightarrow C_6$ duality is a duality
+\emph{within} the mesonic sector (direct $\leftrightarrow$ inverse
+branch), not a duality \emph{between} the mesonic and baryonic
+sectors.
+The baryon $B = \varepsilon Q^3$ wraps $S^4$, not~$\Sigma$; it is
+a topologically distinct object from $\adj(M)$.
+The connection between mesons and baryons is mediated by the
+quantum-modified constraint
+\begin{equation}
+  \det M - B\tilde{B} = \Lambda^6\,,
+  \label{eq:quantum_constraint}
+\end{equation}
+not by a direct $C_3 \leftrightarrow C_6$ map.
+
+(ii)~The correspondence in Table~\ref{tab:duality} is structural,
+not quantitative.
+No formula relating the Dirac mass of a given fermion to its
+Majorana partner through the duality currently exists.
+The most promising path to such a relation is through the Riemann
+bilinear relations of the genus-2 period matrix, which constrain
+the product of $A$- and $B$-periods; this computation has not
+been carried out for the specific $\SU(3)$, $\Nf = 3$ case at
+the Koide moduli point.
+
+
+%======================================================================
+\section{K\"ahler protection asymmetry}
+\label{sec:kahler}
+%======================================================================
+
+In the $s$-confined theory, the holomorphic masses of both mesinos
+and baryoninos are protected by the
+$\mathcal{N}{=}2$ non-renormalisation theorem (the Higgs-branch
+hyper-K\"ahler metric is one-loop exact in the $\mathcal{N}{=}2$
+limit~\cite{SeibergWitten:1994}).
+However, the physical masses
+$m_{\rm phys} = m_{\rm hol}/\sqrt{Z}$ depend on the K\"ahler
+metric~$Z$, which is not protected by holomorphy after
+$\mathcal{N}{=}2 \to \mathcal{N}{=}1$ breaking.
+The key structural difference between the two sectors is in the
+flavour structure of~$Z$.
+
+\paragraph{Meson K\"ahler metric: approximately diagonal.}
+The meson $M^i{}_j$ carries definite flavour quantum numbers
+$(i, j)$.
+In the $\mathcal{N}{=}2$ limit, the K\"ahler metric on the Higgs
+branch is exactly diagonal in the flavour
+basis~\cite{SeibergWitten:1994}.
+Breaking to $\mathcal{N}{=}1$ introduces corrections controlled by
+\begin{equation}
+  \epsilon = \frac{m_e}{m_\tau} \approx 2.9 \times 10^{-4}\,,
+  \label{eq:epsilon}
+\end{equation}
+giving $\delta Z_M / Z_M \sim \epsilon^2 \sim 10^{-7}$
+to~$10^{-9}$~\cite{Rivero:2024epjc}.
+This is consistent with the observed precision of
+$K(e,\mu,\tau) = 2/3$ to~$0.001\%$.
+The near-diagonality of $Z_M$ means that the meson-sector mass
+matrix remains approximately diagonal after K\"ahler rotation:
+\emph{the CKM matrix is small because meson flavour numbers
+protect the K\"ahler metric.}
+
+\paragraph{Baryon K\"ahler metric: generically democratic.}
+The baryon $B = \varepsilon_{ijk}Q^iQ^jQ^k$ involves all three
+flavours symmetrically through the $\varepsilon$ tensor.
+No flavour quantum number distinguishes $B$ from any
+permutation of its constituent quarks.
+Consequently, the baryon K\"ahler metric $Z_B^{ij}$ has no reason
+to be diagonal: it is generically of democratic form, with
+$\mathcal{O}(1)$ off-diagonal entries.
+The K\"ahler rotation needed to bring the physical mass matrix to
+canonical form then introduces large mixing angles.
+\emph{The PMNS matrix is large because the $\varepsilon$ tensor
+democratises the baryon K\"ahler metric.}
+
+This is a structural explanation, not a numerical prediction.
+Computing $Z_B$ requires the non-perturbative K\"ahler potential
+at strong coupling, which is beyond current techniques.
+Nevertheless, the qualitative asymmetry---diagonal mesonic vs.\
+democratic baryonic---is a robust consequence of the composite
+structure and does not depend on the specific form of the
+K\"ahler potential.
+This asymmetry has been noted
+previously~\cite{MasieroVeneziano:1985,Karasik:2020}
+in related compositeness frameworks;
+the present work identifies the M-theory origin as the
+$C_3$ vs.\ $C_6$ distinction.
+
+
+%======================================================================
+\section{The geometric seesaw}
+\label{sec:seesaw}
+%======================================================================
+
+\subsection{Holomorphic superpotential}
+
+The full holomorphic superpotential on the mesonic branch of
+$\SU(3)_F$ with $\Nf = \Nc = 3$
+is~\cite{Seiberg:1994bz,CsakiSchmaltzSkiba:1997}:
+\begin{equation}
+  W = X\bigl(\det M - B\tilde{B} - \Lambda^6\bigr)
+    + \Tr(m\,M) + \frac{1}{\Lambda^5}\,B\,M\,\tilde{B}\,,
+  \label{eq:superpotential}
+\end{equation}
+where $X$ is a Lagrange multiplier enforcing the
+quantum-modified constraint, $m = \diag(m_1, m_2, m_3)$ are the
+UV mass deformations, and the last term is the baryon--meson
+coupling (dimension~8, suppressed by $\Lambda^5$).
+
+\subsection{Baryonino Majorana masses}
+
+On the mesonic branch ($B = \tilde{B} = 0$), the $F$-term
+equations give the standard
+result~\cite{Seiberg:1994bz,Rivero:2024epjc}:
+\begin{equation}
+  \langle M_i \rangle = \frac{\Lambda^2 P^{1/3}}{m_i}\,,
+  \qquad P = m_1 m_2 m_3\,,
+  \label{eq:seiberg_seesaw}
+\end{equation}
+where $P^{1/3} = (m_e m_\mu m_\tau)^{1/3} = 45.78\MeV$ for the
+lepton sector.
+The baryonino masses follow from the second derivative of~$W$
+with respect to the baryonic fields.
+The exact $s$-confinement result is~\cite{Rivero:2024epjc}:
+\begin{equation}
+  M_R^{ii} = m_i\,.
+  \label{eq:baryonino_mass}
+\end{equation}
+That is, the Majorana mass of the $i$-th baryonino equals the UV
+mass deformation.
+For the lepton sector:
+$M_R = \diag(m_e, m_\mu, m_\tau)
+= \diag(0.511, 105.66, 1776.86)\MeV$.
+
+\subsection{Dirac mass from the baryon--meson coupling}
+
+The third term in Eq.~\eqref{eq:superpotential} generates a Dirac
+mass for the baryonino when the meson~$M$ acquires a VEV.
+After canonical normalisation of the confined fields
+(K\"ahler metric $Z_M$ for mesons, $Z_B$ and $Z_{\tilde{B}}$ for
+baryons), the physical Dirac mass is:
+\begin{equation}
+  m_D^i
+    = \frac{\sqrt{Z_M}}{\sqrt{Z_B Z_{\tilde{B}}}}\,
+      \frac{\Lambda\,P^{1/3}}{m_i}\,.
+  \label{eq:dirac_mass}
+\end{equation}
+Setting all K\"ahler factors to unity gives the holomorphic
+estimate $m_D^i = \Lambda P^{1/3}/m_i$.
+
+\subsection{Type-I seesaw structure}
+
+Integrating out the heavy baryonino at mass
+$M_R^i = m_i$~[Eq.~\eqref{eq:baryonino_mass}], the light
+neutrino mass matrix is:
+\begin{equation}
+  m_\nu^{ii}
+    = \frac{(m_D^i)^2}{M_R^i}
+    = \frac{Z_M}{Z_B Z_{\tilde{B}}}\,
+      \frac{\Lambda^2 P^{2/3}}{m_i^3}\,.
+  \label{eq:seesaw}
+\end{equation}
+This has the structure of a type-I seesaw,
+$m_\nu = m_D^T M_R^{-1} m_D$, with the specific identifications:
+$m_D^i$ from the meson VEV (electric/$C_3$ sector) and
+$M_R^i = m_i$ from the baryonino F-term
+(magnetic/$C_6$ sector).
+
+On the M5 worldvolume, this coupling corresponds to the
+interaction $\int_{M5} C_3 \wedge H_3$, where $H_3$ is the
+self-dual 3-form on the M5 worldvolume.
+The seesaw suppression $m_D^2/M_R$ arises because the M2
+contributions (area-suppressed) combine with the M5 contribution
+(volume-enhanced).
+This identification is schematic; a rigorous derivation from the
+M5 worldvolume effective action for $\SU(3)$, $\Nf = 3$ has not
+been performed.
+
+\subsection{The scale problem: an honest assessment}
+
+The holomorphic seesaw~\eqref{eq:seesaw} at unit K\"ahler factors
+gives $m_\nu^{ii} \propto 1/m_i^3$, predicting an extreme inverted
+hierarchy ($m_{\nu_e} \gg m_{\nu_\tau}$) and masses in the GeV
+range---wrong by $10$--$17$ orders of magnitude.
+We collect the numerical values in Table~\ref{tab:seesaw}.
+
+\begin{table}
+\centering\small
+\caption{Holomorphic seesaw masses at unit K\"ahler factors
+  ($Z_M = Z_B = Z_{\tilde{B}} = 1$, $\Lambda = 100\GeV$),
+  compared with observed neutrino mass estimates.
+  The naive seesaw fails on both scale and hierarchy.}
+\label{tab:seesaw}
+\begin{tabular}{lccc}
+\toprule
+Generation & $m_\nu^{\rm hol}$ & $m_\nu^{\rm obs}$ (est.) & Ratio \\
+\midrule
+$e$   & $\sim 10^{11}\GeV$ & $\sim 0.35$ meV & $4.5 \times 10^{17}$ \\
+$\mu$ & $\sim 10^{4}\GeV$  & $\sim 8.6$ meV  & $2.1 \times 10^{12}$ \\
+$\tau$& $\sim 3.7\GeV$     & $\sim 50$ meV   & $7.5 \times 10^{10}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+To obtain $m_{\nu_3} \sim 50$~meV from the tau sector requires
+$\sqrt{Z_B Z_{\tilde{B}}} \sim 2.7 \times 10^5$---an enormous
+K\"ahler suppression that cannot be computed from holomorphy.
+Furthermore, the tree-level PMNS matrix on the mesonic branch is
+the identity: all neutrino masses are diagonal and there is no
+lepton mixing.
+Non-trivial PMNS angles require either off-diagonal K\"ahler
+rotations in the baryonic sector, radiative corrections, or
+SUSY-breaking baryon condensates~\cite{MasieroVeneziano:1985}.
+
+\paragraph{Summary.}
+The geometric seesaw provides the correct \emph{structure}:
+Dirac masses from the meson VEV ($C_3$ sector), Majorana masses
+from baryonino F-terms ($C_6$ sector), and a type-I seesaw formula.
+It correctly identifies baryoninos as sterile neutrinos and the
+meson VEV as the Dirac mass source.
+It does \emph{not} predict the neutrino mass scale or PMNS mixing
+without additional non-holomorphic input.
+The framework gives the right \emph{players} but not the right
+\emph{numbers}.
+
+
+%======================================================================
+\section{SM desert vs.\ MSSM: Koide RG evidence}
+\label{sec:RG}
+%======================================================================
+
+The charge-squared law $m_i = \mu\,\zch_i^2$ and the canonical
+$\UU(3)_F$ normalisation give the Koide ratio $K = 2/3$ as a trace
+identity~\cite{Rivero:2024epjc}.
+For the down-quark sector, which arises from the adjugate (inverse)
+branch, the relevant observable is the inverse Koide
+ratio~\cite{Rivero:2024epjc}:
+\begin{equation}
+  K^{-1}(d,s,b) \equiv
+  \frac{1/m_d + 1/m_s + 1/m_b}
+       {\bigl(1/\sqrt{m_d} + 1/\sqrt{m_s} + 1/\sqrt{m_b}\bigr)^2}\,.
+  \label{eq:Kinverse}
+\end{equation}
+At the compositeness scale (which we identify with the adjugate
+vacuum), $K^{-1} = 2/3$ exactly.
+SM renormalisation group running shifts $K^{-1}$ away from $2/3$
+at low energies.
+
+Using the multi-loop Yukawa couplings of Antusch, Hinze, and
+Saad~\cite{AHS:2024}, we evaluate $K^{-1}$ as a function of the
+RG scale~$Q$ in two scenarios (Table~\ref{tab:RG}).
+
+\begin{table}
+\centering\small
+\caption{Inverse Koide ratio $K^{-1}(d,s,b)$ under RG running.
+  ``Best scale'' is the scale at which $K^{-1}$ is closest
+  to~$2/3$.  $\Delta = K^{-1} - 2/3$ in percent.}
+\label{tab:RG}
+\begin{tabular}{lccr}
+\toprule
+Scenario & Best scale & $K^{-1}$ & $\Delta$ (\%) \\
+\midrule
+\textbf{SM desert} & $\mathbf{\sim 10\TeV}$ & $\mathbf{0.66667}$
+  & $\mathbf{+0.0003}$ \\
+MSSM, $M_S = 3\TeV$, $\tan\beta = 5$ & $M_{\rm GUT}$ & $0.66689$ & $+0.033$ \\
+MSSM, $M_S = 3\TeV$, $\tan\beta = 10$ & $M_{\rm GUT}$ & $0.66693$ & $+0.040$ \\
+MSSM, $M_S = 3\TeV$, $\tan\beta = 30$ & $M_{\rm GUT}$ & $0.66749$ & $+0.124$ \\
+MSSM, $M_S = 3\TeV$, $\tan\beta = 50$ & $M_{\rm GUT}$ & $0.66895$ & $+0.342$ \\
+MSSM, $M_S = 10\TeV$, $\tan\beta = 5$  & $M_{\rm GUT}$ & $0.66668$ & $+0.003$ \\
+MSSM, $M_S = 10\TeV$, $\tan\beta = 10$ & $M_{\rm GUT}$ & $0.66673$ & $+0.009$ \\
+MSSM, $M_S = 10\TeV$, $\tan\beta = 30$ & $M_{\rm GUT}$ & $0.66724$ & $+0.086$ \\
+MSSM, $M_S = 10\TeV$, $\tan\beta = 50$ & $M_{\rm GUT}$ & $0.66854$ & $+0.281$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{SM desert.}
+In the SM with no new thresholds between $M_Z$ and the Planck
+scale, $K^{-1}(d,s,b)$ decreases monotonically with $Q$ and
+crosses~$2/3$ at $Q \approx 10\TeV$ to a precision
+of~$0.0003\%$ using AHS multi-loop
+data~\cite{AHS:2024,MartinRobertson:2019}.
+At $Q = M_Z$, the deviation is $+0.11\%$: still within~$0.2\%$
+of the trace identity, but measurably different from exact
+$K^{-1} = 2/3$.
+
+\paragraph{MSSM.}
+In the MSSM, $K^{-1}$ at $M_{\rm GUT}$ lies $0.23$--$0.65\%$
+above~$2/3$ for all values of $\tan\beta$ and $M_{\rm SUSY}$
+at two-loop accuracy~\cite{AHS:2024}.
+The one-loop MSSM results in Table~\ref{tab:RG} are somewhat
+closer to $2/3$ (missing higher-order effects), but the
+qualitative conclusion is robust: \emph{the MSSM never
+crosses~$2/3$}.
+In no MSSM scenario does $K^{-1}$ reach $2/3$ between
+$M_{\rm SUSY}$ and $M_{\rm GUT}$.
+
+\paragraph{Interpretation.}
+If the trace identity $K^{-1}(d,s,b) = 2/3$ holds exactly at the
+compositeness scale, the RG evidence favours
+$\SU(3)_F$ compositeness emerging at $Q \sim 10$--$280\TeV$
+in a standard model desert, rather than through a conventional
+SUSY threshold.
+This does \emph{not} exclude SUSY as such---the sBootstrap itself
+relies on $\mathcal{N}{=}1$ holomorphy---but disfavours the MSSM
+spectrum as the next threshold above the electroweak scale.
+
+
+%======================================================================
+\section{Discussion}
+\label{sec:discussion}
+%======================================================================
+
+\subsection{What the duality explains}
+
+The $C_3/C_6$ Dirac--Majorana correspondence provides three
+structural insights:
+
+(i)~\emph{Origin of mass-type asymmetry.}
+The bilinear/trilinear distinction of $s$-confined composites,
+which is an algebraic fact, lifts to the electric/magnetic
+distinction of M-theory $p$-form gauge fields.
+This is not a coincidence but a consequence of the brane
+construction.
+
+(ii)~\emph{Mixing angle hierarchy.}
+The K\"ahler protection asymmetry (Sec.~\ref{sec:kahler}) provides
+a qualitative explanation for the observed pattern: small CKM
+angles (meson sector, diagonal $Z_M$) vs.\ large PMNS angles
+(baryon sector, democratic $Z_B$).
+
+(iii)~\emph{Seesaw architecture.}
+The superpotential $W = BM\tilde{B}/\Lambda^5$ provides the
+type-I seesaw skeleton with baryoninos as right-handed neutrinos
+at the charged-lepton mass scale, without introducing a GUT-scale
+seesaw.
+
+\subsection{What the duality does not explain}
+
+(i)~\emph{The neutrino mass scale} requires K\"ahler factors of
+order $10^5$, which is a statement about the strongly-coupled
+K\"ahler potential and cannot be computed from holomorphy.
+
+(ii)~\emph{The PMNS mixing angles} are trivial at tree level on
+the mesonic branch and require off-diagonal K\"ahler rotations or
+radiative corrections.
+
+(iii)~\emph{A quantitative Dirac--Majorana mass relation} does not
+exist within the current framework.
+The duality is structural, not predictive for individual masses.
+
+\subsection{Pendleton--Ross fixed point: a debunked coincidence}
+\label{sec:pendleton_ross}
+
+The Pendleton--Ross~\cite{PendletonRoss:1981} / Hill~\cite{Hill:1981}
+infrared quasi-fixed point for the top Yukawa coupling gives,
+at one loop in the QCD-only approximation:
+\begin{equation}
+  R^* = \frac{y_t^2}{g_3^2} = \frac{2}{9}\,.
+  \label{eq:PR}
+\end{equation}
+This derives from the one-loop $\beta$-function
+$16\pi^2\,\dd R/\dd t = g_3^2\,R\,(9R - 2)$,
+giving $R^* = 2/9$ at the zero.
+The coincidence of $R^* = 2/9$ with the Cartan angle
+$\delta = 2/9$ of the sBootstrap was noted as potentially
+significant.
+
+We have verified computationally that this coincidence is
+\emph{spurious}, for three independent reasons:
+
+(i)~Electroweak corrections shift the quasi-fixed point from
+$2/9 \approx 0.222$ to $R^* \approx 0.39$ at $M_Z$---a $76\%$
+increase.
+The shift is:
+\begin{equation}
+  R^*(Q)
+    = \frac{2}{9}
+    + \frac{1}{9}\!\left[
+      \frac{17}{10}\frac{g_1^2}{g_3^2}
+    + \frac{9}{2}\frac{g_2^2}{g_3^2}
+    \right]\!.
+  \label{eq:PR_EW}
+\end{equation}
+
+(ii)~With running gauge coupling ratios, $R^*$ is
+scale-dependent: there is no true fixed point in the full SM.
+A numerical scan with initial $R \in [0.1, 5.0]$ at
+$Q = 10^{16}\GeV$ shows no convergence to a single value at
+$M_Z$~\cite{Zimmermann:1985}.
+
+(iii)~The physical SM ratio is $R = y_t^2/g_3^2 = 0.59$ at
+$M_Z$, which is $2.66$ times the QCD-only value.
+The QCD-only fixed point predicts
+$m_t \approx 100\GeV$, off by $73\%$.
+
+\emph{The Pendleton--Ross ratio $2/9$ is exact only in the
+one-loop QCD-only limit, which is unphysical.
+The agreement with~$\delta = 2/9$ is a numerical accident.}
+
+\subsection{Experimental tests}
+
+The strongest near-term test of the sBootstrap neutrino sector
+is the mass ordering.
+The geometric seesaw with normal-ordering Dirac mass structure
+predicts $m_1 < m_2 < m_3$.
+Current data (DESI + CMB) favour normal ordering with
+$\sum m_\nu < 0.057$~eV~\cite{PDG:2024}; the
+sBootstrap gives $\sum m_\nu \approx 0.060$~eV~\cite{Rivero:2024epjc},
+marginally consistent.
+JUNO~\cite{JUNO:2022} will definitively determine the mass
+ordering by 2027--2028.
+\emph{If JUNO establishes inverted ordering, the sBootstrap
+seesaw structure is disfavoured.}
+
+The inverse Koide crossing at $Q \approx 10\TeV$ predicts no new
+coloured particles below this scale.
+This is testable at the HL-LHC and future colliders: observation
+of MSSM-like superpartners at $M_S < 10\TeV$ would conflict with
+the SM-desert scenario favoured by the RG analysis.
+
+The qualitative prediction of small CKM vs.\ large PMNS mixing
+from the K\"ahler asymmetry could be sharpened by a computation
+of the baryon K\"ahler metric using holographic QCD
+techniques~\cite{SakaiSugimoto:2005}.
+
+
+%======================================================================
+\section{Conclusions}
+\label{sec:conclusions}
+%======================================================================
+
+We have shown that the M-theory lift of the sBootstrap---a
+confining $\SU(3)_F$ family gauge theory at
+$\Nf = \Nc = 3$---contains a structural correspondence between
+the Dirac and Majorana mass types and the electromagnetic duality
+of $p$-form gauge fields in 11 dimensions.
+Mesons (M2-branes, $C_3$) produce Dirac masses; baryons (M5-branes,
+$C_6$) produce Majorana masses.
+The involution $M_i \leftrightarrow \adj(M)_i$ lifts to the
+exchange of $A$- and $B$-periods of the genus-2 Seiberg--Witten
+curve.
+
+The composite structure explains why CKM angles are small (meson
+K\"ahler metric is diagonal) and PMNS angles are large (baryon
+K\"ahler metric is democratic).
+The superpotential $W = BM\tilde{B}/\Lambda^5$ provides a type-I
+seesaw skeleton with baryonino Majorana masses
+$M_R^{ii} = m_i$ (exact from $s$-confinement), but the physical
+neutrino mass scale requires non-perturbatively large K\"ahler
+suppression that cannot be computed from holomorphy alone.
+
+Multi-loop SM running of down-quark Yukawa couplings shows that
+$K^{-1}(d,s,b) = 2/3$ at $Q \approx 10\TeV$ in the SM desert,
+while no MSSM scenario reaches this value---discriminating between
+$\SU(3)_F$ compositeness at the $10$--$280\TeV$ scale and
+conventional low-energy SUSY.
+
+The previously noted coincidence between the Pendleton--Ross
+QCD-only fixed point $y_t^2/g_3^2 = 2/9$ and the Cartan angle
+$\delta = 2/9$ has been shown to be spurious: electroweak
+corrections shift the quasi-fixed point to $R^* \approx 0.39$,
+and the physical SM ratio is $R = 0.59$.
+
+The framework makes three testable predictions:
+(i)~neutrino normal ordering (testable by JUNO, 2027--2028);
+(ii)~no new coloured particles below $\sim 10\TeV$
+(testable at HL-LHC and future colliders);
+(iii)~a qualitative asymmetry between CKM and PMNS mixing
+rooted in the composite structure of the family sector.
+
+The principal open problems are the computation of the
+non-perturbative K\"ahler potential for the baryonic sector
+(which would predict PMNS angles and the neutrino mass scale),
+and the determination of the Cartan angle $\delta = 2/9$ from
+the instanton structure of the confining theory.
+
+
+%======================================================================
+\begin{acknowledgments}
+The author thanks M.~Porter for sustained theoretical discussions
+that identified Seiberg duality and the mesino interpretation as
+the mechanism underlying the sBootstrap.
+During the preparation of this work the author used Claude
+(Anthropic) for algebraic verification, numerical checks,
+literature cross-referencing, and drafting assistance.
+The author reviewed and edited all content and takes full
+responsibility for the publication.
+\end{acknowledgments}
+
+
+%======================================================================
+\begin{thebibliography}{99}
+
+\bibitem{Rivero:2005b}
+  A.~Rivero,
+  arXiv:hep-ph/0510068 (2005).
+
+\bibitem{Rivero:2024epjc}
+  A.~Rivero,
+  Eur.\ Phys.\ J.\ C \textbf{84}, 1058 (2024),
+  arXiv:2407.05397.
+
+\bibitem{Kaplan:1991dc}
+  D.B.~Kaplan,
+  Nucl.\ Phys.\ B \textbf{365}, 259 (1991).
+
+\bibitem{Seiberg:1994bz}
+  N.~Seiberg,
+  Nucl.\ Phys.\ B \textbf{435}, 129 (1995),
+  arXiv:hep-ph/9411149.
+
+\bibitem{HananyWitten:1997}
+  A.~Hanany and E.~Witten,
+  Nucl.\ Phys.\ B \textbf{492}, 152 (1997),
+  arXiv:hep-th/9611230.
+
+\bibitem{Witten:1997M5}
+  E.~Witten,
+  Nucl.\ Phys.\ B \textbf{500}, 3 (1997),
+  arXiv:hep-th/9703166.
+
+\bibitem{Witten:1998baryon}
+  E.~Witten,
+  JHEP \textbf{07}, 006 (1998),
+  arXiv:hep-th/9805112.
+
+\bibitem{CremmerJuliaScherk:1978}
+  E.~Cremmer, B.~Julia, and J.~Scherk,
+  Phys.\ Lett.\ B \textbf{76}, 409 (1978).
+
+\bibitem{Townsend:1995}
+  P.K.~Townsend,
+  Phys.\ Lett.\ B \textbf{350}, 184 (1995),
+  arXiv:hep-th/9501068.
+
+\bibitem{CsakiSchmaltzSkiba:1997}
+  C.~Cs\'aki, M.~Schmaltz, and W.~Skiba,
+  Phys.\ Rev.\ Lett.\ \textbf{78}, 799 (1997),
+  arXiv:hep-th/9610139.
+
+\bibitem{SeibergWitten:1994}
+  N.~Seiberg and E.~Witten,
+  Nucl.\ Phys.\ B \textbf{426}, 19 (1994),
+  arXiv:hep-th/9407087.
+
+\bibitem{ArgyresPlesserShapere:1996}
+  P.C.~Argyres, M.R.~Plesser, and A.D.~Shapere,
+  Nucl.\ Phys.\ B \textbf{483}, 172 (1997),
+  arXiv:hep-th/9608129.
+
+\bibitem{HoriOoguriOz:1997}
+  K.~Hori, H.~Ooguri, and Y.~Oz,
+  Adv.\ Theor.\ Math.\ Phys.\ \textbf{1}, 1 (1997),
+  arXiv:hep-th/9706082.
+
+\bibitem{MasieroVeneziano:1985}
+  A.~Masiero and G.~Veneziano,
+  Nucl.\ Phys.\ B \textbf{249}, 593 (1985).
+
+\bibitem{Karasik:2020}
+  A.~Karasik,
+  JHEP \textbf{02}, 166 (2021),
+  arXiv:2012.11154.
+
+\bibitem{AHS:2024}
+  S.~Antusch, C.~Hinze, and S.~Saad,
+  arXiv:2510.01312 (2025).
+
+\bibitem{MartinRobertson:2019}
+  S.P.~Martin and D.G.~Robertson,
+  Phys.\ Rev.\ D \textbf{100}, 073004 (2019),
+  arXiv:1907.02500.
+
+\bibitem{PendletonRoss:1981}
+  B.~Pendleton and G.G.~Ross,
+  Phys.\ Lett.\ B \textbf{98}, 291 (1981).
+
+\bibitem{Hill:1981}
+  C.T.~Hill,
+  Phys.\ Rev.\ D \textbf{24}, 691 (1981).
+
+\bibitem{Zimmermann:1985}
+  W.~Zimmermann,
+  Commun.\ Math.\ Phys.\ \textbf{97}, 211 (1985).
+
+\bibitem{PDG:2024}
+  S.~Navas \textit{et al.} (Particle Data Group),
+  Phys.\ Rev.\ D \textbf{110}, 030001 (2024).
+
+\bibitem{JUNO:2022}
+  A.~Abusleme \textit{et al.} (JUNO Collaboration),
+  J.\ Phys.\ G \textbf{43}, 030401 (2022),
+  arXiv:2204.13249.
+
+\bibitem{SakaiSugimoto:2005}
+  T.~Sakai and S.~Sugimoto,
+  Prog.\ Theor.\ Phys.\ \textbf{113}, 843 (2005),
+  arXiv:hep-th/0412141.
+
+\bibitem{Koide:1983qe}
+  Y.~Koide,
+  Phys.\ Lett.\ B \textbf{120}, 161 (1983).
+
+\bibitem{LutyTerning:2000}
+  M.A.~Luty and J.~Terning,
+  Phys.\ Rev.\ D \textbf{62}, 075006 (2000),
+  arXiv:hep-ph/9812482.
+
+\bibitem{Strominger:1996}
+  A.~Strominger,
+  Phys.\ Lett.\ B \textbf{383}, 44 (1996),
+  arXiv:hep-th/9512059.
+
+\bibitem{BargerBergerOhmann:1993}
+  V.~Barger, M.S.~Berger, and P.~Ohmann,
+  Phys.\ Rev.\ D \textbf{47}, 1093 (1993).
+
+\end{thebibliography}
+
+\end{document}

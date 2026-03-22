@@ -1,0 +1,339 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\newcommand{\MeV}{\,\mathrm{MeV}}
+\newcommand{\GeV}{\,\mathrm{GeV}}
+\newcommand{\TeV}{\,\mathrm{TeV}}
+
+\title{What is the inverse Koide formula?}
+\author{A.~Rivero\\
+  \small\textit{Universidad de Zaragoza}\\
+  \small\texttt{rivero@unizar.es}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We give a pedestrian introduction to the ``inverse Koide formula''
+for quark masses, explain why it exists alongside the original
+lepton formula, and show that both follow from a single algebraic
+mechanism in a confining gauge theory.
+Along the way we encounter an operator that maps leptons to quarks,
+a potential that stubbornly prefers democracy, and a 65-year-old
+theorem by Kostant that selects three families of matter.
+\end{abstract}
+
+
+\section{The original Koide formula (1983)}
+
+In 1983, Yoshio Koide noticed something peculiar about the charged
+lepton masses~\cite{Koide:1983}.
+Define
+\begin{equation}
+  K \;=\; \frac{m_e + m_\mu + m_\tau}
+  {\bigl(\sqrt{m_e} + \sqrt{m_\mu} + \sqrt{m_\tau}\bigr)^2}\,.
+  \label{eq:K}
+\end{equation}
+Plug in the numbers ($m_e = 0.511\MeV$, $m_\mu = 105.66\MeV$,
+$m_\tau = 1776.86\MeV$) and you get
+\begin{equation}
+  K = 0.666661\ldots
+\end{equation}
+which is $2/3$ to $0.001\%$.
+
+This is strange. The ratio $K$ can range from $1/3$ (all masses equal)
+to $1$ (one mass dominates). There is no obvious reason for it to be
+$2/3$.
+
+Koide's formula has survived 40 years of improved measurements.
+The $\tau$ mass has been remeasured many times since 1983; each time,
+$K$ has moved \emph{closer} to $2/3$, not farther.
+The current precision makes accidental coincidence implausible
+($p < 10^{-5}$ from Monte Carlo).
+
+
+\section{What are ``signed charges''?}
+
+The key to understanding $K = 2/3$ is to change variables.
+Define $q_i = \sqrt{m_i}$ (the ``signed charge'').
+Then
+\begin{equation}
+  K = \frac{q_1^2 + q_2^2 + q_3^2}{(q_1 + q_2 + q_3)^2}\,.
+  \label{eq:Kq}
+\end{equation}
+This is just a ratio of power sums in the $q_i$.
+The numerator is the sum of squares; the denominator is the
+square of the sum.
+
+Now the Cauchy--Schwarz inequality gives $1/3 \leq K \leq 1$,
+with $K = 1/3$ when all $q_i$ are equal and $K = 1$ when
+one dominates.
+The value $K = 2/3$ is the midpoint --- the ``equipartition''
+between uniformity and hierarchy.
+
+
+\section{What is the \emph{inverse} Koide formula?}
+
+Take the same ratio~\eqref{eq:Kq} but with $q_i \to 1/q_i$:
+\begin{equation}
+  K^{-1} \;\equiv\;
+  \frac{1/m_d + 1/m_s + 1/m_b}
+  {\bigl(1/\sqrt{m_d} + 1/\sqrt{m_s} + 1/\sqrt{m_b}\bigr)^2}\,.
+  \label{eq:Kinv}
+\end{equation}
+Plug in the down-type quark masses ($m_d = 4.67\MeV$,
+$m_s = 93.4\MeV$, $m_b = 4183\MeV$) and you get
+\begin{equation}
+  K^{-1}(d,s,b) = 0.6652\,,
+\end{equation}
+which is $2/3$ to $0.22\%$.
+Not as precise as the leptons, but far better than random
+($p \sim 0.3\%$ for a single triple).
+
+Under renormalisation-group running (5-loop Standard Model,
+using the Martin--Robertson SMDR code~\cite{MartinRobertson:2019}),
+the inverse down-type ratio improves monotonically toward the UV:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Scale $Q$ & $K^{-1}(d,s,b)$ & Deviation from $2/3$ \\
+\midrule
+$M_Z$        & $0.66750$ & $+0.13\%$ \\
+$1\TeV$      & $0.66719$ & $+0.08\%$ \\
+$100\TeV$    & $0.66675$ & $+0.01\%$ \\
+$280\TeV$    & $\mathbf{0.66667}$ & $\mathbf{0.00\%}$ \\
+$10^6\GeV$   & $0.66657$ & $-0.01\%$ \\
+$M_\text{Planck}$ & $0.66539$ & $-0.19\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The inverse ratio crosses $2/3$ exactly at $Q = 280\TeV$.
+This is not a fit --- it is a consequence of how down-type
+Yukawa couplings run in the Standard Model.
+
+There is also a second inverse triple: $K^{-1}(s,c,-t)$
+crosses $2/3$ at $Q = 82\TeV$ (the $-$ sign on $t$ means the
+top charge enters with opposite sign, which is needed for
+the formula to work).
+
+
+\section{Why should there be a direct \emph{and} an inverse formula?}
+
+In supersymmetric QCD with three colours and three flavours
+($\mathrm{SU}(3)$ with $N_f = 3$), the theory
+s-confines~\cite{Seiberg:1995}.
+The low-energy degrees of freedom are ``mesons''
+$M^i{}_j = Q^i \tilde{Q}_j$, subject to the quantum constraint
+\begin{equation}
+  \det M = \Lambda^6\,.
+\end{equation}
+The vacuum expectation values of the mesons satisfy a seesaw:
+\begin{equation}
+  \langle M_i \rangle = \frac{\Lambda^2 P^{1/3}}{m_i}\,,
+  \qquad P = m_1 m_2 m_3\,.
+\end{equation}
+Heavy preons give light mesons, and vice versa.
+This is the ``Seiberg seesaw.''
+
+But the \emph{same} theory also contains the adjugate:
+\begin{equation}
+  \mathrm{adj}(M)_i = \frac{\Lambda^4}{P^{1/3}}\,m_i\,,
+\end{equation}
+which goes the other way: heavy preons give heavy adjugates.
+
+So one theory produces \textbf{two} operators:
+\begin{itemize}
+  \item The meson VEV: $\langle M_i \rangle \propto 1/m_i$
+    (``inverse'')
+  \item The adjugate: $\mathrm{adj}(M)_i \propto m_i$ (``direct'')
+\end{itemize}
+If the ultraviolet masses satisfy $m_i = \mu\,q_i^2$ and
+$K(q_1, q_2, q_3) = 2/3$ (which is automatic for any
+$\mathrm{U}(3)$ charges), then \emph{both} the direct and the
+inverse ratios equal $2/3$.
+The inverse Koide is not a separate coincidence --- it is the
+other face of the same coin.
+
+The two operators are linked by a family-independent product rule:
+\begin{equation}
+  \langle M_i \rangle \cdot \mathrm{adj}(M)_i
+  = \Lambda^6 \qquad \text{(same for all } i\text{)}\,.
+\end{equation}
+This is the constraint $\det M = \Lambda^6$ in disguise.
+
+
+\section{The operator that maps leptons to quarks}
+
+Define the matrix $R$ by
+\begin{equation}
+  R_{ij} = \langle M_k \rangle
+  \quad (k \neq i, j;\; i \neq j)\,,\qquad
+  R_{ii} = 0\,.
+\end{equation}
+This $3 \times 3$ symmetric, traceless matrix satisfies an
+exact identity:
+\begin{equation}
+  R \cdot \mathbf{M} = 2\,\mathrm{adj}(\mathbf{M})\,.
+\end{equation}
+In words: $R$ acting on the meson VEV vector gives twice the
+adjugate vector.
+If you identify mesinos (meson fermions) with leptons and
+adjugate fermions with quarks, then $R$ is the operator that
+\emph{rotates leptons into quarks}.
+
+What algebra does $R$ satisfy?
+The Cayley--Hamilton theorem on the constraint surface gives:
+\begin{equation}
+  R^3 = \bigl(\textstyle\sum M_i^2\bigr)\,R + 2\Lambda^6\,I\,.
+\end{equation}
+This is a \emph{cubic}, not the quadratic $J^2 = -1$ of
+standard $\mathrm{SU}(2)_R$ in $\mathcal{N} = 2$ supersymmetry.
+The ``emergent $\mathcal{N} = 2$'' of the sBootstrap is
+therefore not standard $\mathcal{N} = 2$ --- it is a cubic
+deformation controlled by the mass hierarchy.
+
+A particularly beautiful property: conjugating by the diagonal
+meson matrix $D = \mathrm{diag}(M_1, M_2, M_3)$ gives
+\begin{equation}
+  D\,R\,D = \Lambda^6\,(J - I)\,,
+\end{equation}
+where $J$ is the all-ones matrix. The right-hand side is the
+\textbf{democratic matrix} --- completely independent of the
+individual masses. All hierarchy information is absorbed by
+the $D$ conjugation; the $R$ structure itself is universal.
+
+
+\section{Why three families?}
+
+Here is a curious coincidence (or not).
+For $\mathrm{U}(N)$ with canonical normalisation, the Koide ratio
+generalises to $K_N = 2/N$.
+Meanwhile, the principal $\mathfrak{sl}(2)$
+subalgebra~\cite{Kostant:1959} of $\mathfrak{sl}(N)$ has mean-square
+weight
+\begin{equation}
+  \langle J_3^2 \rangle = \frac{N^2 - 1}{12}
+\end{equation}
+in the fundamental representation.
+
+Setting $K_N = \langle J_3^2 \rangle$:
+\begin{equation}
+  \frac{2}{N} = \frac{N^2 - 1}{12}
+  \qquad\Longleftrightarrow\qquad
+  N(N^2 - 1) = 24\,.
+\end{equation}
+This factors as $(N-3)(N^2 + 3N + 8) = 0$.
+The quadratic has no real roots ($\Delta = 9 - 32 < 0$).
+
+The unique positive integer solution is $N = 3$.
+
+In other words: the Koide value $2/3$ is the Casimir eigenvalue
+of the principal $\mathfrak{sl}(2)$ in $\mathfrak{sl}(N)$, and
+this identification works \emph{only} for three families.
+Kostant proved in 1959 that this principal
+$\mathfrak{sl}(2)$ is the unique canonical subalgebra of any
+simple Lie algebra~\cite{Kostant:1959}.
+He did not know about quarks, leptons, or the Koide formula.
+The connection was noticed 65 years later.
+
+
+\section{What we don't know}
+
+Lest the reader think the problem is solved, here is an honest
+list of what remains open:
+
+\begin{enumerate}
+  \item \textbf{The angle.} The charge parametrisation has one
+    free parameter (the ``Cartan angle'' $\alpha \approx 12.7°$)
+    that determines all mass ratios within a sector. Nobody knows
+    where it comes from. A one-loop Coleman--Weinberg analysis
+    shows that every perturbative contribution to the potential
+    prefers $\alpha = 0$ (all masses equal). The physical value
+    is a flat direction of the perturbative theory.
+
+  \item \textbf{The CKM matrix.} The off-diagonal meson masses
+    in the confined theory block-decouple from the diagonal ones
+    at tree level. Quark mixing cannot arise from tree-level meson
+    mixing; it requires loop effects or K\"ahler corrections.
+
+  \item \textbf{Neutrinos.} The tree-level prediction for the
+    PMNS matrix is diagonal (no mixing), which is wrong.
+
+  \item \textbf{The cubic algebra.} The $R$ operator satisfies a
+    cubic, not a quadratic. Does this define a new kind of
+    extended supersymmetry?
+
+  \item \textbf{Why $m \propto q^2$?} The charge-squared mass
+    law is uniquely selected by an algebraic theorem (among
+    monomials, only $n = 2$ gives a direction-independent $K$).
+    But no one has derived it from the dynamics of the confining
+    theory. It is the framework's central postulate.
+\end{enumerate}
+
+Five open problems. Always five.
+
+
+\section*{Summary}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lll}
+\toprule
+Quantity & Value & Precision \\
+\midrule
+$K(e, \mu, \tau)$ & $0.666661$ & $0.001\%$ \\
+$K^{-1}(d, s, b)$ at $280\TeV$ & $0.666667$ & exact \\
+$K^{-1}(s, c, -t)$ at $82\TeV$ & $0.666667$ & exact \\
+$m_b$ from bion relation & $4183\MeV$ & $0.01\%$ \\
+$m_t$ from chain completion & $168.5\GeV$ & $2.3\%$ \\
+$|V_{us}|$ from $\sqrt{m_\mu/m_\tau}$ & $0.244$ & $8.7\%$ \\
+\midrule
+$N = 3$ from $K = \langle J_3^2 \rangle$ & unique & exact \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The inverse Koide formula is not a separate observation.
+It is the shadow of the same algebraic structure that produces
+the original Koide formula, viewed through the Seiberg seesaw
+of a confining gauge theory. Both the direct and inverse
+relations are automatic for $\mathrm{U}(3)$ family charges.
+The value $2/3$ is Kostant's Casimir, and it selects three
+families from a Diophantine equation that Bertram Kostant never
+had reason to write down.
+
+
+\begin{thebibliography}{9}
+
+\bibitem{Koide:1983}
+  Y.~Koide,
+  Phys.\ Lett.\ B \textbf{120}, 161 (1983).
+
+\bibitem{MartinRobertson:2019}
+  S.P.~Martin and D.G.~Robertson,
+  Phys.\ Rev.\ D \textbf{100}, 073004 (2019),
+  arXiv:1907.02500.
+
+\bibitem{Seiberg:1995}
+  N.~Seiberg,
+  Nucl.\ Phys.\ B \textbf{435}, 129 (1995),
+  arXiv:hep-ph/9411149.
+
+\bibitem{Kostant:1959}
+  B.~Kostant,
+  Amer.\ J.\ Math.\ \textbf{81}, 973 (1959).
+
+\bibitem{Rivero:2024}
+  A.~Rivero,
+  Eur.\ Phys.\ J.\ C \textbf{84}, 1058 (2024),
+  arXiv:2407.05397.
+
+\end{thebibliography}
+
+\end{document}

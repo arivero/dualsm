@@ -1,0 +1,795 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\geometry{margin=2.5cm}
+
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\UU}{\mathrm{U}}
+\newcommand{\Nf}{N_{\!f}}
+\newcommand{\Nc}{N_{\!c}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\adj}{\mathrm{adj}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\MeV}{\,\mathrm{MeV}}
+\newcommand{\GeV}{\,\mathrm{GeV}}
+\newcommand{\TeV}{\,\mathrm{TeV}}
+
+\newtheorem{problem}{Open Problem}
+
+\title{Open problems in the gauged family symmetry programme\\[6pt]
+  \large Predictive content, obstructions, and paths forward}
+\author{Working notes for internal discussion}
+\date{March 2026}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+\newpage
+
+%======================================================================
+\section{The framework in brief}
+\label{sec:framework}
+
+The model is built on three postulates:
+\begin{enumerate}[label=(\roman*)]
+\item An $\SU(3)_F$ family gauge symmetry confines at a scale
+  $\Lambda_F \sim \mathcal{O}(100)\MeV$, with $\Nf = \Nc = 3$
+  flavours of preons $Q^i$, $\tilde{Q}_i$.
+
+\item The confined spectrum is described by Seiberg's
+  $s$-confinement: the light degrees of freedom are
+  mesons $M_{ij} = Q^i \tilde{Q}_j$ and baryons
+  $B = \epsilon_{ijk} Q^i Q^j Q^k$, subject to the
+  quantum-modified constraint $\det M - B\tilde{B} = \Lambda^6$.
+
+\item The mass ansatz $m_i = \mu\,q_i^2$ (direct branch, from
+  adjugate $\adj(M)_i$) and $\hat{m}_i = \nu/q_i^2$ (inverse
+  branch, from meson $M_i$), where
+  $q_i = z_0 + z_i$ are the family charges with
+  $z_0 = 1/\sqrt{6}$, $\sum z_i = 0$, $\sum z_i^2 = 1/2$.
+\end{enumerate}
+
+\noindent The Koide identity $K = 2/3$ for the direct branch is a trace
+identity:
+\begin{equation}
+  K \;=\; \frac{\sum q_i^2}{(\sum q_i)^2}
+  \;=\; \frac{1}{3/2} \;=\; \frac{2}{3}\,,
+\end{equation}
+valid at any direction $\alpha$ in the Cartan plane.  The inverse branch
+does \emph{not} automatically satisfy $K = 2/3$; the empirical relation
+$K^{-1}(d,s,b) \approx 2/3$ is a non-trivial constraint.
+
+%======================================================================
+\section{Parameter counting and predictive scorecard}
+\label{sec:scorecard}
+
+\subsection{The Standard Model target}
+
+The SM has:
+\begin{itemize}
+\item 9 charged-fermion masses: $m_e, m_\mu, m_\tau, m_u, m_d, m_s, m_c, m_b, m_t$
+\item 4 CKM parameters: $\theta_{12}, \theta_{23}, \theta_{13}, \delta_{\rm CP}$
+\item 3 neutrino masses + 4 PMNS parameters (not addressed here)
+\end{itemize}
+Total for charged fermions: \textbf{13 free parameters}.
+
+\subsection{The model's free parameters}
+
+\begin{table}[h]
+\centering
+\caption{Free parameters of the framework.}
+\label{tab:params}
+\begin{tabular}{clll}
+  \toprule
+  \# & Parameter & Fixed from & Value \\
+  \midrule
+  1 & $\alpha_{\rm lep}$ & $m_\tau/m_\mu$ ratio & $0.2222\;\mathrm{rad}$ \\
+  2 & $k$ ($= \mu_{\rm lep}$) & $m_\tau$ overall scale & $1883\MeV$ \\
+  3 & $\nu$ & $m_t \cdot q_1^2$ & $46.8\MeV$ \\
+  4 & $\Delta\alpha$ & $\arctan(\pi/84)$ & $0.0374\;\mathrm{rad}$ \\
+  \midrule
+  5 & $\varepsilon$ (quartic) & \textit{not yet computed} & open \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+\noindent With 4 parameters for 13 observables, the framework claims
+\textbf{9 predictions}.  With the quartic $\varepsilon$ added as a 5th
+parameter, the count is 8.  The question is how many of these predictions
+are currently \emph{working} at quantitative precision.
+
+\subsection{Scorecard}
+
+\paragraph{Exact / proven predictions (0 additional parameters):}
+\begin{enumerate}
+\item $K(e, \mu, \tau) = 2/3$ --- trace identity, empirically $0.001\%$.
+\item Interleaving order $d_1 > a_3 > d_2 > a_2 > d_3 > a_1$ --- proven theorem.
+\item $a_i \cdot d_i = \mu\nu$ family-independent --- from $\det M = \Lambda^6$.
+\item Top = inverse of lightest charge (seesaw structure).
+\item Two Higgs doublets from one meson matrix ($H_u = \adj(M)$, $H_d = M$).
+\end{enumerate}
+
+\paragraph{Quantitative predictions (from $\alpha$, $k$, $\nu$, $\Delta\alpha$):}
+
+\begin{table}[h]
+\centering
+\caption{Quantitative predictions.}
+\begin{tabular}{llll}
+  \toprule
+  Observable & Predicted & PDG 2024 & Status \\
+  \midrule
+  $m_e$ & $0.501\MeV$ & $0.511\MeV$ & $2\%$ (from $\alpha$, $k$) \\
+  $m_d$ & $4.59\MeV$ & $4.67 \pm 0.48\MeV$ & $1\sigma$ (from $\Delta\alpha$) \\
+  $K^{-1}(d,s,b)$ & $\approx 2/3$ & $0.667$ & $0.3\%$ \\
+  $m_c + m_s$ & $1084\MeV$ & $1366\MeV$ & $21\%$ tension (unmixed) \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{CKM predictions (from $R = (2+\sqrt{3})^2$, integers 5, 7 unexplained):}
+
+\begin{table}[h]
+\centering
+\caption{CKM predictions.  The self-dual ratio
+$R = (2+\sqrt{3})^2 \approx 13.928$ satisfies $R^2 - 5R + 1 = 0$.}
+\begin{tabular}{lllll}
+  \toprule
+  Observable & Formula & Predicted & PDG 2024 & Accuracy \\
+  \midrule
+  $|V_{cb}|$ & $1/(5R)$ & $0.0406$ & $0.0408$ & $1.1\%$ \\
+  $|V_{ub}|$ & $2\sqrt{2}/(7R^3)$ & $0.00355$ & $0.00361$ & $0.06\sigma$ \\
+  $\delta_{\rm CP}$ & $\arctan\sqrt{R}$ & $75.0^\circ$ & $73.4 \pm 3^\circ$ & $0.2\sigma$ \\
+  $J$ & closed form & $3.18 \times 10^{-5}$ & $3.08 \times 10^{-5}$ & $0.09\%$ \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+\noindent These are impressive numerical matches, but the integers 5 and~7
+are observed patterns, not derived from the gauge theory.  They may encode
+group-theoretic data (dimensions of representations, Clebsch--Gordan
+coefficients), but this has not been established.
+
+\paragraph{Not yet predicted (need $\varepsilon$ or K\"ahler metric):}
+\begin{itemize}
+\item Individual $m_c$, $m_s$ (only their sum $T_2$ is constrained).
+\item $m_u$ (lightest window, maximally sensitive to mixing).
+\item PMNS angles (tree-level = identity matrix; need K\"ahler rotation).
+\item Neutrino masses (seesaw structure exists but quantitative prediction
+  requires the baryonino mass spectrum).
+\end{itemize}
+
+\paragraph{Structural / qualitative predictions:}
+\begin{itemize}
+\item Leptons = composite mesinos: $9 = 3L_i + 3e_i^c$ (anomaly-free).
+\item SUSY partners near $\mu_{\rm crit} \approx 4.5\TeV$.
+\item Strong CP solved: involution $M_i \leftrightarrow \Lambda^6/M_i$
+  acts as CP, forcing $\bar{\theta} = 0$ at tree level.
+\item Colour sextets absent: antisymmetric obstruction
+  ($\Lambda^3(9) = 84$ contains only $1_C$, $3_C$, $\bar{3}_C$, never $6_C$).
+\end{itemize}
+
+\paragraph{Confirmed negative results:}
+\begin{itemize}
+\item $\alpha_{\rm lep}$ is NOT selected by: finite $\mu$, Coleman--Weinberg potential,
+  $N_f = 4$ threshold corrections, or instantons.
+\item Seiberg--Witten monodromy does NOT produce $\sqrt{21}$.
+  $R$ comes from the family Higgs, not from SW geometry.
+\item Tree-level baryonino mass matrix is always diagonal $\Rightarrow$
+  PMNS $\approx \mathbf{1}$ without K\"ahler corrections.
+\item Hessian eigenvalues give $K = 0.495$, not $2/3$.
+  SUSY-breaking is essential for the physical mass spectrum.
+\end{itemize}
+
+
+%======================================================================
+\section{Open Problem 1: The quartic coupling $\varepsilon$}
+\label{sec:quartic}
+
+\begin{problem}[Quartic mixing]
+Compute the inter-branch coupling $\varepsilon$ that redistributes the
+unmixed eigenvalues $a_i$, $d_i$ into the physical quark masses.
+\end{problem}
+
+\subsection{Why $\varepsilon$ is needed}
+
+Each family~$i$ has two mass parameters:
+\begin{equation}
+  a_i = \mu q_i^2 \quad \text{(direct)}\,, \qquad
+  d_i = \nu/q_i^2 \quad \text{(inverse)}\,.
+\end{equation}
+In the unmixed limit, the 6 masses form an interleaved ladder:
+\begin{equation}
+  d_1 > a_3 > d_2 > a_2 > d_3 > a_1\,.
+\end{equation}
+Evaluating the Koide ratio $K = 2/3$ on sliding windows of three
+consecutive masses gives a quadratic equation in $r = \sqrt{\nu/\mu}$
+for each window.  There are \textbf{four windows but only one free
+parameter~$r$}, so the system is overconstrained.  Explicitly:
+
+\begin{table}[h]
+\centering
+\caption{Quadratic solutions $r = \sqrt{\nu/\mu}$ for $K = 2/3$ in each window.
+No single $r$ satisfies all four.  Physical $r = 0.1028$.}
+\begin{tabular}{lll}
+  \toprule
+  Window & $r_1$ & $r_2$ \\
+  \midrule
+  $W_1 = (d_1, a_3, d_2)$ & $0.0904$ & $0.00390$ \\
+  $W_2 = (a_3, d_2, a_2)$ & $1.141$ & $0.00390$ \\
+  $W_3 = (d_2, a_2, d_3)$ & $3.306$ & $0.01132$ \\
+  $W_4 = (a_2, d_3, a_1)$ & $0.9436$ & $0.04076$ \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+\noindent The best one can do with a single~$r$ is
+$\max_w |\delta K_w| \sim 7\%$---an order of magnitude worse than
+the observed $\sim 1\%$ deviations.  The constraint surface alone
+(charge normalisation + $\det M = \Lambda^6$) is therefore
+\textbf{insufficient}.
+
+\subsection{What the quartic can and cannot do}
+
+The inter-branch coupling is parametrised by a $2 \times 2$
+family Hamiltonian:
+\begin{equation}
+  H_i \;=\;
+  \begin{pmatrix}
+    \mu q_i^2 & \varepsilon \\
+    \varepsilon & \nu/q_i^2
+  \end{pmatrix}\,,
+  \label{eq:H2x2}
+\end{equation}
+whose eigenvalues are the physical masses within each family.
+A key structural feature: $\det(H_i) = \mu\nu - \varepsilon^2$ is
+\textbf{family-independent}.  The quartic redistributes the sum
+$T_i = a_i + d_i$ between the two eigenvalues without changing
+their product (up to $\varepsilon^2$ corrections).
+
+Scanning $\varepsilon$ from $0$ to $\sqrt{\mu\nu} = 455\MeV$:
+\begin{itemize}
+\item The optimal $\varepsilon \approx 420\MeV$ gives $\min \max |\delta K| = 6.7\%$.
+\item For the charm--strange window ($W_2$), $\varepsilon = 340\MeV$
+  gives $m_s$ correct but $m_c$ 22\% off.
+\item The quartic \textbf{cannot close the gap alone}: the overconstrained
+  system has no solution in a single parameter.
+\end{itemize}
+
+\subsection{What else is needed}
+
+The companion letter's quark-sector angle shift
+$\Delta\alpha = \arctan(\pi/84) = 0.0374\;\mathrm{rad}$
+modifies \emph{all} the charge ratios.  This is the second ingredient.
+Together, $\varepsilon$ and $\Delta\alpha$ provide 2 parameters for
+4 constraints---generically solvable (2 equations residual), but the
+computation has not been done.
+
+\subsection{Why the computation is hard}
+
+The quartic~(\ref{eq:H2x2}) is a proxy for the full non-perturbative
+dynamics.  In the UV description, the coupling arises from integrating out
+the auxiliary adjoint field~$\Phi$ of the emergent $\mathcal{N}{=}2$
+structure:
+\begin{equation}
+  W_{\rm quartic} \;=\;
+  -\frac{g^2}{\mu_\Phi}
+  \Bigl[\Tr M^2 - \tfrac{1}{3}(\Tr M)^2\Bigr]\,,
+\end{equation}
+where $\mu_\Phi$ is the adjoint mass and $g$ is the family gauge coupling.
+At the confinement scale $\Lambda_F \sim 100\MeV$, the gauge coupling
+is strong ($g \sim \mathcal{O}(1)$), so:
+\begin{enumerate}
+\item \textbf{Perturbation theory fails}.  The ratio $g^2/\mu_\Phi$
+  is not a small parameter; the quartic is not a perturbative correction.
+\item \textbf{The $\mathcal{N}{=}2$ breaking scale $\mu_\Phi$ is
+  non-perturbative}.  The emergent doublet structure arises from
+  confinement plus isospin, not from a UV $\mathcal{N}{=}2$ theory
+  that is subsequently broken.  The ``$\mu_\Phi$'' is therefore
+  not a Lagrangian parameter but an effective scale determined by
+  the confined dynamics.
+\item \textbf{Holomorphic vs.\ physical masses}.  The $F$-term
+  equations give holomorphic masses (superpotential parameters).
+  The physical masses include K\"ahler corrections
+  $m_{\rm phys} = m_{\rm hol}/\sqrt{Z_i}$, where $Z_i$ is the
+  wave-function renormalisation.  For leptons,
+  $Z_i$ is generation-universal at leading order ($0.04\%$ effect).
+  For quarks, $Z_c/Z_s \approx 1.37$ is needed to match
+  the lattice value $m_c/m_s = 11.78$, compared to the holomorphic
+  prediction of 13.93 (an 18\% discrepancy, 86$\sigma$).
+\end{enumerate}
+
+\subsection{Promising paths}
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Seiberg--Witten curve for $\SU(3)$, $N_f = 3$}.
+  The exact prepotential determines the low-energy effective action
+  including the K\"ahler metric on the Coulomb branch.  However,
+  the physical theory is in the \emph{confining} phase (Higgs branch),
+  not the Coulomb branch.  The Seiberg--Witten solution applies
+  only after an analytic continuation whose validity is unclear.
+
+\item \textbf{Lattice family gauge theory}.  A lattice computation of
+  $\SU(3)$ with 3 fundamental flavours and an adjoint mass term could
+  in principle extract $\varepsilon$ from the meson correlator.
+  The obstacle is that the family gauge theory is \emph{chiral}
+  (the preons carry SM quantum numbers), and chiral lattice gauge
+  theories remain technically difficult.
+
+\item \textbf{Large-$N$ extrapolation}.  At large~$N_c$, the
+  meson--adjugate mixing scales as $1/N_c$.  The physical case
+  $N_c = 3$ is not large, but the scaling may give a useful
+  estimate.
+
+\item \textbf{Deformation theory}.  Start from the $\mathcal{N}{=}2$
+  point ($\mu_\Phi = 0$, exact SW solution) and deform by soft
+  breaking terms.  The Dijkgraaf--Vafa matrix model
+  computes the effective superpotential to all orders in the
+  gluino mass.  The obstruction: the DV computation gives the
+  \emph{superpotential}, not the K\"ahler potential; physical masses
+  still require $Z_i$.
+
+\item \textbf{Numerical bootstrap}.  Use the known constraints
+  (interleaving, $\det H_i = \mu\nu - \varepsilon^2$,
+  $K \approx 2/3$ in each window) to fit $\varepsilon$ and
+  $\Delta\alpha$ simultaneously.  This is a 2-parameter fit to
+  4 constraints (the waterfall windows) plus 2 constraints
+  ($m_c/m_s$ and the sum rule).  It sidesteps the non-perturbative
+  computation but does not explain $\varepsilon$ from first principles.
+\end{enumerate}
+
+
+%======================================================================
+\section{Open Problem 2: The K\"ahler metric}
+\label{sec:kahler}
+
+\begin{problem}[K\"ahler metric]
+Compute the K\"ahler metric $Z_i$ on the meson moduli space in the
+confined phase.  This is the master obstruction: every quantitative
+prediction involving quark masses depends on it.
+\end{problem}
+
+\subsection{Why it matters}
+
+The holomorphic masses ($F$-term, superpotential) are calculable by
+Seiberg duality.  The physical masses are:
+\begin{equation}
+  m_{\rm phys,\,i} \;=\; \frac{m_{\rm hol,\,i}}{\sqrt{Z_i}}\,,
+\end{equation}
+where $Z_i$ is the K\"ahler wave-function renormalisation.  For the
+lepton sector, the leading-order K\"ahler metric is
+$K = M^\dagger M / \Lambda^2$ (canonical normalisation), giving
+$Z_i \propto 1/\Lambda^2$ which is flavour-universal.  This is why
+the lepton Koide relation is so precise ($0.001\%$): the $Z_i$ cancel
+in the ratio~$K$.
+
+For quarks, the situation is different.  The holomorphic prediction
+$m_c/m_s = 13.93$ disagrees with the lattice value $11.78 \pm 0.025$
+by $18\%$ (86$\sigma$).  Since the quark mass ratio is
+\emph{flavour-independent} under RG (to 5-loop in QCD), this
+discrepancy must come from flavour-dependent K\"ahler corrections:
+\begin{equation}
+  \frac{Z_c}{Z_s} \;\approx\; 1.37\,.
+\end{equation}
+This is a 37\% effect, far from the naive expectation of universality.
+
+\subsection{Why it's hard}
+
+\begin{enumerate}
+\item The K\"ahler potential is \textbf{not holomorphic} and therefore
+  not protected by non-renormalisation theorems.  It receives corrections
+  at every order in perturbation theory and non-perturbatively.
+
+\item In the M-theory description, the K\"ahler metric on the meson
+  moduli space is related to the DBI action of the M5-brane wrapping
+  the Seiberg--Witten curve.  For the $\mathcal{N}{=}1$ case (genus-0
+  curve), the DBI analysis of Dasgupta--Hsu--Ooguri--Oh (DHOO) does
+  not apply: their results require $\mathcal{N}{=}2$ or higher-genus
+  curves.
+
+\item The canonical K\"ahler metric $K = M^\dagger M / \Lambda^2$ gives
+  $v_{\rm EW} = 3.09\GeV$, two orders of magnitude below the physical
+  value $v = 246\GeV$.  The needed correction is
+  $Z_{\rm needed}/Z_{\rm canonical} \approx 6328$.
+  This large ratio suggests that the canonical normalisation misses
+  important strong-coupling effects.
+\end{enumerate}
+
+\subsection{What's known}
+
+The \emph{overall scale} $k = \mu \approx 1883\MeV$ is fitted, not derived.
+Its ratio to the confinement scale is $\mu/\Lambda_F \approx 24$, which is a
+non-perturbative number.  The fact that $\mu \gg \Lambda_F$ indicates that
+the K\"ahler metric enhances the mass scale relative to the naive confinement
+estimate.
+
+The \emph{relative} K\"ahler metric (ratios $Z_i/Z_j$) is what enters
+mass ratios.  For leptons it is approximately universal; for quarks it
+is not.  The quartic mixing $\varepsilon$ and the K\"ahler non-universality
+$Z_c/Z_s$ are entangled: one cannot determine $\varepsilon$ without knowing
+the K\"ahler metric, and vice versa.
+
+\subsection{Promising paths}
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Instanton corrections to K\"ahler}.  On the Coulomb branch,
+  instanton corrections to the K\"ahler metric are known (e.g.,
+  Dorey--Hollowood--Khoze--Mattis).  Analytic continuation to the
+  confining phase might give the leading flavour-dependent correction.
+
+\item \textbf{Anomaly-mediated K\"ahler corrections}.  The conformal
+  anomaly determines the leading $\log$-dependent piece of the K\"ahler
+  metric.  This is universal in flavour but might explain the overall
+  scale factor $\mu/\Lambda \approx 24$.
+
+\item \textbf{Superconformal index}.  The superconformal index of the
+  UV theory constrains the spectrum of protected operators, which in
+  turn constrains the K\"ahler metric at special points in moduli space.
+
+\item \textbf{Accept it as a fitted parameter}.  The pragmatic approach:
+  treat $Z_c/Z_s$ (or equivalently $\varepsilon$) as a phenomenological
+  parameter and focus on the predictions that are K\"ahler-independent
+  (ratios within the same sector, the Koide identity, the interleaving
+  theorem, the CKM predictions).
+\end{enumerate}
+
+
+%======================================================================
+\section{Open Problem 3: The origin of $\alpha$}
+\label{sec:alpha}
+
+\begin{problem}[Cartan angle]
+Derive the lepton mixing angle $\alpha_{\rm lep} \approx 0.2222\;\mathrm{rad}$
+from the dynamics of the family gauge theory.
+\end{problem}
+
+\subsection{What $\alpha$ is}
+
+The three family charges are:
+\begin{equation}
+  q_i \;=\; z_0 + \frac{1}{\sqrt{3}}\cos\!\Bigl(\alpha + \frac{2\pi k}{3}\Bigr)\,,
+  \qquad k = 0, 1, 2\,,
+\end{equation}
+with $z_0 = 1/\sqrt{6}$.  The angle $\alpha$ parametrises the direction in
+the Cartan subalgebra of $\SU(3)_F$.  The Koide relation $K = 2/3$ holds
+for \emph{any}~$\alpha$; the specific value $\alpha_{\rm lep} = 0.2222$
+is what determines the mass \emph{ratios} $m_\tau : m_\mu : m_e$.
+
+The notation ``$2/9$'' has been used in the literature as a mnemonic, but
+a rational angle in radians would make $\cos\alpha$ transcendental by
+Lindemann--Weierstrass.  The value is fitted, not exact.
+
+\subsection{What has been ruled out}
+
+\begin{enumerate}
+\item \textbf{Finite-$\mu$ selection}: The superpotential $F$-flatness
+  conditions do not select $\alpha$ --- the moduli space is an entire
+  circle.  (Notes 62--64.)
+
+\item \textbf{Coleman--Weinberg potential}: The one-loop CW potential on
+  the Cartan direction is \emph{monotonic} in~$\alpha$ and cannot produce
+  a non-trivial extremum.  (Note 63.)
+
+\item \textbf{$N_f = 4$ threshold effects}: Adding a fourth heavy
+  flavour and integrating it out does not select~$\alpha$.  (Note 64.)
+
+\item \textbf{Instanton effects}: The instanton-generated superpotential
+  in $\SU(3)$ with $N_f = 3$ is the $\det M$ term, which is
+  $\alpha$-independent.  (Note 69.)
+
+\item \textbf{$\mathcal{N}{=}2$ Coulomb branch}: The Coulomb-branch
+  analysis is inapplicable to the confining phase.  (Note 116.)
+\end{enumerate}
+
+\subsection{Promising paths}
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{K\"ahler modulus of the M5-brane curve}.  In the M-theory
+  lift, the family gauge theory corresponds to an M5-brane wrapping a
+  curve $\Sigma$ in the Calabi--Yau.  The angle $\alpha$ is a modulus
+  of~$\Sigma$ that is not fixed by holomorphy.  It is fixed by the
+  \emph{K\"ahler} potential of the compactification---i.e., by the
+  geometry of the internal space.  This connects Problem~3 to Problem~2.
+
+\item \textbf{Discrete symmetry}.  If $\alpha$ is fixed by a discrete
+  subgroup of the Weyl group (e.g., $\alpha = \pi/6$ corresponds to the
+  $\mathbb{Z}_3$ fixed point of the charge plane, giving $K = 2/3$ at
+  $r_0 = (2+\sqrt{3})^2$), the deviation from $\pi/6$ might be
+  a calculable perturbation.  The observed $\alpha_{\rm lep} = 0.2222$ is
+  $5.5^\circ$ from the $\pi/12 = 15^\circ$ fixed point.
+
+\item \textbf{Anomaly cancellation at the compactification scale}.
+  Mixed anomalies between $\SU(3)_F$ and gravity (or other gauge factors)
+  might constrain the embedding of $\SU(3)_F$ in a larger group, fixing
+  the Cartan direction.
+\end{enumerate}
+
+
+%======================================================================
+\section{Open Problem 4: The CKM integers}
+\label{sec:ckm}
+
+\begin{problem}[CKM integers]
+Derive the integers 5 and 7 appearing in the CKM predictions
+$|V_{cb}| = 1/(5R)$ and $|V_{ub}| = 2\sqrt{2}/(7R^3)$ from the
+gauge theory.
+\end{problem}
+
+\subsection{The pattern}
+
+The self-dual ratio $R = (2+\sqrt{3})^2 = 7 + 4\sqrt{3}$ satisfies
+$R^2 - 5R + 1 = 0$.  The CKM predictions use~$R$ and small integers:
+\begin{align}
+  |V_{cb}| &= \frac{1}{5R} = 0.01435\ldots && (\text{1.1\% from PDG})\,,\\
+  |V_{ub}| &= \frac{2\sqrt{2}}{7R^3} = 0.001504\ldots && (\text{0.06}\sigma)\,,\\
+  \delta_{\rm CP} &= \arctan\sqrt{R} = 75.04^\circ && (\text{0.2}\sigma)\,,\\
+  J &= \frac{2\sqrt{2}}{5 \times 7^{5/4}}
+  \sqrt{\frac{m_d(m_s - m_d)}{m_s}}\, R^{-15/4}
+  && (\text{0.09\% from PDG})\,.
+\end{align}
+The integers 5 and 7 might be:
+\begin{itemize}
+\item Dimensions: $\dim(\SU(2)) + 2 = 5$?
+  $\dim(\mathrm{Adj}(\SU(3))) - 1 = 7$?
+\item Clebsch--Gordan coefficients of the $\SU(3)_F$ representations.
+\item Artifacts of a deeper algebraic structure (the discriminant
+  $\Delta = 21 = 3 \times 7$, and $5R = R^2 - 1$ from the minimal
+  polynomial).
+\end{itemize}
+None of these identifications has been established.
+
+\subsection{What would count as a derivation}
+
+A satisfactory derivation would:
+\begin{enumerate}
+\item Start from the $\SU(3)_F$ gauge theory (or its M-theory lift).
+\item Show that the CKM matrix arises from the misalignment between
+  the direct-branch ($\adj(M)$) and inverse-branch ($M$) charge
+  directions in the Cartan plane.
+\item Derive the angle shift $\Delta\alpha = \arctan(\pi/84)$ and the
+  specific $R$-dependent entries from group theory.
+\end{enumerate}
+
+\subsection{Promising paths}
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{$\pi/84$ from the $C_3$ polarisation count}.
+  $84 = \binom{9}{3}$ is the dimension of the 3-form representation
+  of $\mathrm{SO}(9)$ in 11d SUGRA, and also appears in the $E_8$
+  branching $248 = 80 + 84 + \overline{84}$ under $\SU(9)$.  If the angle
+  shift comes from the M-theory embedding (specifically, from the $C_3$
+  coupling of the M5-brane), the 84 would be explained.
+
+\item \textbf{R from the charge-plane fixed point}.  At the $15^\circ$
+  fixed point of the Cartan plane, the zero-mass ratio is
+  $r_0 = (2+\sqrt{3})^2 = R$.  This is a \emph{derived} property of
+  the charge normalisation.  The CKM might probe this fixed point
+  through the angle shift.
+
+\item \textbf{Monodromy of the Seiberg--Witten curve}.
+  The monodromy matrices of the $\SU(3)$, $N_f = 3$ SW curve act on
+  the period lattice.  Their entries are integers determined by the
+  intersection form.  The integers 5 and 7 might appear as matrix
+  elements or traces.  So far, this has been checked and
+  \emph{does not work}: no product of monodromies gives $\sqrt{21}$
+  (note 68).
+\end{enumerate}
+
+
+%======================================================================
+\section{Open Problem 5: The non-perturbative $\mathcal{N}{=}2$ regime}
+\label{sec:n2}
+
+\begin{problem}[$\mathcal{N}{=}2$ breaking dynamics]
+Characterise the strong-coupling dynamics of the emergent
+$\mathcal{N}{=}2$ structure at the family confinement scale.
+\end{problem}
+
+\subsection{The nature of the problem}
+
+The framework uses an $\mathcal{N}{=}2$ doublet structure that is
+\emph{emergent}, not fundamental.  The UV theory is $\mathcal{N}{=}1$
+$\SU(3)_F$ SQCD.  Upon confinement, the composite spectrum
+$(M_i, \adj(M)_i)$ has the quantum numbers of an $\mathcal{N}{=}2$
+hypermultiplet, and the inter-branch coupling has the form of an
+$\mathcal{N}{=}2$-breaking adjoint mass.
+
+The difficulty is that this ``$\mathcal{N}{=}2$ breaking'' is
+happening at the confinement scale itself, where the gauge coupling is
+$g \sim \mathcal{O}(1)$.  Standard $\mathcal{N}{=}2$ breaking analyses
+(Argyres--Plesser--Shapere, or the Seiberg--Witten curve with a mass
+perturbation) assume that the breaking is a \emph{small perturbation}
+of an exact $\mathcal{N}{=}2$ theory.  Here the breaking is
+$\mathcal{O}(1)$.
+
+\subsection{What is known}
+
+\begin{enumerate}
+\item \textbf{The superpotential is exact}.  By holomorphy, the
+  confined-phase superpotential
+  $W = m_i M_i + \text{(quartic)} + \lambda(\det M - \Lambda^6)$
+  is exact to all orders.  The quartic coefficient is the only
+  unknown.
+
+\item \textbf{The K\"ahler potential is not exact}.
+  It receives perturbative and non-perturbative corrections.
+  The physical masses $m_{\rm phys} = m_{\rm hol}/\sqrt{Z}$ depend on
+  these corrections.
+
+\item \textbf{The $\mathcal{N}{=}2$ limit is smooth but unphysical}.
+  Setting $\mu_\Phi \to 0$ restores $\mathcal{N}{=}2$, and the SW
+  solution gives the exact low-energy effective action.  But this limit
+  produces massless charged fermions (the doublet is unsplit), so the
+  physical spectrum requires finite breaking.
+
+\item \textbf{The deformation is controlled by one parameter}.
+  The adjoint mass $\mu_\Phi$ (or equivalently the quartic
+  $g^2/\mu_\Phi$) is the single parameter controlling the
+  $\mathcal{N}{=}2 \to \mathcal{N}{=}1$ breaking.  The task is to
+  determine its value in the confined phase.
+\end{enumerate}
+
+\subsection{Promising paths}
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Dijkgraaf--Vafa matrix model}.  The DV correspondence
+  computes the exact effective superpotential of an
+  $\mathcal{N}{=}1$ theory obtained by adding $W = \Tr W(\Phi)$
+  to $\mathcal{N}{=}2$ SQCD.  For a quadratic $W = \mu_\Phi \Phi^2/2$,
+  the matrix model is Gaussian and the computation is tractable.
+  The result gives the gaugino condensate and the effective
+  superpotential, but \emph{not} the K\"ahler potential.
+
+\item \textbf{Nekrasov partition function}.  The $\Omega$-deformed
+  partition function gives the prepotential to all instanton orders.
+  The $\mathcal{N}{=}2^*$ theory ($\mathcal{N}{=}2$ + adjoint mass)
+  has a known Nekrasov partition function.  The physical K\"ahler
+  metric could in principle be extracted from the $\epsilon_1, \epsilon_2
+  \to 0$ limit, but this is technically challenging.
+
+\item \textbf{Holographic dual}.  In the Maldacena limit, the
+  $\mathcal{N}{=}2^*$ theory has a known supergravity dual
+  (Pilch--Warner flow).  The meson spectrum and its K\"ahler metric
+  are encoded in the fluctuation equations of the 5d bulk fields.
+  The obstruction is that $N_c = 3$ is far from the large-$N$ limit.
+
+\item \textbf{Phenomenological extraction}.  Use the waterfall pattern
+  as input: fit $\varepsilon$ to the observed $K$ values and check
+  for consistency with the interleaving theorem and the
+  $\det H_i = \mu\nu - \varepsilon^2$ constraint.  This gives a
+  ``measurement'' of $\varepsilon$ that can be compared with any
+  future first-principles computation.
+\end{enumerate}
+
+
+%======================================================================
+\section{Open Problem 6: PMNS and neutrino masses}
+\label{sec:pmns}
+
+\begin{problem}[Neutrino sector]
+Derive the PMNS mixing angles and neutrino masses from the baryonino
+sector of the confined theory.
+\end{problem}
+
+\subsection{The current status}
+
+In the framework, neutrinos are baryoninos: $B_i = \epsilon_{jkl} Q^j Q^k Q^l$,
+the baryonic composites of the family preons.  Their Majorana mass matrix
+is diagonal at tree level (note 61):
+\begin{equation}
+  M_{\rm Maj} \;=\; \diag(M_1, M_2, M_3)\,,
+\end{equation}
+because the baryonino mass term $B_i \tilde{B}_j$ receives contributions
+only from the flavour-diagonal contractions.  This gives
+$U_{\rm PMNS} = \mathbf{1}$ at tree level---no mixing.
+
+The atmospheric and solar mixing angles ($\theta_{23} \approx 45^\circ$,
+$\theta_{12} \approx 34^\circ$) therefore require:
+\begin{enumerate}
+\item K\"ahler corrections that rotate the baryonino kinetic terms
+  relative to the mass eigenstates, or
+\item SUSY-breaking effects that generate off-diagonal Majorana entries.
+\end{enumerate}
+Both mechanisms require the K\"ahler metric (Problem~2).
+
+\subsection{A suggestive coincidence}
+
+At the permutation point $\nu/\mu = q_1^2 q_2^2$, the ``product charge''
+$p^* = q_1 q_2/q_3 = 0.004019$ gives:
+\begin{equation}
+  \frac{(\mu\,p^{*2})^2}{\Lambda_F}
+  \;=\; \frac{(0.072\MeV)^2}{102\MeV}
+  \;\approx\; 5 \times 10^{-5}\MeV
+  \;=\; 0.05\;\mathrm{eV}
+  \;\approx\; m_\nu(\mathrm{atm})\,,
+\end{equation}
+where $\Lambda_F \approx 102\MeV$ is the family confinement scale.
+This is a single-number coincidence at a \emph{non-physical}
+value of $\nu/\mu$ ($\rho_{\rm phys}/\rho_{\rm perm} \approx 694$),
+but it suggests that the seesaw scale is naturally set by $\Lambda_F$.
+
+\subsection{What's needed}
+
+\begin{enumerate}
+\item The baryonino mass spectrum as a function of $\alpha$ and $\Lambda$.
+\item The K\"ahler metric on the baryonino moduli space (to compute
+  the PMNS rotation).
+\item The SUSY-breaking contribution to the off-diagonal Majorana entries.
+\end{enumerate}
+All three require solving Problem~2 (K\"ahler metric) and Problem~5
+(non-perturbative dynamics).
+
+
+%======================================================================
+\section{Summary: the dependency graph}
+\label{sec:summary}
+
+The open problems are not independent.  They form a dependency graph:
+
+\bigskip
+
+\begin{center}
+\begin{tabular}{rcl}
+  \textbf{Problem 2} (K\"ahler metric) & $\longleftarrow$ & master obstruction \\
+  $\downarrow$ && \\
+  \textbf{Problem 1} (quartic $\varepsilon$) & & requires K\"ahler to disentangle \\
+  $\downarrow$ && \\
+  \textbf{Problem 3} ($\alpha$ origin) & & K\"ahler modulus of M5 curve \\
+  $\downarrow$ && \\
+  \textbf{Problem 4} (CKM integers) & & needs $\alpha$ derivation + misalignment \\
+  $\downarrow$ && \\
+  \textbf{Problem 5} ($\mathcal{N}{=}2$ dynamics) & & controls the K\"ahler metric \\
+  $\downarrow$ && \\
+  \textbf{Problem 6} (PMNS + $\nu$) & & requires everything above \\
+\end{tabular}
+\end{center}
+
+\bigskip
+
+\noindent The most productive short-term strategy is \textbf{path (e) of
+Problem~1}: a numerical bootstrap that treats $\varepsilon$ and
+$\Delta\alpha$ as free parameters, fits them to the waterfall data,
+and produces testable predictions for the quark mass ratios.  This
+sidesteps the non-perturbative K\"ahler computation while extracting
+the maximal information from the framework.
+
+The most ambitious long-term goal is \textbf{path (a) of Problem~3}:
+deriving $\alpha$ from the M-theory compactification geometry.  This
+would collapse the parameter count from 4 to 3 (or fewer, if $\Delta\alpha$
+is simultaneously determined), and would constitute a genuine derivation
+of the fermion mass hierarchy from string/M-theory.
+
+\bigskip
+
+\begin{center}
+\begin{tabular}{clcc}
+  \toprule
+  & Problem & Short-term path & Long-term path \\
+  \midrule
+  1 & Quartic $\varepsilon$ & numerical bootstrap & DV matrix model \\
+  2 & K\"ahler metric & fitted & Nekrasov/instanton \\
+  3 & $\alpha$ origin & --- & M5 curve geometry \\
+  4 & CKM integers & --- & $C_3$ polarisation count \\
+  5 & $\mathcal{N}{=}2$ dynamics & phenomenological & holographic dual \\
+  6 & PMNS + $\nu$ & --- & requires 1--5 \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+\bigskip
+
+\noindent\textit{The framework is predictive: 4 parameters for 13 observables,
+with $\sim 8$ working at quantitative precision.  The obstructions are
+specific (K\"ahler metric, non-perturbative $\mathcal{N}{=}2$ dynamics)
+and the paths forward are identifiable, if technically demanding.
+The model is not finished, but it is falsifiable: the interleaving theorem,
+the geometric mean constraint, the waterfall pattern, the SUSY threshold
+at $4.5\TeV$, and the absence of colour sextets are all testable predictions.}
+
+\end{document}

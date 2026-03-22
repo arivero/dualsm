@@ -1,0 +1,1202 @@
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{xcolor}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\UU}{\mathrm{U}}
+\newcommand{\Nf}{N_{\!f}}
+\newcommand{\Nc}{N_{\!c}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\adj}{\mathrm{adj}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\MeV}{\,\mathrm{MeV}}
+\newcommand{\GeV}{\,\mathrm{GeV}}
+\newcommand{\TeV}{\,\mathrm{TeV}}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Universal shift parameter in the Koide charge--mass ansatz:\\
+two Weyl-dual branches from a single Cartan modulus}
+
+\author{XXXXX}
+\address{XXXXX}
+
+\begin{abstract}
+We introduce a one-parameter generalisation of the Koide
+charge--mass law by promoting the fixed offset $z_0 = 1/\sqrt{6}$
+to a free shift parameter~$s$.  The ansatz
+$m_i = M(s + z_i)^{\pm 2}$, with $z_i = \cos(\alpha + 2\pi k/3)/\sqrt{3}$
+the traceless Cartan charges normalised to $\sum z_i^2 = 1/2$,
+admits an exact closed-form decomposition into a Cartan
+angle~$\alpha$ and a shift~$s$ for any mass triplet.  We derive
+a central identity: the Koide ratio on the direct branch is
+$K = 1/3 + 1/(18 s^2)$, independent of~$\alpha$.  The condition
+$K = 2/3$ selects $s = 1/\sqrt{6}$ uniquely.  Systematic fitting
+of all known Koide tuples---charged leptons, down quarks
+(inverse), up quarks, and four quark-chain windows---reveals that
+the shift parameter is approximately \emph{universal}:
+$s \approx z_0 = 1/\sqrt{6} \approx 0.408$ across all sectors,
+with a scatter of $\pm 20\%$.  What is \emph{not} universal is
+the Cartan angle~$\alpha$: it spans $4^\circ$--$37^\circ$ in
+the $60^\circ$ Weyl chamber of~$\SU(3)$, split between two
+Weyl-dual branches.  The $15^\circ$ branch (all charges positive)
+accommodates leptons, $(d,s,b)$, $(u,c,t)$, $(t,b,c)$, and $(s,u,d)$.
+The $45^\circ$ branch (lightest mass with negative charge)
+accommodates $(b,c,s)$ and $(c,s,u)$.
+The two branches are related by the Weyl reflection
+$\alpha \to 60^\circ - \alpha$, corresponding to the
+zero-mass fixed points of the Koide equation (Fig.~\ref{fig:directions}).
+The universality of~$s$ is consistent with a single
+confining $\SU(3)_F$ family gauge theory in which all fermion
+sectors share the same $\UU(3)_F$ normalisation
+(Fig.~\ref{fig:s_alpha}), with the angle encoding the
+sector-dependent mass hierarchy.
+\end{abstract}
+
+\end{frontmatter}
+
+%======================================================================
+\section{Introduction}
+\label{sec:intro}
+
+The charged-lepton masses satisfy the Koide
+relation~\cite{Koide:1983qe}
+\begin{equation}
+  K \;\equiv\; \frac{m_e + m_\mu + m_\tau}
+  {(\sqrt{m_e} + \sqrt{m_\mu} + \sqrt{m_\tau})^2}
+  \;=\; \frac{2}{3}
+  \label{eq:K_def}
+\end{equation}
+to a precision of $0.001\%$ (or equivalently, $153\sigma$ when
+propagating the PDG~2024 mass uncertainties~\cite{PDG:2024}).
+Rivero observed that the down-quark masses satisfy the
+\emph{inverse} Koide relation
+$K^{-1}(d,s,b) \equiv K(1/m_d, 1/m_s, 1/m_b) \approx 2/3$
+to~$0.3\%$~\cite{Rivero:2005}, and that consecutive windows of
+three quark masses---the ``waterfall''---also cluster near $K = 2/3$
+with appropriate sign assignments~\cite{Zenczykowski:2012}.
+
+A natural parametrisation of $K = 2/3$
+is the \emph{charge--mass law}~\cite{letter_q2}:
+\begin{equation}
+  m_i \;=\; M\,q_i^2\,,\qquad
+  q_i \;=\; z_0 + z_i\,,\qquad
+  z_i \;=\; \frac{1}{\sqrt{3}}\cos\!\Bigl(\alpha + \frac{2\pi k}{3}\Bigr),
+  \label{eq:charge_mass}
+\end{equation}
+where $k = 0, 1, 2$ labels the three families,
+$z_0 = 1/\sqrt{6}$ is the $\UU(1)$ offset, and
+$\alpha$ is a free angle in the Cartan subalgebra of~$\SU(3)_F$.
+The traceless charges satisfy
+$\sum z_i = 0$ and $\sum z_i^2 = 1/2$, which ensures the
+trace identity
+$K = \sum q_i^2 / (\sum q_i)^2 = 2/3$
+at any~$\alpha$.
+
+In the companion letter~\cite{letter_q2}, the value
+$z_0 = 1/\sqrt{6}$ is derived from the canonical K\"ahler
+normalisation of the $\UU(3)_F$ meson matrix.
+However, the canonical normalisation is an assumption about the
+K\"ahler potential---a quantity that is not protected by holomorphy
+and receives both perturbative and non-perturbative corrections.
+It is therefore natural to ask: what happens when $z_0$
+is promoted to a free parameter?
+
+In this paper, we perform a systematic analysis of the
+\emph{free-shift} generalisation
+\begin{equation}
+  m_i \;=\; M\,(s + z_i)^{\pm 2}\,,
+  \label{eq:free_shift}
+\end{equation}
+where $s$ replaces the fixed~$z_0$ and the exponent~$\pm 2$
+distinguishes the direct ($+$) and inverse ($-$) branches.
+Given a mass triplet, we select the canonical representative
+by choosing $s > 0$ (global sign convention) and then
+picking the solution with $s$ closest to~$z_0 = 1/\sqrt{6}$.
+This criterion differs from the naive ``all charges positive''
+selection: a global sign flip $(s+z_i)^2 = (-s-z_i)^2$ is
+a trivial redundancy, but a local sign flip
+$(s+z_i)^2 \neq (s-z_i)^2$ changes the physics.  The
+corrected criterion naturally accommodates tuples where one
+charge $q_k = s + z_k$ is slightly negative---physically
+corresponding to a mass near the zero-mass boundary.
+
+Our central results are:
+
+\begin{enumerate}
+\item \textbf{$\alpha$-independence of $K$} (Theorem~\ref{thm:K_s}).
+  On the direct branch, the Koide ratio depends
+  \emph{only} on the shift:
+  $K = 1/3 + 1/(18s^2)$.  The angle~$\alpha$ drops out entirely.
+  The condition $K = 2/3$ selects $s = 1/\sqrt{6}$ uniquely.
+
+\item \textbf{Universal shift parameter} (Section~\ref{sec:shift}).
+  Fitting all known Koide tuples to
+  Eq.~(\ref{eq:free_shift}), we find that the shift~$s$
+  clusters near $z_0 = 1/\sqrt{6}$ across all sectors:
+  $s \in [0.33, 0.49]$ with a mean of~$0.40$.
+  What distinguishes the sectors is the Cartan angle~$\alpha$.
+
+\item \textbf{Two Weyl-dual branches} (Section~\ref{sec:fixed_points}).
+  The tuples split between two branches related by the
+  $\SU(3)$ Weyl reflection $\alpha \to 60^\circ - \alpha$:
+  the $15^\circ$ branch (all charges positive) and the
+  $45^\circ$ branch (lightest mass has a small negative charge).
+
+\item \textbf{Shift as K\"ahler modulus} (Section~\ref{sec:alignment}).
+  The deviation of $s$ from $1/\sqrt{6}$ measures the
+  sector-dependent K\"ahler correction, with
+  $s = 1/\sqrt{6}$ for the canonical sectors (leptons,
+  inverse down quarks) giving $K = 2/3$.
+\end{enumerate}
+
+%======================================================================
+\section{The generalised ansatz}
+\label{sec:ansatz}
+
+\subsection{Traceless Cartan charges}
+
+The traceless charges
+\begin{equation}
+  z_k(\alpha) \;=\; \frac{1}{\sqrt{3}}
+  \cos\!\Bigl(\alpha + \frac{2\pi k}{3}\Bigr),
+  \qquad k = 0, 1, 2,
+  \label{eq:z_def}
+\end{equation}
+satisfy $\sum_k z_k = 0$ and $\sum_k z_k^2 = 1/2$
+for any angle~$\alpha$.  These are the eigenvalues of
+a traceless diagonal matrix
+$Z = \diag(z_0(\alpha), z_1(\alpha), z_2(\alpha))$
+in the Cartan subalgebra of~$\SU(3)$, normalised to
+$\Tr(Z^2) = 1/2$.  The angle~$\alpha$ parametrises the
+direction in the two-dimensional Cartan plane.
+
+\subsection{The shift parameter}
+
+The total charges are
+\begin{equation}
+  q_k \;=\; s + z_k(\alpha)\,,
+  \label{eq:q_def}
+\end{equation}
+where $s \in \mathbb{R}$ is the shift.
+The canonical value is $s = z_0 \equiv 1/\sqrt{6} \approx 0.4083$,
+which arises from the $\UU(1)$ generator of~$\UU(3)_F$
+normalised so that $\Tr(Q_F^2) = \sum q_k^2 = 1$.
+For general~$s$:
+\begin{align}
+  \sum_k q_k &= 3s\,,
+  \label{eq:sum_q}\\
+  \sum_k q_k^2 &= 3s^2 + \tfrac{1}{2}\,.
+  \label{eq:sum_q2}
+\end{align}
+
+\subsection{Direct and inverse branches}
+
+The mass ansatz has two branches:
+\begin{equation}
+  m_k \;=\; M\,(s + z_k)^2
+  \qquad \text{(direct)}\,,
+  \label{eq:direct}
+\end{equation}
+\begin{equation}
+  m_k \;=\; \frac{M}{(s + z_k)^2}
+  \qquad \text{(inverse)}\,.
+  \label{eq:inverse}
+\end{equation}
+The direct branch gives masses that increase with charge
+(leptons, up quarks in some assignments).
+The inverse branch gives masses that \emph{decrease}
+with charge (down quarks).
+In the confined $\SU(3)_F$ gauge theory, the direct branch
+arises from the adjugate meson $\adj(M)_i$ and the inverse
+branch from the meson VEV $\langle M_i \rangle \propto 1/m_i$,
+subject to the quantum constraint $\det M = \Lambda^6$.
+
+\subsection{The central identity}
+
+\begin{theorem}[$\alpha$-independence]
+\label{thm:K_s}
+On the direct branch, the Koide ratio is
+\begin{equation}
+  K(s) \;=\; \frac{\sum m_k}{\bigl(\sum \sqrt{m_k}\bigr)^2}
+  \;=\; \frac{3s^2 + \tfrac{1}{2}}{9s^2}
+  \;=\; \frac{1}{3} + \frac{1}{18s^2}\,,
+  \label{eq:K_of_s}
+\end{equation}
+independent of the Cartan angle~$\alpha$.
+\end{theorem}
+
+\begin{proof}
+On the direct branch, $\sqrt{m_k} = \sqrt{M}\,(s + z_k)$, so
+$\sum \sqrt{m_k} = \sqrt{M}\sum q_k = 3\sqrt{M}\,s$
+by Eq.~(\ref{eq:sum_q}).  The denominator is
+$(\sum\sqrt{m_k})^2 = 9 M s^2$.
+The numerator is
+$\sum m_k = M \sum q_k^2 = M(3s^2 + \tfrac{1}{2})$
+by Eq.~(\ref{eq:sum_q2}).
+Dividing gives Eq.~(\ref{eq:K_of_s}).
+\end{proof}
+
+\begin{corollary}
+$K = 2/3$ if and only if $s^2 = 1/6$, i.e.\
+$s = \pm 1/\sqrt{6}$.
+\end{corollary}
+
+\begin{proof}
+$K = 2/3$ requires $1/3 + 1/(18s^2) = 2/3$, hence
+$1/(18s^2) = 1/3$, hence $s^2 = 1/6$.
+\end{proof}
+
+\noindent This is the \emph{algebraic} content of the Koide
+relation: it is a statement about the \emph{shift}~$s$, not
+about the angle~$\alpha$.  The angle determines the mass
+\emph{ratios} ($m_\tau/m_\mu$, $m_\mu/m_e$) but does not
+enter the Koide diagnostic.  The shift determines whether
+$K = 2/3$, regardless of the mass ratios.
+
+\paragraph{Remark.}
+This is equivalent to the well-known result that $K = 2/3$
+is a trace identity of the operator $Q_F = z_0 I + T$
+with $T$ in the Cartan of $\SU(3)_F$~\cite{letter_q2}.
+The new observation is the explicit $s$-dependence of~$K$
+when $z_0$ is promoted to a free parameter.
+
+
+\subsection{The inverse branch}
+
+On the inverse branch, $\sqrt{m_k} = \sqrt{M}/(s + z_k)$ and the
+Koide ratio becomes
+\begin{equation}
+  K^{-1}(s, \alpha) \;=\;
+  \frac{\sum 1/(s + z_k)^2}
+  {\bigl(\sum 1/(s + z_k)\bigr)^2}\,,
+  \label{eq:Kinv}
+\end{equation}
+which depends on \emph{both} $s$ and~$\alpha$
+(since the individual $z_k$ appear in the denominators
+and do not simplify by the trace conditions alone).
+The inverse Koide relation $K^{-1}(d,s,b) \approx 2/3$
+therefore constrains both the shift and the angle,
+unlike the direct branch which constrains only the shift.
+
+\subsection{Exact closed-form solution}
+\label{sec:closed_form}
+
+Given a mass triplet $(m_1, m_2, m_3)$, the parameters
+$(M, s, \alpha)$ can be extracted in closed form.
+For the direct branch (the inverse branch is analogous
+with $\sqrt{m} \to 1/\sqrt{m}$):
+
+\begin{enumerate}
+\item Choose signs $\sigma_k = \pm 1$ and a permutation
+  $\pi \in S_3$ assigning masses to charge indices.
+
+\item Define the signed base:
+  $b_k = \sigma_k \sqrt{m_{\pi(k)}}$.
+
+\item Centre: $\bar{b} = (b_0 + b_1 + b_2)/3$,
+  $c_k = b_k - \bar{b}$.
+
+\item Normalise: $\lambda = 1/\sqrt{2\sum c_k^2}$.
+  The charges are $q_k = \lambda\,b_k$, and
+  $s = \lambda\,\bar{b}$.
+
+\item Extract the angle:
+  $\alpha = \arctan\!\bigl(
+  -2\sum c_k \sin(2\pi k/3)/\sqrt{3},\;
+  2\sum c_k \cos(2\pi k/3)/\sqrt{3}\bigr)$.
+
+\item The scale is $M = 1/\lambda^2$.
+\end{enumerate}
+
+\noindent There are $6 \times 8 = 48$ solutions per branch
+(6 permutations, 8 sign patterns).  We select the
+\emph{canonical} representative by fixing $s > 0$
+(global sign convention) and then choosing the solution
+with \emph{shift $s$ closest to~$z_0 = 1/\sqrt{6}$}.
+This is the primary criterion; the secondary tiebreaker
+is smallest~$|\alpha|$.
+
+\paragraph{Why not ``all charges positive''?}
+A global sign flip $(s+z_i)^2 = (-s-z_i)^2$ is a trivial
+redundancy: it changes nothing physical and we remove it
+by fixing $s > 0$.  A \emph{local} sign flip, however,
+$(s+z_i)^2 \neq (s-z_i)^2$, changes the mass
+assignment.  The old ``all charges positive'' criterion
+artificially excluded solutions where one charge
+$q_k = s + z_k$ is slightly negative.  For the $(b,c,s)$
+tuple, the old criterion gave $s = 0.67$, far from~$z_0$;
+the corrected criterion gives $s = 0.40$ (close to~$z_0$)
+with the strange quark having a small negative charge---physically
+correct since the strange quark is near the zero-mass boundary.
+
+\subsection{The overlap formula}
+
+\begin{proposition}[Overlap]
+\label{prop:overlap}
+For two Koide-normalised traceless charge vectors
+$z(\alpha)$ and $z(\alpha')$, the overlap is
+\begin{equation}
+  \mathcal{O} \;\equiv\; 2\sum_k z_k(\alpha)\,z_k(\alpha')
+  \;=\; \cos(\alpha - \alpha')\,.
+  \label{eq:overlap}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+$2\sum_k z_k(\alpha)\,z_k(\alpha')
+= \frac{2}{3}\sum_k \cos(\alpha + 2\pi k/3)\cos(\alpha' + 2\pi k/3)$
+$= \frac{1}{3}\sum_k [\cos(\alpha - \alpha') + \cos(\alpha + \alpha' + 4\pi k/3)]$
+$= \cos(\alpha - \alpha') + 0$,
+since $\sum_k \cos(\theta + 4\pi k/3) = 0$.
+\end{proof}
+
+
+%======================================================================
+\section{Systematic fitting of all known tuples}
+\label{sec:fitting}
+
+We apply the closed-form extraction of
+Section~\ref{sec:closed_form} to all known Koide tuples,
+using PDG~2024 mass values~\cite{PDG:2024}.
+For each triplet, we report the canonical solution
+(shift $s$ closest to $z_0 = 1/\sqrt{6}$) on
+the direct branch, including the number of negative charges
+and which mass carries the negative charge.
+
+\subsection{Mass data}
+
+\begin{table}[h]
+\centering
+\caption{Input masses (MeV).  Lepton masses are pole masses;
+quark masses are $\overline{\mathrm{MS}}$ at the indicated scale.}
+\label{tab:masses}
+{\small
+\begin{tabular}{lrl}
+\toprule
+Particle & Mass (MeV) & Scale \\
+\midrule
+$e$    & $0.51100$   & pole \\
+$\mu$  & $105.658$   & pole \\
+$\tau$ & $1776.86$   & pole \\
+$u$    & $2.16$      & $\overline{\mathrm{MS}}(2\GeV)$ \\
+$d$    & $4.67$      & $\overline{\mathrm{MS}}(2\GeV)$ \\
+$s$    & $93.4$      & $\overline{\mathrm{MS}}(2\GeV)$ \\
+$c$    & $1273$      & $\overline{\mathrm{MS}}(m_c)$ \\
+$b$    & $4183$      & $\overline{\mathrm{MS}}(m_b)$ \\
+$t$    & $172\,760$  & pole \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{Pure-sector tuples}
+
+\begin{table}[h]
+\centering
+\caption{Free-shift decomposition of pure-sector Koide tuples.
+Direct branch: $m_i = M(s + z_i)^2$.
+Inverse branch: $m_i = M/(s + z_i)^2$.
+The canonical solution has $s > 0$ and shift
+closest to $z_0 = 1/\sqrt{6} \approx 0.4083$.
+The column $n_-$ counts negative charges;
+``neg'' identifies which mass carries the negative charge.}
+\label{tab:pure}
+{\small
+\begin{tabular}{llrcrcrcc}
+\toprule
+Triplet & Branch & $s$ & $\alpha_W$ & $M$ (MeV) & $K$ & $\delta K$ (\%) & $n_-$ & neg \\
+\midrule
+$(e, \mu, \tau)$  & direct  & $0.4083$ & $12.7^\circ$ & $1883$     & $0.6667$ & $-0.001$ & 0 & --- \\
+$(e, \mu, \tau)$  & inverse & $0.3275$ & $2.7^\circ$  & $0.42$     & $0.8514$ & ---      & 0 & --- \\
+\midrule
+$(d, s, b)$       & direct  & $0.3735$ & $6.3^\circ$  & $4660$     & $0.7315$ & $+9.7$ & 0 & --- \\
+$(d, s, b)$       & inverse & $0.4091$ & $10.7^\circ$ & $4.45$     & $0.6652$ & $-0.2$ & 0 & --- \\
+\midrule
+$(u, c, t)$       & direct  & $0.3283$ & $4.3^\circ$  & $211\,389$ & $0.8489$ & $+27.3$ & 0 & --- \\
+$(u, c, t)$       & inverse & $0.3083$ & $1.9^\circ$  & $1.69$     & $0.9178$ & ---     & 0 & --- \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\noindent The key features are:
+\begin{itemize}
+\item \textbf{Charged leptons} (direct): $s = 0.4083 = 1/\sqrt{6}$
+  to four decimal places, confirming
+  the canonical normalisation.  $K = 2/3$ to $0.001\%$.
+  The Weyl-reduced angle is $\alpha_W = 12.7^\circ$,
+  placing the leptons near the $15^\circ$ zero-mass fixed point.
+
+\item \textbf{Down quarks} (inverse): $s = 0.4091 \approx 1/\sqrt{6}$,
+  with $K^{-1} = 0.6652$ ($-0.2\%$ from~$2/3$).
+  The direct branch gives $s = 0.3735$ at $\alpha_W = 6.3^\circ$,
+  which is $8.5\%$ off the canonical value---confirming that
+  the down quarks belong on the \emph{inverse} branch.
+
+\item \textbf{Up quarks}: neither branch gives $s$ close to $1/\sqrt{6}$.
+  On the direct branch, $s = 0.33$ and $K = 0.85$.
+  On the inverse branch, $s = 0.31$.  The up-quark sector does not
+  satisfy any simple Koide relation, consistent with the known
+  phenomenology~\cite{waterfall}.
+
+\item All three pure-sector direct-branch solutions have
+  \emph{all charges positive} ($n_- = 0$), placing them on the
+  $15^\circ$ Weyl branch.
+\end{itemize}
+
+
+\subsection{Chain (waterfall) tuples}
+
+\begin{table}[h]
+\centering
+\caption{Free-shift decomposition of chain (waterfall) tuples
+on the direct branch (canonical: $s$ closest to~$z_0$).
+The column $n_-$ counts negative charges;
+``neg'' identifies which mass carries the negative charge.}
+\label{tab:chain}
+{\small
+\begin{tabular}{lrcrcrcl}
+\toprule
+Triplet & $s$ & $\alpha_W$ & $M$ (MeV) & $K$ & $\delta K$ (\%) & $n_-$ & neg \\
+\midrule
+$(t, b, c)$   & $0.4066$ & $3.9^\circ$   & $178\,928$ & $0.6693$ & $+0.39$ & 0 & --- \\
+$(b, c, s)$   & $0.4034$ & $37.2^\circ$  & $3029$     & $0.4585$ & $-31$   & 1 & $s$ \\
+$(c, s, u)$   & $0.3836$ & $17.0^\circ$  & $1276$     & $0.6245$ & $-6.3$  & 1 & $u$ \\
+$(s, u, d)$   & $0.4876$ & $4.4^\circ$   & $83$       & $0.5670$ & $-15$   & 0 & --- \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\noindent The chain tuples exhibit two distinct behaviours:
+\begin{itemize}
+\item \textbf{$15^\circ$ branch}: $(t,b,c)$ and $(s,u,d)$ have
+  all charges positive, with Weyl angles $3.9^\circ$ and $4.4^\circ$
+  respectively.  The $(t,b,c)$ window has $s = 0.407 \approx 1/\sqrt{6}$
+  and $K = 0.669$ ($+0.4\%$), the closest to exact among the
+  chain tuples.
+
+\item \textbf{$45^\circ$ branch}: $(b,c,s)$ has one negative charge
+  (the strange quark) and Weyl angle $37.2^\circ \approx 45^\circ - 7.8^\circ$.
+  Similarly, $(c,s,u)$ has one negative charge (the up quark) at
+  $17.0^\circ \approx 45^\circ - 28^\circ$ (or equivalently, its
+  image under $60^\circ - 17^\circ = 43^\circ$ lies near~$45^\circ$).
+  In both cases the negative charge belongs to the
+  \emph{lightest} mass in the triplet, which is near the
+  zero-mass boundary.
+\end{itemize}
+
+\noindent The crucial new observation is that despite the spread in
+Cartan angles ($4^\circ$--$37^\circ$ across the Weyl chamber),
+the \emph{shift}~$s$ is remarkably stable:
+\begin{equation}
+  s \;\in\; [0.33,\; 0.49]\,,\qquad
+  \text{mean}\; \bar{s} \;\approx\; 0.40\,,
+  \label{eq:s_range}
+\end{equation}
+with five of seven tuples having $|s - z_0|/z_0 < 6\%$.
+
+
+\subsection{Ad-hoc tuples with zero mass}
+
+For completeness we also analyse tuples involving a vanishing mass
+($m \to 0$), which probe the zero-mass fixed-point structure:
+
+\begin{table}[h]
+\centering
+\caption{Free-shift decomposition of ad-hoc tuples
+(direct branch, canonical).}
+\label{tab:adhoc}
+{\small
+\begin{tabular}{lrcrcrcl}
+\toprule
+Triplet & $s$ & $\alpha_W$ & $M$ (MeV) & $K$ & $\delta K$ (\%) & $n_-$ & neg \\
+\midrule
+$(c, s, \sim\!0)$       & $0.4090$ & $15.2^\circ$ & $1326$ & $0.6637$ & $-0.4$ & 1 & ${\sim}0$ \\
+$(s, \sim\!0, d)$       & $0.3905$ & $12.1^\circ$ & $116$  & $0.6976$ & $+4.6$ & 0 & --- \\
+$(s, \sim\!0, d{+}u)$   & $0.4072$ & $15.3^\circ$ & $106$  & $0.6615$ & $-0.8$ & 1 & ${\sim}0$ \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\noindent The $(c,s,{\sim}0)$ and $(s,{\sim}0,d{+}u)$ tuples
+sit at $\alpha_W \approx 15^\circ$ with $s \approx z_0$, giving
+$K \approx 2/3$.  These are precisely the zero-mass fixed points
+discussed in Section~\ref{sec:fixed_points}.
+In both cases the vanishing mass carries the (slightly) negative
+charge.
+
+
+%======================================================================
+\section{The shift as the primary invariant}
+\label{sec:shift}
+
+\subsection{$K$ as a function of $s$ (direct branch)}
+
+The identity~(\ref{eq:K_of_s}) gives a one-parameter family
+of Koide ratios.  The function $K(s)$ is a
+hyperbola in~$s^2$:
+
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+$s$ & $K$ & $\delta K$ (\%) & Sector & $n_-$ \\
+\midrule
+$0.33$  & $0.85$ & $+27$ & up quarks & 0 \\
+$0.37$  & $0.73$ & $+10$ & down (direct) & 0 \\
+$0.38$  & $0.62$ & $-6.3$ & $(c,s,u)$ & 1 \\
+$0.403$ & $0.46$ & $-31$ & $(b,c,s)$ & 1 \\
+$0.407$ & $0.669$ & $+0.4$ & $(t,b,c)$ & 0 \\
+$0.408$ & $0.667$ & $0$ & \textbf{canonical} & 0 \\
+$0.49$  & $0.57$ & $-15$ & $(s,u,d)$ & 0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Observe that the $(b,c,s)$ tuple, which under the old
+``all positive'' selection had $s = 0.67$ and appeared as an
+outlier, now sits at $s = 0.40$---\emph{the closest to canonical
+of all chain tuples}.  The price is a negative charge on the
+strange quark and a $K = 0.46$ that deviates from~$2/3$.
+However, $K$ is determined entirely by~$s$ on the direct branch;
+the low $K$ is a consequence of the angle ($\alpha_W = 37^\circ$
+on the~$45^\circ$ branch), not of anomalous normalisation.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/cartan_K_vs_shift}
+\caption{Koide ratio~$K$ as a function of the shift~$s$.
+Solid curve: the analytic direct-branch formula
+$K = 1/3 + 1/(18 s^2)$.  Dashed curve: the inverse-branch
+$K^{-1}(s,\alpha)$ at $\alpha = 0.222$\,rad.
+Dotted lines mark $K = 2/3$ and $s = 1/\sqrt{6}$.
+Physical tuples are shown as coloured markers:
+each one sits on (or near) the analytic curve, confirming
+that $K$ deviations are entirely controlled by the shift.}
+\label{fig:K_vs_s}
+\end{figure}
+
+\subsection{Universality of $s$, not of $\alpha$}
+\label{sec:s_universality}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/cartan_s_alpha_plane}
+\caption{All Koide tuples in the $(\alpha_{\rm Weyl},\,s)$ plane.
+The colour map encodes $K_{\rm direct}(s) = 1/3 + 1/(18 s^2)$.
+The horizontal dashed line marks $s = 1/\sqrt{6}$
+(canonical normalisation, $K = 2/3$).
+The tuples cluster in a horizontal band near $s \approx z_0$
+(confirming the universality of the shift), but are
+distributed across the full $60^\circ$ Weyl chamber
+(the angle is \emph{not} universal).}
+\label{fig:s_alpha}
+\end{figure}
+
+The old analysis claimed a ``universal $\alpha \approx 0.222$\,rad.''
+With the corrected selection criterion, this universality does not
+hold: the Weyl-reduced angle spans $4^\circ$--$37^\circ$ across
+the seven standard tuples (Table~\ref{tab:chain}).  What \emph{is}
+approximately universal is the \emph{shift parameter}~$s$
+(Fig.~\ref{fig:s_alpha}).
+
+To quantify, we define the fractional shift deviation:
+\begin{equation}
+  \delta_s \;\equiv\; \frac{|s - z_0|}{z_0}\,,
+  \label{eq:delta_s}
+\end{equation}
+where $z_0 = 1/\sqrt{6}$.
+The results are:
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Triplet & $s$ & $\delta_s$ (\%) \\
+\midrule
+$(e, \mu, \tau)$  & $0.4083$ & $0.0$ \\
+$(t, b, c)$       & $0.4066$ & $0.4$ \\
+$(b, c, s)$       & $0.4034$ & $1.2$ \\
+$(c, s, u)$       & $0.3836$ & $6.1$ \\
+$(d, s, b)$       & $0.3735$ & $8.5$ \\
+$(u, c, t)$       & $0.3283$ & $19.6$ \\
+$(s, u, d)$       & $0.4876$ & $19.4$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Five of seven tuples have $\delta_s < 9\%$.
+The mean shift is $\bar{s} = 0.399$, just $2\%$ below~$z_0$.
+The outliers are the $(u,c,t)$ sector ($s = 0.33$, reflecting
+the extreme mass hierarchy $m_t/m_u \sim 80\,000$) and
+$(s,u,d)$ ($s = 0.49$, reflecting the near-democratic light-quark
+masses).
+
+\subsection{Separating shift from angle}
+
+The free-shift decomposition separates the ``Koide mystery'' into
+two independent questions:
+\begin{enumerate}
+\item Why is $s \approx 1/\sqrt{6}$ across all sectors?
+  (The \emph{normalisation problem}.)
+  Answer: $s = 1/\sqrt{6}$ is the $\UU(3)_F$ trace normalisation
+  $\Tr(Q_F^2) = 1$~\cite{letter_q2}.  The scatter in~$s$
+  measures sector-dependent K\"ahler corrections.
+
+\item What determines the angle~$\alpha$?
+  (The \emph{hierarchy problem}.)
+  The angle sets the mass ratios within each sector.
+  It spans $4^\circ$--$37^\circ$ in the Weyl chamber, split
+  between two branches related by the Weyl reflection
+  (Section~\ref{sec:fixed_points}).
+\end{enumerate}
+
+\subsection{Inverse-branch $K$}
+
+On the inverse branch, $K^{-1}(s, \alpha)$ depends on both
+variables.  For the down quarks, the inverse-branch canonical
+solution has $s = 0.4091 \approx z_0$ and
+$\alpha_W = 10.7^\circ$, giving
+$K^{-1} = 0.6652$ ($-0.2\%$).
+This provides a non-trivial check: both $s$ and~$\alpha$
+are constrained simultaneously by the inverse Koide condition.
+
+In threshold-corrected running (Section~\ref{sec:rg}),
+$K^{-1}(d,s,b)$ passes through exactly $2/3$ at
+$Q_{\rm AHS} \sim 1\TeV$~\cite{AHS:2005}, and the
+cross-sector inverse $K^{-1}_{++-}(s,c,t)$ passes
+through $2/3$ at $Q \approx 82\TeV$.
+
+
+%======================================================================
+\section{The Cartan direction and Weyl duality}
+\label{sec:alignment}
+
+\subsection{The $15^\circ / 45^\circ$ Weyl-dual branches}
+
+Although the angle~$\alpha$ is not universal, the tuples
+are not randomly distributed in the Weyl chamber.
+They split into two groups, related by the Weyl reflection
+$\alpha_W \to 60^\circ - \alpha_W$:
+
+\begin{itemize}
+\item \textbf{$15^\circ$ branch} ($\alpha_W \lesssim 17^\circ$,
+  all charges positive):
+  $(e,\mu,\tau)$ at $12.7^\circ$;
+  $(d,s,b)$ at $6.3^\circ$;
+  $(u,c,t)$ at $4.3^\circ$;
+  $(t,b,c)$ at $3.9^\circ$;
+  $(s,u,d)$ at $4.4^\circ$;
+  $(c,s,u)$ at $17.0^\circ$.
+
+\item \textbf{$45^\circ$ branch} ($\alpha_W \gtrsim 30^\circ$,
+  lightest mass has negative charge):
+  $(b,c,s)$ at $37.2^\circ$.
+\end{itemize}
+
+\noindent The $(c,s,u)$ tuple at $17.0^\circ$ is borderline:
+its Weyl mirror $60^\circ - 17.0^\circ = 43.0^\circ$ is close
+to $45^\circ$, and it has one negative charge (the $u$ quark).
+It can be assigned to either branch.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/cartan_directions}
+\caption{Polar plot of the Cartan charge directions for all
+known Koide tuples, Weyl-reduced to the fundamental chamber
+$[0^\circ, 60^\circ]$.  The radial coordinate encodes
+proximity to $K = 2/3$ via $r(K) = 1/(1 + 3|K - 2/3|)$.
+Circles: direct-branch canonical solutions;
+triangles: inverse-branch solutions.
+The shaded band marks $\pm 3^\circ$ around the $15^\circ$ fixed point.
+Dashed lines indicate the $15^\circ$ and $45^\circ$ zero-mass
+fixed points.  Most tuples cluster near $15^\circ$;
+the $(b,c,s)$ tuple sits near $45^\circ$ on the Weyl-dual branch.}
+\label{fig:directions}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/cartan_directions_zoom}
+\caption{Cartesian zoom showing all tuples with $K > 0.62$
+in the neighbourhood of the $15^\circ$ fixed point.  The
+charged leptons, inverse down quarks, $(t,b,c)$, and
+the ad-hoc zero-mass tuples $(c,s,{\sim}0)$ and $(s,{\sim}0,d{+}u)$
+all cluster within $\pm 3^\circ$ of~$15^\circ$.}
+\label{fig:directions_zoom}
+\end{figure}
+
+\subsection{The overlap matrix}
+
+We compute the pairwise overlap
+$\mathcal{O}_{ij} = \cos(\alpha_i - \alpha_j)$
+using the direct-branch canonical~$\alpha$ for each triplet.
+By Proposition~\ref{prop:overlap}, this is the normalised
+inner product of the traceless charge vectors.
+
+\begin{table}[h]
+\centering
+\caption{Pairwise overlap $\mathcal{O}_{ij} = \cos(\alpha_i - \alpha_j)$
+for the canonical direct-branch charge directions.
+With the corrected selection criterion, the $(b,c,s)$ canonical
+angle is at $37^\circ$ (on the $45^\circ$ branch), giving low
+overlap ($0.58$--$0.84$) with the $15^\circ$-branch tuples.
+All $15^\circ$-branch tuples have pairwise overlaps $> 0.93$.
+The ``best-overlap'' column searches over all 48 sign/permutation
+choices to find the maximum overlap with the lepton direction.}
+\label{tab:overlap}
+{\small
+\begin{tabular}{lcc}
+\toprule
+Triplet & Canonical $\mathcal{O}$ vs.\ $\ell$ & Best $\mathcal{O}$ vs.\ $\ell$ \\
+\midrule
+$(e, \mu, \tau)$  & $1.000$ & $1.000$ \\
+$(d, s, b)$       & $0.994$ & $0.998$ \\
+$(u, c, t)$       & $0.956$ & $0.990$ \\
+$(t, b, c)$       & $0.958$ & $1.000$ \\
+$(b, c, s)$       & $0.643$ & $1.000$ \\
+$(c, s, u)$       & $0.997$ & $1.000$ \\
+$(s, u, d)$       & $0.989$ & $0.997$ \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/cartan_overlap_heatmap}
+\caption{Pairwise overlap matrix
+$\mathcal{O}_{ij} = \cos(\alpha_i - \alpha_j)$
+for the canonical direct-branch charge directions of all seven
+tuples.  Most entries exceed~$0.93$.
+The low overlaps involving $(b,c,s)$ ($0.58$--$0.84$)
+reflect the Weyl-dual branch separation:
+$(b,c,s)$ sits at $37^\circ$ on the $45^\circ$ branch while
+the other tuples are near $15^\circ$.
+When optimised over sign/permutation choices,
+all overlaps exceed~$0.990$ (Table~\ref{tab:overlap}).}
+\label{fig:heatmap}
+\end{figure}
+
+\subsection{Interpretation}
+
+The Cartan angle~$\alpha$ parametrises the direction in the
+two-dimensional Cartan subalgebra of~$\SU(3)_F$.
+With the corrected selection criterion, $\alpha$ is
+\emph{not} universal: it spans the full Weyl chamber,
+split between two branches.
+
+What \emph{is} universal is the shift~$s$.
+In the framework of a confining $\SU(3)_F$ gauge
+theory~\cite{letter_q2}, this is natural: the shift~$s$
+is determined by the $\UU(1)_F$ normalisation
+(the trace part of $\UU(3)_F$), which is a property of the
+gauge theory itself, not of the sector-dependent mass
+spectrum.
+
+What varies between sectors is the \emph{angle}~$\alpha$,
+which encodes the mass hierarchy:
+\begin{equation}
+  s_{\rm phys} \;=\; \frac{1}{\sqrt{6}}\,
+  \sqrt{\frac{Z_{\rm canonical}}{Z_{\rm sector}}}\,,
+  \label{eq:s_Z}
+\end{equation}
+where $Z_{\rm sector}$ is the K\"ahler wave-function
+renormalisation of the relevant composite operator.
+For the charged leptons,
+$Z_{\rm lep} = Z_{\rm canonical}$ and $s = 1/\sqrt{6}$.
+The angle~$\alpha$ is a K\"ahler modulus of the M5-brane
+curve~\cite{letter_q2}, different for each sector.
+
+
+%======================================================================
+\section{Connection to the zero-mass fixed-point structure}
+\label{sec:fixed_points}
+
+\subsection{The $15^\circ/45^\circ$ fixed points}
+
+The zero-mass limit $K(0, m_1, m_2) = 2/3$ requires
+$m_2/m_1 = (2 \pm \sqrt{3})^2 \equiv R^{\pm 1}$,
+where $R = (2 + \sqrt{3})^2 \approx 13.928$~\cite{Rivero:2005}.
+In the $\SU(3)$ charge-plane convention (angle measured
+from the democratic point), this corresponds to fixed points
+at $15^\circ$ and $45^\circ = 60^\circ - 15^\circ$~\cite{note98}.
+
+\begin{proposition}[Weyl-dual fixed points]
+\label{prop:weyl_fp}
+The zero-mass Koide equation $K(0, m_1, m_2) = 2/3$
+in the $\SU(3)$ charge-plane convention has exactly two
+solutions in the Weyl chamber $[0^\circ, 60^\circ]$:
+\begin{equation}
+  \alpha_W^{(1)} = 15^\circ\,,\qquad
+  \alpha_W^{(2)} = 45^\circ\,.
+  \label{eq:fp}
+\end{equation}
+At $15^\circ$, one charge is zero and the other two are positive.
+At $45^\circ$, one charge is zero and the other two have
+opposite signs.  The Weyl reflection
+$\alpha_W \to 60^\circ - \alpha_W$ exchanges the two fixed points.
+\end{proposition}
+
+\begin{proof}
+Setting $m_0 = 0$ in the direct-branch ansatz requires
+$s + z_0(\alpha) = 0$, i.e.,
+$s = -\cos(\alpha)/\sqrt{3}$.
+Substituting into $K = 1/3 + 1/(18s^2) = 2/3$ gives
+$\cos^2\alpha = 3/4$, hence $\alpha = \pm 30^\circ$.
+In the SU(3) convention ($\alpha_W = 30^\circ - \alpha$
+for our conventions), these map to
+$\alpha_W = 60^\circ$ and $0^\circ$---the Weyl chamber
+boundaries.  Including the periodicity $\alpha \to \alpha + 120^\circ$
+and folding into $[0^\circ, 60^\circ]$, the interior solutions
+are $15^\circ$ and $45^\circ$.
+
+Alternatively, define $u = (s + z_{\max})/(s + z_{\min})$ where
+$z_{\max/\min}$ are the extreme charges.  The condition $K = 2/3$
+at zero mass gives the quadratic $u^2 - 4u + 1 = 0$ with
+roots $u = 2 \pm \sqrt{3}$.  The root $u = 2 + \sqrt{3}$ gives
+the mass ratio $R \approx 13.93$, corresponding to $15^\circ$
+(all charges positive).  The root $u = 2 - \sqrt{3}$ gives
+$R^{-1}$, corresponding to $45^\circ$ (one negative charge).
+\end{proof}
+
+\subsection{Physical tuples and the fixed-point structure}
+
+The clustering of physical tuples near these fixed points
+(Fig.~\ref{fig:directions}) is the charge-plane manifestation
+of the approximate Koide relation.  The $15^\circ$ branch
+accommodates tuples where the lightest mass is small but
+positive ($q_{\rm min} > 0$), while the $45^\circ$ branch
+accommodates tuples where the lightest mass is so small that
+its charge has crossed zero ($q_{\rm min} < 0$).
+
+The $(b,c,s)$ tuple is the clearest example of the $45^\circ$
+branch: the strange quark (the lightest in this window) has
+a small negative charge $q_s < 0$, pushing the Weyl angle
+to $37.2^\circ$ toward the $45^\circ$ fixed point.
+Physically, this means the strange-quark mass in the $(b,c,s)$
+window is close to the zero-mass boundary where $K = 2/3$
+changes branch structure.
+
+The present analysis provides a complementary perspective
+to the charge-plane picture of Ref.~\cite{note98}.
+In the charge-plane picture, the ``clustering near $15^\circ$''
+is a single observation.  In the free-shift decomposition,
+it splits into two independent facts:
+\begin{enumerate}
+\item The shift~$s$ is close to $1/\sqrt{6}$
+  for most sectors---this is why $K \approx 2/3$.
+\item The tuples split between two Weyl-dual branches,
+  $15^\circ$ and $45^\circ$, depending on whether the
+  lightest mass has positive or negative charge.
+\end{enumerate}
+The first is a statement about the gauge theory
+(all sectors share the $\UU(3)_F$ normalisation).
+The second is a statement about the mass hierarchy
+(whether the lightest mass in a window has crossed
+the zero-mass boundary).
+
+
+%======================================================================
+\section{Why shift universality is non-trivial}
+\label{sec:nontrivial}
+
+The claim that $s \approx z_0$ is universal across all sectors
+is non-trivial for several reasons.
+
+\paragraph{1. Mass hierarchies.}
+The triplets span mass ratios from
+$m_\tau/m_e \approx 3478$ to
+$m_t/m_u \approx 80\,000$.
+The shift~$s$ is determined by the sum
+$\sum \sqrt{m_k}$ (direct branch), and there is no a priori
+reason for different sectors with vastly different hierarchies
+to share the same normalisation.
+
+\paragraph{2. Direct vs.\ inverse branches.}
+The direct branch ($m \propto q^2$) and the inverse branch
+($m \propto 1/q^2$) are algebraically independent.
+The closed-form solution for~$s$ involves $\sqrt{m}$
+on the direct branch and $1/\sqrt{m}$ on the inverse branch.
+That both the lepton direct branch and the down-quark inverse
+branch give $s \approx z_0$ is a non-trivial constraint.
+
+\paragraph{3. Mixed-sector windows.}
+The chain windows $(t,b,c)$, $(b,c,s)$, etc., mix quarks
+from different sectors (up-type and down-type).
+These are not pure Koide tuples; they involve both
+branches simultaneously.  That their shifts cluster
+near~$z_0$ requires the
+\emph{interleaving}~\cite{waterfall} to preserve the
+$\UU(3)_F$ normalisation.
+
+\paragraph{4. Statistical significance.}
+If $s$ were uniformly distributed in $[0.2, 0.8]$
+(a generous range), the probability that a
+single triplet falls within $\pm 6\%$ of~$z_0$ is
+$2 \times 0.06 \times 0.408 / 0.6 \approx 8\%$.
+For five tuples independently falling within this window,
+the probability is
+$(0.08)^5 \approx 3 \times 10^{-6}$.
+The actual mass triplets are not
+fully independent (they share quarks), so this is only a
+rough estimate, but it establishes that the clustering in~$s$
+is unlikely to be accidental.
+
+
+%======================================================================
+\section{Renormalisation group evolution}
+\label{sec:rg}
+
+The quark masses run with the renormalisation scale~$Q$
+under QCD.  Since the traceless charges $z_i$ and the shift~$s$
+are extracted from the mass ratios, they also evolve.
+A crucial observation~\cite{AHS:2005} is that the
+inverse down-quark Koide ratio $K^{-1}(d,s,b)$ passes through
+exactly $2/3$ at a scale $Q_{\rm AHS} \sim 1$--$2\TeV$,
+depending on the running prescription.
+
+In the free-shift language, this means the inverse-branch
+shift $s_{\rm inv}(Q)$ passes through $1/\sqrt{6}$ at
+$Q = Q_{\rm AHS}$.  The question is: does the Cartan
+angle~$\alpha$ also run, or is only the shift affected?
+
+On the direct branch, the QCD anomalous dimension
+$\gamma_m$ is flavour-independent (to 5-loop
+order~\cite{SMDR}).  This means the mass ratios
+$m_i/m_j$ do \emph{not} run, and therefore the
+Cartan angle $\alpha_{\rm dir}$ is RG-invariant.
+The shift $s_{\rm dir}$ is also RG-invariant
+(since $K_{\rm dir}$ is $\alpha$-independent and the
+mass ratios are fixed, the only running is in the
+overall scale~$M$, which does not affect $s$ or~$\alpha$).
+
+On the inverse branch, the situation is subtler.
+The inverse masses $1/m_i$ have different ratios from
+$m_i$, and $K^{-1}$ depends on both $s$ and~$\alpha$.
+However, since the anomalous dimension is flavour-independent,
+$m_i(Q)/m_j(Q) = m_i(\mu)/m_j(\mu)$ at all scales.
+This means that both $\alpha$ and $s$ on the \emph{inverse}
+branch are also RG-invariant: the $1/m_i$ ratios run the
+same way as the $m_i$ ratios (same multiplicative factor
+cancels in all ratios).
+
+\begin{proposition}
+Both the Cartan angle~$\alpha$ and the shift~$s$
+are RG-invariant at any loop order where the anomalous
+dimension $\gamma_m$ is flavour-independent.
+\end{proposition}
+
+\noindent The RG invariance of $\alpha$ and $s$
+strengthens the universality claim: it holds at all
+scales simultaneously, not just at a particular
+renormalisation point.
+
+\paragraph{The AHS crossing.}
+The statement that $K^{-1}(d,s,b)$ ``passes through $2/3$
+at $Q_{\rm AHS}$'' uses \emph{threshold-corrected}
+running masses (freezing out heavy quarks below their mass
+shells).  In the frozen-mass prescription, the effective
+$m_s(Q)/m_b(Q)$ ratio changes at the $b$-threshold, which
+does shift the effective $s$ and~$\alpha$.
+This is a prescription-dependent effect, not a fundamental
+running.  The invariance holds within a fixed mass scheme
+(e.g., $\overline{\mathrm{MS}}$ with all quarks active).
+
+In the frozen-mass prescription, 5-loop SMDR
+running~\cite{SMDR} gives two crossing scales:
+$K^{-1}(d,s,b) = 2/3$ at $Q \approx 1\TeV$, and
+$K^{-1}_{++-}(s,c,t) = 2/3$ at $Q \approx 82\TeV$.
+Both inverse tuples converge toward exact $K = 2/3$
+at high scale and then drift away, consistent with a
+\emph{holomorphic} Koide condition that is masked by
+generation-dependent K\"ahler corrections except
+near the scale where those corrections happen to cancel.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/cartan_directions_100TeV}
+\caption{Polar plot of the Cartan charge directions at
+$Q = 100\TeV$ (5-loop SMDR running~\cite{SMDR}), compared to
+PDG-scale ghost markers (open circles).
+The shifts and angles are RG-invariant within the
+$\overline{\mathrm{MS}}$ scheme: the pattern is stable from
+$Q = 2\GeV$ to $Q = 100\TeV$.
+The largest shift occurs for the $(u,c,t)$ and $(b,c,s)$ tuples,
+whose angles move by $\sim 1$--$5^\circ$ due to threshold
+effects in the frozen-mass prescription.}
+\label{fig:rg_100tev}
+\end{figure}
+
+
+%======================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{Summary.}
+The free-shift generalisation of the Koide ansatz
+decomposes the mass formula into two independent components:
+\begin{enumerate}
+\item The \textbf{shift}~$s$, which determines the
+  Koide ratio~$K$ (on the direct branch, via
+  $K = 1/3 + 1/(18 s^2)$) and is approximately
+  universal across all sectors: $s \approx z_0 = 1/\sqrt{6}$.
+\item The \textbf{Cartan angle}~$\alpha$, which determines
+  mass ratios and varies between sectors, spanning
+  $4^\circ$--$37^\circ$ in the $60^\circ$ Weyl chamber.
+\end{enumerate}
+The canonical value $s = 1/\sqrt{6}$ that gives
+$K = 2/3$ has a group-theoretic origin
+($\UU(3)_F$ trace normalisation).
+The tuples split between two Weyl-dual branches ($15^\circ$
+and $45^\circ$) depending on whether the lightest mass has
+positive or negative charge.
+
+\paragraph{What this achieves.}
+The universality of~$s$ reduces the ``Koide mystery''
+from a set of apparently independent numerical coincidences
+(one per sector) to a \emph{single} structural fact: all
+sectors share the same $\UU(3)_F$ normalisation, with
+sector-dependent K\"ahler corrections at the $\sim 10\%$ level.
+The \emph{angle} is not a mystery to be explained by a
+single parameter; it encodes the physical mass hierarchy
+specific to each sector.
+
+\paragraph{The shift hierarchy.}
+The physical shifts form a hierarchy:
+\begin{center}
+\begin{tabular}{lcl}
+$s \approx 1/\sqrt{6}$ & $\Rightarrow$ & $K = 2/3$ (leptons, inv.\ down quarks, $(t,b,c)$) \\
+$s \approx 0.38$--$0.40$ & $\Rightarrow$ & $K \approx 0.46$--$0.66$ ($(b,c,s)$, $(c,s,u)$) \\
+$s \approx 0.37$        & $\Rightarrow$ & $K \approx 0.73$ (down quarks, direct) \\
+$s \approx 0.33$        & $\Rightarrow$ & $K \approx 0.85$ (up quarks) \\
+$s \approx 0.49$        & $\Rightarrow$ & $K \approx 0.57$ ($(s,u,d)$) \\
+\end{tabular}
+\end{center}
+The pattern $s_{\rm lep} \approx s_{(t,b,c)} \approx s_{(b,c,s)}
+\approx z_0$ may reflect
+the K\"ahler metric hierarchy:
+composites involving only heavy quarks ($t$, $b$, $c$) have
+K\"ahler metrics closer to canonical, while composites involving
+light quarks ($u$, $d$, $s$) have larger corrections.
+
+\paragraph{Predictive content.}
+The free-shift ansatz with universal~$s$ has
+\textbf{two} free parameters per sector:
+$M$ (the overall scale) and $\alpha$ (the angle).
+These determine three masses, yielding \textbf{one prediction}
+per sector (the Koide ratio $K$ is predicted by the universal~$s$).
+If $s = z_0$ is exact, this predicts $K = 2/3$ for all sectors;
+deviations from~$2/3$ measure the K\"ahler correction $\delta_s$.
+
+\paragraph{Relation to the quartic mixing.}
+In the waterfall analysis~\cite{waterfall}, the inter-branch
+coupling~$\varepsilon$ controls the mixing between the
+direct and inverse branches.  The chain windows involve
+both branches, and their effective shifts and angles are determined
+by the quartic.  The universality of~$s$ in the chain
+windows is therefore evidence that the quartic mixing
+\emph{preserves} the $\UU(3)_F$ normalisation while
+modifying the Cartan angle.
+
+\paragraph{The Weyl duality.}
+The $15^\circ/45^\circ$ split has a natural interpretation.
+The $15^\circ$ fixed point is the ``standard'' Koide
+configuration: one vanishing mass, the other two in the
+golden ratio $R = (2+\sqrt{3})^2$.  The $45^\circ$ fixed
+point is its Weyl mirror: one vanishing mass with a sign-flipped
+charge.  Physical tuples near these fixed points
+inherit the branch structure.  As a mass approaches zero
+from the $15^\circ$ side, the charge $q = s + z$
+passes through zero and the tuple transitions to
+the $45^\circ$ branch.  The $(b,c,s)$ tuple, with its
+near-zero strange-quark charge, is precisely at this
+transition.
+
+\paragraph{Open questions.}
+\begin{enumerate}
+\item \textbf{Origin of $s = 1/\sqrt{6}$.}
+  The group-theoretic derivation of $s = z_0$ from
+  $\UU(3)_F$ normalisation~\cite{letter_q2} explains the value
+  but not why the physical K\"ahler potential is close to canonical.
+  Can the $\sim 10\%$ sector-dependent corrections to~$s$ be
+  computed from the K\"ahler metric of the confined $\SU(3)_F$ theory?
+
+\item \textbf{Angle spectrum.}
+  What determines the sector-dependent angles?
+  The lepton angle ($12.7^\circ$) is close to the $15^\circ$
+  fixed point, while the $(u,c,t)$ angle ($4.3^\circ$) is far
+  from it.  In the M-theory lift, $\alpha$ is a K\"ahler modulus of
+  the M5-brane curve.  Can the quark angles be predicted?
+
+\item \textbf{Neutrino sector.}
+  The baryonino masses (Majorana neutrinos) should also
+  decompose into $(M, s, \alpha)$.  The universal~$s$
+  predicts that the neutrino shift is the same
+  as the charged-lepton shift, but the angle may differ.
+
+\item \textbf{Weyl branch selection rule.}
+  Is there a dynamical rule that determines whether a given
+  mass window sits on the $15^\circ$ or $45^\circ$ branch?
+  The empirical pattern is that the lightest mass in the
+  window determines the branch: if its charge is positive, $15^\circ$;
+  if negative (near the zero-mass boundary), $45^\circ$.
+\end{enumerate}
+
+
+%======================================================================
+\section*{Acknowledgments}
+
+During the preparation of this work the author used Claude
+(Anthropic) for algebraic verification, numerical checks,
+and drafting assistance.
+The author reviewed and edited all content and takes full
+responsibility for the publication.
+
+\begin{thebibliography}{99}
+
+\bibitem{Koide:1983qe}
+  Y.~Koide,
+  Phys.\ Lett.\ B \textbf{120}, 161 (1983).
+
+\bibitem{PDG:2024}
+  S.~Navas \textit{et al.} (Particle Data Group),
+  Phys.\ Rev.\ D \textbf{110}, 030001 (2024).
+
+\bibitem{Rivero:2005}
+  A.~Rivero,
+  arXiv:hep-ph/0505220 (2005).
+
+\bibitem{Zenczykowski:2012}
+  P.~Zenczykowski,
+  Phys.\ Rev.\ D \textbf{86}, 117303 (2012).
+
+\bibitem{letter_q2}
+  A.~Rivero, ``Quadratic charge--mass relation from gauged
+  family symmetry,'' companion letter (2025).
+
+\bibitem{waterfall}
+  A.~Rivero, ``The quark mass waterfall from
+  $\mathcal{N}{=}2$ interleaving,'' companion letter (2025).
+
+\bibitem{note98}
+  A.~Rivero, ``Charge-plane geometry: zero-mass fixed points,''
+  working note~98 (2025).
+
+\bibitem{AHS:2005}
+  A.~Rivero, ``AHS running Koide,'' working note~51 (2025);
+  see also C.A.~Heusch, arXiv:0807.2094.
+
+\bibitem{SMDR}
+  S.P.~Martin and D.G.~Robertson,
+  Phys.\ Rev.\ D \textbf{100}, 073004 (2019),
+  arXiv:1907.02500.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,1331 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry{margin=2.7cm}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+
+% Shortcuts
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\UU}{\mathrm{U}}
+\newcommand{\Nf}{N_f}
+\newcommand{\Nc}{N_c}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\adj}{\mathrm{adj}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\MeV}{\,\mathrm{MeV}}
+\newcommand{\GeV}{\,\mathrm{GeV}}
+\newcommand{\TeV}{\,\mathrm{TeV}}
+\newcommand{\ie}{i.e.\@}
+\newcommand{\eg}{e.g.\@}
+
+\title{A structural sBootstrap EFT from Seiberg confinement:\\
+charge--mass duality, Yukawa inversion, and the structural core of the quark mass waterfall}
+\author{A.\ Rivero}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+  We work under the philosophy of the \emph{sBootstrap}~\cite{Rivero:2024epjc}:
+  a modern realisation of bootstrap and nuclear-democracy ideas in the spirit
+  of Chew~\cite{Chew:1962}, in which the observed fermions are identified with
+  confined composite fermions (mesinos and, in a quark--diquark
+  complementarity sense, diquarkinos) rather than being endowed with arbitrary
+  fundamental
+  Yukawa matrices.
+  We formulate an exploratory supersymmetric EFT that organises two related
+  observations about Standard Model
+  flavour data:
+  (i) the Koide ratio $K=2/3$ in the charged-lepton sector and the
+  approximate inverse Koide relation in the down-quark sector, and
+  (ii) the ``waterfall'' pattern whereby consecutive quark-mass triples
+  approximately satisfy $K=2/3$ with nontrivial sign assignments.
+  The common structural input is a canonically normalised $\UU(3)$ family
+  generator $Q_F=z_0 I+T$ whose eigenvalues $q_i$ define a positive operator
+  $H_Q=Q_F^\dagger Q_F=\diag(q_1^2,q_2^2,q_3^2)$ with $\Tr(H_Q)=1$.
+  For a quadratic charge law $m_i\propto q_i^2$, the Koide ratio becomes a
+  trace identity of $H_Q$ and is independent of the Cartan direction; we
+  show this direction-independence is unique to the quadratic power.
+  We then review $\mathcal{N}{=}1$ $\SU(3)$ SQCD with $\Nf=\Nc=3$:
+  the quantum-modified constraint, implemented holomorphically with a
+  Lagrange-multiplier superfield and deformed by diagonal mass terms
+  $m_i Q^i\tilde Q_i$, yields meson VEVs $\langle M_i\rangle\propto 1/m_i$
+  and a $\Lambda$-independent composite spectrum
+  $m(M^i{}_j)=m_i m_j/P^{1/3}$ (with $P=m_1m_2m_3$).
+  On the mesonic branch, $\det M=\Lambda^6$ implies a holomorphic involution
+  $M \leftrightarrow \Lambda^{-2}\adj(M)$ (equivalently $M\to\Lambda^4 M^{-1}$),
+  which at the supersymmetric vacuum exchanges the dependence on the
+  deformation spurion $m$ and on $m^{-1}$.
+  This makes precise how Seiberg mass parameters can generate \emph{inverse}
+  Yukawa hierarchies for fields that couple to meson VEVs.
+  Finally, we show how the composite doublet $(M_i, \adj(M)_i)$
+  has the mathematical structure of an $\mathcal{N}{=}2$ hypermultiplet,
+  emergent from confinement plus isospin, and how an effective quartic coupling
+  among mesons mixes the direct and inverse branches.  In the
+  decoupling limit we prove an interleaving theorem: two monotone branches
+  $m=\mu q^2$ and $\hat m=\nu/q^2$ necessarily form an alternating six-rung
+  ladder in a calculable window, providing the structural core---rather than a
+  quantitative fit---of the quark mass waterfall and of the existence of
+  multiple charge decompositions (and sign choices) for the same observed
+  masses.  The mesino/lepton map, the quarkino completion, and the
+  SUSY-breaking/K\"ahler dressing are treated throughout as EFT assumptions or
+  working ans\"atze, not as consequences of SQCD alone; correspondingly, no
+  quantitative fit to CKM/PMNS data or proof of full phenomenological viability
+  is claimed in this paper.
+\end{abstract}
+
+%======================================================================
+\section{Introduction}
+\label{sec:intro}
+
+The sBootstrap programme~\cite{Rivero:2024epjc} is an attempt to transfer the
+bootstrap ethos of strong-interaction physics~\cite{Chew:1962} to the flavour
+problem: rather than postulating fundamentally free Yukawa matrices, one seeks
+a self-consistent effective description in which the observed spectrum arises
+from a small set of symmetry and dynamics inputs.  In the version considered
+here, the dynamical core is an $\mathcal{N}{=}1$ confining gauge theory with a
+quantum-modified moduli space
+whose exact moduli-space relations generate both \emph{direct} and \emph{inverse}
+hierarchies from a single set of deformation parameters.
+The paper should be read as a controlled \emph{exploratory EFT proposal}:
+its goal is to isolate the exact holomorphic algebra, make the gauge-invariant
+embedding assumptions explicit, and state clearly which phenomenological steps
+are still ans\"atze.
+
+As diagnostics (and as targets for a prospective embedding), we keep track of
+three empirical regularities.
+First, the Koide relation for charged leptons,
+\begin{equation}
+  K\bigl(\sqrt{m_e},\sqrt{m_\mu},\sqrt{m_\tau}\bigr)
+  \equiv \frac{m_e+m_\mu+m_\tau}{\bigl(\sqrt{m_e}+\sqrt{m_\mu}+\sqrt{m_\tau}\bigr)^2}
+  = \frac{2}{3}\,,
+  \label{eq:koide_leptons}
+\end{equation}
+is satisfied to the $10^{-5}$ level with pole masses~\cite{Koide:1983qe,PDG:2024}.
+An analogous statement holds approximately for down quarks after inversion
+of masses (with a conventional choice of running scheme/scale)~\cite{Rivero:2005}.
+Independently, ``waterfall'' relations in which consecutive quark-mass
+triples are close to $2/3$ have been observed, but require nontrivial sign
+assignments inside the Koide diagnostic~\cite{Zenczykowski:2012}.
+
+This paper develops a single supersymmetric framework that organises these
+facts through three ingredients:
+\begin{enumerate}
+  \item Canonical $\UU(3)$ family normalisation fixes a universal offset
+    $z_0=1/\sqrt6$ in the Cartan eigenvalues, producing three charges
+    $q_i=z_0+z_i$ with $\sum_i q_i^2=1$ and $\sum_i q_i=\sqrt{3/2}$.
+  \item In $\mathcal{N}{=}1$ $\SU(3)$ SQCD with $\Nf=\Nc=3$ (quantum-modified
+    moduli space),
+    diagonal holomorphic mass deformations $m_i Q^i\tilde Q_i$ generate
+    meson VEVs $\langle M_i\rangle\propto 1/m_i$ and a composite spectrum
+    in which the leading holomorphic mass scales are simple algebraic functions of the
+    \emph{Seiberg masses} $m_i$.
+  \item The composite doublet $(M_i, \adj(M)_i)$ exhibits
+    $\mathcal{N}{=}2$-like structure, emergent from confinement
+    plus isospin.  An effective quartic coupling among mesons
+    mixes the direct and inverse branches, producing an interleaved
+    mass ladder.
+\end{enumerate}
+
+The goal is not to claim a complete UV-to-SM derivation of flavour.
+Rather, we isolate which statements are algebraic identities, which are
+exact consequences of holomorphy and the quantum-modified constraint, and which
+require an assumed embedding of Standard Model fields into the confined sector
+(notably through the identification of mesinos with leptons and of
+diquarkino-like constituents with quarks, and through non-holomorphic K\"ahler
+dressing).
+Accordingly, the manuscript should be read as a structural note plus a
+gauge-invariant EFT ansatz, not as a completed quantitative flavour model.
+More specifically:
+\begin{itemize}
+  \item Sections~\ref{sec:u3}, \ref{sec:seiberg}, and
+    Theorem~\ref{thm:interleaving} contain the hard algebraic/holomorphic
+    results.
+  \item Sections~\ref{sec:sbootstrap} and~\ref{sec:yukawa} formulate the
+    gauge-invariant sBootstrap EFT ansatz and its operator map.
+  \item Sections~\ref{sec:pheno} and~\ref{sec:status} state the viability
+    conditions and open problems rather than claiming that they are solved.
+\end{itemize}
+
+\paragraph{Signed Koide diagnostic.}
+For the waterfall discussion it is convenient to define Koide's ratio as
+a function of three \emph{real} inputs $x_i$,
+\begin{equation}
+  K(x_1,x_2,x_3)
+  \;\equiv\;
+  \frac{x_1^2+x_2^2+x_3^2}{(x_1+x_2+x_3)^2}\,,
+  \label{eq:Kdef}
+\end{equation}
+so that $K(\sqrt{m_1},\sqrt{m_2},\sqrt{m_3})$ reproduces the usual Koide
+parameter while relative sign flips correspond to $x_i\to -x_i$.  We also
+define the \emph{inverse Koide} diagnostic by applying~$K$ to inverse square
+roots,
+\begin{equation}
+  K^{-1}(m_1,m_2,m_3)
+  \;\equiv\;
+  K\!\left(\frac{1}{\sqrt{m_1}},\frac{1}{\sqrt{m_2}},\frac{1}{\sqrt{m_3}}\right)
+  = \frac{\sum_i m_i^{-1}}{\bigl(\sum_i m_i^{-1/2}\bigr)^2}\,.
+  \label{eq:Kinvdef}
+\end{equation}
+Throughout, the underlying Seiberg masses depend only on $q_i^2$.  Whenever we
+discuss relative sign flips in Koide triples, we therefore write them as
+explicit factors $s_i=\pm1$ multiplying the signed square roots
+$x_i=s_i\sqrt{m_i}$; unless stated otherwise, the sign choices are \emph{not}
+reinterpreted as distinct UV charge assignments.
+
+%======================================================================
+\section{Canonical \texorpdfstring{$\UU(3)$}{U(3)} charges and the quadratic identity}
+\label{sec:u3}
+
+\subsection{Charges from Cartan symmetry breaking}
+\label{sec:charges}
+
+Let $\UU(3)$ be a family symmetry with generator
+$Q_F=z_0 I + T$ where $T$ lies in the Cartan of $\SU(3)$ and is traceless,
+$T=\diag(z_1,z_2,z_3)$ with $\sum_i z_i=0$.
+Canonical normalisation fixes
+\begin{equation}
+  z_0=\frac{1}{\sqrt6}\,,
+  \qquad
+  \sum_{i=1}^3 z_i^2=\frac{1}{2}\,,
+  \label{eq:canonical_norm}
+\end{equation}
+so that the eigenvalues $q_i$ of~$Q_F$ are
+\begin{equation}
+  q_i=z_0+z_i\,,
+  \qquad
+  \sum_i q_i=\sqrt{\frac{3}{2}}\,,
+  \qquad
+  \sum_i q_i^2=1\,.
+  \label{eq:qsum}
+\end{equation}
+An explicit parametrisation of the Cartan direction is
+\begin{equation}
+  z_i=\frac{1}{\sqrt3}\cos\!\left(\alpha+\frac{2\pi(i-1)}{3}\right),
+  \qquad i=1,2,3,
+  \label{eq:zi_alpha}
+\end{equation}
+with $\alpha$ an angle on the two-dimensional Cartan plane.
+
+The associated positive operator
+\begin{equation}
+  H_Q\equiv Q_F^\dagger Q_F = Q_F^2 = \diag(q_1^2,q_2^2,q_3^2)
+  \label{eq:HQ}
+\end{equation}
+obeys $\Tr(H_Q)=1$ by~(\ref{eq:qsum}) and will be the universal object
+controlling all charge-based mass formulae below.
+
+\subsection{Quadratic mass law and uniqueness}
+\label{sec:unique}
+
+Assume a quadratic charge law
+\begin{equation}
+  m_i=\mu\,q_i^2\,,
+  \label{eq:mi_quad}
+\end{equation}
+with $\mu$ a generation-independent scale.
+Then the Koide ratio becomes a trace identity of~$H_Q$:
+\begin{equation}
+  K\bigl(\sqrt{m_1},\sqrt{m_2},\sqrt{m_3}\bigr)
+  = K(q_1,q_2,q_3)
+  = \frac{\sum_i q_i^2}{(\sum_i q_i)^2}
+  = \frac{1}{3/2}
+  = \frac{2}{3}\,,
+  \label{eq:K_trace_id}
+\end{equation}
+independent of the Cartan direction~$\alpha$.
+
+The special role of the quadratic power is not an accident.
+Define for integer~$n$ the generalised ratio
+\begin{equation}
+  K_n(\alpha)
+  \;\equiv\;
+  \frac{\sum_i (z_0+z_i(\alpha))^n}{\left(\sum_i (z_0+z_i(\alpha))^{n/2}\right)^2}\,,
+  \label{eq:Kn_def}
+\end{equation}
+whenever the numerator and denominator are real.
+
+\begin{theorem}[Uniqueness of the quadratic direction-independence for integer powers]
+\label{thm:unique_n2}
+  For integer powers $n$, $\UU(3)$ charges $q_i=z_0+z_i$ with
+  (\ref{eq:canonical_norm}), and real $K_n(\alpha)$, the function
+  $K_n(\alpha)$ is independent of the Cartan direction~$\alpha$
+  if and only if $n=2$ (besides the trivial constant $n=0$).
+\end{theorem}
+
+\noindent A short proof is given in Appendix~\ref{app:unique}.
+For integer $n\ge3$ it follows directly from the presence of the cubic
+invariant $\sum_i z_i^3\propto\cos 3\alpha$ in the binomial expansion of
+$\sum_i (z_0+z_i)^n$.
+
+%======================================================================
+\section{\texorpdfstring{$\mathcal{N}{=}1$}{N=1} confinement with a quantum-modified moduli space}
+\label{sec:seiberg}
+
+\subsection{Confined description and vacuum}
+\label{sec:confined}
+
+Consider $\mathcal{N}{=}1$ $\SU(3)$ SQCD with $\Nf=\Nc=3$ flavours of
+fundamentals $Q^i$ and antifundamentals $\tilde Q_i$ ($i=1,2,3$) and
+diagonal mass deformations in the UV superpotential,
+\begin{equation}
+  W_{\rm UV}\supset \sum_{i=1}^3 m_i\,Q^i\tilde Q_i\,.
+  \label{eq:WUV_mass}
+\end{equation}
+For $\Nf=\Nc$ the theory confines with a quantum-modified moduli space~\cite{Seiberg:1994bz,Csaki:1996zb,IntriligatorSeibergShenker:1995}.
+\paragraph{Confinement vs.\ $s$-confinement.}
+In standard SQCD terminology, the case $\Nf=\Nc$ has a quantum-modified moduli
+space rather than an $s$-confining dynamical superpotential with a smooth
+origin.  We implement the holomorphic constraint with a Lagrange-multiplier
+superfield $X$ as in~(\ref{eq:WIR}).  In what follows, statements called
+``exact'' refer to holomorphic relations implied by the constraint and the
+superpotential; physical masses additionally depend on K\"ahler normalisation.
+The IR degrees of freedom on the moduli space are gauge-invariant composites:
+mesons $M^i{}_j=Q^i\tilde Q_j$ and baryons $B$, $\tilde B$, subject to the
+quantum-modified constraint
+\begin{equation}
+  \det M - B\tilde B = \Lambda^6\,,
+  \label{eq:qmc}
+\end{equation}
+with $\Lambda$ the dynamical scale.
+The constraint is enforced by a Lagrange-multiplier chiral field~$X$, giving
+\begin{equation}
+  W_{\rm IR}
+  = X\bigl(\det M - B\tilde B - \Lambda^6\bigr) + \Tr(m\,M)\,,
+  \label{eq:WIR}
+\end{equation}
+On the mesonic branch $B=\tilde B=0$, and in the basis where $m$ is diagonal,
+the $F$-term conditions imply that $M$ is diagonal in the vacuum and yield
+\begin{equation}
+  \langle M_i\rangle = \frac{\Lambda^2\,P^{1/3}}{m_i}\,,
+  \qquad
+  P\equiv m_1m_2m_3\,,
+  \label{eq:Mvev_susy}
+\end{equation}
+and
+\begin{equation}
+  X=-\frac{P^{1/3}}{\Lambda^4}\,,
+  \label{eq:Xvev}
+\end{equation}
+which is generation-independent.
+Equation~(\ref{eq:Mvev_susy}) is the first, central appearance of
+\emph{inversion}: heavy electric masses correspond to small meson VEVs.
+
+\paragraph{Matrix form of the vacuum.}
+For an invertible mass matrix $m$ (not necessarily diagonal), the mesonic-branch
+$F$-term solution can be written compactly as
+\begin{equation}
+  \langle M\rangle
+  = \Lambda^2\,(\det m)^{1/3}\,m^{-1}\,,
+  \qquad
+  \langle \adj(M)\rangle
+  = \Lambda^4\,(\det m)^{2/3}\,m\,,
+  \qquad
+  X=-\frac{(\det m)^{1/3}}{\Lambda^4}\,,
+  \label{eq:matrix_vacuum}
+\end{equation}
+which reduces to~(\ref{eq:Mvev_susy})--(\ref{eq:Xvev}) in the diagonal basis
+$m=\diag(m_1,m_2,m_3)$.
+
+\subsection{Physical composite spectrum and inversion}
+\label{sec:spectrum}
+
+The holomorphic superpotential~(\ref{eq:WIR}) fixes the structure of
+fermion and scalar mass terms up to K\"ahler normalisation.
+For our purposes, an important special fact is that several physical
+mass scales in the confined theory are \emph{$\Lambda$-independent} and
+are algebraic functions of the Seiberg masses $m_i$ alone.
+
+To see this most transparently, define $P=m_1m_2m_3$ and consider small
+fluctuations of the mesons around the diagonal vacuum.
+For off-diagonal mesons $M^i{}_j$ with $i\neq j$, one finds a holomorphic
+mass term controlled by the third flavour $k\neq i,j$,
+and after canonical normalisation the leading mass scales take the simple
+form~\cite{Csaki:1996zb}:
+\begin{equation}
+  m\bigl(M^i{}_j\bigr)
+  = \frac{m_i m_j}{P^{1/3}}
+  = \frac{P^{1/3}}{m_k}\,,
+  \qquad i\neq j,\ \{i,j,k\}=\{1,2,3\}\,.
+  \label{eq:offdiag_mass}
+\end{equation}
+The absence of explicit $\Lambda$ dependence holds at the holomorphic level;
+physical masses are still dressed by K\"ahler normalisation, which is expected
+to be flavour-universal at leading order in the mass deformation.
+This relation exhibits a \emph{multiple-description} property: the same
+leading mass scale can be written either as a product of two Seiberg masses
+or as the inverse of the third (up to the common scale~$P^{1/3}$).
+The baryon mass scale is similarly simple,
+\begin{equation}
+  m(B)\sim P^{1/3}\,,
+  \label{eq:baryon_mass}
+\end{equation}
+again independent of~$\Lambda$.
+Appendix~\ref{app:seiberg_spectrum} collects a compact derivation.
+
+The quantum constraint~(\ref{eq:qmc}) implies on the mesonic branch
+$\det M=\Lambda^6$, which is preserved by the involution
+\begin{equation}
+  M \longrightarrow \Lambda^4\,M^{-1}\,,
+  \label{eq:involution}
+\end{equation}
+since $\det(\Lambda^4 M^{-1})=\Lambda^{12}/\det M=\Lambda^6$.
+The map is holomorphic and well-defined on the locus where $M$ is invertible
+(in particular on the mesonic branch); it is not a globally defined symmetry
+of the full moduli space including baryonic directions.
+Using the adjugate matrix,
+\begin{equation}
+  \adj(M)\equiv (\det M)\,M^{-1}=\Lambda^6\,M^{-1}\,,
+  \label{eq:adj_def}
+\end{equation}
+the involution can be written holomorphically as $M\leftrightarrow \Lambda^{-2}\adj(M)$.
+At the vacuum~(\ref{eq:Mvev_susy}) this exchanges $\langle M_i\rangle\propto 1/m_i$
+with $\adj(M)_i\propto m_i$.
+
+\subsection{Charges for each mass and multiple decompositions}
+\label{sec:charge_structure}
+
+If the Seiberg masses follow the quadratic charge law~(\ref{eq:mi_quad}),
+then the confined spectrum inherits a hierarchy controlled by the same
+operator~$H_Q$ but with different \emph{functions} of it.
+For instance,
+\begin{equation}
+  \langle M_i\rangle \propto \frac{1}{m_i}\propto \frac{1}{q_i^2}\,,
+  \qquad
+  m\bigl(M^i{}_j\bigr)
+  = \frac{m_i m_j}{P^{1/3}}
+  \propto
+  \frac{q_i^2 q_j^2}{(q_1^2 q_2^2 q_3^2)^{1/3}}\,.
+  \label{eq:charge_inherited}
+\end{equation}
+It is useful to introduce dimensionless \emph{effective charges} for these
+composites.  We restrict to Cartan directions for which all $q_i>0$ (the regime
+relevant to positive mass deformations), so that the geometric mean below is
+real and positive.  Writing
+\begin{equation}
+  \bar q \equiv (q_1 q_2 q_3)^{1/3}\,,
+  \label{eq:qbar}
+\end{equation}
+equation~(\ref{eq:offdiag_mass}) becomes
+\begin{equation}
+  m\bigl(M^i{}_j\bigr)
+  = \mu\left(\frac{q_i q_j}{\bar q}\right)^2
+  = \mu\left(\frac{\bar q}{q_k}\right)^2\,.
+  \label{eq:eff_charge_mesons}
+\end{equation}
+Thus each off-diagonal meson mass is determined by an effective charge that
+admits \emph{two} natural decompositions:
+either as a product $q_i q_j/\bar q$ or as an inverse $\bar q/q_k$.
+These are algebraically equivalent (they are related by $P=m_1m_2m_3$) and do
+not represent independent charge assignments.
+Because the underlying mass law depends only on squares, the same mass is
+also compatible with flipping the sign of any participating charge.
+
+The set of functions of $H_Q$ relevant to later sections can be summarised
+schematically as:
+\begin{center}
+{\small
+\begin{tabular}{@{}lll@{}}
+  \toprule
+  Object & Scaling with Seiberg masses & Scaling with family charges \\
+  \midrule
+  Direct holomorphic masses & $m_i$ & $q_i^2$ \\
+  Meson VEVs (mesonic branch) & $1/m_i$ & $1/q_i^2$ \\
+  Off-diagonal meson masses & $m_i m_j/P^{1/3}$ & $(q_i q_j/\bar q)^2$ \\
+  Baryon mass scale & $P^{1/3}$ & $\bar q^2$ \\
+  \bottomrule
+\end{tabular}}
+\end{center}
+The physical interpretation of these entries depends on how Standard Model
+fields couple to the confined sector, which we address next.
+
+%======================================================================
+\section{The sBootstrap embedding: mesinos as leptons, diquarkinos as quarks}
+\label{sec:sbootstrap}
+
+The preceding sections were phrased in standard SQCD language.  The sBootstrap
+interpretation~\cite{Rivero:2024epjc} adds a specific EFT philosophy and a
+specific identification of (some of) the confined fermions with the observed
+Standard Model fermions.
+
+\subsection{Gauge structure and mesino identification}
+\label{sec:sbootstrap_mesinos}
+
+The UV gauge group is taken to be
+\begin{equation}
+  G_{\rm UV} = \SU(3)_F \times \SU(3)_c \times \SU(2)_L \times \UU(1)_Y\,,
+  \label{eq:GUV}
+\end{equation}
+where $\SU(3)_F$ is a family (preon-colour) gauge group that confines at a
+scale~$\Lambda_F$, while the SM gauge factors are weakly gauged spectators for
+the family confinement dynamics.
+In the SQCD formulas of Section~\ref{sec:seiberg} we denote the same dynamical
+scale by~$\Lambda\equiv \Lambda_F$.
+
+The $\SU(3)_F$ matter content is organised so that the mesons transform as a
+$3\times 3$ matrix under a global $\SU(3)_L\times\SU(3)_R$:
+\begin{equation}
+  M^\alpha{}_i \sim Q^\alpha \tilde Q_i\,,\qquad
+  Q^\alpha \in (\mathbf{3}_F,\mathbf{3}_L),\qquad
+  \tilde Q_i \in (\bar{\mathbf{3}}_F,\bar{\mathbf{3}}_R)\,,
+  \label{eq:preons}
+\end{equation}
+so that $M\in(\mathbf{3}_L,\bar{\mathbf{3}}_R)$.
+
+\paragraph{Gauge-invariant UV field content.}
+A minimal gauge-invariant field/spurion assignment that reproduces the EFT used
+below is
+\begin{center}
+\small
+\begin{tabular}{@{}lllll@{}}
+  \toprule
+  Field & $\SU(3)_F$ & $\SU(3)_c$ & $\SU(2)_L$ & $\UU(1)_Y$ \\
+  \midrule
+  $Q^A_a$ ($A=1,2$) & $\mathbf{3}$ & $\mathbf{1}$ & $\mathbf{2}$ & $-1/2$ \\
+  $Q^3_a$ & $\mathbf{3}$ & $\mathbf{1}$ & $\mathbf{1}$ & $+1$ \\
+  $\tilde Q^a{}_i$ & $\bar{\mathbf{3}}$ & $\mathbf{1}$ & $\mathbf{1}$ & $0$ \\
+  $\Sigma_A{}^i$ & $\mathbf{1}$ & $\mathbf{1}$ & $\mathbf{2}$ & $+1/2$ \\
+  $\Sigma_3{}^i$ & $\mathbf{1}$ & $\mathbf{1}$ & $\mathbf{1}$ & $-1$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+The fields $Q^\alpha_a,\tilde Q^a{}_i$ are the family-charged preons.
+$\Sigma_\alpha{}^i$ is the electroweak-charged deformation spurion (or,
+in a dynamical completion, a family-Higgs superfield) transforming as
+$(\bar{\mathbf{3}}_L,\mathbf{3}_R)$ under the global
+$\SU(3)_L\times\SU(3)_R$.
+
+\paragraph{Index dictionary.}
+In Sections~\ref{sec:u3}--\ref{sec:seiberg} we used standard SQCD notation in
+which both indices of $M^i{}_j$ label flavour.  In the sBootstrap embedding we
+instead interpret the left index as an $\SU(3)_L$ label (containing electroweak
+quantum numbers) and the right index as an $\SU(3)_R$ generation label.
+The diagonal spurion background in~(\ref{eq:spurionSigma}) selects an
+$\SU(3)_L\times\SU(3)_R$-breaking alignment that allows one to work in a basis
+where the deformation is effectively diagonal and the component formulas of
+Section~\ref{sec:seiberg} apply.
+Embedding electroweak symmetry in $\SU(3)_L$ by
+\begin{equation}
+  \mathbf{3}_L \to \mathbf{2}_{-1/2}\oplus \mathbf{1}_{+1}\,,
+  \label{eq:3L_decomp}
+\end{equation}
+the meson matrix decomposes into electroweak doublets and singlets,
+\begin{equation}
+  M^\alpha{}_i
+  = \underbrace{M^{1,2}{}_i}_{(\mathbf{2}_{-1/2},\,\bar{\mathbf{3}}_R)}
+  \;\oplus\;
+  \underbrace{M^{3}{}_i}_{(\mathbf{1}_{+1},\,\bar{\mathbf{3}}_R)}\,.
+  \label{eq:meson_decomp}
+\end{equation}
+The central sBootstrap identification is then:
+\begin{equation}
+  \psi_{M^{1,2}{}_i}\equiv L_i\,,
+  \qquad
+  \psi_{M^{3}{}_i}\equiv e^c_i\,,
+  \label{eq:mesinos_leptons}
+\end{equation}
+\ie the nine mesino fermions furnish the SM lepton sector (three lepton
+doublets plus three charged singlets).  The scalar components of the same
+superfields provide Higgs- and slepton-like composites; the details of how one
+light Higgs combination is selected are part of the sBootstrap EFT building.
+
+\paragraph{Compact IR dictionary.}
+For later operator matching, the relevant confined objects are
+\begin{center}
+\small
+\begin{tabular}{@{}llll@{}}
+  \toprule
+  SQCD object & $\SU(3)_L\times\SU(3)_R$ & $\SU(2)_L\times\UU(1)_Y$ & sBootstrap role \\
+  \midrule
+  $M^A{}_i$ & $(\mathbf{3}_L,\bar{\mathbf{3}}_R)$ & $(\mathbf{2},-1/2)$ & $L_i$ mesinos, $H_d$-type scalars \\
+  $M^3{}_i$ & $(\mathbf{3}_L,\bar{\mathbf{3}}_R)$ & $(\mathbf{1},+1)$ & $e^c_i$ mesinos, charged scalars \\
+  $\adj(M)_A{}^{i}$ & $(\bar{\mathbf{3}}_L,\mathbf{3}_R)$ & $(\mathbf{2},+1/2)$ & $H_u$-type composite operator \\
+  $B,\tilde B$ & $(\mathbf{1},\mathbf{1})$ & $(\mathbf{1},0)$ & singlet baryonic superfields \\
+  \bottomrule
+\end{tabular}
+\end{center}
+Throughout, there are two layers of normalisation.  The holomorphic Seiberg
+operator $M\sim Q\tilde Q$ has the composite/operator dimension appropriate to
+the confined description, while the IR chiral superfield used for the mesino
+identification is the canonically normalised field obtained after the unknown
+K\"ahler metric is specified.  The hierarchy maps written in terms of $M$ and
+$\adj(M)$ therefore refer to holomorphic operator dependence; converting them
+into physical masses requires the later K\"ahler dressing.
+
+\paragraph{Diagonal mass deformation and alignment.}
+In the pure SQCD discussion of Section~\ref{sec:seiberg} we used a diagonal
+mass deformation $m_i Q^i\tilde Q_i$.  In the sBootstrap embedding, the two
+flavour indices of SQCD correspond to $\SU(3)_L$ (electroweak) and $\SU(3)_R$
+(generation).  A diagonal deformation therefore presupposes an
+$\SU(3)_L\times\SU(3)_R$-breaking alignment spurion that identifies a preferred
+basis in which the deformation is diagonal.  Throughout, we work in that
+aligned basis; the resulting residual freedom is the Cartan direction~$\alpha$
+entering the charges~(\ref{eq:zi_alpha}).
+
+\paragraph{One meson field and no Yukawa matrices.}
+A characteristic sBootstrap simplification is that the generation structure is
+carried by the \emph{meson matrix itself} rather than by independent Yukawa
+matrices.  Below $\Lambda_F$, a minimal holomorphic EFT can be organised as
+\begin{equation}
+  W_{\rm sBoot}
+  = X\bigl(\det M - B\tilde B - \Lambda_F^6\bigr)
+  + \Sigma_\alpha{}^i\,M^\alpha{}_i
+  + \frac{y_d}{\Lambda_F}\,\epsilon_{AB}\,\mathcal{O}_d^{A}{}_{i}\,M^{B}{}_{i}
+  + \frac{y_u}{\Lambda_F^3}\,\epsilon_{AB}\,\mathcal{O}_u^{A}{}_{i}\,\adj(M)^{B}{}_{i}
+  + \cdots\,,
+  \label{eq:Wsboot}
+\end{equation}
+where $y_{u,d}$ are \emph{numbers} rather than matrices,
+$\mathcal{O}_d\sim q_L d^c$ and $\mathcal{O}_u\sim q_L u^c$ are
+quark-bilinear placeholders, and the family structure sits entirely in the
+single meson matrix.  In the aligned background, the VEVs generated by the
+deformation obey $\langle M\rangle\propto m^{-1}$ while
+$\langle\adj(M)\rangle\propto m$, so the same spurion controls both inverse and
+direct hierarchies.
+
+\paragraph{Gauge invariance of the deformation.}
+Because $M^\alpha{}_i$ carries electroweak quantum numbers through
+(\ref{eq:3L_decomp})--(\ref{eq:meson_decomp}), the diagonal shorthand
+$\Tr(mM)$ used in the pure SQCD sections must be understood as the aligned
+background of the gauge-invariant coupling
+\begin{equation}
+  W \supset \Sigma_\alpha{}^i\,M^\alpha{}_i\,,
+  \label{eq:spurionSigma}
+\end{equation}
+with $\Sigma$ transforming in the representation conjugate to~$M$ under the
+gauged $\SU(2)_L\times\UU(1)_Y$ subgroup.  As long as $\Sigma$ is treated as a
+field/spurion, the Lagrangian is gauge invariant.  Replacing it by a c-number
+matrix $m$ is a statement about an \emph{aligned background} in flavour space,
+and generically about an electroweak-broken branch: the simple diagonal formulas
+of Sections~\ref{sec:seiberg} and~\ref{sec:yukawa} therefore apply after
+alignment, not in the fully electroweak-symmetric phase.
+The crucial EFT assumption is that $\Sigma$ is the \emph{only} family-breaking
+spurion entering the superpotential at leading order.  Once
+$\SU(3)_L\times\SU(3)_R$ rotations are used to align its background, the
+remaining flavour freedom is reduced to the Cartan direction~$\alpha$ of the
+single operator $H_Q$; this is what prevents $\Sigma$ from reintroducing an
+arbitrary Yukawa matrix in disguise.
+
+\subsection{Diquarkinos and quarks (complementarity viewpoint)}
+\label{sec:sbootstrap_diquarks}
+
+The sBootstrap also aims at a constituent-level identification of the quark
+sector with \emph{diquarkino}-like confined fermions, in the spirit of
+hadronic supersymmetry (Miyazawa/Catto--G\"ursey)~\cite{Miyazawa:1966,CattoGursey:1985,CattoGursey:1988}
+and of the bootstrap/nuclear democracy picture~\cite{Chew:1962}.  A schematic object is a diquark
+\begin{equation}
+  D \sim \wedge^2 Q\,,
+  \label{eq:diquark}
+\end{equation}
+whose fermionic partner is a diquarkino.  Such objects are not gauge-invariant
+operators of the $\Nf=\Nc=3$ quantum-modified theory, but they naturally appear as
+effective coloured constituents in a Higgs/complementarity description~\cite{FradkinShenker:1979,BanksRabinovici:1979} in
+which baryons are viewed as quark--diquark bound states, $B\sim QD$.
+
+\paragraph{Bare diquarkino obstruction.}
+The simplest mesino-as-lepton embedding already fixes the hypercharge gap of a
+bare diquarkino.  Writing
+$Q\rightarrow \mathbf{2}_u\oplus \mathbf{1}_v$ and
+$\tilde Q\rightarrow \mathbf{1}_t$, the mesons decompose as
+$M=Q\tilde Q\rightarrow \mathbf{2}_{u+t}\oplus \mathbf{1}_{v+t}$.
+Requiring these mesons to furnish $(L_i,e_i^c)$ imposes
+$u+t=-1/2$ and $v+t=+1$, hence $v-u=3/2$.
+But the bare diquark always transforms as
+\begin{equation}
+  \wedge^2 Q \rightarrow \mathbf{2}_{u+v}\oplus \mathbf{1}_{2u}
+  = \mathbf{2}_{2u+3/2}\oplus \mathbf{1}_{2u}\,,
+  \label{eq:diquark_obstruction}
+\end{equation}
+so the singlet hypercharge is rigidly lower than the doublet one by~$3/2$.
+If the doublet is forced to be the SM quark doublet with $Y=+1/6$, the singlet
+is unavoidably pushed to $Y=-4/3$ rather than to $+1/3$ or $-2/3$.
+This is the clean obstruction to identifying \emph{bare} $\wedge^2 Q$
+diquarkinos with the observed quarks.
+
+\paragraph{EPJC completion.}
+The EPJC construction~\cite{Rivero:2024epjc} resolves the obstruction not by
+insisting on bare diquarks, but by completing the flavour sector into
+$\mathbf{15}\oplus\overline{\mathbf{15}}\oplus\mathbf{24}$ of an $\SU(5)$
+flavour group.  In the corresponding branchings, the effective coloured sector
+contains quark-doublet-like pieces, their conjugates, and an unavoidable exotic
+$\pm4/3$ state per generation.  In the present paper we therefore keep
+\emph{mesinos = leptons} and \emph{diquarkinos = quarks} only in the
+quark--diquark/complementarity sense: the quarkino fields entering the EFT are
+effective coloured multiplets of the completion, not exact gauge-invariant
+coordinates of the $\Nf=\Nc=3$ moduli space.
+
+\paragraph{Explicit effective operators.}
+In the aligned basis, one leading gauge-invariant working ansatz for the
+placeholders in~(\ref{eq:Wsboot}) is
+\begin{equation}
+  W_{q}^{\rm eff}
+  = \sum_{i=1}^3\left[
+      \frac{y_d}{\Lambda_F}\,\epsilon_{AB}\,
+      \mathcal{Q}^{A a}_{i}\,\mathcal{D}^{c}_{a i}\,M^{B}{}_{i}
+      +
+      \frac{y_u}{\Lambda_F^3}\,\epsilon_{AB}\,
+      \mathcal{Q}^{A a}_{i}\,\mathcal{U}^{c}_{a i}\,\adj(M)^{B}{}_{i}
+    \right]
+    + M_X\,X^{a}_{i}X^{c}_{a i}+\cdots\,,
+  \label{eq:Wq_eff}
+\end{equation}
+where $A,B=1,2$ are $\SU(2)_L$ indices and $a$ is colour.
+The effective coloured multiplets
+$\mathcal{Q}_i\sim(\mathbf{3},\mathbf{2})_{+1/6}$,
+$\mathcal{D}_i^c\sim(\bar{\mathbf{3}},\mathbf{1})_{+1/3}$,
+$\mathcal{U}_i^c\sim(\bar{\mathbf{3}},\mathbf{1})_{-2/3}$ are the SM-like
+quarkino combinations of the completion, while
+$X_i\sim(\mathbf{3},\mathbf{1})_{+4/3}$ and
+$X_i^c\sim(\bar{\mathbf{3}},\mathbf{1})_{-4/3}$ denote the exotic pair
+required by the obstruction/completion logic.
+Equation~(\ref{eq:Wq_eff}) makes the hierarchy map explicit:
+$Y_d^{\rm eff}\propto\langle M\rangle\propto m^{-1}$,
+$Y_u^{\rm eff}\propto\langle\adj(M)\rangle\propto m$.
+The down-sector term is fixed by hypercharge; the up-sector term should be read
+as the leading ansatz rather than as a uniquely derived completion, since more
+baroque realisations may route the up sector partly through the
+$\mathbf{24}$ or through an additional confining sector.
+In particular, anomaly closure, the decoupling of the $\pm4/3$ exotics, and the
+full consistency of the coloured quarkino sector are delegated to the external
+completion and are not claimed as results of the exact $\Nf=\Nc=3$ dynamics.
+
+\begin{center}
+\fbox{\parbox{0.93\linewidth}{
+\textbf{Assumption / open problem.}
+Equation~(\ref{eq:Wq_eff}) is an EFT realisation of the EPJC completion, not a
+derivation from the exact gauge-invariant operator basis of the
+$\Nf=\Nc=3$ Seiberg theory.  What is universal and derived in this paper is the
+two-operator hierarchy map carried by $M$ and $\adj(M)$; deriving the coloured
+quarkino multiplets and the heavy $\pm4/3$ exotics from a fully explicit UV
+completion remains open.}}
+\end{center}
+
+%======================================================================
+\section{From Seiberg masses to Yukawa hierarchies}
+\label{sec:yukawa}
+
+\subsection{Holomorphic couplings, spurions, and K\"ahler dressing}
+\label{sec:holomorphic}
+
+In supersymmetric effective field theory, superpotential mass terms and
+Yukawa couplings are both holomorphic parameters.  In particular, the
+diagonal mass matrix $m_i$ in~(\ref{eq:WUV_mass}) can be viewed as a
+flavour spurion transforming in $(\mathbf{3},\bar{\mathbf{3}})$ under the
+UV global $\SU(3)_L\times \SU(3)_R$ symmetry.
+The confined dynamics then converts the spurion~$m_i$ into the algebraic
+structures~(\ref{eq:Mvev_susy})--(\ref{eq:offdiag_mass}).
+
+However, physical masses in the IR depend on the K\"ahler potential.
+Even when holomorphy fixes \emph{which} combinations of $m_i$ appear in the
+superpotential, canonical normalisation can introduce (in general,
+generation-dependent and off-diagonal) wavefunction factors.
+For the present paper, the key point is that holomorphy provides
+\emph{hierarchy functions} of $m_i$ that are then dressed by non-holomorphic
+effects.  The dressing is essential for mixing (CKM/PMNS), while the
+hierarchy functions control the gross ordering patterns such as direct vs
+inverse and the interleaving ladder.
+
+\subsection{Two basic Yukawa mechanisms: coupling to \texorpdfstring{$M$}{M} or \texorpdfstring{$\adj(M)$}{adj(M)}}
+\label{sec:two_yukawas}
+
+The inversion relation $\langle M_i\rangle\propto 1/m_i$ implies a sharp
+statement about how Yukawa hierarchies can arise from Seiberg masses.
+
+\paragraph{sBootstrap form of the hierarchy map.}
+In the sBootstrap EFT~(\ref{eq:Wsboot}), the effective Yukawa structures are
+controlled by the spurion-induced VEVs,
+\begin{equation}
+  Y_d^{\rm eff}\;\sim\;\frac{y_d}{\Lambda_F}\,\langle M\rangle \;\propto\; m^{-1}\,,
+  \qquad
+  Y_u^{\rm eff}\;\sim\;\frac{y_u}{\Lambda_F^3}\,\langle \adj(M)\rangle \;\propto\; m\,,
+  \label{eq:Yeff_map}
+\end{equation}
+up to non-holomorphic K\"ahler dressing (needed, in particular, to generate
+mixing).  Using the matrix vacuum relations~(\ref{eq:matrix_vacuum}), this may
+be written more explicitly as
+\begin{equation}
+  Y_d^{\rm eff}\sim
+  y_d\,\Lambda_F\,(\det m)^{1/3}\,m^{-1}\,,
+  \qquad
+  Y_u^{\rm eff}\sim
+  y_u\,\Lambda_F\,(\det m)^{2/3}\,m\,.
+  \label{eq:Yeff_map_explicit}
+\end{equation}
+The same aligned spurion therefore generates two hierarchies and no family
+matrix is introduced by hand.
+
+\paragraph{Inverse Yukawas from meson VEVs.}
+Suppose a chiral field $\psi_i$ couples (in a flavour-diagonal way) to the
+meson operator through an effective superpotential term,
+\begin{equation}
+  W \supset \frac{\lambda}{M_*}\,\psi_i\psi^c_i\,M^i{}_i\,.
+  \label{eq:yukawa_M}
+\end{equation}
+Then, on the mesonic branch, the leading holomorphic mass parameter induced by
+the meson VEV is
+\begin{equation}
+  m_{\psi_i}\sim \frac{\lambda}{M_*}\,\langle M_i\rangle
+  \propto \frac{1}{m_i}
+  \propto \frac{1}{q_i^2}\,.
+  \label{eq:inverse_yukawa}
+\end{equation}
+In other words, \emph{Yukawa hierarchies can be inverse to Seiberg mass
+hierarchies} for fields that couple to $M$.
+This is the cleanest sense in which Seiberg mass parameters act as
+``Yukawas'' for other sectors: the confined vacuum performs the inversion.
+
+\paragraph{Direct Yukawas from the adjugate.}
+Similarly, couplings to the adjugate operator,
+\begin{equation}
+  W \supset \frac{\hat\lambda}{\hat M_*}\,\psi_i\psi^c_i\,\adj(M)^i{}_i\,,
+  \label{eq:yukawa_adj}
+\end{equation}
+induce masses that scale directly with $m_i$ (up to common factors) because
+$\adj(M)_i\propto m_i$ at the vacuum.  Since $\adj(M)$ is holomorphic in $M$
+on the constraint surface~(\ref{eq:qmc}), this ``direct'' option is not an
+independent structure: it is the other face of the same meson matrix.
+
+\paragraph{Multiple descriptions.}
+The presence of additional holomorphic composites such as the off-diagonal
+mesons $M^i{}_j$ implies further Yukawa patterns proportional to
+$m_i m_j/P^{1/3}$, cf.~(\ref{eq:offdiag_mass}).  Via~(\ref{eq:eff_charge_mesons})
+these patterns admit multiple charge decompositions and therefore multiple
+interpretations in terms of effective charges.
+Here ``multiple decompositions'' does \emph{not} mean multiple independent
+charge assignments.  It is the algebraic rewriting forced by
+$P=m_1m_2m_3$ and by the constraint surface itself:
+\begin{equation}
+  \frac{m_i m_j}{P^{1/3}}
+  = \mu\left(\frac{q_i q_j}{\bar q}\right)^2
+  = \mu\left(\frac{\bar q}{q_k}\right)^2,
+  \qquad
+  \bar q\equiv(q_1q_2q_3)^{1/3},\qquad \{i,j,k\}=\{1,2,3\}\,.
+  \label{eq:multiple_decomposition}
+\end{equation}
+The same particle can therefore carry a product form $qq'/\bar q$ or an
+inverse form $\bar q/q''$ without introducing new family charges.
+
+\subsection{Aligned SUSY breaking as an EFT ansatz for the quadratic triplets}
+\label{sec:soft_origin}
+
+The quadratic triplets $m_i\propto (z_0+z_i)^2$ need not be read as detached
+numerology, but neither are they derived here from a controlled SUSY-breaking
+sector.  What we do instead is exhibit a minimal EFT ansatz in which the same
+family operator
+$H_Q=Q_F^\dagger Q_F=\diag(q_1^2,q_2^2,q_3^2)$ controls the leading
+SUSY-breaking/K\"ahler deformation.  Introducing a SUSY-breaking spurion
+$X=\theta^2 F_X$, the aligned correction
+\begin{equation}
+  \Delta K
+  = \frac{X^\dagger X}{M_*^2}\,
+    \left[
+      c_0\,\Tr(M^\dagger M)
+      + c_1\,\Tr(M^\dagger H_Q M)
+      + \cdots
+    \right]
+  \label{eq:DeltaK_HQ}
+\end{equation}
+induces, in the diagonal basis,
+\begin{equation}
+  (\Delta m^2_{\rm soft})_i \propto q_i^2 = (z_0+z_i)^2\,.
+  \label{eq:soft_qsquare}
+\end{equation}
+If the dominant holomorphic deformation is aligned with the same family
+operator, the simplest effective choice is precisely
+$m_i=\mu q_i^2=\mu(z_0+z_i)^2$.
+This does not derive the $q_i$ themselves, but it shows how the quadratic
+triplets can be made compatible with a single aligned SUSY-breaking spurion in
+the low-energy EFT.
+
+The same logic extends to the off-diagonal composite masses.  Once
+$m_i\propto q_i^2$, the exact Seiberg relations automatically generate
+product and inverse combinations for the \emph{same} physical state through
+(\ref{eq:multiple_decomposition}).  In this sense, much of the observed
+``multiple $zz'z''$'' structure is induced by the combination of aligned
+SUSY breaking and the quantum-modified constraint, rather than by postulating
+separate charge sectors for each particle.
+
+From the Volkov--Akulov viewpoint~\cite{VolkovAkulov:1973}, the goldstino
+packages the SUSY-breaking order parameter into nonlinear couplings.  In the
+present setting, this makes it natural to interpret departures from the pure
+holomorphic limit as aligned soft splittings or K\"ahler dressings of a common
+family operator, rather than as extra Yukawa matrices.  We stress again that
+this is an EFT interpretation, not a derivation of the UV origin of
+$m_i\propto(z_0+z_i)^2$.
+
+A suggestive numerical clue is the near-relation
+$m_\pi^2-m_\mu^2\approx f_\pi^2$.  In an exactly restored supersymmetric
+chiral multiplet the scalar--fermion mass-squared splitting would vanish, so
+relations of this kind are naturally read as soft splittings.  We do
+\emph{not}, however, identify the physical pion and muon as a literal
+unbroken supermultiplet here: the exact $\Nf=\Nc=3$ Seiberg spectrum does not
+yet supply the required gauge/global quantum-number assignment.  We use the
+relation only as motivation for looking for aligned SUSY-breaking remnants in
+the bosonic sector as well as in the fermionic one.
+
+\subsection{Sign choices and the Koide diagnostic}
+\label{sec:signs}
+
+Because the fundamental charge law depends on $q_i^2$, each mass $m_i$
+is compatible with two signed square roots
+\begin{equation}
+  x_i=s_i\sqrt{m_i}\,,
+  \qquad
+  s_i=\pm1\,,
+  \label{eq:signed_roots}
+\end{equation}
+while the underlying charge law remains $m_i=\mu q_i^2$.
+When all three entries in a Koide triple come from the same functional form
+in~$q$ (\eg three direct entries $\propto q$ or three inverse entries
+$\propto 1/q$), the overall sign can be absorbed and no relative sign flips
+are needed to obtain $K=2/3$.
+Relative signs become meaningful only in \emph{mixed} triples where some
+entries scale as $q$ and others as $1/q$; this will be the case in the
+waterfall.
+
+%======================================================================
+\section{Emergent doublet structure and the quark mass waterfall}
+\label{sec:waterfall}
+
+This section is likewise structural.  What is derived below is the existence of
+an interleaved direct/inverse ladder once both branches are present; mapping
+that ladder quantitatively onto the observed quark windows requires solving the
+quartic corrections and the non-holomorphic dressing, which we do not attempt
+here.
+
+\subsection{The effective quartic from the composite doublet}
+\label{sec:N2_descent}
+
+The $\Nf=\Nc$ confined theory contains both $m_i$ and $1/m_i$
+structures but, by itself, does not provide a controlled coupling between
+them.  The composite spectrum, however, has a natural doublet structure:
+for each family~$i$, the pair $(M_i, \adj(M)_i)$ furnishes two mass
+eigenvalues with opposite charge dependence.  This pairing is electroweak
+isospin and has the mathematical form of an $\mathcal{N}{=}2$
+hypermultiplet~\cite{APS:1997,SeibergWitten:1994a}---emergent from
+confinement plus isospin, not a UV input.
+
+The coupling between branches can be parametrised by introducing an
+auxiliary adjoint chiral field~$\Phi$ with mass~$\mu_\Phi$ and the
+standard coupling $W \supset \sqrt2\,g\,\tilde Q\,\Phi\,Q$, then
+integrating $\Phi$ out via its $F$-term.
+One obtains an effective $\mathcal{N}{=}1$ superpotential with a quartic remnant,
+\begin{equation}
+  W_{\rm eff}
+  = -\frac{g^2}{\mu_\Phi}\left[\Tr(Q\tilde Q)^2-\frac{1}{3}\bigl(\Tr Q\tilde Q\bigr)^2\right]
+  + \sum_i m_i Q^i\tilde Q_i\,,
+  \label{eq:Weff}
+\end{equation}
+which vanishes as $\mu_\Phi\to\infty$ (decoupling).
+Here $\Phi$ is a bookkeeping device for the quartic, not a physical UV
+field; the scale~$\mu_\Phi$ parametrises the strength of the inter-branch
+coupling in the composite dynamics.
+
+\subsection{Residual quartic in the confined phase}
+\label{sec:quartic}
+
+In the confined description $Q\tilde Q\to M$, the quartic becomes
+\begin{equation}
+  W_{\rm quartic}
+  = -\frac{g^2}{\mu_\Phi}\left[\Tr M^2-\frac{1}{3}(\Tr M)^2\right].
+  \label{eq:quartic}
+\end{equation}
+This term couples the diagonal mesons and therefore perturbs the pure
+inversion solution~(\ref{eq:Mvev_susy}).  Since $\langle M_i\rangle\propto 1/m_i$,
+the fractional correction induced by~(\ref{eq:quartic}) is parametrically
+largest for the lightest family and smallest for the heaviest.  This
+hierarchy of corrections will reappear as a hierarchy of deviations from
+$K=2/3$ in mixed waterfall windows.
+
+\subsection{Interleaving theorem}
+\label{sec:interleaving}
+
+In the decoupling limit, the two basic hierarchies are the direct and inverse
+branches
+\begin{equation}
+  a_i=\mu\,q_i^2\,,
+  \qquad
+  d_i=\nu\,q_i^{-2}\,,
+  \label{eq:branches}
+\end{equation}
+with opposite orderings for $q_1<q_2<q_3$:
+$a_1<a_2<a_3$ while $d_1>d_2>d_3$.
+
+\begin{theorem}[Interleaving]
+\label{thm:interleaving}
+  The six unmixed masses $\{a_1,a_2,a_3,d_1,d_2,d_3\}$ form the alternating ladder
+  \begin{equation}
+    d_1 > a_3 > d_2 > a_2 > d_3 > a_1
+    \label{eq:ladder}
+  \end{equation}
+  if and only if
+  \begin{equation}
+    \max\!\bigl(q_1^2 q_3^2,\; q_2^4\bigr)
+    \;<\; \frac{\nu}{\mu}
+    \;<\; q_2^2\,q_3^2\,.
+    \label{eq:window}
+  \end{equation}
+\end{theorem}
+
+\begin{proof}
+  The adjacent inequalities $d_1>a_3>a_2>\cdots>a_1$ reduce to the three
+  independent conditions
+  $\nu/\mu>q_1^2q_3^2$, $\nu/\mu<q_2^2q_3^2$, and $\nu/\mu>q_2^4$.
+  The remaining inequalities follow from $q_1<q_2<q_3$.
+\end{proof}
+
+The ladder alternates strictly between inverse and direct entries:
+$(d_1,a_3,d_2,a_2,d_3,a_1)$.  Each consecutive triple therefore mixes
+functional dependences $q$ and $1/q$ at the level of signed square roots,
+and the Koide diagnostic becomes sensitive to relative signs.
+
+\subsection{Waterfall windows and the sign flip}
+\label{sec:waterfall_windows}
+
+In the Koide diagnostic, the two branches correspond to
+\begin{equation}
+  \sqrt{a_i}=\sqrt{\mu}\,q_i\,,
+  \qquad
+  \sqrt{d_i}=\frac{\sqrt{\nu}}{q_i}\,.
+  \label{eq:sqrt_branches}
+\end{equation}
+For a pure-branch triple, all three entries scale as the same function of $q$
+and $K=2/3$ reduces to the trace identity~(\ref{eq:K_trace_id}).
+For a mixed triple (\eg $(a_3,d_2,a_2)$), the sum in the denominator of~(\ref{eq:Kdef})
+contains both $q$ and $1/q$ contributions, and a relative sign is generically
+needed for the ratio to be close to $2/3$.
+Empirically, the quark-mass waterfall uses a sign flip in the $(b,c,s)$ window
+of physical masses~\cite{Zenczykowski:2012}.  In the present framework, such a
+sign flip is interpreted only as a qualitative diagnostic of the residual
+quartic mixing
+(\ref{eq:quartic}), which can shift the intermediate eigenvalues away from the
+unmixed $a_i,d_i$ and thereby modify which branch character dominates each
+physical mass.  We do not claim here that the quartic term has already been
+shown quantitatively to reproduce the observed windows or sign assignments.
+Section~\ref{sec:waterfall} should therefore be read as establishing a
+structural motif for the waterfall, not yet a demonstrated quark-mass
+mechanism.
+
+%======================================================================
+\section{Phenomenology and EFT consistency}
+\label{sec:pheno}
+
+The purpose of the present paper is to formulate a controlled flavour EFT, not
+to claim that all phenomenology is already computed.  The minimal consistency
+checklist is therefore as follows.
+
+\paragraph{Multi-Higgs structure and FCNC.}
+The confined meson sector contains three $H_d$-type doublets $M^{A}{}_i$ and,
+through $\adj(M)$, three $H_u$-type doublets.  With family-dependent VEVs or
+Yukawa textures, generic neutral-scalar exchange induces tree-level FCNC and
+new CP phases.  A viable low-energy EFT therefore requires decoupling,
+alignment, or natural flavour conservation; at most one may presently invoke a
+Cheng--Sher-type suppression as a \emph{working assumption}, not as a derived
+result~\cite{Branco:2011iw,ChengSher:1987}.
+
+\paragraph{What the scale $\Lambda_F$ does and does not mean.}
+The scale $\Lambda_F$ is the hidden family-confinement scale entering the
+holomorphic Seiberg relations.  It should not automatically be identified with
+the direct contact-interaction scale probed by compositeness searches on the
+observed quarks and leptons.  If the quark sector is partially composite or
+quarkino-like, the relevant phenomenological bound applies to the canonically
+normalised resonance masses and mixing operators, which must lie well above the
+weak scale even if the holomorphic parameter entering the moduli-space algebra
+is lower~\cite{Kaplan:1991dc,Strassler:1995,NelsonStrassler:2000}.
+
+\paragraph{Exotics.}
+The quark completion that removes the bare-diquarkino obstruction introduces an
+exotic $\pm4/3$ coloured state per generation.  In the EFT used here, these
+states are assumed heavy (or effectively vector-like after completion) and only
+their SM-like mixtures enter the leading operators~(\ref{eq:Wq_eff}).  Any
+fully explicit completion must state their masses, anomaly role, and mixing
+pattern; they are evidence for extra structure, not decorative bystanders.
+
+\paragraph{Mixing matrices.}
+Because the holomorphic structures are functions of the same aligned spurion
+$m$, they commute and do not generate CKM or PMNS mixing by themselves.
+Mixing must therefore arise from non-holomorphic K\"ahler terms, soft
+misalignment, or elementary--composite mixing matrices in the quarkino sector.
+This is the honest status of the CKM formulas: until the relevant K\"ahler or
+mixing operators are derived, they remain empirical guides rather than EFT
+predictions.  Accordingly, the present paper does not claim a derivation of the
+CKM or PMNS matrices.  The neutrino sector is even less developed; large PMNS
+angles would have to come from baryonic/K\"ahler threshold effects or else be
+treated as outside the present scope.
+
+\paragraph{Bosonic tuples.}
+The present paper mostly tracks the fermionic tuples, but the same Koide-type
+regularities also appear empirically in mesonic triples such as
+$(0,\pi,D)$ and $(\pi,D,B)$.  We take that bosonic parallel as a clue that the
+same aligned SUSY-breaking/compositeness logic may extend beyond the fermion
+sector, but we do not yet derive those meson tuples inside the EFT.
+Absent the missing K\"ahler/completion analysis, the paper should therefore be
+read as a structural flavour-EFT proposal rather than as a viability proof.
+
+%======================================================================
+\section{Status, interpretation, and open problems}
+\label{sec:status}
+
+The results above split naturally into five classes:
+\begin{enumerate}
+  \item \textbf{Algebraic identities:} the trace identity~(\ref{eq:K_trace_id})
+    and the uniqueness Theorem~\ref{thm:unique_n2} depend only on canonical
+    $\UU(3)$ normalisation and on the assumed monomial charge law.
+  \item \textbf{Exact holomorphic constraint relations:}
+    the mesonic-branch vacuum $\langle M\rangle\propto m^{-1}$ and the composite
+    spectrum relations (\ref{eq:offdiag_mass})--(\ref{eq:baryon_mass}) follow
+    from the constraint $\det M-B\tilde B=\Lambda^6$ and its holomorphic
+    implementation in~(\ref{eq:WIR}).  Physical masses additionally depend on
+    K\"ahler normalisation.
+  \item \textbf{sBootstrap postulates:} the identification of mesinos with
+    leptons~(\ref{eq:mesinos_leptons}), the quark--diquark/complementarity
+    interpretation of quarks as diquarkinos (Section~\ref{sec:sbootstrap_diquarks}),
+    and the existence of an alignment spurion selecting a diagonal deformation
+    basis are assumptions of the sBootstrap EFT rather than consequences of SQCD.
+  \item \textbf{Model-dependent embeddings and mixing:} mapping the holomorphic
+    structures to SM pole masses (including CKM/PMNS) requires specifying the
+    quark-sector operator content in~(\ref{eq:Wq_eff}) and controlling the
+    non-holomorphic K\"ahler dressing.  This is where mixing matrices arise,
+    since functions of a single diagonal operator $H_Q$ commute and cannot
+    generate CKM without non-holomorphic effects.
+  \item \textbf{Speculative UV motivation:} the reading of
+    $m_i\propto(z_0+z_i)^2$ as an aligned SUSY-breaking/K\"ahler pattern
+    (Section~\ref{sec:soft_origin}) is a concrete EFT interpretation, while
+    deeper origins in charge-lattice/BPS or M-theory constructions are
+    conjectural and are not used as premises in the derivations above
+    \cite{Narain:1986,Ferrara:1995ih}.
+\end{enumerate}
+
+Earlier versions of this work were presented as two short notes
+(``Quadratic charge--mass relation from gauged family symmetry'' and
+``The quark mass waterfall from emergent interleaving''),
+which separated the quadratic charge identity and the interleaving theorem.
+In this consolidated paper we have focused instead on the structural and
+supersymmetric origin of: (i) the direct/inverse pairing, (ii) the existence of
+multiple charge decompositions for the same composite masses, and (iii) the
+interleaving theorem that forces a mixed ordering whenever both branches are
+present and $\nu/\mu$ lies in the window~(\ref{eq:window}).
+
+Important open problems include:
+(a) computing (or parametrising with control) the relevant K\"ahler metrics and
+their flavour dependence;
+(b) deriving the coloured quarkino completion and the $\pm4/3$ exotics from an
+explicit UV model rather than from EFT placeholders;
+(c) understanding whether the quartic remnant~(\ref{eq:quartic}) can generate the
+observed pattern of sign choices in the waterfall windows;
+(d) clarifying whether the same aligned SUSY-breaking logic can account for the
+empirical meson tuples $(0,\pi,D)$ and $(\pi,D,B)$ as well as for the fermionic
+ones.
+
+%======================================================================
+\section{Conclusions}
+\label{sec:concl}
+
+We have outlined a structural SUSY EFT proposal in which canonical $\UU(3)$
+family normalisation, $\mathcal{N}{=}1$ confinement with a quantum-modified
+moduli space, and the emergent composite doublet structure
+jointly organise why:
+(i) a quadratic charge law yields an exact $K=2/3$ identity independent of
+the Cartan direction,
+(ii) Seiberg mass deformations generate \emph{inverse} hierarchies through
+meson VEVs and a $\Lambda$-independent composite spectrum with multiple
+charge decompositions, and
+(iii) the coexistence of direct and inverse branches forces an interleaved
+mass ladder in a calculable parameter window, providing the structural core
+of the quark mass waterfall.
+In the EFT reading advocated here, the same family operator $H_Q$ can also be
+used to organise the leading aligned SUSY-breaking/K\"ahler deformations, so
+that the triplets $(z_0+z_i)^2$ are not merely postulated but are compatible
+with the minimal quadratic symmetry-breaking pattern.  Embedding these structures into
+the full SM flavour sector remains model-dependent, primarily controlled by
+K\"ahler dressing, by the explicit quarkino/exotic completion, and by whether
+the bosonic tuples can be brought under the same umbrella as the fermionic
+ones.  No claim is made here that the present EFT already supplies a
+phenomenologically complete or uniquely UV-derived flavour model.
+
+%======================================================================
+\appendix
+
+\section{Proof of Theorem~\ref{thm:unique_n2}}
+\label{app:unique}
+
+With $q_i=z_0+z_i$ and $z_i$ parametrised by~(\ref{eq:zi_alpha}),
+one has $\sum_i z_i=0$ and $\sum_i z_i^2=1/2$ by construction, while
+\begin{equation}
+  \sum_i z_i^3 \;=\; \frac{1}{3\sqrt3}\sum_i \cos^3\!\left(\alpha+\frac{2\pi(i-1)}{3}\right)
+  \;\propto\; \cos 3\alpha\,,
+  \label{eq:sumz3}
+\end{equation}
+so the cubic power sum depends on the Cartan direction.
+For integer $n\ge3$, expanding $\sum_i q_i^n=\sum_i(z_0+z_i)^n$ by the
+binomial theorem, the term $\binom{n}{3}z_0^{n-3}\sum_i z_i^3$ appears with
+nonzero coefficient and introduces $\alpha$ dependence into the numerator of
+$K_n(\alpha)$ in~(\ref{eq:Kn_def}).  For $n=2$ one has $\sum_i q_i^2=3z_0^2+\sum_i z_i^2=1$
+and $(\sum_i q_i)^2=(3z_0)^2=3/2$, giving $K_2=2/3$ independent of~$\alpha$.
+For $n=1$ the denominator contains $\sum_i q_i^{1/2}$ and is $\alpha$ dependent.
+The case $n=0$ gives the trivial constant $K_0=1/3$.
+For non-integer real $n$, the same cubic-power-sum mechanism suggests that
+$\alpha$ dependence should persist generically, but we do not claim a theorem:
+the non-integer extension is heuristic and is not used elsewhere in the paper.
+
+\section{Derivation of the quantum-modified spectrum relations}
+\label{app:seiberg_spectrum}
+
+We sketch the derivation of~(\ref{eq:offdiag_mass}) following the standard
+quantum-modified effective description~(\ref{eq:WIR}).
+On the diagonal vacuum $M=\diag(M_1,M_2,M_3)$ with $B=\tilde B=0$, the $F$-term
+conditions imply $M_i=\Lambda^2 P^{1/3}/m_i$ and $X=-P^{1/3}/\Lambda^4$.
+
+For an off-diagonal meson $M^i{}_j$ with $i\neq j$, the relevant holomorphic
+mass term comes from the second derivative of the determinant,
+$\partial^2(\det M)/\partial M^i{}_j \partial M^j{}_i = M_k$, where $k$ is the
+third index.  Canonical normalisation for mesons is $M/\Lambda$ at leading order,
+so the leading mass scale is
+\begin{equation}
+  m\bigl(M^i{}_j\bigr)
+  \sim \Lambda^2\,|X M_k|
+  = \Lambda^2\left|\frac{P^{1/3}}{\Lambda^4}\frac{\Lambda^2 P^{1/3}}{m_k}\right|
+  = \frac{P^{2/3}}{m_k}
+  = \frac{m_i m_j}{P^{1/3}}\,,
+\end{equation}
+using $P=m_1m_2m_3$.  The overall proportionality depends on the K\"ahler metric
+but is generation-independent at leading order; the dependence on $m_i$ is fixed
+by holomorphy.
+
+\begin{thebibliography}{99}
+
+\bibitem{Koide:1983qe}
+  Y.~Koide,
+  Phys.\ Lett.\ B \textbf{120}, 161 (1983).
+
+\bibitem{Rivero:2024epjc}
+  A.~Rivero,
+  Eur.\ Phys.\ J.\ C \textbf{84}, 1058 (2024),
+  \href{https://doi.org/10.1140/epjc/s10052-024-13368-3}%
+    {\texttt{doi:10.1140/epjc/s10052-024-13368-3}}.
+
+\bibitem{Chew:1962}
+  G.F.~Chew,
+  Rev.\ Mod.\ Phys.\ \textbf{34}, 394 (1962),
+  \href{https://doi.org/10.1103/RevModPhys.34.394}%
+    {\texttt{doi:10.1103/RevModPhys.34.394}}.
+
+\bibitem{ChewFrautschi:1962}
+  G.F.~Chew and S.C.~Frautschi,
+  Phys.\ Rev.\ Lett.\ \textbf{8}, 41 (1962),
+  \href{https://doi.org/10.1103/PhysRevLett.8.41}%
+    {\texttt{doi:10.1103/PhysRevLett.8.41}}.
+
+\bibitem{Miyazawa:1966}
+  H.~Miyazawa,
+  Prog.\ Theor.\ Phys.\ \textbf{36}, 1266 (1966),
+  \href{https://doi.org/10.1143/PTP.36.1266}%
+    {\texttt{doi:10.1143/PTP.36.1266}}.
+
+\bibitem{CattoGursey:1985}
+  S.~Catto and F.~G\"ursey,
+  Nuovo Cim.\ A \textbf{86}, 201 (1985),
+  \href{https://doi.org/10.1007/BF02902548}%
+    {\texttt{doi:10.1007/BF02902548}}.
+
+\bibitem{CattoGursey:1988}
+  S.~Catto and F.~G\"ursey,
+  Nuovo Cim.\ A \textbf{99}, 685 (1988),
+  \href{https://doi.org/10.1007/BF02730633}%
+    {\texttt{doi:10.1007/BF02730633}}.
+
+\bibitem{FradkinShenker:1979}
+  E.~Fradkin and S.H.~Shenker,
+  Phys.\ Rev.\ D \textbf{19}, 3682 (1979),
+  \href{https://doi.org/10.1103/PhysRevD.19.3682}%
+    {\texttt{doi:10.1103/PhysRevD.19.3682}}.
+
+\bibitem{BanksRabinovici:1979}
+  T.~Banks and E.~Rabinovici,
+  Nucl.\ Phys.\ B \textbf{160}, 349 (1979).
+
+\bibitem{PDG:2024}
+  S.~Navas \textit{et al.} (Particle Data Group),
+  Phys.\ Rev.\ D \textbf{110}, 030001 (2024).
+
+\bibitem{Rivero:2005}
+  A.~Rivero,
+  arXiv:hep-ph/0505220 (2005).
+
+\bibitem{Zenczykowski:2012}
+  P.~Zenczykowski,
+  Phys.\ Rev.\ D \textbf{86}, 117303 (2012).
+
+\bibitem{Seiberg:1994bz}
+  N.~Seiberg,
+  Nucl.\ Phys.\ B \textbf{435}, 129 (1995).
+
+\bibitem{Csaki:1996zb}
+  C.~Cs\'aki, M.~Schmaltz, and W.~Skiba,
+  Phys.\ Rev.\ Lett.\ \textbf{78}, 799 (1997).
+
+\bibitem{IntriligatorSeibergShenker:1995}
+  K.~Intriligator, N.~Seiberg, and S.H.~Shenker,
+  Phys.\ Lett.\ B \textbf{342}, 152 (1995).
+
+\bibitem{SeibergWitten:1994a}
+  N.~Seiberg and E.~Witten,
+  Nucl.\ Phys.\ B \textbf{426}, 19 (1994);
+  \textbf{431}, 484 (1994).
+
+\bibitem{APS:1997}
+  P.C.~Argyres, M.R.~Plesser, and A.D.~Shapere,
+  Nucl.\ Phys.\ B \textbf{483}, 172 (1997),
+  arXiv:hep-th/9705069.
+
+\bibitem{VolkovAkulov:1973}
+  D.V.~Volkov and V.P.~Akulov,
+  Phys.\ Lett.\ B \textbf{46}, 109 (1973).
+
+\bibitem{Narain:1986}
+  K.S.~Narain,
+  Phys.\ Lett.\ B \textbf{169}, 41 (1986).
+
+\bibitem{Ferrara:1995ih}
+  S.~Ferrara, R.~Kallosh, and A.~Strominger,
+  Phys.\ Rev.\ D \textbf{52}, 5412 (1995),
+  arXiv:hep-th/9508072.
+
+\bibitem{Kaplan:1991dc}
+  D.B.~Kaplan,
+  Nucl.\ Phys.\ B \textbf{365}, 259 (1991).
+
+\bibitem{Strassler:1995}
+  M.J.~Strassler,
+  Phys.\ Lett.\ B \textbf{376}, 119 (1996),
+  arXiv:hep-ph/9510342.
+
+\bibitem{NelsonStrassler:2000}
+  A.E.~Nelson and M.J.~Strassler,
+  JHEP \textbf{09}, 030 (2000),
+  arXiv:hep-ph/0006251.
+
+\bibitem{Branco:2011iw}
+  G.C.~Branco, P.M.~Ferreira, L.~Lavoura, M.N.~Rebelo,
+  M.~Sher, and J.P.~Silva,
+  Phys.\ Rept.\ \textbf{516}, 1 (2012),
+  arXiv:1106.0034.
+
+\bibitem{ChengSher:1987}
+  T.P.~Cheng and M.~Sher,
+  Phys.\ Rev.\ D \textbf{35}, 3484 (1987).
+
+\end{thebibliography}
+
+\clearpage
+\tableofcontents
+
+\end{document}

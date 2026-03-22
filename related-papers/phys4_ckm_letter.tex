@@ -1,0 +1,325 @@
+\documentclass[aps,prl,twocolumn,showpacs,preprintnumbers]{revtex4-2}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\Nc}{N_c}
+\newcommand{\Nf}{N_f}
+\newcommand{\MeV}{\,\mathrm{MeV}}
+\newcommand{\GeV}{\,\mathrm{GeV}}
+\newcommand{\TeV}{\,\mathrm{TeV}}
+
+\begin{document}
+
+\title{CKM and PMNS mixing from the Koide angle}
+
+\author{A.\ Rivero}
+\affiliation{Independent researcher}
+
+\date{\today}
+
+\begin{abstract}
+We show that the Cartan angle $\delta = 2/9$ of the Koide
+mass formula determines both the CKM and PMNS mixing matrices
+with zero free parameters.
+The Wolfenstein hierarchy $|V_{us}| = 2/9$,
+$|V_{cb}| = 4/99$, $A = 9/11$ matches PDG data to
+$0.9\%$, $4.3\%$, and~$1.0\%$.
+The PMNS deviations from tribimaximal mixing are
+$\theta_{12} = \pi/4 - \delta + \delta^2/N$,
+$\theta_{23} = \pi/4 + \delta/N$,
+$\theta_{13} = 2\delta/N = 4/27$~rad,
+matching data to $0.7\%$, $0.08\%$, and~$0.9\%$.
+All six mixing parameters are rational functions of $N = 3$
+(the number of families), constituting a $1/N$ expansion
+of $\SU(3)$ family symmetry.
+Combining $\theta_C = \delta$ with the Gatto--Sartori--Tonin relation
+gives the cross-sector prediction $m_d/m_s = \delta^2 = 4/81$ ($1.2\%$
+from PDG).
+The Koide formula $K = 2/3$ is an identity of
+this expansion: $K = j(j{+}1)/N$ with $j = (N{-}1)/2 = 1$.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+The Koide mass formula~\cite{Koide:1983}
+\begin{equation}
+  K \equiv \frac{m_e + m_\mu + m_\tau}{(\sqrt{m_e}+\sqrt{m_\mu}+\sqrt{m_\tau})^2}
+  = \frac{2}{3}
+  \label{eq:koide}
+\end{equation}
+has held to one part in $10^5$ since 1981.
+In the parametrisation $\sqrt{m_n} = \mu(1+\sqrt{2}\cos(\delta+2\pi n/3))$
+of Brannen~\cite{Brannen:2006}, Foot's geometric
+condition~$\theta = \pi/4$~\cite{Foot:1994} is equivalent to
+Eq.~(\ref{eq:koide}), and the mass hierarchy is encoded in a
+single Cartan angle~$\delta$.
+Numerically $\delta = 0.22222 \pm 0.00001$~rad,
+consistent with the exact value $\delta = 2/9$.
+
+We show that $\delta$ determines the entire CKM and PMNS mixing
+structure, extending the QLC of Raidal~\cite{Raidal:2004}
+and the quark Koide phases of
+Zenczykowski~\cite{Zenczykowski:2012}.
+
+
+\section{Cabibbo angle = Koide angle}
+
+Koide's original composite model~\cite{Koide:1983} predicted
+\begin{equation}
+  \tan\theta_C = \frac{\sqrt{3}(\sqrt{m_\mu}-\sqrt{m_e})}{2\sqrt{m_\tau}-\sqrt{m_\mu}-\sqrt{m_e}}\,.
+  \label{eq:cabibbo}
+\end{equation}
+This expression is \emph{algebraically identical} to $\tan\delta$:
+in the Koide parametrisation, the right-hand side of
+Eq.~(\ref{eq:cabibbo}) equals $\tan\delta$ identically, for any
+masses satisfying $K = 2/3$.
+Thus $\theta_C = \delta$.
+Numerically $\theta_C = 0.22223$~rad, matching the PDG value
+$|V_{us}| = 0.2243$ to~$0.9\%$.
+
+
+\section{CKM from the democratic resolvent}
+
+The Wolfenstein parametrisation expresses the CKM matrix as
+a power series in $\lambda = |V_{us}|$.
+Setting $\lambda = \delta = 2/9$, the Wolfenstein~$A$ parameter
+is determined by the \emph{resolvent} of the democratic matrix:
+
+The democratic matrix $J = \mathbf{1}\mathbf{1}^T$ (all entries~1)
+has eigenvalues $3$ (democratic direction) and $0$ (double,
+breaking plane).
+The resolvent of the zero-eigenvalue subspace at
+$z = 1 + \delta$ gives
+\begin{equation}
+  A = \frac{1}{1+\delta} = \frac{N^2}{N^2+2} = \frac{9}{11}\,,
+  \label{eq:A}
+\end{equation}
+where we used $\delta = 2/N^2$ with $N = 3$.
+
+The resulting zero-parameter CKM magnitudes are:
+\begin{equation}
+  |V_{us}| = \frac{2}{9}\,,\qquad
+  |V_{cb}| = \frac{4}{99}\,,\qquad
+  A = \frac{9}{11}\,.
+  \label{eq:ckm}
+\end{equation}
+Comparison with PDG~\cite{PDG:2024}:
+
+\begin{center}
+\begin{tabular}{lccc}
+\hline
+& Prediction & PDG & Off \\
+\hline
+$|V_{us}|$ & $2/9 = 0.2222$ & $0.2250 \pm 0.0007$ & $1.2\%$ \\
+$|V_{cb}|$ & $4/99 = 0.0404$ & $0.0422 \pm 0.0008$ & $4.3\%$\footnotemark \\
+$A$ & $9/11 = 0.818$ & $0.826 \pm 0.013$ & $1.0\%$ \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\footnotetext{The PDG average uses the inclusive value.
+The exclusive determination $|V_{cb}|_{\mathrm{excl}} = 0.0395 \pm 0.0008$
+differs from the inclusive by $\sim 3\sigma$.
+Our prediction $4/99 = 0.0404$ is only $1.1\sigma$ from the exclusive value.}
+
+\section{Down-quark mass ratio}
+
+Combining $\theta_C = \delta$ with the Gatto--Sartori--Tonin
+relation~\cite{GST:1968} $|V_{us}| \approx \sqrt{m_d/m_s}$ gives
+a zero-parameter cross-sector prediction:
+\begin{equation}
+  \frac{m_d}{m_s} = \delta^2 = \frac{4}{81} = 0.0494\,.
+  \label{eq:md_ms}
+\end{equation}
+The PDG value $m_d/m_s = 0.0500 \pm 0.0044$ agrees to~$1.2\%$.
+Together with the inverse Koide condition
+$K^{-1}(d,s,b) = 2/3$ and the bion relation
+$\sqrt{m_b} = 3\sqrt{m_s} + \sqrt{m_c}$,
+the three down-type quark masses are determined from $m_c$ alone:
+$m_s = 91.6$~MeV ($1.9\%$),
+$m_b = 4141$~MeV ($1.0\%$),
+$m_d = 4.52$~MeV ($3.2\%$).
+
+\section{PMNS from the $1/N$ expansion}
+
+The PMNS mixing angles are deviations from maximal mixing
+($\pi/4$), controlled by~$\delta$:
+\begin{align}
+  \theta_{12} &= \frac{\pi}{4} - \delta + \frac{\delta^2}{N}
+  = \frac{\pi}{4} - \frac{2}{9} + \frac{4}{243}\,,
+  \label{eq:t12} \\
+  \theta_{23} &= \frac{\pi}{4} + \frac{\delta}{N}
+  = \frac{\pi}{4} + \frac{2}{27}\,,
+  \label{eq:t23} \\
+  \theta_{13} &= \frac{2j(j{+}1)}{N^3} = \frac{4}{27}\;\mathrm{rad}\,,
+  \label{eq:t13}
+\end{align}
+where $j = (N{-}1)/2 = 1$ and $N = 3$.
+
+\begin{center}
+\begin{tabular}{lccc}
+\hline
+& Prediction & NuFIT~5.2 & Off \\
+\hline
+$\sin^2\theta_{12}$ & $0.300$ & $0.304 \pm 0.012$ & $1.3\%$ \\
+$\sin^2\theta_{23}$ & $0.574$ & $0.573 \pm 0.018$ & $0.1\%$ \\
+$\sin^2\theta_{13}$ & $0.0218$ & $0.0222 \pm 0.0007$ & $1.9\%$ \\
+\hline
+\end{tabular}
+\end{center}
+
+The PMNS correction coefficients $(-1, +1/3, +2/3)$ are
+\emph{traceless} (they sum to zero) and \emph{unique}:
+among all traceless triples with denominators $\leq 3$,
+this is the only one giving all three angles within $5\%$
+of data. Moreover, scanning~$N = 2,\ldots,10$ in
+Eqs.~(\ref{eq:t12})--(\ref{eq:t13}), only $N = 3$ gives
+$\chi^2 < 1$ ($\chi^2 = 0.5$); $N = 2$ gives $604$, $N = 4$
+gives~$218$.
+
+
+\section{The $1/N$ expansion}
+
+All parameters are rational functions of $N$:
+\begin{center}
+\begin{tabular}{llll}
+\hline
+Parameter & Formula & Value & Order \\
+\hline
+$\delta$ & $2/N^2$ & $2/9$ & $O(1/N^2)$ \\
+$K$ & $j(j{+}1)/N$ & $2/3$ & $O(1/N)$ \\
+$|V_{us}|$ & $2/N^2$ & $2/9$ & $O(1/N^2)$ \\
+$A$ & $N^2/(N^2{+}2)$ & $9/11$ & $1{-}O(1/N^2)$ \\
+$\theta_{12}{-}\pi/4$ & $-2/N^2{+}4/N^4$ & & $O(1/N^2)$ \\
+$\theta_{23}{-}\pi/4$ & $2/N^3$ & $2/27$ & $O(1/N^3)$ \\
+$\theta_{13}$ & $4/N^3$ & $4/27$ & $O(1/N^3)$ \\
+\hline
+\end{tabular}
+\end{center}
+
+The lepton mass hierarchy, the CKM matrix, and the PMNS matrix
+are all the $1/N$ expansion of $\SU(N)$ family symmetry at~$N = 3$.
+
+
+\section{Statistical assessment}
+
+With $|V_{us}|$ treated as input (determining~$\delta$),
+the remaining five predictions have
+$\chi^2/\mathrm{dof} = 6.2/5 = 1.25$ ($p = 0.28$).
+The pulls are: $|V_{cb}|$ $(-2.3\sigma)$,
+$A$ $(-0.6\sigma)$,
+$\sin^2\theta_{12}$ $(-0.3\sigma)$,
+$\sin^2\theta_{23}$ $(+0.04\sigma)$,
+$\sin^2\theta_{13}$ $(-0.6\sigma)$.
+The fit is acceptable at the 28\% level.
+
+If instead $\delta = 2/9$ is used without adjustment,
+$|V_{us}|$ contributes $-4.2\sigma$, reflecting the $1.2\%$
+discrepancy between $2/9 = 0.2222$ and the PDG value $0.2250$.
+This tension may be resolved by the instanton-generated
+potential $V(\delta) = -\cos(3\delta) + (1/\pi)\cos(6\delta)$,
+which shifts the minimum to $\delta = 0.2225$.
+
+\section{Discussion}
+
+Six mixing parameters (three CKM magnitudes, three PMNS angles)
+follow from a single input: $N = 3$.
+The physical origin is a confining $\SU(3)_F$ family gauge
+theory~\cite{Rivero:2024} whose Koide formula is a Casimir
+identity~\cite{CasimirKoide}: $K = \langle J_3^2\rangle$
+iff $N(N^2{-}1) = 24$ iff $N = 3$.
+
+The critical experimental test is the solar angle.
+Our prediction $\sin^2\theta_{12} = 0.300$ is $1.3\%$
+below the NuFIT central value $0.304$.
+JUNO~\cite{JUNO} will measure $\sin^2\theta_{12}$ to~$\pm 0.003$,
+testing this prediction at~$\sim 1.3\sigma$.
+A measurement confirming $\sin^2\theta_{12} < 0.295$ would
+strongly support the $1/N$ expansion.
+
+The CKM--PMNS hierarchy is structural:
+CKM elements scale as $\delta^{|i-j|}$ (a power of $1/N^2$),
+while PMNS corrections scale as $1/N^{|i-j|-1}$.
+PMNS is near-maximal because its corrections are $O(1/N)$;
+CKM is hierarchical because its elements are $O(1/N^2)$.
+Both originate from the same $\SU(3)_F$, but at different orders
+in the $1/N$ expansion.
+
+Two quantities remain unpredicted: the CKM and PMNS CP-violating
+phases.
+A candidate mechanism for the Cartan angle~$\delta$ is the
+minimum of the angular potential
+$V(\delta) = -\cos(3\delta) + (1/\pi)\cos(6\delta)$,
+which gives $\delta = 2/9$ to~$0.12\%$.
+
+Assuming a neutrino Koide angle~$\delta_\nu \approx 0.47$~rad
+(fitted to mass-squared differences), the framework predicts
+normal ordering with $m_1 \approx 0.35$~meV, $m_3 \approx 51$~meV,
+$\sum m_\nu \approx 60$~meV (below the Planck bound), and
+effective Majorana mass $m_{ee} \approx 4$~meV (within
+reach of tonne-scale $0\nu\beta\beta$ experiments).
+
+\begin{acknowledgments}
+The author thanks M.~Porter for identifying Seiberg duality
+as the mechanism for the sBootstrap during extended discussions
+(2011--2024), C.~Brannen for the circulant matrix parametrisation
+of the Koide formula, and the late M.~Sheppeard (Kea) for
+early contributions connecting Koide to representation theory.
+During the preparation of this work the author used Claude
+(Anthropic) for algebraic verification, numerical checks,
+and drafting assistance.
+The author reviewed and edited all content and takes full
+responsibility for the publication.
+\end{acknowledgments}
+
+\begin{thebibliography}{99}
+
+\bibitem{Koide:1983}
+  Y.~Koide,
+  Phys.\ Lett.\ B \textbf{120}, 161 (1983).
+
+\bibitem{Brannen:2006}
+  C.A.~Brannen,
+  \texttt{hep-ph/0606057} (2006).
+
+\bibitem{Foot:1994}
+  R.~Foot,
+  arXiv:hep-ph/9402242 (1994).
+
+\bibitem{PDG:2024}
+  R.L.~Workman \textit{et al.} (Particle Data Group),
+  Prog.\ Theor.\ Exp.\ Phys.\ \textbf{2022}, 083C01 (2022)
+  and 2024 update.
+
+\bibitem{Rivero:2024}
+  A.~Rivero,
+  Eur.\ Phys.\ J.\ C \textbf{84}, 1058 (2024).
+
+\bibitem{CasimirKoide}
+  A.~Rivero, in preparation.
+
+\bibitem{Raidal:2004}
+  M.~Raidal,
+  Phys.\ Rev.\ Lett.\ \textbf{93}, 161801 (2004),
+  arXiv:hep-ph/0404046.
+
+\bibitem{Zenczykowski:2012}
+  P.~Zenczykowski,
+  Phys.\ Rev.\ D \textbf{86}, 117303 (2012),
+  arXiv:1210.4125.
+
+\bibitem{GST:1968}
+  R.~Gatto, G.~Sartori, and M.~Tonin,
+  Phys.\ Lett.\ B \textbf{28}, 128 (1968).
+
+\bibitem{JUNO}
+  F.~An \textit{et al.} (JUNO Collaboration),
+  J.\ Phys.\ G \textbf{43}, 030401 (2016).
+
+\end{thebibliography}
+
+\end{document}

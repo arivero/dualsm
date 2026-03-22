@@ -1,0 +1,703 @@
+% ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
+%
+% Lecture 11: The Koide Relation and the Dualised Standard Model
+% Part of: The Dualised Standard Model -- Part III Lecture Notes
+%
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,geometry,booktabs,xcolor,hyperref}
+\usepackage{amsthm}
+\geometry{margin=2.5cm}
+\newcommand{\Nc}{N_{\!c}}
+\newcommand{\Nf}{N_{\!f}}
+\newcommand{\SU}[1]{\mathrm{SU}(#1)}
+\newcommand{\UU}[1]{\mathrm{U}(#1)}
+\newcommand{\fund}{\square}
+\newcommand{\antifund}{\overline{\square}}
+\newcommand{\adj}{\mathrm{adj}}
+\newcommand{\antisym}{\wedge^{\!2}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\newtcolorbox{warningbox}[1][]{enhanced,colback=red!5!white,colframe=red!70!black,fonttitle=\bfseries,title={Important},#1}
+\newtcolorbox{previewbox}[1][]{enhanced,colback=green!5!white,colframe=green!50!black,fonttitle=\bfseries,title={Preview},#1}
+\theoremstyle{definition}\newtheorem{exercise}{Exercise}[section]
+
+\title{\textbf{Lecture 11: The Koide Relation and the Dualised
+Standard Model}}
+\author{The Dualised Standard Model --- Part III Lecture Notes}
+\date{Lent Term 2027}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+\newpage
+
+%% ========================================================================
+\section{Introduction and motivation}
+\label{sec:intro}
+%% ========================================================================
+
+In Lectures~7--8, we constructed the dualised Standard Model: a
+magnetic dual of SU(3) QCD with $\Nf = 6$ flavours, where 18~Higgs
+doublets emerge from the mes-Higgs field $\Phi_H$ and the fermion
+mass hierarchy arises from hierarchical VEVs among these doublets.
+The Yukawa coupling $y$ is \emph{universal} (a prediction of the
+duality), and the effective Yukawa matrix is
+\begin{equation}
+  y_{ij}^{\text{eff}} = y\,\frac{\langle H_{ij}\rangle}{v}\,,
+  \label{eq:yeff}
+\end{equation}
+where $H_{ij}$ are the Higgs doublet components and $v$ is the
+electroweak VEV.
+
+In this lecture we ask: \emph{does the dualised SM predict or
+constrain the fermion mass eigenvalues?}  We establish one solid
+result and explore two conjectures:
+\begin{enumerate}
+\item[\textbf{(R)}] The Koide relation $Q = 3/2$ is algebraically
+  equivalent to a \textbf{VEV condition} on the Higgs
+  doublet VEV ratios---a reformulation that introduces no new
+  parameters and follows from the universal Yukawa structure of
+  Lecture~8.
+\item[\textbf{(C1)}] The \emph{numerical value} $Q = 3/2$ coincides
+  with the SU(5) Casimir ratio
+  $C_2(\mathbf{10})/C_2(\mathbf{5}) = 2(N-2)/(N-1)$, which
+  uniquely selects $N=5$.  Whether the Higgs potential enforces this
+  value is \emph{conjectural}.
+\end{enumerate}
+The Koide angle $\delta = 2/9$ remains an empirically determined
+parameter; its origin is an open problem (see~\S\ref{sec:angle}).
+
+%% ========================================================================
+\section{The Koide relation as a VEV condition}
+\label{sec:koide-vev}
+%% ========================================================================
+
+This section contains the lecture's motivating reformulation.  It requires only
+the universal Yukawa coupling of Lecture~8 and standard algebra.
+The observation that the Koide condition becomes a VEV constraint
+in universal-Yukawa models was first made in the yukawaon
+programme~\cite{Koide1983,HabaKoide2008,Ma2007}; we present it
+here in the specific context of the dualised SM.
+
+\subsection{Setup: from VEVs to masses}
+
+From Lecture~8, the effective Yukawa coupling for the $k$-th
+generation in a given charge sector is
+\begin{equation}
+  y_k^{\text{eff}} = y\,\frac{\langle H_k\rangle}{v}
+  = y\,\frac{\mu_{0k}^2}{M_k^2}\,,
+  \label{eq:yk}
+\end{equation}
+where $\mu_{0k}^2$ is the mixing mass between the SM Higgs $H_0$
+and the $k$-th dormant doublet, and $M_k$ is the diagonal mass
+of the $k$-th doublet.  The fermion mass is then
+\begin{equation}
+  m_k = y_k^{\text{eff}}\,\frac{v}{\sqrt{2}}
+  = y\,\frac{v}{\sqrt{2}}\,\frac{\mu_{0k}^2}{M_k^2}\,.
+  \label{eq:mk}
+\end{equation}
+
+Define the \emph{mixing ratio}:
+\begin{equation}
+  x_k \equiv \frac{\mu_{0k}}{M_k}\,.
+  \label{eq:xk}
+\end{equation}
+Then $m_k = m_0\,x_k^2$ where $m_0 = y\,v/\sqrt{2}$ is the
+universal scale, and
+\begin{equation}
+  \sqrt{m_k} = \sqrt{m_0}\,x_k\,.
+  \label{eq:sqrtm}
+\end{equation}
+
+\subsection{The Koide condition on mixing ratios}
+
+The Koide parameter for three fermion masses $m_1, m_2, m_3$ is
+\begin{equation}
+  Q = \frac{(\sqrt{m_1}+\sqrt{m_2}+\sqrt{m_3})^2}
+  {m_1+m_2+m_3}\,.
+  \label{eq:Q}
+\end{equation}
+Substituting~\eqref{eq:sqrtm}:
+\begin{equation}
+  \boxed{Q = \frac{(x_1+x_2+x_3)^2}{x_1^2+x_2^2+x_3^2}\,.}
+  \label{eq:Qx}
+\end{equation}
+The universal scale $m_0$ cancels.  The Koide condition
+$Q = 3/2$ is a \textbf{pure constraint on the mixing ratios}
+$x_k = \mu_{0k}/M_k$.  This is the key rewriting of this
+lecture: in any model with a universal Yukawa coupling and
+multiple Higgs doublets, the Koide relation reduces to a
+condition on the \emph{Higgs sector} alone.  The cancellation
+of $m_0$ is guaranteed by the scale invariance of $Q$
+(homogeneous of degree zero), not by any special property
+of the dualised SM.
+
+\begin{warningbox}
+The Koide condition is independent of the universal Yukawa
+coupling $y$ and the Higgs VEV $v$.  It constrains only the
+\emph{ratios} $\mu_{0k}/M_k$ of the Higgs sector parameters.
+This reformulation is exact.  What follows in Sections~3--4
+is conjectural.
+\end{warningbox}
+
+\subsection{Decomposition into common and traceless parts}
+
+Write $x_k = z_0 + z_k$ with
+\begin{equation}
+  z_0 = \frac{x_1+x_2+x_3}{3}\,,\qquad
+  z_1+z_2+z_3 = 0\,.
+  \label{eq:z0zk}
+\end{equation}
+Then:
+\begin{equation}
+  Q = \frac{9\,z_0^2}{3\,z_0^2 + \sum_k z_k^2}\,.
+  \label{eq:Qz}
+\end{equation}
+The condition $Q = 3/2$ requires
+\begin{equation}
+  z_0^2 = \frac{1}{3}\sum_{k=1}^3 z_k^2\,.
+  \label{eq:koide-cond}
+\end{equation}
+This is the \textbf{trace condition}: the squared common piece
+equals one-third of the sum of squared traceless pieces.
+It is identical to Koide's original 1983 constraint
+$\Tr[U^2] = \Tr[V^2]$~\cite{Koide1983}.
+
+\subsection{What the potential must do}
+
+The effective potential for the dormant Higgs doublets
+(Lecture~8) is
+\begin{equation}
+  V_{\text{eff}} = \sum_k M_k^2\,|H_k|^2
+  + \sum_k \mu_{0k}^2\,(H_0^\dagger H_k + \text{h.c.})
+  + \text{quartic terms}\,.
+  \label{eq:Veff}
+\end{equation}
+Minimising with respect to $\langle H_k\rangle$ gives
+$x_k = \mu_{0k}/M_k$ as before.  The Koide condition~\eqref{eq:koide-cond}
+is then a \textbf{constraint on the potential minimum}:
+the quartic terms must be structured so that the minimum
+satisfies $z_0^2 = \frac{1}{3}\sum z_k^2$.
+
+We do \emph{not} derive that the potential has this property.
+The question of whether the emergent quasi-SUSY of the magnetic
+theory constrains the quartic couplings sufficiently is the
+central open problem of this programme.
+
+%% ========================================================================
+\section{Conjecture C1: $Q = 3/2$ and the SU(5) Casimir ratio}
+\label{sec:casimir}
+%% ========================================================================
+
+\subsection{The numerical coincidence}
+
+For $\SU{N}$, the quadratic Casimir operators of the fundamental
+representation~($\fund$) and the antisymmetric two-tensor
+($\antisym\fund$) satisfy:
+\begin{equation}
+  \frac{C_2(\antisym\fund)}{C_2(\fund)}
+  = \frac{2(N-2)}{N-1}\,.
+  \label{eq:casimir-ratio}
+\end{equation}
+This follows from $C_2(\wedge^p\,N) = p(N-p)(N+1)/(2N)$.
+Setting the ratio to $3/2$:
+\begin{equation}
+  \frac{2(N-2)}{N-1} = \frac{3}{2}
+  \qquad\Longrightarrow\qquad N = 5\,.
+  \label{eq:Q-N5}
+\end{equation}
+This is the unique positive integer solution.
+
+\begin{center}\small
+\begin{tabular}{@{}ccc@{}}
+\toprule
+$N$ & $C_2(\wedge^2 N)/C_2(N)$ & \\
+\midrule
+$3$ & $1$ & (degenerate) \\
+$4$ & $4/3$ & \\
+$\mathbf{5}$ & $\mathbf{3/2}$ & $= Q_{\text{Koide}}$ \\
+$6$ & $8/5$ & \\
+$\infty$ & $2$ & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Why $N = 5$?}
+
+In the dualised SM of Lectures~7--8, the flavour group is
+$\SU{6}$ (from $\Nf = 6$).  The value $N = 5$ does not
+correspond to $\SU{6}$ but to $\SU{5} \subset \SU{6}$.
+The five lightest quarks $(u,c,d,s,b)$ form the fundamental
+of an SU(5) flavour subgroup, with the top quark as the sixth
+flavour playing a special role.
+
+This SU(5) flavour structure is precisely the \emph{sBootstrap}
+framework~\cite{Rivero2009,Rivero2024}, where the top is called
+the ``elephant'' and the five light quarks are ``turtles.''
+The decomposition
+\begin{equation}
+  \SU{6}_{\text{flavour}} \supset \SU{5}_{\text{turtle}}
+  \times \UU{1}_{\text{top}}
+\end{equation}
+is natural from the mass hierarchy alone ($m_t \gg m_b$), but
+the duality does not \emph{derive} it: nothing in the CS framework
+selects SU(5) over SU(6) as the relevant Casimir group.
+
+\begin{warningbox}
+The coincidence $C_2(\mathbf{10})/C_2(\mathbf{5}) = 3/2
+= Q_{\text{Koide}}$ is a \emph{mathematical fact} about SU(5).
+Whether the Higgs potential minimum is determined by this
+Casimir ratio is a \emph{conjecture without proof}.  No
+derivation exists connecting the one-loop potential of the
+18-doublet sector to the eigenvalue condition~\eqref{eq:koide-cond}.
+\end{warningbox}
+
+For this coincidence to be physically meaningful, there must exist
+a dynamical channel through which $C_2$ ratios in an $\SU{5}$
+flavour group influence the Higgs potential minimum.  Candidate
+mechanisms include: one-loop corrections proportional to $C_2$
+entering the quartic couplings, renormalisation-group fixed-point
+conditions, or representation-theoretic constraints on the
+potential structure.  None of these has been investigated.
+
+\subsection{Dynkin index integers}
+
+If one takes the SU(5) Casimir connection seriously, the
+Dynkin index ratios provide further numerical coincidences:
+\begin{align}
+  \frac{T(\mathbf{15})}{T(\mathbf{5})} &= N+2 = 7\,,
+  \label{eq:dyn-7} \\
+  \frac{T(\mathbf{24})}{T(\mathbf{5})} &= 2N = 10\,,
+  \label{eq:dyn-10} \\
+  \frac{T(\mathbf{10})}{T(\mathbf{5})} &= N-2 = 3 = \Nc\,.
+  \label{eq:dyn-3}
+\end{align}
+The integers $7$ and $10$ appear in empirical ``$Z$-ladder''
+mass relations, and $N-2 = 3$ is the number of QCD colours.
+These coincidences are suggestive but do not constitute a
+derivation.
+
+%% ========================================================================
+\section{The Koide angle $\delta$: an open problem}
+\label{sec:angle}
+%% ========================================================================
+
+The Koide condition~\eqref{eq:koide-cond} constrains the sum
+$\sum z_k^2$ relative to $z_0^2$, but does not fix the
+\emph{individual} $z_k$ values.  The mass spectrum is
+parametrised by a single angle $\delta$ in the $Z_3$
+representation:
+\begin{equation}
+  x_k = z_0\!\left(1+\sqrt{2}\,
+  \cos\!\left(\frac{2\pi k}{3}+\delta\right)\right),
+  \qquad k = 1,2,3\,.
+  \label{eq:z3}
+\end{equation}
+The value $\delta = 2/9$~rad reproduces the charged lepton
+masses to $10^{-5}$ precision~\cite{Brannen2006}.
+
+Neither the dualised SM nor the sBootstrap currently derives
+this value.  Within the multi-Higgs framework, $\delta$ is
+determined by the relative magnitudes of the mixing masses
+$\mu_{0k}$ and the diagonal masses $M_k$.  These originate
+from Planck-scale operators in the electric theory
+(Lecture~8), and their structure is not sufficiently
+constrained by the duality to fix $\delta$.
+
+Deriving $\delta$ from a dynamical principle---whether from
+modular flavour symmetries, conformal fixed-point dynamics,
+or some other mechanism---remains the central open problem
+of the Koide programme.
+
+%% ========================================================================
+\section{What $Q = 3/2$ determines and what it leaves free}
+\label{sec:spectrum}
+%% ========================================================================
+
+The Koide condition $Q = 3/2$ is one constraint on three
+eigenvalues, leaving a two-parameter family: the overall
+scale $m_0$ and the angle $\delta$.  The scale $m_0$ sets
+the heaviest mass; $\delta$ sets the ratios.
+
+With the empirical $\delta = 2/9$, the Koide formula predicts
+\begin{align}
+  \frac{m_e}{m_\mu} &= 0.004836\,,
+  & \text{(measured: } 0.004836\text{)} \\
+  \frac{m_\mu}{m_\tau} &= 0.05946\,,
+  & \text{(measured: } 0.05946\text{)}
+\end{align}
+Both agree to better than $0.002\%$.  But this precision is
+the content of the original Koide formula~\cite{Koide1983}; it
+is not a prediction of the dualised SM, which so far provides
+$Q = 3/2$ as a VEV condition but does not derive $\delta$.
+
+%% ========================================================================
+\section{The chain angle and colour}
+\label{sec:chain}
+%% ========================================================================
+
+The Koide chain~\cite{Rivero2013,Zenczykowski2012}
+extends the lepton relation to quarks:
+$(0,s,c) \to (-s,c,b) \to (c,b,t)$, with each link
+satisfying $Q \approx 3/2$ and the chain angle
+$\delta_{scb} \approx 3\,\delta_\ell$.
+
+One interpretation of the factor~$3$: the quark sector carries
+SU(3)$_c$ colour, which multiplies the vacuum angle:
+\begin{equation}
+  \delta_{\text{chain}} = \Nc\,\delta_\ell
+  = 3\times\frac{2}{9} = \frac{2}{3}\;\text{rad}
+  = 38.2^\circ\,.
+  \label{eq:chain-angle}
+\end{equation}
+The measured value $\delta_{scb} \approx 37.2^\circ$ agrees
+to $2.7\%$.  No calculation within the dualised SM or the
+sBootstrap currently produces the factor $\Nc$ from dynamics.
+Whether the $2.7\%$ agreement is evidence for the colour
+interpretation or a numerical coincidence cannot be decided
+without a derivation of the vacuum structure in the coloured
+sector.
+
+%% ========================================================================
+\section{The inverse Koide from the seesaw}
+\label{sec:inverse}
+%% ========================================================================
+
+\subsection{$Q$ is preserved under inversion}
+
+The Seiberg seesaw (Lecture~3) gives the meson VEV
+$\langle M_{kk}\rangle = \Lambda^2/m_k$.  Since $Q$ is
+homogeneous of degree zero:
+\begin{equation}
+  Q\!\left(\frac{\Lambda^2}{m_1},\frac{\Lambda^2}{m_2},
+  \frac{\Lambda^2}{m_3}\right)
+  = Q\!\left(\frac{1}{m_1},\frac{1}{m_2},\frac{1}{m_3}\right).
+  \label{eq:Q-inverse}
+\end{equation}
+This is a theorem, not a conjecture.
+
+\subsection{Empirical status}
+
+With PDG~2024 pole masses for leptons and $\overline{\text{MS}}$
+masses at $\mu = 2$~GeV for quarks~\cite{AHS2025}:
+\begin{equation}
+  Q(m_e,m_\mu,m_\tau) = 1.50001\,,\qquad
+  Q(1/m_d,1/m_s,1/m_b) = 1.505 \pm 0.010\,.
+\end{equation}
+The uncertainty on $Q(1/m)$ is dominated by $m_d = 4.70 \pm 0.20$~MeV
+($4.3\%$).  The deviation from $3/2$ is $0.005 \pm 0.010$, i.e.\
+within $1\sigma$: the agreement cannot currently be distinguished
+from numerical coincidence at this level of quark-mass precision.
+
+Note that Q-preservation under inversion is a mathematical identity
+holding for any mass triplet; the empirical near-agreement
+$Q(1/d,1/s,1/b) \approx Q(e,\mu,\tau) \approx 3/2$ is a separate
+observation requiring an independent dynamical explanation.
+
+The \emph{individual mass ratios} do not match through a simple
+seesaw $m_\ell = c/m_q$ (see~\S\ref{sec:caveats}).
+
+\subsection{The hierarchy problem of the seesaw}
+\label{sec:caveats}
+
+The seesaw $m_\ell \propto 1/m_q$ gives an \emph{inverted}
+hierarchy: the lightest quark maps to the heaviest lepton.
+With the standard generation pairing $(d \leftrightarrow e,\;
+s \leftrightarrow \mu,\; b \leftrightarrow \tau)$:
+$m_e/m_\mu = m_s/m_d = 19.9$, while the actual ratio is
+$0.0048$---a factor of $4000$ discrepancy.
+
+With the reversed pairing $(d \leftrightarrow \tau,\;
+s \leftrightarrow \mu,\; b \leftrightarrow e)$: $m_\tau$
+is recovered by construction, $m_\mu$ is $15\%$ off, and
+$m_e$ is a factor~$4$ wrong.
+
+The seesaw preserves $Q$ (that is exact) but does \emph{not}
+reproduce the individual lepton masses.  The quark--lepton
+mass mapping is more complex than a simple inversion.
+
+%% ========================================================================
+\section{Connection to the sBootstrap}
+\label{sec:sbootstrap}
+%% ========================================================================
+
+The sBootstrap framework~\cite{Rivero2009,Rivero2024} identifies
+sfermions with known mesons and diquarks via $\SU{5}$ flavour
+symmetry.  The closure conditions~\cite{Rivero2024}
+\begin{equation}
+  2N = k_u\,k_d\,,\quad
+  2N = \frac{k_d(k_d+1)}{2}\,,\quad
+  4N = k_u^2+k_d^2-1
+\end{equation}
+uniquely give $N = 3$ generations with $k_u = 2$, $k_d = 3$.
+
+In the dualised SM, the ISS rank condition~\cite{ISS2006}
+(see also Lecture~6)
+provides a \emph{dynamical} derivation of the same split.
+
+\subsection{From $\Nf = 6$ to $\Nf = 5$: the top quark as a trigger}
+
+Start with the full theory: $\SU{3}_c$ with $\Nf = 6$ flavours.
+The Seiberg dual is $\SU{\Nf-\Nc} = \SU{3}$ with 6~flavours and
+a $6\times 6$ meson matrix $M_{ij} = \tilde Q_i Q_j$ containing
+$36$~mesonic composites.  The ISS rank condition at $\Nf = 6$ gives
+$\text{rank}(\tilde\varphi\varphi) \leq \Nf - \Nc = 3$,
+producing a \emph{symmetric} split: $k_u = k_d = 3$.
+
+Now give one flavour (the top) a large mass $m_t$.  In the
+magnetic theory, this corresponds to a VEV for the meson
+component $M_{tt}$, which Higgses the dual gauge group:
+\begin{equation}
+  \SU{3}_{\text{dual}} \;\xrightarrow{\;\langle M_{tt}\rangle \neq 0\;}
+  \;\SU{2}_{\text{dual}}\,.
+  \label{eq:higgsing}
+\end{equation}
+Below the scale $m_t$, the effective theory has $\Nf = 5$ active
+flavours, the dual gauge group is $\SU{2}$, and the meson matrix
+reduces to $5 \times 5 = 25$ components.  The ISS rank condition
+on the $\SU{2}$ theory now gives
+$\text{rank}(\tilde\varphi\varphi) \leq \Nf - \Nc = 2$:
+\begin{equation}
+  k_u = \Nf - \Nc = 2 \quad(\text{massless})\,,\qquad
+  k_d = \Nc = 3 \quad(\text{massive})\,.
+  \label{eq:iss-split}
+\end{equation}
+The \textbf{asymmetric $2+3$ split is driven by the top mass}:
+it is the large $m_t$ that Higgses $\SU{3} \to \SU{2}$ and
+breaks the $3+3$ symmetry of the $\Nf = 6$ theory.
+
+\subsection{The meson decomposition}
+
+The $5\times 5$ meson matrix transforms as
+$\mathbf{5}\otimes\overline{\mathbf{5}} = \mathbf{24}\oplus\mathbf{1}$
+under $\SU{5}$ flavour.  The ISS $2+3$ split decomposes
+$\SU{5} \to \SU{2}_u \times \SU{3}_d \times \UU{1}$, and
+the 24~adjoint mesons organise by electric charge:
+\begin{center}\small
+\begin{tabular}{@{}llcc@{}}
+\toprule
+Block & $\SU{2}\times\SU{3}$ rep & Charge & Count \\
+\midrule
+$\bar u\,u$\;(traceless) & $(\mathbf{3},\mathbf{1})$ & $0$ & 3 \\
+$\bar d\,d$\;(traceless) & $(\mathbf{1},\mathbf{8})$ & $0$ & 8 \\
+$\UU{1}$ generator & $(\mathbf{1},\mathbf{1})$ & $0$ & 1 \\
+$\bar d\,u$ & $(\mathbf{2},\overline{\mathbf{3}})$ & $+1$ & 6 \\
+$\bar u\,d$ & $(\overline{\mathbf{2}},\mathbf{3})$ & $-1$ & 6 \\
+\bottomrule
+\end{tabular}
+\end{center}
+giving $\mathbf{24} \to 12_0 + 6_{+1} + 6_{-1}$, plus the
+flavour-singlet $\eta'$-like trace for a total of~25.
+
+The sBootstrap~\cite{Rivero2009,Rivero2024} identifies these 25
+composites with the scalar partners of known fermions: the charged
+mesons ($\bar d_i u_j$ and $\bar u_i d_j$) map to charged
+sfermions, while the neutral composites map to sneutrinos and
+neutral Higgs-like states.  The closure conditions then
+count:
+\begin{equation}
+  2N = k_u\,k_d = 6\,,\quad
+  2N = \tfrac{k_d(k_d+1)}{2} = 6\,,\quad
+  4N = k_u^2+k_d^2-1 = 12
+\end{equation}
+all giving $N = 3$ generations \emph{uniquely}.
+
+\subsection{Koide from the meson mass formula}
+
+The sBootstrap mass formula $m_k = (z_0+z_k)^2\,K_\Omega$
+is algebraically equivalent to the Koide condition~\eqref{eq:koide-cond},
+as shown in~\cite{Rivero2024}.  The dualised SM provides the
+\emph{physical context} for this formula: $z_0+z_k$ is the
+mixing ratio $x_k$ of the Higgs sector, and $K_\Omega$ is
+the universal scale $m_0$.
+
+%% ========================================================================
+\section{Summary and honest assessment}
+\label{sec:summary}
+%% ========================================================================
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lll}
+\toprule
+\textbf{Result} & \textbf{Origin} & \textbf{Status} \\
+\midrule
+Koide $=$ VEV condition & Universal Yukawa $+$ algebra
+  & \textbf{Reformulated} \\
+$k_u = 2$, $k_d = 3$ & ISS rank $+$ top Higgsing
+  & \textbf{Derived} \\
+$Q(1/d,1/s,1/b) \approx 3/2$ & Seesaw preserves $Q$
+  & \textbf{Theorem} \\
+$N_{\text{gen}} = 3$ & Closure $=$ duality constraint
+  & \textbf{Two derivations} \\
+\midrule
+$Q = C_2(\mathbf{10})/C_2(\mathbf{5})$ & SU(5) Casimir
+  & Observation \\
+$\delta_{scb} = \Nc\,\delta_\ell$ & Empirical (factor 3)
+  & $2.7\%$ match \\
+$\delta = 2/9$ & --- & Open problem \\
+\midrule
+VEV condition mechanism & Quartic structure
+  & \emph{Not derived} \\
+Quark--lepton mapping & Seesaw details
+  & \emph{Fails quantitatively} \\
+$Z$-ladder formula & ---
+  & \emph{Not derived} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Scale convention.}  The VEV condition is imposed at
+the scale where the dormant Higgs doublets are integrated out
+(near the duality scale $\Lambda \sim$~TeV of Lecture~7).
+Below that scale, RG running introduces corrections that spoil
+$Q = 3/2$ for quark masses at low energies.  The charged-lepton
+Koide relation holds for \emph{pole masses}; the quark
+chain uses $\overline{\text{MS}}$ running masses at mixed scales.
+This difference is a known subtlety~\cite{Sumino2009} and is
+unresolved in the present framework.
+
+\textbf{What is established.}  The universal Yukawa coupling of
+the dualised SM translates the Koide relation into a VEV
+condition on the multi-Higgs sector.  The ISS rank
+condition derives the turtle/elephant decomposition.  The seesaw
+preserves $Q$ as a mathematical identity.
+
+\textbf{What is observed but not derived.}  The numerical
+coincidence $Q = C_2(\mathbf{10})/C_2(\mathbf{5}) = 3/2$ is an
+exact group-theoretic fact that matches the Koide value.
+It has no known dynamical origin within the dualised SM.
+The angle $\delta = 2/9$ has no known derivation at all.
+
+\textbf{What remains open.}  The quartic coupling structure
+of the 18-Higgs potential must be shown to have a minimum at
+the Koide point.  The quark--lepton mass mapping through the
+seesaw preserves $Q$ but not the individual mass ratios.
+
+%% ========================================================================
+\section{Exercises}
+\label{sec:exercises}
+%% ========================================================================
+
+\begin{exercise}
+Verify that $C_2(\wedge^2\mathbf{N})/C_2(\mathbf{N})
+= 2(N-2)/(N-1)$ using the general formula
+$C_2(\wedge^p N) = p(N-p)(N+1)/(2N)$.  For which values
+of $N$ is this ratio an integer?
+\end{exercise}
+
+\begin{exercise}
+Compute $Q$ for the three charged lepton pole masses
+$(m_e = 0.511\;\text{MeV},\; m_\mu = 105.658\;\text{MeV},\;
+m_\tau = 1776.93\;\text{MeV})$.  Compare with
+$Q(1/m_d,\,1/m_s,\,1/m_b)$ using the PDG values
+$m_d = 4.70$, $m_s = 93.5$, $m_b = 4183\;\text{MeV}$.
+\end{exercise}
+
+\begin{exercise}
+In the $Z_3$ parametrisation~\eqref{eq:z3}, show that
+$Q = 3/2$ is satisfied for \emph{any} value of $\delta$.
+Then verify that $\delta = 2/9$ reproduces the lepton mass
+ratios $m_e/m_\mu$ and $m_\mu/m_\tau$ to better than
+$0.01\%$.
+\end{exercise}
+
+\begin{exercise}
+The sBootstrap closure conditions give $k_u = 2$, $k_d = 3$
+uniquely.  The ISS rank condition gives
+$k_u = \Nf - \Nc$, $k_d = \Nc$ for SQCD with $\Nf$ flavours
+and $\Nc$ colours.  For which values of $(\Nc, \Nf)$ do the
+two derivations agree?
+\end{exercise}
+
+\begin{exercise}[Challenge]
+Write the most general quartic potential for three complex
+scalar doublets $H_1, H_2, H_3$ with an $S_3$ permutation
+symmetry softly broken by the mixing masses $\mu_{0k}$.
+Does the minimum satisfy~\eqref{eq:koide-cond} for any
+choice of quartic couplings?  What additional conditions
+(if any) are needed?
+\end{exercise}
+
+%% ========================================================================
+%% BIBLIOGRAPHY
+%% ========================================================================
+\begin{thebibliography}{20}
+
+\bibitem{Sannino2024}
+G.~Cacciapaglia and F.~Sannino,
+``Charting Standard Model Duality and its Signatures,''
+arXiv:2407.17281 [hep-ph] (2024).
+
+\bibitem{Rivero2009}
+A.~Rivero,
+``Unbroken supersymmetry without new particles,''
+arXiv:0910.4793 [hep-ph] (2009).
+
+\bibitem{Rivero2024}
+A.~Rivero,
+``An interpretation of scalars in SO(32),''
+Eur.\ Phys.\ J.\ C \textbf{84}, 1058 (2024),
+arXiv:2407.05397 [hep-ph].
+
+\bibitem{Koide1983}
+Y.~Koide,
+``New view of quark and lepton mass hierarchy,''
+Phys.\ Rev.\ D \textbf{28}, 252 (1983).
+
+\bibitem{Brannen2006}
+C.~Brannen,
+``The lepton masses,''
+\url{https://brannenworks.com/MASSES2.pdf} (2006).
+
+\bibitem{AHS2025}
+S.~Antusch, K.~Hinze and S.~Saad,
+``Updated Running Quark and Lepton Parameters at Various Scales,''
+arXiv:2510.01312 [hep-ph] (2025).
+
+\bibitem{Seiberg1995}
+N.~Seiberg,
+``Electric--magnetic duality in supersymmetric non-abelian gauge
+theories,''
+Nucl.\ Phys.\ B \textbf{435}, 129 (1995).
+
+\bibitem{Sumino2009}
+Y.~Sumino,
+``Family gauge symmetry as an origin of Koide's mass formula,''
+JHEP \textbf{0905}, 075 (2009).
+
+\bibitem{HabaKoide2008}
+N.~Haba and Y.~Koide,
+``New origin of a bilinear mass matrix form,''
+Phys.\ Lett.\ B \textbf{659}, 260 (2008),
+arXiv:0708.3913 [hep-ph].
+
+\bibitem{Ma2007}
+E.~Ma,
+``Lepton family symmetry and possible application to the Koide mass formula,''
+Phys.\ Lett.\ B \textbf{649}, 287 (2007),
+arXiv:hep-ph/0612022.
+
+\bibitem{ISS2006}
+K.~Intriligator, N.~Seiberg and D.~Shih,
+``Dynamical SUSY breaking in meta-stable vacua,''
+JHEP \textbf{0604}, 021 (2006),
+arXiv:hep-th/0602239.
+
+\bibitem{Rivero2013}
+A.~Rivero,
+``A new Koide tuple: strange-charm-bottom,''
+arXiv:1111.7232 [hep-ph] (2011).
+
+\bibitem{Zenczykowski2012}
+P.~Zenczykowski,
+``Remark on Koide's $Z_3$-symmetric parametrization of
+quark masses,''
+Phys.\ Rev.\ D \textbf{86}, 117303 (2012),
+arXiv:1210.4125 [hep-ph].
+
+\end{thebibliography}
+
+\end{document}

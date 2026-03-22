@@ -1,0 +1,149 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,geometry,booktabs,xcolor}
+\geometry{margin=2.5cm}
+\title{The Koide relation from two Casimir ratios:\\
+  $Q = C_2(\wedge^2\!5)/C_2(5)$, $\delta = C_2(3)/C_2(S^3\!3)$}
+\author{A.~Rivero}
+\date{March 2026 -- working draft v11}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Both the Koide ratio $Q=3/2$ and the Koide angle
+$\delta=2/9$ are identified as quadratic Casimir ratios
+of simple Lie groups.
+(1)~$Q = C_2(\wedge^2\mathbf{5})/C_2(\mathbf{5}) = 3/2$
+in SU(5)$_{\rm flavour}$ (the sBootstrap turtle group),
+uniquely selecting $N_f=5$.
+(2)~$\delta = C_2(\mathbf{3})/C_2(S^3\mathbf{3}) = (4/3)/6 = 2/9$
+in SU(3)$_{\rm generation}$ (three generations embedded in
+$G_2 = {\rm Aut}(\mathbb{O})$).
+The chain angle factor $\delta_{scb} \approx 3\delta_\ell$
+is the colour multiplicity $N_c=3$.
+Together, these determine the charged lepton mass ratios
+from group theory alone: $Q$ constrains the trace ratio
+(how much masses spread) and $\delta$ constrains the angular
+position (where they sit on the Koide orbit).
+The sBootstrap provides the physical context: SU(5)$_{\rm flavour}$
+acts on the five turtle quarks, SU(3)$_{\rm generation}$ acts
+on the three generations, and $N_c=3$ is QCD colour.
+No new parameters are introduced.
+\end{abstract}
+
+\section{The two Casimir identities}
+
+\subsection{$Q = 3/2$ from SU(5)}
+
+The Koide ratio $Q \equiv (\sum\sqrt{m_i})^2/\sum m_i$ equals
+the quadratic Casimir ratio of the antisymmetric two-tensor
+to the fundamental of SU($N$):
+\begin{equation}
+  Q = \frac{C_2(\wedge^2\mathbf{N})}{C_2(\mathbf{N})}
+  = \frac{2(N-2)}{N-1}.
+\end{equation}
+Setting $Q = 3/2$: $N = 5$.  In the sBootstrap, SU(5) is the
+flavour group of the five turtle quarks $(u,c,d,s,b)$.
+
+Further SU(5) invariants give $Z$-ladder integers:
+$T(\mathbf{15})/T(\mathbf{5}) = N+2 = 7$,\;
+$T(\mathbf{24})/T(\mathbf{5}) = 2N = 10$.
+
+\subsection{$\delta = 2/9$ from SU(3) $\subset$ $G_2$}
+
+The Koide angle $\delta = 2/9$ equals the Casimir ratio
+of the fundamental to the symmetric three-tensor of SU(3):
+\begin{equation}
+  \delta = \frac{C_2(\mathbf{3}_{SU(3)})}{C_2(S^3\mathbf{3}_{SU(3)})}
+  = \frac{4/3}{6} = \frac{2}{9}.
+\end{equation}
+Here SU(3) is the \emph{generation} symmetry (three generations
+of fermions), naturally embedded in $G_2 = {\rm Aut}(\mathbb{O})$
+(the automorphism group of the octonions, which provides the
+exceptional Jordan algebra $J_3(\mathbb{O})$ as a three-generation
+mass matrix framework).
+
+The symmetric three-tensor $S^3(\mathbf{3})$ has
+dimension $\binom{5}{3} = 10$ and Casimir
+$C_2 = p(N+p)(N-1)/(2N)|_{N=3,p=3} = 6$.
+
+\section{The two groups}
+
+\begin{center}
+\begin{tabular}{@{}l l l l@{}}
+\toprule
+Group & Acts on & Casimir ratio & Result \\
+\midrule
+SU(5)$_{\rm flavour}$ & 5 turtle quarks
+  & $C_2(\wedge^2)/C_2(\rm fund) = 3/2$ & $Q_{\rm Koide}$ \\
+SU(3)$_{\rm generation}$ & 3 generations
+  & $C_2({\rm fund})/C_2(S^3) = 2/9$ & $\delta_{\rm Koide}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The two groups act on \emph{different spaces}: SU(5)
+mixes flavours ($u,c,d,s,b$), SU(3) mixes generations
+($1,2,3$).  Their Casimir ratios determine orthogonal
+aspects of the mass spectrum: $Q$ (the trace condition)
+and $\delta$ (the angular position).
+
+\section{The chain angle as colour multiplicity}
+
+The chain angle $\delta_{scb} \approx 37.2^\circ \approx 0.649$
+is close to $3\delta_\ell = 3 \times 2/9 = 2/3 \approx 38.2^\circ$
+(deviation $1.0^\circ$).  The factor $3$ is $N_c$, the number of
+QCD colours:
+\begin{equation}
+  \delta_{scb} \approx N_c \cdot \delta_\ell.
+\end{equation}
+This connects the quark Koide chain to the lepton Koide through
+the colour multiplicity, completing the group-theoretic picture:
+\begin{equation}
+  Q \leftarrow \text{SU}(5)_{\rm flav},\qquad
+  \delta \leftarrow \text{SU}(3)_{\rm gen},\qquad
+  \delta_{scb}/\delta_\ell \leftarrow \text{SU}(3)_{\rm colour}.
+\end{equation}
+
+\section{What is and is not derived}
+
+\begin{center}\small
+\begin{tabular}{@{}l l l@{}}
+\toprule
+Quantity & Formula & Status \\
+\midrule
+$Q = 3/2$ & $C_2(\wedge^2\!\mathbf{5})/C_2(\mathbf{5})$
+  & Group theory (exact) \\
+$\delta = 2/9$ & $C_2(\mathbf{3})/C_2(S^3\!\mathbf{3})$
+  & Group theory (exact) \\
+$N = 5$ & $2(N-2)/(N-1) = 3/2$ & Uniquely selected \\
+$\delta_{scb}/\delta_\ell = 3$ & $N_c$
+  & Colour multiplicity ($1^\circ$ off) \\
+\midrule
+\emph{Why} mass matrix $\sim$ Casimirs & --- & Not derived \\
+$Z$-ladder formula & --- & Not derived \\
+Overall mass scale $M_0$ & --- & Free parameter \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The Casimir identities provide the \emph{values} of $Q$ and
+$\delta$ from group theory, and \emph{select} $N=5$ and
+$N_{\rm gen}=3$ as the only viable integers.  The
+\emph{mechanism} that forces the mass matrix to satisfy these
+Casimir ratios remains the key open question.  Candidates
+include: a conformal fixed point where anomalous dimensions are
+Casimir-scaled; a vacuum alignment condition in the Higgs
+potential; or a string-theoretic construction where the
+octonion structure of $G_2$ determines the mass matrix.
+
+\begin{thebibliography}{5}
+\bibitem{Koide1983}
+Y.~Koide, Phys.\ Rev.\ D \textbf{28}, 252 (1983).
+\bibitem{Rivero2024}
+A.~Rivero, Eur.\ Phys.\ J.\ C \textbf{84}, 1058 (2024).
+\end{thebibliography}
+
+\end{document}

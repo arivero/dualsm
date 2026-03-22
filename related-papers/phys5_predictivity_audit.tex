@@ -1,0 +1,53 @@
+% Predictivity audit of Koide-type mass relations in the Standard Model
+% Target: Physical Review D
+\documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
+
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+% Custom macros
+\newcommand{\Kd}{K}                    % Koide ratio
+\newcommand{\Ki}{K^{-1}}              % Inverse Koide ratio
+\newcommand{\dK}{\delta_K}            % Koide residual
+\newcommand{\MSbar}{\overline{\text{MS}}}
+\newcommand{\Ntests}{N_{\text{tests}}}
+\newcommand{\Neff}{N_{\text{eff}}}
+\newcommand{\prow}{p_{\text{row}}}
+\newcommand{\pjoint}{p_{\text{joint}}}
+
+\begin{document}
+
+\title{Predictivity audit of Koide-type mass relations\\in the Standard Model}
+
+\author{A.~Rivero}
+\affiliation{Independent researcher}
+
+\date{\today}
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+\maketitle
+
+\input{introduction}
+\input{framework}
+\input{benchmarks}
+\input{audit}
+\input{discussion}
+\input{conclusions}
+
+\begin{acknowledgments}
+The numerical benchmarks use five-loop Standard Model running masses
+from the \texttt{SMDR} package~\cite{Martin:2019lqd}.
+\end{acknowledgments}
+
+\appendix
+\input{appendix_masses}
+\input{appendix_mc}
+
+\bibliography{references}
+
+\end{document}

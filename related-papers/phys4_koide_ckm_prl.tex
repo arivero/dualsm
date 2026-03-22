@@ -1,0 +1,461 @@
+% koide_ckm_prl.tex -- PRL letter fusing Casimir-Koide + CKM/PMNS results
+\documentclass[aps,prl,twocolumn,showpacs,preprintnumbers,superscriptaddress]{revtex4-2}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\UU}{\mathrm{U}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\adj}{\mathrm{adj}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\MeV}{\,\mathrm{MeV}}
+\newcommand{\GeV}{\,\mathrm{GeV}}
+\newcommand{\TeV}{\,\mathrm{TeV}}
+\newcommand{\Nc}{N_{\!c}}
+\newcommand{\Nf}{N_{\!f}}
+
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+
+\title{The Koide ratio as a Casimir invariant: generation uniqueness
+and a $1/N$ flavour expansion from $\SU(3)_F$}
+
+\author{A.~Rivero}
+\email{rivero@unizar.es}
+\affiliation{Departamento de F\'{\i}sica Te\'orica, Universidad de
+Zaragoza, 50009 Zaragoza, Spain}
+
+\date{\today}
+
+\begin{abstract}
+The charged-lepton mass ratio
+$K \equiv (m_e + m_\mu + m_\tau)/(\sqrt{m_e}+\sqrt{m_\mu}+\sqrt{m_\tau})^2
+= 0.666661$ agrees with $2/3$ to $0.001\%$.
+We prove that $K = 2/3$ is the mean-square weight
+$\langle J_3^2\rangle$ of the principal $\mathfrak{sl}(2)$
+subalgebra of $\mathfrak{sl}(N)$ in the fundamental representation,
+and that $K_N = \langle J_3^2\rangle$ holds if and only if
+$N(N^2-1) = 24$, whose unique positive integer solution is $N = 3$.
+This Casimir--Koide identity is an algebraic theorem.
+Separately, we observe that the same Cartan angle
+$\delta = 2/9$ parametrises all six CKM and PMNS mixing
+parameters as rational functions of $N$, matching data
+with $\chi^2/\text{dof} = 6.2/5$ ($p = 0.28$) when
+$|V_{us}|$ fixes~$\delta$.
+These mixing relations are empirical patterns admitting a
+compact $1/N$ representation; they are not derived from
+confining dynamics.
+\end{abstract}
+
+\maketitle
+
+
+%======================================================================
+% INTRODUCTION
+%======================================================================
+
+The charged-lepton mass ratio
+\begin{equation}
+  K \;\equiv\; \frac{m_e + m_\mu + m_\tau}
+  {\bigl(\sqrt{m_e}+\sqrt{m_\mu}+\sqrt{m_\tau}\bigr)^2}
+  \;=\; 0.666661
+  \label{eq:Kdef}
+\end{equation}
+was noted by Koide~\cite{Koide:1983} to agree with $2/3$ to
+one part in $10^5$.
+In the parametrisation
+$\sqrt{m_n} = \mu\bigl(1 + \sqrt{2}\cos(\delta + 2\pi n/3)\bigr)$
+of Brannen~\cite{Brannen:2006}, Foot's geometric
+condition~\cite{Foot:1994} $\theta = \pi/4$ is equivalent to
+$K = 2/3$, and the mass hierarchy is encoded in a single
+Cartan angle~$\delta$.
+Numerically $\delta = 0.22222 \pm 0.00001$~rad,
+consistent with $\delta = 2/9$.
+Despite numerous models~\cite{Koide:1983,Sumino:2009,Rivero:2024},
+no derivation of the value $2/3$ from first principles exists
+without introducing it as an input.
+
+We report two results.
+First, $K = 2/3$ is a representation-theoretic invariant:
+the mean-square weight $\langle J_3^2\rangle$ of the principal
+$\mathfrak{sl}(2) \subset \mathfrak{sl}(N)$~\cite{Kostant:1959}
+in the fundamental representation, with the equality
+$K_N = \langle J_3^2\rangle$ holding if and only if $N = 3$.
+This is an algebraic theorem.
+Second, we observe that the same angle $\delta = 2/9$
+parametrises all six CKM and PMNS mixing parameters as rational
+functions of $N$, with no free parameters beyond $N = 3$.
+
+%======================================================================
+% CASIMIR-KOIDE IDENTITY
+%======================================================================
+
+\textit{The Casimir--Koide identity.}---Let
+$\hat{z}_i = z_0 + z_i$ ($i = 1,\ldots,N$) be the signed
+charges of a $\UU(N)$ family symmetry, with $z_0$ the $\UU(1)$
+generator and $z_i$ the $\SU(N)$ Cartan components.
+Canonical normalisation gives
+\begin{equation}
+  \sum_{i=1}^{N} z_i = 0\,,\qquad
+  \sum_{i=1}^{N} z_i^2 = \frac{1}{2}\,,\qquad
+  z_0 = \frac{1}{\sqrt{2N}}\,.
+  \label{eq:u3_norm}
+\end{equation}
+
+\begin{theorem}[Generalised Koide ratio]
+\label{thm:KN}
+For the mass law $m_i = \mu\,\hat{z}_i^2$ and the ratio
+$K_N \equiv \sum\hat{z}_i^2 / (\sum\hat{z}_i)^2$,
+one has $K_N = 2/N$ independently of the Cartan direction.
+\end{theorem}
+
+\noindent\textit{Proof.}---Using Eq.~\eqref{eq:u3_norm}:
+$\sum\hat{z}_i^2 = Nz_0^2 + \sum z_i^2 = 1/2 + 1/2 = 1$,
+$\sum\hat{z}_i = Nz_0 = \sqrt{N/2}$,
+so $K_N = 1/(N/2) = 2/N$.~$\square$
+
+For $N = 3$: $K_3 = 2/3$, recovering the Koide value as
+an algebraic identity of $\UU(3)$.
+This is the charge-squared uniqueness
+theorem~\cite{Koide:1983,Rivero:2024}: among monomial mass
+functions $m \propto \hat{z}^n$, only $n = 2$ gives a
+direction-independent ratio.
+
+The principal $\mathfrak{sl}(2)$ of a simple Lie algebra
+$\mathfrak{g}$ is the unique (up to conjugacy)
+$\mathfrak{sl}(2)$ subalgebra for which the fundamental
+representation of $\mathfrak{g}$ is
+irreducible~\cite{Kostant:1959}.
+For $\mathfrak{g} = \mathfrak{sl}(N)$, the fundamental
+$\mathbf{N}$ is the spin-$j$ representation with
+$j = (N{-}1)/2$.
+The mean-square weight is
+\begin{equation}
+  \langle J_3^2\rangle
+  \;\equiv\; \frac{1}{N}\sum_{m=-j}^{j} m^2
+  \;=\; \frac{N^2 - 1}{12}\,.
+  \label{eq:J3sq}
+\end{equation}
+Setting $K_N = \langle J_3^2\rangle$:
+\begin{equation}
+  \frac{2}{N} = \frac{N^2 - 1}{12}
+  \quad\Longleftrightarrow\quad
+  \boxed{N(N^2-1) = 24}\,.
+  \label{eq:diophantine}
+\end{equation}
+Factoring: $N(N{-}1)(N{+}1) = 2\times 3\times 4 = 24$.
+Since $3\times 4\times 5 = 60 > 24$, the unique positive
+integer solution is $N = 3$.
+Equivalently, the factored form
+$(N-3)(N^2 + 3N + 8) = 0$ has no other real roots
+(discriminant $9 - 32 < 0$).
+
+The Diophantine condition~\eqref{eq:diophantine} is the
+theorem; the following is a corollary.
+At $N = 3$ and only $N = 3$,
+the representation dimension $2j+1 = N$ coincides with
+$\dim\,\mathfrak{sl}(2) = 3$, so the fundamental of $\SU(3)$
+\emph{is} the adjoint of its principal $\mathfrak{sl}(2)$.
+This gives the structural coincidence
+$C_2/N = C_2/3 = \langle J_3^2\rangle = K = 2/3$.
+
+%======================================================================
+% CABIBBO = CARTAN
+%======================================================================
+
+\textit{Cabibbo angle = Cartan angle.}---Koide's original
+composite model~\cite{Koide:1983} predicted
+\begin{equation}
+  \tan\theta_C = \frac{\sqrt{3}\,(\sqrt{m_\mu}-\sqrt{m_e})}
+  {2\sqrt{m_\tau}-\sqrt{m_\mu}-\sqrt{m_e}}\,.
+  \label{eq:cabibbo}
+\end{equation}
+In the Koide parametrisation, the right-hand side of
+Eq.~\eqref{eq:cabibbo} is \emph{algebraically identical}
+to $\tan\delta$, for any masses satisfying $K = 2/3$.
+Therefore $\theta_C = \delta$.
+Numerically $\theta_C = 0.22223$~rad, matching the PDG
+value~\cite{PDG:2024} $|V_{us}| = 0.2250 \pm 0.0007$
+to~$0.9\%$.
+
+The identification $\delta = 2/N^2$ with $N = 3$
+expresses the Cabibbo angle as $|V_{us}| = 2/9$.
+Combining with the Gatto--Sartori--Tonin
+relation~\cite{GST:1968} $|V_{us}| \approx \sqrt{m_d/m_s}$
+gives a cross-sector prediction:
+\begin{equation}
+  \frac{m_d}{m_s} = \delta^2 = \frac{4}{81} = 0.0494\,.
+  \label{eq:md_ms}
+\end{equation}
+The PDG value $m_d/m_s = 0.050 \pm 0.004$ agrees to $1.2\%$.
+
+%======================================================================
+% CKM FROM DEMOCRATIC RESOLVENT
+%======================================================================
+
+\textit{CKM from the democratic resolvent.}---The democratic
+matrix $J = \mathbf{1}\mathbf{1}^T$ has eigenvalues $N$
+(democratic direction) and~$0$ ($(N{-}1)$-fold degenerate
+breaking plane).
+The resolvent of the zero-eigenvalue subspace at
+$z = 1 + \delta$ yields $A = 1/(1+\delta)$---a suggestive
+algebraic connection to the Wolfenstein~$A$ parameter, not a
+derivation from $\SU(3)_F$ dynamics:
+\begin{equation}
+  A = \frac{1}{1+\delta} = \frac{N^2}{N^2+2} = \frac{9}{11}\,.
+  \label{eq:A}
+\end{equation}
+The resulting zero-parameter parametrisation gives
+\begin{equation}
+  |V_{us}| = \frac{2}{9}\,,\qquad
+  |V_{cb}| = A\lambda^2 = \frac{4}{99}\,,\qquad
+  A = \frac{9}{11}\,.
+  \label{eq:ckm}
+\end{equation}
+
+\begin{table}[b]
+\caption{CKM parametrisation vs.\ PDG~2024~\cite{PDG:2024}.}
+\label{tab:ckm}
+\begin{ruledtabular}
+\begin{tabular}{lccc}
+  & $1/N$ value & PDG & Deviation \\
+\hline
+$|V_{us}|$ & $2/9 = 0.2222$ & $0.2250 \pm 0.0007$ & $1.2\%$ \\
+$|V_{cb}|$ & $4/99 = 0.0404$ & $0.0422 \pm 0.0008$ & $4.3\%$\footnotemark[1] \\
+$A$ & $9/11 = 0.818$ & $0.826 \pm 0.013$ & $1.0\%$ \\
+\end{tabular}
+\end{ruledtabular}
+\footnotetext[1]{The PDG average uses the inclusive $|V_{cb}|$.
+The exclusive determination $0.0395 \pm 0.0008$ gives only
+$2.2\%$ deviation.}
+\end{table}
+
+%======================================================================
+% PMNS FROM 1/N
+%======================================================================
+
+\textit{PMNS from the $1/N$ expansion.}---We observe that the PMNS
+mixing angles are deviations from maximal mixing ($\pi/4$),
+parametrised by~$\delta$:
+\begin{align}
+  \theta_{12} &= \frac{\pi}{4} - \delta + \frac{\delta^2}{N}
+  = \frac{\pi}{4} - \frac{2}{9} + \frac{4}{243}\,,
+  \label{eq:t12} \\
+  \theta_{23} &= \frac{\pi}{4} + \frac{\delta}{N}
+  = \frac{\pi}{4} + \frac{2}{27}\,,
+  \label{eq:t23} \\
+  \theta_{13} &= \frac{2j(j{+}1)}{N^3}
+  = \frac{4}{27}\;\text{rad}\,,
+  \label{eq:t13}
+\end{align}
+where $j = (N{-}1)/2 = 1$.
+This extends the quark--lepton complementarity of
+Raidal~\cite{Raidal:2004} and the quark Koide phases
+of Zenczykowski~\cite{Zenczykowski:2012}.
+
+\begin{table}[b]
+\caption{PMNS parametrisation vs.\ NuFIT~5.2.
+The correction coefficients $(-1,+1/3,+2/3)$ multiplying
+$\delta$ in Eqs.~\eqref{eq:t12}--\eqref{eq:t13} are
+traceless and unique among denominators~$\leq 3$.}
+\label{tab:pmns}
+\begin{ruledtabular}
+\begin{tabular}{lccc}
+  & $1/N$ value & NuFIT~5.2 & Deviation \\
+\hline
+$\sin^2\theta_{12}$ & $0.300$ & $0.304 \pm 0.012$ & $1.3\%$ \\
+$\sin^2\theta_{23}$ & $0.574$ & $0.573 \pm 0.018$ & $0.1\%$ \\
+$\sin^2\theta_{13}$ & $0.0218$ & $0.0222 \pm 0.0007$ & $1.9\%$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+Scanning $N = 2,\ldots,10$ in
+Eqs.~\eqref{eq:t12}--\eqref{eq:t13},
+only $N = 3$ gives $\chi^2 < 1$:
+$\chi^2 = 0.5$ at $N = 3$ versus $604$ ($N = 2$)
+and $218$ ($N = 4$).
+
+%======================================================================
+% 1/N TABLE
+%======================================================================
+
+\textit{The $1/N$ expansion.}---All parameters are rational
+functions of $N$ (Table~\ref{tab:1overN}).
+The lepton mass hierarchy, the CKM matrix, and the PMNS
+matrix all admit a compact $1/N$ representation at $N = 3$.
+These relations are empirical observations that admit a
+$1/N$ expansion; they are not derived from the confining
+dynamics.
+
+\begin{table}[t]
+\caption{Flavour parameters as rational functions of~$N$
+with $j = (N{-}1)/2$, evaluated at $N = 3$.}
+\label{tab:1overN}
+\begin{ruledtabular}
+\begin{tabular}{llcc}
+Parameter & Formula & $N{=}3$ & Order \\
+\hline
+$\delta$ & $2/N^2$ & $2/9$ & $O(1/N^2)$ \\
+$K$ & $j(j{+}1)/N$ & $2/3$ & $O(1/N)$ \\
+$|V_{us}|$ & $2/N^2$ & $2/9$ & $O(1/N^2)$ \\
+$A$ & $N^2/(N^2{+}2)$ & $9/11$ & $1{-}O(1/N^2)$ \\
+$\theta_{12}{-}\pi/4$ & $-2/N^2 + 4/N^5$ & $-50/243$ & $O(1/N^2)$ \\
+$\theta_{23}{-}\pi/4$ & $2/N^3$ & $2/27$ & $O(1/N^3)$ \\
+$\theta_{13}$ & $2j(j{+}1)/N^3$ & $4/27$ & $O(1/N^3)$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+The CKM elements scale as $\delta^{|i-j|} = O(1/N^{2|i-j|})$:
+the quark mixing hierarchy is a power series in $1/N^2$.
+The PMNS corrections scale as $O(1/N^{|i-j|-1})$:
+PMNS is near-maximal because its corrections are $O(1/N)$,
+while CKM is hierarchical because its elements are $O(1/N^2)$.
+This structural difference---not fine-tuning---explains
+$\theta_{\text{CKM}} \sim 0.22$ versus
+$\theta_{\text{PMNS}} \sim O(1)$.
+
+%======================================================================
+% DISCUSSION
+%======================================================================
+
+\textit{Discussion.}---The statistical assessment depends on
+the treatment of~$\delta$.
+(a)~With $|V_{us}|$ as input (fixing $\delta$ from data),
+the remaining five observables have
+$\chi^2/\text{dof} = 6.2/5$ ($p = 0.28$), with pulls:
+$|V_{cb}|$ ($-2.3\sigma$), $A$ ($-0.6\sigma$),
+$\sin^2\theta_{12}$ ($-0.3\sigma$),
+$\sin^2\theta_{23}$ ($+0.04\sigma$),
+$\sin^2\theta_{13}$ ($-0.6\sigma$).
+(b)~With $\delta = 2/9$ as an exact prediction, all six
+observables give $\chi^2/\text{dof} \approx 24/6$,
+driven by the $|V_{us}|$ pull of $-4.2\sigma$.
+The tension between $2/9 = 0.2222$ and the PDG value
+$0.2250$ may be resolved by the instanton-generated
+potential (see below), whose minimum at $\delta = 0.2225$
+reduces the $|V_{us}|$ pull to $-3.6\sigma$.
+
+The physical origin is a confining $\SU(3)_F$ family gauge
+theory~\cite{Rivero:2024} whose Koide formula is the
+Casimir identity $K = \langle J_3^2\rangle$, holding iff
+$N(N^2{-}1) = 24$ iff $N = 3$.
+The operator connecting the two mass branches of $\SU(3)$
+SQCD~\cite{Seiberg:1995}---the direct ($\adj(M) \propto m$)
+and inverse ($M \propto 1/m$)---is the spin-2 component of
+$\mathrm{End}(V)$ under the principal
+$\mathfrak{sl}(2)$~\cite{Kostant:1959},
+Kostant's second exponent of $\mathfrak{sl}(3)$.
+
+Discrete flavour symmetries ($A_4$, $S_3$) also produce
+mixing patterns with few parameters~\cite{Altarelli:2010,King:2015},
+but require additional group-theoretic input beyond $N$;
+the present parametrisation uses $N$ alone.
+
+The critical experimental test is the solar angle.
+Our parametrisation gives $\sin^2\theta_{12} = 0.300$, which is
+$1.3\%$ below the NuFIT central value $0.304$ and $1.1\sigma$
+below the first JUNO measurement
+$\sin^2\theta_{12} = 0.309 \pm 0.009$~\cite{JUNO:2025}.
+Continued JUNO data-taking will reach
+$\pm 0.003$ precision, providing a decisive test.
+
+A candidate mechanism for the Cartan angle is the minimum of
+the instanton-generated potential
+$V(\delta) = -\cos(3\delta) + (1/\pi)\cos(6\delta)$,
+which gives $\delta = 0.2225$ ($0.12\%$ from $2/9$).
+The coefficient $1/\pi$ is conjectural; it would follow from
+a one-loop instanton determinant in the confining
+$\SU(3)_F$ theory if the functional measure produces a
+factor of $1/\pi$ per instanton.
+Two quantities remain unpredicted: the CKM and PMNS
+CP-violating phases.
+
+\begin{acknowledgments}
+The author thanks M.~Porter for identifying Seiberg duality
+as the mechanism for the sBootstrap during sustained
+discussions (2011--2024),
+C.~Brannen for the circulant matrix parametrisation
+of the Koide formula, and the late M.~Sheppeard (Kea) for
+early contributions connecting Koide to representation theory.
+During the preparation of this work the author used Claude
+(Anthropic) for algebraic verification, numerical checks,
+and drafting assistance.
+The author reviewed and edited all content and takes full
+responsibility for the publication.
+\end{acknowledgments}
+
+
+\begin{thebibliography}{99}
+
+\bibitem{Koide:1983}
+  Y.~Koide,
+  Phys.\ Lett.\ B \textbf{120}, 161 (1983).
+
+\bibitem{Rivero:2024}
+  A.~Rivero,
+  Eur.\ Phys.\ J.\ C \textbf{84}, 1058 (2024),
+  arXiv:2407.05397.
+
+\bibitem{Kostant:1959}
+  B.~Kostant,
+  Amer.\ J.\ Math.\ \textbf{81}, 973 (1959).
+
+\bibitem{Sumino:2009}
+  Y.~Sumino,
+  JHEP \textbf{05}, 075 (2009),
+  arXiv:0812.2103.
+
+\bibitem{Brannen:2006}
+  C.A.~Brannen,
+  \texttt{hep-ph/0606057} (2006).
+
+\bibitem{Foot:1994}
+  R.~Foot,
+  arXiv:hep-ph/9402242 (1994).
+
+\bibitem{Seiberg:1995}
+  N.~Seiberg,
+  Nucl.\ Phys.\ B \textbf{435}, 129 (1995),
+  arXiv:hep-ph/9411149.
+
+\bibitem{PDG:2024}
+  S.~Navas \textit{et al.} (Particle Data Group),
+  Phys.\ Rev.\ D \textbf{110}, 030001 (2024).
+
+\bibitem{Raidal:2004}
+  M.~Raidal,
+  Phys.\ Rev.\ Lett.\ \textbf{93}, 161801 (2004),
+  arXiv:hep-ph/0404046.
+
+\bibitem{Zenczykowski:2012}
+  P.~Zenczykowski,
+  Phys.\ Rev.\ D \textbf{86}, 117303 (2012),
+  arXiv:1210.4125.
+
+\bibitem{GST:1968}
+  R.~Gatto, G.~Sartori, and M.~Tonin,
+  Phys.\ Lett.\ B \textbf{28}, 128 (1968).
+
+\bibitem{Altarelli:2010}
+  G.~Altarelli and F.~Feruglio,
+  Rev.\ Mod.\ Phys.\ \textbf{82}, 2701 (2010),
+  arXiv:0905.3329.
+
+\bibitem{King:2015}
+  S.~F.~King,
+  J.\ Phys.\ G \textbf{42}, 123001 (2015),
+  arXiv:1510.02091.
+
+\bibitem{JUNO:2025}
+  A.~Abusleme \textit{et al.} (JUNO Collaboration),
+  arXiv:2511.14593 (2025).
+
+\end{thebibliography}
+
+\end{document}

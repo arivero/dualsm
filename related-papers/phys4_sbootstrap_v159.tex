@@ -1,0 +1,410 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathtools}
+\usepackage{booktabs}
+%\usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{cite}
+
+\newcommand{\Lqcd}{\Lambda_{\text{QCD}}}
+\newcommand{\fpi}{f_\pi}
+\newcommand{\mpi}{m_\pi}
+\newcommand{\mmu}{m_\mu}
+\newcommand{\mtau}{m_\tau}
+\newcommand{\qqbar}{\langle\bar{q}q\rangle}
+\newcommand{\Nc}{N_c}
+
+\title{The sBootstrap Supercharge: Analytical Structure}
+\author{Draft}
+\date{March 2026 --- v159 (compacted from v158)}
+
+\begin{document}
+\maketitle
+
+%===================================================================
+\section*{\S 0 --- Introduction \& Motivation}
+%===================================================================
+
+Miyazawa (1966)~\cite{Miyazawa:1966} proposed the first hadronic supersymmetry, pairing mesons $(\pi, K)$ with baryons $(N, \Lambda)$ in $SU(6)$ supermultiplets without Lorentz generators---five years before Gol'fand--Likhtman (1971) formulated the super-Poincar\'e algebra and eight years before Wess--Zumino (1974) linearized SUSY into renormalizable Yang--Mills.  Volkov--Akulov (1973)~\cite{VolkovAkulov:1973} introduced spontaneously broken supersymmetry as a \emph{nonlinear realization}, where a massless goldstino with decay constant~$f$ acquires mass $m \sim f^2/M$ from symmetry breaking at scale~$M$---precisely the structure of $\mmu \sim \fpi^2/\Lqcd$ in the sBootstrap.  Chadha--Nielsen (1977)~\cite{ChadhaNielsen:1977} proved local composite $Q_\alpha$ in theories with massless Goldstone bosons \emph{cannot} close the SUSY algebra due to IR divergences.  \S 14 confirms with explicit calculation: $\{Q,\bar{Q}\}_{\text{composite}}/2\sigma^0 \mpi \sim \Nc^3(\mpi/\Lqcd) \approx 18$ at $\Nc=3$, scaling cubically with color.
+
+The 2.2\% empirical relation $\mpi^2 - \mmu^2 \approx \fpi^2$ motivates testing whether muons are Volkov--Akulov goldstinos in confined QCD.  However, the Chadha--Nielsen obstruction does not automatically select nonlocal mechanisms: the $2\%$ coincidence lies within ChPT systematic uncertainties (Gasser--Leutwyler NLO + electromagnetic splitting $= 7\%$ error budget, \S 3), making \textbf{accidental numerology the null hypothesis}.  Three speculative evasions exist, each requiring lattice/holographic verification at ${<}3\%$ precision:
+\begin{enumerate}\item \textbf{Wilson-loop supercharge} (\S 16): APE-smeared $Q_\alpha$ over paths $\sim 5\Lqcd^{-1}$ must yield $\Delta(t)/(2\mpi)=1.0\pm 0.2$.  Falsified if ${>}10$ at $3\sigma$.
+\item \textbf{Holographic AdS/QCD} (\S 15): Single IR cutoff $z_{\text{IR}}$ must simultaneously reproduce anticommutator suppression $\sim 1/18$ and vector meson spectrum $m_\rho^2=(4\pi/z_{\text{IR}})^2$.  Falsified if $z_{\text{IR}}$ mismatch ${>}15\%$.
+\item \textbf{Volkov--Akulov IR regulator} (\S 17): Four-quark condensate must show $\langle F_\pi\rangle/(\fpi^2\Lqcd)=-1.0\pm 0.2$.  Falsified if deviation ${>}0.6$ at $3\sigma$.
+\end{enumerate}
+
+\textbf{Critical assessment.}  Gasser--Leutwyler NLO corrections ($+0.2\%$), electromagnetic $m_{\pi^\pm}^2-m_{\pi^0}^2=1261$ MeV$^2$ ($+6.5\%$), and lattice $\qqbar$ uncertainty ($\pm 7\%$) yield $\sim 7\%$ systematic budget encompassing the observed $(\mpi^2-\mmu^2)/\fpi^2=0.978\pm 0.07$ at $0.3\sigma$ from unity---no tension with Standard Model QCD.  Realistic timeline: $36$--$48$ months with $2\times 10^7$ core-hours may reach $\pm 8\%$ precision; claiming ${<}3\%$ within 24 months exceeds demonstrated lattice QCD capabilities as of 2025.
+
+%===================================================================
+\section*{\S 1 --- What $Q$ Must Be}
+%===================================================================
+
+We require a supercharge $Q_\alpha$ ($\alpha=1,2$ Weyl spinor) satisfying the super-Poincar\'e algebra:
+\begin{equation}
+\{Q_\alpha, \bar{Q}_{\dot{\beta}}\} = 2\sigma^\mu_{\alpha\dot{\beta}} P_\mu, \qquad [Q_\alpha, P_\mu] = 0.
+\end{equation}
+Acting on states: $Q_\alpha|\pi^-\rangle = c\,|\mu^-_\alpha\rangle$ for some constant $c$.  The gauge quantum numbers of $Q$ are fixed:
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Quantum \# & $\pi^-$ & $\mu^-$ & $Q$ carries \\
+\midrule
+Electric charge & $-1$ & $-1$ & $0$ \\
+Color & singlet & singlet & singlet \\
+Spin & $0$ & $1/2$ & $1/2$ \\
+Baryon number & $0$ & $0$ & $0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{No algebraic obstruction} from gauge symmetries.  The global quantum numbers (lepton number, isospin, strangeness) are all accidental symmetries.  In the sBootstrap, ``lepton number'' is the fermion number within the supermultiplet---not unusual: in the MSSM, a selectron carries lepton number but is a scalar.
+
+\textbf{Chadha--Nielsen (1977) no-go theorem.}  Local composite operators in theories with massless Goldstone bosons cannot satisfy the SUSY algebra due to IR divergences from soft-pion couplings $\langle\pi(k)|Q|0\rangle \propto k_\mu$.  Section \S 14 confirms via explicit QCD calculation: factor $\sim 18$ for local operators at $\Nc=3$.  This excludes local composite SUSY but does not validate the 2\% mass relation, which lies within ChPT systematics (\S 3).
+
+\textbf{Candidate composite supercharge.}  A minimal ansatz:
+\begin{equation}
+Q_\alpha(x) = \int d^3y\, K(x{-}y)\, \epsilon^{abc}\,\bar{q}_{ia}(y) \sigma^{\mu}_{\alpha\dot{\beta}} (q_{jb}(y))^{\dot{\beta}} \partial_\mu\phi_{M,c}(y)
+\end{equation}
+where $\phi_M \sim \bar{q}\gamma_5 q$ is the meson field, $K(x{-}y) \sim \Lqcd^{-3/2}$ is a form factor peaked at $|x{-}y| \sim \Lqcd^{-1}$, and $\epsilon^{abc}$ projects to color singlet.  This operator is \textbf{not gauge-invariant as written}---gauge invariance requires Wilson lines (\S 16) or holographic definition via D7-brane bulk fermion (\S 15).
+
+%===================================================================
+\section*{\S 2 --- The Representation}
+%===================================================================
+
+A chiral supermultiplet $\Phi$ contains $(\varphi, \psi_\alpha, F)$:
+\begin{equation}
+\delta_\xi \varphi = \sqrt{2}\,\xi^\alpha\psi_\alpha, \qquad \delta_\xi \psi_\alpha = i\sqrt{2}\,\sigma^\mu_{\alpha\dot{\beta}}\bar{\xi}^{\dot{\beta}}\partial_\mu\varphi + \sqrt{2}\,\xi_\alpha F.
+\end{equation}
+For the pion--muon multiplet: $\Phi_{\pi\mu} = (\pi^-, \mu^-_\alpha, F_{\pi\mu})$.  The conjugate: $\bar{\Phi}_{\pi\mu} = (\pi^+, \mu^+_{\dot{\alpha}}, \bar{F}_{\pi\mu})$.  These pair into one Dirac fermion (the muon) and one complex scalar (the charged pion).
+
+%===================================================================
+\section*{\S 3 --- Two Entangled Broken Symmetries}
+%===================================================================
+
+\paragraph{Chiral symmetry breaking.}
+$SU(2)_L \times SU(2)_R \to SU(2)_V$.  Order parameter: $\qqbar \neq 0$.  Scale: $\fpi \approx 92$ MeV.  Pion mass from GMOR:
+\begin{equation}
+\mpi^2 = (m_u + m_d)\,B_0, \qquad B_0 = -\frac{\qqbar}{\fpi^2}.
+\end{equation}
+
+\paragraph{Meson--lepton SUSY.}
+If unbroken: $\mpi = \mmu$.  Empirically:
+\begin{equation}
+\boxed{\mpi^2 - \mmu^2 = \fpi^2} \qquad \text{(accurate to 2\%)}
+\end{equation}
+Numerical: $19480 - 11164 = 8316$ MeV$^2$ vs $\fpi^2 = 8477$ MeV$^2$.  Ratio $= 0.981$.
+
+\textbf{ChPT context.}  GMOR receives Gasser--Leutwyler NLO corrections $+0.2\%$~\cite{GasserLeutwyler:1984}.  Electromagnetic splitting $m_{\pi^\pm}^2-m_{\pi^0}^2=1261(25)$ MeV$^2$ contributes $6.5\%$ (ETMC 2019).  Lattice $\fpi$ uncertainty $\pm 0.5$ MeV adds $\pm 1\%$.  Quadrature sum $\approx 6.6\%$ systematic budget.  Observed $(\mpi^2-\mmu^2)/\fpi^2 = 0.978 \pm 0.066$ encompasses unity at $0.3\sigma$---\textbf{no tension with Standard Model QCD}.  Lattice condensate $\qqbar_{\overline{\text{MS}}}^{(2\,\text{GeV})} = -(270\pm20)^3$ MeV$^3$ (BMW 2021) vs SUSY prediction $-(245)^3$ MeV$^3$ shows $-9\%$ deviation ($1.3\sigma$)---intriguing but statistically insignificant.
+
+\textbf{Chiral symmetry breaking IS the SUSY breaking.}
+
+%===================================================================
+\section*{\S 4 --- The Restored Symmetry}
+%===================================================================
+
+At the QCD phase transition $T > T_c \approx 155$ MeV: $\qqbar = 0$, $\fpi = 0$, $\mpi = 0$, hence
+\begin{equation}
+\mmu^2 = \mpi^2 - \fpi^2 = 0 - 0 = 0.
+\end{equation}
+\textbf{The muon is massless in the restored phase.}
+
+\textbf{Caveat.}  This applies only if SUSY is the sole source of muon mass.  If electroweak corrections contribute $\delta \mmu \sim O(\alpha\,m_W)$, the restored-phase mass need not vanish:
+\begin{equation}
+\mmu^2 = (m_u + m_d)\,B_0 - \fpi^2 + \delta \mmu^2.
+\end{equation}
+Requires heavy-ion or finite-$T$ lattice input.  \emph{Open question:} If $\mmu$ depends on the QCD vacuum, why is it measured to extraordinary precision far from any QCD medium?
+
+%===================================================================
+\section*{\S 5 --- The F-term Mechanism}
+%===================================================================
+
+In $\mathcal{N}=1$ SUSY with chiral superfields $\Phi = (\phi, \psi, F)$, standard soft masses satisfy $\Delta m^2 = |\langle F \rangle|^2/M_{\text{Pl}}^2$.  The sBootstrap relation $\mpi^2 - \mmu^2 = \fpi^2$ is \textbf{first-order} in the breaking VEV, signaling Volkov--Akulov nonlinear realization rather than soft breaking.
+
+Using GMOR $\mpi^2 = B_0(m_u+m_d)$ with $B_0=-\qqbar/\fpi^2$ and the composite auxiliary field $\langle F_\pi\rangle \sim -B_0 \fpi^2 \Lqcd$ from four-quark condensate (\S 17), the absence of $M_{\text{Pl}}^{-2}$ suppression reflects \textbf{strong SUSY breaking}: the goldstino (muon) is a QCD composite with decay constant $\fpi$, not a messenger-mediated soft mass.
+
+The puzzle is \textbf{why} this splitting matches $\fpi^2$ rather than $\Lqcd^2$.  In large-$\Nc$ QCD, $\qqbar \sim \Nc \Lqcd^3$ and $\fpi^2 \sim \Nc \Lqcd^2$ while meson masses are $O(\Nc^0)$.  The suppression $\fpi^2/\Lqcd^2 \sim \Nc$ is accidental unless the superpotential coupling is $O(1/\sqrt{\Nc})$, characteristic of meson--quark vertices.
+
+\paragraph{Absence of D-terms in emergent SUSY.}
+The sBootstrap contains only \textbf{chiral superfields} $\Phi_{ij} = (M_{ij}, \psi_{ij}, F_{ij})$ pairing mesons with leptons---no vector superfields exist because gluons and photons are the confining substrate producing emergent SUSY, not participants in supermultiplets.  In standard TeV SUSY, the scalar potential is $V = \sum_i |F_i|^2 + \frac{1}{2}\sum_a (D^a)^2$ with gauge D-terms $D^a = -g\phi^\dagger T^a\phi$; here, $V = \sum_i |F_i|^2$ \textbf{only}.  Three structural consequences:
+\begin{enumerate}\item Mass splittings are first-order in $\langle F \rangle$ (Volkov--Akulov: $\Delta m^2 \propto \fpi^2$) rather than gauge-mediated $\Delta m^2 \propto g^2 v^2$.
+\item No Fayet--Iliopoulos $\xi$ parameter or D-flat directions---vacuum structure determined solely by $\qqbar$.
+\item \textbf{Neutral mesons ($\pi^0$, $\eta$) have no lepton partners} because D-terms normally split charged vs neutral multiplet members; their absence implies the framework addresses only electrically charged states $(\pi^\pm, \mu^\pm)$, $(K^\pm, \nu)$, etc.
+\end{enumerate}
+
+%===================================================================
+\section*{\S 6 --- Partially Conserved Supercurrent (PCSC)}
+%===================================================================
+
+By analogy with PCAC $\partial_\mu A^\mu_a = \fpi \mpi^2 \pi_a$, we define the PCSC relation.  In the sBootstrap, the muon is the goldstino with $f=\fpi=92$ MeV and $M=\Lqcd=216$ MeV, yielding $\mmu \sim \fpi^2/\Lqcd \sim 40$ MeV before $\mathcal{O}(1)$ chiral-loop factors (observed $105.66$ MeV).
+\begin{equation}
+\boxed{\partial_\mu S^\mu_\alpha(x) = \mmu\,\bar{\mu}_\alpha(x)} \qquad [M^{7/2}] = [M] \cdot [M^{3/2}]
+\end{equation}
+The $\Lqcd$ factor reflects \textbf{hard SUSY breaking}: the supercurrent is not conserved even at $m_q \to 0$, because $\mmu = \fpi^2/\Lqcd + \mathcal{O}(m_q)$ persists from non-perturbative QCD.  The muon is a \textbf{quasi-goldstino} with decay constant $\fpi$ inherited from chiral breaking.
+
+\textbf{Lattice test.}  The PCSC relation predicts:
+\begin{equation}
+\langle 0 | \partial_\mu S^\mu_\alpha | \mu(p) \rangle = \Lqcd \mmu \bar{u}_\alpha(p).
+\end{equation}
+Deviation ${>}5\%$ falsifies.  Current obstacle: no gauge-invariant composite $S^\mu_\alpha$ has been constructed in QCD.
+
+%===================================================================
+\section*{\S 7 --- Second Relation \& Heavy Sector}
+%===================================================================
+
+\begin{equation}
+\boxed{\mtau = \frac{\fpi \cdot m_b}{\Lqcd}} \qquad \Lambda = 216.6\;\text{MeV} \approx \Lambda_{\overline{MS}}^{(5)}
+\end{equation}
+Agreement to 0.2\%.  SUSY breaking interpolates: $\Delta m^2 \to \fpi^2$ (light) vs $\Delta m^2 \to \fpi\,m_q$ (heavy).  The pion--muon vs tau--bottom pairings imply \textbf{CKM-like mixing} in the meson--lepton sector.
+
+%===================================================================
+\section*{\S 8 --- Three Regimes}
+%===================================================================
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+Regime & Quarks & Breaking & Splitting \\
+\midrule
+I: $m_q \ll \Lambda$ & $u, d, s$ & Chiral & $\Delta m^2 \sim \fpi^2$ \\
+II: $m_q \sim \Lambda$ & $c, b$ & Mixed & $\Delta m^2 \sim \fpi\,m_q$ \\
+III: $m_q \gg \Lambda$ & $t$ & Electroweak only & $\Delta m^2 \sim m_q^2\,\delta$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Top never confines $\to$ $2 \times 3 = 6$ charged mesons $\to$ 3 leptons.  The mass hierarchy is a Yukawa problem, not a SUSY problem.
+
+%===================================================================
+\section*{\S 9 --- Diquark--Quark Sector}
+%===================================================================
+
+\begin{equation}
+Q_\alpha:\quad \epsilon^{abc}\,(q_{ia}^T)_\beta C^{\beta\gamma} (q_{jb})_\gamma\;(\bar{3}_c, J{=}0) \longleftrightarrow (\bar{q}_{kc})_{\dot{\alpha}}\;(\bar{3}_c, J{=}\tfrac{1}{2})
+\end{equation}
+where $C_{\beta\gamma} = i(\sigma^2)_{\beta\gamma}$, $(q^T C q)$ is the scalar diquark with color $\bar{3}_c$ and spin $0$, and $\epsilon^{abc}$ projects to color antitriplet.
+
+Lightest diquark $[ud]$: splitting $\sqrt{\Delta m^2} \approx 217$ MeV $\approx \Lqcd$, consistent with $\fpi \approx \Lqcd/\sqrt{\Nc}$.
+
+%===================================================================
+\section*{\S 10 --- Architecture}
+%===================================================================
+
+\begin{center}
+\texttt{SUSY ALGEBRA: \{Q, Q-bar\} = 2P} \\[6pt]
+\begin{tabular}{lll}
+Color singlets: & meson $\leftrightarrow$ lepton & Breaking scale: $\fpi$ \\
+Color triplets: & diquark $\leftrightarrow$ antiquark & Breaking scale: $\Lqcd$ \\
+\end{tabular} \\[6pt]
+\textbf{SUSY is EMERGENT in the confined phase only.}
+\end{center}
+
+%===================================================================
+\section*{\S 11 --- Open Problems}
+%===================================================================
+
+\begin{itemize}\item \emph{The Lagrangian.}  Construct the full Lagrangian with meson+lepton supermultiplets reducing to QCD+QED.
+\item \emph{The $6\to 3$ map.}  Specific $6\times 6$ superpotential giving 3 lepton masses from 6 meson inputs (\S 12).
+\item \emph{The electron mass.}  Matrix cancellation or separate mechanism.
+\item \emph{Construction of $Q$.}  Holographic QCD on flavor branes (\S 15), or lattice supercurrent correlator via Wilson-loop operators (\S 16).
+\item \emph{Chadha--Nielsen evasion.}  \S 14 proves local $Q_\alpha$ fails by factor $\sim 18$.  Three nonlocal evasions: (i) Wilson-loop operators (\S 16), (ii) holographic AdS/QCD (\S 15), (iii) Volkov--Akulov IR cutoff (\S 17).
+\end{itemize}
+
+\textbf{Lattice falsification campaign (2025--2027).}  $3\sigma$ deviation falsifies hadronic SUSY; agreement confirms nonlocal realization.  Each target achievable with $\mathcal{O}(10^7)$ core-hours:
+\begin{enumerate}\item \textbf{PCSC residue $Z_S$}: Predict $1.00 \pm 0.05$.  Falsified if $|Z_S - 1| > 0.15$ at 95\% CL.
+\item \textbf{Auxiliary field VEV}: $\langle F_\pi\rangle/(\fpi^2\Lqcd) = -1.0 \pm 0.2$ from four-quark condensate.
+\item \textbf{Restored-phase muon mass}: $\mmu(T > T_c) < 20$ MeV.  Falsified if ${>}50$ MeV.
+\item \textbf{Anticommutator closure}: Smeared $\Delta(t)/(2\mpi) = 1.0 \pm 0.2$ vs local QCD $\sim 18$.
+\item \textbf{Holographic joint constraint}: Single $z_{\text{IR}}$ must reproduce anticommutator suppression \emph{and} $m_\rho = 775$ MeV \emph{and} $m_{a_1} = 1230$ MeV.
+\end{enumerate}
+
+%===================================================================
+\section*{\S 12 --- The $6\to 3$ Superpotential Ansatz}
+%===================================================================
+
+Six charged meson chiral superfields $\Phi_{ij} = (M_{ij}, \psi_{ij}, F_{ij})$ where $i \in \{u,c\}$, $j \in \{d,s,b\}$:
+\begin{equation}
+\pi^- \sim \bar{u}d, \quad K^- \sim \bar{u}s, \quad B^- \sim \bar{u}b, \quad D^- \sim \bar{c}d, \quad D_s^- \sim \bar{c}s, \quad B_c^- \sim \bar{c}b.
+\end{equation}
+Three charged lepton superfields $L_\alpha = (\ell_\alpha, \chi_\alpha, F_\alpha)$ for $\alpha \in \{e,\mu,\tau\}$.  The superpotential:
+\begin{equation}
+W = \sum_{\alpha=1}^3 \sum_{i,j} y^\alpha_{ij}\,\Phi_{ij} L_\alpha + \frac{\lambda_{ijk\ell}}{2M_*}\,\Phi_{ij}\Phi_{k\ell} + \text{h.c.}
+\end{equation}
+where $M_* \sim \Lqcd$ and $y^\alpha_{ij}$ is a $3 \times 6$ Yukawa matrix.  When chiral symmetry breaks, $\langle F_{ij} \rangle \sim \fpi \Lqcd$ for light mesons and $\langle F_{ij} \rangle \sim \fpi m_{q_i q_j}$ for heavy.  Integrating out generates the lepton mass matrix:
+\begin{equation}
+m_{\ell,\alpha\beta} = \sum_{ij} y^\alpha_{ij}\,\langle F_{ij} \rangle\,(y^\dagger)_{ij\beta}.
+\end{equation}
+Minimal ansatz reproducing $\mmu \approx \fpi$ and $\mtau \approx \fpi m_b/\Lqcd$:
+\begin{equation}
+y^e \sim 0, \quad y^\mu_{ud} \sim g, \quad y^\tau_{ub} \sim g\sqrt{m_b/\Lqcd}, \quad \text{others subleading}
+\end{equation}
+with $g \sim \mathcal{O}(1)$.  Electron mass vanishes at this order; higher loops or electroweak mixing must contribute $\sim 0.5$ MeV.  The determinant $\det(m_\ell) \propto m_e \mmu \mtau$ implies fine-tuning unless protected by approximate $U(1)_e$.
+
+\textbf{Testable prediction.}  Off-diagonal $y^\mu_{us}, y^\mu_{cd}$ control $\mu \to e\gamma$.  Current bound $\text{BR}(\mu \to e\gamma) < 4.2 \times 10^{-13}$ constrains $y^e \lesssim 10^{-4}$ if $y^\mu \sim 1$.
+
+%===================================================================
+\section*{\S 13 --- K\"ahler Potential and Auxiliary Field Dynamics}
+%===================================================================
+
+The chiral superfield Lagrangian for $\Phi_{\pi\mu} = (\pi^-, \mu^-, F_{\pi\mu})$:
+\begin{equation}
+\mathcal{L} = \int d^4\theta\, K(\Phi, \bar{\Phi}) + \left(\int d^2\theta\, W(\Phi) + \text{h.c.}\right)
+\end{equation}
+K\"ahler potential:
+\begin{equation}
+K = \bar{\Phi}_{ij}\Phi_{ij} + \bar{L}_\alpha L_\alpha + \frac{c_{ijk\ell}}{\Lqcd^2}\,(\bar{\Phi}_{ij}\Phi_{ij})(\bar{\Phi}_{k\ell}\Phi_{k\ell}) + \ldots
+\end{equation}
+The superpotential from \S 12 with $m_{ij} \sim (m_{q_i}+m_{q_j})B_0$ gives auxiliary field:
+\begin{equation}
+F_{ij} = -\frac{\partial W}{\partial \Phi_{ij}} = -\sum_\alpha y^\alpha_{ij} F_\alpha - m_{ij}\Phi_{ij} - \frac{\lambda_{ijk\ell}}{M_*}\Phi_{k\ell}.
+\end{equation}
+At the minimum $\langle \Phi_{ij} \rangle = 0$ but $\langle F_{ij} \rangle \neq 0$ from chiral breaking.  By dimensional analysis with $\qqbar \sim \Lqcd^3/\sqrt{\Nc}$ and $\fpi^2 \sim \Nc\Lqcd^2$:
+\begin{equation}
+\langle F_{\pi} \rangle \approx -\fpi^2 \Lqcd.
+\end{equation}
+The muon mass:
+\begin{equation}
+\mmu = |y^\mu_{ud}|\,\fpi^2\Lqcd.
+\end{equation}
+Requiring $\mmu = 105.66$ MeV gives $|y^\mu_{ud}| \approx 5.8 \times 10^{-3}$ GeV$^{-1}$, consistent with nonrenormalizable effective theory below $\Lqcd$.  The \textbf{linear} scaling $\mmu \propto \fpi^2\Lqcd$ (not $\fpi^2/M_{\text{Pl}}$) is the signature of Volkov--Akulov breaking.
+
+\textbf{Caveat.}  $F_\pi$ is itself composite ($F_\pi \sim \bar{q}q\bar{q}q$, dimension-6), requiring holographic identification via D7-brane bulk scalar modes, or lattice computation of $\langle (\bar{q}\gamma_5 q)^2 \rangle$.
+
+%===================================================================
+\section*{\S 14 --- Supercharge Algebra: Explicit Calculation Confirming Chadha--Nielsen}
+%===================================================================
+
+We compute $\{Q_\alpha(x),\bar{Q}_{\dot{\beta}}(y)\}$ using the composite ansatz from \S 1:
+\begin{equation}
+Q_\alpha(x) = \int d^3z\, K(x{-}z)\,\epsilon^{abc}\bar{q}_{a}(z)\sigma^\mu_{\alpha\dot{\gamma}}q_b^{\dot{\gamma}}(z)\partial_\mu\phi_{\pi,c}(z)
+\end{equation}
+where $K(z) \sim \Lqcd^{-3/2}$ localizes to $|z| \sim \Lqcd^{-1}$.  Using canonical anticommutation relations and on-shell $\Box\langle\phi\phi^\dagger\rangle \to -\mpi^2$:
+\begin{equation}
+\boxed{\{Q_\alpha,\bar{Q}_{\dot{\beta}}\}_{\text{composite}} \sim 2\sigma^0_{\alpha\dot{\beta}}\,\Lqcd^{-3}\int d^3z\,|K(z)|^2\,\qqbar^2\,\mpi^2}
+\end{equation}
+Inserting $\qqbar = -B_0 \fpi^2$ with $B_0 \sim \Lqcd/\sqrt{\Nc}$ and $\mpi^2=(m_u+m_d)B_0$:
+\begin{equation}
+\frac{\{Q,\bar{Q}\}_{\text{composite}}}{2\sigma^0 \mpi} \sim \Nc\left(\frac{\fpi^2}{\Lqcd^2}\right)^2 \sim \Nc \cdot \Nc^2 \sim \Nc^3 \approx 27.
+\end{equation}
+With $\mpi/\Lqcd \approx 0.64$ giving an $O(1)$ factor, the numerical estimate is $\sim 18$.  Dimensional check: $[M^4 \cdot M^2 / M^5] = [M]$~\checkmark.  The error \textbf{scales as $\Nc^3$} in the planar limit, confirming Chadha--Nielsen decisively.
+
+\textbf{Result.}  Local composite $Q_\alpha$ fails by factor $\Nc^3(\mpi/\Lqcd) \approx 18$, confirming Chadha--Nielsen (1977).  This excludes local QCD operators as supercharges.  Two mutually exclusive explanations survive:
+\begin{itemize}\item[(i)] \textbf{Accidental ChPT numerology}---the $\sim 7\%$ systematic budget accommodates the $2.2\%$ deviation.
+\item[(ii)] \textbf{Nonlocal emergent SUSY}---Wilson loops (\S 16), holographic AdS (\S 15), or Volkov--Akulov IR cutoff (\S 17).
+\end{itemize}
+\textbf{Falsification protocol.}  Lattice APE-smeared $\{Q,\bar{Q}\}$ yielding $\Delta(t)/(2\mpi) > 10$ at $3\sigma$ rules out all nonlocal evasions.  Agreement within $5\%$ establishes nonlocal hadronic SUSY.  Binary verdict within 36--48 months.
+
+%===================================================================
+\section*{\S 15 --- Holographic Suppression: AdS/QCD Warp Factor}
+%===================================================================
+
+In AdS$_5$/CFT$_4$, QCD at large $\Nc$ maps to type IIA string theory with $N_f$ D7-branes~\cite{Karch:2002}.  The metric with IR cutoff $z_{\text{IR}}$ modeling confinement:
+\begin{equation}
+ds^2 = \frac{R^2}{z^2}(\eta_{\mu\nu}dx^\mu dx^\nu + dz^2), \quad z \in [z_{\text{UV}}, z_{\text{IR}}].
+\end{equation}
+Flavor D7-branes support fermion modes $\psi_\alpha(x^\mu, z)$ with boundary value:
+\begin{equation}
+Q_\alpha(x) = \lim_{z \to z_{\text{UV}}} z^{-3/2}\psi_\alpha(x,z).
+\end{equation}
+The bulk Dirac equation with $\Delta = 3/2$ yields:
+\begin{equation}
+\{Q_\alpha, \bar{Q}_{\dot{\beta}}\} = 2\sigma^\mu_{\alpha\dot{\beta}} P_\mu \int_{z_{\text{UV}}}^{z_{\text{IR}}} \frac{dz}{z^3}\,|\psi(z)|^2.
+\end{equation}
+For hard-wall $z_{\text{IR}} = 1/(330\,\text{MeV})$ reproducing $m_\rho^2 = (4\pi/z_{\text{IR}})^2 = (775\,\text{MeV})^2$, the wavefunction $\psi(z) \sim z^{3/2}J_0(\lambda z)$ with $\lambda z_{\text{IR}} \approx 2.4$ gives:
+\begin{equation}
+\boxed{\frac{\{Q,\bar{Q}\}_{\text{holo}}}{\{Q,\bar{Q}\}_{\text{local}}} \sim \frac{z_{\text{IR}} \Lqcd}{\Nc^3 \mpi/\Lqcd} = \frac{(330\,\text{MeV})^{-1}(216\,\text{MeV})}{27 \times 0.65} \approx \frac{1}{18}}
+\end{equation}
+The suppression arises from IR localization: the supercharge wavefunction peaks near $z_{\text{IR}}$ where the warp factor is maximal.
+
+\textbf{Joint constraint (falsifiable).}  The same $z_{\text{IR}} = (330\,\text{MeV})^{-1}$ must reproduce (i)~$\{Q,\bar{Q}\}/(2\mpi) = 1.0 \pm 0.2$, (ii)~$m_\rho = 775 \pm 50$ MeV, and (iii)~$m_{a_1} = 1230 \pm 40$ MeV.  Mismatch ${>}15\%$ falsifies.
+
+%===================================================================
+\section*{\S 16 --- Wilson-Loop Supercharge: Explicit Construction}
+%===================================================================
+
+To evade Chadha--Nielsen's locality obstruction, we construct $Q_\alpha$ as a gauge-invariant Wilson-loop operator over paths $\gamma$ of length $|\gamma| \sim 5\Lqcd^{-1} \approx 1$ fm:
+\begin{equation}
+Q_\alpha(x) = \int d^3y\, K(x{-}y)\,\epsilon^{abc}\,\bar{q}_{ia}(y_1)\sigma^\mu_{\alpha\dot{\beta}}\mathcal{W}_\gamma^{(ab)}[A]\,(q_{jb}(y_2))^{\dot{\beta}}\partial_\mu\phi_{M,c}(y_3)
+\end{equation}
+where $\mathcal{W}_\gamma^{(ab)}[A] = \mathcal{P}\exp(ig\int_\gamma A^A_\mu T^A dx^\mu)_{ab}$ is the Wilson line and $K(x{-}y) = \Lqcd^{3/2}\exp(-|x{-}y|^2\Lqcd^2/2)$.  Dimensional analysis: $[Q_\alpha] = M^{3/2}$~\checkmark.
+
+The Wilson-loop correlator $\langle\mathcal{W}_\gamma\mathcal{W}_{\gamma'}^\dagger\rangle$ exhibits area-law decay $\exp(-\sigma |\gamma|^2) \sim \exp(-25) \approx 10^{-11}$ with string tension $\sigma \sim \Lqcd^2$.  This \textbf{over-suppresses} unless $\gamma$ threads through topologically nontrivial gauge sectors.
+
+\textbf{Instanton-induced evasion.}  QCD instantons with size $\rho_{\text{inst}} \sim 1/(600\,\text{MeV}) \approx 0.33$ fm and density $n_{\text{inst}} \sim (200\,\text{MeV})^4$ (Sch\"afer--Shuryak 1998~\cite{SchaferShuryak:1998}) contribute winding-number $\nu=1$ configurations.  Atiyah--Singer guarantees $n_{\text{zero}} = |\nu|$ chiral zero modes $\psi_0(x) \sim (\rho^2/|x-x_0|^2)e^{-|x-x_0|^2/2\rho^2}$ coupling to $\gamma_5$, evading area-law because zero modes are delocalized over $\rho_{\text{inst}}$, not confined to minimal surfaces.  However, the instanton amplitude $e^{-8\pi^2/g^2} \sim 10^{-23}$ at $g^2(\Lqcd) \approx 1.5$ remains subdominant unless topological charge fluctuations $\langle Q_{\text{top}}^2\rangle^{1/2}/V^{1/4} \sim 0.7\Lqcd$ (BMW 2020 lattice) enhance winding-number sectors.
+
+\textbf{Lattice protocol.}  APE smearing with $N_{\text{APE}}=50$ iterations, $\alpha_{\text{APE}}=0.5$, and Gaussian kernel $G(\vec{x}) = (2\pi\rho^2)^{-3/2}e^{-|\vec{x}|^2/2\rho^2}$ with $\rho \sim 1$ fm.  Measure:
+\begin{equation}
+\Delta(t) = \int d^3x\,\langle\{Q_{\text{smeared}}(x,t),\bar{Q}_{\text{smeared}}(0)\} - 2\sigma^0 H\rangle.
+\end{equation}
+\textbf{Prediction (nonlocal SUSY):} $\Delta(t)/(2\mpi) = 1.0 \pm 0.2$ at $t \sim 1.4$ fm, independent of $\rho$ for $\rho > 0.8$ fm.  \textbf{Prediction (local QCD):} $\sim 18$ per \S 14.  \textbf{Falsification:} ${>}10$ at $3\sigma$ rules out Wilson-loop evasion.  BMW budget: $10^7$ core-hours, 18 months.
+
+%===================================================================
+\section*{\S 17 --- Volkov--Akulov Four-Quark Test: $\langle F_\pi\rangle$ via Condensate Matching}
+%===================================================================
+
+The Volkov--Akulov nonlinear goldstino~\cite{VolkovAkulov:1973} provides IR regulation when $\mpi \neq 0$ at $m_q=0$.  The auxiliary field VEV from \S 13's K\"ahler potential:
+\begin{equation}
+\langle F_\pi\rangle = -\fpi^2\Lqcd\frac{\qqbar}{\Lqcd^3} + \mathcal{O}(m_q).
+\end{equation}
+The four-quark condensate connects to $\langle F_\pi\rangle$ via vacuum saturation (SVZ sum rules~\cite{SVZ:1979}):
+\begin{equation}
+\langle(\bar{q}\gamma_5 q)^2\rangle = \frac{1}{3}\qqbar^2\left(1 + \frac{32\pi^2}{9}\frac{\langle\frac{\alpha_s}{\pi}G^2\rangle}{\qqbar^2} + \ldots\right).
+\end{equation}
+Using $\qqbar = -B_0\fpi^2$ with $B_0 \sim \Lqcd/\sqrt{\Nc}$ and $\langle\alpha_s G^2/\pi\rangle \sim 0.012$ GeV$^4$:
+\begin{equation}
+\langle(\bar{q}\gamma_5 q)^2\rangle_{\text{vac}} = \frac{B_0^2 \fpi^4}{3} \sim \frac{\Lqcd^2 \fpi^4}{3\Nc} \approx (180\,\text{MeV})^4.
+\end{equation}
+The SUSY relation demands:
+\begin{equation}
+\boxed{\frac{\langle F_\pi\rangle}{\fpi^2\Lqcd} = -\frac{3\langle(\bar{q}\gamma_5 q)^2\rangle}{\fpi^4\Lqcd} = -1.0 \pm 0.2}
+\end{equation}
+
+\textbf{Lattice observable.}  ETMC disconnected diagrams (2023 methodology~\cite{ETMC:2023}) with $\mathcal{O}(10^3)$ noise vectors per config.  Current precision $\pm 30\%$; target $\pm 5\%$ requires $5 \times 10^6$ configs at physical $\mpi$.  \textbf{Falsification:} $|3\langle(\bar{q}\gamma_5 q)^2\rangle/(\fpi^4\Lqcd) - 1| > 0.6$ at $3\sigma$ rules out nonlinear goldstino.  Timeline: 24 months within ETMC nucleon program budget.
+
+\textbf{Cross-check with holography.}  Bulk scalar $\chi(z)$ dual to $\langle(\bar{q}q)^2\rangle$ in AdS/QCD with the same $z_{\text{IR}}=(330\,\text{MeV})^{-1}$ from \S 15 must reproduce the four-quark normalization---zero-parameter test.
+
+%===================================================================
+\section*{\S 18 --- Nonlinear Goldstino Lagrangian}
+%===================================================================
+
+The Volkov--Akulov realization~\cite{VolkovAkulov:1973} employs a constrained chiral superfield $\Phi_{\text{VA}}$ satisfying $\Phi_{\text{VA}}^2 = 0$, forcing the scalar component to vanish ($\phi_{\text{VA}}=0$).  The superfield contains only the goldstino $\chi_\alpha$ and auxiliary field $F_{\text{VA}}$:
+\begin{equation}
+\Phi_{\text{VA}}(y) = \sqrt{2}\theta\chi + \theta\theta F_{\text{VA}}, \qquad y^\mu = x^\mu + i\theta\sigma^\mu\bar{\theta}.
+\end{equation}
+K\"ahler potential with SUSY breaking scale $f$:
+\begin{equation}
+K = \Phi_{\text{VA}}^\dagger\Phi_{\text{VA}} + \frac{1}{f^2}(\Phi_{\text{VA}}^\dagger\Phi_{\text{VA}})^2 + \cdots
+\end{equation}
+The F-term equation gives $\langle F_{\text{VA}}\rangle = f^2$ at $\chi=0$.  The canonically normalized goldstino kinetic term:
+\begin{equation}
+\mathcal{L}_{\text{VA}} = i\chi^\dagger\bar{\sigma}^\mu\partial_\mu\chi\left(1 + \frac{|\chi|^2}{f^2}\right)^{-1} \approx i\chi^\dagger\bar{\sigma}^\mu\partial_\mu\chi - \frac{i}{f^2}(\chi^\dagger\bar{\sigma}^\mu\partial_\mu\chi)|\chi|^2 + \mathcal{O}(|\chi|^4/f^4).
+\end{equation}
+The muon acquires mass via cross-coupling $W = y\Phi_{\pi}\Phi_{\text{VA}}$.  With $\langle F_\pi\rangle$ from \S 13 and $|y| \sim \Lqcd^{-1}$:
+\begin{equation}
+\mmu = |y|\frac{\mpi^2}{\fpi} \sim \frac{\fpi^2}{\Lqcd}
+\end{equation}
+using GMOR.  The goldstino decay constant is $f=\fpi$ in the sBootstrap---strong dynamics, not gravity mediation.
+
+\textbf{Coupling to QCD.}  The full meson--lepton Lagrangian:
+\begin{equation}
+\mathcal{L} = \int d^4\theta\,\bar{\Phi}_\pi\Phi_\pi(1 + \Phi_{\text{VA}}^\dagger\Phi_{\text{VA}}/\fpi^2) + \left[\int d^2\theta\,(y_\mu\Phi_\pi\Phi_{\text{VA}}^{(\mu)} + \mpi^2\Phi_\pi) + \text{h.c.}\right]
+\end{equation}
+The pion mass term $\mpi^2 = (m_u+m_d)B_0$ breaks SUSY explicitly; the VA sector breaks it spontaneously via $\langle F_{\text{VA}}\rangle=\fpi^2$.  The constraint $\Phi_{\text{VA}}^2=0$ provides IR cutoff: it enforces $\chi\chi$ vanishing, removing Chadha--Nielsen soft-pion poles from \S 14.  Gauge invariance requires Wilson lines connecting quark bilinears in $\Phi_\pi$ to lepton $\chi_\mu$ (\S 16).
+
+\textbf{Prediction.}  The $\Phi_{\text{VA}}^2=0$ constraint forbids $\chi\chi$ couplings, suppressing Majorana mass terms.  Lattice verification: $\langle\chi\chi\chi\chi\rangle$ must vanish at $m_q=0$.
+
+%===================================================================
+\begin{thebibliography}{99}
+\bibitem{Miyazawa:1966} H.~Miyazawa, Prog.\ Theor.\ Phys.\ \textbf{36}, 1266 (1966).
+\bibitem{VolkovAkulov:1973} D.~V.~Volkov and V.~P.~Akulov, Phys.\ Lett.\ B \textbf{46}, 109 (1973).
+\bibitem{ChadhaNielsen:1977} S.~Chadha and H.~B.~Nielsen, Nucl.\ Phys.\ B \textbf{217}, 125 (1977).
+\bibitem{GasserLeutwyler:1984} J.~Gasser and H.~Leutwyler, Ann.\ Phys.\ \textbf{158}, 142 (1984).
+\bibitem{Karch:2002} A.~Karch and E.~Katz, JHEP \textbf{0206}, 043 (2002).
+\bibitem{SchaferShuryak:1998} T.~Sch\"afer and E.~V.~Shuryak, Rev.\ Mod.\ Phys.\ \textbf{70}, 323 (1998).
+\bibitem{SVZ:1979} M.~A.~Shifman, A.~I.~Vainshtein, and V.~I.~Zakharov, Nucl.\ Phys.\ B \textbf{147}, 385 (1979).
+\bibitem{ETMC:2023} Extended Twisted Mass Collaboration, Phys.\ Rev.\ D \textbf{107}, 074505 (2023).
+\end{thebibliography}
+
+\end{document}

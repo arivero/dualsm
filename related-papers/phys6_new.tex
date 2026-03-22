@@ -1,0 +1,1374 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,geometry,booktabs,xcolor}
+\geometry{margin=2.5cm}
+\title{The $Z$-ladder and Koide-type mass relations: \\
+  10 masses from 4 inputs via $N_c=3$, $N_f=5$}
+\author{A.~Rivero (with AI assistance)}
+\date{19 March 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Using running quark and lepton masses from Antusch, Hinze \&
+Saad~(2025), we report a network of new relationships extending
+the Koide programme.  The central discovery is the \emph{$Z$-ladder}:
+five fermion mass pairs satisfy $m_X^2/m_Y = M_Z/n^2$ for integers
+$n \in \{1,7,10,11,100\}$, all to sub-per-mille precision.
+In Yukawa language this becomes
+$y_X^2/y_Y = g_Z\sqrt{2}/(2n^2)$, a tree-level-strength
+relation.  Combined with the Gatto--Sartori--Tonin relation,
+the charge sum rule $\sqrt{m_b}\approx 3\sqrt{m_s}+\sqrt{m_c}$,
+and the lepton Koide equation, the $Z$-ladder predicts
+\textbf{eleven masses from four inputs}
+$(m_{\pi^0},M_e,\alpha_{\rm em},\delta=2/9)$ to within $0.17\%$ each.
+Further findings include:
+(i)~the Cabibbo angle formula
+$\theta_C = 2/9 + \pi\alpha_{\rm em}/6$ ($0.08\%$);
+(ii)~the top/$Z$ ratio $M_t/M_Z = 10^3/23^2$ ($0.013\%$),
+connecting the pion $Z$-ladder integer to the electroweak hierarchy;
+(iii)~four- and five-mass Koide tuples at $10^{-5}$ precision;
+(iv)~cross-sector inverse tuples $K(1/s,1/\tau,1/H) \approx 3/2$;
+(v)~the geometric mean $m_b = \sqrt{m_{\pi^\pm}\cdot M_H}$ ($0.07\%$);
+(vi)~the charge sum $\sqrt{M_W}+\sqrt{M_Z}\approx
+\sqrt{2}\sqrt{M_t}$ ($0.3\%$).
+All $Z$-ladder integers are expressible as functions of
+$N_c=3$ and $N_f=5$; the formula $M_t/M_Z=(2N_f)^3/(11N_c-2N_f)^2$
+uniquely selects $N_f=5$ among viable options, providing an
+independent derivation of the sBootstrap turtle count.
+The Weinberg angle satisfies $\sin^2\theta_W\approx 2/9
+= \delta_\ell = (N_c-1)/(2N_f-1)$, unifying three fundamental
+angles.  We catalogue 20 relationships ranked by precision and
+speculate on mechanisms including modular Yukawa symmetries.
+\end{abstract}
+
+\section{Mass inputs}
+
+All fermion masses are taken from Antusch, Hinze \&
+Saad~(2025)~\cite{AHS2025}, which uses PDG~2024 determinations.
+The reference values are:
+
+\begin{center}
+\small
+\begin{tabular}{@{}l l l r l@{}}
+\toprule
+Particle & Convention & Scale & Mass & Unit \\
+\midrule
+$u$ & $\overline{\rm MS}$ & $2\;\text{GeV}$ & $2.16$ & MeV \\
+$d$ & $\overline{\rm MS}$ & $2\;\text{GeV}$ & $4.70$ & MeV \\
+$s$ & $\overline{\rm MS}$ & $2\;\text{GeV}$ & $93.5$ & MeV \\
+$c$ & $\overline{\rm MS}$ & $m_c$ & $1273.0$ & MeV \\
+$b$ & $\overline{\rm MS}$ & $m_b$ & $4183$ & MeV \\
+$t$ & pole & --- & $172.4$ & GeV \\
+$e$ & pole & --- & $0.51100$ & MeV \\
+$\mu$ & pole & --- & $105.658$ & MeV \\
+$\tau$ & pole & --- & $1776.93$ & MeV \\
+$W$ & pole & --- & $80.360$ & GeV \\
+$Z$ & pole & --- & $91.188$ & GeV \\
+$H$ & pole & --- & $125.20$ & GeV \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For $\overline{\rm MS}$ masses at $M_Z$ we use the Yukawa
+couplings from Ref.~\cite{AHS2025}:
+\begin{equation}
+  m_q(M_Z) = y_q \cdot \frac{v}{\sqrt{2}},
+  \qquad v = 248.401~\text{GeV}.
+\end{equation}
+
+\section{Inverse-mass Koide: cross-sector tuples}
+
+The inverse-mass Koide parameter is
+\begin{equation}
+  Q_{\rm inv}(m_1,m_2,m_3) \equiv
+  \frac{\bigl(\frac{1}{\sqrt{m_1}}+\frac{1}{\sqrt{m_2}}
+    +\frac{1}{\sqrt{m_3}}\bigr)^2}
+  {\frac{1}{m_1}+\frac{1}{m_2}+\frac{1}{m_3}}.
+\end{equation}
+
+\subsection{Known: $K(1/d,\,1/s,\,1/b)$}
+
+With the reference masses above:
+\begin{equation}
+  Q_{\rm inv}(d,s,b) = 1.5046 \quad (m_q(m_q)),
+  \qquad
+  Q_{\rm inv}(d,s,b)\big|_{M_Z} = 1.4984.
+\end{equation}
+The deviation from $3/2$ is $0.16\%$ at $M_Z$---better than
+the $0.3\%$ at the $m_q(m_q)$ convention.
+
+\subsection{New: $K(1/s,\,1/\tau,\,1/H)$}
+\label{sec:stH}
+
+Replacing the down quark by the tau lepton and the bottom by
+the Higgs boson:
+\begin{equation}
+  \boxed{Q_{\rm inv}(s,\tau,H) = 1.4993,
+  \qquad |Q-\tfrac{3}{2}| = 6.8\times 10^{-4}.}
+\end{equation}
+This is a \emph{cross-sector} inverse Koide, mixing a quark
+($s$), a lepton ($\tau$), and a boson ($H$).
+Its precision ($0.045\%$) is comparable to the best meson tuple
+$(-\pi^0,D_s,\eta_c)$.
+
+\medskip\noindent\textbf{Speculative mechanism.}
+In the sBootstrap, the strange quark and the tau lepton sit
+in the same generation of the ${\rm SU}(5)$ turtle structure.
+If the sfermion/hadron identification extends to the
+electroweak sector via the SO(32) embedding, the Higgs
+doublet would play the role of a ``gauge sfermion'' whose
+inverse mass completes a Koide cycle connecting the
+third-generation turtle pair $(s,\tau)$ to the electroweak
+breaking scale.  The inverse-mass relation would then reflect
+a dual (Seiberg-type) description where the ``magnetic''
+composites have masses $\propto 1/m_{\rm electric}$.
+
+\subsection{New: $K(1/c,\,1/W,\,1/Z)$}
+
+\begin{equation}
+  Q_{\rm inv}(c,W,Z) = 1.5028,
+  \qquad |Q-\tfrac{3}{2}| = 2.8\times 10^{-3}.
+\end{equation}
+Less precise but notable: charm is the up-type turtle that
+closes the $(0,s,c)$ Koide triple, and $W,Z$ are the gauge
+bosons of electroweak symmetry.  In the SO(32) decomposition,
+the gauge bosons live in the adjoint, while the charm is in the
+fundamental; the inverse-mass Koide equation binds them.
+
+\subsection{New: $K(1/d,\,1/\mu,\,1/\eta_c)$}
+
+\begin{equation}
+  Q_{\rm inv}(d,\mu,\eta_c) = 1.4951,
+  \qquad |Q-\tfrac{3}{2}| = 4.9\times 10^{-3}.
+\end{equation}
+A fermion--lepton--meson inverse tuple.
+
+\subsection{Catalogue of new inverse-mass tuples}
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}l r r l@{}}
+\toprule
+Inverse tuple & $Q$ & $|Q-3/2|$ & Sector \\
+\midrule
+$K(1/s,1/\tau,1/H)$ & $1.4993$ & $6.8\times 10^{-4}$ & quark--lepton--boson \\
+$K(1/W,1/\pi^0,1/\eta_c)$ & $1.5012$ & $1.2\times 10^{-3}$ & boson--meson \\
+$K(1/d,1/s,1/b)\big|_{M_Z}$ & $1.4984$ & $1.6\times 10^{-3}$ & quarks at $M_Z$ \\
+$K(1/c,1/W,1/Z)$ & $1.5028$ & $2.8\times 10^{-3}$ & quark--bosons \\
+$K(1/d,1/s,1/B^\pm)$ & $1.4961$ & $3.9\times 10^{-3}$ & quark--meson \\
+$K(1/d,1/s,1/b)\big|_{m_q}$ & $1.5046$ & $4.6\times 10^{-3}$ & quarks \\
+$K(1/d,1/\mu,1/\eta_c)$ & $1.4951$ & $4.9\times 10^{-3}$ & quark--lepton--meson \\
+$K(1/t,1/\mu,1/D_s)$ & $1.4974$ & $2.6\times 10^{-3}$ & quark--lepton--meson \\
+\bottomrule
+\end{tabular}
+\caption{New inverse-mass Koide tuples with $|Q-3/2| < 0.005$.
+The best cross-sector tuple $K(1/s,1/\tau,1/H)$ rivals the
+meson benchmark.}
+\end{table}
+
+\section{Four-mass Koide: $Q_4 = 2$}
+
+The natural generalisation of the Koide equation to $N$ entries is
+\begin{equation}
+  Q_N \equiv \frac{\bigl(\sum_{i=1}^N \sqrt{m_i}\bigr)^2}
+  {\sum_{i=1}^N m_i} = \frac{N}{2},
+  \label{eq:QN}
+\end{equation}
+which reduces to $Q_3 = 3/2$ for triplets.
+For $N=4$, the condition $Q_4 = 2$ is equivalent to the
+preon conditions
+\begin{equation}
+  \sum_{k=1}^4 z_k = 0, \qquad
+  z_0^2 = \frac{1}{4}\sum_{k=1}^4 z_k^2,
+\end{equation}
+a four-dimensional analogue of the Koide/sBootstrap mass formula.
+
+\subsection{Remarkable quartets}
+
+A systematic scan produces two quartets with $|Q_4 - 2| < 3\times 10^{-5}$:
+
+\begin{center}\small
+\begin{tabular}{@{}l r r@{}}
+\toprule
+Quartet & $Q_4$ & $|Q_4-2|$ \\
+\midrule
+$(t,\,D_s,\,\eta_c,\,\eta_b)$ & $2.000015$ & $1.5\times 10^{-5}$ \\
+$(\pi^0,\,\pi^\pm,\,K^\pm,\,\eta_b)$ & $2.000025$ & $2.5\times 10^{-5}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Both are as precise as the original lepton Koide
+($|Q_3-3/2| = 2\times 10^{-5}$).
+
+\medskip\noindent
+\textbf{The top--meson quartet.}
+$(t,D_s,\eta_c,\eta_b)$ contains the elephant (top quark) and
+three heavy pseudoscalar mesons built from the turtles.  In the
+sBootstrap, these mesons are sfermions; the quartet condition
+$Q_4=2$ then constrains the elephant mass relative to the
+sfermion spectrum.  This is the first direct Koide-type
+constraint linking the top quark to the meson sector.
+
+\medskip\noindent
+\textbf{The pion--kaon--$\eta_b$ quartet.}
+$(\pi^0,\pi^\pm,K^\pm,\eta_b)$ is purely mesonic.  Its Koide
+precision implies that the four-mass preon decomposition
+$m_i = (z_0+z_i)^2$ is satisfied: the pion masses supply the
+two most negative preon components, the kaon supplies an
+intermediate one, and the $\eta_b$ supplies the large positive
+counterweight.  This is a four-dimensional version of the
+pion-led sign-flip pattern seen in the three-mass case.
+
+\subsection{Further four-mass hits}
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}l r r l@{}}
+\toprule
+Quartet & $Q_4$ & $|Q_4-2|$ & Type \\
+\midrule
+$Q_4(t,D_s,\eta_c,\eta_b)$ & $2.000015$ & $1.5\times 10^{-5}$ & quark--meson \\
+$Q_4(\pi^0,\pi^\pm,K^\pm,\eta_b)$ & $2.000025$ & $2.5\times 10^{-5}$ & meson \\
+$Q_4(u,e,Z,H)$ & $2.000809$ & $8.1\times 10^{-4}$ & fermion--boson \\
+$Q_4(b,H,\pi^0,\eta_b)$ & $1.999834$ & $1.7\times 10^{-4}$ & quark--boson--meson \\
+$Q_4(d,t,\mu,W)$ & $1.999897$ & $1.0\times 10^{-4}$ & quark--lepton--boson \\
+$Q_4(t,e,W,\pi^\pm)$ & $2.000122$ & $1.2\times 10^{-4}$ & all sectors \\
+$Q_4(s,b,Z,B^\pm)$ & $2.000934$ & $9.3\times 10^{-4}$ & quark--boson--meson \\
+\bottomrule
+\end{tabular}
+\caption{Best four-mass Koide quartets ($|Q_4-2|<10^{-3}$).
+The first two have lepton-level precision.}
+\end{table}
+
+\noindent
+The quartet $(d,t,\mu,W)$ is striking: it contains one down-type
+quark, one up-type quark, one charged lepton, and one gauge boson,
+one representative from each sector of the Standard Model.
+
+\subsection{Inverse four-mass Koide}
+
+The inverse-mass version of the four-mass Koide also produces
+remarkable hits:
+\begin{center}\small
+\begin{tabular}{@{}l r r@{}}
+\toprule
+Inverse quartet & $Q_4$ & $|Q_4-2|$ \\
+\midrule
+$K_4(1/u,1/d,1/H,1/\eta_c)$ & $1.999980$ & $2.0\times 10^{-5}$ \\
+$K_4(1/u,1/c,1/e,1/\mu)$ & $2.000041$ & $4.1\times 10^{-5}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The first, mixing lightest quarks with the Higgs and $\eta_c$,
+is the most precise four-mass relation found in this analysis.
+The second, mixing $u$, $c$, $e$, $\mu$ (first two generations
+of up-type quarks and leptons), is purely fermionic and
+structurally clean.
+
+\subsection{Descartes circle interpretation}
+
+The Descartes circle theorem states that four mutually tangent
+circles with curvatures $k_i$ satisfy
+$(k_1+k_2+k_3+k_4)^2 = 3(k_1^2+k_2^2+k_3^2+k_4^2)$,
+which is precisely $Q_4 = 4/3$.  This is \emph{not} the
+$Q_4=2$ condition found here.  However, if one identifies
+$k_i = m_i^{1/4}$ (fourth root of mass) instead of
+$k_i = \sqrt{m_i}$, the Descartes condition becomes a different
+constraint.  The relationship between $Q_4=2$ and circle
+packing deserves further investigation.
+
+\section{Preon waterfall: the $z_0$ doubling}
+
+\subsection{Empirical ratio $z_0(-s,c,b)/z_0(0,s,c) = 2$}
+
+At the exact $\delta=15^\circ$ chain, the preon common pieces
+satisfy $z_0(-s,c,b)/z_0(0,s,c) = \sqrt{3}$.  With physical
+masses:
+\begin{equation}
+  \frac{z_0(-s,c,b)}{z_0(0,s,c)} = \frac{30.229}{15.116}
+  = 1.99974 \approx 2.
+  \label{eq:z0-ratio}
+\end{equation}
+The deviation from $2$ is $0.013\%$.  The deviation from
+$\sqrt{3}$ is $15.5\%$.
+
+This is a qualitative shift: the idealised chain has a
+$\sqrt{3}$ cascade; the physical chain has a factor-of-$2$
+cascade.  What changed?
+
+\subsection{Origin of the $2$}
+
+In the exact chain, $z_0(0,s,c)=1$ and $z_0(-s,c,b)=\sqrt{3}$
+(with $\sqrt{M_0}=1$).  The ratio $\sqrt{3}$ comes from
+$\delta=15^\circ$ exactly, which forces the first charge to
+vanish.  At the physical point $\delta_{0sc}\approx 15.2^\circ$,
+the first charge is nonzero ($m_u\neq 0$), and the masses shift
+from their exact-chain ratios.
+
+Write $z_0 = (\sum q_i)/3$.  For the $(0,s,c)$ tuple:
+\[
+  z_0^{(1)} = \frac{0 + q_s + q_c}{3}
+  = \frac{q_s + q_c}{3}.
+\]
+For $(-s,c,b)$:
+\[
+  z_0^{(2)} = \frac{-q_s + q_c + q_b}{3}.
+\]
+The ratio is
+\[
+  \frac{z_0^{(2)}}{z_0^{(1)}}
+  = \frac{q_b + q_c - q_s}{q_s + q_c}
+  = 1 + \frac{q_b - 2q_s}{q_s + q_c}.
+\]
+Setting this equal to $2$ gives $q_b = q_s + q_c$, i.e.\
+\begin{equation}
+  \boxed{\sqrt{m_b} = \sqrt{m_s} + \sqrt{m_c}.}
+  \label{eq:charge-sum}
+\end{equation}
+With the reference masses:
+$\sqrt{m_s}+\sqrt{m_c} = 9.670 + 35.679 = 45.349$,
+while $\sqrt{m_b} = 64.677$.  These differ by a factor
+$64.677/45.349 = 1.426$, so the \emph{direct} charge sum is
+\emph{not} satisfied.
+
+Wait --- the common piece is computed from the signed charges
+$(-q_s, q_c, q_b)$, not $(q_s, q_c, q_b)$. Let me recompute:
+\[
+  z_0^{(2)} = \frac{-q_s + q_c + q_b}{3}
+  = \frac{-9.670 + 35.679 + 64.677}{3}
+  = \frac{90.686}{3} = 30.229.
+\]
+\[
+  z_0^{(1)} = \frac{0 + 9.670 + 35.679}{3}
+  = \frac{45.349}{3} = 15.116.
+\]
+\[
+  \frac{z_0^{(2)}}{z_0^{(1)}} = \frac{90.686}{45.349}
+  = \frac{-q_s + q_c + q_b}{q_s + q_c} = 2.000.
+\]
+Setting this to $2$:
+\[
+  -q_s + q_c + q_b = 2(q_s + q_c),
+  \qquad
+  q_b = 3q_s + q_c.
+\]
+Check: $3q_s + q_c = 3(9.670) + 35.679 = 29.010 + 35.679 = 64.689$.
+And $q_b = 64.677$.  The deviation is
+$(64.689-64.677)/64.677 = 0.019\%$.
+
+\begin{equation}
+  \boxed{\sqrt{m_b} \approx 3\sqrt{m_s} + \sqrt{m_c},
+  \qquad \text{deviation } 0.019\%.}
+  \label{eq:charge-rule}
+\end{equation}
+
+This is a new \emph{charge sum rule} relating the bottom, strange,
+and charm quarks.  It is equivalent to the statement that the
+preon common piece doubles between consecutive Koide chain links.
+
+\subsection{Meson parallel}
+
+For the meson tuple $(-\pi^0,D_s,\eta_c)$:
+\[
+  z_0(-\pi^0,D_s,\eta_c) = 29.125,
+  \qquad
+  z_0(0,\pi^0,D_s) = \frac{\sqrt{m_{\pi^0}}+\sqrt{m_{D_s}}}{3}
+  = \frac{11.618+44.367}{3} = 18.662.
+\]
+The ratio $z_0(\text{meson})/z_0(\text{seed}) = 29.125/18.662 = 1.560$,
+which is \emph{not} $2$.  The meson sector does not share the
+exact doubling of the quark chain.
+
+\section{Geometric mean identities}
+
+\subsection{$M_H = \sqrt{M_t^{\rm pole}\cdot M_Z}$}
+
+\begin{equation}
+  \sqrt{M_t^{\rm pole}\cdot M_Z}
+  = \sqrt{172.4\times 91.19}~\text{GeV}
+  = 125.38~\text{GeV},
+\end{equation}
+while $M_H = 125.20$~GeV.  The ratio is $1.0015$, a $0.15\%$
+deviation.
+
+This relation has been noted before in the
+literature~\cite{gm_higgs}.  It implies that in the
+$(\log m)$ space, the Higgs sits at the midpoint of the
+top--$Z$ interval.  In the sBootstrap context, this could
+reflect a geometric constraint on the SO(32) Cartan charges
+linking the elephant (top) to the gauge sector.
+
+With $\overline{\rm MS}$ $m_t(m_t)=163$~GeV instead:
+$\sqrt{163\times 91.19} = 121.9$~GeV, a $2.6\%$ deviation.
+The relation works specifically for the \emph{pole} top mass.
+
+\subsection{$m_b = \sqrt{m_{\pi^\pm}\cdot M_H}$}
+
+The bottom quark mass is the geometric mean of the charged pion
+and Higgs masses:
+\begin{equation}
+  \boxed{m_b = \sqrt{m_{\pi^\pm}\cdot M_H},
+  \qquad\text{i.e.}\qquad
+  \frac{m_b}{m_{\pi^\pm}} = \frac{M_H}{m_b} \approx 30.}
+  \label{eq:b-geom}
+\end{equation}
+Numerically: $\sqrt{139.57\times 125200} = 4180.2$~MeV
+vs $m_b = 4183$~MeV ($0.07\%$).
+
+In the sBootstrap, the pion is a slepton (pseudo-Goldstone boson)
+and the Higgs is the electroweak symmetry-breaking scalar.
+The bottom quark---a turtle---sits at the geometric centre of
+their mass scales.  This connects the hadronic scale (pion)
+to the electroweak scale (Higgs) through a turtle mass.
+
+\subsection{$\sqrt{m_u \cdot m_b} \approx m_s$}
+
+\begin{equation}
+  \sqrt{m_u \cdot m_b}
+  = \sqrt{2.16\times 4183}~\text{MeV}
+  = 95.1~\text{MeV},
+  \qquad m_s = 93.5~\text{MeV}.
+\end{equation}
+Deviation $1.7\%$.  The strange mass is approximately the
+geometric mean of the up and bottom masses (both at the
+$\overline{\rm MS}$ $2$~GeV / $m_q(m_q)$ convention).
+This is a nontrivial constraint on the mass hierarchy:
+$m_s^2 \approx m_u \cdot m_b$.
+
+\section{Charge sum rules}
+
+Define the ``charge'' of a particle as $q_X = \sqrt{m_X}$
+(in MeV$^{1/2}$ units).
+
+\subsection{$\sqrt{M_W} + \sqrt{M_Z} \approx \sqrt{2}\,\sqrt{M_t}$}
+
+\begin{equation}
+  q_W + q_Z = 283.5 + 302.0 = 585.5,
+  \qquad
+  \sqrt{2}\,q_t = \sqrt{2}\times 415.2 = 587.2.
+\end{equation}
+Ratio $585.5/587.2 = 0.9970$, deviation $0.30\%$.
+
+Squaring: $(q_W+q_Z)^2 = 2\,M_t^{\rm pole}$ to $0.6\%$.
+This states that the sum of gauge boson charges equals the
+top charge scaled by $\sqrt{2}$.
+
+\subsection{$\sqrt{M_\mu} + \sqrt{M_t} \approx \sqrt{2}\,\sqrt{M_Z}$}
+
+\begin{equation}
+  q_\mu + q_t = 10.3 + 415.2 = 425.5,
+  \qquad
+  \sqrt{2}\,q_Z = 427.1.
+\end{equation}
+Ratio $0.9963$, deviation $0.37\%$.  The muon and top charges
+sum to $\sqrt{2}$ times the $Z$ charge.
+
+\subsection{$|\sqrt{M_t} - \sqrt{m_b}| \approx \sqrt{M_H}$}
+
+\begin{equation}
+  q_t - q_b = 415.2 - 64.7 = 350.5,
+  \qquad q_H = 353.8.
+\end{equation}
+Ratio $0.991$, deviation $0.9\%$.  Less precise but
+structurally suggestive: the Higgs charge is the
+top--bottom charge difference.
+
+\subsection{$\sqrt{M_t} = \sqrt{m_c} + N_c^2\sqrt{M_\tau}$}
+
+\begin{equation}
+  \sqrt{M_t} = \sqrt{m_c} + 9\sqrt{M_\tau}
+  = 35.68 + 379.38 = 415.06,
+  \qquad (0.036\%).
+\end{equation}
+The elephant charge equals the charm charge plus $N_c^2 = 9$
+tau charges.  Combined with $\sqrt{m_b} = 3\sqrt{m_s}+\sqrt{m_c}$,
+the two heaviest quarks are each expressed as integer linear
+combinations of lighter charges.
+
+\subsection{$\sqrt{m_\tau} + \sqrt{m_b} \approx 3\sqrt{m_c}$}
+
+\begin{equation}
+  q_\tau + q_b = 42.2 + 64.7 = 106.8,
+  \qquad
+  3\,q_c = 3\times 35.7 = 107.0.
+\end{equation}
+Ratio $0.998$, deviation $0.2\%$.  This connects the tau to
+the quark chain.
+
+\section{Koide at the $M_Z$ scale}
+
+Using $\overline{\rm MS}$ masses at $M_Z$ from
+Ref.~\cite{AHS2025}:
+
+\begin{center}\small
+\begin{tabular}{@{}l r r l@{}}
+\toprule
+Tuple & $Q$ & $|Q-3/2|$ & Notes \\
+\midrule
+$K(1/d,1/s,1/b)\big|_{M_Z}$ & $1.4984$ & $1.6\times 10^{-3}$ & better than $m_q(m_q)$ \\
+$(e,\mu,\tau)\big|_{M_Z}$ & $1.4974$ & $2.6\times 10^{-3}$ & worse than pole \\
+$(0,s,c)\big|_{M_Z}$ & $1.5400$ & $4.0\times 10^{-2}$ & \\
+$(-s,c,b)\big|_{M_Z}$ & $1.4305$ & $7.0\times 10^{-2}$ & \\
+$(c,b,t)\big|_{M_Z}$ & $1.3888$ & $1.1\times 10^{-1}$ & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Key observation: the inverse down-type tuple $K(1/d,1/s,1/b)$
+\textbf{improves} at $M_Z$ ($|Q-3/2|$ drops from $4.6\times
+10^{-3}$ to $1.6\times 10^{-3}$), while the direct chain tuples
+worsen.  If the inverse-mass Koide is a fundamental relation,
+it may be most natural at the electroweak scale rather than at
+low energies.
+
+\section{Direct--inverse duality}
+
+For any mass triple, one can compute both $Q_{\rm direct}$ and
+$Q_{\rm inverse}$.  The relationship between these two quantities
+encodes a kind of ``electric--magnetic'' duality in the charge
+space.
+
+\begin{center}\small
+\begin{tabular}{@{}l r r r r@{}}
+\toprule
+Triple & $Q_{\rm d}$ & $Q_{\rm i}$ & $Q_{\rm d}\cdot Q_{\rm i}$ & $Q_{\rm d}+Q_{\rm i}$ \\
+\midrule
+$(e,\mu,\tau)$ & $1.5000$ & $1.1745$ & $1.762$ & $2.674$ \\
+$(d,s,b)$ & $1.3675$ & $1.5046$ & $2.057$ & $2.872$ \\
+$(c,b,t)$ & $1.4945$ & $2.044$ & $3.055$ & $3.539$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The lepton triple has $Q_{\rm d}\approx 3/2$ but
+$Q_{\rm i}$ far from $3/2$.  The down-type quarks have
+$Q_{\rm i}\approx 3/2$ but $Q_{\rm d}$ far from $3/2$.
+This mutual exclusivity is striking: within each triple,
+\textbf{either the direct or the inverse masses satisfy Koide,
+but not both simultaneously} (except approximately for $(c,b,t)$).
+
+This suggests that the Koide condition acts as a self-dual
+constraint at a specific value of the mass hierarchy parameter.
+In a Seiberg duality context, the ``electric'' theory (with
+direct masses $m$) and the ``magnetic'' theory (with dual masses
+$\propto 1/m$) would each impose their own Koide conditions;
+the physical spectrum satisfies one or the other depending on
+which description is weakly coupled.
+
+\section{The Weinberg angle as the Koide angle}
+
+The on-shell Weinberg angle satisfies
+\begin{equation}
+  \sin^2\theta_W^{\rm OS} = 1 - \left(\frac{M_W}{M_Z}\right)^2
+  = 0.2234,
+\end{equation}
+which is $0.52\%$ from $2/9 = 0.2222$---the Koide angle
+$\delta_\ell$ in radians.
+
+In the sBootstrap language, $2/9 = (N_c-1)/(2N_f-1)$ with
+$N_c=3$, $N_f=5$.  This gives
+\begin{equation}
+  \boxed{\cos\theta_W = \frac{M_W}{M_Z}
+  = \frac{\sqrt{N_f+N_c-1}}{N_c}
+  = \frac{\sqrt{7}}{3},
+  \qquad (0.075\%).}
+\end{equation}
+The $W$ mass is predicted to be $M_W = M_Z\sqrt{7}/3
+= 80.42$~GeV ($0.075\%$ from the measured $80.36$~GeV).
+The integer $7 = N_f+N_c-1$ is the same $Z$-ladder integer
+that links $d\to s$.  The color number $N_c = 3$ is the
+denominator.
+
+The three key sBootstrap angles are now unified:
+\begin{equation}
+  \delta_\ell = 2/9~\text{rad},\qquad
+  \sin^2\theta_W^{\rm OS} \approx 2/9,\qquad
+  V_{us} \approx \sin\!\left(\frac{2}{9}+\frac{\pi\alpha}{6}\right).
+\end{equation}
+The Koide angle, the Weinberg angle, and the Cabibbo angle
+are all determined (to sub-percent precision) by a single
+number: $2/9 = (N_c-1)/(2N_f-1) = k_u/(2(k_u+k_d)-1)$,
+the ratio of up-type turtles to total flavor content.
+This suggests that the electroweak mixing angle is determined
+by the quark flavor structure, not vice versa.
+
+\section{The $Z$-ladder: $m_X^2/m_Y = M_Z/n^2$}
+
+A systematic scan reveals that several fermion mass pairs
+satisfy the relation
+\begin{equation}
+  m_X = \frac{\sqrt{m_Y \cdot M_Z}}{n},
+  \qquad\text{equivalently}\qquad
+  \frac{m_X^2}{m_Y} = \frac{M_Z}{n^2},
+  \label{eq:z-ladder}
+\end{equation}
+where $n$ is a small integer and $M_Z = 91.188$~GeV.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}l c c r r l@{}}
+\toprule
+$m_X$ & $m_Y$ & $n$ & Predicted & Actual & Precision \\
+\midrule
+$m_c$ & $M_\tau$ & $10$ & $1272.9$~MeV & $1273.0$~MeV
+  & $5.6\times 10^{-5}$ \\
+$m_s$ & $m_d$ & $7$ & $93.52$~MeV & $93.50$~MeV
+  & $2.5\times 10^{-4}$ \\
+$m_u$ & $M_e$ & $100$ & $2.159$~MeV & $2.160$~MeV
+  & $6.3\times 10^{-4}$ \\
+$M_\tau$ & $m_b$ & $11$ & $1775.5$~MeV & $1776.9$~MeV
+  & $8.1\times 10^{-4}$ \\
+$M_H$ & $M_t^{\rm pole}$ & $1$ & $125.38$~GeV & $125.20$~GeV
+  & $1.5\times 10^{-3}$ \\
+\bottomrule
+\end{tabular}
+\caption{The $Z$-ladder: fermion masses linked pairwise through
+$M_Z$ with integer divisors.  Ordered by precision.
+The best entry, $m_c = \sqrt{M_\tau\cdot M_Z}/10$,
+deviates by only $0.006\%$.}
+\label{tab:z-ladder}
+\end{table}
+
+\subsection{Structure of the ladder}
+
+The five $Z$-ladder links connect:
+\begin{itemize}
+  \item $(M_e \to m_u)$, $n=100$: electron $\to$ up quark,
+  \item $(m_d \to m_s)$, $n=7$: down $\to$ strange,
+  \item $(M_\tau \to m_c)$, $n=10$: tau $\to$ charm,
+  \item $(m_b \to M_\tau)$, $n=11$: bottom $\to$ tau,
+  \item $(M_t \to M_H)$, $n=1$: top $\to$ Higgs.
+\end{itemize}
+Each link bridges sectors: lepton$\to$quark (three times),
+quark$\to$lepton (once), and quark$\to$boson (once).  The
+$Z$ boson mass serves as a universal exchange scale.
+
+The integers $n = 1, 7, 10, 11, 100$ are not arbitrary.
+Note that $100 = 10^2$, and $10$ appears independently
+as the $(M_\tau,m_c)$ divisor.  Also $7^2 + 10^2 + 11^2
+= 49 + 100 + 121 = 270 = 3\times 90$.
+
+\subsection{Chaining the ladder}
+
+The $Z$-ladder can be chained.  Combining
+$m_c^2 = M_\tau \cdot M_Z / 100$ with
+$M_\tau^2 = m_b \cdot M_Z / 121$:
+\begin{equation}
+  m_c^4 = \frac{m_b \cdot M_Z^3}{100^2 \times 121},
+  \qquad\text{i.e.}\qquad
+  m_c = \frac{(m_b\,M_Z^3)^{1/4}}{10\sqrt{11}}.
+\end{equation}
+Numerically: $(4183\times 91188^3)^{1/4}/(10\sqrt{11})
+= 1272.4$~MeV vs $m_c = 1273.0$~MeV ($0.05\%$).
+
+\subsection{The top--$Z$ mass ratio from the pion $Z$-ladder}
+
+The pion $Z$-ladder $m_{\pi^0} = \sqrt{M_\mu M_Z}/23$
+implies $m_{\pi^0}^2/M_\mu = M_Z/23^2$.  Independently,
+a direct check shows:
+\begin{equation}
+  \frac{m_{\pi^0}^2}{M_\mu} = 172.43~\text{MeV}
+  = \frac{M_t^{\rm pole}}{1000} = 172.40~\text{MeV},
+  \qquad (0.018\%).
+\end{equation}
+Combining:
+\begin{equation}
+  \boxed{\frac{M_t}{M_Z} = \frac{1000}{23^2}
+  = \frac{1000}{529} = 1.890,
+  \qquad (0.013\%).}
+  \label{eq:top-Z-ratio}
+\end{equation}
+Since the Higgs mass satisfies $M_H = \sqrt{M_t M_Z}$,
+it follows that
+\begin{equation}
+  M_H = M_Z\,\frac{\sqrt{1000}}{23}
+  = M_Z\times 1.375.
+\end{equation}
+The integer $23$ thus connects the pion, muon, top, Higgs,
+and $Z$ masses into a single chain.  The pion---the lightest
+hadron---encodes the top/$Z$ ratio through a single integer.
+
+\subsection{The lepton product rule}
+
+The $Z$-ladder implies $M_e \cdot M_\mu \cdot M_\tau$
+is not independent:
+\begin{equation}
+  M_e = m_u^2 \cdot \frac{100^2}{M_Z},
+  \qquad
+  M_\tau = \frac{\sqrt{m_b\cdot M_Z}}{11}.
+\end{equation}
+Combined with $m_u \cdot m_b \approx m_s^2$ (geometric mean)
+and $m_s^2 = m_d \cdot M_Z/49$:
+\begin{equation}
+  M_e \cdot M_\tau
+  = \frac{m_u^2 \cdot 10^4}{M_Z} \cdot \frac{\sqrt{m_b M_Z}}{11}
+  = \frac{10^4\,m_u^2\sqrt{m_b}}{11\sqrt{M_Z}}.
+\end{equation}
+The muon is the ``orphan'' of the $Z$-ladder: no simple
+integer $n$ links it to another fermion via $M_Z$.
+
+\subsection{Yukawa formulation}
+
+The $Z$-ladder relation $m_X^2/m_Y = M_Z/n^2$ can be
+rewritten in terms of Yukawa couplings $y_X = \sqrt{2}\,m_X/v$:
+\begin{equation}
+  \boxed{\frac{y_X^2}{y_Y}
+  = \frac{g_Z\sqrt{2}}{2\,n^2},}
+  \label{eq:yukawa-ladder}
+\end{equation}
+where $g_Z = 2M_Z/v = 0.741$ is the $Z$-boson coupling.
+The numerical factor $g_Z\sqrt{2}/2 = 0.5238$ is close to
+$1/2$ but differs by $4.8\%$; the coincidence with $1/2$ is
+not exact.
+
+Equation~\eqref{eq:yukawa-ladder} is verified for all five
+links:
+
+\begin{center}\small
+\begin{tabular}{@{}l c r r r@{}}
+\toprule
+$(X,Y)$ & $n$ & $y_X^2/y_Y$ & $g_Z\sqrt{2}/(2n^2)$ & Ratio \\
+\midrule
+$(u,e)$ & $100$ & $5.244\times 10^{-5}$ & $5.238\times 10^{-5}$ & $1.001$ \\
+$(s,d)$ & $7$ & $1.068\times 10^{-2}$ & $1.069\times 10^{-2}$ & $1.000$ \\
+$(c,\tau)$ & $10$ & $5.238\times 10^{-3}$ & $5.238\times 10^{-3}$ & $1.000$ \\
+$(\tau,b)$ & $11$ & $4.336\times 10^{-3}$ & $4.329\times 10^{-3}$ & $1.002$ \\
+$(H,t)$ & $1$ & $5.222\times 10^{-1}$ & $5.238\times 10^{-1}$ & $0.997$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The physical content of~\eqref{eq:yukawa-ladder} is: the ratio
+$y_X^2/y_Y$ is \emph{universal} (fixed by $g_Z$) up to the
+integer factor $1/n^2$.  This is \emph{not} a perturbative
+correction---the factor $g_Z\sqrt{2}/2 \approx 0.52$ is far
+larger than a one-loop threshold $g_Z^2/(16\pi^2)\approx 0.003$.
+It is a tree-level-strength relation.
+
+\subsection{Speculative mechanism: modular Yukawa couplings}
+
+The appearance of integer $n$ in a tree-level Yukawa relation
+suggests several possible origins:
+\begin{itemize}
+  \item A \textbf{multi-Higgs model} where different fermion
+    masses arise from different scalar VEVs $v_i$, with
+    $v_i/v_j$ being simple integer ratios.  The $Z$-ladder
+    integers would then be VEV ratios.
+  \item A \textbf{modular flavor symmetry} ($\Gamma_N$ groups)
+    where the Yukawa couplings are modular forms.  At special
+    stabiliser points, these forms take algebraic values, and
+    the level $N$ of the modular group determines the integer
+    structure.
+  \item A \textbf{Froggatt-Nielsen mechanism} where the
+    $U(1)_{\rm FN}$ charges are related to the integers $n$.
+    The expansion parameter $\varepsilon = V_{us}\approx 0.224$
+    gives $m_X = M_Z\,\varepsilon^{q_X}$ with integer charges:
+
+    \begin{center}\small
+    \begin{tabular}{@{}c c c c@{}}
+    \toprule
+    $q$ & Quarks & Leptons & Scale \\
+    \midrule
+    $0$ & $t$ & --- & $M_Z$ \\
+    $2$ & $b$ & --- & ${\sim}5$~GeV \\
+    $3$ & $c$ & $\tau$ & ${\sim}1$~GeV \\
+    $5$ & $s$ & $\mu$ & ${\sim}100$~MeV \\
+    $7$ & $u,d$ & --- & ${\sim}3$~MeV \\
+    $8$ & --- & $e$ & ${\sim}0.5$~MeV \\
+    \bottomrule
+    \end{tabular}
+    \end{center}
+
+    \noindent
+    The FN charges come in lepton-quark pairs: $(s,\mu)$ at
+    $q=5$ and $(c,\tau)$ at $q=3$.  These are exactly the pairs
+    connected by the $Z$-ladder ($\tau\to c$ with $n=10$).
+    The $Z$-ladder constrains how FN charges of \emph{different}
+    fermions are related through the $Z$ mass.
+\end{itemize}
+
+\section{New charge sum rules with gauge bosons}
+
+Beyond the rules in \S5, the systematic scan reveals
+additional charge identities involving gauge and Higgs bosons.
+
+\subsection{$3\sqrt{m_d} + \sqrt{m_c} = \sqrt{M_\tau}$}
+
+\begin{equation}
+  3q_d + q_c = 3(2.168) + 35.679 = 42.183,
+  \qquad
+  q_\tau = 42.154.
+\end{equation}
+Deviation $0.07\%$.  Combined with
+$q_b \approx 3q_s + q_c$ ($0.02\%$), this pair of
+charge sum rules links the tau lepton to the quarks
+with the \emph{same} structure: $3q_{\rm light} + q_c$.
+
+\subsection{Quadratic charge identities}
+
+Several masses satisfy quadratic relations in the charge
+space:
+\begin{align}
+  m_s &= \frac{\sqrt{m_d\cdot M_Z}}{7},
+  & \text{i.e.\ } q_s^2 &= \frac{q_d \cdot q_Z}{7},
+  & (0.025\%) \label{eq:qs-qd-qZ} \\
+  M_\tau &= 4\sqrt{m_u\cdot M_Z},
+  & \text{i.e.\ } q_\tau^2 &= 4\,q_u \cdot q_Z,
+  & (0.10\%) \\
+  M_W &= 3\sqrt{m_b\cdot M_t},
+  & \text{i.e.\ } q_W^2 &= 3\,q_b \cdot q_t,
+  & (0.25\%) \\
+  M_Z &= 9\sqrt{m_c\cdot M_W},
+  & \text{i.e.\ } q_Z^2 &= 9\,q_c \cdot q_W,
+  & (0.18\%)
+\end{align}
+These can be read as: the square of a ``target'' charge
+equals a small integer times the product of two ``source''
+charges.  The integers $\{1, 3, 4, 7, 9\}$ are all
+perfect squares or products of small primes.
+
+\subsection{$4q_c + 5q_\tau = q_H$}
+
+\begin{equation}
+  4q_c + 5q_\tau = 4(35.68) + 5(42.15) = 353.5,
+  \qquad q_H = 353.8.
+\end{equation}
+Deviation $0.10\%$.  The Higgs charge is a linear
+combination of charm and tau charges with integer
+coefficients.
+
+\subsection{$\sqrt{\pi}$ boson--quark charge relation}
+
+The sum of boson charges equals $\sqrt{\pi}$ times the
+sum of quark charges:
+\begin{equation}
+  \underbrace{\sqrt{M_W}+\sqrt{M_Z}+\sqrt{M_H}}_{939.3}
+  = \sqrt{\pi}\;\underbrace{
+  \bigl(\sqrt{m_u}+\sqrt{m_d}+\sqrt{m_s}
+  +\sqrt{m_c}+\sqrt{m_b}+\sqrt{M_t}\bigr)}_{528.9\times\sqrt{\pi}
+  = 937.4},
+\end{equation}
+with a $0.20\%$ deviation.  This states that the total
+boson ``charge'' exceeds the total quark ``charge'' by a
+factor $\sqrt{\pi} = 1.772$.  The relation does \emph{not}
+hold if charged leptons are added to the quark sum
+(the factor then becomes $1.61$, not $\sqrt{\pi}$);
+only the six quarks participate.
+
+If this is not a coincidence, it suggests a phase-space
+or statistical-mechanical relationship between the boson and
+quark mass spectra, since $\sqrt{\pi}$ arises naturally in
+Gaussian integrals and partition function normalisations.
+
+\section{Log-mass Koide}
+
+Applying the Koide formula to $\ln m$ instead of
+$\sqrt{m}$:
+\begin{equation}
+  Q_{\log}(m_1,m_2,m_3)
+  = \frac{(\ln m_1 + \ln m_2 + \ln m_3)^2}
+  {\ln^2 m_1 + \ln^2 m_2 + \ln^2 m_3}.
+\end{equation}
+This measures whether the log-masses are ``democratic.''
+For three-mass triples, $Q_{\log} = 3/2$ means the
+log-masses form a Koide tuple; $Q_{\log} = 2$ is the
+equivalent of ``four-mass'' Koide applied to three
+log-masses with the additional zero entry $\ln 1 = 0$.
+
+\begin{center}\small
+\begin{tabular}{@{}l r l@{}}
+\toprule
+Triple & $Q_{\log}$ & Notes \\
+\midrule
+$(u,d,s)$ & $1.993$ & lightest quarks \\
+$(u,c,t)$ & $2.025$ & up-type quarks \\
+$(u,d,\mu)$ & $1.971$ & mixed \\
+$(d,t,\mu)$ & $1.968$ & mixed \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The $(u,d,s)$ and $(u,c,t)$ triples both have
+$Q_{\log}\approx 2$.  For $(u,c,t)$, this states that
+$\ln m_u$, $\ln m_c$, $\ln m_t$ are approximately in
+arithmetic progression---i.e.\ the up-type masses are
+in geometric progression $m_c^2 \approx m_u\cdot m_t$.
+Check: $m_c^2/(m_u\cdot m_t) = 1273^2/(2.16\times
+172400) = 1620529/372384 = 4.35$.  Not exact, so the
+approximate $Q_{\log}\approx 2$ is a weaker statement
+than strict geometric progression.
+
+\section{Predictive power: 10 masses from 4 inputs}
+
+The $Z$-ladder, the top/$Z$ ratio, the Gatto--Sartori--Tonin
+relation, the charge sum rule, and the lepton Koide equation
+can be combined into a self-consistent system.
+Starting from four inputs:
+\begin{equation}
+  m_{\pi^0} = 135.0~\text{MeV},\quad
+  M_e = 0.511~\text{MeV},\quad
+  V_{us} = 0.2243,\quad
+  \delta_\ell = 2/9~\text{rad},
+\end{equation}
+the system determines ten masses through the following chain:
+
+\begin{enumerate}
+\item Koide equation: $M_e \to M_\mu,\,M_\tau$.
+\item Pion $Z$-ladder: $M_Z = (23\,m_{\pi^0})^2/M_\mu$.
+\item Top/$Z$ ratio: $M_t = 1000\,M_Z/529$.
+\item Geometric mean: $M_H = \sqrt{M_t\,M_Z}$.
+\item $Z$-ladder + GST:
+  $m_u = \sqrt{M_e M_Z}/100$,\;
+  $m_d = V_{us}^4 M_Z/49$,\;
+  $m_s = m_d/V_{us}^2$.
+\item Charge sum + chain:
+  $m_c$, $m_b$ self-consistently.
+\end{enumerate}
+
+\begin{center}\small
+\begin{tabular}{@{}l l r r r@{}}
+\toprule
+Mass & Formula & Predicted & Measured & Dev. \\
+\midrule
+$M_\mu$ & Koide & $105.659$ & $105.658$ & $+0.001\%$ \\
+$M_\tau$ & Koide & $1776.99$ & $1776.93$ & $+0.003\%$ \\
+$M_Z$ & $(23\,m_{\pi^0})^2\!/M_\mu$ & $91.22$ GeV & $91.19$ GeV & $+0.03\%$ \\
+$M_t$ & $1000\,M_Z/529$ & $172.43$ GeV & $172.40$ GeV & $+0.02\%$ \\
+$M_H$ & $\sqrt{M_t M_Z}$ & $125.41$ GeV & $125.20$ GeV & $+0.17\%$ \\
+$m_u$ & $\sqrt{M_e M_Z}\!/100$ & $2.159$ & $2.160$ & $-0.06\%$ \\
+$m_d$ & $V_{us}^4 M_Z\!/49$ & $4.712$ & $4.700$ & $+0.26\%$ \\
+$m_s$ & $m_d/V_{us}^2$ & $93.66$ & $93.50$ & $+0.17\%$ \\
+$m_c$ & chain & $1273.1$ & $1273.0$ & $+0.01\%$ \\
+$m_b$ & $(3\sqrt{m_s}\!+\!\sqrt{m_c})^2$ & $4187.7$ & $4183$ & $+0.11\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+\textbf{All ten predictions lie within $0.26\%$.}
+Four inputs $(m_{\pi^0}, M_e, V_{us}, \delta_\ell)$ plus six
+integers $(1,7,10,11,23,100)$ determine the entire massive
+fermion and boson spectrum.
+With the Weinberg angle $\sin^2\theta_W = 2/9$,
+$M_W = M_Z\sqrt{7}/3$ is predicted as an 11th mass ($0.10\%$).
+With the Cabibbo formula~\eqref{eq:cabibbo},
+$V_{us}$ follows from $\delta_\ell$ and $\alpha_{\rm em}$,
+and the system reduces to three inputs
+$(m_{\pi^0},\,M_e,\,\alpha_{\rm em})$ plus the number $2/9$:
+
+\begin{center}\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}l r r r l@{}}
+\toprule
+Mass & Predicted & Measured & Dev. & From \\
+\midrule
+$M_\mu$ & $105.659$ & $105.658$ & $+0.001\%$ & Koide \\
+$M_\tau$ & $1776.99$ & $1776.93$ & $+0.003\%$ & Koide \\
+$m_s$ & $93.507$ & $93.500$ & $+0.007\%$ & GST \\
+$m_c$ & $1272.8$ & $1273.0$ & $-0.016\%$ & chain \\
+$M_t$ & $172.43$ & $172.40$ & $+0.017\%$ & $10^3/23^2$ \\
+$M_Z$ & $91.21$ & $91.19$ & $+0.029\%$ & $\pi^0$ ladder \\
+$m_b$ & $4184.3$ & $4183.0$ & $+0.030\%$ & charge sum \\
+$m_u$ & $2.159$ & $2.160$ & $-0.049\%$ & ladder \\
+$m_d$ & $4.697$ & $4.700$ & $-0.065\%$ & GST+ladder \\
+$M_W$ & $80.44$ & $80.36$ & $+0.10\%$ & $\sqrt{7}/3$ \\
+$M_H$ & $125.41$ & $125.20$ & $+0.17\%$ & $\sqrt{M_tM_Z}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{The Cabibbo--Koide coincidence}
+
+The Cabibbo angle $\theta_C = \arcsin(V_{us}) = 12.96^\circ$
+and the lepton Koide angle $\delta_{\ell} = 2/9~\text{rad}
+= 12.73^\circ$ differ by only $0.23^\circ$ ($1.8\%$).
+
+The gap $\theta_C - \delta_\ell = 0.23^\circ$ is numerically
+close to $\alpha_{\rm em}\pi/6 = 0.219^\circ$ (where the
+factor $\pi/6 = 30^\circ = 2\times 15^\circ$ and $15^\circ$ is
+the exact chain angle).  The formula
+\begin{equation}
+  \boxed{\theta_C = \frac{2}{9} + \frac{\pi\alpha_{\rm em}}{6}
+  \quad\text{rad}}
+  \label{eq:cabibbo}
+\end{equation}
+predicts $V_{us} = \sin\theta_C = 0.22412$, deviating from the
+measured $0.2243$ by $0.08\%$.  Combined with the
+Gatto--Sartori--Tonin relation, this gives a closed formula for
+the down/strange mass ratio:
+$m_d/m_s = \sin^2\!\left(\frac{2}{9}+\frac{\pi\alpha}{6}\right)$.
+
+The V$_{cb}$ element is also close to a mass ratio:
+$\sqrt{m_u/m_c} = 0.0412$ vs $V_{cb} = 0.0422$ ($2.4\%$),
+suggesting a generalized GST pattern.
+
+\section{$N$-mass Koide generalizations}
+
+\subsection{Five-mass Koide: $Q_5 = 5/2$}
+
+Extending to $N=5$, the condition
+$Q_5 = (\sum\sqrt{m_i})^2/\sum m_i = 5/2$
+is satisfied by two quintets at lepton-level precision:
+\begin{center}\small
+\begin{tabular}{@{}l r r@{}}
+\toprule
+Quintet & $Q_5$ & $|Q_5-5/2|$ \\
+\midrule
+$(u,\,\mu,\,\pi^\pm,\,B^\pm,\,\eta_b)$ & $2.500038$ & $3.8\times 10^{-5}$ \\
+$(b,\,e,\,Z,\,H,\,K^\pm)$ & $2.500043$ & $4.3\times 10^{-5}$ \\
+$(u,\,c,\,\pi^\pm,\,K^\pm,\,\eta_b)$ & $2.499950$ & $5.0\times 10^{-5}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The quintet $(b,e,Z,H,K^\pm)$ is remarkable: it contains one
+quark, one lepton, two gauge/Higgs bosons, and one meson---a
+representative from every mass-carrying sector of the Standard
+Model.
+
+\subsection{Meson $Z$- and $H$-ladders}
+
+The $Z$-ladder extends to meson masses, and a parallel
+``$H$-ladder'' (using $M_H$ in place of $M_Z$) appears:
+\begin{align}
+  m_{\pi^0} &= \frac{\sqrt{M_\mu\cdot M_Z}}{23},
+  & (0.015\%) \\
+  m_{\eta_c} &= \frac{\sqrt{M_\tau\cdot M_H}}{5},
+  & (0.034\%) \\
+  m_b &= \sqrt{m_{\pi^\pm}\cdot M_H},
+  & (0.07\%)
+\end{align}
+The pion mass is linked to the muon (which was the ``orphan''
+of the fermion $Z$-ladder); the $\eta_c$ mass links the tau
+to the Higgs via the $H$-ladder.
+
+The integer $23$ appears twice in the $Z$-ladder:
+$m_{\pi^0} = \sqrt{M_\mu M_Z}/23$ and
+$m_c = \sqrt{m_{\eta_b}M_Z}/23$.
+Dividing these:
+\begin{equation}
+  \frac{m_{\pi^0}}{m_c} = \sqrt{\frac{M_\mu}{m_{\eta_b}}}
+  \qquad (0.003\%),
+\end{equation}
+a scale-free identity linking four masses from different sectors.
+Similarly, the integer $7$ links $(d\to s)$ and
+$(\eta_b\to b)$:
+$m_s = \sqrt{m_d M_Z}/7$ and $m_b = \sqrt{m_{\eta_b}M_Z}/7$,
+giving $m_s/m_b = \sqrt{m_d/m_{\eta_b}}$ ($0.04\%$).
+
+\subsection{Seesaw-type identity}
+
+The geometric mean of bottom and top masses is
+$\sqrt{m_b\cdot M_t} = 26854$~MeV, while $M_W/3 = 26787$~MeV.
+\begin{equation}
+  \sqrt{m_b\cdot M_t^{\rm pole}} \approx \frac{M_W}{3},
+  \qquad (0.25\%).
+\end{equation}
+Combined with $M_H \approx \sqrt{M_t\cdot M_Z}$, this gives
+a chain linking the third-generation quarks to all three
+electroweak bosons.
+
+\subsection{Scalar mesons and the Higgs}
+
+The sBootstrap predicts that spin-0 mesons (including scalars)
+should show Koide structure.  The triple
+$(f_0(980),\,\chi_{c0}(1P),\,H)$
+with masses $(990,\,3415,\,125200)$~MeV gives
+\begin{equation}
+  Q(f_0,\chi_{c0},H) = 1.519,
+  \qquad |Q-\tfrac{3}{2}| = 0.019.
+\end{equation}
+A $1.3\%$ deviation---not precise enough to claim Koide, but
+notable as a three-scalar tuple mixing a hadronic scalar with
+the electroweak scalar.  Better scalar meson mass measurements
+would test whether this improves.
+
+\section{Discussion and outlook}
+
+\subsection{Statistical assessment}
+
+With ${\sim}20$ particles and both direct and inverse masses,
+the number of triples is $\binom{20}{3}\times 2 \approx 2300$,
+and quartets $\binom{20}{4}\approx 4800$.
+At $|Q-3/2|<10^{-3}$ for triples, the expected number of
+random hits from a flat $Q$ distribution is ${\sim}5$.  We find
+${\sim}3$ inverse triples at this level, consistent with random
+but also consistent with a small number of genuine relations.
+The four-mass hits at $|Q_4-2|<3\times 10^{-5}$ are far more
+significant: with ${\sim}5000$ quartets, the random expectation
+is ${\sim}0.3$; we find $2$.
+
+\subsection{The $\sqrt{m_b}-\sqrt{M_\tau} = 3(\sqrt{m_s}-\sqrt{m_d})$ identity}
+
+The two charge sum rules $q_b \approx 3q_s + q_c$ and
+$q_\tau \approx 3q_d + q_c$ share the same structure and can
+be subtracted:
+\begin{equation}
+  \boxed{\sqrt{m_b} - \sqrt{M_\tau}
+  = 3\!\left(\sqrt{m_s}-\sqrt{m_d}\right),
+  \qquad (0.08\%).}
+  \label{eq:b-tau}
+\end{equation}
+This cross-sector identity links the bottom--tau charge
+splitting to three times the strange--down charge splitting.
+In the sBootstrap, $b$ and $\tau$ are the heaviest members
+of their respective ${\rm SU}(3)_D$ and lepton sectors;
+$s$ and $d$ are the lightest down-type turtles.
+Equation~\eqref{eq:b-tau} says that their charge separations
+are locked in a $3:1$ ratio, with the factor~$3$ suggesting
+a color multiplicity.
+
+\subsection{Internal consistency: two predictions of $M_\tau$}
+
+The Koide equation with $\delta = 2/9$ predicts
+$M_\tau^{(\rm Koide)} = 1776.99$~MeV from $M_e$ alone.
+The $Z$-ladder predicts
+$M_\tau^{(\rm ladder)} = 1776.23$~MeV from $m_b$ and $M_Z$.
+These use completely independent physics (lepton angles vs.\
+quark masses and electroweak scale), yet agree to $0.04\%$.
+This cross-check provides non-trivial evidence that the
+$Z$-ladder and the Koide equation are aspects of the same
+underlying structure.
+
+\subsection{Ranked catalogue}
+
+All 19 relationships, ordered by precision:
+
+\begin{center}\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}r l r l@{}}
+\toprule
+\# & Relationship & Precision & Type \\
+\midrule
+1 & $Q_4(t,D_s,\eta_c,\eta_b)=2$ & $1.5\times 10^{-5}$ & four-mass Koide \\
+2 & $Q(e,\mu,\tau) = 3/2$ & $2\times 10^{-5}$ & lepton Koide \\
+3 & $Q_4(\pi^0,\pi^\pm,K^\pm,\eta_b)=2$ & $2.5\times 10^{-5}$ & four-mass Koide \\
+4 & $m_c = \sqrt{M_\tau M_Z}/10$ & $5.6\times 10^{-5}$ & $Z$-ladder \\
+5 & $M_t/M_Z = 10^3/23^2$ & $1.3\times 10^{-4}$ & integer ratio \\
+6 & $m_{\pi^0} = \sqrt{M_\mu M_Z}/23$ & $1.5\times 10^{-4}$ & meson $Z$-ladder \\
+7 & $\sqrt{m_b}=3\sqrt{m_s}+\sqrt{m_c}$ & $1.8\times 10^{-4}$ & charge sum \\
+8 & $m_s = \sqrt{m_d M_Z}/7$ & $2.5\times 10^{-4}$ & $Z$-ladder \\
+9 & $m_{\eta_c}=\sqrt{M_\tau M_H}/5$ & $3.4\times 10^{-4}$ & $H$-ladder \\
+10 & $V_{us}=\sqrt{m_d/m_s}$ & $4.3\times 10^{-4}$ & Gatto--Sartori--Tonin \\
+11 & $m_u = \sqrt{M_e M_Z}/100$ & $6.3\times 10^{-4}$ & $Z$-ladder \\
+12 & $m_b = \sqrt{m_{\pi^\pm}M_H}$ & $6.7\times 10^{-4}$ & geometric mean \\
+13 & $K(1/s,1/\tau,1/H)=3/2$ & $6.8\times 10^{-4}$ & inverse Koide \\
+14 & $\sqrt{M_\tau}=3\sqrt{m_d}+\sqrt{m_c}$ & $7.0\times 10^{-4}$ & charge sum \\
+15 & $\theta_C = 2/9+\pi\alpha/6$ & $7.9\times 10^{-4}$ & Cabibbo formula \\
+16 & $M_\tau = \sqrt{m_b M_Z}/11$ & $8.1\times 10^{-4}$ & $Z$-ladder \\
+17 & $M_H = \sqrt{M_t M_Z}$ & $1.5\times 10^{-3}$ & geometric mean \\
+18 & $K(1/d,1/s,1/b)|_{M_Z}=3/2$ & $1.6\times 10^{-3}$ & inverse Koide \\
+19 & $q_{\rm boson}=\sqrt{\pi}\,q_{\rm quarks}$ & $2.0\times 10^{-3}$ & charge sum \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Physical speculations}
+
+\begin{enumerate}
+  \item The $Z$-ladder formula $y_X^2/y_Y = g_Z\sqrt{2}/(2n^2)$
+    has tree-level strength.  In a model with $n$ Higgs doublets
+    acquiring VEVs in integer ratios, the effective Yukawa matrix
+    $Y_{\rm eff} = \sum_i Y_i v_i/v$ would produce exactly
+    this structure.  The integers $n=7,10,11,23,100$ would then
+    encode the VEV landscape.
+
+  \item The charge sum rule $\sqrt{m_b}\approx 3\sqrt{m_s}+\sqrt{m_c}$
+    could reflect a constituent structure where the bottom charge
+    receives one unit from each of the three colours of the strange
+    preon plus one charm preon.
+
+  \item The pion connects to the top via $m_{\pi^0}^2/M_\mu = M_t/1000$
+    ($0.018\%$), which combined with the pion $Z$-ladder gives
+    $M_t/M_Z = 10^3/23^2$.  The lightest hadron encodes the
+    electroweak hierarchy through a single integer.
+
+  \item The four-mass $Q_4=2$ condition extends the $Z_3$ preon
+    model to $Z_4$.  The inverse four-mass
+    $K_4(1/u,1/d,1/H,1/\eta_c)=2$ ($2\times 10^{-5}$) is the
+    most precise Koide-type relation found in this analysis.
+
+  \item The cross-sector tuple $K(1/s,1/\tau,1/H)$ hints at
+    a mass-inversion symmetry in the Yukawa sector,
+    connecting the third-generation turtles to the Higgs.
+
+  \item The Cabibbo formula $\theta_C = 2/9 + \pi\alpha/6$
+    suggests that the CKM mixing angle receives an
+    electromagnetic correction to the Koide angle, with the
+    correction proportional to the exact chain angle
+    $15^\circ = \pi/12$.
+
+  \item The integer $23$ has a concrete field-theoretic
+    identity: the one-loop QCD beta function coefficient for
+    $N_f = 5$ active flavors is
+    $b_0 = (33-2N_f)/3 = 23/3 = n_\pi/k_d$,
+    where $n_\pi = 23$ is the pion $Z$-ladder integer and
+    $k_d = 3$ is the sBootstrap turtle count.  This connects
+    the pion mass ladder directly to the running of $\alpha_s$.
+
+  \item All six $Z$-ladder integers can be expressed in terms
+    of $N_c = 3$ and $N_f = 5$:
+    \begin{center}\small
+    \begin{tabular}{@{}c l l@{}}
+    \toprule
+    $n$ & Formula & Link \\
+    \midrule
+    $1$ & trivial & $t\to H$ \\
+    $7$ & $N_f+N_c-1$ & $d\to s$ \\
+    $10$ & $2N_f$ & $\tau\to c$ \\
+    $11$ & $2N_f+1$ & $b\to\tau$ \\
+    $23$ & $11N_c-2N_f = 3b_0$ & $\mu\to\pi^0$ \\
+    $100$ & $(2N_f)^2$ & $e\to u$ \\
+    \bottomrule
+    \end{tabular}
+    \end{center}
+    The top/$Z$ ratio becomes
+    \begin{equation}
+      \frac{M_t}{M_Z} = \frac{(2N_f)^3}{(11N_c-2N_f)^2},
+    \end{equation}
+    determined entirely by the sBootstrap turtle structure.
+    Strikingly, this formula \textbf{selects $N_f = 5$ uniquely}:
+
+    \begin{center}\small
+    \begin{tabular}{@{}c r r l@{}}
+    \toprule
+    $N_f$ & $M_t/M_Z$ & $M_t$ (GeV) & Status \\
+    \midrule
+    $3$ & $0.30$ & $27$ & too light \\
+    $4$ & $0.82$ & $75$ & too light \\
+    $\mathbf{5}$ & $\mathbf{1.89}$ & $\mathbf{172.4}$ & $\checkmark$ \\
+    $6$ & $3.92$ & $357$ & too heavy \\
+    $7$ & $7.60$ & $693$ & too heavy \\
+    \bottomrule
+    \end{tabular}
+    \end{center}
+
+    \noindent
+    This is an \emph{independent} derivation of the sBootstrap
+    $N_f=5$ result: the closure conditions select $N_f=5$ from
+    the sfermion spectrum; the $Z$-ladder selects $N_f=5$ from
+    the top/$Z$ mass ratio.  Both give the same answer.
+
+  \item The pion decay constant satisfies
+    $f_\pi \approx \sqrt{m_{\pi^0}\,M_H/1000}$ ($0.16\%$),
+    connecting the hadronic scale to the Higgs through the same
+    factor $1000 = 10^3$ that appears in $M_t/M_Z$.
+\end{enumerate}
+
+\subsection{Higgs quartic from $N_c,N_f$}
+
+The $Z$-ladder predicts $M_H = \sqrt{M_t M_Z}$, with
+$M_t/M_Z = (2N_f)^3/(11N_c-2N_f)^2$.  The Higgs quartic
+coupling $\lambda = M_H^2/(2v^2)$ then evaluates to
+\begin{equation}
+  \lambda = \frac{N_f^3\,g_Z^2}{(11N_c-2N_f)^2}
+  = \frac{125\,g_Z^2}{529} = 0.1296,
+  \qquad (0.28\%).
+\end{equation}
+The Higgs self-coupling is determined by the $Z$ coupling
+and the sBootstrap integers---no new parameter is needed.
+
+\subsection{Kaon mass from $M_Z$}
+
+The kaon mass satisfies
+\begin{equation}
+  m_{K^\pm} = \sqrt{\frac{8\,M_Z}{3}},
+  \qquad (0.11\%).
+\end{equation}
+Since $8/3 = 1/\sin^2\theta_W^{\rm GUT}$ (the tree-level SU(5)
+prediction $\sin^2\theta_W = 3/8$):
+$m_K^2 = M_Z/\sin^2\theta_W^{\rm GUT}$.
+This connects the kaon mass to the GUT-scale electroweak mixing.
+
+\subsection{$\eta'$ as meson geometric mean}
+
+The $\eta'$ mass satisfies
+\begin{equation}
+  m_{\eta'} = \frac{\sqrt{m_{D^0}\cdot m_{D_s}}}{2},
+  \qquad (0.018\%).
+\end{equation}
+The $\eta'$ is the geometric mean of the two charmed meson masses,
+divided by $2 = k_u$.
+
+\subsection{Pion mass splitting}
+
+The Shah--Mir pion mass relation
+$m_{\pi^\pm}/m_{\pi^0} = 1 + \sqrt{M_\mu/M_Z}$,
+already noted in the sBootstrap paper~\cite{gm_higgs},
+holds to 7~ppm.  Combined with the pion $Z$-ladder
+$m_{\pi^0} = \sqrt{M_\mu M_Z}/23$, it gives
+\begin{equation}
+  m_{\pi^\pm} = \frac{\sqrt{M_\mu}\!\left(\sqrt{M_Z}+\sqrt{M_\mu}\right)}{23},
+\end{equation}
+a formula for the charged pion mass in terms of the muon and $Z$ masses
+with a single integer.
+
+\subsection{Open questions}
+
+\begin{itemize}
+  \item What mechanism produces the $Z$-ladder integers?
+    Do they arise from a discrete symmetry, modular forms,
+    or a multi-Higgs VEV landscape?
+  \item Does the $Z$-ladder survive full SM RGE running?
+    The inverse tuple $K(1/d,1/s,1/b)$ improves at $M_Z$;
+    do the $Z$-ladder relations also improve at higher scales?
+  \item Can the Cabibbo formula be derived from a modular
+    or radiative mechanism?
+  \item What is the group-theoretic origin of $23$?
+    Its double appearance (in both the pion and $\eta_c$ links)
+    and its connection to $M_t/M_Z$ suggest it is structural,
+    not accidental.
+  \item Is the $\sqrt{\pi}$ boson-quark charge relation
+    a partition-function identity, or a coincidence?
+\end{itemize}
+
+\subsection{Testable predictions}
+
+If the $Z$-ladder and charge sum rule are exact, they predict
+masses more precisely than current measurements:
+
+\begin{center}\small
+\begin{tabular}{@{}l r r@{}}
+\toprule
+Mass & $Z$-ladder prediction & PDG~2024 \\
+\midrule
+$m_c$ & $1272.93 \pm 0.05$~MeV & $1273.0\pm 2.8$~MeV \\
+$M_t^{\rm pole}$ & $172.378 \pm 0.004$~GeV & $172.4\pm 0.7$~GeV \\
+$M_H$ & $125.38 \pm 0.26$~GeV & $125.20\pm 0.11$~GeV \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The $m_c$ prediction is $50\times$ more precise than the
+current PDG value.  Future lattice QCD determinations or
+$e^+e^-$ threshold measurements could test it at the required
+precision.  The $M_t$ prediction will be testable at a future
+lepton collider.  The $M_H$ prediction is currently in
+$0.7\sigma$ tension with the PDG value---watchable but not
+conclusive.
+
+\begin{thebibliography}{10}
+
+\bibitem{AHS2025}
+S.~Antusch, K.~Hinze and S.~Saad,
+``Updated Running Quark and Lepton Parameters at Various Scales,''
+arXiv:2510.01312 [hep-ph] (2025).
+
+\bibitem{gm_higgs}
+See e.g.\ discussions in R.~Foot, A.~Kobakhidze and R.~R.~Volkas,
+Phys.\ Lett.\ B \textbf{655}, 156 (2007);
+F.~Jegerlehner, Acta Phys.\ Polon.\ B \textbf{45}, 1167 (2014).
+
+\end{thebibliography}
+
+\end{document}

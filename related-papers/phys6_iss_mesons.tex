@@ -1,0 +1,770 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,geometry,booktabs,hyperref,pifont}
+\geometry{margin=2.5cm}
+
+\newcommand{\Nf}{N_{\!f}}
+\newcommand{\Nc}{N_{\!c}}
+\newcommand{\rep}[1]{\mathbf{#1}}
+\newcommand{\conjrep}[1]{\overline{\mathbf{#1}}}
+\newcommand{\Tr}{\mathrm{Tr}}
+
+\title{Meson decomposition from the ISS rank condition:\\
+four starting points and SM charge assignment}
+\author{A.~Rivero\\[2pt]
+\small\textit{BIFI, Universidad de Zaragoza, E-50018 Zaragoza, Spain}\\
+\small\texttt{arivero@unizar.es}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+In the Intriligator--Seiberg--Shih (ISS) model of metastable SUSY
+breaking, the rank condition of the meson matrix $M = \tilde Q Q$
+splits $\Nf$ flavors into $k_u = \Nf - \Nc$ massless pseudo-moduli
+and $k_d = \Nc$ tree-level massive directions.
+We tabulate the meson decomposition under
+$\mathrm{SU}(k_u)\times\mathrm{SU}(k_d)\times\mathrm{U}(1)$
+for four choices of $(\Nc,\Nf)$ within or near the conformal window:
+$(3,6)$, $(3,5)$, $(2,6)$, and $(2,5)$.
+For each case we examine how Standard Model electric charges can be
+assigned to the constituent quarks and how the resulting meson
+quantum numbers compare with the SM spectrum.
+The case $(\Nc,\Nf)=(3,5)$, which is the sBootstrap starting point,
+uniquely matches the SM charge assignment with two up-type and three
+down-type quarks.
+The alternative $(2,5)$ reproduces the SM non-abelian gauge group
+$\mathrm{SU}(3)\times\mathrm{SU}(2)$ from the flavor decomposition,
+but with an inverted mass--charge correspondence.
+We discuss the tension between these two viewpoints and the role
+of the $\Nf=6\to 5$ transition (top decoupling) in connecting them.
+\end{abstract}
+
+%% ===================================================================
+\section{Introduction}
+\label{sec:intro}
+%% ===================================================================
+
+The ISS mechanism~\cite{ISS2006} provides a calculable model of
+metastable supersymmetry breaking in the magnetic dual of SQCD.
+A central ingredient is the \emph{rank condition}: the magnetic
+meson vacuum expectation value has rank at most $\Nf - \Nc$, so that
+$\Nc$ of the $\Nf$ flavor directions acquire tree-level masses while
+$\Nf - \Nc$ directions remain as massless pseudo-moduli.
+This split is a robust consequence of the duality structure and
+does not depend on details of the K\"ahler potential.
+
+From a phenomenological perspective, the $\Nf\times\Nf$ meson matrix
+$M_{ij} = \tilde Q_i Q_j$ of Seiberg duality~\cite{Seiberg1995}
+transforms as
+$(\Nf^2 - 1) \oplus 1$ under $\mathrm{SU}(\Nf)$, with $\Nf^2$
+components in total.
+The rank condition selects a vacuum that breaks
+$\mathrm{SU}(\Nf)$ to
+$\mathrm{SU}(k_u)\times\mathrm{SU}(k_d)\times\mathrm{U}(1)$,
+where $k_u = \Nf - \Nc$ and $k_d = \Nc$.
+The decomposition of the $\Nf^2$ mesons under this residual symmetry
+depends on $(\Nc, \Nf)$ and determines the low-energy spectrum.
+
+Different values of $(\Nc, \Nf)$ within the Seiberg conformal
+window $\Nc + 1 \le \Nf < 3\Nc$ lead to different meson
+decompositions and different prospects for embedding the Standard
+Model.  In this note we systematically compare four choices:
+$(\Nc,\Nf) = (3,6)$, $(3,5)$, $(2,6)$, and $(2,5)$.
+We then address how Standard Model electric charges can be
+distributed among the $\Nf$ quarks in each case, and examine which
+starting point most naturally reproduces the SM meson and Higgs
+content.
+
+Throughout, our conventions for Seiberg duality follow~\cite{Seiberg1995},
+eqs.~(1.1)--(1.2) for the electric theory and eqs.~(3.1)--(3.3) for the
+magnetic dual.  The ISS superpotential and vacuum structure
+follow~\cite{ISS2006}, eqs.~(2.4)--(2.6).
+
+%% ===================================================================
+\section{Setup: Seiberg duality and the ISS mechanism}
+\label{sec:setup}
+%% ===================================================================
+
+\subsection{Seiberg duality}
+
+Consider $\mathcal{N}=1$ SQCD with gauge group $\mathrm{SU}(\Nc)$
+and $\Nf$ flavors of quarks $Q^i$, $\tilde Q_j$ in the fundamental
+and antifundamental representations
+($i,j = 1,\ldots,\Nf$)~\cite{Seiberg1995}.
+The global symmetry is
+\begin{equation}
+  \mathrm{SU}(\Nf)_L \times \mathrm{SU}(\Nf)_R
+  \times \mathrm{U}(1)_B \times \mathrm{U}(1)_R\,.
+  \label{eq:global-sym}
+\end{equation}
+The gauge-invariant composite operators include the meson
+\begin{equation}
+  M^i{}_j = \tilde Q^i \, Q_j\,,
+  \label{eq:meson-def}
+\end{equation}
+which transforms as $(\conjrep{\Nf}, \rep{\Nf})$ under
+$\mathrm{SU}(\Nf)_L \times \mathrm{SU}(\Nf)_R$, i.e.\ as a
+bifundamental with $\Nf^2$ components.
+
+In the conformal window, $\Nc + 1 \le \Nf < 3\Nc$, the theory
+admits a Seiberg dual description\footnote{The ISS one-loop
+analysis is perturbatively controlled in the narrower
+\emph{free magnetic range} $\Nc + 1 \le \Nf \le \frac{3}{2}\Nc$.
+All four cases studied here have $\Nf > \frac{3}{2}\Nc$ and
+therefore sit in the conformal window but outside the free
+magnetic range.  The rank condition itself is a tree-level
+statement valid throughout the conformal window; only the
+Coleman--Weinberg stabilization of pseudo-moduli requires
+the free magnetic range for perturbative control.}: an $\mathrm{SU}(N)$ gauge theory
+with $N = \Nf - \Nc$, containing $\Nf$ dual quarks $\varphi_i$,
+$\tilde\varphi^j$ and an elementary gauge-singlet field $\Phi^i{}_j$
+identified with the meson $M^i{}_j$.
+The dual superpotential is~\cite{Seiberg1995}
+\begin{equation}
+  W_{\text{dual}} = h\,\Tr(\varphi\,\Phi\,\tilde\varphi)\,,
+  \label{eq:dual-W}
+\end{equation}
+where $h$ is the dual Yukawa coupling (cf.\ eq.~(3.3) of~\cite{Seiberg1995}).
+
+\subsection{ISS metastable SUSY breaking}
+
+Adding a mass term $W_{\text{mass}} = \Tr(m\, M)$ in the electric
+theory maps in the dual to a linear term for $\Phi$.
+The full magnetic superpotential becomes~\cite{ISS2006}
+\begin{equation}
+  W = h\,\Tr(\varphi\,\Phi\,\tilde\varphi)
+    - h\mu^2 \Tr\Phi\,,
+  \label{eq:ISS-W}
+\end{equation}
+where $\mu^2$ encodes the electric quark mass
+(eq.~(2.4) of~\cite{ISS2006}).
+The $F$-term conditions $F_\Phi = 0$ require
+\begin{equation}
+  \varphi\,\tilde\varphi = \mu^2\,\mathbf{1}_{\Nf}\,,
+  \label{eq:F-flat}
+\end{equation}
+but $\varphi$ and $\tilde\varphi$ are $N\times\Nf$ matrices, so
+$\varphi\,\tilde\varphi$ has rank at most $N = \Nf - \Nc$.
+Therefore eq.~\eqref{eq:F-flat} cannot be satisfied for all $\Nf$
+flavors simultaneously: this is the \emph{rank condition}
+(following from the $F$-term conditions of the
+superpotential~(1.3) of~\cite{ISS2006}).
+
+The metastable vacuum takes the form (eq.~(2.6) of~\cite{ISS2006})
+\begin{equation}
+  \varphi_0 = \tilde\varphi_0^T
+  = \begin{pmatrix} \mu\,\mathbf{1}_N \\ 0_{(\Nf-N)\times N} \end{pmatrix},
+  \qquad
+  \Phi_0 \;\text{arbitrary (pseudo-moduli)}\,.
+  \label{eq:ISS-vacuum}
+\end{equation}
+This splits the $\Nf$ flavors into two groups:
+\begin{itemize}
+\item \textbf{$k_u = N = \Nf - \Nc$ directions:} the $F$-terms are
+  satisfied, $\varphi\tilde\varphi = \mu^2\mathbf{1}_N$.
+  At tree level the meson components $\Phi$ along these directions
+  are pseudo-moduli (massless).  They acquire a mass only at one loop
+  through the Coleman--Weinberg potential.
+\item \textbf{$k_d = \Nc$ directions:} the $F$-terms are not
+  satisfied, $F_\Phi \ne 0$.  The meson components along these
+  directions have tree-level masses of order $h\mu$.
+\end{itemize}
+The vacuum energy is $V_{\min} = (k_d)\,|h^2\mu^4|$
+(eq.~(2.5) of~\cite{ISS2006}).
+
+\subsection{Meson decomposition}
+
+The vacuum~\eqref{eq:ISS-vacuum} breaks the $\mathrm{SU}(\Nf)$
+flavor symmetry to
+\begin{equation}
+  \mathrm{SU}(\Nf) \;\longrightarrow\;
+  \mathrm{SU}(k_u) \times \mathrm{SU}(k_d)
+  \times \mathrm{U}(1)\,.
+  \label{eq:breaking-pattern}
+\end{equation}
+The $\Nf^2$ meson components decompose as
+\begin{equation}
+  \Nf^2 \;=\;
+  \underbrace{(k_u^2-1)+1}_{\mathrm{SU}(k_u)\text{ sector}}
+  \;+\;
+  \underbrace{(k_d^2-1)+1}_{\mathrm{SU}(k_d)\text{ sector}}
+  \;+\;
+  2\,k_u\, k_d\,,
+  \label{eq:meson-counting}
+\end{equation}
+where the last term accounts for the bifundamental and its conjugate.
+In representation language:
+\begin{equation}
+  \Nf^2 \;\to\;
+  (\rep{adj},\rep{1})_0
+  \oplus (\rep{1},\rep{adj})_0
+  \oplus (\rep{1},\rep{1})_0
+  \oplus (\rep{1},\rep{1})_0
+  \oplus (\rep{k_u},\conjrep{k_d})_{+1}
+  \oplus (\conjrep{k_u},\rep{k_d})_{-1}\,,
+  \label{eq:branching}
+\end{equation}
+where the two singlets arise from the two independent
+$\mathrm{U}(1)$ projections of the trace.
+
+The physical content depends on $k_u$ and $k_d$, i.e.\ on the
+choice of $(\Nc,\Nf)$.
+
+
+%% ===================================================================
+\section{The four decompositions}
+\label{sec:four}
+%% ===================================================================
+
+We now tabulate the four cases.  Table~\ref{tab:summary} provides a
+compact comparison; the subsections below give the details.
+
+\begin{table*}[t]
+\centering
+\caption{Meson decomposition for four $(\Nc,\Nf)$ starting points.
+  $N = \Nf - \Nc$ is the dual gauge group rank.
+  ``CW'' indicates conformal window status.
+  The branching is under
+  $\mathrm{SU}(k_u)\times\mathrm{SU}(k_d)\times\mathrm{U}(1)$.}
+\label{tab:summary}
+\smallskip
+\begin{tabular}{@{}cccccccl@{}}
+\toprule
+$\Nc$ & $\Nf$ & $N$ & $k_u$ & $k_d$ & Mesons & CW &
+Branching rule \\
+\midrule
+3 & 6 & 3 & 3 & 3 & 36 & $4\!\le\!6\!<\!9$ \checkmark &
+$(\rep{8},\rep{1})_0 \oplus (\rep{1},\rep{8})_0
+ \oplus 2\times(\rep{1},\rep{1})_0
+ \oplus (\rep{3},\conjrep{3})_{+1}
+ \oplus (\conjrep{3},\rep{3})_{-1}$  \\[4pt]
+3 & 5 & 2 & 2 & 3 & 25 & $4\!\le\!5\!<\!9$ \checkmark &
+$(\rep{3},\rep{1})_0 \oplus (\rep{1},\rep{8})_0
+ \oplus 2\times(\rep{1},\rep{1})_0
+ \oplus (\rep{2},\conjrep{3})_{+1}
+ \oplus (\conjrep{2},\rep{3})_{-1}$  \\[4pt]
+2 & 6 & 4 & 4 & 2 & 36 & $3\!\le\!6\!\not<\!6$ \ding{55}\!\! &
+$(\rep{15},\rep{1})_0 \oplus (\rep{1},\rep{3})_0
+ \oplus 2\times(\rep{1},\rep{1})_0
+ \oplus (\rep{4},\conjrep{2})_{+1}
+ \oplus (\conjrep{4},\rep{2})_{-1}$  \\[4pt]
+2 & 5 & 3 & 3 & 2 & 25 & $3\!\le\!5\!<\!6$ \checkmark &
+$(\rep{8},\rep{1})_0 \oplus (\rep{1},\rep{3})_0
+ \oplus 2\times(\rep{1},\rep{1})_0
+ \oplus (\rep{3},\conjrep{2})_{+1}
+ \oplus (\conjrep{3},\rep{2})_{-1}$  \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{$(\Nc,\Nf) = (3,6)$: symmetric split}
+\label{sec:36}
+
+The dual gauge group is $\mathrm{SU}(3)$, and the theory is
+self-dual in the sense that both the electric and magnetic theories
+have the same gauge group rank.
+The conformal window condition is $\Nc + 1 = 4 \le 6 < 9 = 3\Nc$,
+which is satisfied.
+
+With $k_u = k_d = 3$ the flavor symmetry breaks as
+\begin{equation}
+  \mathrm{SU}(6) \;\to\;
+  \mathrm{SU}(3)_u \times \mathrm{SU}(3)_d \times \mathrm{U}(1)\,.
+\end{equation}
+The adjoint of $\mathrm{SU}(6)$ decomposes as
+\begin{equation}
+  \rep{35} \;\to\;
+  (\rep{8},\rep{1})_0 \oplus (\rep{1},\rep{8})_0
+  \oplus (\rep{1},\rep{1})_0
+  \oplus (\rep{3},\conjrep{3})_{+1}
+  \oplus (\conjrep{3},\rep{3})_{-1}\,.
+  \label{eq:adj-36}
+\end{equation}
+Adding the singlet from the full $\Nf^2 = 36$ gives
+$8 + 8 + 1 + 1 + 9 + 9 = 36$.
+
+This is the starting point of the Cacciapaglia--Sannino dualised
+Standard Model~\cite{CacciapagliaSannino2024}, which embeds six
+quark flavors into a Seiberg-dual framework and obtains an
+18-Higgs-doublet structure.
+The symmetric split $k_u = k_d = 3$ means that no preference is
+built in for which flavors are ``up-type'' and which are
+``down-type.''
+
+\subsubsection*{Top decoupling: from $(3,6)$ to $(3,5)$}
+
+The $k_u = k_d$ symmetry is broken by giving one flavor (the top)
+a large mass $m_t$.  In the electric theory, the heavy top
+is integrated out below the scale $m_t$, reducing $\Nf$ from 6
+to~5.  Re-deriving the Seiberg dual for the resulting
+$\mathrm{SU}(3)$ theory with $\Nf = 5$ gives a new magnetic dual
+with gauge group $\mathrm{SU}(\Nf - \Nc) = \mathrm{SU}(2)$:
+\begin{equation}
+  \mathrm{SU}(3)_{\text{dual}}^{(\Nf=6)}
+  \;\xrightarrow{\;\text{top decoupling}\;}
+  \mathrm{SU}(2)_{\text{dual}}^{(\Nf=5)}\,.
+  \label{eq:decoupling-36}
+\end{equation}
+Below the scale $m_t$, the effective theory has $\Nf = 5$ active
+flavors with dual gauge group $\mathrm{SU}(2)$.  The $6\times 6$
+meson matrix reduces to $5\times 5 = 25$ components, and the ISS
+rank condition now gives the asymmetric split $k_u = 2$,
+$k_d = 3$: this is the $(3,5)$ case of
+Section~\ref{sec:35}.
+
+The 36 mesons of the parent $(3,6)$ theory decompose into
+25~mesons of the $(3,5)$ daughter theory plus 11~states involving
+the top flavor (5~charged under the residual $\mathrm{SU}(5)$ plus
+6~top-mixed states), which become heavy and decouple.
+The asymmetric $k_u = 2$, $k_d = 3$ split is thus a
+consequence of the large top mass (which is an input, not a
+prediction), rather than being imposed by hand on the flavor
+structure.
+
+\subsection{$(\Nc,\Nf) = (3,5)$: the sBootstrap case}
+\label{sec:35}
+
+The dual gauge group is $\mathrm{SU}(2)$.
+The conformal window condition $4 \le 5 < 9$ is satisfied.
+
+With $k_u = 2$ and $k_d = 3$ the flavor symmetry breaks as
+\begin{equation}
+  \mathrm{SU}(5) \;\to\;
+  \mathrm{SU}(2)_u \times \mathrm{SU}(3)_d \times \mathrm{U}(1)\,.
+\end{equation}
+The adjoint decomposes as
+\begin{equation}
+  \rep{24} \;\to\;
+  (\rep{3},\rep{1})_0 \oplus (\rep{1},\rep{8})_0
+  \oplus (\rep{1},\rep{1})_0
+  \oplus (\rep{2},\conjrep{3})_{+1}
+  \oplus (\conjrep{2},\rep{3})_{-1}\,.
+  \label{eq:adj-35}
+\end{equation}
+Adding the singlet: $3 + 8 + 1 + 1 + 6 + 6 = 25$.
+
+This is the case relevant to the sBootstrap
+program~\cite{Rivero2024}: the $k_u = 2$ massless directions are
+identified with the two up-type quarks $(u,c)$, and the $k_d = 3$
+massive directions with the three down-type quarks $(d,s,b)$.
+The 25 mesons organize as open-flavor states in
+$(\rep{2},\conjrep{3})$ plus their conjugates and flavor-diagonal
+states in $(\rep{3},\rep{1})$ and $(\rep{1},\rep{8})$.
+
+\subsection{$(\Nc,\Nf) = (2,6)$: Pati--Salam-like}
+\label{sec:26}
+
+The dual gauge group would be $\mathrm{SU}(4)$.
+However, the conformal window condition
+$\Nc + 1 = 3 \le 6 < 6 = 3\Nc$ \emph{fails}: $\Nf = 3\Nc$
+is the boundary of asymptotic freedom, and for $\Nf \ge 3\Nc$ the
+theory is infrared-free.
+This case therefore sits outside (or at the edge of) the regime
+where Seiberg duality and the ISS mechanism are under perturbative
+control.
+
+With $k_u = 4$ and $k_d = 2$ the formal decomposition is
+\begin{equation}
+  \mathrm{SU}(6) \;\to\;
+  \mathrm{SU}(4)_u \times \mathrm{SU}(2)_d \times \mathrm{U}(1)\,.
+\end{equation}
+The adjoint decomposes as
+\begin{equation}
+  \rep{35} \;\to\;
+  (\rep{15},\rep{1})_0 \oplus (\rep{1},\rep{3})_0
+  \oplus (\rep{1},\rep{1})_0
+  \oplus (\rep{4},\conjrep{2})_{+1}
+  \oplus (\conjrep{4},\rep{2})_{-1}\,.
+  \label{eq:adj-26}
+\end{equation}
+Adding the singlet: $15 + 3 + 1 + 1 + 8 + 8 = 36$.
+
+The $\mathrm{SU}(4) \times \mathrm{SU}(2)$ structure is
+reminiscent of the Pati--Salam group.
+If $\mathrm{SU}(4)$ is further broken to
+$\mathrm{SU}(3) \times \mathrm{U}(1)$,
+the $\mathrm{U}(1)$ factor plays the role of a
+lepton-number symmetry.
+However, the failure of the conformal window condition makes this
+case less attractive as a controlled starting point.
+
+\subsection{$(\Nc,\Nf) = (2,5)$: SM gauge structure}
+\label{sec:25}
+
+The dual gauge group is $\mathrm{SU}(3)$.
+The conformal window condition $3 \le 5 < 6$ is satisfied.
+
+With $k_u = 3$ and $k_d = 2$ the flavor symmetry breaks as
+\begin{equation}
+  \mathrm{SU}(5) \;\to\;
+  \mathrm{SU}(3)_u \times \mathrm{SU}(2)_d \times \mathrm{U}(1)\,.
+  \label{eq:SM-group}
+\end{equation}
+The adjoint decomposes as
+\begin{equation}
+  \rep{24} \;\to\;
+  (\rep{8},\rep{1})_0 \oplus (\rep{1},\rep{3})_0
+  \oplus (\rep{1},\rep{1})_0
+  \oplus (\rep{3},\conjrep{2})_{+1}
+  \oplus (\conjrep{3},\rep{2})_{-1}\,.
+  \label{eq:adj-25}
+\end{equation}
+Adding the singlet: $8 + 3 + 1 + 1 + 6 + 6 = 25$.
+
+The residual symmetry~\eqref{eq:SM-group} is precisely the SM
+non-abelian gauge group $\mathrm{SU}(3)_c \times \mathrm{SU}(2)_L$.
+The bifundamental $(\rep{3},\conjrep{2})$ is exactly the
+representation of a left-handed quark doublet.
+This match between a flavor decomposition and the SM gauge
+structure arises within the general Seiberg duality
+framework~\cite{Seiberg1995} and has been discussed in the
+context of the dualised SM~\cite{CacciapagliaSannino2024}.
+
+
+%% ===================================================================
+\section{Standard Model charge assignment}
+\label{sec:charges}
+%% ===================================================================
+
+In the Standard Model, the six quark flavors carry electric charges
+$Q_{\text{em}} = +2/3$ (up-type: $u, c, t$) and
+$Q_{\text{em}} = -1/3$ (down-type: $d, s, b$).
+With only five light flavors (excluding the top), we have 2 up-type
+and 3 down-type quarks.
+
+The ISS rank condition assigns the $k_u$ flavors to the massless
+(pseudo-moduli) sector and the $k_d$ flavors to the massive sector.
+We now examine whether the SM charge assignment is compatible with
+this split for each $(\Nc,\Nf)$.
+
+\subsection{Charge assignment for $(\Nc,\Nf) = (3,5)$}
+
+Here $k_u = 2$ and $k_d = 3$.
+Identifying the 2 massless directions with the up-type quarks
+$(u,c)$ and the 3 massive directions with the down-type quarks
+$(d,s,b)$ gives a direct match with the SM:
+\begin{center}
+\begin{tabular}{cccl}
+\toprule
+Sector & $k$ & $Q_{\text{em}}$ & Flavors \\
+\midrule
+Massless (pseudo-moduli) & 2 & $+2/3$ & $u,\; c$ \\
+Massive (tree-level) & 3 & $-1/3$ & $d,\; s,\; b$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The mesons in the bifundamental
+$(\rep{2},\conjrep{3})$ carry
+$Q_{\text{em}} = (+2/3) - (-1/3) = +1$ and
+$(\conjrep{2},\rep{3})$ carry $Q_{\text{em}} = -1$,
+while the diagonal sectors $(\rep{3},\rep{1})$ and
+$(\rep{1},\rep{8})$ are electrically neutral.
+The full charge spectrum of the 25 mesons is therefore
+\begin{equation}
+  12_{\,0} + 6_{+1} + 6_{-1} + 1_{\,0} = 25\,,
+  \label{eq:meson-charges-35}
+\end{equation}
+where the subscript denotes $Q_{\text{em}}$.
+Each meson $M_{ij} = \bar q_i\, q_j$ carries charge
+$Q_{\text{em}}(M_{ij}) = -Q_i + Q_j$, with $Q_i$ the electric
+charge of quark flavor~$i$.
+The thirteen neutral mesons ($12 + 1$) correspond to
+$(\rep{3},\rep{1})_0 \oplus (\rep{1},\rep{8})_0
+\oplus 2\times(\rep{1},\rep{1})_0$
+and the twelve charged ones to
+$(\rep{2},\conjrep{3})_{+1} \oplus (\conjrep{2},\rep{3})_{-1}$.
+
+This charge assignment works because the ISS split $k_u = 2$,
+$k_d = 3$ exactly matches the SM flavor counting.
+
+\subsection{Charge assignment for $(\Nc,\Nf) = (2,5)$}
+
+Here $k_u = 3$ and $k_d = 2$.
+The ISS rank condition assigns 3 flavors to the massless sector and
+2 to the massive sector.  If we want to identify these with SM
+quarks, we face an inversion: 3 up-type vs.\ 2 down-type, which is
+the opposite of the SM counting.
+
+One could instead assign the 3 massless directions to the down-type
+quarks $(d,s,b)$ and the 2 massive ones to the up-type quarks
+$(u,c)$, but then the ISS mass hierarchy is inverted relative to the
+SM: in the SM, the up-type quarks are heavier (on average) than the
+down-type quarks in each generation.  More fundamentally, the massive
+ISS directions are the ones whose $F$-terms are not satisfied ---
+they ``feel'' the SUSY breaking directly.
+
+\subsection{Charge assignment for $(\Nc,\Nf) = (3,6)$}
+
+Here $k_u = k_d = 3$, so the split is symmetric.
+The SM charge assignment requires distinguishing $u$- and $d$-type
+quarks, but the ISS vacuum treats both sectors identically at tree
+level.  To reach the SM content one must invoke additional dynamics
+--- for instance, decoupling the top quark to reduce
+$\Nf = 6 \to 5$ --- which breaks the $k_u = k_d$ symmetry.
+
+This is the starting point of the Cacciapaglia--Sannino
+construction~\cite{CacciapagliaSannino2024}, in which the full
+six-flavor theory is dualised and the SM emerges after appropriate
+symmetry-breaking steps.
+
+\subsection{Charge assignment for $(\Nc,\Nf) = (2,6)$}
+
+Here $k_u = 4$ and $k_d = 2$, and the theory sits at the edge of
+the conformal window.  Neither $k_u = 4$ nor $k_d = 2$ matches
+the SM flavor counting directly (we need 2 up-type and 3 down-type,
+or at most 3 and 3 for the full six-flavor case).  This case does
+not admit a natural SM charge assignment without further breaking of
+$\mathrm{SU}(4)$.
+
+Table~\ref{tab:charges} summarizes the charge-assignment analysis.
+
+\begin{table}[t]
+\centering
+\caption{SM charge assignment compatibility for each
+  $(\Nc,\Nf)$.}
+\label{tab:charges}
+\smallskip
+\begin{tabular}{@{}cccccl@{}}
+\toprule
+$\Nc$ & $\Nf$ & $k_u$ & $k_d$ & Match? & Comment \\
+\midrule
+3 & 6 & 3 & 3 & Partial &
+  Symmetric; needs top decoupling \\
+3 & 5 & 2 & 3 & \textbf{Yes} &
+  $k_u = n_u$, $k_d = n_d$ exactly \\
+2 & 6 & 4 & 2 & No &
+  Outside conformal window \\
+2 & 5 & 3 & 2 & Inverted &
+  $k_u \leftrightarrow k_d$ vs.\ SM \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+%% ===================================================================
+\section{Electroweak embedding}
+\label{sec:ew}
+%% ===================================================================
+
+The comparison between the $(3,5)$ and $(2,5)$ cases reveals a
+tension between two desiderata: \emph{charge assignment} and
+\emph{gauge structure}.
+
+\subsection{The $(3,5)$ perspective: charge assignment}
+
+For $(\Nc,\Nf) = (3,5)$, the ISS split produces
+$\mathrm{SU}(2)_u \times \mathrm{SU}(3)_d \times \mathrm{U}(1)$.
+The $\mathrm{SU}(2)$ factor acts on the $k_u = 2$ massless
+directions, i.e.\ the up-type quarks.
+The mesons in $(\rep{2},\conjrep{3})_{+1}$ are electroweak doublets
+of color anti-triplets --- exactly the quantum numbers of a Higgs
+doublet in the dualised SM.
+
+The identification of this $\mathrm{SU}(2)$ with
+$\mathrm{SU}(2)_L$ is natural from the ISS perspective: the
+massless pseudo-moduli are the directions along which the meson VEV
+can fluctuate freely, and in the SM the left-handed doublets are
+massless before electroweak symmetry breaking.
+The $\mathrm{SU}(2)$ here rotates the massless modes, paralleling
+$\mathrm{SU}(2)_L$ rotating the left-handed doublets.
+
+This is the sBootstrap viewpoint~\cite{Rivero2024}: the mesons
+$M_{ij} = \tilde q_i q_j$ with one up-type and one down-type index
+carry the quantum numbers of the scalar partners of SM quarks
+(squarks/sfermions), and can be identified with pseudoscalar mesons in
+the hadronic spectrum.
+
+\subsection{The $(2,5)$ perspective: gauge structure}
+
+For $(\Nc,\Nf) = (2,5)$, the ISS split produces
+$\mathrm{SU}(3)_u \times \mathrm{SU}(2)_d \times \mathrm{U}(1)$
+--- exactly the SM non-abelian gauge group.
+The $(\rep{3},\conjrep{2})$ bifundamental is exactly a left-handed
+quark doublet representation.
+The $(\rep{8},\rep{1})$ is the gluon adjoint representation.
+The $(\rep{1},\rep{3})$ is the $W$-boson adjoint representation.
+
+However, here the $\mathrm{SU}(2)$ factor comes from the $k_d = 2$
+\emph{massive} directions.  In the SM, $\mathrm{SU}(2)_L$ is the
+symmetry of the left-handed doublets, which are massless before
+electroweak symmetry breaking.  In the ISS framework, the $k_d$
+directions are the ones that have tree-level masses from the
+unsatisfied $F$-terms.
+
+This produces a conceptual inversion: the $\mathrm{SU}(2)$ that
+looks like $\mathrm{SU}(2)_L$ acts on the
+\emph{massive} ISS directions, while in the SM it acts on particles
+that are \emph{massless} before EWSB.
+
+\subsection{The tension and Seiberg duality}
+
+Note that $(3,5)$ and $(2,5)$ are \emph{distinct electric theories}
+--- $\mathrm{SU}(3)$ SQCD with 5 flavors and $\mathrm{SU}(2)$ SQCD
+with 5 flavors respectively.
+Standard Seiberg duality maps $\mathrm{SU}(\Nc)$ with $\Nf$ flavors
+to $\mathrm{SU}(\Nf-\Nc)$ with $\Nf$ flavors.  Applied here:
+the \emph{magnetic dual} of the $(3,5)$ electric theory is an
+$\mathrm{SU}(2)$ theory with 5 flavors, and the magnetic dual of
+the $(2,5)$ electric theory is an $\mathrm{SU}(3)$ theory with 5
+flavors.  The two starting points are thus Seiberg duals of each
+other: $(3,5)_{\text{elec}} = (2,5)_{\text{mag}}$ and
+$(2,5)_{\text{elec}} = (3,5)_{\text{mag}}$.
+
+The tension between charge assignment and gauge structure is
+therefore not a choice between two unrelated theories but a tension
+between the electric and magnetic descriptions of the \emph{same}
+physics.  The mismatch can be stated precisely.
+In the SM:
+\begin{itemize}
+\item $\mathrm{SU}(2)_L$ acts on massless left-handed doublets.
+\item Masses are generated by EWSB, i.e.\ by \emph{breaking}
+  $\mathrm{SU}(2)_L$.
+\end{itemize}
+In the ISS mechanism:
+\begin{itemize}
+\item $\mathrm{SU}(k_u)$ acts on the \emph{massless} pseudo-moduli.
+\item $\mathrm{SU}(k_d)$ acts on the \emph{massive} directions.
+\end{itemize}
+For $(3,5)$: $\mathrm{SU}(2) = \mathrm{SU}(k_u)$ is the massless
+sector, matching the SM role of $\mathrm{SU}(2)_L$.
+For $(2,5)$: $\mathrm{SU}(2) = \mathrm{SU}(k_d)$ is the massive
+sector, opposite to the SM role of $\mathrm{SU}(2)_L$.
+
+The ``natural'' assignment thus depends on which feature one
+prioritises: if the ISS massless/massive split is to match the SM
+mass hierarchy, then $(3,5)$ is preferred.  If the non-abelian gauge
+group of the residual flavor symmetry is to match the SM gauge group,
+then $(2,5)$ is preferred.
+The early composite model of Masiero and
+Veneziano~\cite{MasieroVeneziano1985}, which studied SQCD with
+$N = M = 3$ as a prototype for one lepton family, already faced a
+similar tension between composite fermion quantum numbers and the
+gauge embedding.
+
+
+%% ===================================================================
+\section{Discussion}
+\label{sec:discussion}
+%% ===================================================================
+
+\subsection{The sBootstrap choice}
+
+The sBootstrap program~\cite{Rivero2024} adopts $(\Nc,\Nf) = (3,5)$
+because the charge assignment takes priority: the $k_u = 2$,
+$k_d = 3$ split directly matches the two up-type and three down-type
+quarks of the SM (with the top decoupled).
+The 25 mesons $M_{ij} = \tilde q_i q_j$ are then identified with
+the scalar partners of the SM fermions, and the closure conditions
+of the sBootstrap --- the requirement that the composite scalars fill
+exactly the sfermion content of one generation --- are satisfied.
+The $\mathrm{SU}(2)$ flavor symmetry of the massless sector plays
+the role of a proto-electroweak symmetry.
+
+\subsection{The alternative perspective}
+
+The $(2,5)$ starting point has a different appeal: the residual
+flavor symmetry is literally
+$\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$, and
+the meson representations include $(\rep{3},\rep{2})$,
+$(\rep{8},\rep{1})$, and $(\rep{1},\rep{3})$.
+If the flavor symmetry could be \emph{gauged} (or if it emerges as a
+gauge symmetry in some UV completion), the SM gauge group would
+appear automatically.
+The price is that the charge assignment is inverted, and the
+$\mathrm{SU}(2)$ factor acts on the massive rather than the massless
+sector.
+
+\subsection{The $\Nf = 6 \to 5$ transition}
+
+The two perspectives can be connected through the $(3,6)$ starting
+point.  With $\Nf = 6$ and $\Nc = 3$, the ISS split is symmetric
+($k_u = k_d = 3$), and the theory is self-dual.
+Decoupling the heaviest quark (the top) reduces $\Nf$ from 6 to 5.
+The resulting $(3,5)$ theory is the sBootstrap case.
+
+Alternatively, one can consider the $(2,6)$ theory and decouple a
+flavor to reach $(2,5)$.  However, $(2,6)$ sits at the boundary of
+the conformal window, making it a less controlled starting point.
+
+The $\Nf = 6 \to 5$ transition via top decoupling thus provides a
+natural connection between the Cacciapaglia--Sannino framework (which
+starts at $\Nf = 6$) and the sBootstrap (which works at $\Nf = 5$).
+Which of the two $\Nf = 5$ endpoints --- $(3,5)$ or $(2,5)$ ---
+is reached depends on the value of $\Nc$ in the electric theory,
+i.e.\ on whether the confining dynamics is $\mathrm{SU}(3)$ or
+$\mathrm{SU}(2)$.
+
+\subsection{Summary of findings}
+
+The results are:
+\begin{enumerate}
+\item The ISS rank condition provides a rigid, parameter-free split
+  of $\Nf$ flavors into $k_u + k_d$ groups, determined entirely by
+  $(\Nc, \Nf)$.
+\item Of the four cases examined, only $(\Nc,\Nf) = (3,5)$ gives a
+  direct match between the ISS split and the SM charge assignment
+  with 2 up-type and 3 down-type flavors.
+\item The case $(\Nc,\Nf) = (2,5)$ reproduces the SM gauge group
+  $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$ from
+  the flavor decomposition, but with an inverted charge--mass
+  correspondence.
+\item The symmetric case $(\Nc,\Nf) = (3,6)$ requires additional
+  dynamics (top decoupling) to break the $k_u = k_d$ symmetry and
+  reach the SM spectrum.
+\item The case $(\Nc,\Nf) = (2,6)$ falls outside the conformal
+  window and does not admit a natural SM embedding.
+\end{enumerate}
+
+\noindent
+The tension between the $(3,5)$ and $(2,5)$ viewpoints is
+precisely the tension between the electric and magnetic descriptions
+of the same theory under Seiberg duality: $(3,5)$ privileges
+the correct charge assignment at the price of a non-SM gauge
+structure, while its magnetic dual $(2,5)$ privileges the correct
+gauge structure at the price of an inverted mass--charge
+correspondence.
+The $(3,5)$ theory descends from the $\Nf = 6$ parent by top
+decoupling (Section~\ref{sec:36}), and its Seiberg dual is the
+$(2,5)$ theory.  The question of which description is
+``fundamental'' may ultimately reduce to a question about the
+energy scale at which the SM is embedded.
+
+\bigskip
+\noindent\textbf{Acknowledgments.}
+This work has been partially supported by grant
+PID2021-127726NB-I00 funded by MCIN/AEI/10.13039/501100011033.
+
+%% ===================================================================
+\begin{thebibliography}{99}
+
+\bibitem{ISS2006}
+K.~Intriligator, N.~Seiberg and D.~Shih,
+``Dynamical SUSY breaking in meta-stable vacua,''
+JHEP \textbf{04} (2006) 021
+[hep-th/0602239].
+
+\bibitem{Seiberg1995}
+N.~Seiberg,
+``Electric-magnetic duality in supersymmetric non-Abelian gauge theories,''
+Nucl.\ Phys.\ B \textbf{435} (1995) 129
+[hep-th/9411149].
+
+\bibitem{Rivero2024}
+A.~Rivero,
+``An interpretation of scalars in SO(32),''
+Eur.\ Phys.\ J.\ C \textbf{84} (2024) 1058.
+
+\bibitem{CacciapagliaSannino2024}
+G.~Cacciapaglia and F.~Sannino,
+``Charting Standard Model Duality and its Signatures,''
+arXiv:2407.17281 [hep-ph].
+
+\bibitem{MasieroVeneziano1985}
+A.~Masiero and G.~Veneziano,
+``Split light composite supermultiplets,''
+Nucl.\ Phys.\ B \textbf{249} (1985) 593--610.
+
+\end{thebibliography}
+
+\end{document}

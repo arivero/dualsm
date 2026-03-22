@@ -1,0 +1,668 @@
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\UU}{\mathrm{U}}
+\newcommand{\Nf}{N_{\!f}}
+\newcommand{\Nc}{N_{\!c}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\adj}{\mathrm{adj}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\MeV}{\,\mathrm{MeV}}
+\newcommand{\GeV}{\,\mathrm{GeV}}
+\newcommand{\TeV}{\,\mathrm{TeV}}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{The quark mass waterfall from $\mathcal{N}{=}2$ interleaving}
+
+\author{XXXXX}
+\address{XXXXX}
+
+\begin{abstract}
+  We show that the empirical ``waterfall'' pattern in quark masses---the
+  fact that consecutive triples $(t,b,c)$, $(b,c,s)$, $(c,s,0)$,
+  $(s,0,\chi)$ (where $\chi \equiv m_u + m_d$) each approximately satisfy the Koide ratio $K = 2/3$
+  with appropriate sign assignments---is a structural
+  consequence of the doublet structure that emerges from
+  confinement of the $\SU(3)_F$ family gauge theory.
+  The confined spectrum naturally produces two mass eigenvalues
+  per family---a direct branch $a_i = \mu q_i^2$ (from the
+  adjugate $\adj(M)_i$) and an
+  inverse branch $d_i = \nu/q_i^2$ (from the meson $M_i$)---whose
+  pairing is electroweak isospin.
+  The two orderings are opposite: the direct masses
+  increase with charge, but the inverse masses \emph{decrease}.
+  We prove an \emph{interleaving theorem}: the six unmixed masses
+  automatically form a descending ladder
+  $d_1 > a_3 > d_2 > a_2 > d_3 > a_1$, alternating between branches,
+  whenever the Seiberg scale $\nu/\mu$ lies in a calculable window.
+  The Standard Model quark masses satisfy this window condition.
+  The sign flip in the diagnostic $K(b,c,-s)$ signals
+  the branch mismatch within a mixed window, though its
+  detailed assignment requires the quartic mixing.
+  The interleaving requires no new charges beyond the three family
+  eigenvalues; the waterfall is the observable signature of
+  the composite doublet structure producing the up-type quark sector
+  alongside the down-type sector from a single gauge theory.
+  The identification of specific SM quarks with specific branch
+  entries relies on the companion letter's branch assignments.
+\end{abstract}
+
+\end{frontmatter}
+
+%----------------------------------------------------------------------
+\section{Introduction}
+
+The charged-lepton masses satisfy the Koide ratio
+$K \equiv \sum m_i / (\sum\sqrt{m_i})^2 = 2/3$ to $0.001\%$,
+and the inverse down-quark masses satisfy
+$K^{-1}(d,s,b) = 2/3$ to $0.3\%$~\cite{Koide:1983qe,Rivero:2005}.
+In the companion letter~\cite{letter_q2}, we showed that both
+relations follow from a quadratic charge--mass law
+$m_i = \mu\,q_i^2$ and its Seiberg dual $\hat{m}_i \propto 1/q_i^2$
+in a confined $\SU(3)_F$ gauge theory with three flavours.
+
+To summarise the companion letter's framework briefly:
+the family symmetry $\SU(3)_F$ confines at a scale~$\Lambda$,
+producing mesons $M_{ij} = Q^i\tilde{Q}_j$ and their adjugates
+$\adj(M)_{ij}$.  Each family's charge $q_i = z_0 + z_i$
+enters a quadratic mass law $m_i = \mu\,q_i^2$ (direct branch)
+or $\hat{m}_i = \nu/q_i^2$ (inverse branch).
+The Koide identity $K = 2/3$ is a trace identity
+of the charge operator~$H_Q = Q_F^\dagger Q_F$, valid for
+the direct branch at any direction in the Cartan plane.
+
+There is a further empirical observation.
+If one lists all six quark masses in descending order
+$(m_t, m_b, m_c, m_s, m_u, m_d)$ and evaluates the Koide ratio
+on sliding windows of three consecutive masses, the results cluster
+near $K = 2/3$ with suitable sign assignments.
+This ``waterfall'' pattern was noted in
+Refs.~\cite{Rivero:2005,Zenczykowski:2012}
+and involves mixed quark flavours (up-type and down-type together),
+unlike the pure-sector relations.
+Here we show that the waterfall is a structural consequence
+of the composite doublet structure of the confined family
+gauge theory:
+the direct and inverse mass branches interleave automatically,
+producing a descending ladder whose consecutive windows
+inherit approximate $K = 2/3$ from the underlying charge
+normalisation.
+
+\paragraph{Conventions.}
+We work throughout in the charge-squared language:
+masses are $m_i = \mu\,q_i^2$ (direct) or $\hat{m}_i = \nu/q_i^2$
+(inverse), with $q_i = z_0 + z_i$ the family charges
+($z_0 = 1/\sqrt{6}$, $\sum z_i = 0$, $\sum z_i^2 = 1/2$).
+We write $\chi \equiv m_u + m_d$ for the lightest isospin sum.
+Square roots $\sqrt{m_i}$ appear only as derived diagnostics
+inside the ratio~$K$, never as primitive variables.
+
+%----------------------------------------------------------------------
+\section{The two branches}
+\label{sec:branches}
+
+The family charge operator is
+$Q_F = z_0 I + T$, with $T$ in the Cartan of $\SU(3)_F$.
+Its square $H_Q = Q_F^\dagger Q_F = \diag(q_1^2, q_2^2, q_3^2)$
+has trace $\Tr(H_Q) = \sum q_i^2 = 1$ by the normalisation
+conditions.  The mass ansatz $m_i = \mu\,q_i^2$ gives
+\begin{equation}
+  K \;=\; \frac{\sum q_i^2}{(\sum q_i)^2}
+  \;=\; \frac{1}{3/2} \;=\; \frac{2}{3}\,,
+  \label{eq:K_trace}
+\end{equation}
+a trace identity of $H_Q$, independent of the charge direction~$\alpha$.
+In confined $\SU(3)$ SQCD with $\Nf = \Nc = 3$~\cite{Seiberg:1994,CSS:1996,IS:1995},
+the quantum-modified constraint $\det M = \Lambda^6$ and
+$F$-flatness give the meson VEVs $\langle M_i \rangle \propto 1/m_i
+\propto 1/q_i^2$.  Defining the inverse-branch scale
+$\nu$ (whose relation to $\Lambda$ and $\mu$ is derived
+in the companion letter; for the present analysis
+only the parametric form matters),
+the inverse-branch masses are
+\begin{equation}
+  \hat{m}_i \;=\; \frac{\nu}{q_i^2}\,.
+  \label{eq:inverse}
+\end{equation}
+Since $a_i\,d_i = \mu q_i^2 \cdot \nu/q_i^2 = \mu\nu$,
+the geometric mean $\sqrt{a_i\,d_i} = \sqrt{\mu\nu}$ is
+\emph{family-independent}---a direct consequence of
+$\det M = \Lambda^6$.
+
+Unlike the direct branch, $K(\hat{m}_1, \hat{m}_2, \hat{m}_3)$
+is \emph{not} automatically $2/3$: the reciprocal charges
+$1/q_i$ do not satisfy the same normalisation as the~$q_i$.
+The empirical inverse-Koide relation
+$K^{-1}(d,s,b) \approx 2/3$ (to $0.3\%$)~\cite{Rivero:2005}
+is a non-trivial constraint---it implies that the down-quark
+sector has its own effective charges satisfying
+the trace condition, related to the lepton charges by
+a small angle shift~$\Delta\alpha$~\cite{letter_q2}.
+(The notation ``$K^{-1}$'' denotes $K$ evaluated on
+reciprocal masses $1/m_i$.)
+
+The key structural point is the \emph{ordering}.
+Since $q_1 < q_2 < q_3$ (convention):
+\begin{alignat}{3}
+  &\text{Direct:}\quad  & a_1 < a_2 < a_3 \qquad
+  & (a_i = \mu\,q_i^2, \text{ increases with } q)\,,
+  \label{eq:direct_order} \\
+  &\text{Inverse:}\quad & d_1 > d_2 > d_3 \qquad
+  & (d_i = \nu/q_i^2, \text{ decreases with } q)\,.
+  \label{eq:inverse_order}
+\end{alignat}
+The two orderings are \emph{opposite}.
+This is the algebraic origin of the waterfall.
+
+%----------------------------------------------------------------------
+\section{The emergent doublet structure}
+\label{sec:N2}
+
+The $\mathcal{N}{=}1$ confined theory already contains both
+branches---direct ($\adj(M)_i \propto q_i^2$) and inverse
+($M_i \propto 1/q_i^2$)---but treats them independently.
+The composite spectrum, however, has a natural doublet structure:
+for each family~$i$, the pair $(M_i, \adj(M)_i)$ furnishes
+two mass eigenvalues with opposite charge dependence.
+This pairing \emph{is} electroweak isospin---the down-type
+and up-type composites within each generation---and has the
+mathematical form of an $\mathcal{N}{=}2$ hypermultiplet
+$(Q_i, \tilde{Q}_i)$ under the $\SU(2)_R$ that rotates them.
+The ``$\mathcal{N}{=}2$ structure'' is thus emergent from
+confinement plus isospin, not a UV completion that is subsequently
+broken~\cite{APS:1997,SeibergWitten:1994a}.
+
+\paragraph{The effective quartic.}
+The coupling between the two branches can be parametrised by a
+quartic meson interaction.
+Formally, this quartic is identical to what one obtains by
+introducing an auxiliary adjoint chiral field~$\Phi$ with
+mass~$\mu_\Phi$ and the standard $\mathcal{N}{=}2$
+coupling $W \supset \sqrt{2}\,g\,\tilde{Q}\,\Phi\,Q$,
+then integrating $\Phi$ out via its $F$-term~\cite{APS:1997}.
+The result is an effective $\mathcal{N}{=}1$
+superpotential:
+\begin{equation}
+  W_{\rm eff} \;=\;
+  -\frac{g^2}{\mu_\Phi}\Bigl[\Tr(Q\tilde{Q})^2
+  - \tfrac{1}{3}\bigl(\Tr Q\tilde{Q}\bigr)^2\Bigr]
+  \;+\; m_i\,Q^i\tilde{Q}_i\,.
+  \label{eq:Weff}
+\end{equation}
+We emphasise that $\Phi$ here is a bookkeeping device for
+the quartic, not a physical UV field: the confined theory
+is defined at the family confinement scale
+$\Lambda_F \sim \mathcal{O}(100)\MeV$, and the
+``$\mathcal{N}{=}2$ breaking scale'' $\mu_\Phi$ parametrises
+the strength of the inter-branch coupling in the
+composite dynamics.
+
+\paragraph{The decoupling limit.}
+As $\mu_\Phi \to \infty$, the quartic vanishes, the branches
+fully decouple, and one recovers pure $\mathcal{N}{=}1$
+SQCD with masses~$m_i$.
+For finite~$\mu_\Phi$, the quartic leaves a calculable
+residual coupling between the direct and inverse branches.
+
+\paragraph{The residual coupling in the confined phase.}
+In the confined phase, $Q\tilde{Q} \to M$ (the meson).
+The quartic becomes
+\begin{equation}
+  W_{\rm quartic} \;=\;
+  -\frac{g^2}{\mu_\Phi}\Bigl[\Tr M^2
+  - \tfrac{1}{3}(\Tr M)^2\Bigr],
+  \label{eq:quartic}
+\end{equation}
+which modifies the $F$-term equations by terms
+of order $g^2 M_i/\mu_\Phi$.  Since $M_i \propto 1/q_i^2$,
+the fractional correction to the inverse branch is
+\begin{equation}
+  \frac{\delta M_i}{M_i}
+  \;\sim\; \frac{g^2\,M_i}{\mu_\Phi}
+  \;\propto\; \frac{1}{m_i}\,,
+  \label{eq:correction}
+\end{equation}
+which is \emph{smallest} for the heaviest family
+(largest $m_i$) and \emph{largest} for the lightest.
+The waterfall windows involving heavier quarks are
+therefore expected to be closer to $K = 2/3$ than
+those dominated by lighter quarks, consistent with the
+pattern in Table~\ref{tab:waterfall}.
+
+\paragraph{The up/down pairing.}
+In the confined theory, each family~$i$ produces two
+composite operators: $M_i$ (meson) and $\adj(M)_i$
+(adjugate).  These give two independent mass parameters:
+$a_i = \mu\,q_i^2$ (direct, from the adjugate) and
+$d_i = \nu/q_i^2$ (inverse, from the meson VEV).
+The pairing of a direct mass with an inverse mass
+within each family---i.e.\ the pairing of a
+down-type quark with an up-type quark---is the
+composite manifestation of electroweak isospin.%
+\footnote{The involution
+$M_i \leftrightarrow \adj(M)_i = \Lambda^6/M_i$,
+which exchanges $q_i^2 \leftrightarrow 1/q_i^2$
+within each generation, is a Seiberg-duality
+transformation between the electric and magnetic
+descriptions of the confined phase;
+see the companion paper~\cite{letter_q2} for details.}
+
+\paragraph{Historical note.}
+That the MSSM requires two Higgs doublets was
+first shown by Fayet~\cite{Fayet:1976,Fayet:1977};
+the observation that $H_u$ and $H_d$ can be identified
+with the two halves of a composite doublet is a natural
+consequence of confinement with $\Nf = \Nc$.
+What is new here is that the \emph{mass spectrum}---not
+only the Higgs sector---carries the doublet imprint:
+the direct and inverse branches, their opposite orderings,
+and their interleaving into the waterfall are all consequences
+of having two composite operators per family.
+The connection to electroweak symmetry via Seiberg
+duality of $\SU(4)$ SQCD~\cite{CST:2011} is discussed
+in the companion letter.
+
+%----------------------------------------------------------------------
+\section{The interleaving theorem}
+\label{sec:interleaving}
+
+In the $\varepsilon \to 0$ limit, the six masses are
+$\{a_1, a_2, a_3, d_1, d_2, d_3\}$ with the orderings
+(\ref{eq:direct_order})--(\ref{eq:inverse_order}).
+
+\begin{theorem}[Interleaving]
+The six unmixed masses interleave as
+\begin{equation}
+  d_1 > a_3 > d_2 > a_2 > d_3 > a_1
+  \label{eq:ladder}
+\end{equation}
+if and only if
+\begin{equation}
+  \max\!\bigl(q_1^2 q_3^2,\; q_2^4\bigr)
+  \;<\; \frac{\nu}{\mu}
+  \;<\; q_2^2\,q_3^2\,.
+  \label{eq:window}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The five adjacent inequalities reduce to three independent conditions:
+\begin{alignat}{2}
+  d_1 > a_3 &\iff \nu/q_1^2 > \mu q_3^2
+  &&\iff \nu/\mu > q_1^2 q_3^2\,,\\
+  a_3 > d_2 &\iff \mu q_3^2 > \nu/q_2^2
+  &&\iff \nu/\mu < q_2^2 q_3^2\,,\\
+  d_2 > a_2 &\iff \nu/q_2^2 > \mu q_2^2
+  &&\iff \nu/\mu > q_2^4\,.
+\end{alignat}
+The remaining two ($a_2 > d_3$, $d_3 > a_1$) are implied by
+these (since $q_1 < q_2 < q_3$).
+The combined condition is~(\ref{eq:window}).
+Since $q_1^2 q_3^2 < q_2^2 q_3^2$ and $q_2^4 < q_2^2 q_3^2$
+(both using $q_2 < q_3$), the window is non-empty.
+\end{proof}
+
+The ladder~(\ref{eq:ladder}) alternates strictly between
+inverse and direct branches:
+\begin{equation}
+  \underbrace{d_1}_{\text{inv}},\;
+  \underbrace{a_3}_{\text{dir}},\;
+  \underbrace{d_2}_{\text{inv}},\;
+  \underbrace{a_2}_{\text{dir}},\;
+  \underbrace{d_3}_{\text{inv}},\;
+  \underbrace{a_1}_{\text{dir}}\,.
+  \label{eq:alternating}
+\end{equation}
+The seesaw structure is manifest: the \emph{heaviest}
+mass ($d_1$) comes from the \emph{inverse} branch acting on the
+\emph{lightest} charge ($q_1$), while the \emph{lightest}
+mass ($a_1$) comes from the \emph{direct} branch acting on
+the same charge.
+
+%----------------------------------------------------------------------
+\section{Numerical verification}
+\label{sec:numerics}
+
+We evaluate the interleaving condition using the
+physical charge values.
+The lepton angle $\alpha_{\rm lep} = 0.2222$~rad
+gives~\cite{letter_q2}
+\begin{equation}
+  q_1 = 0.01648\,,\quad
+  q_2 = 0.23686\,,\quad
+  q_3 = 0.97140\,.
+  \label{eq:charges}
+\end{equation}
+Following the companion letter's branch assignments
+(top on inverse, bottom on direct),
+we fix $\mu = m_b/q_3^2 = 4430\MeV$ and
+$\nu = m_t q_1^2 = 46.8\MeV$.  The window
+condition~(\ref{eq:window}) reads
+\begin{equation}
+  \max(2.56 \times 10^{-4},\; 3.15 \times 10^{-3})
+  < \underbrace{\frac{\nu}{\mu}}_{= 1.06 \times 10^{-2}}
+  < 5.29 \times 10^{-2}\,,
+\end{equation}
+which is satisfied.  The resulting ladder is:
+
+\begin{table}[h]
+\centering
+\caption{The interleaved mass ladder from 3~families $\times$ 2~branches.
+  All masses in MeV.  SM identifications are tentative for the
+  intermediate entries.}
+\label{tab:ladder}
+{\small
+\begin{tabular}{llrl}
+  \toprule
+  Label & Branch & Mass [MeV] & SM candidate \\
+  \midrule
+  $d_1 = \nu/q_1^2$ & inverse & $172\,400$ & top \\
+  $a_3 = \mu q_3^2$ & direct  & $4\,180$   & bottom \\
+  $d_2 = \nu/q_2^2$ & inverse & $835$      & charm (shifted) \\
+  $a_2 = \mu q_2^2$ & direct  & $249$      & strange (shifted) \\
+  $d_3 = \nu/q_3^2$ & inverse & $50$       & $\chi$ (tail) \\
+  $a_1 = \mu q_1^2$ & direct  & $1.2$      & $\approx 0$ \\
+  \bottomrule
+\end{tabular}}
+\end{table}
+
+The top and bottom entries match the SM by construction
+($\mu$ and $\nu$ are fixed from them).
+The intermediate entries $d_2 = 835\MeV$ and $a_2 = 249\MeV$
+should be compared with $m_c = 1273\MeV$ and $m_s = 93.5\MeV$.
+The sum rule provides a non-trivial test:
+\begin{equation}
+  T_2 = \mu q_2^2 + \frac{\nu}{q_2^2}
+  = 249 + 835 = 1084\MeV\,,
+  \label{eq:sum_rule}
+\end{equation}
+to be compared with $m_c + m_s = 1366\MeV$ (a $21\%$ tension).
+The individual entries fare worse:
+$d_2/m_c = 0.66$ and $a_2/m_s = 2.66$.
+The residual quartic~(\ref{eq:quartic}) can redistribute
+$T_2$ between the two eigenvalues, but these $\mathcal{O}(1)$
+individual shifts indicate that quantitative agreement
+at the per-quark level requires either
+the quark-sector angle shift (option~ii of the Discussion)
+or a non-perturbative treatment of the quartic mixing.
+The ordering $d_2 > a_2$ (charm above strange) is robust
+since it depends only on the interleaving
+condition~(\ref{eq:window}), not on the individual values.
+
+The waterfall diagnostic on the physical quark masses is:
+
+\begin{table}[h]
+\centering
+\caption{The waterfall: Koide ratio for sliding windows
+  of three consecutive quark masses.  Signs refer to the
+  argument of $K$:
+  $K(\pm\sqrt{x_1}, \pm\sqrt{x_2}, \pm\sqrt{x_3})$.
+  PDG~2024 values~\cite{PDG:2024}.}
+\label{tab:waterfall}
+{\small
+\begin{tabular}{llcc}
+  \toprule
+  Window & Signs & $K$ & $\delta K$ \\
+  \midrule
+  $(t, b, c)$ & $(+,+,+)$ & $0.6692$ & $+0.37\%$ \\
+  $(b, c, -s)$ & $(+,+,-)$ & $0.6747$ & $+1.20\%$ \\
+  $(c, s, 0)$ & $(+,+,+)$ & $0.6646$ & $-0.31\%$ \\
+  $(s, 0, \chi)$ & $(+,+,+)$ & $0.6649$ & $-0.27\%$ \\
+  \bottomrule
+\end{tabular}}
+\end{table}
+
+\noindent The last two windows use the zero-mass limit:
+$K(a, b, 0) = 2/3$ if and only if
+$a/b = (2 \pm \sqrt{3})^2 = R^{\pm 1}$,
+where $R = (2+\sqrt{3})^2 \approx 13.928$.
+The ratios $m_c/m_s = 13.63$ ($R$: $-2.1\%$) and
+$m_s/(m_u{+}m_d) = 13.68$ ($R$: $-1.8\%$) are both
+close to~$R$.
+
+%----------------------------------------------------------------------
+\section{The sign flip}
+\label{sec:sign}
+
+The second window in the
+ladder~(\ref{eq:alternating}) is
+$(a_3, d_2, a_2)$---two direct entries and one inverse.
+In the Koide diagnostic, $\sqrt{m}$ maps to:
+\begin{equation}
+  \sqrt{a_j} = \sqrt{\mu}\,q_j\,,\qquad
+  \sqrt{d_j} = \frac{\sqrt{\nu}}{q_j}\,.
+  \label{eq:sqrt_branches}
+\end{equation}
+In a pure-branch window, all three $\sqrt{m_k}$ scale the
+same way with the charges and the sum is controlled by
+the normalisation $\sum q_k = \sqrt{3/2}$.
+In a mixed window the two branches contribute different
+functions of the charges; a relative sign is needed
+to obtain $K \approx 2/3$.
+
+\paragraph{The sign assignment is empirical.}
+The observed sign pattern---negative on $s$ in
+$K(b, c, -s)$---does not coincide with the
+minority-branch member ($d_2 = $ charm, inverse).
+A simple ``mark the inverse member'' rule would
+predict $K(b, -c, s)$, which gives $K \approx 3.7$.
+The correct sign assignment therefore carries
+information beyond the zeroth-order branch
+identification; it likely reflects the
+quartic redistribution~(\ref{eq:quartic}) that
+shifts the unmixed values toward the physical
+masses, reassigning the effective branch character
+of the intermediate entries.
+We regard the sign pattern as a constraint on the
+mixing, not a prediction of the present analysis.
+
+%----------------------------------------------------------------------
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{What the interleaving achieves.}
+The theorem establishes that 3~families $\times$ 2~branches
+produce a 6-rung descending ladder, with the seesaw
+inversion $d_1 = \nu/q_1^2 \gg a_3 = \mu q_3^2$
+identifying the top quark as the \emph{inverse} of the lightest
+family charge.  The interleaving extends the pure-sector
+Koide relations to the full quark spectrum by mixing
+both branches in each window.  The $\mathcal{N}{=}1$ theory already contains both branches
+(direct for leptons, inverse for down quarks in the companion
+letter); the emergent doublet structure adds the
+\emph{residual quartic coupling}~(\ref{eq:quartic}) between
+the branches, which controls the mixing and deviations
+in the waterfall windows.
+
+\paragraph{The sum-rule tension.}
+The $21\%$ mismatch of $T_2$ (Eq.~\ref{eq:sum_rule})
+is not a failure of the interleaving---which is
+about ordering, not absolute values---but a measure of
+the residual quartic~(\ref{eq:quartic}).
+Two resolutions are possible:
+\begin{enumerate}
+\item The quartic redistribution at finite $g^2/\mu_\Phi$
+  shifts the eigenvalues away from the unmixed $a_i$, $d_i$.
+  The correction~(\ref{eq:correction}) is family-dependent
+  through $M_i \propto 1/q_i^2$.
+\item A quark-sector angle $\alpha_q \neq \alpha_{\rm lep}$
+  (1~extra parameter), changing the charge ratios.
+  This option has independent support from the CKM
+  angle shift $\Delta\alpha = \arctan(\pi/84)$~\cite{letter_q2}.
+\end{enumerate}
+Option~(ii) is more economical and testable:
+it predicts that the quark waterfall and the CKM matrix
+are controlled by the \emph{same} angle offset.
+
+\paragraph{Why the constraint surface alone is insufficient.}
+The Koide condition $K = 2/3$ for a mixed window
+$(d_i, a_j, d_k)$ or $(a_j, d_k, a_\ell)$ reduces to a
+quadratic equation in $r = \sqrt{\nu/\mu}$, whose coefficients
+depend only on the charges.  There are four windows but only
+one free parameter~$r$, so the system is generically overconstrained.
+Explicit computation confirms that no value of~$r$ satisfies
+$K = 2/3$ in all four windows simultaneously
+(the minimum of $\max_w |\delta K_w|$ is~$\sim\!7\%$).
+In particular, the pure-sector identity $\sum q_i^2 / (\sum q_i)^2 = 2/3$
+guarantees $K = 2/3$ for the direct triple, but the mixed windows require
+both the quartic redistribution and the quark-sector angle shift to reach
+the observed percent-level agreement.%
+\footnote{At each boundary of the interleaving window
+($\nu/\mu = q_i^2 q_j^2$, etc.), exactly one sliding window
+achieves $K \approx 2/3$; the four boundary values cycle through
+the four windows.}%
+\footnote{[TO BE REMOVED] At the permutation point
+$\nu/\mu = q_1^2 q_2^2$, the unpaired mass is
+$d_3 = \mu(q_1 q_2/q_3)^2 = 0.072\MeV$; a seesaw
+$(d_3)^2/\Lambda_F = (0.072)^2/102 \approx 0.05\,\mathrm{eV}
+\approx m_\nu(\mathrm{atm})$, with $\Lambda_F$ the family
+confinement scale.  Single-number coincidence at a non-physical
+$\rho$ (ratio $\rho_{\rm phys}/\rho_{\rm perm} \approx 694$).}
+
+\paragraph{Hierarchy of deviations.}
+By Eq.~(\ref{eq:correction}), the quartic correction
+$\delta M_i/M_i \propto 1/m_i$ is family-dependent:
+the heaviest family ($q_3 \approx 1$) is least perturbed.
+This is consistent with the waterfall pattern in
+Table~\ref{tab:waterfall}: the windows involving the
+heaviest quarks---$(t,b,c)$ at $0.37\%$---are
+closer to $K = 2/3$ than those involving lighter
+quarks---$(b,c,-s)$ at $1.2\%$.
+
+\paragraph{Look-elsewhere effect.}
+The waterfall involves four overlapping windows
+(consecutive triples from a fixed ordering), each
+with a sign choice (up to $2^2 = 4$ independent
+patterns per triple after absorbing the overall sign).
+A crude trials estimate is
+$\binom{6}{3} \times 4 = 80$ for a single window;
+since the four windows share quarks and are not
+independent, the effective number of independent
+trials is smaller than $80^4$.
+In the companion letter~\cite{letter_q2} a systematic
+Monte Carlo analysis gives $p \approx 1/21\,000$ for
+obtaining four windows at or below the observed deviations
+from random mass spectra, confirming that the pattern is
+unlikely to be accidental.
+
+\paragraph{No new charges.}
+The interleaving uses the \emph{same} three family charges
+$(q_1, q_2, q_3)$ for both branches.
+The doublet structure does not introduce new
+charge eigenvalues; it doubles the mass spectrum by
+providing two eigenvalues per charge.
+The waterfall is a distorted ``triplet~$\times$~2,''
+not a many-level hierarchy.
+
+%----------------------------------------------------------------------
+\section{Summary}
+
+We have shown:
+\begin{enumerate}
+\item The direct ($m = \mu q^2$) and inverse ($\hat{m} = \nu/q^2$)
+  branches of the family gauge theory have \emph{opposite}
+  mass orderings in charge (Section~\ref{sec:branches}).
+\item Both branches emerge from the confined spectrum's
+  composite doublet $(M_i, \adj(M)_i)$, which has the
+  mathematical structure of an $\mathcal{N}{=}2$
+  hypermultiplet.  An effective quartic
+  $\propto g^2/\mu_\Phi$ couples the branches
+  and controls the waterfall deviations
+  (Section~\ref{sec:N2}).
+\item The six unmixed masses automatically interleave into a
+  descending ladder when $\nu/\mu$ lies in a calculable
+  window; the SM quark masses satisfy this condition
+  (Section~\ref{sec:interleaving}).
+\item The sign flip in $K(b,c,-s)$ signals the branch
+  mismatch in a mixed window; the specific sign assignment
+  constrains the quartic mixing
+  (Section~\ref{sec:sign}).
+\end{enumerate}
+The interleaving is the observable signature of
+the composite doublet structure: it produces the up-type
+quark sector alongside the down-type sector from a single
+$\SU(3)_F$ gauge theory, using the same three family charges.
+Quantitative agreement with the full SM quark spectrum
+requires either family-dependent mixing or a
+quark-sector angle shift, both testable predictions.
+
+\paragraph*{Acknowledgments.}
+During the preparation of this work the author used Claude
+(Anthropic) for algebraic verification, numerical checks,
+and drafting assistance.
+The author reviewed and edited all content and takes full
+responsibility for the publication.
+
+\begin{thebibliography}{99}
+
+\bibitem{Koide:1983qe}
+  Y.~Koide,
+  Phys.\ Lett.\ B \textbf{120}, 161 (1983).
+
+\bibitem{Rivero:2005}
+  A.~Rivero,
+  arXiv:hep-ph/0505220 (2005).
+
+\bibitem{Zenczykowski:2012}
+  P.~Zenczykowski,
+  Phys.\ Rev.\ D \textbf{86}, 117303 (2012).
+
+\bibitem{letter_q2}
+  A.~Rivero, ``Quadratic charge--mass relation from gauged
+  family symmetry,'' companion letter (2025).
+
+\bibitem{SeibergWitten:1994a}
+  N.~Seiberg and E.~Witten,
+  Nucl.\ Phys.\ B \textbf{426}, 19 (1994);
+  \textbf{431}, 484 (1994).
+
+\bibitem{PDG:2024}
+  S.~Navas \textit{et al.} (Particle Data Group),
+  Phys.\ Rev.\ D \textbf{110}, 030001 (2024).
+
+\bibitem{APS:1997}
+  P.C.~Argyres, M.R.~Plesser, and A.D.~Shapere,
+  Nucl.\ Phys.\ B \textbf{483}, 172 (1997),
+  arXiv:hep-th/9705069.
+
+\bibitem{Fayet:1976}
+  P.~Fayet,
+  Nucl.\ Phys.\ B \textbf{113}, 135 (1976).
+
+\bibitem{Fayet:1977}
+  P.~Fayet,
+  Phys.\ Lett.\ B \textbf{69}, 489 (1977).
+
+\bibitem{CST:2011}
+  C.~Cs\'aki, Y.~Shirman, and J.~Terning,
+  Phys.\ Rev.\ D \textbf{84}, 095011 (2011),
+  arXiv:1106.3074.
+
+\bibitem{Seiberg:1994}
+  N.~Seiberg,
+  Nucl.\ Phys.\ B \textbf{435}, 129 (1995),
+  arXiv:hep-ph/9411149.
+
+\bibitem{CSS:1996}
+  C.~Cs\'aki, M.~Schmaltz, and W.~Skiba,
+  Phys.\ Rev.\ Lett.\ \textbf{78}, 799 (1997),
+  arXiv:hep-th/9610139.
+
+\bibitem{IS:1995}
+  K.~Intriligator and N.~Seiberg,
+  Nucl.\ Phys.\ Proc.\ Suppl.\ \textbf{45BC}, 1 (1996),
+  arXiv:hep-ph/9509227.
+
+\end{thebibliography}
+
+\end{document}

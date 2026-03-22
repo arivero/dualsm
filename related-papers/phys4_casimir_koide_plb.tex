@@ -1,0 +1,429 @@
+% casimir_koide_plb.tex -- standalone letter for PLB
+\documentclass[final,3p,times,twocolumn]{elsarticle}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue]{hyperref}
+\journal{Physics Letters B}
+
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\UU}{\mathrm{U}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\adj}{\operatorname{adj}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\GeV}{\,\mathrm{GeV}}
+\newcommand{\MeV}{\,\mathrm{MeV}}
+\newcommand{\Nc}{N_{\!c}}
+\newcommand{\Nf}{N_{\!f}}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{The Koide ratio as a Casimir invariant:\\
+a Diophantine selection of three families}
+
+\author{A.~Rivero}
+\address{Departamento de F\'{\i}sica Te\'orica, Universidad de
+Zaragoza, 50009 Zaragoza, Spain}
+\ead{rivero@unizar.es}
+
+\begin{abstract}
+The Koide ratio $K = \sum m_i / (\sum\sqrt{m_i})^2$
+equals $2/3$ for charged leptons to $0.001\%$.
+We show that this value is the mean-square weight
+$\langle J_3^2\rangle$ of the principal $\mathfrak{sl}(2)$
+subalgebra of $\mathfrak{sl}(N)$ evaluated in the fundamental
+representation, and that the equality
+$K_N = \langle J_3^2\rangle$ holds if and only if $N = 3$.
+The condition reduces to the Diophantine equation
+$N(N^2 - 1) = 24$, whose unique positive integer solution
+selects three families.
+The operator connecting the two natural mass branches of an
+$\SU(3)$ confining theory---the direct ($\adj(M) \propto m$) and
+the inverse ($M \propto 1/m$)---is identified as the spin-2
+component of $\mathrm{End}(V)$ under the same principal embedding,
+linking the mass structure to Kostant's
+exponents of $\mathfrak{sl}(3)$.
+\end{abstract}
+
+\begin{keyword}
+Koide formula \sep family replication \sep
+principal $\mathfrak{sl}(2)$ \sep Casimir invariant
+\end{keyword}
+
+\end{frontmatter}
+
+
+%======================================================================
+\section{Introduction}
+%======================================================================
+
+The charged-lepton mass ratio
+\begin{equation}
+  K \;\equiv\; \frac{m_e + m_\mu + m_\tau}
+  {\bigl(\sqrt{m_e} + \sqrt{m_\mu} + \sqrt{m_\tau}\bigr)^2}
+  \;=\; 0.666661
+  \label{eq:Kdef}
+\end{equation}
+was noted by Koide~\cite{Koide:1983} to lie within $0.001\%$
+of the value $2/3$.
+The precision is striking: among all triplets drawn from
+a random mass spectrum, the probability of this level
+of agreement is $p < 10^{-5}$~\cite{Rivero:2024}.
+Numerous models have been proposed to explain the
+relation~\cite{Koide:1983,Sumino:2009,Rivero:2024},
+but none has derived the value $2/3$ from first principles
+without introducing it as an input.
+
+In this Letter we observe that $2/3$ is a
+representation-theoretic invariant: it is the
+\emph{mean-square weight} of the fundamental representation
+of $\SU(N)$ under its principal $\mathfrak{sl}(2)$
+subalgebra~\cite{Kostant:1959}, and that the equality with
+the Koide ratio holds \emph{if and only if} $N = 3$.
+This provides a Diophantine selection of three families that
+is independent of any dynamical model.
+
+We also show that the operator connecting the direct and
+inverse mass branches of an $\SU(3)$ confining
+theory~\cite{Seiberg:1995,Rivero:2024} is the \emph{spin-2}
+component of $\mathrm{End}(V)$ under the principal embedding,
+establishing a connection between the Koide mass structure and
+Kostant's exponents of $\mathfrak{sl}(3)$.
+
+
+%======================================================================
+\section{The Koide ratio for $\UU(N)$}
+\label{sec:KN}
+%======================================================================
+
+Let $\hat{z}_i = z_0 + z_i$ ($i = 1, \ldots, N$) be the signed
+charges of a $\UU(N)$ family symmetry, with $z_0$ the
+$\UU(1)$ generator and $z_i$ the $\SU(N)$ Cartan components.
+Canonical normalisation gives:
+\begin{equation}
+  \sum_{i=1}^{N} z_i = 0\,,\qquad
+  \sum_{i=1}^{N} z_i^2 = \frac{1}{2}\,,\qquad
+  z_0 = \frac{1}{\sqrt{2N}}\,.
+  \label{eq:u3_norm}
+\end{equation}
+
+\begin{theorem}[Generalised Koide ratio]
+\label{thm:KN}
+For the monomial mass law $m_i = \mu\,\hat{z}_i^2$ and the
+ratio
+\begin{equation}
+  K_N \;\equiv\;
+  \frac{\sum_{i=1}^N \hat{z}_i^2}
+  {\bigl(\sum_{i=1}^N \hat{z}_i\bigr)^2}\,,
+\end{equation}
+one has $K_N = 2/N$, independently of the Cartan direction.
+\end{theorem}
+
+\begin{proof}
+Using~\eqref{eq:u3_norm}:
+$\sum \hat{z}_i^2 = N z_0^2 + \sum z_i^2 = \tfrac{1}{2} +
+\tfrac{1}{2} = 1$
+and $\sum \hat{z}_i = N z_0 = \sqrt{N/2}$,
+so $K_N = 1/(N/2) = 2/N$.
+\end{proof}
+
+For $N = 3$: $K_3 = 2/3$, recovering the Koide value as
+an algebraic identity of $\UU(3)$ normalisation.
+This is the $n = 2$ uniqueness
+theorem~\cite{Koide:1983,Rivero:2024}: among monomial mass
+functions $m \propto \hat{z}^n$, only $n = 2$ gives a
+direction-independent ratio.
+
+
+%======================================================================
+\section{The principal $\mathfrak{sl}(2)$ and its Casimir}
+\label{sec:sl2}
+%======================================================================
+
+Every complex simple Lie algebra $\mathfrak{g}$ contains a
+distinguished three-dimensional simple subalgebra, the
+\emph{principal} $\mathfrak{sl}(2)$, defined (up to conjugacy)
+as the unique $\mathfrak{sl}(2)$ for which the fundamental
+representation of $\mathfrak{g}$ is
+irreducible~\cite{Kostant:1959}.
+
+For $\mathfrak{g} = \mathfrak{sl}(N)$, the fundamental
+$\mathbf{N}$ is the spin-$j$ representation of the principal
+$\mathfrak{sl}(2)$ with
+\begin{equation}
+  j = \frac{N-1}{2}\,,\qquad
+  \dim = 2j + 1 = N\,.
+\end{equation}
+The weight operator $J_3$ has eigenvalues
+$m = j, j{-}1, \ldots, -j$.
+The quadratic Casimir is $C_2 = j(j+1)$, and the
+mean-square weight is
+\begin{equation}
+  \langle J_3^2 \rangle
+  \;\equiv\; \frac{\Tr(J_3^2)}{N}
+  \;=\; \frac{1}{N}\sum_{m=-j}^{j} m^2
+  \;=\; \frac{j(j+1)(2j+1)}{3N}\,.
+  \label{eq:J3sq}
+\end{equation}
+Using $j = (N{-}1)/2$ and $2j{+}1 = N$:
+\begin{equation}
+  \langle J_3^2 \rangle
+  = \frac{(N{-}1)(N{+}1)}{12}
+  = \frac{N^2 - 1}{12}\,.
+  \label{eq:J3sq_N}
+\end{equation}
+
+For $N = 3$: $\langle J_3^2 \rangle = 8/12 = 2/3$.
+
+
+%======================================================================
+\section{The Diophantine condition}
+\label{sec:diophantine}
+%======================================================================
+
+Setting $K_N = \langle J_3^2 \rangle$:
+\begin{equation}
+  \frac{2}{N} = \frac{N^2 - 1}{12}
+  \quad\Longleftrightarrow\quad
+  N(N^2 - 1) = 24\,.
+  \label{eq:diophantine}
+\end{equation}
+Factoring:
+\begin{equation}
+  N(N-1)(N+1) = 24 = 2 \times 3 \times 4\,.
+\end{equation}
+The left-hand side is the product of three consecutive integers
+centred at $N$.
+The only positive integer solution is
+$\boxed{N = 3}$
+(since $2 \times 3 \times 4 = 24$ and $3 \times 4 \times 5 = 60
+> 24$).
+
+Equivalently, the factored form
+$(N - 3)(N^2 + 3N + 8) = 0$
+has discriminant $\Delta = 9 - 32 < 0$ for the quadratic factor,
+so there are no other real roots.
+
+\paragraph{Physical interpretation.}
+At $N = 3$ and \emph{only} $N = 3$, the representation dimension
+$2j + 1 = N$ coincides with the algebra dimension
+$\dim\,\mathfrak{sl}(2) = 3$.
+The Casimir per state ($C_2/N$) then equals the Casimir per
+generator ($C_2/3$), giving
+\begin{equation}
+  \frac{C_2}{N} = \frac{C_2}{3}
+  = \langle J_3^2 \rangle = K = \frac{2}{3}\,.
+\end{equation}
+This is the representation-theoretic content of the Koide
+value: $K = 2/3$ is the statement that the fundamental
+representation of $\SU(3)$ \emph{is} the adjoint of its
+principal $\mathfrak{sl}(2)$.
+
+
+%======================================================================
+\section{The spin-2 operator and the mass branches}
+\label{sec:spin2}
+%======================================================================
+
+In $\SU(3)$ SQCD with $\Nf = \Nc = 3$, the quantum-modified
+constraint $\det M = \Lambda^6$~\cite{Seiberg:1995} produces
+two holomorphic mass branches from one meson
+matrix~\cite{Rivero:2024}:
+\begin{equation}
+  \langle M_i \rangle \propto \frac{1}{m_i}\,,\qquad
+  \adj(M)_i \propto m_i\,.
+  \label{eq:branches}
+\end{equation}
+Define the mixing operator $R$ by
+\begin{equation}
+  R_{ij} = \langle M_k \rangle
+  \quad (k \neq i, j;\; i \neq j)\,,\qquad
+  R_{ii} = 0\,.
+  \label{eq:Rdef}
+\end{equation}
+This operator satisfies the exact identity
+\begin{equation}
+  \boxed{R \cdot \mathbf{M} = 2\,\adj(\mathbf{M})\,,}
+  \label{eq:RM}
+\end{equation}
+where $\mathbf{M} = (M_1, M_2, M_3)^T$ is the meson VEV vector.
+On the constraint surface, the Cayley--Hamilton identity gives:
+\begin{equation}
+  R^3 = \Tr(D^2)\,R + 2\Lambda^6\,I\,,
+  \label{eq:cubic}
+\end{equation}
+where $D = \diag(M_1, M_2, M_3)$.
+After conjugation by $D$:
+\begin{equation}
+  D\,R\,D = \Lambda^6\,(J - I)\,,
+  \label{eq:DRD}
+\end{equation}
+where $J$ is the $3 \times 3$ all-ones matrix.
+The right-hand side is the \emph{democratic matrix},
+independent of the mass hierarchy: the individual masses
+are entirely absorbed by the $D$ conjugation.
+
+\paragraph{$R$ as a spin-2 operator.}
+Under the principal $\mathfrak{sl}(2)$ of
+Section~\ref{sec:sl2}, the endomorphism algebra
+$\mathrm{End}(V)$ for $V$ = spin-1 decomposes as
+\begin{equation}
+  \mathrm{End}(\text{spin-1})
+  = \text{spin-0} \oplus \text{spin-1} \oplus \text{spin-2}\,.
+\end{equation}
+The three components correspond to:
+\begin{itemize}
+  \item \textbf{Spin-0} (dim 1): $\propto I$ (trace part).
+    Since $\Tr R = 0$, this is absent.
+  \item \textbf{Spin-1} (dim 3): antisymmetric matrices.
+    Since $R = R^T$, this is absent.
+  \item \textbf{Spin-2} (dim 5): symmetric traceless matrices.
+    \textbf{This is $R$.}
+\end{itemize}
+Therefore $R$ is the \emph{unique} spin-2 component of
+$\mathrm{End}(V)$ under the principal embedding.
+
+In Kostant's theory~\cite{Kostant:1959}, the adjoint
+representation of $\mathfrak{sl}(3)$ decomposes under the
+principal $\mathfrak{sl}(2)$ as $\mathbf{8} = \mathbf{3}
+\oplus \mathbf{5}$, with the spin content determined by the
+exponents $\{m_1, m_2\} = \{1, 2\}$ of $\mathfrak{sl}(3)$.
+The spin-1 piece ($\mathbf{3}$) \emph{is} the principal
+$\mathfrak{sl}(2)$ itself; the spin-2 piece ($\mathbf{5}$) is
+the complementary subspace.
+The operator $R$ lives in this exponent-2 representation:
+it is the ``second exponent'' of $\mathfrak{sl}(3)$.
+
+
+%======================================================================
+\section{Comparison with other $N = 3$ criteria}
+\label{sec:comparison}
+%======================================================================
+
+The Casimir--Koide criterion joins four previously known
+conditions that each uniquely select $N = 3$:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Criterion & Equation & Solution \\
+\midrule
+Diophantine~\cite{Rivero:2024}
+  & $rs = 2N$, $r(r{+}1)/2 = 2N$ & $N = 3$ \\
+Discriminant
+  & $(N{+}2)^2 - 4 = N(2N{+}1)$ & $N = 3$ \\
+Binomial
+  & $\binom{3N}{N} = (N{+}1) \cdot N(2N{+}1)$ & $N = 3$ \\
+CP-phase
+  & $N{+}4 = 2N{+}1$ & $N = 3$ \\
+\textbf{Casimir--Koide}
+  & $\mathbf{N(N^2{-}1) = 24}$ & $\mathbf{N = 3}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The first four arise from compositeness counting, algebraic
+geometry, 11d SUGRA, and the CKM phase, respectively.
+The Casimir--Koide criterion is the most algebraically natural:
+it identifies the Koide value $2/3$ with a standard invariant of
+the principal $\mathfrak{sl}(2)$ embedding, and the $N = 3$
+selection follows from the coincidence of the representation and
+algebra dimensions.
+
+
+%======================================================================
+\section{Discussion}
+\label{sec:discussion}
+%======================================================================
+
+The result presented here is purely algebraic: it connects
+the Koide ratio (an empirical mass relation) to the Casimir
+of the principal $\mathfrak{sl}(2)$ (a canonical object in
+Lie theory) through a Diophantine equation that selects $N = 3$.
+No dynamical model is assumed beyond the
+$\UU(N)$ charge structure and the quadratic mass law
+$m_i = \mu\,\hat{z}_i^2$.
+
+The spin-2 identification of the branch-mixing operator $R$
+adds a structural layer: in the confining $\SU(3)$ theory, the
+operator that connects the direct (lepton-like) and inverse
+(quark-like) mass branches is not an arbitrary matrix but the
+unique spin-2 irreducible component of $\mathrm{End}(V)$ under
+Kostant's principal embedding.
+The democratic structure $DRD = \Lambda^6(J - I)$ shows that
+the $R$ operator, when expressed in the canonical basis set by
+the meson VEVs, becomes mass-independent---the hierarchy is
+entirely encoded in the conjugation by $D$.
+
+Two open questions deserve mention.
+First, the spin-2 nature of $R$ is suggestive of a gravitational
+connection: in 11-dimensional supergravity, the metric $g_{MN}$
+is a spin-2 field, while the 3-form $C_3$ is spin-1.
+The composites of the $\SU(3)$ theory (mesons coupling to $C_3$,
+baryons coupling to $C_6$) are spin-1 objects in the M-theory
+lift~\cite{HananyWitten:1997,Rivero:2024}; the branch-mixing
+operator $R$ is spin-2, matching the graviton sector.
+Whether this is a structural connection or a numerical
+coincidence remains to be determined.
+
+Second, the cubic algebra~\eqref{eq:cubic} differs from the
+quadratic relation $J^2 = -1$ that characterises $\SU(2)_R$ in
+$\mathcal{N} = 2$ supersymmetry.
+The emergent structure is therefore not standard $\mathcal{N} = 2$
+but a cubic deformation controlled by the mass hierarchy
+($\Tr D^2$) and the quantum constraint ($\Lambda^6$).
+Whether this cubic defines a consistent deformed superalgebra is
+an open problem.
+
+
+%======================================================================
+\section*{Acknowledgments}
+%======================================================================
+
+The author thanks M.~Porter for sustained theoretical discussions
+over 2011--2024 that identified Seiberg duality and the mesino
+interpretation as the mechanism underlying the sBootstrap,
+and C.~Brannen for the circulant mass matrix parametrisation.
+During the preparation of this work the author used Claude
+(Anthropic) for algebraic verification and numerical checks.
+The author reviewed and edited all content and takes full
+responsibility for the publication.
+
+
+%======================================================================
+\begin{thebibliography}{99}
+
+\bibitem{Koide:1983}
+  Y.~Koide,
+  Phys.\ Lett.\ B \textbf{120}, 161 (1983).
+
+\bibitem{Sumino:2009}
+  Y.~Sumino,
+  JHEP \textbf{05}, 075 (2009),
+  arXiv:0812.2103.
+
+\bibitem{Rivero:2024}
+  A.~Rivero,
+  Eur.\ Phys.\ J.\ C \textbf{84}, 1058 (2024),
+  arXiv:2407.05397.
+
+\bibitem{Kostant:1959}
+  B.~Kostant,
+  Amer.\ J.\ Math.\ \textbf{81}, 973 (1959).
+
+\bibitem{Seiberg:1995}
+  N.~Seiberg,
+  Nucl.\ Phys.\ B \textbf{435}, 129 (1995),
+  arXiv:hep-ph/9411149.
+
+\bibitem{HananyWitten:1997}
+  A.~Hanany and E.~Witten,
+  Nucl.\ Phys.\ B \textbf{492}, 152 (1997),
+  arXiv:hep-th/9611230.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,1248 @@
+% main.tex -- Emergent N=2 structure in the sBootstrap
+\documentclass[aps,prd,twocolumn,showpacs,preprintnumbers,superscriptaddress,floatfix]{revtex4-2}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\UU}{\mathrm{U}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\Sp}{\mathrm{Sp}}
+\newcommand{\Nf}{N_{\!f}}
+\newcommand{\Nc}{N_{\!c}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\adj}{\mathrm{adj}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\keV}{\,\mathrm{keV}}
+\newcommand{\MeV}{\,\mathrm{MeV}}
+\newcommand{\GeV}{\,\mathrm{GeV}}
+\newcommand{\TeV}{\,\mathrm{TeV}}
+\newcommand{\ie}{i.e.\@}
+\newcommand{\eg}{e.g.\@}
+\newcommand{\zch}{\mathfrak{z}}
+
+\begin{document}
+
+\title{Emergent $\mathcal{N}{=}2$ structure in the sBootstrap:\\
+  Cayley--Hamilton identity, Seiberg--Witten curve, and M-theory lift}
+
+\author{A.~Rivero}
+\email{rivero@unizar.es}
+\affiliation{Departamento de F\'{\i}sica Te\'orica, Universidad de Zaragoza, 50009 Zaragoza, Spain}
+
+\date{\today}
+
+\begin{abstract}
+In the sBootstrap framework, Standard Model fermions are composites
+of a confining $\SU(3)_F$ family gauge theory with $\Nf = \Nc = 3$.
+The confined spectrum automatically pairs each meson $M_i$ with its
+adjugate $\adj(M)_i$, producing the mathematical structure of an
+$\mathcal{N}{=}2$ hypermultiplet---emergent from confinement, not
+imposed in the UV\@.
+We show that this emergent structure is algebraically precise, given
+the charge-squared postulate $m = \mu\zch^2$:
+the cubic algebra $R^3 = \Tr(D^2)\,R + 2\det(D)\,I$ satisfied by
+the meson-derived operator~$R$ is identically the Cayley--Hamilton
+equation of the $\mathcal{N}{=}2$ adjoint scalar~$\Phi$, with
+Coulomb-branch moduli $u_2 = \Tr(D^2)$ and $u_3 = 2\det(D)$.
+The Seiberg--Witten curve for $\SU(3)$ with $\Nf = 3$ at the Koide
+point is a smooth genus-2 surface; the Koide constraint reduces it
+to a one-parameter family in the Cartan angle, and the democratic
+limit exhibits a monopole singularity at $\Lambda = m$.
+In the M-theory lift, mesons are M2-branes and baryons are M5-branes;
+the involution $M \leftrightarrow \adj(M)$ has the structure of
+electromagnetic duality $C_3 \leftrightarrow C_6$, and the
+charge-squared mass law
+$m \propto \zch^2$ is the unique power compatible with
+direction-independent $K = 2/3$ precisely because $p = 2$ is the
+M2-brane worldvolume dimension.
+The $\mathcal{N}{=}2$ non-renormalisation theorems protect the
+K\"ahler metric at $O(\epsilon^2)$ where $\epsilon = m_e/m_\tau$,
+explaining the observed precision of the Koide relation.
+\end{abstract}
+
+\maketitle
+
+
+%======================================================================
+\section{Introduction}
+\label{sec:intro}
+%======================================================================
+
+The sBootstrap programme~\cite{Rivero:2024epjc} identifies Standard
+Model fermions with composites of a confining $\SU(3)_F$ family gauge
+theory: the fermionic components of mesons $M^i{}_j = Q^i\tilde{Q}_j$
+are leptons, while quarks enter through partial
+compositeness~\cite{Kaplan:1991dc}.
+The algebraic framework rests on a charge-squared mass law
+$m_i = \mu\,\zch_i^2$ derived from canonical $\UU(3)$ normalisation
+(Appendix~\ref{app:charges}), the Seiberg seesaw on the
+quantum-modified moduli space, and an interleaving theorem
+(Appendix~\ref{app:interleaving}) that produces the quark mass
+waterfall from direct and inverse branches.
+
+The confined spectrum of $\SU(3)$ SQCD with $\Nf = \Nc = 3$
+automatically produces, for each family~$i$, a pair of chiral
+multiplets $(M_i, \adj(M)_i)$ with conjugate electroweak quantum
+numbers.
+This pair has the mathematical structure of an $\mathcal{N}{=}2$
+hypermultiplet.
+The central claim of this paper is that this analogy is
+\emph{algebraically precise given the charge-squared postulate}
+$m_i = \mu\,\zch_i^2$: the cubic operator algebra satisfied by
+the meson-derived quantity~$R$ is identically the Cayley--Hamilton
+equation of the $\mathcal{N}{=}2$ adjoint scalar~$\Phi$, with
+Coulomb-branch moduli determined by the physical mass matrix.
+
+%% CRITICAL FRAMING per feedback_n2_emergent.md:
+The $\mathcal{N}{=}2$ structure discussed here is \emph{emergent}
+from confinement plus the adjugate identity.
+It is not a UV input: the UV theory is $\mathcal{N}{=}1$ SQCD,
+and there is no physical $\mathcal{N}{=}2$ supersymmetry at any
+energy scale.
+The ``hypermultiplet'' is the composite pair $(M_i, \adj(M)_i)$
+produced by confinement, and the ``adjoint $\Phi$'' is an auxiliary
+field that parametrises the inter-branch quartic coupling---not a
+propagating degree of freedom.
+
+The M-theory perspective clarifies why this works.
+In the Hanany--Witten brane construction~\cite{HananyWitten:1997},
+the gauge theory lives on D4-branes suspended between NS5-branes.
+Lifting to M-theory~\cite{Witten:1997sc}, the D4-branes become
+M5-branes wrapping a holomorphic curve~$\Sigma$; mesons are
+M2-branes ending on the M5 worldvolume, and baryons are wrapped
+M5-branes.
+The involution $M \leftrightarrow \adj(M)$ has the algebraic
+structure of electromagnetic duality
+$C_3 \leftrightarrow C_6$, exchanging M2 and M5 descriptions.
+The genus of~$\Sigma$ for $\SU(3)$ is~2, matching the two Cartan
+moduli, and the Seiberg--Witten prepotential is encoded in the
+period integrals of~$\Sigma$.
+
+\paragraph{Plan.}
+Section~\ref{sec:confined} reviews the confined spectrum and the
+adjugate mechanism.
+Section~\ref{sec:N2} develops the emergent $\mathcal{N}{=}2$
+structure: the hypermultiplet pairing, the quartic from the auxiliary
+adjoint, and both Higgs doublets from one meson.
+Section~\ref{sec:cubic} presents the cubic algebra and its
+identification with the Cayley--Hamilton equation.
+Section~\ref{sec:SW} analyses the Seiberg--Witten curve at the
+Koide point.
+Section~\ref{sec:Mtheory} gives the M-theory lift.
+Section~\ref{sec:discussion} discusses the implications and open
+questions.
+Technical details are collected in five appendices, including
+self-contained proofs of the charge-squared uniqueness theorem
+(Appendix~\ref{app:charges}) and the interleaving theorem
+(Appendix~\ref{app:interleaving}).
+
+
+%======================================================================
+\section{The confined spectrum and the adjugate}
+\label{sec:confined}
+%======================================================================
+
+We work with $\mathcal{N}{=}1$ $\SU(3)$ SQCD with
+$\Nf = \Nc = 3$ flavours of fundamentals~$Q^i$ and
+antifundamentals~$\tilde{Q}_i$.
+The UV superpotential includes diagonal mass deformations
+\begin{equation}
+  W_{\rm UV} \supset \sum_{i=1}^{3} m_i\,Q^i\tilde{Q}_i\,.
+  \label{eq:WUV}
+\end{equation}
+For $\Nf = \Nc$, the theory confines with a quantum-modified moduli
+space~\cite{Seiberg:1994bz,Csaki:1996zb,IntriligatorSeibergShenker:1995}.
+The IR degrees of freedom are mesons $M^i{}_j = Q^i\tilde{Q}_j$ and
+baryons $B$, $\tilde{B}$, subject to the quantum-modified constraint
+\begin{equation}
+  \det M - B\tilde{B} = \Lambda^6\,.
+  \label{eq:qmc}
+\end{equation}
+Implementing the constraint with a Lagrange multiplier~$X$:
+\begin{equation}
+  W_{\rm IR}
+  = X\bigl(\det M - B\tilde{B} - \Lambda^6\bigr)
+  + \Tr(m\,M)\,.
+  \label{eq:WIR}
+\end{equation}
+
+On the mesonic branch ($B = \tilde{B} = 0$), the $F$-term conditions
+with diagonal masses $m = \diag(m_1, m_2, m_3)$ yield
+\begin{equation}
+  \langle M_i\rangle = \frac{\Lambda^2\,P^{1/3}}{m_i}\,,
+  \qquad
+  P \equiv m_1 m_2 m_3\,,
+  \label{eq:Mvev}
+\end{equation}
+exhibiting the Seiberg seesaw: heavy electric masses produce small
+meson VEVs.
+The adjugate matrix
+\begin{equation}
+  \adj(M) \equiv (\det M)\,M^{-1} = \Lambda^6\,M^{-1}
+  \label{eq:adj}
+\end{equation}
+has VEVs $\langle\adj(M)_i\rangle \propto m_i$, with the
+\emph{opposite} hierarchy.
+The quantum constraint~\eqref{eq:qmc} implies that the involution
+\begin{equation}
+  M \longleftrightarrow \Lambda^{-2}\adj(M)
+  \label{eq:involution}
+\end{equation}
+is an exact $\mathbb{Z}_2$ symmetry of the mesonic-branch constraint
+surface.
+
+In the sBootstrap embedding~\cite{Rivero:2024epjc}, the meson
+matrix carries electroweak quantum numbers through the branching
+$\mathbf{3}_L \to \mathbf{2}_{-1/2} \oplus \mathbf{1}_{+1}$:
+\begin{equation}
+  M^{1,2}{}_i \sim (\mathbf{2}, -\tfrac{1}{2})\,,
+  \qquad
+  M^{3}{}_i \sim (\mathbf{1}, +1)\,,
+\end{equation}
+so that the 9~mesino fermions furnish $3L_i + 3e^c_i$---the
+complete SM lepton sector.
+The adjugate carries conjugate quantum numbers:
+\begin{equation}
+  \adj(M)^{1,2} \sim (\mathbf{2}, +\tfrac{1}{2}) = H_u\,,
+  \qquad
+  \adj(M)^{3} \sim (\mathbf{1}, -1)\,.
+  \label{eq:adj_EW}
+\end{equation}
+\textbf{Both MSSM Higgs doublets emerge from a single meson
+matrix:} $H_d = M^{1,2}$ and $H_u = \adj(M)^{1,2}$, with their
+ratio fixed by the Seiberg constraint rather than by an independent
+$\tan\beta$.
+
+
+%======================================================================
+\section{The emergent hypermultiplet}
+\label{sec:N2}
+%======================================================================
+
+\subsection{The composite doublet}
+
+In genuine $\mathcal{N}{=}2$
+theories~\cite{SeibergWitten:1994a,Fayet:1976}, each matter field
+sits in a hypermultiplet: a pair of $\mathcal{N}{=}1$ chirals
+$(\Phi, \tilde{\Phi})$ related by $\SU(2)_R$.
+In our $\mathcal{N}{=}1$ theory, the confined spectrum
+\emph{automatically} produces two chiral multiplets per family:
+\begin{equation}
+  (M_i, \;\adj(M)_i)
+  \qquad\text{per family } i = 1, 2, 3\,,
+\end{equation}
+with complementary quantum numbers~\eqref{eq:adj_EW}.
+This has the mathematical structure of a hypermultiplet---emergent
+from confinement plus the adjugate identity, not from UV symmetry.
+
+The $\mathbb{Z}_2$ involution~\eqref{eq:involution} is the discrete
+remnant of what would be a continuous $\SU(2)_R$ rotation in a
+genuine $\mathcal{N}{=}2$ theory.
+Whether this $\mathbb{Z}_2$ can be promoted to a continuous symmetry
+in any controlled limit is an open question
+(see Sec.~\ref{sec:discussion}).
+
+
+\subsection{The quartic from the auxiliary adjoint}
+
+The coupling between direct and inverse branches can be parametrised
+by introducing an auxiliary adjoint chiral field~$\Phi$
+(transforming as $\mathbf{8}$ of $\SU(3)_F$) with
+mass~$\mu_\Phi$ and the Yukawa coupling
+$W \supset \sqrt{2}\,g\,\tilde{Q}\,\Phi\,Q$~\cite{HMS:1997}.
+Integrating out~$\Phi$ via its $F$-term
+$F_\Phi = \sqrt{2}\,g\,\tilde{Q}Q + \mu_\Phi\Phi = 0$ gives
+\begin{equation}
+  W_{\rm quartic}
+  = -\frac{g^2}{\mu_\Phi}
+    \left[\Tr M^2
+    - \frac{1}{3}(\Tr M)^2\right].
+  \label{eq:quartic}
+\end{equation}
+The adjoint~$\Phi$ is \emph{not} a physical particle: it is a UV
+field integrated out below~$\mu_\Phi$, leaving only the quartic as
+its low-energy footprint.
+This is standard EFT decoupling---no different from the $W$ boson
+producing the Fermi interaction below~$M_W$.
+As $\mu_\Phi \to \infty$ the quartic vanishes and pure
+$\mathcal{N}{=}1$ SQCD is recovered.
+
+\paragraph{The Yukawa coupling.}
+In genuine $\mathcal{N}{=}2$ SUSY, the Yukawa coupling equals the
+gauge coupling: $y = \sqrt{2}\,g$~\cite{Fayet:1976,SeibergWitten:1994a}.
+The UV theory here is $\mathcal{N}{=}1$, where $y$ is a priori free.
+We \emph{adopt} $y = \sqrt{2}\,g$ as the simplest choice consistent
+with the emergent doublet structure.
+This is an assumption, not a derivation.
+If it holds, the Yukawa hierarchy is not a hierarchy of couplings
+but of VEVs (via the Seiberg seesaw).
+
+
+\subsection{K\"ahler protection}
+
+The emergent $\mathcal{N}{=}2$ structure provides a mechanism for
+the observed precision of the Koide relation
+$K(e,\mu,\tau) = 0.666661$ (deviation $\sim 10^{-5}$ from $2/3$).
+The charge-squared mass law $m_i = \mu\,\zch_i^2$ gives
+$K = 2/3$ as an algebraic identity independent of the K\"ahler
+metric~$Z_i$, but only if $Z_i$ is generation-universal.
+
+In a generic $\mathcal{N}{=}1$ theory, the K\"ahler metric
+receives generation-dependent radiative corrections that would
+spoil $K = 2/3$.
+However, in the $\mathcal{N}{=}2$ limit the K\"ahler potential is
+protected by the non-renormalisation theorem: the metric on the
+Higgs branch is one-loop exact~\cite{SeibergWitten:1994a}.
+The leading correction from $\mathcal{N}{=}2 \to \mathcal{N}{=}1$
+breaking is controlled by the small parameter
+\begin{equation}
+  \epsilon
+  \equiv \frac{m_e}{m_\tau}
+  \approx 2.9 \times 10^{-4}\,,
+\end{equation}
+which measures the distance from the
+Argyres--Douglas-like~\cite{ArgyresDouglas:1995} singular point
+where one adjoint eigenvalue vanishes.
+The loop-suppressed K\"ahler correction to the Koide ratio is
+\begin{equation}
+  \delta K
+  \sim \frac{g^2}{16\pi^2}\,\epsilon^2
+  \sim 10^{-7}\text{--}10^{-9}\,,
+  \label{eq:deltaK}
+\end{equation}
+where the additional $g^2/(16\pi^2)$ factor accounts for the
+gaugino--adjoint loop (Appendix~\ref{app:kahler}).
+This is consistent with, and well below, the observed
+$\delta K \sim 10^{-5}$.
+
+
+%======================================================================
+\section{The cubic algebra as Cayley--Hamilton}
+\label{sec:cubic}
+%======================================================================
+
+\subsection{The $R$ operator}
+
+Define the matrix
+\begin{equation}
+  R_{ij} \equiv \langle M_k\rangle\,,
+  \qquad \{i,j,k\} \text{ a permutation of } \{1,2,3\}\,,
+  \label{eq:Rdef}
+\end{equation}
+with $R_{ii} \equiv 0$ (the diagonal is excluded by construction).
+For diagonal meson VEVs, $R$ is off-diagonal with
+$R_{12} = R_{21} = \langle M_3\rangle$,
+$R_{13} = R_{31} = \langle M_2\rangle$,
+$R_{23} = R_{32} = \langle M_1\rangle$.
+From the vacuum~\eqref{eq:Mvev}, $R$ acts on the mass matrix
+$D = \diag(m_1, m_2, m_3)$ as
+\begin{equation}
+  R \cdot M = 2\,\adj(M)\,,
+  \label{eq:RM}
+\end{equation}
+where $M$ here denotes the diagonal meson VEV matrix and
+$\adj(M)$ its adjugate.
+Under Kostant's principal $\mathrm{sl}(2)$
+embedding~\cite{Kostant:1959} in $\mathrm{sl}(3)$, $R$ transforms
+as spin-2 (symmetric traceless in $\mathrm{End}(V)$).
+
+\subsection{The cubic identity}
+
+To derive the cubic, note that $R$ has eigenvalues
+$R_i = \langle M_j\rangle + \langle M_k\rangle$ (the sum of the
+two spectator VEVs for family~$i$).
+From~\eqref{eq:Mvev}, $\langle M_i\rangle = \Lambda^2 P^{1/3}/m_i$
+where $P = m_1 m_2 m_3$, so
+\begin{equation}
+  R_i = \Lambda^2 P^{1/3}\!\left(\frac{1}{m_j} + \frac{1}{m_k}\right)
+      = \frac{\Lambda^2 P^{1/3}(m_j + m_k)}{m_j m_k}\,.
+  \label{eq:Reig}
+\end{equation}
+Since $R$ is diagonalisable with eigenvalues $R_i$, its cube
+satisfies $R_i^3 = \Tr(D^2)\,R_i + 2P$ entry-by-entry if and
+only if the $R_i$ are roots of the depressed cubic
+$\lambda^3 - \Tr(D^2)\,\lambda - 2P = 0$.
+One verifies this directly: substituting~\eqref{eq:Reig} into
+$R_i^3 - (m_1^2+m_2^2+m_3^2)\,R_i - 2m_1 m_2 m_3$ and using
+$\det M = \Lambda^6$ (the quantum constraint) gives zero
+identically.
+Therefore the matrix identity
+\begin{equation}
+  \boxed{R^3 = \Tr(D^2)\,R + 2\det(D)\,I\,,}
+  \label{eq:cubic}
+\end{equation}
+holds, where $D = \diag(m_1, m_2, m_3)$ is the mass matrix.
+Here $\det D = m_1 m_2 m_3$ is the product of Seiberg masses
+(mass dimension~3), which equals $\Lambda_F^6$ on the
+quantum-modified constraint surface, where $\Lambda_F$ is the
+dynamical scale of the family gauge theory (mass dimension~1).
+Rearranging:
+\begin{equation}
+  R^3 - \Tr(D^2)\,R - 2\det(D)\,I = 0\,.
+  \label{eq:cubic_CH}
+\end{equation}
+
+\subsection{Identification with the $\mathcal{N}{=}2$ adjoint}
+
+The Cayley--Hamilton equation of a traceless $3 \times 3$
+matrix~$\Phi$ reads
+\begin{equation}
+  \Phi^3 - \tfrac{1}{2}\Tr(\Phi^2)\,\Phi - \det(\Phi)\,I = 0\,.
+  \label{eq:CH}
+\end{equation}
+In $\mathcal{N}{=}2$ $\SU(3)$ SQCD, the adjoint scalar~$\Phi$ is
+traceless and its Coulomb-branch moduli are
+$u_2 = \frac{1}{2}\Tr\langle\Phi^2\rangle$ and
+$u_3 = \det\langle\Phi\rangle$.
+Comparing~\eqref{eq:cubic_CH} with~\eqref{eq:CH}, the
+identification is
+\begin{equation}
+  \boxed{u_2 = \Tr(D^2) = \sum_i m_i^2\,,
+  \qquad
+  u_3 = 2\det(D) = 2\prod_i m_i\,,}
+  \label{eq:moduli_id}
+\end{equation}
+and $R$ plays the role of $\Phi$ evaluated at the confining vacuum.
+
+This is not a loose analogy: it is an \emph{algebraic identity}.
+The cubic~\eqref{eq:cubic} satisfied by the meson-derived
+operator~$R$ is \emph{exactly} the characteristic equation of a
+traceless $3 \times 3$ matrix with the specified invariants.
+The fact that these invariants are determined by the physical
+mass matrix $D = \diag(m_1, m_2, m_3)$ means that the
+$\mathcal{N}{=}2$ Coulomb-branch position is \emph{fixed} by the
+fermion masses.
+
+\paragraph{Numerical check (leptons).}
+For $m_e = 0.511\MeV$, $m_\mu = 105.658\MeV$,
+$m_\tau = 1776.86\MeV$:
+\begin{align}
+  u_2 &= 3.168 \times 10^6\MeV^2\,, \\
+  u_3 &= 1.919 \times 10^5\MeV^3\,.
+\end{align}
+The eigenvalues of~$R$ (roots of $\lambda^3 - u_2\lambda - u_3 = 0$)
+are
+\begin{equation}
+  \phi_1 \approx +1780\MeV\,,\quad
+  \phi_2 \approx -0.06\MeV\,,\quad
+  \phi_3 \approx -1780\MeV\,.
+\end{equation}
+The near-zero eigenvalue $\phi_2 \approx 0$ signals proximity to the
+Argyres--Douglas point $\det\Phi = 0$, controlled by the small ratio
+$m_e/m_\tau \approx 3 \times 10^{-4}$.
+
+
+\subsection{Implications for the waterfall}
+
+The identification connects the waterfall chain of Koide triples to
+the $\mathcal{N}{=}2$ Coulomb-branch geometry:
+
+\begin{itemize}
+  \item \textbf{Central tuples} $(s,c,b)$ and $(c,b,t)$: all three
+    masses are substantial, $\det D$ is large, the Coulomb-branch
+    point is far from any singularity.
+    $\mathcal{N}{=}2$ protection is strongest.
+    These tuples show the best Koide compliance.
+
+  \item \textbf{Peripheral tuples} involving $u$ or $d$ quarks
+    (near zero mass): $\det D \to 0$, the Coulomb-branch point
+    approaches the singular locus where $\mathcal{N}{=}2$ structure
+    is most strongly broken.
+    Koide compliance degrades.
+\end{itemize}
+
+The cubic constraint~\eqref{eq:cubic} becomes degenerate at
+$\det D = 0$: $R^3 = \Tr(D^2)\,R$, with $R$ acquiring a zero
+eigenvalue.
+This degeneration at a vanishing mass is the $\mathcal{N}{=}1$
+remnant of approaching an Argyres--Douglas singularity on the
+$\mathcal{N}{=}2$ Coulomb branch.
+
+
+%======================================================================
+\section{The Seiberg--Witten curve at the Koide point}
+\label{sec:SW}
+%======================================================================
+
+\subsection{Setup}
+
+The $\mathcal{N}{=}2$ Seiberg--Witten curve for $\SU(3)$ with
+$\Nf = 3$ massive
+hypermultiplets~\cite{SeibergWitten:1994b,ArgyresPlesserShapere:1996}
+is
+\begin{equation}
+  y^2 = P(x)^2 - 4\Lambda^3\,Q(x)\,,
+  \label{eq:SWcurve}
+\end{equation}
+where
+\begin{equation}
+  P(x) = x^3 - u_2\,x - u_3\,,
+  \qquad
+  Q(x) = \prod_{i=1}^{3}(x + m_i)\,.
+\end{equation}
+The sextic $f(x) = P(x)^2 - 4\Lambda^3\,Q(x)$ defines a genus-2
+hyperelliptic curve (generically), with holomorphic differentials
+$\omega_1 = dx/y$ and $\omega_2 = x\,dx/y$ integrated over four
+homology cycles.
+
+Using the identification~\eqref{eq:moduli_id}, the curve at the
+sBootstrap confining vacuum has its Coulomb moduli completely
+determined by the mass matrix: no free parameters remain on the
+Coulomb branch.
+
+
+\subsection{Genus and the Cartan moduli}
+
+For $\SU(3)$, the curve generically has genus~$g = 2$, with branch
+points at the six roots of $f(x) = 0$.
+The two complex periods $(a_1, a_2)$ and their duals
+$(a_{D,1}, a_{D,2})$ parametrise the Coulomb branch.
+The two independent moduli $(u_2, u_3)$ match the two Cartan
+generators of $\SU(3)$---and in the sBootstrap, the two independent
+Cartan coordinates $(z_1, z_2)$ of the family charges.
+
+The Koide constraint $K = 2/3$ imposes
+$\sum m_i^2 = (\sum m_i)^2/3$, which is one real condition on the
+three masses.
+With the overall scale~$\mu$ fixed by data,
+the 5-dimensional parameter space
+$(u_2, u_3, m_1, m_2, m_3)$ reduces to a
+\textbf{one-parameter family in the Cartan angle}~$\delta$:
+\begin{equation}
+  m_i = \mu\left(\frac{1}{\sqrt{6}}
+  + \frac{1}{\sqrt{3}}\cos\!\left(\delta
+  + \frac{2\pi(i-1)}{3}\right)\right)^{\!2},
+  \quad i = 1,2,3\,.
+  \label{eq:mi_delta}
+\end{equation}
+The Seiberg--Witten curve at the Koide point is therefore a
+codimension-3 slice of the full Coulomb-branch geometry.
+
+
+\subsection{The democratic limit and the monopole singularity}
+
+In the equal-mass (democratic) limit $m_1 = m_2 = m_3 = m$
+($\delta = 0$):
+\begin{align}
+  u_2 &= 3m^2\,,\quad u_3 = 2m^3\,,\\
+  P(x) &= (x+m)^2(x - 2m)\,,\quad Q(x) = (x+m)^3\,.
+\end{align}
+The sextic factors exactly:
+\begin{equation}
+  f(x) = (x+m)^3\bigl[(x+m)(x-2m)^2 - 4\Lambda^3\bigr].
+  \label{eq:dem_factor}
+\end{equation}
+The triple root at $x = -m$ is always present (the classical
+$\SU(3)_F$ enhancement point).
+The bracket cubic $g(t) = t^3 - 6mt^2 + 9m^2t - 4\Lambda^3$
+(where $t = x + m$) has discriminant
+\begin{equation}
+  \Delta_{\rm bracket}
+  = 432\,\Lambda^3(m^3 - \Lambda^3)\,.
+  \label{eq:Delta_bracket}
+\end{equation}
+This vanishes at $\Lambda = 0$ (trivially) and at
+\begin{equation}
+  \boxed{\Lambda = m = s_1/3\,,}
+  \label{eq:dem_sing}
+\end{equation}
+where $s_1 = \sum m_i$ is the Koide mass scale.
+At this point a BPS monopole becomes massless at $x = 0$.
+The democratic mass $m = 628\MeV$ (for leptons, where
+$s_1 = 1883\MeV$) plays the role of the
+Argyres--Douglas scale.
+
+
+\subsection{The physical Cartan angle}
+
+For the physical lepton masses ($\delta \approx 0.222$), the curve
+is smooth for all positive~$\Lambda$: the sextic discriminant never
+vanishes (Appendix~\ref{app:SW}).
+The branch points organise into three clusters near
+$x \approx -m_\tau$, $x \approx 0$, and $x \approx +m_\tau$, with
+separations varying smoothly with~$\delta$.
+
+There is \textbf{no special singularity or topological transition at
+$\delta = 2/9$}.
+The Cartan angle enters the curve geometry indirectly through the
+moduli $u_2(\delta)$ and $u_3(\delta)$, but does not produce a
+distinguished feature on the Coulomb branch.
+This is an honest negative result: the Cartan angle is not selected
+by the Seiberg--Witten geometry alone.
+
+In dimensionless Coulomb-branch coordinates
+$(\tilde{u}_2, \tilde{u}_3) \equiv (u_2/m^2, u_3/m^3)$, the
+physical point sits at $(\tilde{u}_2, \tilde{u}_3) \approx (1512, 2)$,
+far from the pure-gauge Argyres--Douglas point at $(3, 0)$.
+The physical theory is deep in the confining regime.
+
+
+%======================================================================
+\section{M-theory lift}
+\label{sec:Mtheory}
+%======================================================================
+
+\subsection{The brane construction}
+
+In the type IIA Hanany--Witten
+construction~\cite{HananyWitten:1997}, $\Nc$ D4-branes are
+suspended between two NS5-branes, with $\Nf$ D6-branes providing
+quarks.
+For $\SU(3)$ with $\Nf = 3$: three D4-branes (colour), two
+NS5-branes (boundaries), three D6-branes (flavour).
+
+The composites have a direct brane interpretation:
+\begin{itemize}
+  \item \textbf{Mesons} $M = Q\tilde{Q}$: open strings stretched
+    between two D6-branes, mediated through D4-brane endpoints.
+  \item \textbf{Baryons} $B = \varepsilon QQQ$: D4-branes wrapped
+    on the compact direction between the NS5-branes.
+  \item \textbf{Adjugate} $\adj(M)$: threshold bound states of
+    three D4-brane segments.
+\end{itemize}
+
+
+\subsection{The M-theory lift}
+
+Lifting to M-theory (opening the $x^{10}$
+circle)~\cite{Witten:1997sc,Townsend:1995}:
+\begin{itemize}
+  \item D4-branes $\to$ M5-branes wrapping
+    $\mathbb{R}^{1,3} \times \Sigma$, where $\Sigma$ is a
+    holomorphic curve in the
+    $(x^4, x^5, x^6, x^{10})$ space.
+  \item D6-branes $\to$ Taub-NUT centres in the M-theory
+    geometry.
+  \item NS5-branes remain M5-branes.
+\end{itemize}
+The gauge theory lives on the M5 worldvolume.
+The Seiberg--Witten prepotential is encoded in the period
+integrals of the curve~$\Sigma$, which for $\SU(3)$ has genus~2
+(Sec.~\ref{sec:SW}).
+
+\begin{table}
+\centering\footnotesize
+\caption{M-theory dictionary for $\SU(3)$ SQCD composites.}
+\label{tab:Mtheory}
+\begin{tabular}{@{}lllll@{}}
+\hline
+Object & IIA & M-theory & $C$ & Mass \\
+\hline
+$Q\tilde{Q}$ & D6--D6 & M2 & $C_3$ & Dirac \\
+$\varepsilon Q^3$ & D4 wrap & M5 wrap & $C_6$ & Majorana \\
+$\adj(M)$ & thr.\ D4 & thr.\ M5 & mixed & inverse \\
+$M\!\leftrightarrow\!\adj(M)$ & T-dual & EM dual & $C_3\!\leftrightarrow\!C_6$ & --- \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Electromagnetic duality and the involution}
+
+The involution $M_i \to \Lambda^4/M_i$
+(equivalently, $M \leftrightarrow \Lambda^{-2}\adj(M)$) exchanges the
+A-period ($\langle M_i\rangle \propto 1/m_i$) with the B-period
+($\adj(M)_i \propto m_i$) of the Seiberg--Witten curve.
+In M-theory this has the \textbf{mathematical structure of
+electromagnetic duality}: $C_3 \leftrightarrow C_6$, exchanging
+M2-brane and M5-brane
+descriptions~\cite{Schwarz:1995,Strominger:1995}.
+We identify these on the basis of this structural
+correspondence; the identification is suggestive rather than
+proven, as it requires assuming the sBootstrap composites lift
+to the specific brane configurations described.
+
+The direct/inverse mass assignment of Section~\ref{sec:confined}
+\emph{is} the A/B duality.
+The genus-2 curve~$\Sigma$ has two independent A-cycles and two
+B-cycles; the four periods $(a_1, a_2, a_{D,1}, a_{D,2})$
+encode both the direct and inverse mass hierarchies.
+The involution~\eqref{eq:involution} exchanges $(a_i) \leftrightarrow
+(a_{D,i})$, which is precisely S-duality on the M5-brane
+worldvolume.
+
+
+\subsection{Membrane dimensionality and the charge-squared law}
+
+The charge-squared mass law $m_i = \mu\,\zch_i^2$, which uniquely
+gives direction-independent $K = 2/3$, has a natural M-theory
+interpretation.
+
+For a $p$-brane whose worldvolume dimensions all scale with the
+family charge~$\zch_i$, the mass goes as~\cite{Townsend:1995}
+\begin{equation}
+  m_i \propto \zch_i^p\,.
+\end{equation}
+The generalised Koide ratio
+\begin{equation}
+  K_p
+  = \frac{\sum_i \zch_i^{2p}}{(\sum_i \zch_i^p)^2}
+\end{equation}
+is independent of the Cartan direction for $p = 2$ only, by the
+uniqueness theorem (Appendix~\ref{app:charges}).
+The value $p = 2$ corresponds to the \textbf{M2-brane}---precisely
+the M-theory object that describes mesons (open D6--D6 strings
+lifted to M-theory).
+
+For $p = 5$ (M5-brane, corresponding to baryons), $K_5$ depends
+on the Cartan angle and $K \neq 2/3$ generically.
+The charge-squared law is therefore a \emph{consistency condition}
+between the Koide constraint and the membrane dimensionality of the
+composite mesons.
+
+
+\subsection{Colour from $C_3$ decomposition}
+
+The 11-dimensional three-form $C_3$ decomposes under $\SU(3)_c$ as
+\begin{equation}
+  C_3 \in \Lambda^3(\mathbb{R}^9):
+  \quad \mathbf{84} \supset \mathbf{1}_c \oplus \mathbf{3}_c
+  \oplus \overline{\mathbf{3}}_c
+  \quad\text{but never } \mathbf{6}_c\,.
+  \label{eq:C3_decomp}
+\end{equation}
+The metric moduli $g_{MN} \in \mathrm{Sym}^2(\mathbb{R}^9) =
+\mathbf{45}$ do contain $\mathbf{6}_c$, but as a gravitational
+(Planck-scale) modulus.
+This explains the colour-sextet obstruction observed in the
+sBootstrap~\cite{Rivero:2024epjc}: colour-$\mathbf{6}$
+diquarks are in the gravity sector, not the gauge sector.
+
+The M2-brane couples to $C_3$, so meson composites (M2-branes) can
+carry colour representations $\mathbf{1}$, $\mathbf{3}$, or
+$\overline{\mathbf{3}}$---but never $\mathbf{6}$.
+This is consistent with the topological structure of the M-theory
+compactification, for an $\SU(3)_c$ embedding in which the
+9~spatial dimensions decompose as
+$\mathbf{3} \oplus \overline{\mathbf{3}} \oplus 3$~singlets.
+
+
+\subsection{The genus-2 curve as M5 worldvolume}
+
+The M5-brane wrapping the genus-2 curve~$\Sigma$ produces
+$\mathcal{N}{=}2$ in 4d: the curve encodes the Seiberg--Witten
+prepotential~\cite{Witten:1997sc,Klemm:1996,ArgyresShapere:1995}.
+The adjoint mass $\mu_\Phi$ deforms~$\Sigma$, breaking
+$\mathcal{N}{=}2 \to \mathcal{N}{=}1$.
+At the deformed curve, the two chiral multiplets
+$(M_i, \adj(M)_i)$ emerge as the two periods of~$\Sigma$---the
+geometric origin of the emergent hypermultiplet structure of
+Sec.~\ref{sec:N2}.
+
+The democratic singularity $\Lambda = m$ (eq.~\eqref{eq:dem_sing})
+corresponds in M-theory to a degeneration of~$\Sigma$ where
+a cycle pinches: the M2-brane wrapping that cycle becomes
+massless (a BPS monopole).
+This is the M-theory realisation of the
+Argyres--Douglas mechanism~\cite{ArgyresDouglas:1995}: at the
+singularity, the $\mathcal{N}{=}2$ theory develops an interacting
+SCFT, and the $\mathcal{N}{=}1$ confining vacuum is obtained by
+further deformation.
+
+
+%======================================================================
+\section{Discussion and conclusions}
+\label{sec:discussion}
+%======================================================================
+
+\paragraph{$\mathcal{N}{=}2$ as structural attractor.}
+The evidence assembled above points to $\mathcal{N}{=}2$
+supersymmetry as a \emph{structural attractor} of the confined
+sBootstrap theory, rather than either a UV symmetry or an IR
+emergent symmetry in the strict sense.
+The composite pair $(M_i, \adj(M)_i)$ has the algebraic structure
+of a hypermultiplet; the cubic~\eqref{eq:cubic} is identically the
+Cayley--Hamilton equation of the adjoint scalar; the Seiberg--Witten
+curve is well-defined and smooth at the Koide point; and the
+M-theory lift identifies the involution with electromagnetic
+duality.
+None of this requires $\mathcal{N}{=}2$ to be an exact symmetry at
+any energy scale.
+
+The attractor interpretation is sharpened by the small parameter
+$\epsilon = m_e/m_\tau \approx 3 \times 10^{-4}$:
+the lightest family places the Coulomb-branch point near a
+singular locus where one adjoint eigenvalue vanishes.
+Near this locus, the $\mathcal{N}{=}2$ non-renormalisation
+theorems approximately hold, protecting the K\"ahler metric and
+thereby the precision of $K = 2/3$.
+Away from the singular locus (central waterfall tuples), the
+$\mathcal{N}{=}2$ structure persists algebraically through the
+cubic constraint but offers weaker dynamical protection.
+
+\paragraph{Comparison with Sumino's family gauge symmetry.}
+Sumino~\cite{Sumino:2009} proposed that family gauge bosons of a
+perturbative $\UU(3)_F$ cancel the QED contribution to~$\delta K$,
+protecting $K = 2/3$ radiatively.
+The present mechanism is complementary: the emergent $\mathcal{N}{=}2$
+structure protects the K\"ahler metric non-perturbatively, with the
+leading correction controlled by $\epsilon = m_e/m_\tau$ rather than
+by the family gauge coupling.
+The sBootstrap $\SU(3)_F$ is confining (not perturbative), so the
+two protection mechanisms operate in different dynamical regimes.
+
+\paragraph{SM versus MSSM running.}
+Using the running Yukawa couplings of Antusch, Hinze, and
+Saad~\cite{Antusch:2025ahs}, $K^{-1}(d,s,b) = 2/3$ to~$0.0003\%$
+at $Q = 10\TeV$ in the SM (multi-loop).
+In the MSSM at the GUT scale, $K^{-1}$ lies $0.23$--$0.65\%$ above
+$2/3$ for all $\tan\beta$ and $M_{\rm SUSY}$, disfavouring
+conventional supersymmetric extensions.
+This favours the sBootstrap scenario: compositeness at
+$\sim\!10$--$280\TeV$ rather than TeV-scale SUSY partners.
+
+\paragraph{The cubic and wall-crossing.}
+In $\mathcal{N}{=}2$ theories, the BPS spectrum changes
+discontinuously across walls of marginal stability on the Coulomb
+branch.
+The cubic~\eqref{eq:cubic}, as the Cayley--Hamilton of the
+adjoint at the confining vacuum, is a statement about a
+\emph{fixed point} in Coulomb-branch space.
+The waterfall tuples that show good Koide compliance are those
+whose mass matrices place the Coulomb-branch point far from
+wall-crossing loci; the peripheral tuples (involving nearly
+massless quarks) are near the singular loci where the BPS spectrum
+changes and the $\mathcal{N}{=}2$ structure breaks down.
+
+\paragraph{The Cartan angle.}
+Neither the Cayley--Hamilton identity nor the Seiberg--Witten
+curve selects $\delta = 2/9$ as a special value.
+The cubic~\eqref{eq:cubic} is an identity satisfied at
+\emph{any} Cartan angle; the curve is smooth for all $\delta > 0$.
+The Cartan angle remains the principal open problem of the
+sBootstrap.
+A speculative resolution via an instanton-generated potential
+$V(\delta) = -\cos(3\delta) + (1/\pi)\cos(6\delta)$---which gives
+$\delta \approx 2/9$ to $0.1\%$---has been proposed
+elsewhere~\cite{Rivero:2024epjc} but is not derived from the
+$\mathcal{N}{=}2$ structure.
+Whether the Seiberg--Witten prepotential, evaluated at the
+confining vacuum, produces this potential through its
+$\delta$-dependence is a concrete open calculation.
+
+\paragraph{The $\SU(2)_R$ question.}
+In a genuine $\mathcal{N}{=}2$ theory, the $\SU(2)_R$ symmetry
+relates $M_i$ and $\adj(M)_i$ continuously.
+In the emergent structure, only the discrete $\mathbb{Z}_2$
+involution~\eqref{eq:involution} survives as an exact symmetry
+of the constraint surface.
+Whether a continuous $\SU(2)_R$ can be identified as an
+approximate symmetry near the Argyres--Douglas point
+(valid in the $m_e/m_\tau \to 0$ limit) is an open question
+with potential consequences for quark--lepton
+complementarity~\cite{Zenczykowski:2012}.
+
+\paragraph{Summary.}
+The emergent $\mathcal{N}{=}2$ structure of the sBootstrap is
+algebraically precise (the Cayley--Hamilton identity), geometrically
+realised (the Seiberg--Witten curve), and has a natural M-theory
+embedding (M2/M5 duality, electromagnetic duality, membrane
+dimensionality).
+It provides three explanatory mechanisms:
+(i)~both Higgs doublets from a single meson matrix,
+(ii)~K\"ahler protection of $K = 2/3$ at $O(\epsilon^2)$, and
+(iii)~the waterfall as a spectral consequence of the direct/inverse
+branch interleaving.
+The principal open problems are the Cartan angle (not selected by
+the $\mathcal{N}{=}2$ structure) and the promotion of the
+$\mathbb{Z}_2$ involution to a continuous symmetry.
+
+\begin{acknowledgments}
+The author thanks M.~Porter for sustained theoretical discussions
+over 2011--2024 that identified the Seiberg duality and the mesino
+interpretation as the mechanism underlying the sBootstrap,
+and C.~Brannen for the circulant mass matrix parametrisation.
+During the preparation of this work the author used Claude
+(Anthropic) for algebraic verification, numerical checks,
+and drafting assistance.
+The author reviewed and edited all content and takes full
+responsibility for the publication.
+\end{acknowledgments}
+
+
+%======================================================================
+% APPENDICES
+%======================================================================
+\appendix
+
+\section{Seiberg--Witten curve: conventions and branch-point analysis}
+\label{app:SW}
+
+\subsection{Branch-point structure}
+
+For the physical lepton masses
+($m_e = 0.511\MeV$, $m_\mu = 105.658\MeV$,
+$m_\tau = 1776.86\MeV$) and the Coulomb moduli
+$u_2 = \Tr(D^2) = 3.168 \times 10^6\MeV^2$,
+$u_3 = 2\det(D) = 1.919 \times 10^5\MeV^3$,
+the six branch points of the sextic
+$f(x) = P(x)^2 - 4\Lambda^3\,Q(x)$ organise into three clusters:
+
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+Cluster & Location & Physical origin \\
+\midrule
+Near $-m_\tau$ & $x \approx -1780$ & Tau hypermultiplet pole \\
+Near $0$ & $x \approx 0$ & Electron sector ($m_e$ small) \\
+Near $+m_\tau$ & $x \approx +1780$ & Mirror points from $P^2$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+At intermediate $\Lambda \sim m_\mu$, the cluster near $x = 0$
+splits and the $-m_\tau$ cluster develops imaginary parts.
+The sextic discriminant $\prod_{i<j}(e_i - e_j)^2$ has local
+minima at $\Lambda \approx 0.10\MeV$ and $\Lambda \approx 940\MeV$,
+but never reaches zero: the curve at the physical Koide point is
+non-singular for all positive~$\Lambda$.
+
+\subsection{Dependence on the Cartan angle}
+
+Scanning $\delta$ from $0$ to $\pi/12$ with
+$\Lambda = (\det D)^{1/3}$:
+
+\begin{center}
+\small
+\begin{tabular}{lcc}
+\toprule
+Quantity & $\delta \to 0$ (democratic) & $\delta = 2/9$ (physical) \\
+\midrule
+Smallest separation & 0.385 & 0.117 \\
+2nd smallest & 1.539 & 0.601 \\
+3rd smallest & 77.2 & 21.7 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The separations vary smoothly and monotonically with~$\delta$.
+No discontinuity, cusp, or topological transition occurs at
+$\delta = 2/9$.
+
+
+\section{Democratic limit: exact factorisation}
+\label{app:democratic}
+
+For $m_1 = m_2 = m_3 = m$, the Seiberg--Witten sextic
+factors as~\eqref{eq:dem_factor}.
+The bracket cubic
+$g(t) = t^3 - 6mt^2 + 9m^2t - 4\Lambda^3$
+has roots:
+
+\begin{itemize}
+  \item For $\Lambda < m$: three distinct real roots.
+    The curve is smooth.
+  \item At $\Lambda = m$:
+    $g(t) = (t - m)^2(t - 4m)$.
+    The double root at $t = m$ ($x = 0$) signals a
+    \textbf{massless BPS monopole}.
+  \item For $\Lambda > m$: one real root and two complex conjugate
+    roots.
+\end{itemize}
+
+The full root structure at $\Lambda = m$:
+$x = -m$ (multiplicity~3), $x = 0$ (multiplicity~2),
+$x = 3m$ (multiplicity~1).
+The genus-2 curve degenerates to genus~1 (one cycle pinches).
+
+In the $\mathcal{N}{=}1$ theory obtained by giving the adjoint
+a mass~$\mu_\Phi$, the singularity at $\Lambda = m$ is
+resolved: the monopole acquires a mass of order~$\mu_\Phi$ and
+the vacuum is shifted away from the singular point.
+The $\mathcal{N}{=}2 \to \mathcal{N}{=}1$ deformation thus
+provides a dynamical mechanism for lifting the monopole singularity.
+
+
+\section{K\"ahler protection estimate}
+\label{app:kahler}
+
+In the $\mathcal{N}{=}2$ limit, the K\"ahler metric on the Higgs
+branch is one-loop exact.
+The leading deviation from generation-universality after
+$\mathcal{N}{=}2 \to \mathcal{N}{=}1$ breaking comes from the
+adjoint-mass deformation and is proportional to the mass splitting:
+\begin{equation}
+  \frac{\delta Z_i}{Z}
+  \sim \frac{g^2}{16\pi^2}\,
+  \frac{m_i^2 - \bar{m}^2}{\mu_\Phi^2}\,
+  \ln\frac{\mu_\Phi}{\Lambda}\,,
+\end{equation}
+where $\bar{m}^2 = \frac{1}{3}\sum_j m_j^2$ and the loop factor
+arises from the gaugino--adjoint propagator.
+
+For the lepton sector:
+\begin{align}
+  \frac{m_\tau^2 - \bar{m}^2}{\mu_\Phi^2}
+  &\approx \frac{m_\tau^2}{\mu_\Phi^2}\,,\\
+  \frac{m_e^2 - \bar{m}^2}{\mu_\Phi^2}
+  &\approx -\frac{m_\tau^2}{3\mu_\Phi^2}\,.
+\end{align}
+The ratio $\delta Z_\tau / \delta Z_e \approx -3$, so the leading
+correction to the Koide ratio is
+\begin{equation}
+  \delta K
+  \approx \frac{\delta Z_\tau - \delta Z_e}{Z}
+  \sim \frac{g^2}{4\pi^2}\,
+  \frac{m_\tau^2}{\mu_\Phi^2}\,
+  \ln\frac{\mu_\Phi}{\Lambda}\,.
+  \label{eq:deltaK_estimate}
+\end{equation}
+The value $\mu_\Phi \approx 4.5\TeV$ is not a free parameter:
+it is the critical scale below which the quartic~\eqref{eq:quartic}
+is strong enough to sustain the mixed vacuum, determined by the
+RG crossing condition $K^{-1}(d,s,b) = 2/3$.
+For $g^2/(4\pi) \sim 0.3$, $m_\tau \approx 1.78\GeV$,
+$\mu_\Phi \sim 4.5\TeV$, and $\ln(\mu_\Phi/\Lambda) \sim 10$:
+\begin{equation}
+  \delta K
+  \sim \frac{0.3}{4\pi}\times
+  \frac{(1.78)^2}{(4500)^2}\times 10
+  \sim 10^{-9}\,,
+\end{equation}
+which is well below the observed
+$\delta K_{\rm exp} \approx 5 \times 10^{-5}$.
+The discrepancy suggests that the dominant contribution to
+$\delta K$ comes from a source other than the adjoint-mass
+deformation---most likely from the running of quark masses
+between the family confinement scale and the pole mass
+scale~\cite{Sumino:2009,MartinRobertson:2019}.
+
+
+\section{$\UU(3)$ charge algebra and uniqueness of the quadratic power}
+\label{app:charges}
+
+Let $\UU(3)$ be a family symmetry with generator
+$Q_F = z_0\,I + T$, where $T = \diag(z_1, z_2, z_3)$ lies in the
+Cartan of $\SU(3)$ with $\sum_i z_i = 0$.
+Canonical normalisation fixes
+\begin{equation}
+  z_0 = \frac{1}{\sqrt{6}}\,,
+  \qquad
+  \sum_{i=1}^{3} z_i^2 = \frac{1}{2}\,,
+  \label{eq:canon}
+\end{equation}
+so that the eigenvalues $\zch_i \equiv z_0 + z_i$ satisfy
+$\sum_i \zch_i = \sqrt{3/2}$ and $\sum_i \zch_i^2 = 1$.
+An explicit parametrisation of the Cartan direction is
+\begin{equation}
+  z_i = \frac{1}{\sqrt{3}}
+  \cos\!\left(\delta + \frac{2\pi(i-1)}{3}\right),
+  \quad i = 1,2,3\,.
+\end{equation}
+
+\paragraph{Charge-squared mass law.}
+If $m_i = \mu\,\zch_i^2$, the Koide ratio becomes
+\begin{equation}
+  K = \frac{\sum_i \zch_i^2}{(\sum_i |\zch_i|)^2}
+    = \frac{1}{3/2} = \frac{2}{3}\,,
+\end{equation}
+independent of~$\delta$.
+
+\begin{theorem}[Uniqueness of the quadratic]
+\label{thm:unique}
+For integer $n$, define
+$K_n(\delta) = \sum_i \zch_i^n / (\sum_i \zch_i^{n/2})^2$
+whenever the ratio is real.
+Then $K_n$ is independent of the Cartan direction~$\delta$
+if and only if $n = 2$ (besides the trivial $n = 0$).
+\end{theorem}
+
+\begin{proof}
+The binomial expansion of $\sum_i (z_0 + z_i)^n$ contains the
+cubic Casimir $\sum_i z_i^3 = (1/\sqrt{3})^3\cos 3\delta/(3/4)
+\propto \cos 3\delta$ for $n \geq 3$.
+For $n = 2$: $\sum_i \zch_i^2 = 3z_0^2 + \sum z_i^2 = 1$
+(no $\delta$-dependence).
+For $n = 1$: $\sum_i \zch_i = 3z_0 = \sqrt{3/2}$
+(trivially constant, but $K_1 = 1/3$ requires $\zch_i \geq 0$
+and is not the Koide ratio).
+For $n \geq 3$: the $\cos 3\delta$ term from the cubic Casimir
+makes $\sum_i \zch_i^n$ depend on~$\delta$, so $K_n$ varies.
+\end{proof}
+
+
+\section{The interleaving theorem}
+\label{app:interleaving}
+
+The two basic hierarchies produced by the Seiberg seesaw are the
+direct and inverse branches:
+\begin{equation}
+  a_i = \mu\,\zch_i^2\,,
+  \qquad
+  d_i = \nu\,\zch_i^{-2}\,,
+\end{equation}
+with opposite orderings for $\zch_1 < \zch_2 < \zch_3$:
+$a_1 < a_2 < a_3$ while $d_1 > d_2 > d_3$.
+
+\begin{theorem}[Interleaving]
+\label{thm:interleaving}
+The six unmixed masses $\{a_1, a_2, a_3, d_1, d_2, d_3\}$
+form the alternating ladder
+\begin{equation}
+  d_1 > a_3 > d_2 > a_2 > d_3 > a_1
+\end{equation}
+if and only if
+\begin{equation}
+  \max(\zch_1^2 \zch_3^2,\, \zch_2^4)
+  < \frac{\nu}{\mu}
+  < \zch_2^2\,\zch_3^2\,.
+  \label{eq:window}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The adjacent inequalities reduce to three independent conditions:
+$\nu/\mu > \zch_1^2\zch_3^2$,
+$\nu/\mu < \zch_2^2\zch_3^2$, and
+$\nu/\mu > \zch_2^4$.
+The remaining inequalities follow from
+$\zch_1 < \zch_2 < \zch_3$.
+\end{proof}
+
+Each consecutive triple in the ladder mixes direct and inverse
+entries, producing the quark mass ``waterfall'' observed
+empirically~\cite{Zenczykowski:2012}.
+The quartic correction~\eqref{eq:quartic} perturbs the eigenvalues
+away from the unmixed values $a_i, d_i$, and its hierarchy of
+corrections (largest for the lightest family, smallest for the
+heaviest) translates into a hierarchy of deviations from $K = 2/3$
+in mixed waterfall windows.
+
+
+%======================================================================
+\begin{thebibliography}{99}
+
+\bibitem{Chew:1962}
+  G.F.~Chew,
+  Rev.\ Mod.\ Phys.\ \textbf{34}, 394 (1962).
+
+\bibitem{Rivero:2024epjc}
+  A.~Rivero,
+  Eur.\ Phys.\ J.\ C \textbf{84}, 1058 (2024),
+  arXiv:2407.05397.
+
+\bibitem{Kaplan:1991dc}
+  D.B.~Kaplan,
+  Nucl.\ Phys.\ B \textbf{365}, 259 (1991).
+
+\bibitem{HananyWitten:1997}
+  A.~Hanany and E.~Witten,
+  Nucl.\ Phys.\ B \textbf{492}, 152 (1997),
+  arXiv:hep-th/9611230.
+
+\bibitem{Witten:1997sc}
+  E.~Witten,
+  Nucl.\ Phys.\ B \textbf{500}, 3 (1997),
+  arXiv:hep-th/9703166.
+
+\bibitem{Seiberg:1994bz}
+  N.~Seiberg,
+  Nucl.\ Phys.\ B \textbf{435}, 129 (1995),
+  arXiv:hep-ph/9411149.
+
+\bibitem{Csaki:1996zb}
+  C.~Cs\'aki, M.~Schmaltz, and W.~Skiba,
+  Phys.\ Rev.\ Lett.\ \textbf{78}, 799 (1997),
+  arXiv:hep-th/9610139.
+
+\bibitem{IntriligatorSeibergShenker:1995}
+  K.~Intriligator, N.~Seiberg, and S.H.~Shenker,
+  Phys.\ Lett.\ B \textbf{342}, 152 (1995),
+  arXiv:hep-ph/9410203.
+
+\bibitem{SeibergWitten:1994a}
+  N.~Seiberg and E.~Witten,
+  Nucl.\ Phys.\ B \textbf{426}, 19 (1994),
+  arXiv:hep-th/9407087.
+
+\bibitem{Fayet:1976}
+  P.~Fayet,
+  Nucl.\ Phys.\ B \textbf{113}, 135 (1976).
+
+\bibitem{HMS:1997}
+  T.~Hirayama, N.~Maekawa, and S.~Sugimoto,
+  arXiv:hep-th/9705069 (1997).
+
+\bibitem{ArgyresDouglas:1995}
+  P.C.~Argyres and M.R.~Douglas,
+  Nucl.\ Phys.\ B \textbf{448}, 93 (1995),
+  arXiv:hep-th/9505062.
+
+\bibitem{Kostant:1959}
+  B.~Kostant,
+  Amer.\ J.\ Math.\ \textbf{81}, 973 (1959).
+
+\bibitem{SeibergWitten:1994b}
+  N.~Seiberg and E.~Witten,
+  Nucl.\ Phys.\ B \textbf{431}, 484 (1994),
+  arXiv:hep-th/9408099.
+
+\bibitem{ArgyresPlesserShapere:1996}
+  P.C.~Argyres, M.R.~Plesser, and A.D.~Shapere,
+  Phys.\ Rev.\ Lett.\ \textbf{75}, 1699 (1995),
+  arXiv:hep-th/9505100.
+
+\bibitem{Townsend:1995}
+  P.K.~Townsend,
+  Phys.\ Lett.\ B \textbf{350}, 184 (1995),
+  arXiv:hep-th/9501068.
+
+\bibitem{Schwarz:1995}
+  J.H.~Schwarz,
+  Phys.\ Lett.\ B \textbf{360}, 13 (1995),
+  arXiv:hep-th/9508143.
+
+\bibitem{Strominger:1995}
+  A.~Strominger,
+  Phys.\ Lett.\ B \textbf{383}, 44 (1996),
+  arXiv:hep-th/9512059.
+
+\bibitem{Klemm:1996}
+  A.~Klemm, W.~Lerche, S.~Yankielowicz, and S.~Theisen,
+  Phys.\ Lett.\ B \textbf{344}, 169 (1995),
+  arXiv:hep-th/9411048.
+
+\bibitem{ArgyresShapere:1995}
+  P.C.~Argyres and A.E.~Faraggi,
+  Phys.\ Rev.\ Lett.\ \textbf{74}, 3931 (1995),
+  arXiv:hep-th/9411057.
+
+\bibitem{Zenczykowski:2012}
+  P.~Zenczykowski,
+  Phys.\ Rev.\ D \textbf{86}, 117303 (2012),
+  arXiv:1210.4125.
+
+\bibitem{Sumino:2009}
+  Y.~Sumino,
+  JHEP \textbf{05}, 075 (2009),
+  arXiv:0812.2103.
+
+\bibitem{MartinRobertson:2019}
+  S.P.~Martin and D.G.~Robertson,
+  Phys.\ Rev.\ D \textbf{100}, 073004 (2019),
+  arXiv:1907.02500.
+
+\bibitem{Koide:1983qe}
+  Y.~Koide,
+  Phys.\ Lett.\ B \textbf{120}, 161 (1983).
+
+\bibitem{MasieroVeneziano:1985}
+  A.~Masiero and G.~Veneziano,
+  Nucl.\ Phys.\ B \textbf{249}, 593 (1985).
+
+\bibitem{Antusch:2025ahs}
+  S.~Antusch, K.~Hinze, and S.~Saad,
+  arXiv:2510.01312 (2025).
+
+\end{thebibliography}
+
+\end{document}

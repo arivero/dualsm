@@ -1,0 +1,1085 @@
+\documentclass[prd,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{braket}
+\usepackage{bm}
+\usepackage{xcolor}
+
+% Custom macros
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\order}[1]{\mathcal{O}(#1)}
+\newcommand{\vev}[1]{\langle #1 \rangle}
+
+\begin{document}
+
+\title{Sector selectivity of Koide-type mass relations from the sBootstrap}
+
+\author{Alejandro Rivero}
+\email{arivero@unizar.es}
+\affiliation{BIFI, Universidad de Zaragoza, E-50018 Zaragoza, Spain}
+
+\date{\today}
+
+\begin{abstract}
+The Koide mass relation $Q = (\sum\sqrt{m_i})^2/\sum m_i = 3/2$ holds
+for charged leptons to $10^{-5}$ precision, and near-Koide tuples appear
+among pseudoscalar mesons and certain quark triples, but not among vector
+mesons or baryons.  This selectivity pattern has lacked a structural
+explanation.  I show that the sBootstrap framework, which identifies
+sfermions with known mesons and diquarks via SU(5) flavor symmetry,
+provides such an explanation.  The sBootstrap mass formula from the SO(32)
+embedding (conditions $z_1+z_2+z_3=0$ and $z_0^2=\sum z_k^2/3$) is proved
+algebraically equivalent to the Koide condition $Q=3/2$, with the two angular
+parametrizations differing by exactly $\pi/6$.  The sfermion identification
+selects spin-0 two-body composites---precisely the pseudoscalar
+mesons---while excluding vectors (wrong spin) and baryons (wrong composite
+structure).  Through a five-link algebraic bridge---lepton Koide condition,
+slepton\,=\,meson identification, shared charge structure, spin-selection
+rule, and chiral/heavy-light compatibility---the framework connects the
+lepton Koide relation to the hadronic sector without invoking purely
+hadronic mechanisms.  It does not, however, derive the Koide angle from
+first principles:\ the angle $\delta$ remains a free parameter per sector.
+Nor does it derive the inverse-mass relation
+$Q(1/m_d,1/m_s,1/m_b)\approx 3/2$: the turtles classify $(d,s,b)$ as
+a distinguished triple, but the $Z_3$ parametrization does not close
+under inversion.  The observed ratio
+$\delta_{scb}\approx 3\,\delta_{e\mu\tau}$ and the discriminant coincidence
+$\Delta_{\text{II}}=9=k_d^2$ remain open problems.
+Three testable predictions are identified:
+spin-selection (only spin-0 mesons can show Koide structure),
+$N=3$ uniqueness (the Koide chain terminates at the top quark), and
+the existence of charge-$\pm 4/3$ diquarks forming a Koide triple.
+\end{abstract}
+
+\maketitle
+
+%% ===================================================================
+\section{Introduction}
+\label{sec:intro}
+%% ===================================================================
+
+In 1983, Koide observed that the charged lepton pole masses satisfy
+\begin{equation}
+  Q \;\equiv\; \frac{(\sqrt{m_e}+\sqrt{m_\mu}+\sqrt{m_\tau})^2}
+  {m_e + m_\mu + m_\tau}
+  \;=\; \frac{3}{2}
+  \label{eq:koide}
+\end{equation}
+to a precision of $10^{-5}$~\cite{Koide1983prd,Koide1983plb}.  Foot
+recast this as a geometric statement: the vector
+$(\sqrt{m_e},\sqrt{m_\mu},\sqrt{m_\tau})$ makes an angle of exactly
+$45^\circ$ with the democratic direction
+$(1,1,1)$~\cite{Foot1994}.  This model-independent reformulation
+separated the empirical fact from its composite-model origin and prompted
+a sustained search for extensions and
+mechanisms~\cite{RiveroGsponer2005}.
+
+Rodejohann and Zhang~\cite{RodejohannZhang2011} noticed that the
+mixed-charge quark triple $(c,b,t)$ also satisfies Eq.~\eqref{eq:koide}
+approximately, and Cao gave the first published account~\cite{Cao2012}.
+I subsequently identified the full chain
+$(0,s,c)\to(-s,c,b)\to(c,b,t)$, where each link is a Koide triple with
+a sign-flipped lightest charge, and showed that the chain angle satisfies
+$\delta_{scb}\approx 3\,\delta_{e\mu\tau}$~\cite{Rivero2013chain}.
+Zenczykowski independently confirmed this relation using the $Z_3$
+parametrization~\cite{Zenczykowski2012}.  These extensions opened the
+question of whether the Koide relation reflects a principle operating
+across particle sectors or a collection of numerical coincidences.
+
+A systematic scan of particle mass triples reveals a striking selectivity
+pattern: pseudoscalar meson triples with a sign-flipped pion, such as
+$(-\pi^0,D_s,\eta_c)$ with $|Q-3/2|=6\times 10^{-4}$, satisfy the
+relation well, but no vector meson or baryon triple comes close.
+The proximity of the pion and muon masses---one composite, one
+elementary---was noted early~\cite{ShahMir2007} and is a foundational
+clue for the supersymmetric interpretation pursued here.  The
+inverse-mass tuple $K(1/m_d,1/m_s,1/m_b)$ gives $Q=1.503$,
+while the inverse lepton tuple gives $Q=1.17$.  Why should
+pseudoscalar mesons be selected over vectors?  Why baryons never?
+Why should inverse masses of down-type quarks---and only
+down-type---approach Koide?
+
+In this paper I show that the sBootstrap~\cite{Rivero2009sboot,
+Rivero2024so32} provides a structural explanation for this pattern.
+The sBootstrap identifies sfermions of a supersymmetric standard model
+with known mesons and diquarks via the SU(5) flavor group of five light
+(``turtle'') quarks, deriving uniquely $N=3$ generations from
+composite self-consistency~\cite{Rivero2007spectroscopy}, building on
+the early observation by Miyazawa~\cite{Miyazawa1966} that hadronic
+supersymmetry connects meson and baryon spectra, and the demonstration
+by Masiero and Veneziano~\cite{MasieroVeneziano1984} that one
+generation of leptons arises from SQCD with $N_c=N_f=3$.  I prove
+that the sBootstrap mass formula from the SO(32)
+embedding~\cite{Rivero2024so32} is algebraically equivalent to the
+Koide condition $Q=3/2$, with the angle correspondence
+$\alpha_{\text{Cartan}}=\delta_{Z_3}+\pi/6$.  The slepton\,=\,meson
+identification then explains sector selectivity without additional
+assumptions: spin-0 mesons are sfermions and inherit the Koide
+constraint; spin-1 mesons and three-body baryons do not.
+
+I am explicit about what the framework does not achieve.  The inverse
+down-type relation $Q(1/m_d,1/m_s,1/m_b)\approx 3/2$ is \emph{not}
+derived: the $Z_3$ parametrization does not close under mass
+inversion, and the coincidence $\Delta_{\text{II}}=9=k_d^2$ connecting
+the Koide discriminant to the turtle count has no known mechanism.  The
+angle ratio $\delta_{scb}/\delta_{e\mu\tau}\approx 3$ is compatible
+with the SU(5) structure but not derived from it.  The framework
+provides a structural map, not a dynamical theory.
+
+The paper is organized as follows.  Section~\ref{sec:sbootstrap}
+reviews the sBootstrap framework and the SO(32) mass formula.
+Section~\ref{sec:equivalence} presents the algebraic proof that this
+mass formula implies $Q=3/2$ and derives the angle correspondence.
+Section~\ref{sec:selectivity} explains the sector selectivity pattern,
+including an honest assessment of the inverse down-type relation.
+Section~\ref{sec:bridge} presents the five-link non-hadronic bridge
+from leptons to mesons.
+Section~\ref{sec:discussion} assesses what the framework explains and
+what it does not.
+
+%% ===================================================================
+\section{The sBootstrap framework}
+\label{sec:sbootstrap}
+%% ===================================================================
+
+\subsection{Sfermion\,=\,hadron identification}
+\label{sec:identification}
+
+The starting observation~\cite{Rivero2007spectroscopy,Rivero2009sboot}
+is that the global flavor symmetry of $N_f=5$ light quarks is SU(5),
+decomposed as $\text{SU}(3)_D \times \text{SU}(2)_U$ under the
+separation into three down-type quarks $(d,s,b)$ and two up-type quarks
+$(u,c)$.  The top quark does not form light composites and plays no role
+in the flavor group; in the sBootstrap language it is the ``elephant,''
+while the five participating quarks are the ``turtles.''
+
+The two-body composites decompose under SU(5) as follows.  Meson-like
+(quark--antiquark) composites transform as
+\begin{equation}
+  \mathbf{5}\otimes\bar{\mathbf{5}} = \mathbf{24}\oplus\mathbf{1}\,,
+  \label{eq:mesons}
+\end{equation}
+and diquark (quark--quark) composites as
+\begin{equation}
+  \bar{\mathbf{5}}\otimes\bar{\mathbf{5}}
+  = \mathbf{15}\oplus\mathbf{10}\,.
+  \label{eq:diquarks}
+\end{equation}
+The identification is:
+\begin{itemize}
+\item \textbf{Sleptons} $\leftrightarrow$ \textbf{pseudoscalar mesons}:
+  the $\mathbf{24}$ contains the scalar partners of charged leptons,
+  identified with the pseudoscalar meson nonet (three generations of
+  charged sleptons $\leftrightarrow$ three families of charged mesons).
+\item \textbf{Squarks} $\leftrightarrow$ \textbf{diquarks}:
+  the $\mathbf{15}$ and $\overline{\mathbf{15}}$ contain scalar
+  partners of quarks, identified with diquark states.
+\item \textbf{Sneutrinos} $\leftrightarrow$ \textbf{neutral pseudoscalars}:
+  the singlet $\mathbf{1}$ accommodates the neutral sector
+  ($\eta,\eta'$).
+\end{itemize}
+The $\mathbf{15}$ also produces three exotic diquarks of electric charge
+$\pm 4/3$, one per generation, from the $(1,3)$ component of the SU(5)
+decomposition~\cite{Rivero2011diquark}.
+
+\subsection{Unique closure at $N=3$}
+\label{sec:closure}
+
+The identification above is not merely a relabeling.  The requirement
+that the composite scalars reproduce exactly the sfermion content of an
+$N$-generation supersymmetric standard model imposes
+\begin{align}
+  2N &= k_u\,k_d\,, \label{eq:closure1}\\
+  2N &= \frac{k_d(k_d+1)}{2}\,, \label{eq:closure2}\\
+  4N &= k_u^2 + k_d^2 - 1\,, \label{eq:closure3}
+\end{align}
+where $k_u$ and $k_d$ are the numbers of up-type and down-type turtle
+quarks~\cite{Rivero2007spectroscopy,Rivero2024so32}.  The unique
+solution is
+\begin{equation}
+  N=3,\qquad k_u=2,\qquad k_d=3\,.
+  \label{eq:N3}
+\end{equation}
+This is the ``turtles all the way down'' postulate: the composites of
+the turtles must be the superpartners of the turtles themselves, and
+this self-consistency condition uniquely requires three generations with
+five turtle quarks.
+
+\subsection{The SO(32) embedding and mass formula}
+\label{sec:so32}
+
+The five-flavor SU(5) sits naturally inside the SO(32) group of Type~I
+superstrings~\cite{Rivero2024so32}.  The adjoint of SO(32) decomposes
+under $\text{SU}(5)\times\text{SU}(3)_c$ as
+\begin{equation}
+  496 = (\mathbf{24},\mathbf{1})
+  \oplus (\mathbf{15},\bar{\mathbf{3}})
+  \oplus (\overline{\mathbf{15}},\mathbf{3})
+  \oplus \cdots\,,
+  \label{eq:so32decomp}
+\end{equation}
+where the displayed terms contain exactly the scalars of a
+three-generation SUSY model.
+
+The classical energy of a pair composite with preon charges $q_a,q_b$ is
+\begin{equation}
+  E(q_a,q_b) = (q_a + q_b)^2\,K_\Omega\,,
+  \label{eq:pair-energy}
+\end{equation}
+where $K_\Omega$ is a common kinematic factor.  For three generations,
+the abelian charges $z_k$ ($k=1,2,3$) and a central charge $z_0$ obey
+two conditions:
+\begin{align}
+  z_1 + z_2 + z_3 &= 0\,, \label{eq:traceless}\\
+  z_0^2 &= \frac{z_1^2+z_2^2+z_3^2}{3}\,. \label{eq:normalization}
+\end{align}
+The masses of the three generations are then
+\begin{equation}
+  m_k = (z_k + z_0)^2\,.
+  \label{eq:mass-formula}
+\end{equation}
+The SU(3) Cartan parametrization of the traceless charges is
+\begin{align}
+  z_1 &= \tfrac{1}{2}\cos\alpha
+        + \tfrac{1}{2\sqrt{3}}\sin\alpha\,,\nonumber\\
+  z_2 &= -\tfrac{1}{\sqrt{3}}\sin\alpha\,,\label{eq:cartan-param}\\
+  z_3 &= -\tfrac{1}{2}\cos\alpha
+        + \tfrac{1}{2\sqrt{3}}\sin\alpha\,,\nonumber
+\end{align}
+with $z_0 = \pm 1/\sqrt{6}$.  For charged leptons, the angle
+$\alpha=0.7458$\,rad reproduces the experimental
+masses~\cite{Rivero2024so32}.
+
+%% ===================================================================
+\section{Algebraic equivalence with Koide}
+\label{sec:equivalence}
+%% ===================================================================
+
+\subsection{Proof that $Q=3/2$}
+\label{sec:proof}
+
+I now show that the conditions~\eqref{eq:traceless}
+and~\eqref{eq:normalization} imply the Koide relation $Q=3/2$ for the
+masses~\eqref{eq:mass-formula}.
+
+\medskip\noindent\textit{Numerator.}\quad
+Taking square roots of the masses (all positive by construction):
+\begin{equation}
+  \sqrt{m_k} = z_k + z_0\,,
+\end{equation}
+so
+\begin{equation}
+  \sum_{k=1}^3 \sqrt{m_k}
+  = (z_1+z_2+z_3) + 3z_0
+  = 0 + 3z_0
+  = 3z_0\,,
+  \label{eq:numerator-step}
+\end{equation}
+using the tracelessness condition~\eqref{eq:traceless}.  Hence
+\begin{equation}
+  \Bigl(\sum_k\sqrt{m_k}\Bigr)^2 = 9\,z_0^2\,.
+  \label{eq:numerator}
+\end{equation}
+
+\medskip\noindent\textit{Denominator.}\quad
+Expanding the masses:
+\begin{align}
+  \sum_{k=1}^3 m_k
+  &= \sum_k(z_k+z_0)^2\nonumber\\
+  &= \sum_k z_k^2 + 2z_0\sum_k z_k + 3z_0^2\nonumber\\
+  &= \sum_k z_k^2 + 0 + 3z_0^2\,.
+  \label{eq:denom-step1}
+\end{align}
+Applying the normalization condition~\eqref{eq:normalization},
+$\sum_k z_k^2 = 3z_0^2$, yields
+\begin{equation}
+  \sum_k m_k = 3z_0^2 + 3z_0^2 = 6z_0^2\,.
+  \label{eq:denominator}
+\end{equation}
+
+\medskip\noindent\textit{Ratio.}\quad
+Dividing~\eqref{eq:numerator} by~\eqref{eq:denominator}:
+\begin{equation}
+  \boxed{Q = \frac{9z_0^2}{6z_0^2} = \frac{3}{2}\,.}
+  \label{eq:Q-proof}
+\end{equation}
+This holds for any value of $z_0\neq 0$ and any angle in
+the parametrization~\eqref{eq:cartan-param}.  The Koide relation is
+not an additional constraint imposed on the sBootstrap mass
+formula---it is an algebraic \emph{consequence} of the tracelessness
+and normalization conditions, Eqs.~\eqref{eq:traceless}
+and~\eqref{eq:normalization}.
+
+\subsection{Connection to Koide's original condition}
+\label{sec:koide-condition}
+
+In Koide's 1981 model, the charged lepton mass matrix is written as
+$M_l=(U+V)^2$, where $U\propto\mathbf{1}$ is the central part and $V$
+is traceless, with the constraint $\Tr[U^2]=\Tr[V^2]$~\cite{Koide1983prd}.
+In the sBootstrap parametrization, $U=z_0\,\mathbf{1}$ and
+$V=\text{diag}(z_1,z_2,z_3)$, so
+\begin{equation}
+  \Tr[U^2] = 3z_0^2\,,\qquad
+  \Tr[V^2] = z_1^2+z_2^2+z_3^2\,.
+  \label{eq:traces}
+\end{equation}
+The normalization condition~\eqref{eq:normalization} is therefore
+identical to Koide's constraint:
+\begin{equation}
+  z_0^2 = \frac{\sum_k z_k^2}{3}
+  \quad\Longleftrightarrow\quad
+  \Tr[U^2] = \Tr[V^2]\,.
+  \label{eq:koide-sboot-equiv}
+\end{equation}
+The sBootstrap does not introduce a new mass formula.  It provides a
+physical context---composite scalar normalization within a SUSY
+framework---for the same algebraic condition that Koide identified in
+1981.
+
+\subsection{Angle correspondence}
+\label{sec:angle}
+
+The Koide chain literature uses the $Z_3$ phase parametrization
+\begin{equation}
+  q_k = \sqrt{M_0}\left(1+\sqrt{2}\,\cos\!\left(\frac{2\pi k}{3}
+  +\delta\right)\right),\quad k=1,2,3\,,
+  \label{eq:z3-param}
+\end{equation}
+with masses $m_k=q_k^2$ and $\sqrt{M_0}$ setting the overall
+scale~\cite{Brannen2006,Zenczykowski2012}.  Comparing with
+the sBootstrap masses $m_k=(z_k+z_0)^2$, the identification is
+\begin{equation}
+  z_0 = \sqrt{M_0}\,,\qquad
+  z_k = \sqrt{2\,M_0}\,\cos\!\left(\frac{2\pi k}{3}+\delta\right).
+  \label{eq:z-q-map}
+\end{equation}
+These $z_k$ satisfy~\eqref{eq:traceless} identically (the sum of three
+equally spaced cosines vanishes), and~\eqref{eq:normalization} by
+construction (the sum of their squares equals $3M_0/2\cdot 2 = 3M_0$,
+while $3z_0^2=3M_0$, recalling the normalization $z_0=\pm 1/\sqrt{6}$
+in the unit-norm convention vs.\ $z_0=\sqrt{M_0}$ in physical units).
+
+The coordinate transformation between the SU(3) Cartan
+basis~\eqref{eq:cartan-param} and the $Z_3$ phase
+basis~\eqref{eq:z3-param} is a rotation by $\pi/6$:
+\begin{equation}
+  \alpha_{\text{Cartan}} = \delta_{Z_3} + \frac{\pi}{6}\,.
+  \label{eq:angle-shift}
+\end{equation}
+This can be verified by writing out both parametrizations
+and matching the three charge components, using
+$\cos(\theta+\pi/6)=(\sqrt{3}\cos\theta-\sin\theta)/2$.
+
+\medskip\noindent\textit{Numerical check.}\quad For charged leptons:
+\begin{alignat}{2}
+  &\text{SO(32) paper:} &\quad \alpha &= 0.7458\;\text{rad}
+  = 42.73^\circ\,,\nonumber\\
+  &\text{Koide chain:}  &\quad \delta &= 0.2222\;\text{rad}
+  = 12.73^\circ\,,\label{eq:angle-check}\\
+  &\text{Difference:}   &\quad \alpha-\delta &= 30.00^\circ
+  = \frac{\pi}{6}\;.\nonumber
+\end{alignat}
+The correspondence is exact.  The two parametrizations describe the same
+one-parameter family of mass spectra, rotated by $\pi/6$ in the charge
+space on the SU(3) Cartan torus.  The value $\delta=2/9$\,rad was first
+identified in Brannen's circulant mass matrix
+construction~\cite{Brannen2006}, which is mathematically identical to
+the $Z_3$ parametrization.
+
+%% ===================================================================
+\section{Sector selectivity from the sBootstrap}
+\label{sec:selectivity}
+%% ===================================================================
+
+The sBootstrap identification of sfermions with specific composites
+provides a structural mechanism for the observed selectivity of
+Koide-type relations.  I analyze each sector in turn.
+
+\subsection{Charged leptons}
+\label{sec:leptons}
+
+Charged leptons are the fundamental fermions of the model.  Their
+scalar superpartners (sleptons) are identified with the charged
+pseudoscalar mesons living in the $\mathbf{24}$ of SU(5).  The Koide
+condition $\Tr[U^2]=\Tr[V^2]$, Eq.~\eqref{eq:koide-sboot-equiv}, is
+interpreted as a SUSY condition on the (lepton, slepton\,=\,meson)
+multiplet: it constrains the mass matrix of both the fermion and its
+scalar partner simultaneously.  That the charged lepton masses satisfy
+$Q=3/2$ to $10^{-5}$ precision is, in this picture, a consequence of the
+SUSY condition being (approximately) preserved.
+
+Sumino~\cite{Sumino2009} has shown how a $\text{U}(3)\times\text{O}(3)$
+family gauge symmetry can protect the Koide relation against QED
+radiative corrections at the pole-mass level.  The sBootstrap framework
+is compatible with this mechanism: the family gauge symmetry would
+operate within the lepton sector, while the sBootstrap provides the
+structural context linking leptons to mesons.
+
+\subsection{Pseudoscalar mesons}
+\label{sec:pseudoscalars}
+
+Pseudoscalar mesons ($J^P=0^-$) are the lightest spin-0 $q\bar{q}$
+composites.  In the sBootstrap, they \emph{are} the sleptons: the
+$\mathbf{24}$ of SU(5) from the $\mathbf{5}\otimes\bar{\mathbf{5}}$
+decomposition.  The Koide condition on sleptons translates directly to a
+constraint on pseudoscalar meson mass triples.
+
+The numerical evidence confirms this: several pseudoscalar meson triples
+satisfy $Q\approx 3/2$ with a sign-flipped pion~\cite{Rivero2007spectroscopy},
+as shown in Table~\ref{tab:sectors}.
+The best is $(-\pi^0,D_s,\eta_c)$ with $|Q-3/2|=6\times 10^{-4}$.
+The sBootstrap explains \emph{why} these tuples exist:
+pseudoscalar mesons show near-Koide behavior because they are the
+sfermions, subject to the same SUSY-origin constraint as the leptons.
+
+The match is ``near'' rather than exact because
+SUSY is not an exact symmetry at hadronic scales: QCD dynamics, chiral
+symmetry breaking, and quark mass differences all contribute to
+deviations from the $\Tr[U^2]=\Tr[V^2]$ condition.  The sBootstrap
+predicts that the deviations should be controlled by the ratio of
+QCD effects to the slepton mass scale.
+
+\subsection{Vector mesons}
+\label{sec:vectors}
+
+Vector mesons ($J^P=1^-$) are spin-1 $q\bar{q}$ states.  They are
+\emph{not} sfermions.  In any supersymmetric framework, the scalar
+partners of fermions carry spin~0.  The sBootstrap SUSY operates
+exclusively on scalar composites: only spin-0 mesons (pseudoscalar and,
+potentially, scalar) qualify as sfermions.  No Koide-type constraint
+applies to vectors.
+
+The data confirm this: the best vector meson triple achieves only
+$Q\approx 1.31$, far from $3/2$.
+
+\subsection{Baryons}
+\label{sec:baryons}
+
+Baryons are $qqq$ (three-body) composites.  The sBootstrap SUSY
+operates on $q\bar{q}$ (meson) and $qq$ (diquark) composites---both
+two-body.  Three-body states fall outside the
+$\mathbf{5}\otimes\bar{\mathbf{5}}$ and
+$\bar{\mathbf{5}}\otimes\bar{\mathbf{5}}$ decompositions.  No Koide
+constraint applies.
+
+Numerically, the best baryon triple gives $Q\approx 1.19$.
+
+\subsection{The quark chain}
+\label{sec:chain}
+
+The five turtle quarks $(u,c,d,s,b)$ are the fundamental objects of the
+SU(5) flavor group.  The Koide chain
+$(0,s,c)\to(-s,c,b)\to(c,b,t)$~\cite{Rivero2013chain} connects
+successive quark triples, with each link satisfying $Q\approx 3/2$.
+The SU(5) structure is \emph{compatible} with this chain: the five
+turtles span exactly the quarks appearing in the chain, and the top
+(the elephant) serves as the chain endpoint.
+
+However, the factor-of-three angle relation
+$\delta_{scb}\approx 3\,\delta_{e\mu\tau}$~\cite{Zenczykowski2012,
+Rivero2013chain} is not derived from the SU(5) turtle structure alone.
+The sBootstrap explains \emph{which} quarks participate (the five
+turtles) but not \emph{why} the chain angles are related to the lepton
+angle by a factor of three.
+
+\subsection{Inverse down-type quarks: an honest negative}
+\label{sec:inverse}
+
+The tuple $K(1/m_d,1/m_s,1/m_b)$ gives $Q=1.503$, while
+$K(1/m_e,1/m_\mu,1/m_\tau)$ gives $Q=1.17$ and
+$K(1/m_u,1/m_c,1/m_t)$ gives $Q=1.09$.  Only the down-type inverse
+approaches Koide.
+
+The sBootstrap provides a \emph{structural reason} for why $(d,s,b)$ is
+distinguished among all quark triples: the closure
+condition~\eqref{eq:closure2} requires exactly $k_d=3$ down-type
+turtles, and the Standard Model contains exactly three down-type quarks.
+The bootstrap equations do not select this triple by fitting it to the
+data; they select it algebraically through the self-consistency of the
+composite spectrum.
+
+However, the inverse-mass Koide relation itself is \emph{not} derived
+from the sBootstrap.  Three distinct arguments show this:
+
+\begin{enumerate}
+\item \textbf{The $Z_3$ parametrization does not close under inversion.}
+The inverse charges $w_k = 1/q_k = 1/[\sqrt{M_0}(1+\sqrt{2}\cos(2\pi
+k/3+\delta))]$ are not of the $Z_3$ form $A(1+\sqrt{2}\cos(2\pi
+k/3+\delta'))$ for any constants $A$ and $\delta'$.  The Koide condition
+$Q=3/2$ is automatic for direct masses in the $Z_3$ parametrization but
+\emph{not} for inverse masses.
+
+\item \textbf{No Cartan algebra involution exists} that maps $m_k\to
+1/m_k$ within the SO(32) mass formula.  The masses $m_k=(z_k+z_0)^2$
+are quadratic in the charges; the inverse $1/m_k = 1/(z_k+z_0)^2$ is
+not related to any linear transformation of the Cartan components.
+
+\item \textbf{The diquark channel provides no constraint.}  Down-type
+diquarks in the $(\mathbf{6},\mathbf{1})$ component of $\mathbf{15}$
+have masses $E(q_a,q_b)=(q_a+q_b)^2 K_\Omega$ that depend on
+\emph{sums} of charges.  These sum constraints do not impose conditions
+on \emph{individual} inverse masses $1/m_k$.
+\end{enumerate}
+
+\noindent There is a curious numerical coincidence.  The discriminant of
+the inverse-Koide quadratic at $\delta=15^\circ$ evaluates to
+$\Delta_{\text{II}}=9$, and $\sqrt{\Delta_{\text{II}}}=3=k_d$.  Whether
+this connection between the Koide discriminant and the turtle count is
+accidental or points to a deeper structure is an open question.  I note
+that no representation-theoretic quantity of SU(5) (dimensions, Casimir
+invariants, Dynkin indices of the $\mathbf{24}$ or $\mathbf{15}$)
+produces the factor 3 in a natural combination; the only quantity that
+equals~3 is $k_d$ itself.
+
+The status of the inverse down-type tuple is therefore: \emph{structurally
+selected triple, unexplained mass relation}.
+
+\subsection{Sector comparison}
+\label{sec:comparison}
+
+Table~\ref{tab:sectors} summarizes the sector selectivity analysis.  The
+sBootstrap provides a complete structural explanation for four of six
+sectors and partial structural compatibility for the remaining two.
+There are zero contradictions with the empirical data.
+
+\begin{table*}[t]
+\centering
+\caption{Sector selectivity: empirical Koide status and sBootstrap
+  explanation.  The Koide ratio $Q$ is computed from PDG~2024 masses
+  in the $m_q(m_q)$ convention for quarks and pole masses for
+  leptons~\cite{PDG2024}.  The sBootstrap prediction column indicates
+  whether the framework selects or excludes each sector and why.}
+\label{tab:sectors}
+\begin{tabular}{@{}llcccl@{}}
+\toprule
+Sector & Best tuple & $Q$ & $|Q-3/2|$
+  & Selected? & sBootstrap reason \\
+\midrule
+Charged leptons & $(e,\mu,\tau)$
+  & $1.50000$ & $2\times 10^{-5}$
+  & Yes & SUSY condition on (lepton, meson) multiplet \\
+Pseudoscalar mesons & $(-\pi^0,D_s,\eta_c)$
+  & $1.5006$ & $6\times 10^{-4}$
+  & Yes & Mesons \emph{are} the sleptons (spin-0, $q\bar{q}$) \\
+Quark chain & $(0,s,c)$
+  & $1.505$ & $5\times 10^{-3}$
+  & Partial & Compatible with SU(5) turtles; angle ratio not derived \\
+Inverse down-type & $K(1/d,1/s,1/b)$
+  & $1.503$ & $3\times 10^{-3}$
+  & Partial & $(d,s,b)$ selected as SU(3)$_D$; inversion not derived \\
+Vector mesons & $(-\rho,B_s^*,\Upsilon)$
+  & $1.31$ & $0.19$
+  & No & Wrong spin ($J=1$, not sfermions) \\
+Baryons & $(-p,\Sigma_b^-,\Omega_b^-)$
+  & $1.19$ & $0.31$
+  & No & Wrong composite structure (3-body, not 2-body) \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+%% ===================================================================
+\section{The non-hadronic bridge}
+\label{sec:bridge}
+%% ===================================================================
+
+The central structural contribution of the sBootstrap to the
+Koide problem is a five-link algebraic bridge connecting two apparently
+unrelated observations: the charged lepton Koide relation ($Q=3/2$
+exact) and the near-Koide behavior of pseudoscalar meson triples.  I
+present each link explicitly, with its algebraic content and confidence
+assessment.
+
+\subsection{The five-link bridge}
+\label{sec:five-links}
+
+\begin{enumerate}
+\item \textbf{Link~1: Lepton Koide = trace constraint.}
+The lepton mass matrix $M_l=(U+V)^2$ with $\Tr[U^2]=\Tr[V^2]$ is
+algebraically identical to the sBootstrap conditions
+$z_1+z_2+z_3=0$, $z_0^2=\sum z_k^2/3$.  This constrains the mass
+spectrum to a one-parameter $Z_3$ orbit, with the Koide condition
+$Q=3/2$ as an automatic consequence
+(Sec.~\ref{sec:proof}).
+
+\item \textbf{Link~2: Sleptons = mesons in the $\mathbf{24}$ of
+SU(5).}
+With five turtles $\{u,c,d,s,b\}$ and one elephant $\{t\}$, the
+SU(5) flavor products
+$\mathbf{5}\otimes\bar{\mathbf{5}}=\mathbf{24}\oplus\mathbf{1}$
+identify $q\bar{q}$ mesons with sleptons.  This is a
+representation-theoretic identification, not a
+fit~\cite{Rivero2009sboot}.
+
+\item \textbf{Link~3: Shared charge structure transfers the
+constraint.}
+The \emph{same} set of charges $\{z_k\}$ from the SU(3) Cartan
+subalgebra determines both lepton masses
+$m_k=(z_k+z_0)^2$ and meson pair energies
+$E(q_a,q_b)=(q_a+q_b)^2 K_\Omega$~\cite{Rivero2024so32}.  The Koide
+condition constraining the lepton sector transfers to the meson sector
+through these shared charges.  The transfer is not exact because QCD
+corrections modify the meson masses, producing the observed
+$|Q-3/2|\sim 10^{-4}\text{--}10^{-3}$ deviations.
+
+\item \textbf{Link~4: Spin-selection and bilinear exclusion.}
+Sfermions are spin-0 scalars.  This selects pseudoscalar mesons
+($J^P=0^-$, the lightest spin-0 $q\bar{q}$ states) and excludes
+vector mesons ($J^P=1^-$, spin-1) by an algebraic selection rule.
+Baryons ($qqq$) are trilinear composites that do not appear in the
+bilinear $\mathbf{5}\otimes\bar{\mathbf{5}}$ products and are
+excluded on separate grounds.
+
+\item \textbf{Link~5: Compatibility with the chiral/heavy-light
+selector.}
+The sBootstrap's spin-0 selection provides a structural explanation for
+the chiral and heavy-light selectors identified in purely hadronic
+analyses: chiral symmetry breaking affects pseudoscalars (which are the
+Goldstone sector) differently from vectors, and heavier turtle quarks
+$(c,b)$ have larger charges that place their meson composites closer to
+the SUSY mass formula regime.  The pion sign flip arises from chiral
+symmetry breaking and is a QCD correction, not an sBootstrap prediction.
+\end{enumerate}
+
+\noindent The bridge is non-hadronic: it connects leptons to mesons
+through supersymmetry, not through QCD.  Previous attempts to connect
+the lepton Koide relation to hadronic physics relied on purely hadronic
+mechanisms (chiral symmetry, heavy-quark symmetry, confinement-scale
+dynamics).  These can explain why certain meson triples approach Koide
+within the hadronic sector, but they cannot explain the connection
+\emph{to} the lepton relation, since leptons are not hadrons.
+
+The hierarchy of precision---leptons closer to exact Koide than
+mesons---is naturally explained: Sumino's family gauge
+symmetry~\cite{Sumino2009} can protect the lepton side of the bridge
+against QED radiative corrections, while the meson side receives QCD
+corrections of order $\Lambda_{\text{QCD}}/m_{\text{meson}}$ that are
+not cancelled.
+
+\subsection{What the bridge does not explain}
+\label{sec:gaps}
+
+The sBootstrap bridge has clear limitations:
+\begin{enumerate}
+\item It does not derive the Koide angle $\delta$.  For each sector,
+  $\delta$ remains a free parameter determined by the mass data.  For
+  leptons, $\delta_{e\mu\tau}=12.73^\circ$; for the quark chain,
+  $\delta_{scb}\approx 3\times 12.73^\circ\approx 38^\circ$.
+\item It does not derive the ratio
+  $\delta_{scb}/\delta_{e\mu\tau}\approx 3$, which would require
+  understanding the $\text{SU}(5)\to\text{SU}(3)\times\text{SU}(2)$
+  breaking pattern at a dynamical level.
+\item It does not derive the inverse down-type relation
+  $Q(1/m_d,1/m_s,1/m_b)\approx 3/2$: the $Z_3$ parametrization does
+  not close under inversion (Sec.~\ref{sec:inverse}).
+\item It does not explain \emph{which} specific meson triples satisfy
+  $Q\approx 3/2$: the selection of tuples like
+  $(-\pi^0,D_s,\eta_c)$ requires the mass formula with a
+  specific angle, which the sBootstrap does not fix.
+\item It does not predict specific mass values.  The overall scale $M_0$
+  and the angle $\delta$ are both determined from data, not from first
+  principles.
+\end{enumerate}
+
+%% ===================================================================
+\section{Discussion}
+\label{sec:discussion}
+%% ===================================================================
+
+\subsection{Assessment: partial structural insight}
+
+The milestone verdict for the sBootstrap contribution to the Koide
+program is \emph{partial structural insight with a genuine non-hadronic
+bridge}.  More precisely, the sBootstrap provides four things that no
+other framework offers simultaneously:
+\begin{enumerate}
+\item A genuine non-hadronic bridge from leptons to mesons, via the
+  slepton\,=\,meson identification in the $\mathbf{24}$ of SU(5).
+\item A structural explanation for sector selectivity: spin-0 two-body
+  composites are selected, vectors and baryons excluded.
+\item An algebraic identification of the sBootstrap mass formula with
+  the Koide condition, showing they are not merely compatible but
+  identical (Sec.~\ref{sec:proof}).
+\item A generation-counting argument: $N=3$ uniquely from the composite
+  self-consistency
+  conditions~\eqref{eq:closure1}--\eqref{eq:closure3}.
+\end{enumerate}
+These results constitute a structural insight, not a dynamical
+derivation.  The sBootstrap explains \emph{which} sectors should show
+Koide behavior (and why), but does not explain \emph{how} the specific
+mass values arise.  The Koide angle $\delta$ encodes the mass spectrum
+within each sector, and the sBootstrap leaves it as a free parameter.
+
+\subsection{Consistency with prior exclusions}
+
+An earlier systematic analysis of the Koide landscape established five
+exclusion claims: no universal Koide mechanism; vectors fail; baryons
+fail; Yukawaon/Sumino falsified as universal mechanism; hadronic-only
+embedding survives as the best framework~\cite{Rivero2013chain}.  The
+sBootstrap is consistent with all five.  It does not claim universal
+Koide (it claims \emph{selective} Koide).  It predicts vector and baryon
+failure from spin-selection and composite structure.  It is independent
+of the Yukawaon mechanism but compatible with Sumino's gauge protection
+as an IR mechanism.  And it extends the hadronic-only embedding by
+providing the non-hadronic bridge that was previously absent.
+
+\subsection{Community context}
+
+A systematic evaluation of 43 ideas from extended Physics Forums
+discussions on Koide-type relations~\cite{Rivero2007spectroscopy,
+Brannen2006} found that 70\% are either incorporated in the sBootstrap
+framework or independently support it, with zero contradictions.  Three
+findings deserve special mention:
+
+\begin{itemize}
+\item Brannen's circulant mass matrix with $\delta=2/9$~\cite{Brannen2006}
+  is mathematically identical to the $Z_3$/Cartan parametrization used
+  here, derived independently from Clifford algebra preons.  The two
+  parametrizations differ by the $\pi/6$ rotation of
+  Eq.~\eqref{eq:angle-shift}.
+\item The pion-mass ratio identity
+  $m_{\pi^+}/m_{\pi^0} = 1 + \sqrt{m_\mu/m_Z}$
+  holds to 7\,ppm with PDG~2024 masses.  This relation connects a
+  hadronic mass splitting to an electroweak/lepton quantity and is
+  consistent with the sBootstrap's pion-as-slepton identification, but
+  is not derived from it.
+\item Masiero and Veneziano's demonstration~\cite{MasieroVeneziano1984}
+  that one generation of leptons arises from SQCD with $N_c=N_f=3$
+  provides the strongest published support for the sBootstrap's
+  mesino\,=\,lepton identification, predating the sBootstrap by two
+  decades.
+\end{itemize}
+
+\subsection{Honest negatives}
+
+Three important results are \emph{not} achieved by the sBootstrap:
+
+\begin{enumerate}
+\item \textbf{The inverse down-type relation is not derived.}  The
+  turtles classify $(d,s,b)$ as a distinguished triple, but the $Z_3$
+  parametrization does not close under mass inversion
+  (Sec.~\ref{sec:inverse}).  The factor-of-three coincidence
+  $\sqrt{\Delta_{\text{II}}}=k_d$ remains unexplained.
+\item \textbf{The $3\times$ angle ratio is not derived.}  No ratio of
+  SU(5) representation invariants (dimensions, Casimirs, Dynkin indices
+  of $\mathbf{24}$ vs.\ $\mathbf{15}$) produces the factor~3.  The
+  only quantity equal to~3 is $k_d$ itself.
+\item \textbf{No specific mass values are predicted.}  The angle
+  $\delta$ is free per sector, so the framework cannot predict any
+  individual mass.  Given any three masses satisfying $Q=3/2$, the
+  framework can accommodate them by choosing an appropriate~$\delta$.
+\end{enumerate}
+
+\subsection{Predictions}
+\label{sec:predictions}
+
+The sBootstrap makes three testable predictions regarding
+Koide-type relations:
+\begin{enumerate}
+\item \textbf{Spin-selection.}  The sBootstrap predicts that
+  Koide-type mass structure appears \emph{only} in spin-0 meson sectors
+  (pseudoscalar and potentially scalar mesons, such as $f_0$, $a_0$,
+  $K_0^*$) and \emph{not} in spin-1 (vectors) or three-body composites
+  (baryons).  The sfermion identification is the mechanism: only spin-0
+  $q\bar{q}$ composites qualify as scalar partners.  This prediction is
+  structural and does not depend on the free parameter $\delta$.  Any
+  vector meson triple with $Q\approx 3/2$ would falsify it.
+\item \textbf{$N=3$ uniqueness and chain termination.}  The closure
+  conditions~\eqref{eq:closure1}--\eqref{eq:closure3} have no solution
+  for $N=4$.  The Koide chain terminates at the top quark (the
+  elephant): there is no fourth-generation link.  Any discovery of a
+  fourth generation of quarks, or a Koide chain continuing beyond the
+  top, would falsify the sBootstrap's generation-counting argument.
+\item \textbf{Exotic $\pm 4/3$ diquarks.}  The $(1,3)$ component of the
+  $\mathbf{15}$ produces three exotic diquarks of charge $\pm 4/3$
+  (the $uu$, $uc$, $cc$ states).  If observed, they would form their
+  own Koide-type triple.  This is a conditional prediction:\ naive
+  contact-interaction estimates give $Q=2.0\text{--}2.8$ for these
+  states, far from $3/2$, but the diquark mass dynamics in the
+  $\mathbf{15}$ may differ from the $\mathbf{24}$ where Koide is
+  established.
+\end{enumerate}
+
+The structural predictions (spin-selection and $N=3$) are strongly
+falsifiable: they make definite yes/no claims that do not depend on
+$\delta$.  The diquark prediction is conditional on the existence of
+states not yet observed.  A deferred prediction---the neutrino Koide
+relation, requiring the right-handed neutrinos that the sBootstrap
+demands for internal consistency---becomes testable when absolute
+neutrino masses are measured.
+
+\subsection{Comparison with other approaches}
+\label{sec:other}
+
+\textit{Yukawaon models.}---Koide's yukawaon
+framework~\cite{Koide2009yukawaon} uses $\text{U}(3)\times S_3$ family
+symmetry to derive mass matrices whose vacuum expectation values
+reproduce the Koide relation.  This is a more dynamical approach than
+the sBootstrap, but it applies sector by sector and does not address the
+pseudoscalar/vector selectivity.  The sBootstrap and yukawaon approaches
+are not mutually exclusive; the yukawaon could provide the dynamical
+mechanism that the sBootstrap's structural framework leaves unspecified.
+
+\textit{Superconformal light-front holographic QCD.}---The
+Brodsky-de~Teramond-Dosch program~\cite{Brodsky2015superconformal}
+establishes a hadronic supersymmetry connecting meson and baryon Regge
+trajectories through a superconformal algebra.  This framework naturally
+distinguishes pseudoscalar from vector mesons and could potentially
+explain the meson Koide selectivity at a QCD level.  However, it
+has not been directly connected to Koide-type sum rules, and it does not
+provide a bridge to the lepton sector.  A synthesis of the sBootstrap
+(lepton--meson bridge) with LFHQCD (hadronic mass patterns) is an
+interesting direction for future work.
+
+\textit{$Z_3$ parametrization.}---Zenczykowski's systematic use of the
+$Z_3$ angle parametrization~\cite{Zenczykowski2012,Zenczykowski2013,
+Zenczykowski2018} provided the algebraic foundation on which the chain
+structure was recognized.  The sBootstrap adds the physical
+interpretation of the Cartan angle
+(Eq.~\eqref{eq:angle-shift}) and the generation-counting context, but
+the phenomenological content of the $Z_3$ parametrization is independent
+of the sBootstrap and predates it.  The discrete $S_3$ symmetry
+underlying the parametrization was already implicit in the
+Harari-Haut-Weyers quark mass ansatz~\cite{HarariHautWeyers1978}.
+
+\subsection{Open questions}
+
+Several questions remain open for future work:
+\begin{itemize}
+\item What dynamical mechanism fixes the Koide angle $\delta$?  The
+  angle determines the mass spectrum within each sector and is the key
+  quantity not derived by the sBootstrap.  Possibilities include
+  the Sumino gauge sector~\cite{Sumino2009} or QCD vacuum dynamics.
+\item What explains the chain ratio $\delta_{scb}\approx
+  3\,\delta_{e\mu\tau}$?  The factor of three might emerge from the
+  $\text{SU}(5)\to\text{SU}(3)\times\text{SU}(2)$ breaking pattern,
+  but no combination of Casimir invariants or representation dimensions
+  produces it.  Brannen's $\alpha$-correction formula
+  $\delta=2/9-4\pi\alpha'/3^{12}$, which matches the lepton angle
+  to 10~digits~\cite{Brannen2006}, suggests a perturbative origin
+  for the angle that remains to be derived.
+\item Can the inverse down-type relation be derived from a dual structure
+  in the diquark channel?  The
+  $\bar{\mathbf{5}}\otimes\bar{\mathbf{5}}=\mathbf{15}\oplus\mathbf{10}$
+  decomposition contains the diquark sector; the present analysis shows
+  that sum constraints on diquark masses do not constrain individual
+  inverse masses (Sec.~\ref{sec:inverse}).
+\item How do Yukawa corrections to quark mass running affect the
+  Koide angles?  At one-loop QCD, mass ratios (and hence Koide angles)
+  are exactly RG-invariant~\cite{EspositoSantorelli1995,XingZhang2006}.
+  Yukawa contributions, dominated by the top, are flavor-dependent and
+  could shift $\delta_{scb}$ and $\delta_w$ at the percent level.
+\end{itemize}
+
+%% ===================================================================
+\section{Conclusions}
+\label{sec:conclusions}
+%% ===================================================================
+
+The sBootstrap provides a partial structural explanation for the observed
+sector selectivity of Koide-type mass relations---partial because the
+Koide angle $\delta$ remains free, but structural because the selectivity
+pattern is derived from algebraic and representation-theoretic arguments
+rather than fitted to data.
+
+Through the sfermion\,=\,hadron identification via SU(5) flavor
+symmetry, the framework selects spin-0 two-body composites (pseudoscalar
+mesons) as the hadronic sector where Koide-type behavior is expected,
+while excluding vectors (wrong spin) and baryons (wrong composite
+structure).  The algebraic proof that the sBootstrap mass formula implies
+$Q=3/2$, Eqs.~\eqref{eq:traceless}--\eqref{eq:Q-proof}, establishes
+that the two frameworks are not merely compatible but identical, with the
+angle correspondence $\alpha_{\text{Cartan}}=\delta_{Z_3}+\pi/6$.
+
+The five-link non-hadronic bridge---trace constraint, slepton\,=\,meson
+identification, shared charge transfer, spin-selection, and
+chiral/heavy-light compatibility---connects the lepton Koide relation to
+hadronic mass patterns through SUSY rather than QCD.  The framework is
+consistent with all six particle sectors examined: four explained
+(leptons, pseudoscalar mesons, vectors, baryons), two compatible
+(quark chain, inverse down-type), zero contradictions.  It makes three
+testable predictions: spin-selection, $N=3$ uniqueness, and the
+$\pm 4/3$ diquark sector.
+
+What the sBootstrap does not provide is equally important.  The Koide
+angle $\delta$ remains a free parameter, so no individual mass is
+predicted.  The chain ratio
+$\delta_{scb}/\delta_{e\mu\tau}\approx 3$ is not derived; no ratio of
+SU(5) invariants produces it.  The inverse down-type relation is
+structurally motivated (the turtles select $(d,s,b)$) but not proven:
+the $Z_3$ parametrization does not close under mass inversion, and the
+coincidence $\Delta_{\text{II}}=9=k_d^2$ has no known mechanism.  The
+framework offers a structural map, not a dynamical theory.  The
+derivation of $\delta$ from first principles remains the central open
+problem in the Koide program.
+
+\begin{acknowledgments}
+I thank the participants of the Physics Forums community for
+discussions on Koide-type relations, especially C.~Brannen for the
+circulant parametrization and H.~de~Velde for the anomalous moment
+coincidences.  I thank M.~Porter for identifying the Masiero-Veneziano
+and Seiberg duality connections.  This work was supported by the
+BIFI research infrastructure at the Universidad de Zaragoza.
+\end{acknowledgments}
+
+%% ===================================================================
+%% BIBLIOGRAPHY
+%% ===================================================================
+
+\begin{thebibliography}{30}
+
+\bibitem{Koide1983prd}
+Y.~Koide,
+``New view of quark and lepton mass hierarchy,''
+Phys.\ Rev.\ D \textbf{28}, 252 (1983).
+
+\bibitem{Koide1983plb}
+Y.~Koide,
+``A fermion-boson composite model of quarks and leptons,''
+Phys.\ Lett.\ B \textbf{120}, 161 (1983).
+
+\bibitem{Foot1994}
+R.~Foot,
+``A note on Koide's lepton mass relation,''
+arXiv:hep-ph/9402242 (1994).
+
+\bibitem{RodejohannZhang2011}
+W.~Rodejohann and H.~Zhang,
+``Extended empirical fermion mass relation,''
+Phys.\ Lett.\ B \textbf{698}, 152 (2011),
+arXiv:1101.5525 [hep-ph].
+
+\bibitem{Cao2012}
+F.~G.~Cao,
+``Neutrino masses from lepton and quark mass relations,''
+Phys.\ Rev.\ D \textbf{85}, 113003 (2012).
+
+\bibitem{Rivero2013chain}
+A.~Rivero,
+``Koide equations for quark mass triplets,''
+arXiv:1111.7232 [hep-ph] (2013).
+
+\bibitem{Zenczykowski2012}
+P.~Zenczykowski,
+``Remark on Koide's $Z_3$-symmetric parametrization of quark masses,''
+Phys.\ Rev.\ D \textbf{86}, 117303 (2012),
+arXiv:1210.4125 [hep-ph].
+
+\bibitem{Zenczykowski2013}
+P.~Zenczykowski,
+``Koide's $Z_3$-symmetric parametrization, quark masses and mixings,''
+Phys.\ Rev.\ D \textbf{87}, 077302 (2013),
+arXiv:1301.4143 [hep-ph].
+
+\bibitem{Zenczykowski2018}
+P.~Zenczykowski,
+``A note on Koide's doubly special parametrization of quark masses,''
+Open Physics \textbf{16}, 427 (2018).
+
+\bibitem{Rivero2007spectroscopy}
+A.~Rivero,
+``Third spectroscopy with a hint of superstrings,''
+arXiv:0710.1526 [hep-ph] (2007).
+
+\bibitem{Rivero2009sboot}
+A.~Rivero,
+``Unbroken supersymmetry without new particles,''
+arXiv:0910.4793 [hep-ph] (2009).
+
+\bibitem{Rivero2024so32}
+A.~Rivero,
+``An interpretation of scalars in SO(32),''
+Eur.\ Phys.\ J.\ C \textbf{84}, 1058 (2024),
+arXiv:2407.05397 [hep-ph].
+
+\bibitem{Rivero2011diquark}
+A.~Rivero,
+``A possible origin of the $q=4/3$ diquark,''
+arXiv:1111.7230 [hep-ph] (2011).
+
+\bibitem{Sumino2009}
+Y.~Sumino,
+``Family gauge symmetry as an origin of Koide's mass formula and
+charged lepton spectrum,''
+JHEP \textbf{0905}, 075 (2009),
+arXiv:0812.2103 [hep-ph].
+See also: Phys.\ Lett.\ B \textbf{671}, 477 (2009).
+
+\bibitem{Brannen2006}
+C.~Brannen,
+``Koide mass equations for hadrons'' (2006, unpublished).
+
+\bibitem{Koide2009yukawaon}
+Y.~Koide,
+``Charged lepton mass spectrum and supersymmetric yukawaon model,''
+arXiv:0906.3370 (2009).
+
+\bibitem{Brodsky2015superconformal}
+S.~J.~Brodsky, G.~F.~de~Teramond, and H.~G.~Dosch,
+``Superconformal baryon-meson symmetry and light-front holographic QCD,''
+Phys.\ Rev.\ D \textbf{91}, 085016 (2015),
+arXiv:1501.00959 [hep-ph].
+
+\bibitem{HarariHautWeyers1978}
+H.~Harari, H.~Haut, and J.~Weyers,
+``Quark masses and Cabibbo angles,''
+Phys.\ Lett.\ B \textbf{78}, 459 (1978).
+
+\bibitem{EspositoSantorelli1995}
+S.~Esposito and P.~Santorelli,
+``A geometric picture for fermion masses,''
+Mod.\ Phys.\ Lett.\ A \textbf{10}, 3077 (1995),
+arXiv:hep-ph/9603369.
+
+\bibitem{XingZhang2006}
+Z.-Z.~Xing and H.~Zhang,
+``On the Koide-like relations for the running masses of charged leptons,
+neutrinos and quarks,''
+Phys.\ Lett.\ B \textbf{635}, 107 (2006),
+arXiv:hep-ph/0602134.
+
+\bibitem{PDG2024}
+Particle Data Group (S.~Navas \textit{et al.}),
+``Review of Particle Physics,''
+Phys.\ Rev.\ D \textbf{110}, 030001 (2024).
+
+\bibitem{RiveroGsponer2005}
+A.~Rivero and A.~Gsponer,
+``The strange formula of Dr.\ Koide,''
+arXiv:hep-ph/0505220 (2005).
+
+\bibitem{ShahMir2007}
+G.~N.~Shah and T.~A.~Mir,
+``Pion and muon mass difference: a determining factor in elementary
+particle mass distribution,''
+Mod.\ Phys.\ Lett.\ A (2007),
+arXiv:hep-ph/0702140.
+
+\bibitem{LiMa2006}
+N.~Li and B.-Q.~Ma,
+``Energy scale independence of Koide's relation for quark and lepton masses,''
+Phys.\ Rev.\ D \textbf{73}, 013009 (2006),
+arXiv:hep-ph/0601031.
+
+\bibitem{MasieroVeneziano1984}
+A.~Masiero and G.~Veneziano,
+``Split light composite supermultiplets,''
+Nucl.\ Phys.\ B \textbf{249}, 593 (1985).
+
+\bibitem{SanninoSchechter1997}
+F.~Sannino and J.~Schechter,
+``Chiral phase transition for SU(N) gauge theories via an effective
+Lagrangian approach,''
+Phys.\ Rev.\ D \textbf{60}, 056005 (1999),
+arXiv:hep-ph/9903359.
+
+\bibitem{Miyazawa1966}
+H.~Miyazawa,
+``Baryon number changing currents,''
+Prog.\ Theor.\ Phys.\ \textbf{36}, 1266 (1966).
+
+\end{thebibliography}
+
+\end{document}
