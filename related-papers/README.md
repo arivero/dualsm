@@ -8,7 +8,6 @@ last version are included.
 
 | Date | File | Title | Source |
 |------|------|-------|--------|
-| 2026-02-24 | physres1_main.tex | From Newton to the Path Integral | physres1 |
 | 2026-03-03 | phys3_sbootstrap_v4.tex | A Tale of Two Tuples: Seed Triples, Signed Charges, ... [base wave] | phys3 |
 | 2026-03-05 | phys3_sbootstrap_v4d.tex | A Tale of Two Tuples: Seed Triples, Signed Charges, ... [last wave] | phys3 |
 | 2026-03-05 | phys3_paper_experimental.tex | Nuclear and hadronic predictions of the sBootstrap Lagrangian | phys3 |
