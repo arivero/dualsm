@@ -9,6 +9,10 @@
 *.bbl
 *.blg
 *.dvi
+*.nav
+*.snm
+*.spl
+*Notes.bib
 
 # Misc
 nohup.out
