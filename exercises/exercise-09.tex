@@ -1,0 +1,642 @@
+% ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
+%
+% Exercise Set 9: The Koide Relation and the Dualised Standard Model
+% Part of: The Dualised Standard Model -- Part III Exercises
+%
+% Conventions (Seiberg hep-th/9411149, unchanged from Lectures 1-11):
+%   Koide parameter: Q = (sum_k sqrt(m_k))^2 / sum_k m_k  (Koide point Q = 3/2)
+%   Casimirs: T(fund) = 1/2, C_2(fund) = (N^2-1)/(2N), C_2(R) = T(R) d(adj)/d(R)
+%   Electroweak VEV: v = 246 GeV, <H_0> = v/sqrt(2)
+%   Numbers in the solutions are checked by scripts/verify_koide_vev.py
+%   Epistemic: all non-SUSY duality claims carry conjectural qualifiers (P1)
+%
+\documentclass[11pt,a4paper]{article}
+\input{../lectures/preamble}
+
+\title{\textbf{Exercise Set 9: The Koide Relation and the Dualised
+Standard Model}}
+\author{The Dualised Standard Model --- Part III Exercises}
+\date{Lent Term 2027}
+
+\begin{document}
+\maketitle
+
+\begin{conventionbox}[title={Conventions for these exercises}]
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l l@{}}
+\toprule
+\textbf{Quantity} & \textbf{Convention} \\
+\midrule
+Units & $\hbar = c = 1$ (natural) \\
+Koide parameter & $Q = (\sum_k \sqrt{m_k})^2/\sum_k m_k$, Koide point $Q = 3/2$ \\
+Casimirs & $T(\fund) = \tfrac12$, $C_2(R) = T(R)\,d(\adj)/d(R)$ \\
+Lepton masses & PDG 2024 pole masses~\cite{PDG2024} \\
+Quark masses & $\overline{\text{MS}}$: $m_d(2\,\text{GeV})$, $m_s(2\,\text{GeV})$, $m_b(m_b)$~\cite{PDG2024} \\
+Electroweak VEV & $v = 246$~GeV, $\langle H_0\rangle = v/\sqrt{2}$ \\
+Epistemic & ``if the conjectured duality holds'' for all non-SUSY claims (P1) \\
+\bottomrule
+\end{tabular}
+
+\medskip
+
+\noindent References: Lecture~11 (all sections); Lectures~7--8 for the
+multi-Higgs sector; PDG 2024~\cite{PDG2024}; ISS~\cite{ISS2006}.
+
+\medskip
+
+\noindent\textbf{Total marks: 75. \quad Suggested time: 105 minutes.}
+
+\medskip
+
+\noindent\textbf{Epistemic note.}
+These problems are the five exercises of Lecture~11, split into
+marked parts.  The Casimir algebra, the Koide identities and the
+closure-condition counting are exact.  Their physical interpretation
+(the Koide relation as a VEV condition of the dualised SM, the
+sBootstrap identification of the turtle/elephant split) is conjectural
+and is marked where it arises.  Every number quoted below is recomputed
+by \texttt{scripts/verify\_koide\_vev.py}.
+\end{conventionbox}
+
+\bigskip
+
+
+%% ========================================================================
+%%  PROBLEM 1: The Casimir ratio
+%% ========================================================================
+\section*{Problem 1: The Casimir Ratio $C_2(\wedge^2 N)/C_2(N)$
+  \hfill $\star$ \normalsize(15 min, 10 marks)}
+\addcontentsline{toc}{section}{Problem 1: The Casimir ratio}
+\label{prob:casimir}
+
+\noindent\textbf{Background.}
+Lecture~11, \S3, observes that the ratio of quadratic Casimirs of the
+antisymmetric two-tensor and the fundamental of $\SU{N}$ equals the
+Koide value $3/2$ at $N = 5$.  The quadratic Casimir of the rank-$p$
+antisymmetric tensor is
+\begin{equation}\label{eq:C2-wedge}
+  C_2(\wedge^p N) = \frac{p\,(N-p)\,(N+1)}{2N}\,.
+\end{equation}
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{[4 marks]}
+    Check~\eqref{eq:C2-wedge} for $p = 1$ and $p = 2$ against
+    $C_2(R) = T(R)\,d(\adj)/d(R)$, using
+    $T(\wedge^2 N) = (N-2)/2$ and $d(\wedge^2 N) = N(N-1)/2$.
+  \item \textbf{[3 marks]}
+    Show that $C_2(\wedge^2 N)/C_2(N) = 2(N-2)/(N-1)$ and tabulate the
+    two Casimirs and their ratio for $N = 2,\dots,6$.
+  \item \textbf{[3 marks]}
+    For which values of $N$ is the ratio an integer?  Show that $N = 5$
+    is the only value for which it equals $3/2$.
+\end{enumerate}
+
+
+\bigskip
+\hrule
+\bigskip
+
+
+\begin{proof}[\textbf{Solution to Problem 1}]
+
+\textbf{(a)} For $p = 1$, \eqref{eq:C2-wedge} gives
+$C_2(N) = (N-1)(N+1)/(2N) = (N^2-1)/(2N)$, the standard value.  From
+$C_2 = T\,d(\adj)/d$ with $T(\fund) = \tfrac12$:
+$C_2(N) = \tfrac12 (N^2-1)/N$.  \checkmark
+
+For $p = 2$, \eqref{eq:C2-wedge} gives
+$C_2(\wedge^2 N) = 2(N-2)(N+1)/(2N) = (N-2)(N+1)/N$.  From the
+Dynkin index:
+\begin{equation*}
+  C_2(\wedge^2 N) = \frac{N-2}{2}\cdot\frac{N^2-1}{N(N-1)/2}
+  = \frac{(N-2)(N^2-1)}{N(N-1)} = \frac{(N-2)(N+1)}{N}\,.
+  \quad\checkmark
+\end{equation*}
+(For general $p$, $T(\wedge^p N) = \tfrac12\binom{N-2}{p-1}$ and
+$\binom{N-2}{p-1}/\binom{N}{p} = p(N-p)/[N(N-1)]$ reproduce
+\eqref{eq:C2-wedge}.)
+
+\medskip
+
+\textbf{(b)} Dividing,
+\begin{equation*}
+  \frac{C_2(\wedge^2 N)}{C_2(N)}
+  = \frac{(N-2)(N+1)}{N}\cdot\frac{2N}{(N-1)(N+1)}
+  = \frac{2(N-2)}{N-1}\,.
+\end{equation*}
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c c c c l}
+\toprule
+$N$ & $C_2(N)$ & $C_2(\wedge^2 N)$ & ratio & remark \\
+\midrule
+$2$ & $3/4$ & $0$ & $0$ & $\wedge^2\mathbf{2}$ is the singlet \\
+$3$ & $4/3$ & $4/3$ & $1$ & $\wedge^2\mathbf{3} \cong \bar{\mathbf{3}}$ \\
+$4$ & $15/8$ & $5/2$ & $4/3$ & \\
+$5$ & $12/5$ & $18/5$ & $3/2$ & $C_2(\mathbf{10})/C_2(\mathbf{5})$ \\
+$6$ & $35/12$ & $14/3$ & $8/5$ & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+
+\textbf{(c)} Write $2(N-2)/(N-1) = 2 - 2/(N-1)$.  This is an integer
+exactly when $N-1$ divides $2$, i.e.\ $N = 2$ (ratio $0$) or $N = 3$
+(ratio $1$).  For $N \geq 4$ the ratio increases strictly from $4/3$
+towards $2$ and is never an integer.  Setting it to $3/2$ gives
+$4(N-2) = 3(N-1)$, a linear equation with the single solution
+$N = 5$.
+
+\end{proof}
+
+
+\bigskip
+
+%% ========================================================================
+%%  PROBLEM 2: Q for leptons and inverse down-type quarks
+%% ========================================================================
+\section*{Problem 2: $Q$ for the Charged Leptons and the Inverse
+  Down-Type Quarks
+  \hfill $\star$ \normalsize(20 min, 15 marks)}
+\addcontentsline{toc}{section}{Problem 2: Q for leptons and inverse quarks}
+\label{prob:Q-values}
+
+\noindent\textbf{Background.}
+Lecture~11, \S7, compares the charged-lepton Koide parameter with the
+Koide parameter of the \emph{inverse} down-type quark masses, which a
+seesaw between quark masses and meson VEVs would relate.
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{[6 marks]}
+    Compute $Q(m_e,m_\mu,m_\tau)$ for $m_e = 0.511$~MeV,
+    $m_\mu = 105.658$~MeV, $m_\tau = 1776.93$~MeV, and estimate the
+    uncertainty from $\delta m_\tau = 0.09$~MeV.
+  \item \textbf{[6 marks]}
+    Compute $Q(1/m_d,1/m_s,1/m_b)$ for $m_d = 4.70 \pm 0.20$~MeV,
+    $m_s = 93.5 \pm 0.8$~MeV, $m_b = 4183 \pm 7$~MeV, and propagate
+    the uncertainties.
+  \item \textbf{[3 marks]}
+    Compute $Q(m_d,m_s,m_b)$ directly.  Comment on the scales at which
+    the three quark masses are defined.
+\end{enumerate}
+
+
+\bigskip
+\hrule
+\bigskip
+
+
+\begin{proof}[\textbf{Solution to Problem 2}]
+
+\textbf{(a)} The square roots are $\sqrt{m_e} = 0.714843$,
+$\sqrt{m_\mu} = 10.279008$, $\sqrt{m_\tau} = 42.153648$
+(in $\text{MeV}^{1/2}$), with sum $53.14750$.  Then
+\begin{equation*}
+  Q(m_e,m_\mu,m_\tau) = \frac{(53.14750)^2}{1883.099}
+  = \frac{2824.657}{1883.099} = 1.500004\,.
+\end{equation*}
+Varying $m_\tau$ by $\pm 0.09$~MeV changes $Q$ by
+$\mp 1.1\times 10^{-5}$, so $Q = 1.500004 \pm 0.000011$, within
+$0.4\sigma$ of $3/2$.  (With the unrounded PDG masses
+$m_e = 0.51099895$~MeV, $m_\mu = 105.6583755$~MeV one finds
+$Q = 1.500005$, the value quoted in Lecture~11.)
+
+\medskip
+
+\textbf{(b)} The inverse masses are $0.212766$, $0.0106952$ and
+$0.000239063$~MeV$^{-1}$, with square roots $0.461266$, $0.103418$,
+$0.0154617$ summing to $0.580145$.  Then
+\begin{equation*}
+  Q\!\left(\frac{1}{m_d},\frac{1}{m_s},\frac{1}{m_b}\right)
+  = \frac{(0.580145)^2}{0.223700} = \frac{0.336568}{0.223700}
+  = 1.5045\,.
+\end{equation*}
+Linear error propagation gives the contributions $\pm 0.0100$
+($m_d$), $\mp 0.0017$ ($m_s$) and $\mp 0.0001$ ($m_b$); in
+quadrature $\delta Q = 0.010$, dominated by the $4.3\%$ uncertainty
+of $m_d$.  Hence $Q(1/m) = 1.5045 \pm 0.010$: the deviation from
+$3/2$, $0.0045 \pm 0.010$, is within $1\sigma$.
+
+\medskip
+
+\textbf{(c)} Directly, $Q(m_d,m_s,m_b) = 1.3675$, far from $3/2$; the
+near-Koide value appears only for the inverse masses.  The three
+inputs live at different scales: $m_d$ and $m_s$ are
+$\overline{\text{MS}}$ masses at $\mu = 2$~GeV, while $m_b$ is
+$\overline{\text{MS}}$ at $\mu = m_b$.  Because $Q$ is scale invariant
+only under a common rescaling, running all three masses to one scale
+changes $Q(1/m)$, and a statement at the $10^{-2}$ level requires
+specifying the scale (Lecture~11, \S9, ``Scale convention'').
+
+\end{proof}
+
+
+\bigskip
+
+%% ========================================================================
+%%  PROBLEM 3: The Z_3 parametrisation
+%% ========================================================================
+\section*{Problem 3: The $Z_3$ Parametrisation and the Koide Angle
+  \hfill $\star\star$ \normalsize(20 min, 15 marks)}
+\addcontentsline{toc}{section}{Problem 3: The Z3 parametrisation}
+\label{prob:z3}
+
+\noindent\textbf{Background.}
+Lecture~11, \S4, parametrises the mixing ratios as
+\begin{equation}\label{eq:z3-ex}
+  x_k = z_0\left(1+\sqrt{2}\cos\varphi_k\right),
+  \qquad \varphi_k = \frac{2\pi k}{3}+\delta\,,
+  \qquad k = 1,2,3\,,
+\end{equation}
+with masses $m_k = m_0\,x_k^2$.
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{[6 marks]}
+    Show that $Q = 3/2$ for \emph{any} value of $\delta$.
+  \item \textbf{[6 marks]}
+    For $\delta = 2/9$, compute $x_k/z_0$ and the predicted ratios
+    $m_e/m_\mu$ and $m_\mu/m_\tau$.  Verify that they reproduce the
+    measured ratios to better than $0.01\%$.
+  \item \textbf{[3 marks]}
+    Show that $m_0 z_0^2 = (m_e+m_\mu+m_\tau)/6$ and use it to predict
+    the three lepton masses.
+\end{enumerate}
+
+
+\bigskip
+\hrule
+\bigskip
+
+
+\begin{proof}[\textbf{Solution to Problem 3}]
+
+\textbf{(a)} With $\omega = e^{2\pi i/3}$,
+$\sum_k e^{i\varphi_k} = e^{i\delta}\sum_k \omega^k = 0$, so
+$\sum_k \cos\varphi_k = 0$.  Likewise
+$\sum_k \cos 2\varphi_k = \mathrm{Re}\,e^{2i\delta}\sum_k\omega^{2k} = 0$,
+so $\sum_k \cos^2\varphi_k = \tfrac12\sum_k(1+\cos 2\varphi_k) = \tfrac32$.
+Therefore
+\begin{align*}
+  \sum_k x_k &= 3 z_0\,, \\
+  \sum_k x_k^2 &= z_0^2\sum_k\left(1 + 2\sqrt{2}\cos\varphi_k
+    + 2\cos^2\varphi_k\right) = z_0^2\,(3 + 0 + 3) = 6\,z_0^2\,,
+\end{align*}
+and $Q = (3z_0)^2/(6z_0^2) = 3/2$ for every $\delta$.  In the language
+of Lecture~11, \S2, the traceless parts are
+$z_k = \sqrt{2}\,z_0\cos\varphi_k$ with $\sum_k z_k^2 = 3z_0^2$,
+which is the trace condition $z_0^2 = \tfrac13\sum_k z_k^2$.
+
+\medskip
+
+\textbf{(b)} For $\delta = 2/9$~rad the angles are
+$\varphi_k = 132.73^\circ,\ 252.73^\circ,\ 372.73^\circ$, and
+\begin{equation*}
+  \frac{x_k}{z_0} = 0.040350,\quad 0.580212,\quad 2.379438\,,
+  \qquad
+  \frac{m_k}{m_0 z_0^2} = 0.001628,\quad 0.336646,\quad 5.661726\,,
+\end{equation*}
+which sum to $6$ as required by~(a).  The ratios are independent of
+$z_0$:
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{l c c c}
+\toprule
+Ratio & $\delta = 2/9$ & PDG & relative difference \\
+\midrule
+$m_e/m_\mu$ & $4.83628\times10^{-3}$ & $4.83633\times10^{-3}$ & $-1.0\times10^{-5}$ \\
+$m_\mu/m_\tau$ & $5.94599\times10^{-2}$ & $5.94612\times10^{-2}$ & $-2.1\times10^{-5}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Both agree to better than $0.01\%$ ($10^{-4}$).  (The PDG column uses
+the unrounded $m_e$ and $m_\mu$ and $m_\tau = 1776.93$~MeV.)
+
+\medskip
+
+\textbf{(c)} From~(a), $\sum_k m_k = m_0\sum_k x_k^2 = 6\,m_0 z_0^2$,
+so $m_0 z_0^2 = (m_e+m_\mu+m_\tau)/6 = 313.85$~MeV for the masses of
+Problem~2.  Multiplying the second list in~(b) by this value gives
+$m_e = 0.5110$~MeV, $m_\mu = 105.656$~MeV and $m_\tau = 1776.93$~MeV,
+reproducing the inputs to the precision of the table above.  The dualised SM supplies the form
+$m_k = m_0 x_k^2$ (Lecture~11, \S2) and leaves both $z_0$ and
+$\delta$ free.
+
+\end{proof}
+
+
+\bigskip
+
+%% ========================================================================
+%%  PROBLEM 4: Closure conditions and the ISS rank condition
+%% ========================================================================
+\section*{Problem 4: The Closure Conditions and the ISS Counting
+  \hfill $\star\star$ \normalsize(20 min, 15 marks)}
+\addcontentsline{toc}{section}{Problem 4: Closure conditions and ISS}
+\label{prob:closure}
+
+\noindent\textbf{Background.}
+The sBootstrap closure conditions of Lecture~11, \S8, are
+\begin{equation}\label{eq:closure}
+  2N = k_u\,k_d\,,\qquad
+  2N = \frac{k_d(k_d+1)}{2}\,,\qquad
+  4N = k_u^2 + k_d^2 - 1\,.
+\end{equation}
+The ISS rank condition~\cite{ISS2006} splits the $\Nf$ flavours of
+SQCD with $\Nc$ colours into $\Nf-\Nc$ condensing directions and $\Nc$
+directions with nonzero F-terms.
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{[5 marks]}
+    Show that~\eqref{eq:closure} has the unique solution in positive
+    integers $(k_u,k_d,N) = (2,3,3)$.
+  \item \textbf{[4 marks]}
+    For which $(\Nc,\Nf)$ does the ISS split
+    $(\Nf-\Nc,\Nc)$ equal $(k_u,k_d)$?
+  \item \textbf{[3 marks]}
+    ISS control the metastable vacuum for $\Nc < \Nf < \tfrac32\Nc$.
+    Does the pair found in~(b) lie in this range?
+  \item \textbf{[3 marks]}
+    Which gauge group would the ISS condensate Higgs in the dualised SM
+    of Lecture~7?  What do you conclude about the ``two derivations''
+    of $k_u = 2$, $k_d = 3$?
+\end{enumerate}
+
+
+\bigskip
+\hrule
+\bigskip
+
+
+\begin{proof}[\textbf{Solution to Problem 4}]
+
+\textbf{(a)} The first two conditions give
+$k_u k_d = k_d(k_d+1)/2$, so $k_u = (k_d+1)/2$ for $k_d \neq 0$.  The
+first and third give $k_u^2 + k_d^2 - 1 = 4N = 2k_u k_d$, i.e.\
+$(k_d-k_u)^2 = 1$, so $k_d = k_u \pm 1$.  With $k_d = 2k_u - 1$:
+\begin{itemize}
+  \item $k_d = k_u + 1$ gives $k_u = 2$, $k_d = 3$, $N = k_uk_d/2 = 3$;
+  \item $k_d = k_u - 1$ gives $k_u = 0$, $k_d = -1$, which is excluded.
+\end{itemize}
+The unique positive solution is $(k_u,k_d,N) = (2,3,3)$.  Check:
+$2\cdot3 = 6 = 2N$, $3\cdot4/2 = 6 = 2N$, $4+9-1 = 12 = 4N$.
+
+\medskip
+
+\textbf{(b)} $\Nf - \Nc = 2$ and $\Nc = 3$ give $(\Nc,\Nf) = (3,5)$,
+uniquely.  The swapped pair $(\Nf-\Nc,\Nc) = (3,2)$, i.e.\
+$(\Nc,\Nf) = (2,5)$, would require $(k_u,k_d) = (3,2)$, which fails
+the second condition ($k_d(k_d+1)/2 = 3 \neq 6$).
+
+\medskip
+
+\textbf{(c)} For $\Nc = 3$ the ISS range is $3 < \Nf < 4.5$, i.e.\
+$\Nf = 4$ only.  The pair $(3,5)$ lies outside it, inside the
+conformal window $4.5 < \Nf < 9$: the magnetic $\SU{2}$ with five
+flavours has $b_0^{\text{mag}} = 3(\Nf-\Nc) - \Nf = 1 > 0$, so it is
+asymptotically free and flows to an interacting fixed point instead of
+being infrared free, and the perturbative ISS analysis of the
+metastable vacuum does not apply.
+
+\medskip
+
+\textbf{(d)} The condensate $\langle\widetilde q\,q\rangle$ has rank
+$\Nf-\Nc$ and Higgses the \emph{magnetic} gauge group completely.  In
+Lecture~7 the magnetic group is $\SU{3}_c$ (Cacciapaglia--Sannino
+route~\cite{CacciapagliaSannino2024}) or $\SU{4}_{\text{PS}} \supset \SU{3}_c$ (Pati--Salam route), so
+the ISS vacuum would break colour, in conflict with observation.
+Combined with~(c), the ISS counting reproduces the integers $2$ and
+$3$ at $(\Nc,\Nf) = (3,5)$ only numerically.  The closure conditions
+remain the single counting argument for $k_u = 2$, $k_d = 3$, and
+both they and the sBootstrap identification behind them are
+conjectural (Lecture~11, \S8.1).
+
+\end{proof}
+
+
+\bigskip
+
+%% ========================================================================
+%%  PROBLEM 5: S3-symmetric potential (challenge)
+%% ========================================================================
+\section*{Problem 5: An $S_3$-Symmetric Potential for the Dormant
+  Doublets
+  \hfill $\star\star\star$ \normalsize(30 min, 20 marks)}
+\addcontentsline{toc}{section}{Problem 5: S3-symmetric potential}
+\label{prob:s3}
+
+\noindent\textbf{Background.}
+Lecture~11, \S2, writes the Koide relation as the trace condition
+$z_0^2 = \tfrac13\sum_k z_k^2$ on the mixing ratios
+$x_k^2 = \langle H_k\rangle/\langle H_0\rangle$ of three dormant
+doublets $H_1, H_2, H_3$ that mix with the SM Higgs $H_0$ through the
+soft masses $\mu_{0k}^2$.
+
+\medskip
+
+\noindent\textbf{Questions.}
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{[6 marks]}
+    Write the most general renormalisable potential for $H_1, H_2, H_3$
+    invariant under the permutation group $S_3$ (and under
+    $\SU{2}_L\times\UU{1}_Y$).  Use the singlet
+    $h_S = (H_1+H_2+H_3)/\sqrt3$ and the doublet
+    $h_1 = (H_1-H_2)/\sqrt2$, $h_2 = (H_1+H_2-2H_3)/\sqrt6$.  Count the
+    real parameters.
+  \item \textbf{[4 marks]}
+    Add the soft breaking
+    $-\sum_k \mu_{0k}^2\,(H_0^\dagger H_k + \text{h.c.})$ and find the
+    minimum to leading order in $\langle H_k\rangle/M$, where $M$ is the
+    dormant mass scale.
+  \item \textbf{[6 marks]}
+    Does the minimum satisfy the Koide condition for any choice of the
+    quartic couplings?
+  \item \textbf{[4 marks]}
+    What additional conditions are needed?
+\end{enumerate}
+
+
+\bigskip
+\hrule
+\bigskip
+
+
+\begin{proof}[\textbf{Solution to Problem 5}]
+
+\textbf{(a)} Under $S_3$, $h_S$ is invariant and $(h_1,h_2)$ transforms
+as the two-dimensional irreducible representation.  The invariant
+quadratic terms are
+\begin{equation*}
+  V_2 = \mu_S^2\,h_S^\dagger h_S + \mu_D^2\,(h_1^\dagger h_1 + h_2^\dagger h_2)\,,
+\end{equation*}
+equivalent in the $H_k$ basis to a diagonal mass $M^2$ and a common
+off-diagonal mass $m'^2$ with $\mu_S^2 = M^2 + 2m'^2$,
+$\mu_D^2 = M^2 - m'^2$.  The invariant quartic terms are
+\begin{align*}
+  V_4 ={}& \lambda_1\,(h_1^\dagger h_1 + h_2^\dagger h_2)^2
+   + \lambda_2\,(h_1^\dagger h_2 - h_2^\dagger h_1)^2
+   + \lambda_3\left[(h_1^\dagger h_1 - h_2^\dagger h_2)^2
+     + (h_1^\dagger h_2 + h_2^\dagger h_1)^2\right] \\
+  &+ \lambda_5\,(h_S^\dagger h_S)(h_1^\dagger h_1 + h_2^\dagger h_2)
+   + \lambda_6\left[(h_S^\dagger h_1)(h_1^\dagger h_S)
+     + (h_S^\dagger h_2)(h_2^\dagger h_S)\right]
+   + \lambda_8\,(h_S^\dagger h_S)^2 \\
+  &+ \Big\{\lambda_4\left[(h_S^\dagger h_1)(h_1^\dagger h_2 + h_2^\dagger h_1)
+     + (h_S^\dagger h_2)(h_1^\dagger h_1 - h_2^\dagger h_2)\right]
+   + \lambda_7\left[(h_S^\dagger h_1)^2 + (h_S^\dagger h_2)^2\right]
+   + \text{h.c.}\Big\}\,,
+\end{align*}
+with $\lambda_{1,2,3,5,6,8}$ real and $\lambda_{4,7}$ complex: $10$
+real quartic parameters ($8$ if CP is imposed), plus $2$ quadratic
+ones.  Completeness follows from a character count.  The nine real
+bilinears $K_{ij} = H_i^\dagger H_j$ carry the character
+$(\Tr P)^2 = 9, 1, 0$ on the identity, the transpositions and the
+3-cycles.  The quartic potential is a quadratic form in $K$, and the
+number of invariant quadratic forms is
+$\tfrac16\left[45 + 3\cdot 5 + 2\cdot 0\right] = 10$; the number of
+invariant linear forms (mass terms) is $\tfrac16[9 + 3 + 0] = 2$.
+The ten structures above are linearly independent, so they exhaust
+the invariant quartics (both facts are checked numerically by
+\texttt{verify\_koide\_vev.py}).  Couplings to $H_0$, an $S_3$ singlet, add terms such as
+$(H_0^\dagger H_0)(h_S^\dagger h_S)$,
+$(H_0^\dagger H_0)(h_1^\dagger h_1 + h_2^\dagger h_2)$ and
+$(H_0^\dagger H_0)(H_0^\dagger h_S)$.  No invariant is linear in the
+doublet $(h_1,h_2)$ with singlets elsewhere, so these terms can shift
+$\mu_S^2$, $\mu_D^2$ and the singlet mixing only.
+
+\medskip
+
+\textbf{(b)} Split the soft vector into its singlet and doublet parts,
+$\mu_{0k}^2 = s + d_k$ with $s = \tfrac13\sum_j\mu_{0j}^2$ and
+$\sum_k d_k = 0$.  Then
+$\sum_k \mu_{0k}^2 H_k = \sqrt3\,s\,h_S + \hat d_1 h_1 + \hat d_2 h_2$
+with $\hat d_1 = (d_1-d_2)/\sqrt2$ and
+$\hat d_2 = (d_1+d_2-2d_3)/\sqrt6$.  At leading order the quartic
+terms are negligible and the minimum is
+\begin{equation*}
+  \langle h_S\rangle = \frac{\sqrt3\,s}{\mu_S^2}\,\langle H_0\rangle\,,
+  \qquad
+  \langle h_a\rangle = \frac{\hat d_a}{\mu_D^2}\,\langle H_0\rangle\,,
+  \qquad\Longrightarrow\qquad
+  x_k^2 = \frac{\langle H_k\rangle}{\langle H_0\rangle}
+  = \frac{s}{\mu_S^2} + \frac{d_k}{\mu_D^2} \equiv a + b_k\,.
+\end{equation*}
+For $\mu_S^2 = \mu_D^2 = M^2$ this reduces to
+$x_k = \mu_{0k}/M$ of Lecture~11.  The dormant quartics correct $x_k^2$
+at relative order $\lambda\langle H\rangle^2/M^2$.
+
+\medskip
+
+\textbf{(c)} No.  Any positive triple can be written as
+$x_k = z_0\left[1 + \sqrt2\,r\cos(2\pi k/3 + \delta)\right]$ with
+$r \geq 0$; the identities of Problem~3(a) then give
+$\sum_k x_k^2 = 3z_0^2(1+r^2)$ and
+\begin{equation*}
+  Q = \frac{3}{1+r^2}\,.
+\end{equation*}
+The Koide point is $r = 1$.  The $S_3$-invariant potential enters
+$x_k^2 = a + b_k$ only through the common factors $1/\mu_S^2$ and
+$1/\mu_D^2$; the quartic couplings drop out at leading order, and at
+the next order their invariant pieces shift $\mu_S^2$, $\mu_D^2$ and
+$s$, which are $S_3$ singlets.  The value of $r$ is set by the size
+of the doublet part $b_k$ relative to $a$, which only the soft terms
+supply.  Two limits make this explicit: $S_3$-symmetric soft terms
+($d_k = 0$) give equal $x_k$, $r = 0$ and $Q = 3$; a single dominant
+direction gives $Q \to 1$.  Every value in between is reached as the
+soft terms vary, so $Q = 3/2$ holds only on a surface of codimension
+one in parameter space, whatever the $\lambda_i$.
+
+On that surface, $x_k^2 = z_0^2\left(2 + 2\sqrt2\cos\varphi_k
++ \cos 2\varphi_k\right)$, so $a = 2z_0^2$ and
+$b_k/a = \sqrt2\cos\varphi_k + \tfrac12\cos 2\varphi_k$.  For the
+leptons ($\delta = 2/9$) this vector is
+$(-0.9992,\ -0.8317,\ 1.8309)$: the electron requires the doublet
+part to cancel the singlet part to $8\times10^{-4}$.  Writing
+$b_k/a = B\cos(2\pi k/3 + \beta)$, the amplitude
+$B = \left(\tfrac94 + \sqrt2\cos3\delta\right)^{1/2} = 1.833$ and the
+phase $\beta = 0.053$ are both fixed by $\delta$.
+
+\medskip
+
+\textbf{(d)} Beyond $S_3$ one needs (i) one real relation between the
+doublet and singlet parts of the soft terms, $r = 1$, and, to obtain
+the lepton spectrum, (ii) a second relation fixing the direction of
+the doublet part, $\beta = 0.053$ (equivalently $\delta = 2/9$).  Exact $S_3$ cannot supply either, since it
+forbids the doublet part altogether.  They must come from the dynamics
+that generates $\mu_{0k}^2$, $\mu_S^2$ and $\mu_D^2$: in the dualised
+SM these are set by Planck-suppressed operators of the electric theory
+(Lecture~8), which the duality does not constrain enough.  In
+yukawaon-type models~\cite{HabaKoide2008,Ma2007} the relation is
+placed in the potential of an additional flavour field whose minimum
+sits at the Koide point, which moves the question to that potential.
+Within this problem, $Q = 3/2$ is an extra assumption about the soft
+terms, consistent with the status ``not derived'' in Lecture~11, \S9.
+
+\end{proof}
+
+
+\bigskip
+
+\begin{center}
+\rule{0.6\textwidth}{0.4pt}
+
+\textit{End of Exercise Set 9.  The Casimir ratio equals $3/2$ only
+for $\SU{5}$ (Problem~1); the charged leptons sit at $Q = 3/2$ to
+$10^{-5}$ and the inverse down-type quarks at $1.5045 \pm 0.010$
+(Problem~2); the $Z_3$ form satisfies $Q = 3/2$ for every $\delta$,
+and $\delta = 2/9$ fits the lepton ratios to $2\times10^{-5}$
+(Problem~3); the sBootstrap integers $k_u = 2$, $k_d = 3$ match the
+ISS counting only numerically (Problem~4); and an $S_3$-symmetric
+potential leaves $Q$ to the soft terms (Problem~5).}
+\end{center}
+
+
+%% ========================================================================
+%%  BIBLIOGRAPHY
+%% ========================================================================
+\begin{thebibliography}{99}
+
+\bibitem{PDG2024}
+  S.~Navas \textit{et al.} (Particle Data Group),
+  ``Review of Particle Physics,''
+  \textit{Phys.\ Rev.\ D} \textbf{110} (2024) 030001.
+
+\bibitem{ISS2006}
+  K.~Intriligator, N.~Seiberg and D.~Shih,
+  ``Dynamical SUSY breaking in meta-stable vacua,''
+  \textit{JHEP} \textbf{0604} (2006) 021
+  [\texttt{hep-th/0602239}].
+
+\bibitem{HabaKoide2008}
+  N.~Haba and Y.~Koide,
+  ``New origin of a bilinear mass matrix form,''
+  \textit{Phys.\ Lett.\ B} \textbf{659} (2008) 260
+  [\texttt{arXiv:0708.3913}].
+
+\bibitem{Ma2007}
+  E.~Ma,
+  ``Lepton family symmetry and possible application to the Koide mass
+  formula,''
+  \textit{Phys.\ Lett.\ B} \textbf{649} (2007) 287
+  [\texttt{hep-ph/0612022}].
+
+\bibitem{CacciapagliaSannino2024}
+  G.~Cacciapaglia and F.~Sannino,
+  ``Charting Standard Model Duality and its Signatures,''
+  \texttt{arXiv:2407.17281} [hep-ph] (2024).
+
+\end{thebibliography}
+
+\end{document}
