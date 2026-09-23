@@ -22,18 +22,23 @@ Standard Model}}
 \label{sec:intro}
 %% ========================================================================
 
-In Lectures~7--8, we constructed the dualised Standard Model: a
-magnetic dual of SU(3) QCD with $\Nf = 6$ flavours, where 18~Higgs
-doublets emerge from the mes-Higgs field $\Phi_H$ and the fermion
-mass hierarchy arises from hierarchical VEVs among these doublets.
-The Yukawa coupling $y$ is \emph{universal} (a prediction of the
-duality), and the effective Yukawa matrix is
+In Lectures~7--8, we constructed the dualised Standard Model: the
+SM, colour group $\SU{3}_c$ included, as the conjectured
+\emph{magnetic} dual of an electric $\SU{3}$ gauge theory (a group
+distinct from colour) with $\Nf = 6$
+flavours~\cite{Sannino2024}.  Eighteen Higgs doublets emerge from
+the mes-Higgs field $\Phi_H$, and the fermion mass hierarchy arises
+from hierarchical VEVs among these doublets.  The Yukawa coupling
+$y$ is \emph{universal} (fixed by the magnetic Lagrangian of
+Lecture~7), and the effective Yukawa matrix is
 \begin{equation}
-  y_{ij}^{\text{eff}} = y\,\frac{\langle H_{ij}\rangle}{v}\,,
+  y_{ij}^{\text{eff}} = \sqrt{2}\,y\,\frac{\langle H_{ij}\rangle}{v}\,,
   \label{eq:yeff}
 \end{equation}
-where $H_{ij}$ are the Higgs doublet components and $v$ is the
-electroweak VEV.
+where $H_{ij}$ are the Higgs doublet components, $v = 246$~GeV is
+the electroweak VEV, and the SM Higgs $H_0 \equiv H^u_{33}$ carries
+$\langle H_0\rangle \simeq v/\sqrt{2}$, so that $y^{\text{eff}}_{33}
+\simeq y$.
 
 In this lecture we ask: \emph{does the dualised SM predict or
 constrain the fermion mass eigenvalues?}  We establish one solid
@@ -49,6 +54,12 @@ result and explore two conjectures:
   $C_2(\mathbf{10})/C_2(\mathbf{5}) = 2(N-2)/(N-1)$, which
   uniquely selects $N=5$.  Whether the Higgs potential enforces this
   value is \emph{conjectural}.
+\item[\textbf{(C2)}] The split of the five light quarks into
+  $k_u = 2$ up-type and $k_d = 3$ down-type flavours, together with
+  $N_{\text{gen}} = 3$, solves the sBootstrap closure conditions.
+  The ISS rank condition reproduces the same integers at
+  $(\Nc,\Nf) = (3,5)$; in the duality frame of Lecture~7 this match
+  is numerical and supplies no mechanism (\S\ref{sec:sbootstrap}).
 \end{enumerate}
 The Koide angle $\delta = 2/9$ remains an empirically determined
 parameter; its origin is an open problem (see~\S\ref{sec:angle}).
@@ -67,16 +78,19 @@ here in the specific context of the dualised SM.
 
 \subsection{Setup: from VEVs to masses}
 
-From Lecture~8, the effective Yukawa coupling for the $k$-th
-generation in a given charge sector is
+From Lecture~8, the $k$-th dormant doublet acquires the induced VEV
+$\langle H_k\rangle = (\mu_{0k}^2/M_k^2)\,\langle H_0\rangle$, where
+$\mu_{0k}^2$ is the mixing mass between the SM Higgs $H_0$ and the
+$k$-th dormant doublet, and $M_k$ is the diagonal mass of the $k$-th
+doublet.  With $\langle H_0\rangle = v/\sqrt{2}$, the effective
+Yukawa coupling for the $k$-th generation in a given charge sector
+is
 \begin{equation}
-  y_k^{\text{eff}} = y\,\frac{\langle H_k\rangle}{v}
-  = y\,\frac{\mu_{0k}^2}{M_k^2}\,,
+  y_k^{\text{eff}} = \sqrt{2}\,y\,\frac{\langle H_k\rangle}{v}
+  = y\,\frac{\mu_{0k}^2}{M_k^2}\,.
   \label{eq:yk}
 \end{equation}
-where $\mu_{0k}^2$ is the mixing mass between the SM Higgs $H_0$
-and the $k$-th dormant doublet, and $M_k$ is the diagonal mass
-of the $k$-th doublet.  The fermion mass is then
+The fermion mass is then
 \begin{equation}
   m_k = y_k^{\text{eff}}\,\frac{v}{\sqrt{2}}
   = y\,\frac{v}{\sqrt{2}}\,\frac{\mu_{0k}^2}{M_k^2}\,.
@@ -114,9 +128,9 @@ $x_k = \mu_{0k}/M_k$.  This is the key rewriting of this
 lecture: in any model with a universal Yukawa coupling and
 multiple Higgs doublets, the Koide relation reduces to a
 condition on the \emph{Higgs sector} alone.  The cancellation
-of $m_0$ is guaranteed by the scale invariance of $Q$
-(homogeneous of degree zero), not by any special property
-of the dualised SM.
+of $m_0$ follows from the scale invariance of $Q$ (homogeneous of
+degree zero) and therefore holds in every such model, the dualised SM
+included.
 
 \begin{warningbox}
 The Koide condition is independent of the universal Yukawa
@@ -155,20 +169,28 @@ The effective potential for the dormant Higgs doublets
 (Lecture~8) is
 \begin{equation}
   V_{\text{eff}} = \sum_k M_k^2\,|H_k|^2
-  + \sum_k \mu_{0k}^2\,(H_0^\dagger H_k + \text{h.c.})
+  - \sum_k \mu_{0k}^2\,(H_0^\dagger H_k + \text{h.c.})
   + \text{quartic terms}\,.
   \label{eq:Veff}
 \end{equation}
-Minimising with respect to $\langle H_k\rangle$ gives
-$x_k = \mu_{0k}/M_k$ as before.  The Koide condition~\eqref{eq:koide-cond}
-is then a \textbf{constraint on the potential minimum}:
-the quartic terms must be structured so that the minimum
-satisfies $z_0^2 = \frac{1}{3}\sum z_k^2$.
+Minimising with respect to $H_k$ at fixed $\langle H_0\rangle$ gives
+$\langle H_k\rangle/\langle H_0\rangle = \mu_{0k}^2/M_k^2 = x_k^2$,
+as used above.  The quartic self-couplings of the dormant doublets
+shift this only at relative order $\langle H_k\rangle^2/M_k^2$, which
+Lecture~8 neglects; quartic couplings to $H_0$ renormalise $M_k^2$
+and $\mu_{0k}^2$ by amounts of order $\lambda v^2$.  The Koide
+condition~\eqref{eq:koide-cond} is therefore a \textbf{constraint on
+the (renormalised) mass parameters} $\mu_{0k}$ and $M_k$ of the
+potential: whatever generates them
+(Planck-suppressed operators of the electric theory, radiative
+corrections, or quartic couplings to other condensates) must deliver
+ratios $x_k$ with $z_0^2 = \frac{1}{3}\sum z_k^2$.
 
 We do \emph{not} derive that the potential has this property.
-The question of whether the emergent quasi-SUSY of the magnetic
-theory constrains the quartic couplings sufficiently is the
-central open problem of this programme.
+Whether the emergent quasi-SUSY of the magnetic theory constrains
+these parameters sufficiently is the central open problem of this
+programme.  Exercise Set~9 (Problem~5) shows that an $S_3$-symmetric
+potential with generic soft breaking leaves $Q$ free.
 
 %% ========================================================================
 \section{Conjecture C1: $Q = 3/2$ and the SU(5) Casimir ratio}
@@ -211,8 +233,8 @@ $\infty$ & $2$ & \\
 \subsection{Why $N = 5$?}
 
 In the dualised SM of Lectures~7--8, the flavour group is
-$\SU{6}$ (from $\Nf = 6$).  The value $N = 5$ does not
-correspond to $\SU{6}$ but to $\SU{5} \subset \SU{6}$.
+$\SU{6}_L \times \SU{6}_R$ (from $\Nf = 6$).  The value $N = 5$
+points to an $\SU{5}$ subgroup of the flavour $\SU{6}$.
 The five lightest quarks $(u,c,d,s,b)$ form the fundamental
 of an SU(5) flavour subgroup, with the top quark as the sixth
 flavour playing a special role.
@@ -258,10 +280,14 @@ Dynkin index ratios provide further numerical coincidences:
   \frac{T(\mathbf{10})}{T(\mathbf{5})} &= N-2 = 3 = \Nc\,.
   \label{eq:dyn-3}
 \end{align}
-The integers $7$ and $10$ appear in empirical ``$Z$-ladder''
-mass relations, and $N-2 = 3$ is the number of QCD colours.
-These coincidences are suggestive but do not constitute a
-derivation.
+The integers $7$ and $10$ also appear in the empirical
+``$Z$-ladder'' of Ref.~\cite{RiveroZladder}: pairwise mass relations
+$m_X^2/m_Y = M_Z/n^2$ with small integers $n$, for example
+$m_s \simeq \sqrt{m_d M_Z}/7$ ($93.52$ against $93.5$~MeV) and
+$m_c \simeq \sqrt{m_\tau M_Z}/10$ ($1272.9$ against $1273$~MeV),
+built from masses at mixed scales.  The integer $N-2 = 3$ is the
+number of QCD colours.  These coincidences are suggestive but do not
+constitute a derivation.
 
 %% ========================================================================
 \section{The Koide angle $\delta$: an open problem}
@@ -312,10 +338,11 @@ With the empirical $\delta = 2/9$, the Koide formula predicts
   \frac{m_\mu}{m_\tau} &= 0.05946\,,
   & \text{(measured: } 0.05946\text{)}
 \end{align}
-Both agree to better than $0.002\%$.  But this precision is
-the content of the original Koide formula~\cite{Koide1983}; it
-is not a prediction of the dualised SM, which so far provides
-$Q = 3/2$ as a VEV condition but does not derive $\delta$.
+They agree with the measured ratios to $1.0\times10^{-5}$ and
+$2.1\times10^{-5}$ (relative).  This precision is the content of the
+original Koide formula~\cite{Koide1983} with $\delta = 2/9$.  The
+dualised SM so far provides $Q = 3/2$ as a VEV condition and leaves
+$\delta$ free.
 
 %% ========================================================================
 \section{The chain angle and colour}
@@ -351,27 +378,30 @@ sector.
 
 \subsection{$Q$ is preserved under inversion}
 
-The Seiberg seesaw (Lecture~3) gives the meson VEV
-$\langle M_{kk}\rangle = \Lambda^2/m_k$.  Since $Q$ is
+In SQCD with every flavour massive, holomorphy fixes the meson VEVs
+to be inversely proportional to the quark masses,
+$\langle Q_k\widetilde Q^k\rangle = C/m_k$ with the flavour-independent
+constant $C = (\det m\,\Lambda^{3\Nc-\Nf})^{1/\Nc}$~\cite{IntriligatorSeiberg1995}:
+a seesaw between quark masses and meson VEVs.  Since $Q$ is
 homogeneous of degree zero:
 \begin{equation}
-  Q\!\left(\frac{\Lambda^2}{m_1},\frac{\Lambda^2}{m_2},
-  \frac{\Lambda^2}{m_3}\right)
+  Q\!\left(\frac{C}{m_1},\frac{C}{m_2},\frac{C}{m_3}\right)
   = Q\!\left(\frac{1}{m_1},\frac{1}{m_2},\frac{1}{m_3}\right).
   \label{eq:Q-inverse}
 \end{equation}
-This is a theorem, not a conjecture.
+This is an exact identity.
 
 \subsection{Empirical status}
 
-With PDG~2024 pole masses for leptons and $\overline{\text{MS}}$
-masses at $\mu = 2$~GeV for quarks~\cite{AHS2025}:
+With PDG~2024 pole masses for the leptons and the
+$\overline{\text{MS}}$ quark masses $m_d(2\;\text{GeV}) = 4.70$~MeV,
+$m_s(2\;\text{GeV}) = 93.5$~MeV and $m_b(m_b) = 4183$~MeV~\cite{AHS2025}:
 \begin{equation}
-  Q(m_e,m_\mu,m_\tau) = 1.50001\,,\qquad
-  Q(1/m_d,1/m_s,1/m_b) = 1.505 \pm 0.010\,.
+  Q(m_e,m_\mu,m_\tau) = 1.500005\,,\qquad
+  Q(1/m_d,1/m_s,1/m_b) = 1.5045 \pm 0.010\,.
 \end{equation}
 The uncertainty on $Q(1/m)$ is dominated by $m_d = 4.70 \pm 0.20$~MeV
-($4.3\%$).  The deviation from $3/2$ is $0.005 \pm 0.010$, i.e.\
+($4.3\%$).  The deviation from $3/2$ is $0.0045 \pm 0.010$, i.e.\
 within $1\sigma$: the agreement cannot currently be distinguished
 from numerical coincidence at this level of quark-mass precision.
 
@@ -415,49 +445,107 @@ symmetry.  The closure conditions~\cite{Rivero2024}
   2N = \frac{k_d(k_d+1)}{2}\,,\quad
   4N = k_u^2+k_d^2-1
 \end{equation}
-uniquely give $N = 3$ generations with $k_u = 2$, $k_d = 3$.
+have the unique positive solution $N = 3$ generations with
+$k_u = 2$, $k_d = 3$ (Exercise Set~9, Problem~4).
 
-In the dualised SM, the ISS rank condition~\cite{ISS2006}
-(see also Lecture~6)
-provides a \emph{dynamical} derivation of the same split.
+The ISS rank condition~\cite{ISS2006} reproduces the same two
+integers for SQCD with $(\Nc,\Nf) = (3,5)$.  The next subsection
+places that counting in the duality frame of Lecture~7 and shows
+that the match stays numerical.
 
-\subsection{From $\Nf = 6$ to $\Nf = 5$: the top quark as a trigger}
+\subsection{From $\Nf = 6$ to $\Nf = 5$: decoupling the top quark}
+\label{sec:top-decoupling}
 
-Start with the full theory: $\SU{3}_c$ with $\Nf = 6$ flavours.
-The Seiberg dual is $\SU{\Nf-\Nc} = \SU{3}$ with 6~flavours and
-a $6\times 6$ meson matrix $M_{ij} = \tilde Q_i Q_j$ containing
-$36$~mesonic composites.  The ISS rank condition at $\Nf = 6$ gives
-$\text{rank}(\tilde\varphi\varphi) \leq \Nf - \Nc = 3$,
-producing a \emph{symmetric} split: $k_u = k_d = 3$.
+\paragraph{The frame.}  In Lecture~7 (\S1 and \S3) the electric
+theory is an $\SU{3}$ gauge theory, distinct from colour, with
+$\Nf = 6$ flavours $Q$, $\widetilde Q$.  Its conjectured magnetic dual
+has gauge group $\SU{\Nf-\Nc} = \SU{3}_c$, magnetic quarks $q$,
+$\widetilde q$ identified with the SM quarks, and a $6\times 6$ meson
+$M$ with 36~components whose scalar partner $\Phi_H$ contains the
+Higgs doublets.  In the Pati--Salam route of Lecture~7 (\S4) the
+electric group is $\SU{2}$ and the magnetic group is
+$\SU{4}_{\text{PS}} \supset \SU{3}_c$.  Colour is magnetic in both
+routes.
 
-Now give one flavour (the top) a large mass $m_t$.  In the
-magnetic theory, this corresponds to a VEV for the meson
-component $M_{tt}$, which Higgses the dual gauge group:
+\paragraph{The ISS rank condition.}  If every electric flavour
+carries a small mass $m$, the magnetic superpotential acquires a
+linear term~\cite{ISS2006},
 \begin{equation}
-  \SU{3}_{\text{dual}} \;\xrightarrow{\;\langle M_{tt}\rangle \neq 0\;}
-  \;\SU{2}_{\text{dual}}\,.
-  \label{eq:higgsing}
+  W_{\text{mag}} = h\,\Tr(q\,M\,\widetilde q) - h\,\mu^2\,\Tr M\,,
+  \qquad \mu^2 \sim m\,\Lambda\,.
+  \label{eq:iss-w}
 \end{equation}
-Below the scale $m_t$, the effective theory has $\Nf = 5$ active
-flavours, the dual gauge group is $\SU{2}$, and the meson matrix
-reduces to $5 \times 5 = 25$ components.  The ISS rank condition
-on the $\SU{2}$ theory now gives
-$\text{rank}(\tilde\varphi\varphi) \leq \Nf - \Nc = 2$:
+The F-term conditions $\widetilde q\,q = \mu^2\,\mathbb{1}_{\Nf}$
+cannot all hold: the $\Nf\times\Nf$ matrix $\widetilde q\,q$ has rank
+at most $\Nf-\Nc$, the number of magnetic colours.  In the
+metastable vacuum $\widetilde q\,q$ condenses along $\Nf-\Nc$ flavour
+directions, which Higgses the magnetic gauge group completely, and
+the remaining $\Nc$ directions carry the nonzero F-terms that break
+supersymmetry.  This is the $(\Nf-\Nc)+\Nc$ split.  ISS establish the
+vacuum in the free-magnetic range $\Nc < \Nf < \tfrac{3}{2}\Nc$,
+where the magnetic theory is infrared free.
+
+\paragraph{Two ways to remove the top.}  The two deformations that
+take $\Nf = 6$ to five light flavours act differently
+(Lecture~3, \S5; \cite{Seiberg1995}):
+\begin{itemize}
+\item An electric mass $m_t\,Q_t\widetilde Q_t$ maps to a linear term
+  $m_t\,M_{tt}$ in $W_{\text{mag}}$.  Its F-term forces
+  $\langle q_t\,\widetilde q_t\rangle \neq 0$, and this dual-quark
+  VEV Higgses the magnetic group:
+  \begin{equation}
+    \SU{3}_c \;\xrightarrow{\;\langle q_t\widetilde q_t\rangle \neq 0\;}
+    \;\SU{2}\,.
+    \label{eq:higgsing}
+  \end{equation}
+  In the dualised SM this breaks colour.
+\item A meson VEV $\langle M_{tt}\rangle \neq 0$ gives the magnetic
+  top quark a mass through the coupling $M q\widetilde q$ and leaves
+  $\SU{3}_c$ intact.  This is how Lecture~7 generates $m_t$, through
+  $\langle H^u_{33}\rangle$.  On the electric side it corresponds to
+  $\langle Q_t\widetilde Q_t\rangle \neq 0$, which Higgses the electric
+  $\SU{3} \to \SU{2}$; the dual of $\SU{2}$ with five flavours is
+  again $\SU{5-2} = \SU{3}_c$.
+\end{itemize}
+
+\paragraph{What survives of the $2+3$ split.}  A tempting argument
+takes $\SU{3}_c$ as the \emph{electric} group, gives the top an
+electric mass, lets $\langle q_t\widetilde q_t\rangle$ Higgs a
+magnetic $\SU{3}$ (then distinct from colour) down to $\SU{2}$, and
+applies the rank condition to electric $\SU{3}_c$ with five
+flavours:
 \begin{equation}
-  k_u = \Nf - \Nc = 2 \quad(\text{massless})\,,\qquad
-  k_d = \Nc = 3 \quad(\text{massive})\,.
+  k_u = \Nf - \Nc = 2\,,\qquad k_d = \Nc = 3\,.
   \label{eq:iss-split}
 \end{equation}
-The \textbf{asymmetric $2+3$ split is driven by the top mass}:
-it is the large $m_t$ that Higgses $\SU{3} \to \SU{2}$ and
-breaks the $3+3$ symmetry of the $\Nf = 6$ theory.
+In the frame of Lecture~7 this chain fails at three points.
+(i)~The electric top mass would break colour.
+(ii)~The ISS condensate $\langle\widetilde q\,q\rangle$ Higgses the
+magnetic group, which is again colour.
+(iii)~$(\Nc,\Nf) = (3,5)$ lies inside the conformal window
+$\tfrac{3}{2}\Nc < \Nf < 3\Nc$, outside the range where the ISS
+vacuum is under control.  For the pair that remains after the top
+decouples through $\langle H^u_{33}\rangle$ (electric $\SU{2}$ with
+five flavours, magnetic $\SU{3}_c$) the same counting gives
+$(\Nf-\Nc,\Nc) = (3,2)$, which fails the second closure condition.
+The integers~\eqref{eq:iss-split} therefore match the sBootstrap
+values numerically at $(\Nc,\Nf) = (3,5)$, and the dualised SM does
+not derive them.
+
+\begin{warningbox}
+Status of $k_u = 2$, $k_d = 3$: \emph{conjectural}.  They solve the
+sBootstrap closure conditions and coincide with the ISS counting
+$\Nf-\Nc$, $\Nc$ at $(\Nc,\Nf) = (3,5)$.  A dynamical derivation
+inside the dualised SM would need a mechanism that splits the five
+light flavours without breaking $\SU{3}_c$; none is known.
+\end{warningbox}
 
 \subsection{The meson decomposition}
 
 The $5\times 5$ meson matrix transforms as
 $\mathbf{5}\otimes\overline{\mathbf{5}} = \mathbf{24}\oplus\mathbf{1}$
-under $\SU{5}$ flavour.  The ISS $2+3$ split decomposes
-$\SU{5} \to \SU{2}_u \times \SU{3}_d \times \UU{1}$, and
+under $\SU{5}$ flavour.  The up/down split $(u,c\,|\,d,s,b)$
+decomposes $\SU{5} \to \SU{2}_u \times \SU{3}_d \times \UU{1}$, and
 the 24~adjoint mesons organise by electric charge:
 \begin{center}\small
 \begin{tabular}{@{}llcc@{}}
@@ -510,60 +598,71 @@ the universal scale $m_0$.
 \midrule
 Koide $=$ VEV condition & Universal Yukawa $+$ algebra
   & \textbf{Reformulated} \\
-$k_u = 2$, $k_d = 3$ & ISS rank $+$ top Higgsing
-  & \textbf{Derived} \\
-$Q(1/d,1/s,1/b) \approx 3/2$ & Seesaw preserves $Q$
+$Q(C/m_k) = Q(1/m_k)$ & Homogeneity of $Q$
   & \textbf{Theorem} \\
-$N_{\text{gen}} = 3$ & Closure $=$ duality constraint
-  & \textbf{Two derivations} \\
+$Q(1/d,1/s,1/b) \approx 3/2$ & PDG masses, mixed scales
+  & Within $1\sigma$ \\
 \midrule
+$k_u = 2$, $k_d = 3$ & sBootstrap closure; ISS count at $(3,5)$
+  & Numerical match \\
+$N_{\text{gen}} = 3$ & sBootstrap closure conditions
+  & Counting (conjectural) \\
 $Q = C_2(\mathbf{10})/C_2(\mathbf{5})$ & SU(5) Casimir
   & Observation \\
 $\delta_{scb} = \Nc\,\delta_\ell$ & Empirical (factor 3)
   & $2.7\%$ match \\
 $\delta = 2/9$ & --- & Open problem \\
 \midrule
-VEV condition mechanism & Quartic structure
+VEV condition mechanism & Origin of $\mu_{0k}$, $M_k$
   & \emph{Not derived} \\
 Quark--lepton mapping & Seesaw details
   & \emph{Fails quantitatively} \\
-$Z$-ladder formula & ---
+$Z$-ladder relations & Empirical
   & \emph{Not derived} \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \textbf{Scale convention.}  The VEV condition is imposed at
-the scale where the dormant Higgs doublets are integrated out
-(near the duality scale $\Lambda \sim$~TeV of Lecture~7).
-Below that scale, RG running introduces corrections that spoil
-$Q = 3/2$ for quark masses at low energies.  The charged-lepton
-Koide relation holds for \emph{pole masses}; the quark
-chain uses $\overline{\text{MS}}$ running masses at mixed scales.
-This difference is a known subtlety~\cite{Sumino2009} and is
-unresolved in the present framework.
+the scale where the dormant Higgs doublets are integrated out,
+their mass $M_k \sim \Lambda_S \sim$ few~TeV, where the
+quasi-supersymmetric magnetic spectrum sets in (Lecture~7, \S4).
+This scale lies far below the duality scale
+$\Lambda_D \sim 10^{11}$~GeV at which the electric theory takes
+over.  Below $\Lambda_S$, RG running introduces corrections that
+spoil $Q = 3/2$ for quark masses at low energies.  The
+charged-lepton Koide relation holds for \emph{pole masses}; the
+quark chain uses $\overline{\text{MS}}$ running masses at mixed
+scales.  This difference is a known subtlety~\cite{Sumino2009} and
+is unresolved in the present framework.
 
 \textbf{What is established.}  The universal Yukawa coupling of
 the dualised SM translates the Koide relation into a VEV
-condition on the multi-Higgs sector.  The ISS rank
-condition derives the turtle/elephant decomposition.  The seesaw
-preserves $Q$ as a mathematical identity.
+condition on the multi-Higgs sector.  The seesaw between quark
+masses and meson VEVs preserves $Q$ as a mathematical identity.
 
 \textbf{What is observed but not derived.}  The numerical
 coincidence $Q = C_2(\mathbf{10})/C_2(\mathbf{5}) = 3/2$ is an
 exact group-theoretic fact that matches the Koide value.
 It has no known dynamical origin within the dualised SM.
+The turtle/elephant split $k_u = 2$, $k_d = 3$ matches the ISS
+counting at $(\Nc,\Nf) = (3,5)$ only numerically
+(\S\ref{sec:top-decoupling}).
 The angle $\delta = 2/9$ has no known derivation at all.
 
-\textbf{What remains open.}  The quartic coupling structure
-of the 18-Higgs potential must be shown to have a minimum at
-the Koide point.  The quark--lepton mass mapping through the
-seesaw preserves $Q$ but not the individual mass ratios.
+\textbf{What remains open.}  The dynamics that fixes the ratios
+$\mu_{0k}/M_k$ of the 18-Higgs potential must be shown to land on
+the Koide point; the quartic couplings of the dormant doublets enter
+the minimum only at relative order $\langle H_k\rangle^2/M_k^2$.
+The quark--lepton mass mapping through the seesaw preserves $Q$ but
+not the individual mass ratios.
 
 %% ========================================================================
 \section{Exercises}
 \label{sec:exercises}
 %% ========================================================================
+
+Worked solutions to these five exercises are in Exercise Set~9.
 
 \begin{exercise}
 Verify that $C_2(\wedge^2\mathbf{N})/C_2(\mathbf{N})
@@ -589,11 +688,13 @@ $0.01\%$.
 \end{exercise}
 
 \begin{exercise}
-The sBootstrap closure conditions give $k_u = 2$, $k_d = 3$
-uniquely.  The ISS rank condition gives
-$k_u = \Nf - \Nc$, $k_d = \Nc$ for SQCD with $\Nf$ flavours
-and $\Nc$ colours.  For which values of $(\Nc, \Nf)$ do the
-two derivations agree?
+Show that the sBootstrap closure conditions give $k_u = 2$,
+$k_d = 3$ uniquely.  The ISS rank condition splits the flavours of
+SQCD with $\Nf$ flavours and $\Nc$ colours as $\Nf - \Nc$ and
+$\Nc$.  For which values of $(\Nc, \Nf)$ do the two countings agree?
+Does that pair lie in the range $\Nc < \Nf < \tfrac{3}{2}\Nc$ where
+the ISS vacuum is under control, and which gauge group would the ISS
+condensate Higgs in the dualised SM of Lecture~7?
 \end{exercise}
 
 \begin{exercise}[Challenge]
@@ -645,7 +746,21 @@ arXiv:2510.01312 [hep-ph] (2025).
 N.~Seiberg,
 ``Electric--magnetic duality in supersymmetric non-abelian gauge
 theories,''
-Nucl.\ Phys.\ B \textbf{435}, 129 (1995).
+Nucl.\ Phys.\ B \textbf{435}, 129 (1995),
+arXiv:hep-th/9411149.
+
+\bibitem{IntriligatorSeiberg1995}
+K.~Intriligator and N.~Seiberg,
+``Lectures on supersymmetric gauge theories and electric-magnetic
+duality,''
+Nucl.\ Phys.\ Proc.\ Suppl.\ \textbf{45BC}, 1 (1996),
+arXiv:hep-th/9509066.
+
+\bibitem{RiveroZladder}
+A.~Rivero,
+``The $Z$-ladder and Koide-type mass relations,''
+unpublished notes (2026), \texttt{related-papers/phys6\_new.tex}
+in the course repository.
 
 \bibitem{Sumino2009}
 Y.~Sumino,
