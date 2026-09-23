@@ -101,7 +101,10 @@ The conformal window is $\tfrac{3}{2}(\Nc - 2) < \Nf < 3(\Nc - 2)$.
 
     \begin{enumerate}[label=(\roman*)]
       \item The non-anomalous $R$-charge of the electric quark is
-        determined by $T(\adj) + \Nf\,T(\text{vector})\,(R[Q] - 1) = 0$.
+        determined by
+        \[
+          T(\adj) + \Nf\,T(\text{vector})\,(R[Q] - 1) = 0\,.
+        \]
         Use $T(\adj_{\SO{\Nc}}) = h_{\SO{\Nc}} = \Nc - 2$ and
         $T(\text{vector}) = 1$ to find $R[Q]$ for general $\Nc$, $\Nf$.
 
@@ -399,7 +402,18 @@ The magnetic theory has gauge group $\SU{k\Nf - \Nc}$, dual quarks
 $(q_i, \widetilde{q}^{\,i})$, a dual adjoint $\phi$, and $k$ meson
 species $M_j = Q\,\Phi^j\,\widetilde{Q}$ for $j = 0, 1, \ldots, k-1$.
 
-The conformal window is $3\Nc/(k+1) < \Nf < 3\Nc/k$.
+For $k \geq 2$ the conformal window, where the infrared theory is an
+interacting superconformal theory in which every meson interacts, is
+\begin{equation}\label{eq:KS-window-ex}
+  \frac{3\Nc}{k+1} \;<\; \Nf \;<\; 2\Nc\,.
+\end{equation}
+The lower edge is a unitarity bound; the upper edge is the loss of
+asymptotic freedom.  (For $k \geq 3$ the upper edge lies lower still:
+near $\Nf = 2\Nc$ the theory without superpotential is weakly coupled,
+$\Tr\Phi^{k+1}$ has dimension close to $k+1 > 3$ and is irrelevant, so
+the window ends where it becomes relevant~\cite{Kutasov2003}.  This
+refinement is not needed here.)  At $k = 1$ the adjoint is massive and
+the window is Seiberg's $\tfrac{3}{2}\Nc < \Nf < 3\Nc$.
 
 \medskip
 
@@ -407,26 +421,33 @@ The conformal window is $3\Nc/(k+1) < \Nf < 3\Nc/k$.
 \begin{enumerate}[label=(\alph*)]
 
   \item \textbf{[5 marks]}
-    Derive the conformal window for the Kutasov--Schwimmer theory.
+    Derive the edges of the conformal window for $k \geq 2$.
     \begin{enumerate}[label=(\roman*)]
-      \item The one-loop beta function coefficient for $\SU{\Nc}$ with
-        $\Nf$ fundamentals and one adjoint is
-        $b_0 = 3\Nc - \Nf - \Nc = 2\Nc - \Nf$.  Verify this
-        using $T(\adj) = \Nc$ and $T(\fund) = 1/2$.
+      \item The one-loop beta function coefficient for $\mathcal{N}=1$
+        $\SU{\Nc}$ with $\Nf$ flavours and one adjoint chiral
+        superfield is $b_0 = 3\Nc - \Nf - \Nc = 2\Nc - \Nf$.  Verify
+        this using $T(\adj) = \Nc$ and $T(\fund) = 1/2$, counting full
+        supermultiplets.  Hence find the upper edge of the window.
       \item At the fixed point, the superpotential
-        $W = \Tr(\Phi^{k+1})$ imposes $R[\Phi] = 2/(k+1)$.  Using
-        the anomaly-free condition (with $\Phi$ carrying $R$-charge
-        $2/(k+1)$ rather than the free value), the upper bound on $\Nf$
-        from asymptotic freedom of the electric theory is
-        $\Nf < 3\Nc/k$.  Show this.
-      \item The lower bound comes from requiring the magnetic theory
-        $\SU{k\Nf - \Nc}$ to also be asymptotically free.  Show that
-        this gives $\Nf > 3\Nc/(k+1)$.
+        $W = \Tr(\Phi^{k+1})$ imposes $R[\Phi] = 2/(k+1)$.  Use the
+        anomaly-free condition to find $R[Q]$, and give the anomalous
+        dimension $\gamma_\Phi^*$ in the convention of Lectures~2--3
+        ($D = 1 + \gamma/2 = \tfrac{3}{2}R$).  Show that the meson
+        $M_0 = Q\widetilde{Q}$ obeys the unitarity bound
+        $R[M_0] \geq 2/3$ only if $\Nf \geq 3\Nc/(k+1)$.  This is the
+        lower edge.
+      \item Compute $b_0^{\text{mag}}$ for the magnetic theory
+        $\SU{k\Nf - \Nc}$ with $\Nf$ flavours and the adjoint $\phi$,
+        and find where it is asymptotically free.  Show that for
+        $k \geq 2$ the magnetic theory is asymptotically free throughout
+        the window, and state where it is infrared free.
     \end{enumerate}
 
   \item \textbf{[5 marks]}
-    Verify that the conformal window formula reduces to the standard
+    Verify that the conformal window reduces to the standard
     Seiberg result $\tfrac{3}{2}\Nc < \Nf < 3\Nc$ when $k = 1$.
+    (\textit{Hint:} at $k = 1$ integrate out the massive adjoints
+    $\Phi$ and $\phi$ before computing the beta functions.)
 
   \item \textbf{[5 marks]}
     Show that the $k = 1$ case of the KS duality reduces to Seiberg
@@ -464,75 +485,90 @@ The conformal window is $3\Nc/(k+1) < \Nf < 3\Nc/k$.
 %% ========================================================================
 \begin{proof}[\textbf{Solution to Problem 2}]
 
-\textbf{(a) Deriving the conformal window.}
+\textbf{(a) The edges of the conformal window.}
 
-\textit{(i) Beta function coefficient.}
+\textit{(i) Beta function coefficient and the upper edge.}
 
-For $\SU{\Nc}$ with $\Nf$ fundamentals (each with $T(\fund) = 1/2$),
-$\Nf$ antifundamentals (same), and one adjoint ($T(\adj) = \Nc$):
+In a supersymmetric theory the vector multiplet contributes
+$\tfrac{11}{3}T(\adj) - \tfrac{2}{3}T(\adj) = 3T(\adj)$ (gauge field and
+gaugino), and each chiral multiplet contributes
+$-\tfrac{2}{3}T(R) - \tfrac{1}{3}T(R) = -T(R)$ (Weyl fermion and
+complex scalar).  With $\Nf$ fundamentals $Q$, $\Nf$ antifundamentals
+$\widetilde{Q}$ and the adjoint $\Phi$:
 \begin{align*}
-  b_0 &= \frac{11}{3}\,T(\adj) - \frac{2}{3}\,\bigl(2\Nf\,T(\fund)
-    + T(\adj)\bigr) \\
-  &= \frac{11}{3}\,\Nc - \frac{2}{3}\bigl(\Nf + \Nc\bigr)
-  = 3\Nc - \Nf - \Nc \quad\text{(after simplification)}\\
-  &= 2\Nc - \Nf\,.
+  b_0 &= 3\,T(\adj) - \bigl[\Nf\,T(\fund) + \Nf\,T(\fund) + T(\adj)\bigr] \\
+  &= 3\Nc - \Nf - \Nc
+  = 2\Nc - \Nf\,.
   \quad\checkmark
 \end{align*}
+The electric theory is asymptotically free for $\Nf < 2\Nc$: this is
+the upper edge of the window.
 
-Here we counted $2\Nf$ Weyl fermions from the $\Nf$ pairs
-$(Q_i, \widetilde{Q}_i)$ and one Weyl adjoint from $\Phi$.
+Counting fermions alone, with one adjoint Weyl fermion and $\Nf$
+Dirac quarks (the content of the non-supersymmetric electric theory of
+the dualised SM), gives instead
+$\tfrac{11}{3}\Nc - \tfrac{2}{3}(\Nf + \Nc) = 3\Nc - \tfrac{2}{3}\Nf$.
+The difference, $\Nc + \Nf/3$, is the contribution of the fields that
+count leaves out: the fermion in $\Phi$ ($\tfrac{2}{3}\Nc$), the scalar
+in $\Phi$ ($\tfrac{1}{3}\Nc$) and the squarks ($\tfrac{1}{3}\Nf$).
 
-\textit{(ii) Upper bound.}
+\textit{(ii) $R$-charges, $\gamma_\Phi^*$ and the lower edge.}
 
-At the fixed point, $R[\Phi] = 2/(k+1)$ is fixed by the superpotential.
-The anomalous dimension of $\Phi$ is $\gamma_\Phi = R[\Phi] - 2/3 \cdot 1$
-(in the standard relation $\dim(\Phi) = 1 + \gamma/2$, with
-$R[\Phi] = 2/3(1+\gamma_\Phi/2)$).
-
-More directly: the loss of asymptotic freedom occurs when the effective
-$b_0$ (incorporating the fixed-point anomalous dimensions) vanishes.
-The NSVZ beta function at the fixed point requires:
+$W = \Tr(\Phi^{k+1})$ must have $R$-charge~$2$, so
+$(k+1)\,R[\Phi] = 2$ and $R[\Phi] = 2/(k+1)$.  The anomaly-free
+condition, $T(\adj) + \sum_i T(R_i)\,(R_i - 1) = 0$ (the gaugino
+has $R = 1$), reads
 \[
-  3\Nc - \Nf\,(1 - \gamma_Q) - \Nc\,(1 - \gamma_\Phi) = 0\,.
+  \Nc + \Nc\,(R[\Phi] - 1) + \Nf\,(R[Q] - 1) = 0
+  \quad\Longrightarrow\quad
+  R[Q] = 1 - \frac{2\Nc}{(k+1)\Nf}\,.
 \]
-The superpotential $W = \Tr(\Phi^{k+1})$ has $R$-charge~$2$, so
-$(k+1)\,R[\Phi] = 2$, giving $R[\Phi] = 2/(k+1)$.  The marginal
-coupling condition for the superpotential vertex requires that
-$\Phi$ has dimension $1$ at the fixed point when $k + 1 = 2$ (i.e.\
-$k=1$), and in general $\gamma_\Phi = 2R[\Phi]/2 - 2/3$.
-
-The key constraint is that the $\SU{\Nf}^3$ anomaly matching combined
-with the fixed-point unitarity bound requires~\cite{KS9505004,KSS9507040}:
+In the convention of Lectures~2--3, $D = 1 + \gamma/2 = \tfrac{3}{2}R$,
+so $\gamma = 3R - 2$ and
 \[
-  \Nf < \frac{3\Nc}{k}\,.
+  \boxed{\gamma_\Phi^* = \frac{6}{k+1} - 2 = -\frac{2(k-2)}{k+1}\,,}
+  \qquad
+  \gamma_Q^* = 1 - \frac{6\Nc}{(k+1)\Nf}\,.
 \]
-To see this simply: the superpotential constraint fixes
-$\gamma_\Phi^* = -2/(k+1)$ (so that $R[\Phi]$ at the fixed point is
-$2/(k+1)$, and $\Delta(\Phi) = 3R[\Phi]/2 = 3/(k+1)$).  The
-$a$-maximisation condition (or equivalently the
-unitarity bound $R[Q] \geq 1/3$ at the fixed point for gauge-invariant
-operators) then yields $\Nf < 3\Nc/k$.
-\quad$\checkmark$
+Thus $\gamma_\Phi^* = 0$ at $k = 2$, $-1/2$ at $k = 3$, and $+1$ at
+$k = 1$, where $\Phi$ is massive.  At $k = 1$, $\gamma_Q^*$ reduces to
+Lecture~3's $1 - 3\Nc/\Nf$.  As a check, the numerator of the NSVZ beta
+function vanishes:
+$3\Nc - \Nc(1 - \gamma_\Phi^*) - \Nf(1 - \gamma_Q^*)
+= 3\bigl[\Nc R[\Phi] + \Nf(R[Q] - 1)\bigr] = 0$.
 
-\textit{(iii) Lower bound.}
-
-The magnetic theory has gauge group $\SU{k\Nf - \Nc}$, with $\Nf$
-pairs of fundamental/antifundamental quarks and one adjoint $\phi$.
-Its beta function coefficient is:
+The meson $M_0 = Q\widetilde{Q}$ has
 \[
-  b_0^{\text{mag}} = 2(k\Nf - \Nc) - \Nf\,.
+  R[M_0] = 2R[Q] = 2 - \frac{4\Nc}{(k+1)\Nf}\,.
 \]
-Asymptotic freedom requires $b_0^{\text{mag}} > 0$, which gives
-$\Nf > 3\Nc/(k+1)$.
-
-More precisely, the same fixed-point constraint applied to the magnetic
-theory (with the same superpotential structure) yields:
+A gauge-invariant chiral operator has $D = \tfrac{3}{2}R \geq 1$
+(unitarity), i.e.\ $R \geq 2/3$:
 \[
-  \Nf > \frac{3\Nc}{k+1}\,,
+  2 - \frac{4\Nc}{(k+1)\Nf} \;\geq\; \frac{2}{3}
+  \quad\Longleftrightarrow\quad
+  \Nf \;\geq\; \frac{3\Nc}{k+1}\,.
 \]
-which is the lower bound.  Combining:
+Below this value $M_0$ becomes a free field, decoupled from the rest;
+the other mesons have $R[M_j] = R[M_0] + 2j/(k+1)$ and hit the bound
+later.  The lower edge of the window is $\Nf = 3\Nc/(k+1)$.
+
+\textit{(iii) The magnetic theory.}
+
+$\SU{k\Nf - \Nc}$ with $\Nf$ flavours and one adjoint has, by the same
+counting,
 \[
-  \boxed{\frac{3\Nc}{k+1} < \Nf < \frac{3\Nc}{k}\,.}
+  b_0^{\text{mag}} = 2(k\Nf - \Nc) - \Nf = (2k-1)\Nf - 2\Nc\,,
+\]
+so it is asymptotically free for
+\[
+  \Nf > \frac{2\Nc}{2k-1}\,.
+\]
+For $k \geq 2$, $2/(2k-1) < 3/(k+1)$ (equivalently $4k > 5$), so the
+magnetic theory is asymptotically free throughout the window.  For
+$\Nc/k < \Nf \leq 2\Nc/(2k-1)$ it is infrared free: the free magnetic
+phase.  Combining (i) and (ii):
+\[
+  \boxed{\frac{3\Nc}{k+1} < \Nf < 2\Nc\qquad (k \geq 2)\,.}
   \quad\checkmark
 \]
 
@@ -540,14 +576,22 @@ which is the lower bound.  Combining:
 
 \textbf{(b) The $k = 1$ limit of the conformal window.}
 
-Setting $k = 1$:
+At $k = 1$, $W_{\text{el}} = (g/2)\Tr\Phi^2$ is a mass term, and below
+$m_\Phi = g$ the electric theory is SQCD with $b_0 = 3\Nc - \Nf$: the
+upper edge moves to $\Nf = 3\Nc$.  The unitarity bound of part~(ii)
+gives $3\Nc/(k+1) = 3\Nc/2$.  On the magnetic side $\phi$ is massive
+too, and magnetic SQCD $\SU{\Nf - \Nc}$ has
+$b_0^{\text{mag}} = 3(\Nf - \Nc) - \Nf = 2\Nf - 3\Nc$, positive for
+$\Nf > 3\Nc/2$: at $k = 1$ the magnetic asymptotic-freedom bound and the
+unitarity bound on $M$ coincide.  The window is
 \[
-  \frac{3\Nc}{k+1} < \Nf < \frac{3\Nc}{k}
-  \quad\Longrightarrow\quad
-  \frac{3\Nc}{2} < \Nf < 3\Nc\,.
+  \frac{3\Nc}{2} < \Nf < 3\Nc\,,
 \]
-This is exactly the Seiberg conformal window from Lecture~3.
+exactly the Seiberg conformal window of Lecture~3.
 \quad$\checkmark$
+(The general formula $2\Nc/(2k-1)$ gives $2\Nc$ at $k = 1$, because it
+keeps adjoints that are massive at $k = 1$; they must be integrated out
+first.)
 
 \bigskip
 
@@ -594,12 +638,15 @@ This is the Seiberg magnetic superpotential from Lecture~3.
 \textit{(i) Conformal window.}
 
 \[
-  \frac{3 \times 4}{3} < \Nf < \frac{3 \times 4}{2}
+  \frac{3 \times 4}{3} < \Nf < 2 \times 4
   \quad\Longrightarrow\quad
-  4 < \Nf < 6\,.
+  4 < \Nf < 8\,.
 \]
-Since $4 < 5 < 6$, $\Nf = 5$ is inside the conformal window.
+Since $4 < 5 < 8$, $\Nf = 5$ is inside the conformal window.
 \quad$\checkmark$
+As checks: $R[Q] = 1 - 8/15 = 7/15$, so $R[M_0] = 14/15 > 2/3$; the
+electric coefficient is $b_0 = 8 - 5 = 3 > 0$; and the magnetic one is
+$b_0^{\text{mag}} = 3 \times 5 - 8 = 7 > 0$.
 
 \textit{(ii) Magnetic gauge group.}
 
@@ -656,9 +703,10 @@ duality landscape, where the magnetic gauge group has rank zero.
         = \epsilon^{a_1 \cdots a_{\Nc}} Q^{i_1}_{a_1} \cdots
         Q^{i_{\Nc}}_{a_{\Nc}}$, and the antibaryon
         $\widetilde{B}^{i_1 \cdots i_{\Nc}}$ (defined analogously).
-        How many independent degrees of freedom are there?
+        How many independent components do these fields have?
         (\textit{Hint:} $B$ has $\binom{\Nc+1}{\Nc} = \Nc + 1$
-        components.)
+        components.)  Compare with the complex dimension of the
+        classical moduli space of the electric theory.
     \end{enumerate}
 
   \item \textbf{[5 marks]}
@@ -701,15 +749,17 @@ duality landscape, where the magnetic gauge group has rank zero.
       $\SU{\rule{2cm}{0.4pt}} = \SU{1}$ \\
     $\Sp{\Nc}$ & $\Nf = \rule{2cm}{0.4pt}$ &
       $\Sp{\rule{2cm}{0.4pt}} = \Sp{0}$ \\
-    $\SO{\Nc}$ & $\Nf = \rule{2cm}{0.4pt}$ &
-      $\SO{\rule{2cm}{0.4pt}} = \SO{0}$ \\
     \bottomrule
     \end{tabular}
     \end{center}
 
+    For $\SO{\Nc}$ with $\Nf$ vectors, find the value of $\Nf$ at which
+    the dual group $\SO{\Nf - \Nc + 4}$ becomes $\SO{0}$, and state
+    whether that theory is s-confining (see
+    Intriligator--Seiberg~\cite{IS9506101}).
+
     For the $\Sp{\Nc}$ case, verify that $\Sp{1}$ with
-    $2\Nf = 8$ fundamentals (i.e.\ $\Nf = 4$) is
-    \emph{not} the s-confining point but rather the
+    $2\Nf = 8$ fundamentals (i.e.\ $\Nf = 4$) is the
     \emph{self-dual} point.  What is the s-confining
     number of flavours for $\Sp{1}$?
 
@@ -752,15 +802,30 @@ magnetic gauge symmetry: the theory \textbf{s-confines}.
 
 Total: $(\Nc + 1)^2 + 2(\Nc + 1) = (\Nc + 1)(\Nc + 3)$.
 
-\textbf{Check against the microscopic theory:}
-The electric theory has $\Nf \times 2 \times \Nc = 2\Nc(\Nc + 1)$
-chiral superfield degrees of freedom (before gauge fixing), minus
-$\Nc^2 - 1$ for the gauge degrees of freedom.  The number of
-physical moduli should match: $2\Nc(\Nc + 1) - (\Nc^2 - 1)
-= \Nc^2 + 2\Nc + 1 = (\Nc + 1)^2$.  With the constraints from the
-confining superpotential (which imposes $\Nc + 1$ relations), we
-get $(\Nc + 1)^2 - 1$ physical moduli, consistent with the
-constrained system of $M$, $B$, $\widetilde{B}$.
+\textbf{Check against the microscopic theory.}
+The electric theory has $2\Nc\Nf = 2\Nc(\Nc + 1)$ complex squark
+fields.  The $D$-flatness conditions together with gauge equivalence
+remove $\dim \SU{\Nc} = \Nc^2 - 1$ complex dimensions, so the
+classical moduli space has complex dimension
+\[
+  2\Nc(\Nc + 1) - (\Nc^2 - 1) = (\Nc + 1)^2\,.
+\]
+The $(\Nc+1)(\Nc+3)$ fields $M$, $B$, $\widetilde{B}$ are not
+independent on the moduli space.  The $F$-term equations of the
+confining superpotential~\eqref{eq:s-confine-W},
+$\partial W/\partial M = \partial W/\partial B
+= \partial W/\partial \widetilde{B} = 0$, reproduce the classical
+constraints: the cofactor matrix of $M$ equals $B_i\widetilde{B}^j$,
+and $M^i{}_j\widetilde{B}^j = B_i M^i{}_j = 0$.  Near a generic
+point ($\operatorname{rank} M = \Nc$) they remove $2(\Nc + 1)$
+dimensions, leaving
+\[
+  (\Nc + 1)(\Nc + 3) - 2(\Nc + 1) = (\Nc + 1)^2\,,
+\]
+in agreement with the electric count.  (The rank-$\Nc$ matrices $M$
+form a family of dimension $(\Nc+1)^2 - 1$; the relation
+$\operatorname{cof} M = B\widetilde{B}$ then fixes $B$ and
+$\widetilde{B}$ up to one rescaling, which adds the last dimension.)
 
 \bigskip
 
@@ -847,13 +912,22 @@ $\SU{\Nc}$ & $\Nf = \Nc + 1$ &
   $\SU{\Nf - \Nc} = \SU{1}$ \\
 $\Sp{\Nc}$ & $\Nf = \Nc + 2$ &
   $\Sp{\Nf - \Nc - 2} = \Sp{0}$ \\
-$\SO{\Nc}$ & $\Nf = \Nc - 4$ &
-  $\SO{\Nf - \Nc + 4} = \SO{0}$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 (Recall that for $\Sp{\Nc}$, the matter is $2\Nf$ fundamentals.)
+
+\textbf{The $\SO{\Nc}$ case.}  The dual group $\SO{\Nf - \Nc + 4}$
+becomes $\SO{0}$ at $\Nf = \Nc - 4$, but that theory is not
+s-confining.  Intriligator and Seiberg~\cite{IS9506101} find two
+branches there: one with a dynamically generated superpotential and a
+runaway, and one with $W = 0$ and a quantum moduli space of vacua.  A
+smooth, unique confining description is absent, and $\SO{\Nc}$ with
+vectors alone has no s-confining point (at $\Nf = \Nc - 2$, where the
+dual would be the abelian $\SO{2}$, the theory is in a Coulomb phase).
+The rank-zero rule therefore works for $\SU{\Nc}$ and $\Sp{\Nc}$ and
+fails for $\SO{\Nc}$ with vectors.
 
 \textbf{Self-dual vs.\ s-confining for $\Sp{1}$.}
 
@@ -870,10 +944,12 @@ With $\Sp{1} = \SU{2}$, the dual is $\Sp{\Nf - 1 - 2} = \Sp{\Nf - 3}$.
     \quad$\checkmark$
 \end{itemize}
 
-The pattern is general: the self-dual point sits \emph{inside} the
-conformal window, while the s-confining point sits at its boundary
-(below the conformal window), where the dual gauge group becomes
-trivial.
+The self-dual point sits \emph{inside} the conformal window.  The
+s-confining point sits at the lower end of the range where a Seiberg
+dual exists, the edge of the free magnetic phase, where the dual gauge
+group becomes trivial.  For $\Sp{1}$ this coincides with the lower edge
+of the conformal window, $\tfrac{3}{2}(\Nc + 1) = 3$; for $\SU{\Nc}$
+with $\Nc \geq 3$ it lies below it ($\Nc + 1 < \tfrac{3}{2}\Nc$).
 
 \end{proof}
 
@@ -889,7 +965,9 @@ matching extends consistently to $\SO{\Nc}$ gauge theories
 (Problem~1), the Kutasov--Schwimmer duality provides a family of
 dualities parametrised by $k$ that reduces to Seiberg duality at
 $k = 1$ (Problem~2), and s-confining theories sit at the boundary
-where the magnetic gauge group becomes trivial (Problem~3).  All
+where the magnetic gauge group becomes trivial, a rule that holds for
+$\SU{\Nc}$ and $\Sp{\Nc}$ and fails for $\SO{\Nc}$ with vectors
+(Problem~3).  All
 three results rest on the same foundation: 't~Hooft anomaly matching
 and holomorphy of the superpotential.}
 \end{center}
@@ -931,7 +1009,13 @@ and holomorphy of the superpotential.}
   ``A systematic approach to confinement in $\mathcal{N}=1$
   supersymmetric gauge theories,''
   \textit{Phys.\ Rev.\ Lett.} \textbf{78} (1997) 799
-  [\texttt{hep-th/9612207}].
+  [\texttt{hep-th/9610139}].
+
+\bibitem{Kutasov2003}
+  D.~Kutasov,
+  ``New results on the `$a$-theorem' in four dimensional
+  supersymmetric field theory,''
+  [\texttt{hep-th/0312098}].
 
 \bibitem{Seiberg1995}
   N.~Seiberg,
