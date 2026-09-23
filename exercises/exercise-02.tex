@@ -22,6 +22,8 @@
 \midrule
 Beta function & $\mu\,d\alphas/d\mu = -(\bzero/2\pi)\,\alphas^2
   - (\bone/4\pi^2)\,\alphas^3 + \cdots$ \\
+Two-loop zero & course: $\alphas^* = -2\pi\bzero/\bone$;
+  literature: $-4\pi\bzero/\bone$ (see Problem~2) \\
 One-loop coefficient & $\bzero = (11\Nc - 2\Nf)/3$ for $\Nf$ Dirac flavours \\
 Dynkin index & $T(\fund) = \Tfund$, $T(\adj) = \Nc$ \\
 $R$-charge & $\Rcharge{Q} = (\Nf - \Nc)/\Nf$; $\Rcharge{\Wsup} = 2$ \\
@@ -31,7 +33,7 @@ SUSY conformal window & $3\Nc/2 < \Nf < 3\Nc$ (exact, Seiberg) \\
 
 \medskip
 
-\noindent References: Lecture~1, \S\ref*{sec:conformal}.
+\noindent References: Lecture~1, \S7.
 \end{conventionbox}
 
 \bigskip
@@ -156,6 +158,14 @@ zero at a small coupling---the Banks--Zaks fixed point \cite{BanksZaks1982}.
         - \Nf\Bigl(13\Nc - \frac{3}{\Nc}\Bigr)\Bigr].
       \label{eq:ex-b1}
     \end{equation}
+    \textit{Convention note.}  This course writes the two-loop term as
+    $-(\bone/4\pi^2)\,\alphas^3$ with the $\bone$ of
+    Eq.~\eqref{eq:ex-b1} (for $\SU{3}$, $\bone = 102 - 38\Nf/3$).  The
+    standard literature \cite{Caswell1974,BanksZaks1982,RyttovShrock2011}
+    writes it as $-(\bone/8\pi^2)\,\alphas^3$ with the same $\bone$, so
+    its two-loop zero is $\alphas^* = -4\pi\bzero/\bone$, twice the course
+    value of part~(b).  These notes keep the course normalisation; the
+    solutions quote the standard values alongside.
 
   \item Show that setting $\beta(\alphas^*) = 0$ (with $\alphas^* \neq 0$)
     gives
@@ -196,7 +206,8 @@ zero at a small coupling---the Banks--Zaks fixed point \cite{BanksZaks1982}.
 with $\bzero = (11\Nc - 2\Nf)/3$ and
 $\bone = \frac{1}{3}[34\Nc^2 - \Nf(13\Nc - 3/\Nc)]$.
 
-This is equations~(\ref*{eq:beta-2loop}) and~(\ref*{eq:b1}) of Lecture~1.
+These are the two-loop beta function and the coefficient $\bone$ of
+Lecture~1, \S7.2.
 
 \textbf{(b)} Setting $\beta(\alphas^*) = 0$ and dividing by $\alphas^{*2}$
 (since $\alphas^* \neq 0$):
@@ -234,10 +245,13 @@ So $\bone = -302/3 < 0$. \quad$\checkmark$
   = \frac{2\pi}{302}
   \approx 0.0208.
 \end{align}
+In the standard normalisation (convention note in part~(a)) the zero sits
+at $\alphas^* = 4\pi/302 \approx 0.0416$.
 
-\textbf{(iv)} Since $\alphas^* \approx 0.021 \ll 1$, the perturbative
-expansion is \emph{reliable}.  Higher-loop corrections are suppressed by
-powers of $\alphas^*/(4\pi) \sim 0.002$ and are negligible.  The
+\textbf{(iv)} Since $\alphas^* \approx 0.021 \ll 1$ (standard value
+$0.042$), the perturbative expansion is \emph{reliable}.  Higher-loop
+corrections are suppressed by powers of $\alphas^*/(4\pi) \sim 0.002$
+($0.003$ with the standard value) and are negligible.  The
 Banks--Zaks fixed point is under perturbative control.
 
 \bigskip
@@ -257,9 +271,11 @@ $\bone$: $13\Nc - 3/\Nc = 38$ (same as before). $\Nf \times 38 = 15 \times 38 = 
   = \frac{\pi}{44}
   \approx 0.071.
 \end{align}
+The standard normalisation gives $\alphas^* = \pi/22 \approx 0.143$.
 
 This is larger than the $\Nf = 16$ case but still reasonably small
-($\alphas^*/(4\pi) \approx 0.006$).  The perturbative result is
+($\alphas^*/(4\pi) \approx 0.006$, or $0.011$ with the standard
+value).  The perturbative result is
 \emph{marginally reliable}---higher-loop corrections may contribute at the
 10--20\% level, but the qualitative conclusion (an IR fixed point exists)
 is robust.
@@ -268,12 +284,15 @@ is robust.
 
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
-\begin{tabular}{@{}c c c c c@{}}
+\begin{tabular}{@{}c c c c c c@{}}
 \toprule
-$\Nf$ & $\bzero$ & $\bone$ & $\alphas^*$ & Reliability \\
+$\Nf$ & $\bzero$ & $\bone$ & $\alphas^*$ (course) & $\alphas^*$ (standard)
+  & Reliability \\
 \midrule
-$16$ & $1/3$ & $-302/3$ & $2\pi/302 \approx 0.021$ & High \\
-$15$ & $1$ & $-88$ & $\pi/44 \approx 0.071$ & Marginal \\
+$16$ & $1/3$ & $-302/3$ & $2\pi/302 \approx 0.021$ & $4\pi/302 \approx 0.042$
+  & High \\
+$15$ & $1$ & $-88$ & $\pi/44 \approx 0.071$ & $\pi/22 \approx 0.143$
+  & Marginal \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -521,8 +540,10 @@ programme.
     \begin{enumerate}[label=(\roman*)]
       \item $\Nf = 0$ (pure Yang--Mills)
       \item $\Nf = 1,\ldots,\sim 4$ (few flavours)
-      \item $\Nf \approx 5$--$8$ (SUSY conformal window)
-      \item $\Nf \approx 9$--$16$ (Banks--Zaks regime)
+      \item $\Nf \approx 5$--$8$ (the values inside the conformal window
+        of $\SU{3}$ SQCD; compare QCD and SQCD here)
+      \item $\Nf \approx 9$--$16$ ($\bone < 0$: the two-loop beta
+        function has a Banks--Zaks zero)
       \item $\Nf \geq 17$ (loss of asymptotic freedom)
     \end{enumerate}
 
@@ -550,66 +571,74 @@ Dirac flavours.}
 
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[xscale=0.55,yscale=1.2]
-  % Axis
+\begin{tikzpicture}[xscale=0.55,yscale=1.0]
+  % ---------------- Top row: QCD (non-SUSY), N_f Dirac fermions
+  \node[anchor=west] at (-0.5,4.75)
+    {\small\textbf{QCD:} $\Nf$ Dirac fermions (non-SUSY)};
+  \fill[blue!15] (0,3) rectangle (8,4.2);
+  \shade[left color=blue!15,right color=green!15] (8,3) rectangle (12,4.2);
+  \fill[green!15] (12,3) rectangle (16.5,4.2);
+  \fill[red!10] (16.5,3) rectangle (19.5,4.2);
+  \draw[->,thick] (-0.5,3) -- (20,3) node[right] {$\Nf$};
+  \draw[thick,dashed,blue!70!black] (8,3) -- (8,4.2);
+  \draw[thick,dashed,blue!70!black] (12,3) -- (12,4.2);
+  \draw[thick,red!70!black] (16.5,2.8) -- (16.5,4.4);
+  \node[align=center] at (4,3.6) {\small Confinement\\[-2pt]\small $+$ $\chi$SB};
+  \node[align=center] at (10,3.6) {\small $\Nf^*$\\[-2pt]\small (uncertain)};
+  \node[align=center] at (14.25,3.6) {\small Conformal\\[-2pt]\small window};
+  \node[align=center] at (18,3.6) {\small Loss\\[-2pt]\small of AF};
+  \foreach \x in {0,2,4,6,8,10,12,14,16,18} {
+    \draw (\x,2.9) -- (\x,3.1);
+    \node[below] at (\x,2.85) {\tiny\x};
+  }
+  \node[below,red!70!black] at (16.5,2.45) {\small $\frac{11\Nc}{2} = 16.5$};
+
+  % ---------------- Bottom row: SQCD, N_f flavours of chiral superfields
+  \node[anchor=west] at (-0.5,1.75)
+    {\small\textbf{SQCD:} $\Nf$ flavours of chiral superfields
+    $(Q_i, \widetilde{Q}^i)$};
+  \fill[blue!15] (0,0) rectangle (4.5,1.2);
+  \fill[orange!20] (4.5,0) rectangle (9,1.2);
+  \fill[red!10] (9,0) rectangle (19.5,1.2);
   \draw[->,thick] (-0.5,0) -- (20,0) node[right] {$\Nf$};
-
-  % Regions with fills
-  \fill[blue!15] (0,0) rectangle (4.5,2.2);
-  \fill[yellow!15] (4.5,0) rectangle (9,2.2);
-  \fill[green!15] (9,0) rectangle (16.5,2.2);
-  \fill[red!10] (16.5,0) rectangle (19.5,2.2);
-
-  % Boundary lines
-  \draw[thick,dashed,blue!70!black] (4.5,-0.2) -- (4.5,2.5)
-    node[above] {\small $\Nf^*$};
-  \draw[thick,dashed,orange] (9,2.5) -- (9,-0.2);
-  \draw[thick,red!70!black] (16.5,-0.2) -- (16.5,2.5)
-    node[above] {\small $\frac{11\Nc}{2}$};
-
-  % Region labels
-  \node[align=center] at (2.25,1.1) {\small Confinement\\[-2pt]\small $+$ $\chi$SB};
-  \node[align=center] at (6.75,1.4) {\small SUSY\\[-2pt]\small conformal\\[-2pt]\small window};
-  \node[align=center] at (12.75,1.1) {\small Banks--Zaks\\[-2pt]\small regime};
-  \node[align=center] at (18,1.1) {\small Loss\\[-2pt]\small of AF};
-
-  % SUSY window markers
-  \draw[thick,orange,<->] (4.5,2.8) -- (9,2.8);
-  \node[above,orange] at (6.75,2.8) {\small $\frac{3\Nc}{2} < \Nf < 3\Nc$};
-
-  % Integer tick marks
+  \draw[thick,dashed,orange] (4.5,-0.2) -- (4.5,1.4);
+  \draw[thick,dashed,orange] (9,-0.2) -- (9,1.4);
+  \node[align=center] at (2.25,0.6) {\small Confining\\[-2pt]\small or no vacuum};
+  \node[align=center] at (6.75,0.6) {\small Conformal\\[-2pt]\small window};
+  \node[align=center] at (14.25,0.6) {\small IR free (no AF)};
+  \foreach \x in {5,6,7,8} {
+    \fill[orange] (\x,0) circle (3pt);
+  }
   \foreach \x in {0,2,4,6,8,10,12,14,16,18} {
     \draw (\x,-0.1) -- (\x,0.1);
     \node[below] at (\x,-0.15) {\tiny\x};
   }
-
-  % Key Nf values for SU(3)
-  \node[below,blue!70!black] at (4.5,-0.6) {\small $\sim 4$--$5$};
-  \node[below,orange] at (9,-0.6) {\small $9$};
-  \node[below,red!70!black] at (16.5,-0.6) {\small $16.5$};
-
-  % SUSY window dots
-  \foreach \x in {5,6,7,8} {
-    \fill[orange] (\x,0) circle (3pt);
-  }
+  \node[below,orange!80!black] at (4.5,-0.55) {\small $\frac{3\Nc}{2}$};
+  \node[below,orange!80!black] at (9,-0.55) {\small $3\Nc$};
 \end{tikzpicture}
-\caption{Phase diagram of $\SU{3}$ gauge theory as a function of $\Nf$
-  (Dirac flavours).  Orange dots mark the SUSY conformal window integers
-  $\Nf = 5,6,7,8$.  The non-SUSY lower boundary $\Nf^*$ is
-  model-dependent.}
+\caption{Phases of $\SU{3}$ gauge theories as functions of the number of
+  flavours, on two separate axes.  Top: QCD with $\Nf$ Dirac fermions.
+  The lower edge $\Nf^*$ of its conformal window is uncertain
+  ($8 \lesssim \Nf^* \lesssim 12$, shaded band); the upper edge is the
+  loss of asymptotic freedom at $11\Nc/2 = 16.5$, where the Banks--Zaks
+  fixed point becomes perturbative.  Bottom: $\mathcal{N}=1$ SQCD with
+  $\Nf$ flavours of chiral superfields, each containing one Dirac fermion
+  and two complex scalars.  Both edges of its conformal window
+  $3\Nc/2 < \Nf < 3\Nc$ are exact; orange dots mark $\Nf = 5,6,7,8$.}
 \label{fig:ex-phase-diagram}
 \end{figure}
 
 \noindent\textbf{Important caveat.}
-The SUSY conformal window (shaded orange, exact: $3\Nc/2 < \Nf < 3\Nc$)
-is shown alongside the non-SUSY estimates (blue/green regions, approximate).
-\emph{These are distinct theories with different dynamics.}
-The horizontal axis counts Dirac flavours in both cases, but the SUSY
-result applies to $\mathcal{N}=1$ SQCD (with superpartners), while the
-non-SUSY boundaries ($\Nf^*$ and the Banks--Zaks regime) refer to ordinary
-QCD-like theories.  The SUSY window is overlaid to show where exact results
-are available; one should \emph{not} read it as a subregion of the non-SUSY
-phase diagram.
+The two rows of Figure~\ref{fig:ex-phase-diagram} describe distinct
+theories with different dynamics.  In SQCD, $\Nf$ counts flavours of
+chiral superfields $(Q_i, \widetilde{Q}^i)$: each carries the fermions
+of one Dirac flavour plus two complex scalars, and the gaugino adds an
+adjoint Weyl fermion, so the one-loop coefficient becomes
+$\bzero^{\mathrm{SUSY}} = 3\Nc - \Nf$ instead of $(11\Nc - 2\Nf)/3$.
+Equal values of $\Nf$ on the two axes therefore label different field
+contents.  The SQCD window $3\Nc/2 < \Nf < 3\Nc$ says nothing directly
+about QCD with the same $\Nf$: QCD with $\Nf = 5$--$8$ Dirac fermions
+lies below, or at most at the lower edge of, its own conformal window.
 
 \textbf{(i) $\Nf = 0$: Pure Yang--Mills.}
 
@@ -629,32 +658,44 @@ The classical global symmetry $\SU{\Nf}_L \times \SU{\Nf}_R \times
 \]
 producing $\Nf^2 - 1$ massless Goldstone bosons (pions).
 
-'t~Hooft anomaly matching constrains the \IR{} spectrum: the anomaly
-coefficients (computed in Problem~2 for $\Nf = 2$ and Problem~3 for
-general $\Nf$) must be matched by the massless fermions in the confined
-phase.  For $\Nf = 2$, the nucleon doublet provides the matching.
+'t~Hooft anomaly matching constrains the \IR{} spectrum (anomaly
+coefficients from Exercise Set~1, Problems~2 and~3).  In the phase with
+chiral symmetry breaking, the anomalies of the unbroken
+$\SU{\Nf}_V \times \UU{1}_B$ vanish, the baryons are massive, and the
+Wess--Zumino--Witten term of the Goldstone bosons carries the anomalies
+of the broken generators (Exercise Set~1, Problem~2).
 
-\textbf{(iii) $\Nf \approx 5$--$8$ (SUSY conformal window for $\SU{3}$):}
+\textbf{(iii) $\Nf \approx 5$--$8$.}
 
-In the SUSY theory, the exact result is that $\Nf = 5,6,7,8$ lie in the
-conformal window $3\Nc/2 < \Nf < 3\Nc = 9$.  The theory flows to an
-interacting superconformal fixed point in the \IR.  There is no confinement,
-no chiral symmetry breaking, and no mass gap.
+\emph{QCD.}  These values lie below, or at most at the lower edge of, the
+non-SUSY conformal window ($8 \lesssim \Nf^* \lesssim 12$).  The
+expected \IR{} phase is confinement with chiral symmetry breaking, as for
+fewer flavours; lattice studies of $\Nf = 8$ point to chiral symmetry
+breaking with near-conformal (``walking'') running.
+
+\emph{SQCD.}  With $\Nf = 5,6,7,8$ flavours of chiral superfields, the
+exact result places the theory inside the conformal window
+$3\Nc/2 < \Nf < 3\Nc = 9$.  It flows to an interacting superconformal
+fixed point in the \IR{}, with no confinement, no chiral symmetry
+breaking and no mass gap.
 
 Anomaly matching is automatically satisfied at the conformal fixed point:
 both the \UV{} (free) and \IR{} (interacting CFT) descriptions have the
 same massless particle content (the theory is scale-invariant, not confining).
 
-For the \emph{non-SUSY} theory, the situation is uncertain: the lower
-boundary $\Nf^*$ of the non-SUSY conformal window is model-dependent,
-with estimates ranging from $\sim 8$ to $\sim 12$ for $\SU{3}$.
+The comparison shows how different the two theories are at equal
+$\Nf$: the scalars and the gaugino of SQCD change the running enough
+to move the conformal window from $\Nf^* \lesssim \Nf < 16.5$ (QCD) down
+to $4.5 < \Nf < 9$ (SQCD).
 
 \textbf{(iv) $\Nf \approx 9$--$16$: Banks--Zaks regime.}
 
-$\bzero > 0$ (AF) and the two-loop coefficient $\bone < 0$ for $\Nf$
-sufficiently large.  The theory flows to a Banks--Zaks fixed point at
-$\alphas^* = -2\pi\bzero/\bone$.  Near $\Nf = 16$, the fixed point
-coupling is small and perturbatively reliable (Problem~2).  As $\Nf$
+$\bzero > 0$ (AF), and the two-loop coefficient is negative for
+$\Nf > 306/38 \approx 8.05$, \ie\ for $\Nf \geq 9$.  The two-loop beta
+function then has a Banks--Zaks zero at $\alphas^* = -2\pi\bzero/\bone$
+(course normalisation; the standard value is twice this, see Problem~2).
+Near $\Nf = 16$, the fixed point coupling is small and perturbatively
+reliable (Problem~2).  As $\Nf$
 decreases toward $\Nf^*$, the coupling at the fixed point grows and
 eventually the perturbative description breaks down.
 
@@ -672,12 +713,15 @@ behaves like QED at low energies.
 The conformal window is central to the dualised Standard Model because:
 
 \begin{enumerate}[label=\arabic*.]
-  \item \textbf{Seiberg duality operates in the conformal window.}
-    In SQCD, theories with $3\Nc/2 < \Nf < 3\Nc$ have both an
-    ``electric'' description (gauge group $\SU{\Nc}$, strongly coupled
-    in the \IR) and a ``magnetic'' description (gauge group
-    $\SU{\Nf - \Nc}$, weakly coupled in the \IR).  These are dual
-    descriptions of the \emph{same} physics.
+  \item \textbf{Seiberg duality and the conformal window.}
+    In SQCD with $3\Nc/2 < \Nf < 3\Nc$, the ``electric'' theory (gauge
+    group $\SU{\Nc}$) and the ``magnetic'' theory (gauge group
+    $\SU{\Nf - \Nc}$) flow to the same interacting fixed point.  Near
+    $\Nf = 3\Nc$ the electric description is weakly coupled; near
+    $\Nf = 3\Nc/2$ the magnetic one is.  Below the window, for
+    $\Nc + 1 < \Nf \leq 3\Nc/2$, the magnetic theory is \IR{} free and
+    gives the weakly coupled description of the strongly coupled electric
+    theory.
 
   \item \textbf{The SM could be the magnetic dual.}
     If the SM gauge sectors arise as the magnetic (weakly coupled) dual of
@@ -686,11 +730,11 @@ The conformal window is central to the dualised Standard Model because:
     of the dual theory.  This requires the electric theory to lie in or
     near the conformal window.
 
-  \item \textbf{Analytical control.}  Within the conformal window, both
-    sides of the duality are under analytical control.  Anomaly matching
-    provides exact constraints on the duality map.  This is far more
-    powerful than attempting to study the non-SUSY conformal window, where
-    no exact results are available.
+  \item \textbf{Analytical control.}  Within the SUSY conformal window,
+    exact results (anomaly matching, the $R$-charges and hence the
+    dimensions of chiral operators) hold on both sides of the duality and
+    constrain the duality map.  The non-SUSY conformal window has no
+    comparable exact results.
 \end{enumerate}
 
 \textbf{(d) Challenge: $\SU{3}$ with $\Nf = 12$.}
@@ -703,16 +747,18 @@ conformal window.  At two loops:
   \alphas^* &= -2\pi \times 3/(-50)
   = 6\pi/50 = 3\pi/25 \approx 0.38.
 \end{align}
+The standard normalisation gives $\alphas^* = 6\pi/25 \approx 0.754$.
 
-This value $\alphas^* \approx 0.38$ is \emph{not} small---the perturbative
-two-loop result is unreliable.  We are deep in the non-perturbative regime,
+The fixed-point coupling, $0.38$ in the course normalisation and $0.75$ in
+the standard one, is large: the perturbative two-loop result is
+unreliable.  We are deep in the non-perturbative regime,
 and the two-loop beta function cannot be trusted to determine whether the
 theory confines or flows to a fixed point.
 
 \textbf{Why lattice simulations are needed:}
 \begin{enumerate}[label=\arabic*.]
   \item No perturbative or analytical method can determine whether
-    $\alphas^* \approx 0.38$ corresponds to a true fixed point or is an
+    the two-loop zero corresponds to a true fixed point or is an
     artifact of the two-loop truncation.
   \item The SUSY exact result does not apply ($\Nf = 12$ is above the
     SUSY window $\Nf < 9$ for $\SU{3}$, and this is a non-SUSY theory).
@@ -737,10 +783,11 @@ theory confines or flows to a fixed point.
 \end{itemize}
 
 \textit{The bottom line:} The question of whether $\SU{3}$ with $\Nf = 12$
-is inside or outside the conformal window remains open as of 2027.  This
-uncertainty is one motivation for the dualised SM programme: by working
-within the \emph{SUSY} conformal window (where the boundaries are exact),
-one avoids this ambiguity entirely.
+is inside or outside the conformal window remains open as of 2027.  The
+dualised SM programme uses the SUSY conformal window, whose boundaries are
+exact, as its guide.  Its electric theory is non-supersymmetric, so the
+uncertainty discussed here carries over to it: the non-SUSY duality is a
+conjecture (Lecture~6).
 \end{proof}
 
 \bigskip
@@ -761,6 +808,15 @@ from Exercise Sets 1--2 provide the foundation for Seiberg duality
   T.~Banks and A.~Zaks, ``On the phase structure of vector-like gauge
   theories with massless fermions,'' Nucl.\ Phys.\ B \textbf{196} (1982) 189.
 
+\bibitem{Caswell1974}
+  W.~E.~Caswell, ``Asymptotic behavior of non-Abelian gauge theories to
+  two-loop order,'' Phys.\ Rev.\ Lett.\ \textbf{33} (1974) 244.
+
+\bibitem{RyttovShrock2011}
+  T.~A.~Ryttov and R.~Shrock, ``Higher-loop corrections to the infrared
+  evolution of a gauge theory with fermions,'' Phys.\ Rev.\ D \textbf{83}
+  (2011) 056011 [arXiv:1011.4542].
+
 \bibitem{Seiberg1995}
   N.~Seiberg, ``Electric--magnetic duality in supersymmetric non-Abelian
   gauge theories,'' Nucl.\ Phys.\ B \textbf{435} (1995) 129
@@ -775,8 +831,8 @@ from Exercise Sets 1--2 provide the foundation for Seiberg duality
   Field Theory}, Addison-Wesley, 1995.
 
 \bibitem{Sannino2024}
-  F.~Sannino \textit{et al.}, ``Dualised Standard Model,''
-  arXiv:2407.17281 [hep-ph].
+  G.~Cacciapaglia and F.~Sannino, ``Charting Standard Model Duality and its
+  Signatures,'' arXiv:2407.17281 [hep-ph] (2024).
 \end{thebibliography}
 
 \end{document}
