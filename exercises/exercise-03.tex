@@ -63,8 +63,8 @@ Magnetic theory & $\SU{\Nf - \Nc}$ with $(q, \widetilde{q}, M)$;
 \label{prob:anomaly-su3-6}
 
 \noindent\textbf{Background.}
-In Lecture~3, we verified all six independent 't~Hooft anomaly
-coefficients as polynomial identities in $\Nc$ and $\Nf$.  In this
+In Lecture~3, we verified the 't~Hooft anomaly coefficients as
+polynomial identities in $\Nc$ and $\Nf$.  In this
 problem, you will carry out the explicit numerical computation for the
 benchmark case $\Nc = 3$, $\Nf = 6$.
 
@@ -93,7 +93,8 @@ $\Wsup_{\mathrm{mag}} = (1/\mu)\, M\, q\, \widetilde{q}$.
       B[q] &= 3/(6-3) = 1. &
     \end{align*}
 
-  \item \textbf{Compute all six anomaly coefficients} on both sides:
+  \item \textbf{Compute the seven anomaly coefficients} tabulated in
+    Lecture~3 on both sides:
     \begin{enumerate}[label=(\roman*)]
       \item $\SU{6}_L^3$
       \item $\SU{6}_R^3$
@@ -101,9 +102,10 @@ $\Wsup_{\mathrm{mag}} = (1/\mu)\, M\, q\, \widetilde{q}$.
       \item $\SU{6}_L^2\,\UU{1}_R$
       \item $\UU{1}_B^2\,\UU{1}_R$
       \item $\Tr[R_{\mathrm{ferm}}]$ (gravitational anomaly)
+      \item $\Tr[R_{\mathrm{ferm}}^3]$
     \end{enumerate}
 
-  \item Verify that all six coefficients match.
+  \item Verify that all seven coefficients match.
 \end{enumerate}
 
 \medskip
@@ -208,6 +210,8 @@ with $6$ copies: $6 \times A(\antifund) = -6$. Total: $3 - 6 = -3$.
   \mathcal{A}^{\mathrm{el}}_2 = -3 = \mathcal{A}^{\mathrm{mag}}_2\,.
   \quad\checkmark
 \]
+(Lecture~3 and Exercise Set~1 take $\widetilde{Q}$ in the $\fund$ of
+$\SU{\Nf}_R$ instead; that flips the sign on both sides to $+\Nc = 3$.)
 
 \medskip
 
@@ -330,6 +334,39 @@ where $n_f$ is the total multiplicity (gauge $\times$ flavour).
   \quad\checkmark
 \]
 
+\medskip
+
+\textbf{(vii) $\Tr[R_{\mathrm{ferm}}^3]$.}
+
+\textit{Electric:}
+\begin{itemize}
+  \item $Q$: $18$ fermions, $R_{\mathrm{ferm}} = -1/2$:
+    $18 \times (-1/8) = -9/4$.
+  \item $\widetilde{Q}$: $18$ fermions, $R_{\mathrm{ferm}} = -1/2$:
+    $-9/4$.
+  \item Gaugino: $8$ fermions, $R_{\mathrm{ferm}} = +1$: $+8$.
+\end{itemize}
+\[
+  \mathcal{A}^{\mathrm{el}}_7 = -\tfrac{9}{4} - \tfrac{9}{4} + 8
+  = \boxed{\tfrac{7}{2}}\,.
+\]
+
+\textit{Magnetic:}
+\begin{itemize}
+  \item $q$: $18$ fermions, $R_{\mathrm{ferm}} = -1/2$: $-9/4$.
+  \item $\widetilde{q}$: $18$ fermions, $R_{\mathrm{ferm}} = -1/2$:
+    $-9/4$.
+  \item $M$: $36$ fermions, $R_{\mathrm{ferm}} = 0$: $0$.
+  \item Gaugino: $8$ fermions, $R_{\mathrm{ferm}} = +1$: $+8$.
+\end{itemize}
+\[
+  \mathcal{A}^{\mathrm{mag}}_7 = -\tfrac{9}{4} - \tfrac{9}{4} + 0 + 8
+  = \boxed{\tfrac{7}{2}}\,.
+  \quad\checkmark
+\]
+This agrees with the general expression $-2\Nc^4/\Nf^2 + \Nc^2 - 1$ of
+Lecture~3 at $\Nc = 3$, $\Nf = 6$.
+
 \bigskip
 
 \textbf{(c) Summary table.}
@@ -346,11 +383,12 @@ $\SU{6}_L^2\,\UU{1}_B$ & $3/2$ & $3/2$ & $\checkmark$ \\
 $\SU{6}_L^2\,\UU{1}_R$ & $-3/4$ & $-3/4$ & $\checkmark$ \\
 $\UU{1}_B^2\,\UU{1}_R$ & $-18$ & $-18$ & $\checkmark$ \\
 $\Tr[R]$ (gravitational) & $-10$ & $-10$ & $\checkmark$ \\
+$\Tr[R^3]$ & $7/2$ & $7/2$ & $\checkmark$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-All six independent anomaly coefficients match.  These values are
+All seven anomaly coefficients match.  These values are
 consistent with the output of
 \texttt{scripts/verify\_anomaly\_matching.py} for $\Nc = 3$,
 $\Nf = 6$.
@@ -679,8 +717,7 @@ by Intriligator and Seiberg~\cite{IS1995}.
 (a) Apply $\SU{\Nf - \Nc} = \SU{(\Nc+1) - \Nc} = \SU{1}$.
 
 (c) The mesons $M = Q\widetilde{Q}$ are composites of two dimension-1
-fields, so $[M] = [\mathrm{mass}]^2$ (not $[\mathrm{mass}]$; see the
-solution for the full dimensional analysis).
+fields, so $[M] = [\mathrm{mass}]^2$.
 The baryons $B$ are products of $\Nc$ fundamental fields, each of
 dimension $[\mathrm{mass}]$, so $[B] = [\mathrm{mass}]^{\Nc}$.
 The dynamical scale $\Lambda$ has $[\Lambda] = [\mathrm{mass}]$.
@@ -761,46 +798,17 @@ limits as various masses are taken to infinity, matching the ADS
 superpotential for $\Nf < \Nc$, and by instanton calculations.)
 
 \textbf{Dimensional check.}  We need
-$[\Wsup] = [\mathrm{mass}]^3$:
+$[\Wsup] = [\mathrm{mass}]^3$.  The confined fields are gauge-invariant
+composites of the electric quarks, and the scalar component of each
+chiral superfield has $[Q] = [\widetilde{Q}] = [\mathrm{mass}]$.  Hence
 \begin{itemize}
-  \item $[M] = [\mathrm{mass}]$ (elementary meson field).
-  \item $[B] = [\mathrm{mass}]^{\Nc}$ (product of $\Nc$ fundamentals,
-    each of dimension $[\mathrm{mass}]$).
+  \item $[M] = [Q\widetilde{Q}] = [\mathrm{mass}]^2$;
+  \item $[B] = [\widetilde{B}] = [\mathrm{mass}]^{\Nc}$ (product of
+    $\Nc$ fundamentals);
   \item $[\Lambda] = [\mathrm{mass}]$.
 \end{itemize}
 
 For the first term:
-\[
-  \frac{[B \cdot M \cdot \widetilde{B}]}{[\Lambda^{2\Nc-1}]}
-  = \frac{[\mathrm{mass}]^{\Nc} \cdot [\mathrm{mass}]
-  \cdot [\mathrm{mass}]^{\Nc}}{[\mathrm{mass}]^{2\Nc - 1}}
-  = \frac{[\mathrm{mass}]^{2\Nc + 1}}{[\mathrm{mass}]^{2\Nc - 1}}
-  = [\mathrm{mass}]^2\,.
-\]
-
-Wait --- this gives $[\mathrm{mass}]^2$, not $[\mathrm{mass}]^3$.  We
-need to be more careful about the dimension of $B$.
-
-\textbf{Corrected dimensional analysis.}  In SQCD, the elementary chiral
-superfield $Q$ has classical dimension $[Q] = [\mathrm{mass}]$ (the scalar
-component of a chiral superfield has mass dimension $1$ in $d=4$).
-The baryon operator is:
-\[
-  B = \epsilon^{a_1\cdots a_{\Nc}}\, Q_{a_1}^{i_1} \cdots
-  Q_{a_{\Nc}}^{i_{\Nc}}\,,
-  \qquad [B] = [\mathrm{mass}]^{\Nc}\,.
-\]
-The meson $M^i{}_j = Q^i \widetilde{Q}_j$ has $[M] = [\mathrm{mass}]^2$
-in the \emph{electric} theory (it is a composite of two dimension-1
-fields).
-
-In the \emph{magnetic} (confined) description, $M$ is an elementary
-field with $[M] = [\mathrm{mass}]^2$ inherited from the duality map.
-(Alternatively, at the conformal fixed point, the dimension is
-$\Delta[M] = (3/2)R[M]$; but for the superpotential counting, we use
-the UV dimension.)
-
-Now:
 \[
   \frac{[B \cdot M \cdot \widetilde{B}]}{[\Lambda^{2\Nc-1}]}
   = \frac{[\mathrm{mass}]^{\Nc} \cdot [\mathrm{mass}]^2
@@ -820,7 +828,9 @@ For $\det M$ with $\Nf = \Nc + 1$:
   \quad\checkmark
 \]
 
-Both terms have the correct dimension.
+Both terms have the correct dimension.  The common power
+$\Lambda^{2\Nc - 1}$ is $\Lambda^{\bzero}$, with the one-loop coefficient
+$\bzero = 3\Nc - \Nf = 2\Nc - 1$ at $\Nf = \Nc + 1$.
 
 \bigskip
 
@@ -905,9 +915,9 @@ to the Standard Model in Lectures~5--7.}
   [\texttt{hep-th/9610139}].
 
 \bibitem{Sannino2024}
-  F.~Sannino \textit{et al.},
-  ``The Dualised Standard Model,''
-  [\texttt{arXiv:2407.17281}].
+  G.~Cacciapaglia and F.~Sannino,
+  ``Charting Standard Model Duality and its Signatures,''
+  [\texttt{arXiv:2407.17281}] (2024).
 
 \end{thebibliography}
 
