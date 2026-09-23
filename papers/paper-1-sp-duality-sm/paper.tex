@@ -6,7 +6,9 @@
 %   T(fund Sp(N)) = 1/2 per Weyl fermion
 %   Sp(N_c) = rank N_c, fund dim 2N_c.  Sp(1) = SU(2).
 %   h(Sp(N)) = N+1 (dual Coxeter number)
-%   Sp duality: Sp(N_c) with 2N_f fund <-> Sp(N_f - N_c - 2) with 2N_f fund + meson
+%   Sp duality (Intriligator-Pouliot hep-th/9505006):
+%     Sp(N_c) with 2N_f fund <-> Sp(N_f - N_c - 2) with 2N_f fund + meson
+%     Q in the fundamental of SU(2N_f); dual quarks q in the antifundamental
 %   Meson M_{ij} = -M_{ji} antisymmetric (2N_f x 2N_f)
 %   b_0(Sp(N_c)) = 3(N_c+1) - N_f for 2N_f fundamentals
 %   Conformal window: 3(N_c+1)/2 < N_f < 3(N_c+1)
@@ -83,28 +85,31 @@ UV Completion of the Electroweak Sector}}
 \begin{abstract}
 We investigate the possibility that the electroweak gauge group
 $\SU{2}_L \cong \Sp{1}$ admits a UV completion via the
-Intriligator--Seiberg $\Sp{\Nc}$ Seiberg duality, in which the
+Intriligator--Pouliot $\Sp{\Nc}$ Seiberg duality, in which the
 Standard Model $\SU{2}_L$ is identified as the \emph{magnetic} gauge
 group of an asymptotically free $\Sp{\Nc}$ electric theory.
 We determine the electric theory for each candidate value of $\Nc$,
-verify 't~Hooft anomaly matching, analyse the composite meson
-content, and check the conformal window constraints.  For three
-Standard Model generations, the electroweak sector contains
-$2\Nf = 12$ Weyl doublets of $\SU{2}_L$, corresponding to
-$\Nf = 6$ in the Sp counting convention.  The electric dual is
-then $\Sp{3}$ with 12~fundamentals, sitting at the lower boundary
-of the conformal window.  The antisymmetric meson $M_{ij}$ yields
-$\Nf(2\Nf-1) = 66$ complex scalar components.  We prove a
-\emph{no-go result}: because the antisymmetric product of two
-$\SU{2}_L$ doublets is a singlet, the Sp meson is an $\SU{2}_L$
-singlet and \emph{cannot} furnish electroweak Higgs doublets.
-Instead, the meson spectrum consists of diquarks, leptoquarks, and
-charged singlets.  We compare the Sp route with the $\SU{N}$
-Cacciapaglia--Sannino construction and find that the Sp-route
-generation bound $2 \leq n_g \leq 3$, combined with the SU-route
-bound $n_g \geq 3$, uniquely selects $n_g = 3$.  All claims
-involving the extrapolation of SUSY Seiberg duality to the
-non-supersymmetric Standard Model are conjectural.
+verify the $\SU{2\Nf}^3$, $\SU{2\Nf}^2\,\UU{1}_R$, $\UU{1}_R$ and
+$\UU{1}_R^3$ 't~Hooft anomalies, analyse the composite meson content,
+and check the conformal window constraints.  For three Standard Model
+generations, the electroweak sector contains $2\Nf = 12$ Weyl doublets
+of $\SU{2}_L$, corresponding to $\Nf = 6$ in the Sp counting
+convention.  The electric dual is then $\Sp{3}$ with 12~fundamentals,
+sitting at the lower boundary of the conformal window.  The
+antisymmetric meson $M_{ij}$ yields $\Nf(2\Nf-1) = 66$ complex scalar
+components.  We show a \emph{no-go result}: the mesons of a Seiberg dual
+are singlets of the magnetic gauge group by construction, so once
+$\SU{2}_L$ is the magnetic group they are $\SU{2}_L$ singlets and
+\emph{cannot} furnish electroweak Higgs doublets.  The argument applies
+to any duality with $\SU{2}_L$ as the magnetic gauge group; the
+Cacciapaglia--Sannino route avoids it because there $\SU{2}_L$ is a
+gauged subgroup of the flavour symmetry.  The meson spectrum consists
+of diquarks, leptoquarks and singly charged singlets.  The Sp-route
+range $2 \leq n_g \leq 3$, whose upper end assumes that the magnetic
+$\SU{2}_L$ has $b_0^{\mathrm{mag}} \geq 0$, overlaps the SU-route bound
+$n_g \geq 3$ only at $n_g = 3$, when the edges of the conformal window
+are counted.  All claims involving the extrapolation of SUSY Seiberg
+duality to the non-supersymmetric Standard Model are conjectural.
 \end{abstract}
 
 \tableofcontents
@@ -141,8 +146,8 @@ $n_g = 3$, this gives $\SU{2}$ as the electric gauge group---a
 coincidence that invites an alternative perspective.
 
 In this paper, we explore a structurally different approach:
-\emph{UV-completing $\SU{2}_L$ directly via the Intriligator--Seiberg
-$\Sp{\Nc}$ Seiberg duality}~\cite{IS9506101,IS1995}.
+\emph{UV-completing $\SU{2}_L$ directly via the Intriligator--Pouliot
+$\Sp{\Nc}$ Seiberg duality}~\cite{IP9505006,IS1995}.
 The key observation is that $\SU{2} \cong \Sp{1}$ as Lie groups.
 The Sp duality maps an electric $\Sp{\Nc}$ theory with $2\Nf$
 fundamentals to a magnetic $\Sp{\Nf - \Nc - 2}$ theory with
@@ -154,8 +159,9 @@ fixes $\Nf$.
 \medskip
 
 \textbf{Epistemic convention.}  The SUSY $\Sp{\Nc}$ Seiberg duality
-of Intriligator and Seiberg~\cite{IS9506101} is an established result
-of $\mathcal{N}=1$ supersymmetric gauge theory.  All claims
+of Intriligator and Pouliot~\cite{IP9505006} is supported by strong
+evidence in $\mathcal{N}=1$ supersymmetric gauge theory ('t~Hooft
+anomaly matching, moduli spaces, deformations).  All claims
 extrapolating this duality to the non-supersymmetric Standard Model
 are \textbf{conjectural} and carry an implicit qualifier ``if the
 non-SUSY duality holds.''  This paper explores the
@@ -170,12 +176,12 @@ duality exists is not settled.
   \item For $n_g = 3$ SM generations, $\SU{2}_L$ has $2\Nf = 12$
     Weyl doublets, fixing $\Nf = 6$.  The electric dual is
     $\Sp{3}$ with 12~fundamentals (\S\ref{sec:electric-theory}).
-  \item 't~Hooft anomaly matching for the $\SU{2\Nf}^2\,\UU{1}_R$
-    mixed anomaly is verified symbolically and numerically
-    (\S\ref{sec:anomaly-matching}).
+  \item 't~Hooft anomaly matching is verified symbolically and
+    numerically for $\SU{2\Nf}^2\,\UU{1}_R$, $\SU{2\Nf}^3$, $\UU{1}_R$
+    and $\UU{1}_R^3$ (\S\ref{sec:anomaly-matching}).
   \item The antisymmetric meson $M_{ij} = -M_{ji}$ yields
-    $\Nf(2\Nf - 1) = 66$ complex scalar components, which are
-    $\SU{2}_L$ singlets (no-go for the Higgs sector)
+    $\Nf(2\Nf - 1) = 66$ complex scalar components, which are singlets
+    of the magnetic gauge group $\SU{2}_L$ (no-go for the Higgs sector)
     (\S\ref{sec:meson-higgs}).
   \item The electric $\Sp{3}$ theory sits at the lower boundary of
     the SUSY conformal window
@@ -193,7 +199,8 @@ duality exists is not settled.
 \label{sec:review}
 
 We follow the conventions of Intriligator and
-Seiberg~\cite{IS9506101,IS1995}.  $\Sp{\Nc}$ denotes the symplectic
+Pouliot~\cite{IP9505006} and of the review~\cite{IS1995}.  $\Sp{\Nc}$
+denotes the symplectic
 group of \textbf{rank}~$\Nc$, whose fundamental representation has
 dimension~$2\Nc$.  Thus $\Sp{1} = \SU{2}$ (rank~1, fundamental
 dimension~2).
@@ -203,7 +210,8 @@ dimension~2).
 The electric theory is $\mathcal{N}=1$ $\Sp{\Nc}$ with:
 \begin{itemize}
   \item $2\Nf$ chiral superfields $Q_i$ ($i = 1, \ldots, 2\Nf$) in
-    the fundamental of $\Sp{\Nc}$ (dimension~$2\Nc$).
+    the fundamental of $\Sp{\Nc}$ (dimension~$2\Nc$) and of the flavour
+    group $\SU{2\Nf}$.
   \item No tree-level superpotential: $W_{\mathrm{el}} = 0$.
 \end{itemize}
 Since the fundamental of $\Sp{\Nc}$ is pseudo-real, the global
@@ -228,11 +236,12 @@ The magnetic description is an $\mathcal{N}=1$ theory with:
     \end{equation}
   \item \textbf{Dual quarks:} $2\Nf$ chiral superfields $q_i$ in the
     fundamental (dimension $2(\Nf - \Nc - 2)$) of the magnetic gauge
-    group.
+    group and in the antifundamental of $\SU{2\Nf}$.
   \item \textbf{Meson:} A gauge-singlet chiral superfield
-    $M_{ij} = -M_{ji}$ ($2\Nf \times 2\Nf$ antisymmetric matrix),
-    mapping to the electric composite $Q_i\, J\, Q_j$ where $J$ is
-    the $\Sp{\Nc}$ symplectic form.
+    $M_{ij} = -M_{ji}$ ($2\Nf \times 2\Nf$ antisymmetric matrix, in the
+    antisymmetric representation of $\SU{2\Nf}$), mapping to the
+    electric composite $Q_i\, J\, Q_j$ where $J$ is the $\Sp{\Nc}$
+    symplectic form.
   \item \textbf{Magnetic superpotential:}
     \begin{equation}\label{eq:Sp-Wmag}
       W_{\mathrm{mag}} = \frac{1}{\mu}\, M_{ij}\, q_i\, J'\, q_j\,,
@@ -376,8 +385,9 @@ implications in \S\ref{sec:comparison}.
 
 The Sp duality preserves all 't~Hooft anomalies of the global
 symmetry $\SU{2\Nf} \times \UU{1}_R$.  We verify the mixed anomaly
-$\SU{2\Nf}^2\,\UU{1}_R$ for general $(\Nc, \Nf)$ and then
-specialise to $(\Nc, \Nf) = (3, 6)$.
+$\SU{2\Nf}^2\,\UU{1}_R$ in detail for general $(\Nc, \Nf)$ and at
+$(\Nc, \Nf) = (3, 6)$, then the cubic anomaly $\SU{2\Nf}^3$ and the
+$\UU{1}_R$ and $\UU{1}_R^3$ anomalies.
 
 \subsection{General anomaly matching}
 
@@ -477,7 +487,7 @@ Magnetic $\Sp{1}$: $\widetilde{\Nc} = 1$, $h_{\mathrm{mag}} = 2$.
   \quad\checkmark
 \end{align*}
 
-\subsection{Additional anomaly: $\SU{2\Nf}^3$}
+\subsection{Cubic anomaly $\SU{2\Nf}^3$}
 
 The cubic $\SU{2\Nf}$ anomaly provides a second independent check.
 The anomaly coefficient is
@@ -486,76 +496,57 @@ The anomaly coefficient is
   = \sum_f \dim(\text{gauge rep}_f)\; A(\text{SU}(2\Nf)\;\text{rep}_f)\,,
 \end{equation}
 where $A(R) = \Tr_R[T^a\{T^b, T^c\}]$ is the cubic anomaly
-coefficient.
+coefficient, normalised to $A(\mathrm{fund}) = 1$, so that
+$A(\overline{\mathrm{fund}}) = -1$ and $A(\antisym\;\SU{N}) = N - 4$.
 
 \paragraph{Electric:}
 $Q_i$ is in the fundamental of both $\Sp{\Nc}$ (dim $2\Nc$) and
-$\SU{2\Nf}$ ($A(\mathrm{fund}) = 1$):
+$\SU{2\Nf}$:
 \begin{equation}\label{eq:cubic-el}
   \mathcal{A}^{\mathrm{el}}[\SU{2\Nf}^3] = 2\Nc \cdot 1 = 2\Nc\,.
 \end{equation}
 
 \paragraph{Magnetic:}
-$q_i$ is in fund of $\Sp{\Nf - \Nc - 2}$ (dim $2(\Nf - \Nc - 2)$)
-and fund of $\SU{2\Nf}$;
-$M_{ij}$ is a singlet under the gauge group and in the antisymmetric
-of $\SU{2\Nf}$ ($A(\antisym\;\SU{N}) = N - 4$ for $\SU{N}$, so
-$A(\antisym\;\SU{2\Nf}) = 2\Nf - 4$):
+The meson $M_{ij} \sim Q_i J Q_j$ is built from two fundamentals, so
+the superpotential~\eqref{eq:Sp-Wmag} is $\SU{2\Nf}$ invariant only if
+the dual quarks $q_i$ transform in the \emph{antifundamental} of
+$\SU{2\Nf}$.  With $q_i$ in the fundamental of $\Sp{\Nf - \Nc - 2}$
+(dimension $2(\Nf - \Nc - 2)$) and $M_{ij}$ a gauge singlet in
+$\antisym\;\SU{2\Nf}$, with $A = 2\Nf - 4$:
 \begin{align}
   \mathcal{A}^{\mathrm{mag}}[\SU{2\Nf}^3]
-  &= 2(\Nf - \Nc - 2) \cdot 1 + 1 \cdot (2\Nf - 4) \notag \\
-  &= 2\Nf - 2\Nc - 4 + 2\Nf - 4 \notag \\
-  &= 4\Nf - 2\Nc - 8\,.
-  \label{eq:cubic-mag-raw}
+  &= 2(\Nf - \Nc - 2) \cdot (-1) + 1 \cdot (2\Nf - 4) \notag \\
+  &= -2\Nf + 2\Nc + 4 + 2\Nf - 4 \notag \\
+  &= 2\Nc\,.
+  \label{eq:cubic-mag}
 \end{align}
-
-For this to equal $2\Nc$, we need $4\Nf - 2\Nc - 8 = 2\Nc$,
-\ie, $\Nf = \Nc + 2$.  But this is \emph{not} true for general
-$\Nf$!
-
-\begin{remark}[Resolution: the cubic anomaly and the duality regime]
-\label{rem:cubic}
-The $\SU{2\Nf}^3$ cubic anomaly matching holds because the
-relationship between $A(\antisym)$ and the matter content is more
-subtle: the meson $M$ arises from a $2\Nf \times 2\Nf$ antisymmetric
-matrix, and its contribution must account for the
-\emph{tracelessness} constraint imposed by the symplectic form.
-Specifically, the meson decomposes as $M \in \antisym\;\SU{2\Nf}$
-\emph{minus} a singlet (the trace with the symplectic form $J$ is
-removed by the superpotential coupling).
-
-The corrected count gives
-$A(\antisym) - A(\mathrm{singlet}) = (2\Nf - 4) - 0 = 2\Nf - 4$
-for the traceless antisymmetric.  After a careful treatment
-(see Intriligator--Seiberg~\cite{IS9506101}), all six independent
-anomaly coefficients---$\SU{2\Nf}^3$, $\SU{2\Nf}^2\,\UU{1}_R$,
-$\UU{1}_R$, $\UU{1}_R^3$, $\UU{1}_R\,\mathrm{grav}^2$, and the
-discrete anomalies---match between the electric and magnetic theories.
-We have verified $\SU{2\Nf}^2\,\UU{1}_R$ explicitly above.
-
-For the $\SU{2\Nf}^3$ anomaly, the correct matching
-identity~\cite{IS9506101} is
-\begin{equation}\label{eq:cubic-correct}
-  2\Nc = 2(\Nf - \Nc - 2) + (2\Nf - 4)\,,
+The cubic anomaly therefore matches for all $(\Nc, \Nf)$:
+\begin{equation}\label{eq:cubic-match}
+  \boxed{
+  \mathcal{A}^{\mathrm{el}}[\SU{2\Nf}^3]
+  = 2\Nc
+  = \mathcal{A}^{\mathrm{mag}}[\SU{2\Nf}^3]
+  }\,.
 \end{equation}
-which simplifies to $2\Nc = 2\Nf - 2\Nc - 4 + 2\Nf - 4 = 4\Nf - 2\Nc - 8$, \ie,
-$4\Nc = 4\Nf - 8$, giving $\Nc = \Nf - 2$.  This is the
-s-confinement boundary, not a general identity.
+For $\Sp{3}$ with $\Nf = 6$: electric $2 \cdot 3 = 6$; magnetic
+$2 \cdot (-1) + 8 = 6$.  \checkmark
 
-The resolution is that equation~\eqref{eq:cubic-mag-raw} is
-incorrect: it double-counts because the meson $M_{ij}$ is a
-$2\Nf \times 2\Nf$ antisymmetric matrix, not a representation of
-$\SU{2\Nf}$ with multiplicity~1.  In fact, $M$ transforms in the
-antisymmetric representation of dimension $\Nf(2\Nf - 1)$, and the
-correct cubic anomaly coefficient for this representation is
-\begin{equation}
-  A(\antisym\;\SU{2\Nf}) = 2\Nf - 4\,,
+\subsection{$\UU{1}_R$ and $\UU{1}_R^3$}
+
+The remaining continuous anomalies also involve the gauginos, which
+carry $R_{\mathrm{ferm}} = 1$ and number $\Nc(2\Nc + 1)$ on the electric
+side and $\widetilde{\Nc}(2\widetilde{\Nc} + 1)$ on the magnetic side.
+With the fermion $R$-charges of~\eqref{eq:Sp-R}, \eqref{eq:Rq}
+and~\eqref{eq:RM}, the sum of $R_{\mathrm{ferm}}$ over all Weyl fermions
+is
+\begin{equation}\label{eq:R-lin}
+  \mathcal{A}[\UU{1}_R] = \mathcal{A}[\UU{1}_R\,\mathrm{grav}^2]
+  = -\Nc(2\Nc + 3)
 \end{equation}
-which matches the standard result from the conventions
-file.  The full $\SU{2\Nf}^3$ matching is established in the
-original reference~\cite{IS9506101} and we defer to it for the
-complete verification.
-\end{remark}
+in both descriptions, and the sums of $R_{\mathrm{ferm}}^3$ agree as
+well; we checked both identities symbolically in $(\Nc, \Nf)$.  At
+$(\Nc, \Nf) = (3, 6)$ the two anomalies equal $-27$ and $-1/3$ on each
+side.
 
 
 %% ================================================================
@@ -584,111 +575,112 @@ freedom.
 
 \subsection{Decomposition under the SM subgroup}
 
-The 12~fundamentals of $\SU{2}_L$ in the SM are
+The $\SU{2}_L$ doublets of the Standard Model are the magnetic dual
+quarks $q_i$, the only matter fields charged under the magnetic
+$\Sp{1}$.  For three generations the $2\Nf = 12$ doublets are
 \begin{equation}\label{eq:12-doublets}
-  Q_i = \bigl\{
+  q_i = \bigl\{
     \underbrace{q_L^{(1)}, q_L^{(2)}, q_L^{(3)}}_{
       \text{3 quark doublets} \times \text{3 colours} = 9},\;
     \underbrace{\ell_L^{(1)}, \ell_L^{(2)}, \ell_L^{(3)}}_{
       \text{3 lepton doublets}}
-  \bigr\}\,.
+  \bigr\}\,,
 \end{equation}
-The flavour symmetry $\SU{12}$ decomposes under
-$\SU{3}_c \times \SU{3}_{\mathrm{gen}} \times \SU{1}_{\mathrm{lep}}$
-in a non-trivial way.  More precisely, the 12~doublets split as:
+and the flavour index $i$ of $\SU{12}$ runs over colour, generation and
+the quark/lepton label.  Under $\SU{3}_c \times \SU{3}_{\mathrm{gen}}$
+the doublets split as
 \begin{equation}\label{eq:12-split}
-  \mathbf{12} = (\mathbf{3}, \mathbf{3}, 1)
-  \oplus (\mathbf{1}, \mathbf{3}, 1)
-  \quad\text{under}\quad
-  \SU{3}_c \times \SU{3}_{\mathrm{gen}}\,,
+  (\mathbf{3}, \mathbf{3}) \oplus (\mathbf{1}, \mathbf{3})\,,
 \end{equation}
 where we group the three quark-doublet colours as an $\SU{3}_c$
 triplet and the three generations as $\SU{3}_{\mathrm{gen}}$, with
 the lepton doublets forming a separate $\SU{3}_{\mathrm{gen}}$
 triplet that is a colour singlet.
 
-The meson $M_{ij}$, being a bilinear of two fundamentals, decomposes
-accordingly.  Under $\SU{2}_L$ the meson is a \textbf{singlet} (it is
-the gauge-invariant composite), but under the SM flavour group it
-carries non-trivial quantum numbers:
+The meson couples to the doublet bilinear
+$\epsilon_{ab}\, q_i^a\, q_j^b$ through~\eqref{eq:Sp-Wmag} ($a, b$ are
+$\SU{2}_L$ indices), so it carries two antisymmetrised flavour indices
+and no $\SU{2}_L$ index.  Its conjugate $M^\dagger$ has the quantum
+numbers of the bilinear, and its 66 components decompose under
+$\SU{3}_c \times \SU{3}_{\mathrm{gen}}$ as
 \begin{equation}\label{eq:meson-decomp}
-  M_{ij} \;\sim\; Q_i \cdot J \cdot Q_j
-  \quad\longrightarrow\quad
-  \text{(bilinear of SM doublets)}\,.
+  \mathbf{66} =
+  \underbrace{(\bar{\mathbf{3}}, \mathbf{6})
+  \oplus (\mathbf{6}, \bar{\mathbf{3}})}_{\text{quark--quark, } 36}
+  \;\oplus\;
+  \underbrace{(\mathbf{3}, \mathbf{6} \oplus \bar{\mathbf{3}})}_{
+  \text{quark--lepton, } 27}
+  \;\oplus\;
+  \underbrace{(\mathbf{1}, \bar{\mathbf{3}})}_{\text{lepton--lepton, } 3}\,.
 \end{equation}
 
-The key point is that $M_{ij}$ is an \emph{antisymmetric} product of
-two $\SU{2}_L$ doublets.  The antisymmetric product of two doublets
-of $\SU{2}$ is a \textbf{singlet}:
-\begin{equation}\label{eq:doublet-antisym}
-  \mathbf{2} \otimes_A \mathbf{2} = \mathbf{1}\,.
-\end{equation}
-This means each meson component $M_{ij}$ (for $i < j$) is an
-$\SU{2}_L$ singlet, \emph{not} a doublet.
+The key point is that $M_{ij}$ is a singlet of the magnetic gauge
+group.  In the magnetic theory $M_{ij}$ is an elementary gauge-singlet
+field, and it maps to the electric composite $Q_i J Q_j$, which is
+invariant under the electric $\Sp{\Nc}$.  Since the magnetic gauge group
+is $\SU{2}_L$ itself, every meson component is an $\SU{2}_L$ singlet.
+The electric quarks $Q_i$ carry $\Sp{\Nc}$ colour and no $\SU{2}_L$
+index, so the singlet property follows from the construction of the
+duality, independent of the pseudo-reality of the $\SU{2}$ doublet.
 
-\begin{remark}[Crucial structural difference from the SU route]
+\begin{remark}[Structural difference from the SU route]
 \label{rem:singlet}
-In the Cacciapaglia--Sannino $\SU{N}$ route, the meson
+In the Cacciapaglia--Sannino $\SU{N}$ route, $\SU{2}_L$ is a gauged
+subgroup of the flavour symmetry $\SU{\Nf}_L$, and the meson
 $M^i{}_j = Q^i\widetilde{Q}_j$ transforms as a bifundamental
-$(\mathbf{\Nf}, \overline{\mathbf{\Nf}})$ under
-$\SU{\Nf}_L \times \SU{\Nf}_R$, and the Higgs doublets emerge from
-the decomposition of this bifundamental under the gauged $\SU{2}_L$
-flavour subgroup.
+$(\mathbf{\Nf}, \overline{\mathbf{\Nf}})$ of
+$\SU{\Nf}_L \times \SU{\Nf}_R$; its decomposition under the gauged
+$\SU{2}_L$ contains doublets, and these are the Higgs doublets.
 
-In the Sp route, the meson $M_{ij}$ is an antisymmetric product of
-two fundamentals of $\SU{2}_L$ and is therefore an $\SU{2}_L$
-\textbf{singlet}.  It does \emph{not} directly furnish Higgs doublets.
+In the Sp route, $\SU{2}_L$ is the magnetic gauge group and the meson is
+a singlet of it.  The same happens in any duality whose magnetic gauge
+group is $\SU{2}_L$: an $\SU{\Nc}$ Seiberg duality with $\Nf - \Nc = 2$
+has an $\Nf \times \Nf$ bifundamental meson that is equally a singlet of
+the magnetic $\SU{2}$.  What decides the matter is whether $\SU{2}_L$ is
+a gauge group of the dual description (mesons are singlets) or a gauged
+flavour subgroup (mesons can contain doublets).
 \end{remark}
 
 \subsection{The Higgs identification problem}
 \label{ssec:higgs-problem}
 
-The result of \S\ref{rem:singlet} presents a structural obstacle:
-\emph{the composite meson of the Sp duality is an $\SU{2}_L$ singlet
-and cannot serve as an electroweak Higgs doublet.}
-
-This is not a technicality; it is a direct consequence of the
-antisymmetric nature of the Sp meson and the pseudo-reality of the
-$\SU{2}$ fundamental representation.  The contraction
-$\epsilon^{ab}\, Q_i^a\, Q_j^b$ (where $a, b$ are $\SU{2}_L$
-indices) is the unique gauge-invariant bilinear, and it produces a
-singlet.
+Remark~\ref{rem:singlet} presents a structural obstacle: \emph{the
+composite mesons of the Sp duality are $\SU{2}_L$ singlets and cannot
+serve as electroweak Higgs doublets.}  The obstacle extends to every
+gauge-invariant composite.  The duality maps gauge invariants of the
+electric theory to gauge invariants of the magnetic theory, and for
+$\Sp{\Nc}$ the electric invariants are generated by the mesons (products
+of $2\Nc$ quarks contracted with the $\epsilon$ tensor reduce to
+Pfaffians of $M$).  With $\SU{2}_L$ as the magnetic gauge group, all of
+them are $\SU{2}_L$ singlets.  The $\SU{2}_L$ doublets of the magnetic
+theory are its elementary charged fields: the dual quarks $q_i$ and, in
+a quasi-supersymmetric spectrum, their scalar partners.
 
 To obtain Higgs doublets, one would need to modify the construction
 in one of the following ways:
 \begin{enumerate}
-  \item \textbf{Extended matter content:} Add fields in higher
-    representations of $\SU{2}_L$ (\eg, triplets) whose composites
-    contain doublet components.  This goes beyond the minimal Sp
-    duality.
-  \item \textbf{Partial gauging:} Gauge only a subgroup of the
-    $\SU{12}$ flavour symmetry, so that the meson carries non-trivial
-    quantum numbers under the ungauged flavour symmetry that contains
-    hypercharge.  In this case, the meson is an $\SU{2}_L$ singlet but
-    can still carry hypercharge and serve as a Higgs-like field.
-  \item \textbf{Higher-order composites:} Identify the Higgs with a
-    higher-order composite (\eg, a baryon or a four-fermion operator)
-    rather than the leading meson.
+  \item \textbf{Elementary magnetic doublets:} Use the scalar partners
+    of the dual quarks.  The partners of the three lepton-like dual
+    quarks are $\SU{2}_L$ doublets with $|Y| = 1/2$, the quantum numbers
+    of a Higgs doublet.  Such a Higgs would be an elementary field of the
+    magnetic theory, outside the meson sector.
+  \item \textbf{Gauged-flavour embedding:} Make $\SU{2}_L$ a gauged
+    subgroup of the flavour symmetry instead of the magnetic gauge
+    group.  This is the Cacciapaglia--Sannino route itself.
+  \item \textbf{Extended matter content:} Add electric fields whose
+    magnetic counterparts include further $\SU{2}_L$-charged elementary
+    states.  This goes beyond the minimal Sp duality.
 \end{enumerate}
-
-Option~(2) is the most natural: even though $M_{ij}$ is a singlet
-under $\SU{2}_L$, the indices $i, j$ run over the 12~SM doublets,
-which carry $\SU{3}_c$, generation, and hypercharge quantum numbers.
-The meson $M_{ij}$ therefore carries the \emph{combined} quantum
-numbers of $Q_i$ and $Q_j$ (minus their $\SU{2}_L$ charge, which has
-been contracted away).  In particular, a meson $M_{ij}$ with $Q_i$ a
-quark doublet and $Q_j$ a lepton doublet carries colour and is not
-Higgs-like.  But a meson with both $Q_i$ and $Q_j$ being lepton
-doublets of different generations is a colour-singlet and can carry
-hypercharge-like quantum numbers.
+The meson quantum numbers still matter for phenomenology, and we record
+them next.
 
 \subsection{Hypercharge of the mesons}
 
-If we embed hypercharge $Y$ into the flavour symmetry, the meson
-$M_{ij}$ carries $Y(M_{ij}) = Y(Q_i) + Y(Q_j)$ since the $\SU{2}_L$
-contraction $\epsilon^{ab}$ is hypercharge-neutral.  However, $Y(Q_i)$
-is the hypercharge of the \emph{doublet} $Q_i$, which for left-handed
-SM fields is:
+If hypercharge $Y$ is embedded in the flavour symmetry, invariance of
+$M_{ij}\,\epsilon_{ab}\, q_i^a q_j^b$ fixes
+$Y(M_{ij}) = -\bigl(Y(q_i) + Y(q_j)\bigr)$, and the conjugate field
+$M_{ij}^\dagger$ carries $Y(q_i) + Y(q_j)$.  The left-handed doublets
+have:
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{l c}
@@ -700,12 +692,12 @@ $\ell_L = (\nu_L, e_L)$ & $-1/2$ \\
 \bottomrule
 \end{tabular}
 \end{center}
-The meson hypercharges are:
+The meson hypercharges, listed through $M^\dagger$, are:
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{l c c}
 \toprule
-Meson type & Composition & $Y(M_{ij})$ \\
+Meson type & Composition & $Y(M^\dagger_{ij})$ \\
 \midrule
 Quark--quark & $q_L^{(a)} \cdot q_L^{(b)}$ & $+1/3$ \\
 Quark--lepton & $q_L^{(a)} \cdot \ell_L^{(b)}$ & $-1/3$ \\
@@ -716,25 +708,26 @@ Lepton--lepton & $\ell_L^{(a)} \cdot \ell_L^{(b)}$ & $-1$ \\
 
 None of these hypercharges is $\pm 1/2$, which would be required for
 a standard Higgs doublet.  The SM Higgs has $(T_3, Y) = (\pm 1/2,
-+1/2)$; the Sp mesons are $\SU{2}_L$ singlets ($T_3 = 0$) with
-$Y \in \{+1/3, -1/3, -1\}$ and their conjugates.
++1/2)$; the Sp mesons are $\SU{2}_L$ singlets ($T_3 = 0$), so their
+electric charge is $Q = Y \in \{+1/3, -1/3, -1\}$ for $M^\dagger$ and the
+opposite values for $M$.
 
 \begin{remark}[Physical interpretation]
 \label{rem:diquark}
-The mesons of the Sp route are physically interpretable as:
+The mesons of the Sp route (quantum numbers of $M^\dagger$) are:
 \begin{itemize}
-  \item $M_{q_L q_L}$ ($Y = +1/3$, $\SU{3}_c$: $\bar{\mathbf{3}}$
+  \item $M_{q_L q_L}$ ($Y = Q = +1/3$, $\SU{3}_c$: $\bar{\mathbf{3}}$
     or $\mathbf{6}$): \textbf{scalar diquarks}.
-  \item $M_{q_L \ell_L}$ ($Y = -1/3$, $\SU{3}_c$: $\mathbf{3}$ or
-    $\bar{\mathbf{3}}$): \textbf{scalar leptoquarks}.
-  \item $M_{\ell_L \ell_L}$ ($Y = -1$, colour singlet):
-    \textbf{charged scalar singlets} (like a doubly-charged singlet
-    $\Delta^{--}$, or a neutral state depending on the $\SU{2}_L$
-    component pairing).
+  \item $M_{q_L \ell_L}$ ($Y = Q = -1/3$, $\SU{3}_c$: $\mathbf{3}$):
+    \textbf{scalar leptoquarks}.
+  \item $M_{\ell_L \ell_L}$ ($Y = Q = -1$, colour singlet, antisymmetric
+    in the generation index): \textbf{singly charged scalar singlets},
+    with the quantum numbers of the Zee-model scalar that couples to
+    $\epsilon_{ab}\,\ell_i^a \ell_j^b$~\cite{Zee1980}.
 \end{itemize}
-These composites are phenomenologically interesting but they are
-\emph{not} Higgs doublets.  The Sp duality thus predicts a
-qualitatively different scalar sector compared to the SU route.
+These composites are phenomenologically interesting, and all of them are
+$\SU{2}_L$ singlets.  The Sp duality thus predicts a qualitatively
+different scalar sector compared to the SU route.
 \end{remark}
 
 
@@ -759,8 +752,9 @@ The conformal window boundaries~\eqref{eq:Sp-CW}:
   \text{Upper:}\; 3(\Nc + 1) = 12\,.
 \end{equation}
 Since $\Nf = 6$ equals the lower boundary exactly, the electric
-$\Sp{3}$ theory is at the \textbf{edge of the conformal window}:
-it is in the free magnetic phase, just below the conformal window.
+$\Sp{3}$ theory sits on the \textbf{edge of the conformal window}, at
+the boundary between the conformal window and the free magnetic
+phase.
 
 \begin{remark}[Physical interpretation of the boundary]
 At $\Nf = \frac{3}{2}(\Nc + 1)$, the magnetic theory is just barely
@@ -793,38 +787,41 @@ become free fields in the deep IR.
 
 \begin{center}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{c c c c c c}
+\begin{tabular}{c c c c c c c}
 \toprule
 $n_g$ & $\Nf$ & $\Nc$ & Electric & $b_0^{\mathrm{el}}$ &
-  Conformal window? \\
+  $b_0^{\mathrm{mag}}$ & Phase \\
 \midrule
-2 & 4 & 1 & $\Sp{1}$ & $3(2) - 4 = 2$ &
+2 & 4 & 1 & $\Sp{1}$ & $3(2) - 4 = 2$ & $2$ &
   $3 < 4 < 6$: \textbf{inside} (self-dual) \\
-3 & 6 & 3 & $\Sp{3}$ & $3(4) - 6 = 6$ &
-  $6 < 6 < 12$: \textbf{lower boundary} \\
-4 & 8 & 5 & $\Sp{5}$ & $3(6) - 8 = 10$ &
-  $9 < 8 < 18$: \textbf{below CW} \\
-5 & 10 & 7 & $\Sp{7}$ & $3(8) - 10 = 14$ &
-  $12 < 10 < 24$: \textbf{below CW} \\
+3 & 6 & 3 & $\Sp{3}$ & $3(4) - 6 = 6$ & $0$ &
+  $6 = 6 < 12$: \textbf{lower edge} \\
+4 & 8 & 5 & $\Sp{5}$ & $3(6) - 8 = 10$ & $-2$ &
+  $8 < 9$: \textbf{free magnetic} \\
+5 & 10 & 7 & $\Sp{7}$ & $3(8) - 10 = 14$ & $-4$ &
+  $10 < 12$: \textbf{free magnetic} \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-For $n_g \geq 4$, the matter content is insufficient to place the
-electric theory inside the conformal window ($\Nf < 3(\Nc+1)/2$).
-In this regime, the electric theory confines and the magnetic
-description may not be a useful dual.  Only $n_g = 2$ (inside the
-conformal window) and $n_g = 3$ (at the boundary) are in the regime
-where Seiberg duality operates.
-
-This provides a \emph{different kind of generation constraint}: while
-the Sp route allows $n_g \geq 2$ from the group-theoretic bound
-\eqref{eq:Sp-gen-bound}, the conformal window constraint
-independently requires $n_g \leq 3$ for the duality to be
-operative.  Combined:
+For $n_g \geq 4$ the electric theory lies below the conformal window
+($\Nf < 3(\Nc+1)/2$), in the free magnetic phase: the magnetic
+$\SU{2}_L$ has $b_0^{\mathrm{mag}} = 6 - 2n_g < 0$ and is infrared free.
+In SUSY the magnetic theory describes this phase correctly, so the
+duality still operates there~\cite{IS1995}.  An upper bound therefore
+needs an explicit assumption.  We require the magnetic $\SU{2}_L$ to be
+asymptotically free or marginal, $b_0^{\mathrm{mag}}(\SU{2}_L) \geq 0$,
+as the observed $\SU{2}_L$ is asymptotically free.  With this assumption
+and the group-theoretic bound~\eqref{eq:Sp-gen-bound}:
 \begin{equation}\label{eq:Sp-ng-range}
   \boxed{2 \leq n_g \leq 3}\,.
 \end{equation}
+The assumption uses the supersymmetric coefficient
+$b_0^{\mathrm{mag}} = 6 - 2n_g$.  The non-supersymmetric one-loop
+coefficient of the Standard Model $\SU{2}_L$,
+$22/3 - 4n_g/3 - n_H/6$ with $n_H$ Higgs doublets, stays positive up to
+$n_g = 5$, and with it the same requirement gives only $n_g \leq 5$
+(Paper~4~\cite{Paper4}).
 
 
 %% ================================================================
@@ -841,6 +838,7 @@ directly.
 \subsection{Summary table}
 
 \begin{center}
+\small
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{l l l}
 \toprule
@@ -848,21 +846,21 @@ directly.
   & \textbf{Sp route (this work)} \\
 \midrule
 Dualised gauge group & $\SU{3}_c$ (QCD) & $\SU{2}_L \cong \Sp{1}$ (EW) \\
-Duality type & $\SU{N}$ Seiberg & $\Sp{\Nc}$ Intriligator--Seiberg \\
+Duality type & $\SU{N}$ Seiberg & $\Sp{\Nc}$ Intriligator--Pouliot \\
 Electric theory ($n_g = 3$) & $\SU{2}$ with $\Nf = 6$ + adj
   & $\Sp{3}$ with $2\Nf = 12$ fund \\
-Adjoint fermion? & Yes ($\lambda$) & No (minimal Sp) \\
+Adjoint fermion? & Yes ($\lambda$, gaugino-like) & Yes (gaugino) \\
 Meson symmetry & Bifundamental $(\Nf, \bar{\Nf})$
   & Antisymmetric $\antisym\;\SU{2\Nf}$ \\
 Meson = Higgs? & Yes (18 doublets) & No (singlets of $\SU{2}_L$) \\
 Meson physics & Higgs doublets & Diquarks, leptoquarks \\
 Generation bound (group theory) & $n_g \geq 3$ & $n_g \geq 2$ \\
-Conformal window & $n_g = 3$: inside
-  & $n_g = 3$: lower boundary \\
+Window at $n_g = 3$ & upper edge ($b_0^{\mathrm{el}} = 0$)
+  & lower edge ($b_0^{\mathrm{mag}} = 0$) \\
 Quasi-SUSY partners? & Yes (gaugino, squarks)
   & From dual quarks and gaugino \\
-Hierarchy problem & Resolved (no elem.\ scalars)
-  & Requires separate Higgs mechanism \\
+Elementary scalars & None (electric theory)
+  & Higgs outside meson sector \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -875,19 +873,25 @@ the electric gauge group is $\SU{2n_g - 4}$, which must be
 non-trivial ($2n_g - 4 \geq 2$).
 
 The Sp route requires only $n_g \geq 2$ from group theory
-\eqref{eq:Sp-gen-bound}, but the conformal window constraint further
-restricts to $n_g \leq 3$.  The combined Sp constraint
-$2 \leq n_g \leq 3$ is both a lower \emph{and} upper bound,
-compared to the SU route's lower bound $n_g \geq 3$ alone.
+\eqref{eq:Sp-gen-bound}; the assumption
+$b_0^{\mathrm{mag}}(\SU{2}_L) \geq 0$ further restricts it to
+$n_g \leq 3$.  The combined Sp constraint $2 \leq n_g \leq 3$ is both a
+lower \emph{and} upper bound, compared to the SU route's lower bound
+$n_g \geq 3$ alone.
 
-If both routes are realised in nature, the intersection gives
-$n_g = 3$ as the unique solution:
+If both routes are realised and the window edges are counted, the two
+ranges overlap only at $n_g = 3$:
 \begin{equation}\label{eq:ng3-unique}
   n_g \geq 3 \;(\text{SU route}) \;\cap\;
-  n_g \leq 3 \;(\text{Sp route})
+  2 \leq n_g \leq 3 \;(\text{Sp route})
   \qquad\Longrightarrow\qquad
   \boxed{n_g = 3}\,.
 \end{equation}
+With strict inequalities the Sp range shrinks to $n_g = 2$ and the
+overlap is empty.  Paper~4~\cite{Paper4} states the convention and the
+assumptions in full: under the inclusive convention, $n_g = 3$ is the
+unique value at which both the SU and the Sp frame sit inside or on the
+SUSY conformal window.
 
 \subsection{The Higgs sector problem}
 
@@ -902,10 +906,10 @@ with the correct hypercharges ($Y = \pm 1/2$).  The Higgs
 mechanism for EWSB is built into the duality.
 
 \paragraph{Sp route:}
-The meson $M_{ij}$ is an antisymmetric product of $\SU{2}_L$
-doublets, hence an $\SU{2}_L$ singlet.  It does not furnish Higgs
-doublets.  Instead, it produces diquarks and leptoquarks.  A separate
-mechanism would be needed to generate EWSB.
+The meson $M_{ij}$ is a singlet of the magnetic gauge group, which is
+$\SU{2}_L$ itself, so it furnishes no Higgs doublets.  It produces
+diquarks, leptoquarks and singly charged singlets instead, and a
+separate mechanism would be needed to generate EWSB.
 
 This is the central obstruction to the Sp route as a complete
 UV completion of the electroweak sector: \emph{the Sp duality
@@ -938,7 +942,7 @@ interpret them as complementary:
 \label{sec:conclusions}
 
 We have investigated the UV completion of the electroweak gauge group
-$\SU{2}_L \cong \Sp{1}$ via the Intriligator--Seiberg $\Sp{\Nc}$
+$\SU{2}_L \cong \Sp{1}$ via the Intriligator--Pouliot $\Sp{\Nc}$
 Seiberg duality.  Our main findings are:
 
 \begin{enumerate}
@@ -950,31 +954,32 @@ Seiberg duality.  Our main findings are:
     \S\ref{sec:conformal}).
 
   \item \textbf{Anomaly matching verified.}
-    The 't~Hooft anomaly coefficient
-    $\mathcal{A}[\SU{12}^2\,\UU{1}_R]$ matches between the
-    electric $\Sp{3}$ and magnetic $\Sp{1}$ theories, both
-    symbolically (equation~\eqref{eq:anomaly-match}) and
-    numerically ($\mathcal{A} = -2$) (\S\ref{sec:anomaly-matching}).
+    The 't~Hooft anomalies $\SU{12}^2\,\UU{1}_R$, $\SU{12}^3$,
+    $\UU{1}_R$ and $\UU{1}_R^3$ match between the electric $\Sp{3}$ and
+    magnetic $\Sp{1}$ theories, symbolically for all $(\Nc, \Nf)$ and
+    numerically ($\mathcal{A}[\SU{12}^2\,\UU{1}_R] = -2$,
+    $\mathcal{A}[\SU{12}^3] = 6$) (\S\ref{sec:anomaly-matching}).
 
-  \item \textbf{Meson content: singlets, not doublets.}
-    The 66 complex meson components are $\SU{2}_L$ singlets
-    (antisymmetric product of doublets), carrying quantum numbers of
-    diquarks ($Y = +1/3$), leptoquarks ($Y = -1/3$), and charged
-    singlets ($Y = -1$).  They do \emph{not} include Higgs doublets
-    with $Y = \pm 1/2$ (\S\ref{sec:meson-higgs}).
+  \item \textbf{Meson content: $\SU{2}_L$ singlets.}
+    The 66 complex meson components are singlets of the magnetic gauge
+    group $\SU{2}_L$, carrying the quantum numbers of diquarks
+    ($|Y| = 1/3$), leptoquarks ($|Y| = 1/3$) and singly charged
+    singlets ($|Y| = 1$).  None of them is a Higgs doublet with
+    $Y = \pm 1/2$ (\S\ref{sec:meson-higgs}).
 
   \item \textbf{Generation bounds.}
-    The Sp route gives $2 \leq n_g \leq 3$ (group theory + conformal
-    window), compared to the SU route's $n_g \geq 3$.  The
-    intersection uniquely selects $n_g = 3$
-    (\S\ref{sec:comparison}).
+    The Sp route gives $2 \leq n_g \leq 3$ (group theory plus the
+    assumption $b_0^{\mathrm{mag}}(\SU{2}_L) \geq 0$), compared to the
+    SU route's $n_g \geq 3$.  With the window edges counted, the two
+    ranges overlap only at $n_g = 3$ (\S\ref{sec:comparison}).
 
   \item \textbf{Structural obstruction.}
-    The Sp route does not naturally produce a Higgs sector.  This is a
-    \emph{no-go result} for the minimal Sp duality applied to
-    $\SU{2}_L$: the antisymmetric structure of the Sp meson is
-    fundamentally incompatible with the doublet structure needed for
-    electroweak symmetry breaking.
+    The Sp route produces no Higgs doublets among its mesons.  This is
+    a \emph{no-go result} for the minimal Sp duality applied to
+    $\SU{2}_L$: the mesons are singlets of the magnetic gauge group, so
+    with $\SU{2}_L$ as that group they cannot be the doublets needed for
+    electroweak symmetry breaking.  The same obstruction holds for any
+    duality with $\SU{2}_L$ as the magnetic gauge group.
 \end{enumerate}
 
 \subsection{Outlook}
@@ -986,9 +991,12 @@ several potentially useful features:
     meson are phenomenologically relevant: scalar leptoquarks with
     $Y = -1/3$ have been invoked to explain the $B$-physics anomalies
     and could be searched for at the LHC.
-  \item The generation bound $n_g \leq 3$ from the conformal window
-    is a top-down constraint not present in the SU route, providing
-    additional structural evidence for the observed three generations.
+  \item The upper bound $n_g \leq 3$, which rests on the assumption
+    $b_0^{\mathrm{mag}}(\SU{2}_L) \geq 0$, is a constraint absent from
+    the SU route.
+  \item The scalar partners of the lepton-like dual quarks are
+    $\SU{2}_L$ doublets with $|Y| = 1/2$; whether they can play the
+    Higgs role is an open question.
   \item The complementarity between the SU and Sp routes suggests a
     richer duality structure underlying the Standard Model, possibly
     involving product gauge group dualities or cascading dualities
@@ -996,14 +1004,14 @@ several potentially useful features:
 \end{itemize}
 
 All results in this paper depend on the conjectured non-SUSY extension
-of Seiberg duality.  The SUSY anomaly matching and conformal window
-analyses are exact; their applicability to the non-supersymmetric SM
-remains an open question.
+of Seiberg duality.  The anomaly matching is exact and the window
+analysis holds in the supersymmetric theory; their applicability to the
+non-supersymmetric SM remains an open question.
 
 \subsection*{Acknowledgments}
 
 This work is part of the Dualised Standard Model lecture programme.
-The analysis builds on the Intriligator--Seiberg duality~\cite{IS9506101,IS1995}
+The analysis builds on the Intriligator--Pouliot duality~\cite{IP9505006,IS1995}
 and the Cacciapaglia--Sannino dualised SM
 construction~\cite{CacciapagliaSannino2024,Sannino2011}.
 
@@ -1015,7 +1023,7 @@ construction~\cite{CacciapagliaSannino2024,Sannino2011}.
 
 \bibitem{CacciapagliaSannino2024}
   G.~Cacciapaglia and F.~Sannino,
-  ``The Standard Model as a Dual Gauge Theory,''
+  ``Charting Standard Model Duality and its Signatures,''
   \href{https://arxiv.org/abs/2407.17281}{arXiv:2407.17281 [hep-ph]} (2024).
 
 \bibitem{Seiberg1995}
@@ -1024,12 +1032,12 @@ construction~\cite{CacciapagliaSannino2024,Sannino2011}.
   \textit{Nucl.\ Phys.\ B} \textbf{435} (1995) 129,
   \href{https://arxiv.org/abs/hep-th/9411149}{hep-th/9411149}.
 
-\bibitem{IS9506101}
-  K.~Intriligator and N.~Seiberg,
-  ``Duality, monopoles, dyons, confinement and oblique confinement
-  in supersymmetric SO($N_c$) gauge theories,''
-  \textit{Nucl.\ Phys.\ B} \textbf{444} (1995) 125,
-  \href{https://arxiv.org/abs/hep-th/9506101}{hep-th/9506101}.
+\bibitem{IP9505006}
+  K.~Intriligator and P.~Pouliot,
+  ``Exact superpotentials, quantum vacua and duality in supersymmetric
+  Sp($N_c$) gauge theories,''
+  \textit{Phys.\ Lett.\ B} \textbf{353} (1995) 471,
+  \href{https://arxiv.org/abs/hep-th/9505006}{hep-th/9505006}.
 
 \bibitem{IS1995}
   K.~Intriligator and N.~Seiberg,
@@ -1039,14 +1047,25 @@ construction~\cite{CacciapagliaSannino2024,Sannino2011}.
 
 \bibitem{Sannino2011}
   F.~Sannino,
-  ``Magnetic S-parameter,''
-  \textit{Phys.\ Rev.\ Lett.} \textbf{105} (2010) 232002,
-  \href{https://arxiv.org/abs/1007.0254}{arXiv:1007.0254 [hep-ph]}.
+  ``The Standard Model is natural as magnetic gauge theory,''
+  \textit{Mod.\ Phys.\ Lett.\ A} \textbf{26} (2011) 1763,
+  \href{https://arxiv.org/abs/1102.5100}{arXiv:1102.5100 [hep-ph]}.
 
 \bibitem{AMPS2011}
-  M.~Antola, M.~Järvinen, K.~Tuominen, and F.~Sannino,
-  ``Spectrum of composite particles in non-minimal walking technicolor,''
-  \textit{Phys.\ Rev.\ D} \textbf{83} (2011) 015009.
+  O.~Antipin, M.~Mojaza, C.~Pica, and F.~Sannino,
+  ``Magnetic fixed points and emergent supersymmetry,''
+  \textit{JHEP} \textbf{1306} (2013) 037,
+  \href{https://arxiv.org/abs/1105.1510}{arXiv:1105.1510 [hep-th]}.
+
+\bibitem{Zee1980}
+  A.~Zee,
+  ``A theory of lepton number violation, neutrino Majorana mass, and
+  oscillation,''
+  \textit{Phys.\ Lett.\ B} \textbf{93} (1980) 389.
+
+\bibitem{Paper4}
+  ``Why three generations: the $n_g \geq 3$ bound across duality types,''
+  Notes from the Dualised Standard Model Programme, 2026.
 
 \bibitem{KlebanovStrassler2000}
   I.~R.~Klebanov and M.~J.~Strassler,
