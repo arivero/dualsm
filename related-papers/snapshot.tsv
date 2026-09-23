@@ -1,0 +1,38 @@
+date	file	source	wave	title
+2026-03-03	phys3_sbootstrap_v4.tex	phys3	base	A Tale of Two Tuples: Seed Triples, Signed Charges, and the sBootstrap
+2026-03-05	phys3_sbootstrap_v4d.tex	phys3	last	A Tale of Two Tuples: Seed Triples, Signed Charges, and the sBootstrap
+2026-03-05	phys3_paper_experimental.tex	phys3		Nuclear and hadronic predictions of the sBootstrap Lagrangian
+2026-03-06	phys3_talk_lagrangian.tex	phys3		Three families from SUSY confinement (conference talk / Beamer)
+2026-03-06	phys3_paper_lagrangian.tex	phys3		Three families from SUSY confinement: spectrum and mass predictions of an sBootstrap Lagrangian
+2026-03-06	phys3_paper_koide.tex	phys3		The Koide formula and quark-lepton mass relations
+2026-03-10	phys4_koide_rg.tex	phys4		The UV Renormalization-Group Run of Koide-Type Mass Relations
+2026-03-11	phys4_draft.tex	phys4	base	Three generations from SU(3) confinement
+2026-03-12	phys4_letter_q2.tex	phys4		Quadratic charge-mass relation from gauged family symmetry
+2026-03-12	phys4_draft3.tex	phys4	last	Three generations from SU(3) confinement
+2026-03-12	phys4_susy.tex	phys4		A structural sBootstrap EFT from Seiberg confinement
+2026-03-12	phys4_waterfall.tex	phys4		The quark mass waterfall from N=2 interleaving
+2026-03-12	phys4_openproblems.tex	phys4		Open problems in the gauged family symmetry programme
+2026-03-13	phys4_cartan.tex	phys4		Universal shift parameter in the Koide charge-mass ansatz
+2026-03-13	phys4_consolidated.tex	phys4	base	From mesinos and quarkinos to the Standard Model
+2026-03-14	phys4_inverse_koide_note.tex	phys4		What is the inverse Koide formula?
+2026-03-15	phys4_casimir_koide_plb.tex	phys4		The Koide ratio as a Casimir invariant (PLB format)
+2026-03-15	phys4_v4.tex	phys4	last	From mesinos and quarkinos to the Standard Model
+2026-03-15	phys4_ckm_letter.tex	phys4		CKM and PMNS mixing from the Koide angle
+2026-03-16	phys4_sbootstrap_v159.tex	phys4		The sBootstrap Supercharge: Analytical Structure
+2026-03-16	phys4_physrevD_sboot.tex	phys4		The sBootstrap (PhysRevD submission)
+2026-03-16	phys4_koide_ckm_prl.tex	phys4		The Koide ratio as a Casimir invariant: generation uniqueness (PRL format)
+2026-03-16	phys4_emergent_n2.tex	phys4		Emergent N=2 structure in the sBootstrap
+2026-03-16	phys4_physrevD.tex	phys4		Composite fermions from SU(3)_F confinement (PhysRevD)
+2026-03-17	phys5_predictivity_audit.tex	phys5gpd		Predictivity audit of Koide-type mass relations in the Standard Model
+2026-03-17	phys4_mtheory_duality.tex	phys4		Dirac-Majorana duality from the M-theory lift
+2026-03-18	phys6_sbootstrap_koide.tex	phys6gpd		Sector selectivity of Koide-type mass relations from the sBootstrap
+2026-03-18	phys6_koide_chain.tex	phys6gpd		Exact Koide Chain from δ=15°
+2026-03-19	phys6_new.tex	phys6gpd	base	The Z-ladder and Koide-type mass relations
+2026-03-19	phys6_new3.tex	phys6gpd	last	The Z-ladder and Koide-type mass relations
+2026-03-19	phys6_explanation11.tex	phys6gpd	last	The Koide relation from two Casimir ratios
+2026-03-20	dualsm_paper1_sp_duality.tex	dualsm		Sp(1) Seiberg Duality as an Alternative UV Completion of the EW Sector
+2026-03-20	dualsm_paper2_meson_sum_rules.tex	dualsm		Meson Mass Sum Rules in the Dual 6×6 Flavour Matrix Framework
+2026-03-20	dualsm_paper4_generation_number.tex	dualsm		Why Three Generations: Generation Number from Seiberg Duality
+2026-03-20	dualsm_paper3_emergent_susy.tex	dualsm		Lattice Signatures of Emergent Supersymmetry at the Conformal Window Boundary
+2026-03-22	phys6_explanation.tex	phys6gpd	base	The Koide Relation and the Dualised Standard Model (Lecture 11 / explanation series)
+2026-03-22	phys6_iss_mesons.tex	phys6gpd		Meson decomposition from the ISS rank condition
