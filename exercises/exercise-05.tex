@@ -7,7 +7,8 @@
 %   T(fund) = 1/2 per Weyl fermion
 %   b_0 = (11N_c - 2N_f)/3 for N_f Dirac flavours
 %   Universal Yukawa: y (single coupling for all fermions)
-%   VEV convention: v^2 = sum_{ij} (|H^u_{ij}|^2 + |H^d_{ij}|^2) = (246 GeV)^2/2
+%   VEV convention: v = 246 GeV; sum_{ij} (<H^u_{ij}>^2 + <H^d_{ij}>^2) = v^2/2 = (174 GeV)^2
+%   Scales: Lambda_S ~ few TeV (quasi-SUSY states, dormant Higgs doublets); Lambda_D ~ 10^11 GeV
 %   Epistemic: all non-SUSY duality claims carry conjectural qualifiers (P1)
 %
 \documentclass[11pt,a4paper]{article}
@@ -29,8 +30,11 @@
 Units & $\hbar = c = 1$ (natural) \\
 Metric & $\eta_{\mu\nu} = \mathrm{diag}(+1,-1,-1,-1)$ (mostly minus) \\
 Universal Yukawa & $y$ (single magnetic coupling for all fermions) \\
-VEV sum rule & $v^2 = \sum_{i,j}\bigl(\langle H_{ij}^u\rangle^2
-  + \langle H_{ij}^d\rangle^2\bigr) = \tfrac{1}{2}(246\;\text{GeV})^2$ \\
+Electroweak VEV & $v = (\sqrt{2}\,G_F)^{-1/2} = 246\;\text{GeV}$ \\
+VEV sum rule & $\sum_{i,j}\bigl(\langle H_{ij}^u\rangle^2
+  + \langle H_{ij}^d\rangle^2\bigr) = \tfrac{1}{2}v^2 = (174\;\text{GeV})^2$ \\
+Dormant doublets & masses $M_i \sim \Lambda_S \sim \text{few TeV}$ \\
+Duality scale & $\Lambda_D \sim 10^{11}\;\text{GeV}$ \\
 Planck mass & $M_{\text{Pl}} = 1.22 \times 10^{19}\;\text{GeV}$ (reduced: $M_P = M_{\text{Pl}}/\sqrt{8\pi}$) \\
 Epistemic & ``if the conjectured duality holds'' for all non-SUSY claims (P1) \\
 \bottomrule
@@ -83,20 +87,23 @@ every generation pair.  This is a radical departure from the Standard
 Model, where each fermion species has its own independent Yukawa
 coupling.
 
-The effective Yukawa couplings that determine fermion masses are
-(Lecture~8, Eq.~(2)):
+The effective Yukawa couplings that determine fermion masses,
+$m_f = Y_f\,v/\sqrt{2}$, are (Lecture~8, effective Yukawa matrices):
 \begin{equation}\label{eq:eff-yukawa}
-  Y_{ij}^u \;=\; y\, \frac{\langle H_{ij}^u \rangle}{v}\,,
+  Y_{ij}^u \;=\; \sqrt{2}\,y\, \frac{\langle H_{ij}^u \rangle}{v}\,,
   \qquad
-  Y_{ij}^d \;=\; y\, \frac{\langle H_{ij}^d \rangle}{v}\,,
+  Y_{ij}^d \;=\; \sqrt{2}\,y\, \frac{\langle H_{ij}^d \rangle}{v}\,,
 \end{equation}
-where the total electroweak VEV satisfies
-$v^2 = \sum_{ij}(\langle H_{ij}^u\rangle^2
-+ \langle H_{ij}^d\rangle^2) = (246\;\text{GeV})^2/2$.
+where $v = 246\;\text{GeV}$ and the VEVs obey the sum rule
+$\sum_{ij}(\langle H_{ij}^u\rangle^2
++ \langle H_{ij}^d\rangle^2) = v^2/2 = (174\;\text{GeV})^2$.
 
 Planck-scale four-fermion operators (Lecture~8, \S2) generate mixing
 between the leading Higgs doublet $H_0 \equiv H_{33}^u$ and the 17
-dormant doublets $H_i$ ($i = 1, \ldots, 17$):
+dormant doublets $H_i$ ($i = 1, \ldots, 17$).  The dormant doublets
+belong to the quasi-SUSY spectrum and sit at the scale
+$\Lambda_S \sim \text{few TeV}$ (Lecture~7, energy hierarchy).  The
+operators are
 \begin{equation}\label{eq:planck-op}
   \mathcal{L}_{\text{Planck}}
   \;\supset\;
@@ -111,19 +118,20 @@ where $c^{abcd}$ are $\mathcal{O}(1)$ dimensionless coefficients.
 \begin{enumerate}[label=(\alph*)]
 
   \item \textbf{[5 marks]}
-    Suppose the leading VEV satisfies
-    $\langle H_0 \rangle = \langle H_{33}^u \rangle \approx v$, with all
-    other VEVs suppressed.  Show that the top quark Yukawa coupling is
+    Suppose the leading VEV saturates the sum rule,
+    $\langle H_0 \rangle = \langle H_{33}^u \rangle \approx v/\sqrt{2}$,
+    with all other VEVs suppressed.  Show that the top quark Yukawa
+    coupling is
     \begin{equation}\label{eq:top-yukawa-prob}
-      y_t \;=\; y \,\frac{\langle H_{33}^u \rangle}{v}
+      y_t \;=\; \sqrt{2}\,y \,\frac{\langle H_{33}^u \rangle}{v}
       \;\approx\; y\,,
     \end{equation}
     and hence
     \begin{equation}\label{eq:top-mass-prob}
-      m_t \;=\; y_t\, v \;\approx\; y\, v\,.
+      m_t \;=\; y_t\, \frac{v}{\sqrt{2}} \;\approx\; y\, \frac{v}{\sqrt{2}}\,.
     \end{equation}
-    For $y \sim \mathcal{O}(1)$ and $v \approx 174\;\text{GeV}$, show
-    that $m_t \sim \mathcal{O}(v) \sim 174\;\text{GeV}$.  State this as
+    For $y \sim \mathcal{O}(1)$ and $v/\sqrt{2} \approx 174\;\text{GeV}$,
+    show that $m_t \sim \mathcal{O}(v) \sim 174\;\text{GeV}$.  State this as
     a \textbf{parametric consistency check}: the observed
     $m_t = 172.7 \pm 0.3\;\text{GeV}$ requires $y \approx 0.99$, which
     is naturally $\mathcal{O}(1)$.  Note that $y$ is a \textbf{free
@@ -132,7 +140,7 @@ where $c^{abcd}$ are $\mathcal{O}(1)$ dimensionless coefficients.
   \item \textbf{[8 marks]}
     The dormant Higgs doublets $H_i$ have large positive masses
     $M_i^2 \gg v^2$ and acquire induced VEVs through mixing with the
-    leading Higgs $H_0$ (Lecture~8, Eq.~(8)):
+    leading Higgs $H_0$ (Lecture~8, induced-VEV formula):
     \begin{equation}\label{eq:induced-vev-prob}
       \langle H_i \rangle
       \;=\; \frac{\mu_{0i}^2}{M_i^2}\, \langle H_0 \rangle\,,
@@ -147,60 +155,61 @@ where $c^{abcd}$ are $\mathcal{O}(1)$ dimensionless coefficients.
         \end{equation}
 
       \item From dimensional analysis of the Planck operators
-        (Eq.~\eqref{eq:planck-op}), the mixing mass and dormant Higgs
-        mass scale as
+        (Eq.~\eqref{eq:planck-op}), the mixing mass scales as
         \[
           \mu_{0i}^2 \;\sim\; \xi_i\, \frac{\Lambda_D^4}{M_{\text{Pl}}^2}\,,
-          \qquad
-          M_i^2 \;\sim\; \Lambda_D^2\,,
         \]
-        where $\xi_i$ is an $\mathcal{O}(1)$ coefficient.  Show that
+        where $\xi_i$ is an $\mathcal{O}(1)$ coefficient, while the
+        dormant doublets sit at the quasi-SUSY scale,
+        $M_i \sim \Lambda_S$.  Show that
         \begin{equation}\label{eq:mass-ratio-suppression}
           \frac{m_f}{m_t}
-          \;\sim\; \xi_i\, \frac{\Lambda_D^2}{M_{\text{Pl}}^2}\,.
+          \;\sim\; \xi_i\, \frac{\Lambda_D^4}{M_{\text{Pl}}^2\,\Lambda_S^2}
+          \;=\; \xi_i \biggl(\frac{\Lambda_D^2/M_{\text{Pl}}}{\Lambda_S}\biggr)^{\!2}\,.
         \end{equation}
 
-      \item For $\Lambda_D = 10^{11}\;\text{GeV}$ and
-        $M_{\text{Pl}} = 1.22 \times 10^{19}\;\text{GeV}$, evaluate
-        $\Lambda_D^2 / M_{\text{Pl}}^2$ numerically.  Compare this
-        suppression factor with the observed mass ratios $m_b/m_t
+      \item For $\Lambda_D = 10^{11}\;\text{GeV}$,
+        $M_{\text{Pl}} = 1.22 \times 10^{19}\;\text{GeV}$ and
+        $\Lambda_S = 3\;\text{TeV}$, evaluate this suppression factor
+        numerically.  Compare it with the observed mass ratios $m_b/m_t
         \approx 0.024$, $m_c/m_t \approx 0.007$, and $m_s/m_t
-        \approx 5 \times 10^{-4}$.  Comment on whether the parametric
-        suppression is in the right ballpark.
+        \approx 5 \times 10^{-4}$.  Comment on whether one mixing step
+        is in the right ballpark.  What would the suppression be if the
+        dormant doublets sat at the duality scale instead,
+        $M_i^2 \sim \Lambda_D^2$?
     \end{enumerate}
 
   \item \textbf{[7 marks]}
     The bottom quark mass ratio $m_b/m_t \approx 0.024$ arises from the
-    down-type Higgs VEV (Lecture~8, Eq.~(6)):
+    down-type Higgs VEV (Lecture~8, bottom-to-top VEV ratio):
     \begin{equation}\label{eq:bottom-ratio-prob}
       \frac{m_b}{m_t}
       \;=\; \frac{\langle H_{33}^d \rangle}{\langle H_{33}^u \rangle}\,.
     \end{equation}
 
     \begin{enumerate}[label=(\roman*)]
-      \item As shown in part~(b), the generic Planck suppression
-        $(\Lambda_D/M_{\text{Pl}})^2 \sim 10^{-16}$ is far too small
-        to produce $m_b/m_t \approx 0.024$.  Explain why the bottom
-        quark mass instead arises from \textbf{direct}
-        $H_{33}^u$--$H_{33}^d$ mixing through the scalar potential,
-        with the suppression controlled by the ratio
-        $\mu_b^2/M_{d,33}^2 \sim \mathcal{O}(10^{-2})$ of
-        $\mathcal{O}(1)$ parameters in the Planck-scale operator
-        coefficients.
+      \item Show that $m_b/m_t \approx 0.024$ follows from a
+        \textbf{single} step of direct $H_{33}^u$--$H_{33}^d$ mixing
+        through the scalar potential, with
+        $\langle H_{33}^d\rangle/\langle H_{33}^u\rangle
+        = \mu_b^2/M_{d,33}^2$.  Which part of this ratio does the
+        framework fix, and which part is a free input?
 
       \item For the \emph{lighter} fermion generations (charm, strange,
         and below), the mass ratios arise from a cascade of mixing
-        steps in the scalar potential.  Each step is controlled by a
-        ratio $\mu_i^2/M_i^2$ of $\mathcal{O}(1)$ parameters.  Explain
+        steps of the same kind.  Each step is controlled by a ratio
+        $\mu_i^2/M_i^2$ of scalar-potential parameters.  Explain
         why the charm quark ($m_c/m_t \approx 0.007$) sits at a
         comparable suppression level to the bottom quark (i.e., the
         same ``tier'' of the VEV hierarchy), while the strange quark
         ($m_s/m_t \approx 5 \times 10^{-4}$) requires an additional
         step of suppression (a deeper tier).
 
-      \item Assign the bottom, charm, and strange quarks to appropriate
-        ``tiers'' in the VEV hierarchy.  Which quarks share the same
-        tier, and which require additional steps of cascaded mixing?
+      \item Assign the bottom, charm, and strange quarks to
+        ``tiers'' in the VEV hierarchy, numbering the tiers as
+        Lecture~8 does (the leading VEV is the first tier).  Which
+        quarks share a tier, and which require additional steps of
+        cascaded mixing?
     \end{enumerate}
 
   \item \textbf{[5 marks]}
@@ -224,11 +233,10 @@ where $c^{abcd}$ are $\mathcal{O}(1)$ dimensionless coefficients.
 
 \noindent\textit{Hints:}
 \begin{itemize}
-  \item For (a): remember that $v = 246/\sqrt{2}\;\text{GeV}
-    \approx 174\;\text{GeV}$ when $v$ is defined as the VEV rather
-    than $\sqrt{2}\, G_F^{-1/2}$.  Adapt to whichever convention is
-    stated.
-  \item For (b)(iii): compute $\log_{10}(\Lambda_D^2/M_{\text{Pl}}^2)$
+  \item For (a): with $v = (\sqrt{2}\,G_F)^{-1/2} = 246\;\text{GeV}$,
+    the leading VEV is $\langle H_0\rangle \approx v/\sqrt{2}
+    \approx 174\;\text{GeV}$.
+  \item For (b)(iii): compute $\log_{10}$ of the suppression factor
     and compare with $\log_{10}(m_f/m_t)$ for each fermion.
   \item For (c)(ii): compare the suppression ratios $\mu_f^2/M_f^2$
     needed for each fermion and group them into tiers.
@@ -249,23 +257,24 @@ where $c^{abcd}$ are $\mathcal{O}(1)$ dimensionless coefficients.
 From the effective Yukawa structure~\eqref{eq:eff-yukawa}, the top
 quark Yukawa coupling is:
 \[
-  y_t \;=\; y\, \frac{\langle H_{33}^u \rangle}{v}\,.
+  y_t \;=\; \sqrt{2}\,y\, \frac{\langle H_{33}^u \rangle}{v}\,.
 \]
-If the leading VEV dominates, $\langle H_{33}^u \rangle \approx v$,
-then:
+If the leading VEV saturates the sum rule,
+$\langle H_{33}^u \rangle \approx v/\sqrt{2}$, then:
 \[
-  y_t \;\approx\; y \cdot \frac{v}{v} \;=\; y\,.
+  y_t \;\approx\; \sqrt{2}\,y \cdot \frac{v/\sqrt{2}}{v} \;=\; y\,.
 \]
 The top quark mass is:
 \[
-  m_t \;=\; y_t\, v \;\approx\; y\, v\,.
+  m_t \;=\; y_t\, \frac{v}{\sqrt{2}} \;=\; y\,\langle H_{33}^u\rangle
+  \;\approx\; y\, \frac{v}{\sqrt{2}}\,.
 \]
 
 \textbf{Dimensional check:} $[y] = [\text{dimensionless}]$,
 $[v] = [\text{GeV}]$, so $[m_t] = [\text{GeV}]$.
 \quad$\checkmark$
 
-\textbf{Numerical evaluation.}  With $v \approx 174\;\text{GeV}$:
+\textbf{Numerical evaluation.}  With $v/\sqrt{2} \approx 174\;\text{GeV}$:
 \[
   m_t \;\approx\; y \times 174\;\text{GeV}\,.
 \]
@@ -275,15 +284,16 @@ The measured top mass $m_t = 172.7 \pm 0.3\;\text{GeV}$ requires:
 \]
 which is naturally $\mathcal{O}(1)$.
 \[
-  \boxed{m_t \;\approx\; y\, v \;\sim\; \mathcal{O}(v)
+  \boxed{m_t \;\approx\; y\, \frac{v}{\sqrt{2}} \;\sim\; \mathcal{O}(v)
   \;\sim\; 174\;\text{GeV}\,,
   \quad\text{with } y \approx 0.99 \sim \mathcal{O}(1)\,.}
 \]
 
 \textbf{Parametric consistency statement.}
-This is \emph{not} a prediction: the universal Yukawa coupling $y$ is a
+The universal Yukawa coupling $y$ is a
 \textbf{free parameter} of the magnetic theory, determined by the
-strong dynamics at the duality scale $\Lambda_D$.  The result
+strong dynamics at the duality scale $\Lambda_D$, so this is a
+consistency check rather than a prediction.  The result
 $m_t \sim \mathcal{O}(v)$ shows that $y_t \sim \mathcal{O}(1)$ is
 \emph{natural} in the dualised SM---in contrast to the SM, where
 $y_t \approx 1$ is an unexplained numerical coincidence.
@@ -295,19 +305,16 @@ $y_t \approx 1$ is an unexplained numerical coincidence.
 \textit{(i) Effective Yukawa from dormant Higgs.}
 
 A fermion species $f$ whose mass arises from the dormant Higgs $H_i$
-has:
-\[
-  m_f \;=\; y\, \frac{\langle H_i \rangle}{v}\, v
-  \;=\; y\, \langle H_i \rangle\,.
-\]
-Using the induced VEV~\eqref{eq:induced-vev-prob}:
+has $m_f = y\,\langle H_i \rangle$.
+Using the induced VEV~\eqref{eq:induced-vev-prob} and
+$\langle H_0\rangle \approx v/\sqrt{2}$:
 \[
   m_f \;=\; y\, \frac{\mu_{0i}^2}{M_i^2}\, \langle H_0 \rangle
-  \;=\; y\, \frac{\mu_{0i}^2}{M_i^2}\, v\,.
+  \;=\; y\, \frac{\mu_{0i}^2}{M_i^2}\, \frac{v}{\sqrt{2}}\,.
 \]
 Hence the effective Yukawa coupling is:
 \[
-  y_f \;\equiv\; \frac{m_f}{v}
+  y_f \;\equiv\; \frac{\sqrt{2}\,m_f}{v}
   \;=\; y\, \frac{\mu_{0i}^2}{M_i^2}\,.
 \]
 \[
@@ -318,163 +325,152 @@ Hence the effective Yukawa coupling is:
 \textit{(ii) Parametric suppression from Planck operators.}
 
 Using $\mu_{0i}^2 \sim \xi_i\, \Lambda_D^4/M_{\text{Pl}}^2$ and
-$M_i^2 \sim \Lambda_D^2$:
+$M_i^2 \sim \Lambda_S^2$:
 \[
   \frac{\mu_{0i}^2}{M_i^2}
-  \;\sim\; \frac{\xi_i\, \Lambda_D^4 / M_{\text{Pl}}^2}{\Lambda_D^2}
-  \;=\; \xi_i\, \frac{\Lambda_D^2}{M_{\text{Pl}}^2}\,.
+  \;\sim\; \frac{\xi_i\, \Lambda_D^4 / M_{\text{Pl}}^2}{\Lambda_S^2}
+  \;=\; \xi_i \biggl(\frac{\Lambda_D^2/M_{\text{Pl}}}{\Lambda_S}\biggr)^{\!2}\,.
 \]
-Since $m_f = y_f\, v$ and $m_t = y\, v$:
-\[
-  \frac{m_f}{m_t}
-  \;=\; \frac{y_f}{y}
-  \;=\; \frac{\mu_{0i}^2}{M_i^2}
-  \;\sim\; \xi_i\, \frac{\Lambda_D^2}{M_{\text{Pl}}^2}\,.
-\]
+Since $m_f = y_f\, v/\sqrt{2}$ and $m_t = y\, v/\sqrt{2}$:
 \[
   \boxed{\frac{m_f}{m_t}
-  \;\sim\; \xi_i\, \frac{\Lambda_D^2}{M_{\text{Pl}}^2}\,.}
+  \;=\; \frac{y_f}{y}
+  \;=\; \frac{\mu_{0i}^2}{M_i^2}
+  \;\sim\; \xi_i\, \frac{\Lambda_D^4}{M_{\text{Pl}}^2\,\Lambda_S^2}\,.}
 \]
 
 \textbf{Dimensional check:}
-$[\Lambda_D^2/M_{\text{Pl}}^2] = [\text{dimensionless}]$ and
+$[\Lambda_D^4/(M_{\text{Pl}}^2\Lambda_S^2)] = [\text{dimensionless}]$ and
 $[m_f/m_t] = [\text{dimensionless}]$.
 \quad$\checkmark$
 
 \textit{(iii) Numerical evaluation.}
 
+The Planck operators generate masses of order
 \[
-  \frac{\Lambda_D^2}{M_{\text{Pl}}^2}
-  \;=\; \frac{(10^{11})^2}{(1.22 \times 10^{19})^2}
-  \;=\; \frac{10^{22}}{1.49 \times 10^{38}}
-  \;\approx\; 6.7 \times 10^{-17}\,.
+  \frac{\Lambda_D^2}{M_{\text{Pl}}}
+  \;=\; \frac{10^{22}}{1.22 \times 10^{19}}\;\text{GeV}
+  \;\approx\; 820\;\text{GeV}\,,
 \]
-
-This is a \emph{single} insertion of the Planck suppression factor.
-The observed mass ratios require different numbers of such insertions
-(i.e., different ``tiers'' in the VEV hierarchy):
+the same seesaw scale that sets $v$ in Exercise Set~6.  For
+$\Lambda_S = 3\;\text{TeV}$, one mixing step gives
+\[
+  \frac{m_f}{m_t}
+  \;\sim\; \xi_i \biggl(\frac{0.82\;\text{TeV}}{3\;\text{TeV}}\biggr)^{\!2}
+  \;\approx\; 0.075\,\xi_i\,.
+\]
+With $\xi_i$ between $0.1$ and $1$ this is $10^{-2.1}$ to $10^{-1.1}$:
 
 \renewcommand{\arraystretch}{1.3}
 \begin{center}
 \begin{tabular}{@{} l c c c @{}}
 \toprule
 \textbf{Fermion $f$} & $m_f / m_t$ (observed) & $\log_{10}(m_f/m_t)$
-  & \textbf{Tier} \\
+  & \textbf{Mixing steps} \\
 \midrule
-Bottom ($b$) & $\approx 0.024$ & $-1.6$ & 1st \\
-Charm ($c$) & $\approx 0.007$ & $-2.2$ & 1st--2nd \\
-Strange ($s$) & $\approx 5 \times 10^{-4}$ & $-3.3$ & 2nd \\
+Bottom ($b$) & $\approx 0.024$ & $-1.6$ & one ($\xi_b \approx 0.3$) \\
+Charm ($c$) & $\approx 0.0074$ & $-2.1$ & one ($\xi_c \approx 0.1$) \\
+Strange ($s$) & $\approx 5.5 \times 10^{-4}$ & $-3.3$ & two \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-A single Planck suppression gives
-$\log_{10}(\Lambda_D^2/M_{\text{Pl}}^2) \approx -16$, which is far
-too small to reproduce $m_b/m_t \approx 0.024$ or even
-$m_c/m_t \approx 0.007$.
+One mixing step with a TeV-scale dormant doublet lands in the right
+ballpark for the bottom and charm quarks; the strange quark needs a
+second step (part~(c)).  The coefficients quoted in the table are
+those needed for $\Lambda_S = 3\;\text{TeV}$; they scale as
+$\Lambda_S^2$.
 
-\textbf{Key observation.}
-The na\"ive one-step Planck suppression
-$(\Lambda_D/M_{\text{Pl}})^2 \sim 10^{-16}$ is far too small to
-reproduce $m_b/m_t \sim 0.024$.  This indicates that the bottom
-quark mass does \emph{not} arise from the generic Planck-suppressed
-operator mechanism of Eq.~\eqref{eq:mass-ratio-suppression}.
-Instead, the scalar democracy framework provides a different
-mechanism: \textbf{direct mixing} between the dominant Higgs doublet
-$H_{33}^u$ and the subdominant doublet $H_{33}^d$ through the scalar
-potential.  In this route, the suppression is controlled by
-$\mathcal{O}(1)$ coefficients in the Planck operators and by the
-mass splittings among the dormant Higgs doublets, rather than by
-powers of $\Lambda_D/M_{\text{Pl}}$.  We derive this alternative
-route in part~(c).
-
-For the lighter fermions (charm, strange, and below), the generic
-Planck suppression \emph{does} apply, through cascaded insertions of
-$\Lambda_D^2/M_{\text{Pl}}^2$:
-the parametric structure---a cascade of
-progressively smaller VEVs---provides a natural mechanism for the
-mass hierarchy, with the specific ratios set by $\mathcal{O}(1)$
-coefficients $\xi_i$.
+\textbf{Dormant doublets at $\Lambda_D$?}
+Had the dormant doublets sat at the duality scale,
+$M_i^2 \sim \Lambda_D^2$, each step would be suppressed by
+\[
+  \frac{\mu_{0i}^2}{M_i^2}
+  \;\sim\; \xi_i\,\frac{\Lambda_D^2}{M_{\text{Pl}}^2}
+  \;=\; \xi_i\,\frac{(10^{11})^2}{(1.22 \times 10^{19})^2}
+  \;\approx\; 6.7 \times 10^{-17}\,\xi_i\,,
+\]
+fourteen orders of magnitude below $m_b/m_t$.  The hierarchy
+mechanism therefore needs the dormant doublets near $\Lambda_S$, as
+in Lecture~7; this is the scale used throughout Exercise Sets~5
+and~6.
 
 \bigskip
 
-\textbf{(c) Bottom-to-top mass ratio.}
+\textbf{(c) Bottom-to-top mass ratio and the tier structure.}
 
-\textit{(i) Why the bottom mass requires direct $H^u$--$H^d$ mixing.}
+\textit{(i) The bottom quark from one mixing step.}
 
-If the bottom quark mass arose from the generic Planck-suppressed
-mechanism of part~(b), we would have
-$m_b/m_t \sim (\Lambda_D/M_{\text{Pl}})^2 \sim 10^{-16}$, which is
-fourteen orders of magnitude too small.  This rules out the generic
-tier structure for the bottom quark.
-
-Instead, $H_{33}^d$ acquires its VEV through \textbf{direct mixing}
+$H_{33}^d$ acquires its VEV through \textbf{direct mixing}
 with $H_{33}^u$ in the scalar potential.  The Planck operators
 of Eq.~\eqref{eq:planck-op} generate an off-diagonal mass-squared
-$\mu_b^2$ between these two doublets, while the diagonal mass of
-$H_{33}^d$ is $M_{d,33}^2$.  The induced VEV ratio is:
+$\mu_b^2$ between these two doublets (the $\mu_b^2$ term of
+Lecture~8's second-tier mixing operators), while the diagonal mass of
+$H_{33}^d$ is $M_{d,33}^2 \sim \Lambda_S^2$.  Minimising the potential
+with $\langle H_{33}^u\rangle$ fixed gives
 \[
+  \frac{m_b}{m_t}
+  \;=\;
   \frac{\langle H_{33}^d \rangle}{\langle H_{33}^u \rangle}
-  \;\sim\; \frac{\mu_b^2}{M_{d,33}^2}
-  \;\sim\; c_b \times \mathcal{O}(10^{-2})\,,
+  \;=\; \frac{\mu_b^2}{M_{d,33}^2}
+  \;\approx\; 0.024\,.
 \]
-where $c_b \sim \mathcal{O}(1)$ and the ratio
-$\mu_b^2/M_{d,33}^2$ is determined by the specific pattern of
-$\mathcal{O}(1)$ coefficients in the Planck-scale operators.
-Crucially, neither $\mu_b^2$ nor $M_{d,33}^2$ is constrained to
-be a power of $\Lambda_D/M_{\text{Pl}}$; their ratio is an
-$\mathcal{O}(10^{-2})$ number set by the UV dynamics.
+The framework fixes the natural size of one step,
+$(\Lambda_D^2/M_{\text{Pl}})^2/\Lambda_S^2 \sim 10^{-1}$--$10^{-2}$
+(part~(b)); no further power of $\Lambda_D/M_{\text{Pl}}$ enters.
+It does not fix the coefficient: the ratio $\mu_b^2/M_{d,33}^2$ is a
+\textbf{free input}, set by the unknown Planck-operator coefficients
+and chosen to reproduce the measured $m_b/m_t$.
 
 \textit{(ii) Lighter fermion tiers.}
 
 The charm and strange masses arise from the same direct-mixing
-mechanism but applied to different entries of the 18-Higgs scalar
+mechanism, applied to other entries of the 18-Higgs scalar
 potential:
 \begin{itemize}
-  \item \textbf{Charm} ($m_c/m_t \approx 0.007 \sim 10^{-2.2}$):
+  \item \textbf{Charm} ($m_c/m_t \approx 0.0074 \sim 10^{-2.1}$):
     The charm quark mass comes from the $(2,2)$ sector VEV
     $\langle H_{22}^u \rangle$, induced by direct mixing with the
-    leading Higgs $H_{33}^u$.  Since
-    $m_c/m_t \sim \mathcal{O}(10^{-2})$, the suppression ratio
-    $\mu_c^2/M_{22}^2$ is of the same order as for the bottom quark.
-    Both bottom and charm sit in the \textbf{first tier} of the VEV
-    hierarchy.
-  \item \textbf{Strange} ($m_s/m_t \approx 5 \times 10^{-4}
-    \sim 10^{-3.3}$): The strange quark requires an additional
-    suppression of $\sim 10^{-1}$ beyond the first tier.  This arises
-    from a \textbf{cascaded} mixing: the $(2,2)$ or $(2,3)$ Higgs
-    doublet mixes with the leading Higgs, and the strange-sector
-    Higgs then mixes with this intermediate doublet.  Two steps of
-    $\mathcal{O}(10^{-2})$ mixing give
-    $\sim 10^{-4}$, consistent with $m_s/m_t$.  The strange quark
-    sits in the \textbf{second tier}.
+    leading Higgs $H_{33}^u$ (the $\mu_c^2$ term).  One step with a
+    ratio $\mu_c^2/M_{22}^2 \approx 0.0074$, of the same order as for
+    the bottom quark, suffices.  Bottom and charm share a tier.
+  \item \textbf{Strange} ($m_s/m_t \approx 5.5 \times 10^{-4}
+    \sim 10^{-3.3}$): The strange quark needs one more step.  The
+    strange-sector doublet mixes with an intermediate doublet (such as
+    $H_{33}^d$ or $H_{22}^u$), which itself mixes with the leading
+    Higgs.  Two steps of the bottom size give
+    $(0.024)^2 \approx 5.9 \times 10^{-4}$, consistent with $m_s/m_t$;
+    equivalently $m_s/m_b \approx 0.023 \approx m_b/m_t$.
 \end{itemize}
 \[
-  \boxed{\text{First tier (bottom, charm):}\;
-  m_f/m_t \sim \mu_f^2/M_f^2 \sim 10^{-2};\quad
-  \text{Second tier (strange):}\;
-  m_s/m_t \sim (\mu^2/M^2)^2 \sim 10^{-4}\,.}
+  \boxed{\begin{aligned}
+  &\text{One step (bottom, charm):} &
+  m_f/m_t &\sim \mu_f^2/M_f^2 \sim 10^{-2}\,,\\
+  &\text{two steps (strange):} &
+  m_s/m_t &\sim (\mu^2/M^2)^2 \sim 10^{-3.3}\,.
+  \end{aligned}}
 \]
 
 \textit{(iii) VEV tiers.}
 
-The VEV hierarchy can be organised as follows:
+Numbering the tiers as Lecture~8 does, the VEV hierarchy is:
 \begin{itemize}
-  \item \textbf{Zeroth tier ($\langle H \rangle \sim v$):}
+  \item \textbf{First tier ($\langle H \rangle \approx v/\sqrt{2}$):}
     $H_{33}^u$ (top quark).  This is the leading VEV that triggers
     electroweak symmetry breaking.
-  \item \textbf{First tier ($\langle H \rangle \sim 10^{-2}\, v$):}
-    $H_{33}^d$ (bottom quark), possibly $H_{22}^u$ (charm quark).
-    These are induced by one step of Planck mixing, with the
-    suppression factor controlled by $\mu_b^2/M_d^2 \sim 10^{-2}$.
-  \item \textbf{Second tier ($\langle H \rangle \sim 10^{-4}\, v$):}
-    Strange quark and lighter fermions.  These arise from two steps
-    of mixing (Lecture~8, Eq.~(10)), giving a further suppression.
-  \item \textbf{Third tier and beyond:}
-    Up and down quarks, electron.  Progressive further suppression.
+  \item \textbf{Second tier ($\langle H \rangle \sim 10^{-2}\, v$):}
+    $H_{33}^d$ (bottom quark) and $H_{22}^u$ (charm quark), each
+    induced by one mixing step with $\mu^2/M^2 \sim 10^{-2}$.
+  \item \textbf{Third tier ($\langle H \rangle \sim 10^{-3}$--$10^{-4}\, v$):}
+    the strange quark and the other second-generation entries, from
+    two mixing steps (Lecture~8, third-tier VEVs
+    $\langle H\rangle \sim (\mu^4/M^4)\,v$).
+  \item \textbf{Fourth tier and beyond:}
+    Up and down quarks, electron ($m_f/m_t \sim 10^{-5}$--$10^{-6}$).
+    Progressive further suppression.
 \end{itemize}
 
-The crucial point: the \emph{parametric structure} of the hierarchy is
+The \emph{parametric structure} of the hierarchy is
 set by the scalar potential and Planck-scale operators.  The
 \emph{specific values} of each tier's suppression factor depend on the
 $\mathcal{O}(1)$ coefficients $c^{abcd}$, which are free parameters.
@@ -495,7 +491,7 @@ not a prediction.  The free parameters are:
   \item $M_{\text{Pl}}$: the Planck mass (measured:
     $1.22 \times 10^{19}\;\text{GeV}$).
   \item The scalar quartic couplings $\lambda_i$ and mass parameters
-    $M_i^2$ of the 18-Higgs potential.
+    $M_i^2 \sim \Lambda_S^2$ of the 18-Higgs potential.
 \end{enumerate}
 
 The dualised SM has comparable freedom to the Standard Model's Yukawa
@@ -549,9 +545,11 @@ content itself rests on the conjectured duality.
 
 \textit{End of Exercise Set 5.  This exercise develops the fermion mass
 hierarchy from the scalar democracy mechanism of Lectures~7--8.  The
-key result is that $m_t \sim y\, v$ with $y \sim \mathcal{O}(1)$ is a
+key result is that $m_t \approx y\, v/\sqrt{2}$ with $y \sim \mathcal{O}(1)$ is a
 parametric consistency check, and the lighter fermion masses arise from
-a cascade of induced VEVs driven by Planck-scale operators.  The
+a cascade of induced VEVs driven by Planck-scale operators, one mixing
+step per tier, with the dormant Higgs doublets at the scale
+$\Lambda_S \sim \text{few TeV}$.  The
 $\mathcal{O}(1)$ coefficients $c^{abcd}$ are free parameters---the
 framework provides the mechanism for the hierarchy but not the specific
 mass values.}
@@ -565,8 +563,8 @@ mass values.}
 
 \bibitem{CacciapagliaSannino2024}
   G.~Cacciapaglia and F.~Sannino,
-  ``The Dualised Standard Model,''
-  \texttt{arXiv:2407.17281} [hep-ph] (2024).
+  ``Charting Standard Model Duality and its Signatures,''
+  arXiv:2407.17281 [hep-ph] (2024).
 
 \bibitem{HillMachado2019}
   C.~T.~Hill, P.~A.~N.~Machado, A.~E.~Thomsen, and J.~Turner,
