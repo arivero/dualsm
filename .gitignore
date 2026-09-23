@@ -24,3 +24,6 @@ nohup.out
 /6
 /cantor
 /recap
+
+# Python bytecode (scripts/ import each other)
+__pycache__/

@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 """
-VALD-04: Extended convention verification across ALL 8 lectures and
-6 exercise sets for the Dualised Standard Model project.
+VALD-04: Extended convention verification across all 11 lectures, 9
+exercise sets and 4 research papers of the Dualised Standard Model
+project (24 files; lectures/preamble.tex supplies the canonical line).
+Coverage was Lectures 1-8 and Sets 1-6 until 2026-09-23.
 
 Checks:
-  1. ASSERT_CONVENTION line present and matching in all 14 files
+  1. ASSERT_CONVENTION line present and matching in all files
   2. T(fund) = 1/2 consistency (no T(fund) = 1 anywhere)
   3. Beta function b_0 = (11 N_c - 2 N_f)/3 convention (not 4 N_f variant)
   4. Metric signature (+,-,-,-) (no (-,+,+,+) anywhere)
   5. N_f counting as Dirac flavours (not Weyl count)
   6. Hypercharge Y = T_R^3 + Q_V/6 in Lectures 7-8 and Exercises 5-6
-  7. Conjectural qualifiers in Lectures 5-8 and Exercises 5-6
+  7. Conjectural qualifiers in Lectures 5-11, Exercises 5-9 (not the
+     SUSY-only Set 7) and Papers 1-4
   8. Cross-file convention consistency
 
 Extends (does not replace) scripts/verify_conventions.py, which tests
@@ -37,15 +40,21 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 LECTURE_FILES = [
     os.path.join(PROJECT_ROOT, "lectures", f"lecture-{i:02d}.tex")
-    for i in range(1, 9)
+    for i in range(1, 12)
 ]
 
 EXERCISE_FILES = [
     os.path.join(PROJECT_ROOT, "exercises", f"exercise-{i:02d}.tex")
-    for i in range(1, 7)
+    for i in range(1, 10)
 ]
 
-ALL_FILES = LECTURE_FILES + EXERCISE_FILES
+PAPER_FILES = [
+    os.path.join(PROJECT_ROOT, "papers", d, "paper.tex")
+    for d in ("paper-1-sp-duality-sm", "paper-2-meson-mass-sum-rules",
+              "paper-3-emergent-susy-lattice", "paper-4-generation-number")
+]
+
+ALL_FILES = LECTURE_FILES + EXERCISE_FILES + PAPER_FILES
 
 # Canonical ASSERT_CONVENTION line (from preamble.tex)
 CANONICAL_ASSERT = (
@@ -63,15 +72,14 @@ HYPERCHARGE_FILES = [
     os.path.join(PROJECT_ROOT, "exercises", "exercise-06.tex"),
 ]
 
-# Files that should contain conjectural qualifiers (Lectures 5-8, Exercises 5-6)
-CONJECTURAL_FILES = [
-    os.path.join(PROJECT_ROOT, "lectures", "lecture-05.tex"),
-    os.path.join(PROJECT_ROOT, "lectures", "lecture-06.tex"),
-    os.path.join(PROJECT_ROOT, "lectures", "lecture-07.tex"),
-    os.path.join(PROJECT_ROOT, "lectures", "lecture-08.tex"),
-    os.path.join(PROJECT_ROOT, "exercises", "exercise-05.tex"),
-    os.path.join(PROJECT_ROOT, "exercises", "exercise-06.tex"),
-]
+# Files that should contain conjectural qualifiers
+# (Lectures 5-11, Exercises 5-9 except Set 7, Papers 1-4). Set 7 treats
+# only SUSY dualities (KS, SO, Sp, s-confinement) and makes no non-SUSY claim.
+CONJECTURAL_FILES = (
+    LECTURE_FILES[4:]
+    + [f for f in EXERCISE_FILES[4:] if not f.endswith("exercise-07.tex")]
+    + PAPER_FILES
+)
 
 
 # ============================================================
@@ -113,8 +121,8 @@ def short_name(filepath):
 # ============================================================
 
 def check_assert_convention():
-    """Verify ASSERT_CONVENTION line is present and matches in all 14 files."""
-    print("\n=== CHECK 1: ASSERT_CONVENTION line in all 14 files ===")
+    """Verify ASSERT_CONVENTION line is present and matches in all files."""
+    print(f"\n=== CHECK 1: ASSERT_CONVENTION line in all {len(ALL_FILES)} files ===")
     all_ok = True
     for filepath in ALL_FILES:
         content = read_file(filepath)
@@ -370,7 +378,7 @@ def check_hypercharge():
 
 def check_conjectural_qualifiers():
     """Check for conjectural language near non-SUSY duality claims."""
-    print("\n=== CHECK 7: Conjectural qualifiers (Lectures 5-8, Exercises 5-6) ===")
+    print("\n=== CHECK 7: Conjectural qualifiers (Lectures 5-11, Exercises 5-9, Papers) ===")
     all_ok = True
 
     # Conjectural qualifier patterns (positive)
@@ -443,7 +451,7 @@ def check_cross_file_consistency():
         assert_lines.add(first_line)
 
     # All files should have the same ASSERT_CONVENTION line
-    check("All 14 files have identical ASSERT_CONVENTION",
+    check(f"All {len(ALL_FILES)} files have identical ASSERT_CONVENTION",
           len(assert_lines) == 1,
           detail=f"{len(assert_lines)} distinct line(s)")
     if len(assert_lines) != 1:
@@ -484,7 +492,7 @@ def check_cross_file_consistency():
 def main():
     print("=" * 70)
     print("VALD-04: Extended Convention Verification")
-    print("         All 8 Lectures + 6 Exercise Sets")
+    print("         All 11 Lectures + 9 Exercise Sets + 4 Papers")
     print("=" * 70)
     print()
     print(f"Files to check: {len(ALL_FILES)}")
@@ -530,14 +538,15 @@ def main():
     else:
         print(f"\nALL CHECKS PASSED across {len(ALL_FILES)} files.")
         print("\nConvention consistency summary:")
-        print("  ASSERT_CONVENTION:       14/14 files match canonical")
+        n = len(ALL_FILES)
+        print(f"  ASSERT_CONVENTION:       {n}/{n} files match canonical")
         print("  T(fund) = 1/2:           no violations")
         print("  b_0 = (11N_c-2N_f)/3:    no wrong variants")
         print("  Metric (+,-,-,-):        no wrong signatures")
         print("  N_f = Dirac pairs:       consistent")
         print("  Y = T_R^3 + Q_V/6:      present in Lectures 7-8, Exercises 5-6")
-        print("  Conjectural qualifiers:  present in Lectures 5-8, Exercises 5-6")
-        print("  Cross-file consistency:  all 14 files match")
+        print("  Conjectural qualifiers:  present in Lectures 5-11, Exercises 5-6 and 8-9, Papers 1-4")
+        print(f"  Cross-file consistency:  all {n} files match")
         return 0
 
 
