@@ -29,7 +29,7 @@ Anomaly matching & $\mathcal{A}_{\UV} = \mathcal{A}_{\IR}$ for global symmetries
 
 \medskip
 
-\noindent References: Lecture~1, \S\S\ref*{sec:gauge-anomaly}--\ref*{sec:general-anomaly}.
+\noindent References: Lecture~1, \S\S3--6.
 Anomaly coefficient definition: $A(R)\,d^{abc} = \Tr_R[T^a\{T^b,T^c\}]$.
 \end{conventionbox}
 
@@ -168,8 +168,9 @@ Converting to a common denominator of 108:
 
 \textbf{Key point:} All three anomalies vanish. This is a \emph{consistency
 check} on the SM fermion content---if any anomaly were non-zero, the Standard
-Model would be quantum mechanically inconsistent. Note that this is
-\emph{not} anomaly matching; it is anomaly \emph{cancellation}.
+Model would be quantum mechanically inconsistent. This is anomaly
+\emph{cancellation} for gauged symmetries; 't~Hooft anomaly
+\emph{matching} (Problem~2) concerns global symmetries.
 \end{proof}
 
 \newpage
@@ -185,7 +186,7 @@ Model would be quantum mechanically inconsistent. Note that this is
 \noindent\textbf{Background.}
 't~Hooft anomaly matching is a constraint on the \IR{} spectrum: the
 anomaly coefficients of exact global symmetries must be equal when computed
-using \UV{} or \IR{} degrees of freedom (Lecture~1, Theorem~\ref*{thm:anomaly-matching}).
+using \UV{} or \IR{} degrees of freedom (Lecture~1, Theorem~4.1).
 
 \medskip
 \noindent\textbf{Setup.}
@@ -205,11 +206,22 @@ fundamental representation.
     (the axial $\UU{1}_A$ is broken by the ABJ anomaly and is \emph{not}
     matched).
   \item \textbf{Baryon number:} $B[q_L] = 1/3$, $B[\tilde{q}_L] = -1/3$.
-  \item \textbf{IR hypothesis:} Confinement with chiral symmetry breaking
-    $\SU{2}_L \times \SU{2}_R \to \SU{2}_V$.  The massless \IR{} spectrum
-    consists of 3 Goldstone pions $\pi^a$ ($a=1,2,3$, adjoint of
-    $\SU{2}_V$, $B = 0$) and we need to check whether composite baryons
-    contribute to anomaly matching.
+  \item \textbf{Two candidate \IR{} phases} of the confined theory:
+    \begin{enumerate}[label=(\Roman*)]
+      \item \emph{Chiral symmetry breaking},
+        $\SU{2}_L \times \SU{2}_R \times \UU{1}_B \to
+        \SU{2}_V \times \UU{1}_B$.  The massless spectrum consists of
+        3 Goldstone pions.  The chiral field
+        $U = \exp(i\pi^a\tau^a/f_\pi)$ transforms as
+        $U \to L\,U\,R^\dagger$, \ie\ in the
+        $(\fund_L, \antifund_R) \cong (\mathbf{2}, \mathbf{2})$ of
+        $\SU{2}_L \times \SU{2}_R$, and the pions $\pi^a$ ($a = 1,2,3$)
+        form the triplet (adjoint) of $\SU{2}_V$ with $B = 0$.  The
+        nucleons are massive.
+      \item \emph{Unbroken chiral symmetry}: confinement without
+        Goldstone bosons.  Every anomaly must then be reproduced by
+        massless composite fermions.
+    \end{enumerate}
 \end{itemize}
 
 \medskip
@@ -219,21 +231,31 @@ fundamental representation.
     $\SU{2}_R^2\,\UU{1}_B$, $\UU{1}_B^3$, $\UU{1}_B$-gravitational.
     Also explain why the purely cubic anomaly $\SU{2}_L^3$ vanishes
     identically for \emph{any} $\SU{2}$ representation (recall that
-    $d^{abc} = 0$ for $\SU{2}$, since all representations are
-    pseudo-real).
-  \item The \IR{} theory has 3 massless Goldstone pions. Pions are bosons
-    and do not contribute to fermion triangle anomalies. What massless
-    fermion must exist in the \IR{} for anomaly matching to work?
-  \item Assuming the massless baryon is a nucleon doublet
-    $(p, n)$ in the fundamental of $\SU{2}_V$ (embedded as
-    $(\fund_L, \fund_R)$ of $\SU{2}_L \times \SU{2}_R$) with $B = 1$,
-    compute the \IR{} anomaly coefficients and verify $\mathcal{A}_{\UV}
-    = \mathcal{A}_{\IR}$ for each.
+    $d^{abc} = 0$ for $\SU{2}$, since all its representations are
+    self-conjugate: real or pseudo-real).
+  \item \textbf{Phase (I).}
+    \begin{enumerate}[label=(\roman*)]
+      \item Show that every 't~Hooft anomaly of the unbroken subgroup
+        $H = \SU{2}_V \times \UU{1}_B$ vanishes in the \UV{}.  Why does
+        this allow the nucleon doublet to carry a Dirac mass $m_N$?
+      \item The pions are bosons and have no fermion triangle diagrams,
+        yet the \UV{} anomaly $\SU{2}_L^2\,\UU{1}_B$, which involves the
+        broken generators, is non-zero and must be reproduced in the
+        \IR{}.  Which term of the pion effective action carries it?
+    \end{enumerate}
+  \item \textbf{Phase (II).}  Assume the massless baryons form a nucleon
+    doublet $(p, n)$ with $B = 1$: a left-handed Weyl doublet $N_L$ in
+    $(\fund_L, \mathbf{1}_R)$ and a right-handed Weyl doublet $N_R$ in
+    $(\mathbf{1}_L, \fund_R)$ of $\SU{2}_L \times \SU{2}_R$.  Compute the
+    \IR{} anomaly coefficients and verify
+    $\mathcal{A}_{\UV} = \mathcal{A}_{\IR}$ for each.
 \end{enumerate}
 
-\noindent\textit{Hint for (b):} The pions have $B = 0$ and are bosons.
-The mixed anomaly $\SU{2}_L^2\,\UU{1}_B$ is non-zero in the \UV{}.
-What fermion can match it?
+\noindent\textit{Hint for (b):} The generators of $\SU{2}_V$ are
+$T^a_L + T^a_R$, so the $\SU{2}_V^2\,\UU{1}_B$ coefficient is the sum of
+the $\SU{2}_L^2\,\UU{1}_B$ and $\SU{2}_R^2\,\UU{1}_B$ coefficients.  For
+(b)(ii), recall which term of the chiral Lagrangian describes
+$\pi^0 \to \gamma\gamma$.
 
 \bigskip
 \hrule
@@ -254,9 +276,10 @@ all-left-handed convention:
 
 \underline{$\SU{2}_L^3$ and $\SU{2}_R^3$:}
 These vanish identically.  For $\SU{2}$, the totally symmetric tensor
-$d^{abc} = \Tr[T^a\{T^b,T^c\}] = 0$ because all $\SU{2}$
-representations are pseudo-real ($R \cong \overline{R}$), so
-$A(R) + A(\overline{R}) = 0$ while $A(R) = A(\overline{R})$,
+$d^{abc} = \Tr[T^a\{T^b,T^c\}] = 0$ because every $\SU{2}$
+representation is self-conjugate ($R \cong \overline{R}$: real or
+pseudo-real).  Any representation obeys $A(\overline{R}) = -A(R)$,
+while $R \cong \overline{R}$ gives $A(\overline{R}) = A(R)$,
 forcing $A(R) = 0$.  Therefore:
 \begin{equation}
   \mathcal{A}_{\UV}[\SU{2}_L^3] = \mathcal{A}_{\UV}[\SU{2}_R^3] = 0.
@@ -272,6 +295,15 @@ $T(R_{\SU{2}})$ and the $\UU{1}_B$ charge.  Only $q_L$ contributes:
   = \Nc \times T(\fund_{\SU{2}}) \times B[q_L]
   = 3 \times \tfrac{1}{2} \times \tfrac{1}{3}
   = \tfrac{1}{2}.
+\end{equation}
+
+\underline{$\SU{2}_R^2\,\UU{1}_B$:} Only $\tilde{q}_L$ contributes (it is
+the $\antifund \cong \fund$ of $\SU{2}_R$, with $T = 1/2$):
+\begin{equation}
+  \mathcal{A}_{\UV}[\SU{2}_R^2\,\UU{1}_B]
+  = \Nc \times T(\antifund_{\SU{2}}) \times B[\tilde{q}_L]
+  = 3 \times \tfrac{1}{2} \times \bigl(-\tfrac{1}{3}\bigr)
+  = -\tfrac{1}{2}.
 \end{equation}
 
 \underline{$\UU{1}_B^3$:} Both $q_L$ and $\tilde{q}_L$ contribute:
@@ -301,144 +333,140 @@ $T(R_{\SU{2}})$ and the $\UU{1}_B$ charge.  Only $q_L$ contributes:
 $\SU{2}_L^3$ & $0$ (identically) \\
 $\SU{2}_R^3$ & $0$ (identically) \\
 $\SU{2}_L^2\,\UU{1}_B$ & $1/2$ \\
+$\SU{2}_R^2\,\UU{1}_B$ & $-1/2$ \\
 $\UU{1}_B^3$ & $0$ \\
 $\UU{1}_B$-grav & $0$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\textbf{(b) The pions do not match the anomalies.}
+\textbf{(b) Phase (I): chiral symmetry breaking.}
 
-Pions are Goldstone bosons and have no fermion triangle diagrams.  The
-mixed anomaly $\SU{2}_L^2\,\UU{1}_B = 1/2$ in the \UV{}, so there must
-be massless \emph{fermions} in the \IR{} to produce a non-zero anomaly
-coefficient.
+\textbf{(i) Anomalies of the unbroken subgroup.}  The generators of
+$\SU{2}_V$ are $T^a_V = T^a_L + T^a_R$: both $q_L$ (through $\SU{2}_L$)
+and $\tilde{q}_L$ (through $\SU{2}_R$) are $\SU{2}_V$ doublets.  Hence
+\begin{align}
+  \mathcal{A}_{\UV}[\SU{2}_V^2\,\UU{1}_B]
+  &= \mathcal{A}_{\UV}[\SU{2}_L^2\,\UU{1}_B]
+   + \mathcal{A}_{\UV}[\SU{2}_R^2\,\UU{1}_B]
+   = \tfrac{1}{2} - \tfrac{1}{2} = 0, \\
+  \mathcal{A}_{\UV}[\SU{2}_V^3] &= 0 \quad (\text{no $d$-symbol}),
+\end{align}
+and $\UU{1}_B^3$ and $\UU{1}_B$-grav vanish by part~(a).  Every
+'t~Hooft anomaly of $H = \SU{2}_V \times \UU{1}_B$ is zero, because the
+\UV{} fermions are vector-like under $H$: each left-handed $q_L$ has a
+partner $\tilde{q}_L$ in the conjugate representation of $H$.
 
-The lightest baryons in 2-flavour QCD are the nucleons $(p, n)$, which
-form a doublet under the unbroken $\SU{2}_V$.  If the nucleons remain
-massless (or light compared to $\Lambda_{\QCD}$---which is the hypothesis
-for the chiral limit), they provide the required fermionic degrees of
-freedom.
+Anomaly matching for $H$ is therefore satisfied by an \IR{} spectrum
+with no massless fermions at all.  The nucleon doublet $N = (p, n)$ is a
+Dirac fermion in the $\fund$ of $\SU{2}_V$ with $B = 1$, and its mass
+term $m_N\,\overline{N}N$ is $H$-invariant.  (In the linear sigma model
+the mass comes from the chirally invariant coupling
+$g\,\overline{N}_L\,\Sigma\,N_R + \text{h.c.}$ with $\Sigma$ in the
+$(\fund_L, \antifund_R)$ and $\langle\Sigma\rangle$ proportional to the unit
+matrix.)
+A massive Dirac fermion contributes nothing to the $H$ anomalies, in
+agreement with the zeros above.
 
-\textbf{(c) IR anomaly matching with a nucleon doublet.}
+\textbf{(ii) Anomalies of the broken generators.}  The coefficient
+$\mathcal{A}_{\UV}[\SU{2}_L^2\,\UU{1}_B] = \tfrac{1}{2}$ involves the
+broken axial generators, and neither the pions (bosons) nor the massive
+nucleons produce it through triangle diagrams.  It is carried by the
+\textbf{Wess--Zumino--Witten (WZW) term} of the pion effective action.
+Coupled to background gauge fields for
+$\SU{2}_L \times \SU{2}_R \times \UU{1}_B$, its gauge variation
+reproduces the \UV{} anomalies exactly; the coefficient of the WZW term
+is an integer, and matching fixes it to $\Nc = 3$.  Its coupling to the
+$\UU{1}_B$ background is the Goldstone--Wilczek baryon current
+\begin{equation}
+  B^\mu = \frac{1}{24\pi^2}\,\epsilon^{\mu\nu\rho\sigma}\,
+  \Tr\bigl[(U^\dagger\partial_\nu U)(U^\dagger\partial_\rho U)
+  (U^\dagger\partial_\sigma U)\bigr],
+\end{equation}
+whose charge is the winding number of $U$ (the Skyrmion carries $B = 1$)
+and whose divergence in $\SU{2}_{L,R}$ backgrounds reproduces the
+$\SU{2}_{L,R}^2\,\UU{1}_B$ anomalies.  The same term describes
+$\pi^0 \to \gamma\gamma$.  For $\Nf = 2$ the purely pionic
+five-dimensional part of the WZW term vanishes, because the five-form
+$\Tr(U^\dagger dU)^5$ is identically zero for $\SU{2}$; the terms that
+couple the pions to the background gauge fields survive and carry the
+anomaly.
 
-The massless nucleon doublet $(p, n)$ transforms as follows under the
-unbroken $\SU{2}_V \subset \SU{2}_L \times \SU{2}_R$:
+In phase~(I) every \UV{} anomaly is thus matched: the $H$ anomalies
+vanish on both sides, the WZW term carries the anomalies of the broken
+generators, and the massive nucleon doublet contributes nothing.
+Counting both the nucleon doublet and the WZW term for the same anomaly
+would count it twice.
 
+\textbf{(c) Phase (II): unbroken chiral symmetry.}
+
+With no Goldstone bosons and no WZW term, the anomalies must come from
+massless fermions.  The nucleon doublet has
 \begin{itemize}
-  \item As a left-handed Weyl fermion, it is in the $(\fund_L, \fund_R)$
-    of $\SU{2}_L \times \SU{2}_R$ (it transforms as a fundamental under
-    both, which is the correct embedding of the $\SU{2}_V$ fundamental
-    into $\SU{2}_L \times \SU{2}_R$).
-  \item Baryon number: $B[N] = 1$ (the nucleon is a 3-quark state).
+  \item $N_L$: left-handed, $(\fund_L, \mathbf{1}_R)$, $B = +1$;
+  \item $N_R$: right-handed, $(\mathbf{1}_L, \fund_R)$, $B = +1$.
 \end{itemize}
+In the all-left-handed convention $N_R$ is replaced by its conjugate
+$\widetilde{N}_L$ in $(\mathbf{1}_L, \antifund_R)$ with $B = -1$
+(conjugation negates the $\UU{1}_B$ charge).  The \IR{} anomalies are:
 
-More precisely, the nucleon doublet consists of a left-handed Weyl component
-$N_L$ in $(\fund_L, \mathbf{1}_R)$ and a right-handed Weyl component
-$N_R$ in $(\mathbf{1}_L, \fund_R)$.  In the all-left-handed convention,
-$N_R$ becomes $\widetilde{N}_L$ in $(\mathbf{1}_L, \antifund_R)$.
-
-However, this does not produce the right matching.  The correct approach
-is to recognise that the nucleon is a \emph{Dirac} fermion: the Dirac
-nucleon doublet contains $N_L$ (left-handed, $\fund$ of $\SU{2}_L$,
-$\mathbf{1}$ of $\SU{2}_R$, $B = 1$) and $N_R$ (right-handed,
-$\mathbf{1}$ of $\SU{2}_L$, $\fund$ of $\SU{2}_R$, $B = 1$).  In the
-all-left-handed convention, $N_R \to \tilde{N}_L$ with $\antifund_R$
-and $B = -1$ (as conjugation negates the $\UU{1}$ charge for the
-right-handed component when converting to a left-handed antiparticle).
-
-Wait---this is actually subtle.  Let us be careful.  For a Dirac nucleon
-with baryon number $B = 1$:
-\begin{itemize}
-  \item $N_L$: left-handed, $\fund_L$, $\mathbf{1}_R$, $B = +1$.
-  \item $N_R$: right-handed, $\mathbf{1}_L$, $\fund_R$, $B = +1$.
-\end{itemize}
-Convert $N_R$ to a left-handed field: $N_R \to \tilde{N}_L^c$ (left-handed,
-$\mathbf{1}_L$, $\antifund_R$, $B = -1$).
-
-Now compute the \IR{} anomalies:
-
-As noted in part~(a), $\SU{2}_L^3$ and $\SU{2}_R^3$ are identically zero
-($d^{abc} = 0$ for $\SU{2}$), so the non-trivial constraints come from
-the mixed anomalies.
-
-\underline{$\SU{2}_L^2\,\UU{1}_B$ (the key non-trivial check):}
-
-\UV{} (from part~(a)):
-$\mathcal{A}_{\UV}[\SU{2}_L^2\,\UU{1}_B] = \tfrac{1}{2}$.
-
-\IR{} ($N_L$ contributes with $B = 1$):
+\underline{$\SU{2}_L^2\,\UU{1}_B$:} only $N_L$ contributes,
 \begin{equation}
   \mathcal{A}_{\IR}[\SU{2}_L^2\,\UU{1}_B]
-  = 1 \times T(\fund_{\SU{2}}) \times 1
-  = \tfrac{1}{2}.
+  = T(\fund_{\SU{2}}) \times (+1)
+  = \tfrac{1}{2}
+  = \mathcal{A}_{\UV}. \quad\checkmark
 \end{equation}
 
-Match: $\tfrac{1}{2} = \tfrac{1}{2}$. \quad$\checkmark$
-
-\underline{$\SU{2}_R^2\,\UU{1}_B$:}
-
-\UV:
-\begin{equation}
-  \mathcal{A}_{\UV}[\SU{2}_R^2\,\UU{1}_B]
-  = 3 \times T(\fund_{\SU{2}}) \times (-\tfrac{1}{3})
-  = -\tfrac{1}{2}.
-\end{equation}
-(Using $B[\tilde{q}_L] = -1/3$ for the fields transforming under $\SU{2}_R$.)
-
-\IR{} ($\tilde{N}_L^c$ has $\antifund_R$ and $B = -1$): the Dynkin index
-$T(\antifund) = T(\fund) = 1/2$, so
+\underline{$\SU{2}_R^2\,\UU{1}_B$:} only $\widetilde{N}_L$ contributes,
+with $T(\antifund) = T(\fund) = 1/2$:
 \begin{equation}
   \mathcal{A}_{\IR}[\SU{2}_R^2\,\UU{1}_B]
-  = 1 \times T(\fund_{\SU{2}}) \times (-1)
-  = -\tfrac{1}{2}.
+  = T(\antifund_{\SU{2}}) \times (-1)
+  = -\tfrac{1}{2}
+  = \mathcal{A}_{\UV}. \quad\checkmark
 \end{equation}
 
-Match: $-\tfrac{1}{2} = -\tfrac{1}{2}$. \quad$\checkmark$
-
-\underline{$\UU{1}_B^3$:}
-
-\UV: $0$ (computed above).
-
-\IR: $N_L$ has $B = +1$, $\tilde{N}_L^c$ has $B = -1$:
+\underline{$\UU{1}_B^3$} (the factor $2$ counts the doublet components):
 \begin{equation}
   \mathcal{A}_{\IR}[\UU{1}_B^3]
   = 2 \times (+1)^3 + 2 \times (-1)^3
-  = 2 - 2 = 0.
+  = 0
+  = \mathcal{A}_{\UV}. \quad\checkmark
 \end{equation}
-(The factor of 2 accounts for the two components of each $\SU{2}$
-doublet.)
-
-Match: $0 = 0$. \quad$\checkmark$
 
 \underline{$\UU{1}_B$-gravitational:}
-
-\UV: $0$.
-
-\IR:
 \begin{equation}
   \mathcal{A}_{\IR}[\UU{1}_B\text{-grav}]
   = 2 \times (+1) + 2 \times (-1)
-  = 0.
+  = 0
+  = \mathcal{A}_{\UV}. \quad\checkmark
 \end{equation}
 
-Match: $0 = 0$. \quad$\checkmark$
+The purely cubic $\SU{2}_{L,R}^3$ anomalies vanish identically on both
+sides.  In the \UV{} each flavour doublet appears $\Nc$ times with
+$B = 1/\Nc$; in the \IR{} one doublet appears once with $B = 1$, and the
+two sets of coefficients coincide.
 
 \bigskip
 
-\textbf{Conclusion:} All anomaly matching conditions are satisfied by the
-\IR{} spectrum consisting of 3 massless Goldstone pions (which do not
-contribute to anomalies) plus a massless nucleon Dirac doublet.  The
-$\SU{2}^3$ purely cubic anomaly vanishes identically for $\SU{2}$ (no
-$d$-symbol), so the non-trivial checks are the mixed anomalies
-$\SU{2}_{L,R}^2\,\UU{1}_B$.
+\textbf{Conclusion:} Anomaly matching is consistent with both phases.
+In phase~(I) the massless spectrum is the three pions, the nucleons are
+massive, and the WZW term carries the anomalies of the broken
+generators.  In phase~(II) a massless nucleon doublet with $N_L$ in
+$(\fund_L, \mathbf{1}_R)$ and $N_R$ in $(\mathbf{1}_L, \fund_R)$
+matches every coefficient.  The non-trivial checks are the mixed
+anomalies $\SU{2}_{L,R}^2\,\UU{1}_B$, since the $\SU{2}^3$ anomalies
+vanish identically.
 
-\textit{Remark:} In the real world, the nucleon mass $m_N \approx 940$~MeV
-is not zero.  Anomaly matching applies in the \emph{chiral limit}
-$m_q \to 0$.  The matching tells us that if the quarks were exactly
-massless, the nucleon would need to be massless too (or else the anomaly
-matching would require massless baryonic fermions in another
-representation).
+\textit{Remark:} Anomaly matching alone does not select the phase for
+$\Nf = 2$; the choice is dynamical.  Real-world QCD realises phase~(I):
+the pions are light, and the nucleon mass $m_N \approx 940$~MeV stays
+large in the chiral limit because it is generated by chiral symmetry
+breaking.  For $\Nf \geq 3$, 't~Hooft showed that massless three-quark
+baryons cannot satisfy all the matching conditions together with the
+persistent-mass (decoupling) condition, so chiral symmetry must
+break~\cite{tHooft1980}.
 \end{proof}
 
 \newpage
@@ -592,7 +620,7 @@ $\UU{1}_B$-grav & $0$ & $Q$ and $\widetilde{Q}$ cancel \\
 \end{center}
 
 These are exactly the UV anomaly coefficients tabulated in Lecture~1,
-\S\ref*{sec:general-anomaly}.  They will be the primary tool for verifying
+\S6.  They will be the primary tool for verifying
 Seiberg duality in Exercise Set~3.
 
 \textbf{(b)} \emph{All six} anomaly coefficients must be matched by any
@@ -603,11 +631,10 @@ proposed spectrum is ruled out.
 The axial symmetry $\UU{1}_A$ (under which $Q \to e^{i\alpha}Q$ and
 $\widetilde{Q} \to e^{i\alpha}\widetilde{Q}$) is \emph{anomalous} with
 respect to the gauge group $\SU{\Nc}$.  The ABJ anomaly explicitly breaks
-$\UU{1}_A$ to the discrete subgroup $\mathbb{Z}_{2\Nf}$.  Since $\UU{1}_A$
-is not an exact symmetry of the quantum theory, the 't~Hooft matching
-argument (which relies on gauging the global symmetry via spectator fields)
-does not apply to it.  The $\UU{1}_A$ anomaly is a genuine symmetry
-\emph{breaking}, not a matching constraint.
+$\UU{1}_A$ to the discrete subgroup $\mathbb{Z}_{2\Nf}$.  The 't~Hooft
+matching argument gauges the global symmetry with spectator fields, which
+requires an exact symmetry of the quantum theory.  The ABJ anomaly breaks
+$\UU{1}_A$ explicitly, so it imposes no matching condition.
 \end{proof}
 
 \newpage
@@ -764,14 +791,22 @@ theory (such as QCD with $Q + \widetilde{Q}$), the fermions come in
 conjugate pairs and one can always write a gauge-invariant mass term
 $m\,Q\widetilde{Q}$.
 
-Here, the $\mathbf{10}$ and $\overline{\mathbf{5}}$ are \emph{not}
-conjugate representations of $\SU{5}$---the $\mathbf{10}$ is the
-antisymmetric tensor $\Psi^{[\alpha\beta]}$ and the $\overline{\mathbf{5}}$
-is $\chi_\alpha$.  The only gauge-invariant bilinear one could form is
-$\epsilon_{\alpha\beta\gamma\delta\epsilon}\Psi^{[\alpha\beta]}\Psi^{[\gamma\delta]}\chi^\epsilon$,
-but this is a cubic (Yukawa-type) coupling, not a mass term.  There is
-\emph{no} gauge-invariant fermion bilinear $\bar{\psi}\psi$, so no mass
-term is possible.
+Here the $\mathbf{10}$ (the antisymmetric tensor $\Psi^{[\alpha\beta]}$)
+and the $\overline{\mathbf{5}}$ ($\chi_\alpha$) are inequivalent,
+non-conjugate representations of $\SU{5}$.  A Lorentz-invariant mass
+term for left-handed Weyl fermions is a bilinear $\psi\psi$, so it needs
+a gauge singlet in the product of two of the representations present:
+\begin{equation}
+  \mathbf{10} \otimes \mathbf{10}
+  = \overline{\mathbf{5}} \oplus \overline{\mathbf{45}} \oplus \mathbf{50},
+  \qquad
+  \mathbf{10} \otimes \overline{\mathbf{5}} = \mathbf{5} \oplus \mathbf{45},
+  \qquad
+  \overline{\mathbf{5}} \otimes \overline{\mathbf{5}}
+  = \overline{\mathbf{10}} \oplus \overline{\mathbf{15}}.
+\end{equation}
+None of these products contains a singlet, so the theory admits no
+gauge-invariant mass term.
 
 \textbf{(iii)} Anomaly matching is particularly constraining for chiral
 theories because:
