@@ -74,7 +74,8 @@ magnetic theory is conjectural and is marked explicitly where it arises.
 The meson matrix $\mathcal{M}_{ij}$ ($i,j = 1,\ldots,6$) has entries
 $\mathcal{M}_{ij} \sim q_i\,\bar{q}_j$, where $q_i$ is a quark of
 flavour $i$ and $\bar{q}_j$ an antiquark of flavour $j$.  Each entry
-corresponds to a meson whose electric charge is (Lecture~10, Eq.~(10)):
+corresponds to a meson whose electric charge is (Lecture~10, meson-charge
+formula):
 \begin{equation}\label{eq:meson-charge-ex}
   Q_{\text{em}}(\mathcal{M}_{ij})
   = Q_{\text{em}}(q_i) - Q_{\text{em}}(q_j)\,.
@@ -94,7 +95,7 @@ B_q & 0 & 0 & 0 & 0 & -1 & 0 \\
 \end{array}
 \end{equation}
 For a meson with $B = 0$ (baryon number), the generalised
-Gell-Mann--Nishijima formula gives (Lecture~10, Eq.~(9)):
+Gell-Mann--Nishijima formula gives (Lecture~10):
 \begin{equation}\label{eq:GMN-ex}
   Q_{\text{em}} = I_3 + \tfrac{1}{2}(S + C + B_q)\,.
 \end{equation}
@@ -304,15 +305,21 @@ $D_s^-$ & $\mathcal{M}_{34}$ & $s\bar{c}$
 
 \textbf{Quantum number checks:}
 \begin{itemize}
-  \item $D^0 = c\bar{u}$: charm $C = +1$, no strangeness.
-    $Q = I_3 + (C+S)/2 = 0 + 1/2 = 1/2$?  No---$D^0$ has
-    $I_3 = -1/2$ (it is an isodoublet partner of $D^+$).
-
-    Actually, the charm meson isospin assignments depend on
-    convention.  For $c\bar{u}$:
-    $Q = Q(c) - Q(u) = 2/3 - 2/3 = 0$.  \checkmark
-  \item $D_s^+ = c\bar{s}$: $C = +1$, $S = +1$ ($\bar{s}$ contributes
-    $+1$).  $Q = 2/3 + 1/3 = +1$.  \checkmark
+  \item $D^0 = c\bar{u}$: $C = +1$, $S = 0$, and
+    $I_3 = I_3(c) - I_3(u) = 0 - \tfrac{1}{2} = -\tfrac{1}{2}$ (the
+    $\bar{u}$ carries $I_3 = -\tfrac{1}{2}$).  The
+    Gell-Mann--Nishijima formula gives
+    $Q = I_3 + \tfrac{1}{2}(S + C + B_q) = -\tfrac{1}{2} + \tfrac{1}{2}
+    = 0$, and directly $Q = Q(c) - Q(u) = \tfrac{2}{3} - \tfrac{2}{3} = 0$.
+    \checkmark
+  \item $D^+ = c\bar{d}$: $C = +1$, $I_3 = 0 - (-\tfrac{1}{2})
+    = +\tfrac{1}{2}$, so $Q = \tfrac{1}{2} + \tfrac{1}{2} = +1$.
+    Together, $(D^+, D^0)$ form an isospin doublet with
+    $I = \tfrac{1}{2}$, $I_3 = (+\tfrac{1}{2}, -\tfrac{1}{2})$.
+    \checkmark
+  \item $D_s^+ = c\bar{s}$: $I = 0$, $C = +1$, $S = +1$ ($\bar{s}$
+    contributes $+1$).  $Q = 0 + \tfrac{1}{2}(1 + 1) = +1$, and directly
+    $Q = \tfrac{2}{3} + \tfrac{1}{3} = +1$.  \checkmark
 \end{itemize}
 
 Note that $\mathcal{M}_{ij}$ and $\mathcal{M}_{ji}$ are
@@ -342,7 +349,8 @@ pions, however, are pseudoscalars ($J^P = 0^-$).  The resolution
 lies in the pattern of chiral symmetry breaking.
 
 The lowest component $\phi_{ij}$ of the meson superfield can be
-decomposed around the chiral condensate as (Lecture~10, Eq.~(15)):
+decomposed around the chiral condensate as (Lecture~10,
+$\sigma$--$\pi$ decomposition):
 \begin{equation}\label{eq:sigma-pi}
   \phi_{ij} = \frac{1}{\sqrt{2}}
   \bigl(v_{ij} + \sigma_{ij} + i\,\pi_{ij}\bigr)\,,
@@ -388,7 +396,7 @@ the pseudoscalar (phase) fluctuation ($J^P = 0^-$).
         \begin{align*}
           \fpi &= 92.1\;\text{MeV}\,, \\
           \qqbar &\approx -(270\;\text{MeV})^3\,, \\
-          m_u + m_d &\approx 8.5\;\text{MeV}
+          m_u + m_d &\approx 6.9\;\text{MeV}
             \quad(\overline{\text{MS}},\; \mu = 2\;\text{GeV})\,,
         \end{align*}
         compute $m_\pi$ numerically and compare with the observed
@@ -429,8 +437,13 @@ the pseudoscalar (phase) fluctuation ($J^P = 0^-$).
 \textit{(i) Scalar mode $\sigma_{12}$.}
 
 The entry $(1,2)$ corresponds to $u\bar{d}$.  The scalar
-($J^P = 0^+$) fluctuation $\sigma_{12}$ is the
-$a_0(980)^+$ meson, with mass $\sim 980\;\text{MeV}$.
+($J^P = 0^+$, isovector) fluctuation $\sigma_{12}$ is identified with
+the $a_0(980)^+$ meson, with mass $\sim 980\;\text{MeV}$, the lightest
+isovector scalar.  This identification is schematic: whether the
+$a_0(980)$ is a $q\bar{q}$ state is disputed, with four-quark and
+$K\bar{K}$-molecule interpretations also considered~\cite{PDG2024},
+and the $a_0(1450)$ is the other candidate for the isovector member of
+the $q\bar{q}$ scalar nonet.
 
 \textit{(ii) Pseudoscalar mode $\pi_{12}$.}
 
@@ -444,7 +457,7 @@ symmetry breaking
 $\SU{\Nf}_L \times \SU{\Nf}_R \to \SU{\Nf}_V$.  Goldstone's theorem
 guarantees that it would be exactly massless if the symmetry were
 exact; its mass arises only from the small explicit breaking by
-quark masses ($m_u, m_d \sim 5\;\text{MeV} \ll \Lchi$).
+quark masses ($m_u$ and $m_d$ are a few MeV, $\ll \Lchi$).
 
 The scalar meson $a_0$, by contrast, is \textbf{not} protected by any
 Goldstone mechanism.  It is a massive excitation of the condensate whose
@@ -487,35 +500,41 @@ vanishes and $m_\pi \to 0$.  The pions become true Goldstone bosons.
 \begin{align*}
   m_\pi^2
   &= \frac{(m_u + m_d)\,|\qqbar|}{\fpi^2} \\
-  &= \frac{8.5\;\text{MeV} \times (270\;\text{MeV})^3}
+  &= \frac{6.9\;\text{MeV} \times (270\;\text{MeV})^3}
     {(92.1\;\text{MeV})^2}\,.
 \end{align*}
 
 \textbf{Step 1:} $(270)^3 = 270 \times 270 \times 270 = 19{,}683{,}000\;\text{MeV}^3$.
 
-\textbf{Step 2:} Numerator: $8.5 \times 19{,}683{,}000
-= 167{,}306{,}000\;\text{MeV}^4 \approx 1.673 \times 10^8\;\text{MeV}^4$.
+\textbf{Step 2:} Numerator: $6.9 \times 19{,}683{,}000
+= 135{,}812{,}700\;\text{MeV}^4 \approx 1.358 \times 10^8\;\text{MeV}^4$.
 
 \textbf{Step 3:} Denominator: $(92.1)^2 = 8482\;\text{MeV}^2$.
 
 \textbf{Step 4:}
 \[
-  m_\pi^2 = \frac{1.673 \times 10^8}{8482}\;\text{MeV}^2
-  \approx 19{,}720\;\text{MeV}^2\,.
+  m_\pi^2 = \frac{1.358 \times 10^8}{8482}\;\text{MeV}^2
+  \approx 16{,}010\;\text{MeV}^2\,.
 \]
 
 \textbf{Step 5:}
 \[
-  m_\pi = \sqrt{19{,}720}\;\text{MeV}
-  \approx 140\;\text{MeV}\,.
+  m_\pi = \sqrt{16{,}010}\;\text{MeV}
+  \approx 127\;\text{MeV}\,.
 \]
 \[
-  \boxed{m_\pi \approx 140\;\text{MeV}\,.}
+  \boxed{m_\pi \approx 127\;\text{MeV}\,.}
 \]
 
-This matches the measured value $m_{\pi^\pm} = 139.6\;\text{MeV}$ to
-better than $1\%$, well within the $\sim 10\%$ uncertainties on the
-input parameters $m_u + m_d$ and $\qqbar$.
+This is $9\%$ below the measured $m_{\pi^\pm} = 139.6\;\text{MeV}$,
+within the accuracy of a leading-order relation.  The leading-order
+GMOR relation holds with the chiral-limit constants: replacing
+$\fpi = 92.1\;\text{MeV}$ by the chiral-limit decay constant
+$F \approx 87\;\text{MeV}$ ($\fpi/F \approx 1.06$~\cite{FLAG2024})
+gives $m_\pi \approx 134\;\text{MeV}$, close to
+$m_{\pi^0} = 135.0\;\text{MeV}$.  The condensate enters cubed, so its
+uncertainty matters as well: $(-\qqbar)^{1/3} = 288\;\text{MeV}$ would
+reproduce $139.6\;\text{MeV}$ with $\fpi = 92.1\;\text{MeV}$.
 \quad$\checkmark$
 
 \bigskip
@@ -539,10 +558,11 @@ $\phi_{ij}$ around its VEV.
 \emph{If the conjectured non-SUSY duality holds, the pseudoscalar
 meson $\pi^+$ corresponds to the phase fluctuation of the chiral
 condensate $\langle \phi_{12} \rangle$ of the dual meson field.  The
-scalar lowest component $\phi_{12}$ of the chiral superfield $M_{12}$
-maps instead to the scalar meson $a_0(980)^+$.  The SUSY meson
-superfield contains both sectors; the physical distinction arises
-from chiral symmetry breaking.}
+amplitude fluctuation $\sigma_{12}$ of the same complex scalar
+$\phi_{12}$ maps to the isovector scalar meson, identified with
+$a_0(980)^+$ (whose $q\bar{q}$ nature is itself debated).  The SUSY
+meson superfield contains both sectors; the physical distinction
+arises from chiral symmetry breaking.}
 \end{quote}
 
 The key point is that a single complex scalar field $\phi_{ij}$
@@ -568,9 +588,10 @@ scalars $\sigma$ and the pseudoscalars $\pi$.
 \noindent\textbf{Background.}
 In the dualised Standard Model (Lectures~7--8), \emph{if the
 conjectured duality holds}, the effective Yukawa couplings are
-(Lecture~7, Eq.~(14)):
+(Lecture~7, effective Yukawa matrices):
 \begin{equation}\label{eq:eff-yukawa}
-  Y_{ij} = y\,\frac{\langle H_{ij} \rangle}{v}\,,
+  Y_{ij} = \sqrt{2}\,y\,\frac{\langle H_{ij} \rangle}{v}\,,
+  \qquad v = 246\;\text{GeV}\,,
 \end{equation}
 where $y$ is a single universal coupling and $\langle H_{ij} \rangle$
 is the VEV of the $(i,j)$-th Higgs doublet.  The fermion masses are
@@ -598,19 +619,19 @@ electric theory with $\mathcal{O}(1)$ dimensionless coefficients.
 \begin{enumerate}[label=(\alph*)]
 
   \item \textbf{[5 marks]}
-    If $\langle H_{33}^u \rangle$ is the dominant VEV (comparable to
-    the electroweak scale $v$), and the universal Yukawa coupling $y$
-    is $\mathcal{O}(1)$:
+    If $\langle H_{33}^u \rangle$ is the dominant VEV, saturating the
+    sum rule at $\langle H_{33}^u \rangle \approx v/\sqrt{2}$, and the
+    universal Yukawa coupling $y$ is $\mathcal{O}(1)$:
     \begin{enumerate}[label=(\roman*)]
       \item Show that the top quark mass is
-        $m_t = y\,\langle H_{33}^u \rangle \sim v \sim 174\;\text{GeV}$.
+        $m_t = y\,\langle H_{33}^u \rangle \approx y\,v/\sqrt{2}
+        \sim 174\;\text{GeV}$.
       \item Explain why this is a parametric consistency check
         (not a prediction): what are the free parameters?
     \end{enumerate}
 
   \item \textbf{[10 marks]}
-    The observed quark masses at $\mu = 2\;\text{GeV}$ in the
-    $\overline{\text{MS}}$ scheme are approximately~\cite{PDG2024}:
+    The observed quark masses are approximately~\cite{PDG2024}:
     \begin{equation}\label{eq:quark-masses}
     \renewcommand{\arraystretch}{1.2}
     \begin{array}{lrl}
@@ -622,7 +643,11 @@ electric theory with $\mathcal{O}(1)$ dimensionless coefficients.
       m_b \approx 4180\;\text{MeV}\,.
     \end{array}
     \end{equation}
-    (Note: $m_t$ is the pole mass; the others are running masses.)
+    (Note: $m_u$, $m_d$, $m_s$ are $\overline{\text{MS}}$ masses at
+    $\mu = 2\;\text{GeV}$; $m_c$ and $m_b$ are $\overline{\text{MS}}$
+    masses at their own scale, $m_c(m_c)$ and $m_b(m_b)$; $m_t$ is the
+    pole mass.  The ratios below mix scales, which is adequate for the
+    order-of-magnitude question asked here.)
 
     \begin{enumerate}[label=(\roman*)]
       \item Compute the quark mass ratios $m_t/m_c$, $m_c/m_u$,
@@ -670,16 +695,17 @@ electric theory with $\mathcal{O}(1)$ dimensionless coefficients.
 
 \textbf{(a) Top quark mass.}
 
-\textit{(i)} With the dominant VEV $\langle H_{33}^u \rangle \sim v$
-(the electroweak scale) and $y \sim \mathcal{O}(1)$:
+\textit{(i)} With the dominant VEV
+$\langle H_{33}^u \rangle \approx v/\sqrt{2}$ and $y \sim \mathcal{O}(1)$:
 \[
-  m_t = y\,\langle H_{33}^u \rangle \sim y \times v
+  m_t = y\,\langle H_{33}^u \rangle \approx y \times \frac{v}{\sqrt{2}}
   \sim 1 \times 174\;\text{GeV} = 174\;\text{GeV}\,.
 \]
-(Here $v = (\sqrt{2}\,G_F)^{-1/2} \approx 246\;\text{GeV}$ and
+(Here $v = (\sqrt{2}\,G_F)^{-1/2} = 246\;\text{GeV}$ and
 $m_t = y_t\,v/\sqrt{2} \approx y_t \times 174\;\text{GeV}$.  Since
-$y_t = y\,\langle H_{33}^u\rangle/v$ and $\langle H_{33}^u\rangle
-\sim v$, we get $y_t \sim y \sim \mathcal{O}(1)$.)
+$y_t = \sqrt{2}\,y\,\langle H_{33}^u\rangle/v$ and
+$\langle H_{33}^u\rangle \approx v/\sqrt{2}$, we get
+$y_t \approx y \sim \mathcal{O}(1)$.)
 
 This matches the observed $m_t \approx 173\;\text{GeV}$.
 \quad$\checkmark$
@@ -747,9 +773,9 @@ $m_{n+1}/m_n \sim 1/\epsilon$.  Therefore:
 
 \textit{(iii) Can a single $\epsilon$ work?}
 
-\textbf{No.}  The four values of $\epsilon$ range from $0.0017$ to
-$0.050$---a factor of $\sim 30$.  A \textbf{single} geometric ratio
-$\epsilon$ cannot simultaneously reproduce all four mass ratios.
+\textbf{Not exactly.}  The four values of $\epsilon$ range from
+$0.0017$ to $0.050$, a factor of $\sim 30$, so no single geometric
+ratio reproduces all four mass ratios on its own.
 
 This is \textbf{expected} in the Cacciapaglia--Sannino
 framework~\cite{CacciapagliaSannino2024}: the VEV hierarchy is
@@ -771,9 +797,11 @@ the actual ratios $(0.002 \text{ to } 0.05)$ differ from $0.01$ by
 factors of $0.2$ to $5$, which are all $\mathcal{O}(1)$.
 
 \[
-  \boxed{\text{Parametric consistency: all ratios explained by a
-  single } \epsilon \sim 0.01 \text{ with } \mathcal{O}(1)
-  \text{ coefficients.}}
+  \boxed{\begin{gathered}
+  \text{Parametric consistency: a common } \epsilon \sim 0.01
+  \text{ accommodates all four ratios}\\
+  \text{with coefficients between } 0.2 \text{ and } 5.
+  \end{gathered}}
 \]
 
 \bigskip
@@ -809,8 +837,9 @@ duality holds):
   \item \textbf{A UV origin for the meson matrix structure:}  The
     $6 \times 6$ meson matrix arises as an elementary field in the
     magnetic theory, rather than being an ad hoc effective field.
-    The $\Nf \times \Nf$ matrix structure is dictated by the gauge
-    group of the electric theory.
+    The $\Nf \times \Nf$ matrix structure is dictated by the
+    $\SU{\Nf}_L \times \SU{\Nf}_R$ flavour symmetry of the electric
+    theory; the gauge group makes the meson a singlet.
 
   \item \textbf{The universal Yukawa coupling:} All Yukawa couplings
     arise from a single coupling $y$ in the magnetic superpotential,
@@ -820,9 +849,12 @@ duality holds):
     (though the operators introduce their own free coefficients).
 
   \item \textbf{Connection between the Higgs sector and strong
-    dynamics:}  The Higgs doublets are identified with entries of the
-    meson matrix, providing a structural link between
-    electroweak symmetry breaking and the strong interaction sector.
+    dynamics:}  If the conjectured duality holds, the Higgs doublets
+    are the entries of the mes-Higgs matrix $\Phi_H$, which carries the
+    same $(\mathbf{6}, \bar{\mathbf{6}})$ flavour structure as the dual
+    mesons (Lecture~10, Higgs--meson correspondence).  This provides a
+    structural link between electroweak symmetry breaking and the
+    strong interaction sector.
 \end{enumerate}
 
 \end{proof}
@@ -838,8 +870,9 @@ aspects of the physical meson identification: the quantum numbers of
 the flavour meson matrix are completely determined by quark content
 and the Gell-Mann--Nishijima formula (Problem~1); the distinction
 between scalar and pseudoscalar mesons arises from chiral symmetry
-breaking, with the GMOR relation confirming
-$m_\pi \approx 140\;\text{MeV}$ (Problem~2); and the fermion mass
+breaking, with the leading-order GMOR relation giving
+$m_\pi \approx 127\;\text{MeV}$, within $10\%$ of the measured value
+(Problem~2); and the fermion mass
 hierarchy can be parametrically accommodated by a VEV hierarchy with
 $\mathcal{O}(1)$ coefficients, consistent with but not predictive
 beyond standard QCD (Problem~3).}
@@ -852,20 +885,20 @@ beyond standard QCD (Problem~3).}
 \begin{thebibliography}{99}
 
 \bibitem{PDG2024}
-  R.~L.~Workman \textit{et al.} (Particle Data Group),
+  S.~Navas \textit{et al.} (Particle Data Group),
   ``Review of Particle Physics,''
   \textit{Phys.\ Rev.\ D} \textbf{110} (2024) 030001.
 
 \bibitem{FLAG2024}
   Y.~Aoki \textit{et al.} (FLAG),
-  ``FLAG Review 2024,''
-  \textit{Eur.\ Phys.\ J.\ C} \textbf{84} (2024) 148
+  ``FLAG Review 2021,''
+  \textit{Eur.\ Phys.\ J.\ C} \textbf{82} (2022) 869
   [\texttt{arXiv:2111.09849}].
 
 \bibitem{CacciapagliaSannino2024}
   G.~Cacciapaglia and F.~Sannino,
-  ``The Dualised Standard Model,''
-  \texttt{arXiv:2407.17281} [hep-ph] (2024).
+  ``Charting Standard Model Duality and its Signatures,''
+  arXiv:2407.17281 [hep-ph] (2024).
 
 \bibitem{GMOR1968}
   M.~Gell-Mann, R.~J.~Oakes, and B.~Renner,
