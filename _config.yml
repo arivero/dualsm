@@ -12,3 +12,7 @@ exclude:
   - "6"
   - .gpd/
   - scripts/
+  - assessment/
+  - OPUS_IDEAS.md
+  - cantor
+  - recap

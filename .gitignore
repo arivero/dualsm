@@ -16,3 +16,11 @@
 
 # Misc
 nohup.out
+
+# Local-browsing symlinks to sibling repositories (dead on GitHub)
+/3
+/4
+/5
+/6
+/cantor
+/recap
