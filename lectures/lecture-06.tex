@@ -97,16 +97,24 @@ which of these pillars survive and which do not.
     spaces can be mapped one-to-one via the meson operator
     $M^i_j = Q^i \widetilde{Q}_j / \Lambda$.  This provides an
     infinite family of consistency checks---one for each point on the
-    moduli space.
+    moduli space.  (Normalisation: Lectures~2--3 write the meson as
+    $M = Q\widetilde{Q}$, of mass dimension~2.  From here on, and in
+    Lecture~7, $M = Q\widetilde{Q}/\Lambda$ has mass dimension~1, the
+    canonical dimension of the elementary magnetic meson, and the dual
+    superpotential $\Wsup_{\mathrm{mag}} = (1/\mu)\,(\Lambda M)\,q\widetilde{q}$
+    of Lecture~3 reads $h\,M q\widetilde{q}$ with the dimensionless
+    coupling $h = \Lambda/\mu$.)
 
-  \item \textbf{'t~Hooft anomaly matching} (Lecture~1, verified
-    in Lecture~3).  All six independent anomaly
-    coefficients---$\SU{\Nf}_L^3$, $\SU{\Nf}_R^3$,
-    $\SU{\Nf}_L^2\,\UU{1}_B$, $\SU{\Nf}_R^2\,\UU{1}_B$,
-    $\UU{1}_B^3$, $\UU{1}_B$-gravitational---match exactly between
-    the electric and magnetic descriptions as polynomial identities in
-    $\Nc$ and $\Nf$ (validated by \texttt{verify\_anomaly\_matching.py},
-    7/7 symbolic checks).
+  \item \textbf{'t~Hooft anomaly matching} (Lecture~1; Lecture~3,
+    \S4).  In SQCD the global symmetry includes $\UU{1}_R$, and
+    Lecture~3 matches seven anomaly coefficients---$\SU{\Nf}_L^3$,
+    $\SU{\Nf}_R^3$, $\SU{\Nf}_L^2\,\UU{1}_B$, $\SU{\Nf}_L^2\,\UU{1}_R$,
+    $\UU{1}_B^2\,\UU{1}_R$, $\UU{1}_R$-gravitational and
+    $\UU{1}_R^3$---exactly between the electric and magnetic descriptions
+    as polynomial identities in $\Nc$ and $\Nf$ (validated by
+    \texttt{verify\_anomaly\_matching.py}, 7/7 symbolic checks).  The
+    remaining coefficients, including the non-$R$ set of Lecture~1, \S6,
+    follow by the $L \leftrightarrow R$ symmetry or vanish on both sides.
 \end{enumerate}
 
 \subsection{What is lost}
@@ -229,8 +237,8 @@ ordinary QCD effective Lagrangian.
 
 The Sannino--Schechter model \emph{suggests} that the duality structure
 encoded in the SUSY effective Lagrangian may persist, in some form,
-after SUSY breaking.  The QCD-like degrees of freedom that emerge are
-not ad hoc additions but arise organically from the SUSY structure.
+after SUSY breaking.  The QCD-like degrees of freedom that emerge come
+from the SUSY structure itself.
 Sannino and Schechter themselves described this as an ``amusing feature''
 of their model~\cite{SS1997}.
 
@@ -341,6 +349,18 @@ of the global symmetry group, with multiplicities and $\UU{1}_V$
 charges determined by the anomaly matching equations.  The full
 spectrum is tabulated in Table~III of~\cite{Sannino2009}.
 
+\begin{remark}[A different map in Lecture~7]
+  Lecture~7 uses the map $X = \Nf - N$ of Cacciapaglia and
+  Sannino~\cite{CacciapagliaSannino2024}, which belongs to a different
+  electric theory: $\SU{N}$ with $\Nf$ Dirac flavours \emph{plus one
+  adjoint Weyl fermion}, the fermion content of SQCD without squarks.
+  The adjoint fermion brings an extra anomaly-free axial symmetry
+  $\UU{1}_{AF}$, and anomaly matching then admits the Seiberg rank
+  $\Nf - N$ with the quasi-supersymmetric magnetic spectrum of
+  Lecture~7.  The map~\eqref{eq:dual-gauge-group} applies to plain
+  QCD-like theories without the adjoint.
+\end{remark}
+
 \subsection{Consistency checks}
 
 \emph{If the conjectured duality holds}, Sannino's solution passes
@@ -402,7 +422,7 @@ electric theory.
 
 \subsection{The SUSY precursor: Maekawa--Takahashi}
 
-\textit{Status: established SUSY construction --- Seiberg duality in the Pati--Salam sector is proven within $\mathcal{N}=1$ SQCD.}
+\textit{Status: SUSY construction --- it rests on Seiberg duality in the Pati--Salam sector, a conjecture with strong evidence within $\mathcal{N}=1$ SQCD (Lecture~3, \S6).}
 
 The direct SUSY precursor of this construction was provided by
 Maekawa and Takahashi~\cite{MT1996}, who constructed the Seiberg dual
@@ -465,17 +485,17 @@ theory}, three remarkable consequences follow:
       \qquad\Longrightarrow\qquad
       \boxed{n_g \;\geq\; 3\,.}
     \end{equation}
-    \emph{If the duality holds}, the existence of at least three
-    generations of quarks and leptons is not an accident but a
-    \emph{mathematical requirement} for the electric dual to be a
-    non-trivial gauge theory.  Requiring asymptotic freedom of the
-    magnetic theory further constrains $n_g \leq 6$~\cite{Sannino2011}.
+    \emph{If the duality holds}, at least three generations of quarks
+    and leptons are required for the electric dual to be a non-trivial
+    gauge theory.  Requiring asymptotic freedom of the magnetic theory
+    further constrains $n_g \leq 6$~\cite{Sannino2011}.
 
   \item \textbf{Common Yukawa origin.}  The Yukawa couplings of the SM
     arise from the magnetic interaction Lagrangian, which has the
     schematic form $\mathcal{L}_{\mathrm{mag}} \supset
     Y\, q\, M\, \widetilde{q}$---the non-SUSY analogue of the SUSY
-    magnetic superpotential $\Wsup_{\mathrm{mag}} = M\,q\,\widetilde{q}/\mu$.
+    magnetic superpotential $\Wsup_{\mathrm{mag}} = h\,M\,q\,\widetilde{q}$
+    (with $M$ normalised as in \S\ref{sec:what-we-lose}).
     \emph{If the duality holds}, all Yukawa couplings share a common
     dynamical origin rather than being independent free parameters.
 \end{enumerate}
@@ -595,8 +615,7 @@ extends to finite $N$ is unknown.
 
 We now state, as the concluding point of this lecture, the
 \textbf{central vulnerability} of the non-SUSY duality programme.
-This is not a footnote or caveat---it is the most important
-intellectual content of the lecture.
+It is the most important intellectual content of the lecture.
 
 \subsection{The vulnerability stated}
 
@@ -606,12 +625,13 @@ intellectual content of the lecture.
 
   \medskip
 
-  In SUSY, duality is established by \textbf{four independent
+  In SUSY, duality is supported by \textbf{four independent
   pillars} working together (\S\ref{sec:what-we-lose}):
   anomaly matching, holomorphy, moduli space matching, and the NSVZ
   exact beta function (plus the superconformal index as a fifth check).
-  The convergence of multiple independent lines of evidence is what
-  makes SUSY duality \emph{proven}.
+  The convergence of these independent lines of evidence is why SUSY
+  duality, still formally a conjecture (Lecture~3, \S6), is treated as
+  established.
 
   \medskip
 
@@ -652,7 +672,8 @@ The answer involves four considerations:
     is non-trivial.
 
   \item \textbf{The SUSY evidence is suggestive.}  Seiberg duality
-    for SQCD is proven.  The physical picture of tumbling plus
+    for SQCD is backed by strong evidence (Lecture~3, \S6).  The physical
+    picture of tumbling plus
     complementarity (Lecture~5) provides a mechanism that does not
     intrinsically require SUSY.  The Sannino--Schechter toy model
     (\S\ref{sec:sannino-schechter}) shows that QCD-like degrees of
@@ -668,10 +689,10 @@ The answer involves four considerations:
     couplings.  These are testable consequences of the framework,
     not tautologies.
 
-  \item \textbf{Belief is not proof.}  We study the framework
-    \emph{because} it is the most economical and well-motivated
-    conjecture consistent with all available evidence---not because
-    it is established.  Independent validation is needed:
+  \item \textbf{Motivation, pending validation.}  We study the
+    framework because it is the most economical and well-motivated
+    conjecture consistent with all available evidence; it remains
+    unestablished until independent validation arrives:
     \begin{itemize}
       \item \textbf{Lattice:} Direct numerical verification of the
         non-SUSY conformal window structure and the duality map.
@@ -846,8 +867,8 @@ will develop in Lectures~7--8.
 
 \bibitem{MT1996}
   N.~Maekawa and T.~Takahashi,
-  ``Duality of SUSY model with Pati--Salam group,''
-  \textit{Prog.~Theor.~Phys.} \textbf{95} (1996) 943
+  ``Duality of a supersymmetric model with the Pati--Salam group,''
+  \textit{Prog.~Theor.~Phys.} \textbf{95} (1996) 1167
   [\texttt{hep-ph/9510426}].
 
 \bibitem{PS1974}
@@ -876,8 +897,8 @@ will develop in Lectures~7--8.
 
 \bibitem{CacciapagliaSannino2024}
   G.~Cacciapaglia and F.~Sannino,
-  ``Charting SM duality and its signatures,''
-  [\texttt{arXiv:2407.17281}].
+  ``Charting Standard Model Duality and its Signatures,''
+  arXiv:2407.17281 [hep-ph] (2024).
 
 \bibitem{Seiberg1995}
   N.~Seiberg,
