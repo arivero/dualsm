@@ -1,0 +1,10 @@
+# Lecture 3 Content Assessment
+Source: `lectures/lecture-03.tex`
+
+Scope: SQCD phase structure, the statement of Seiberg duality, the magnetic quantum numbers, anomaly matching, mass deformation, and moduli-space evidence.
+
+Strengths: This is the most technically dense lecture so far, and it is organized around a coherent proof strategy: first define the electric and magnetic theories, then match quantum numbers, then verify the independent anomalies, then check deformation and moduli-space consistency. That structure is strong pedagogically because it gives the reader multiple independent reasons to believe the duality. The warning about using fermion, not superfield, R-charges is especially valuable. The anomaly-matching section is also careful about which coefficients are independent and why.
+
+Concerns: The density of the anomaly computations makes the exposition easy to lose. Several of the later coefficients are verified by algebraic expansion without enough intermediate framing, so the reader has to trust multiplicity bookkeeping that is only partially visible on the page. The mass-deformation section is physically plausible, but the Higgsing argument and the scale-matching consistency are stated faster than they are derived; a reader new to Seiberg duality may not see why the magnetic gauge group must reduce by one rank without a more explicit bridge. There is also a mild risk that the lecture overstates the level of proof: the evidence is strong, but the narrative should keep clear that Seiberg duality remains a conjecture supported by many checks rather than a theorem in the mathematical sense.
+
+Suggestions: Insert a compact summary table of the electric and magnetic representations before the anomaly section, so the later coefficient computations have a stable reference point. Add one paragraph explaining the physical logic of the Higgsing in the mass-deformation argument before moving to scale matching. Finally, make the "status as a conjecture" language slightly more prominent in the summary so the lecture remains intellectually precise while still presenting the duality as operationally established for course purposes.

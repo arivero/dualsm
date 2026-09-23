@@ -1,0 +1,10 @@
+# Lecture 2 Content Assessment
+Source: `lectures/lecture-02.tex`
+
+Scope: Minimal N=1 supersymmetry, superfields, gauge couplings, the scalar potential, non-renormalisation, the NSVZ beta function, SQCD symmetries, and the moduli-space setup.
+
+Strengths: The lecture does a solid job of building SUSY from first principles for readers who know only standard QFT. The progression from the algebra to chiral and vector superfields, then to the Lagrangian and scalar potential, is pedagogically clean. The explicit degree-of-freedom counting is helpful, and the repeated emphasis on holomorphy, auxiliary fields, and the distinction between perturbative and non-perturbative effects sets up the later duality material well. The SQCD symmetry analysis is also clear and well motivated.
+
+Concerns: A few claims are stated in a stronger form than the surrounding argument supports. The non-renormalisation theorem section correctly distinguishes perturbative from non-perturbative corrections, but the phrasing still risks giving the impression that the superpotential is absolutely fixed, rather than perturbatively exact. The NSVZ discussion is useful, yet the justification for the one-loop check is compressed enough that the role of the SUSY particle content can feel like a rule rather than a derived consequence. The preview of the magnetic superpotential in the R-charge section is logically useful, but it does ask the reader to accept later results before they have been earned.
+
+Suggestions: Add one short sentence after the non-renormalisation theorem that makes the perturbative/non-perturbative boundary explicit. In the NSVZ subsection, it would help to separate the structural statement of the exact beta function from the one-loop bookkeeping check so readers can see which parts are exact and which are a consistency test. Finally, consider flagging the magnetic-theory preview as provisional, so the lecture can foreshadow Lecture 3 without reading as if it has already imported those results. Overall the content is strong; the main improvement would be more deliberate signposting of what is established here versus what is deferred.

@@ -1,0 +1,10 @@
+# Lecture 1 Content Assessment
+Source: `lectures/lecture-01.tex`
+
+Scope: Introduction, anomaly matching, the QCD warm-up, the general SQCD anomaly tables, and the non-supersymmetric conformal-window discussion.
+
+Strengths: The lecture has a clear conceptual spine. It distinguishes gauge-anomaly cancellation from 't Hooft anomaly matching early, then reuses that distinction consistently in the warm-up and general SQCD sections. The QCD example is pedagogically effective because it shows why anomaly matching is not just a bookkeeping exercise: the naive baryon-only IR spectrum fails, and the WZW term supplies the missing anomaly information. The later conformal-window discussion also does a good job separating exact statements from model-dependent estimates.
+
+Concerns: The opening course goals are broader than what this lecture actually establishes. In particular, the promise of parametric expressions for the fermion hierarchy, the Fermi scale, and Lambda_QCD reads like a programmatic claim rather than something supported by the lecture content. That weakens trust in the framing. The QCD warm-up is sound, but the transition from fermions to Goldstone physics is brisk; readers may not fully understand why anomaly matching survives spontaneous symmetry breaking unless the role of the WZW term is made more explicit. The conformal-window section also moves between non-supersymmetric two-loop estimates and the later exact SUSY result quickly, so the boundary between rigorous and heuristic statements could be sharper.
+
+Suggestions: Narrow the introductory course goals to what Lecture 1 actually delivers, or explicitly label the scale/hierarchy claims as later-course ambitions. Add one short bridge sentence in the QCD example explaining why Goldstones still carry anomaly information through the WZW term. In the conformal-window section, state more explicitly which boundaries are exact, which are perturbative estimates, and which are only qualitative. A brief closing paragraph summarizing how these tools will be reused in the SQCD lectures would also strengthen the pedagogical flow.
