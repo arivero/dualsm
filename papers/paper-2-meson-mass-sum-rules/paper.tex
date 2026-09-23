@@ -1,6 +1,6 @@
 % ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2
 %
-% Paper 2: Dual Meson Mass Sum Rules from the 6x6 Flavour Matrix
+% Paper 2: Meson Mass Sum Rules in the Dual 6x6 Flavour Matrix Framework
 % Part of the Dualised Standard Model research programme
 %
 \documentclass[11pt,a4paper]{article}
@@ -61,24 +61,28 @@
 \begin{abstract}
 The dualised Standard Model identifies the $\Nf \times \Nf$ meson
 flavour matrix $\mathcal{M}_{ij} = q_i \bar{q}_j$ with the elementary
-mes-Higgs field of the magnetic dual theory.  We systematically derive
-the algebraic mass sum rules that follow from this $6 \times 6$ matrix
-structure, combined with chiral perturbation theory in the light sector,
-heavy quark symmetry in the heavy-light sector, and the scalar democracy
-VEV hierarchy.  We identify six classes of sum rules: (I) the
+mes-Higgs field of the magnetic dual theory.  We organise the meson
+mass sum rules that apply to the entries of this $6 \times 6$ matrix,
+using chiral perturbation theory in the light sector, heavy quark
+symmetry in the heavy-light sector, the additive quark model in the
+heavy-heavy sector, and the scalar democracy VEV hierarchy.  We
+identify six classes of sum rules: (I) the
 Gell-Mann--Oakes--Renner relation and its kaon extension;
 (II) the Gell-Mann--Okubo mass formula with $\eta$--$\eta'$ mixing;
 (III) heavy quark symmetry flavour splittings; (IV) the $B_c$ mass
-sum rule $m_{B_c} \approx (m_{J/\psi} + m_\Upsilon)/2$; (V) scalar
-democracy geometric hierarchy relations; and (VI) heavy-light analogues
+sum rule $m_{B_c} \approx (m_{\eta_c} + m_{\eta_b})/2$; (V) the scalar
+democracy geometric hierarchy relation; and (VI) heavy-light analogues
 of the Gell-Mann--Okubo formula.  All sum rules are tested against
-PDG~2024 data.  We find that sum rules~I--IV and~VI are consequences of
-standard QCD symmetries (chiral symmetry, heavy quark symmetry, and the
-additive quark model) and are well satisfied; the dual meson language
-makes the flavour structure manifest but does not yield numerically new
-predictions beyond ChPT and HQET.  Sum rule~V---the scalar democracy
-geometric hierarchy $m_s/m_t \approx (m_b/m_t)^2$---is the only
-genuinely framework-specific test and holds at the $\sim 8\%$ level.
+PDG~2024 data.  Sum rules~I--IV and~VI are consequences of standard QCD
+symmetries (chiral symmetry, heavy quark symmetry, and the additive
+quark model) and are well satisfied; the matrix makes their flavour
+structure manifest, while their derivations are those of ChPT, HQET and
+the quark model.  Sum rule~V---the scalar democracy geometric hierarchy
+$m_s m_t \approx m_b^2$---is the only framework-specific test.  With all
+quark masses in the $\overline{\text{MS}}$ scheme at a common scale,
+$m_s m_t/m_b^2 = 1.13$, so the relation holds at the $13\%$ level;
+mixing scales ($m_s$ at $2\;\text{GeV}$, $\bar{m}_b(\bar{m}_b)$, and the
+top pole mass) would give $0.92$ instead.
 \end{abstract}
 
 \tableofcontents
@@ -104,7 +108,7 @@ universal Yukawa coupling $y$ and a hierarchical pattern of vacuum
 expectation values (VEVs) for the 18 Higgs doublets encoded in the
 mes-Higgs matrix.  The fermion mass hierarchy
 $m_t \gg m_b \gg m_c \gg m_s \gg m_d \gg m_u$ arises entirely from the
-VEV hierarchy, not from a hierarchy in the Yukawa couplings.
+VEV hierarchy; the Yukawa coupling is universal.
 
 The meson flavour matrix $\mathcal{M}_{ij} = q_i \bar{q}_j$ is the
 same object whether viewed from the electric theory (where it is a
@@ -133,7 +137,9 @@ The top quark decays before hadronising ($\Gamma_t \gg \LQCD$), so the
 We present each sum rule, derive it from the appropriate effective
 theory, identify which constraints are standard QCD results and which
 encode additional structure from the dual meson matrix, and test all
-predictions against PDG~2024 data~\cite{PDG2024}.
+predictions against PDG~2024 data~\cite{PDG2024}.  Relations among
+running quark masses are evaluated with all masses at one
+renormalisation scale.
 
 
 %%======================================================================
@@ -218,7 +224,8 @@ This geometric structure implies:
   \frac{m_b}{m_t} \sim \epsilon\,,\quad
   \frac{m_c}{m_t} \sim \epsilon\,,
 \end{equation}
-which we test in \cref{sec:scalar-dem-test}.
+which we test in \cref{sec:scalar-dem-test} with all masses evaluated
+at a common scale.
 
 
 %%======================================================================
@@ -419,15 +426,19 @@ independently of the light quark $q$.
 \end{array}
 \end{equation}
 These differ by at most $16\;\text{MeV}$, confirming that the
-difference is independent of the light quark to $< 0.5\%$.  The
-common value $\sim 3408\;\text{MeV}$ should equal $m_b - m_c$;
-comparing with the pole mass difference
-$m_b^{\text{pole}} - m_c^{\text{pole}} = 4180 - 1270 = 2910\;\text{MeV}$
-reveals a $\sim 500\;\text{MeV}$ offset, which is the $\Ord(\LQCD)$
-contribution from the binding energy difference
-$\Lbar \sim 0.5\;\text{GeV}$ in Eq.~\eqref{eq:hqet}.  (The pole
-masses are scheme-dependent; in the kinetic scheme the agreement is
-better.)
+difference is independent of the light quark to $< 0.5\%$.  The light
+binding energy $\Lbar_q$ cancels in $m(B_q) - m(D_q)$, so the common
+value $\sim 3408\;\text{MeV}$ estimates $m_b - m_c$ in the pole scheme
+that Eq.~\eqref{eq:hqet} uses, up to $1/m_Q$ terms.  The values $4180$
+and $1270\;\text{MeV}$ are the $\overline{\text{MS}}$ masses
+$\bar{m}_b(\bar{m}_b)$ and $\bar{m}_c(\bar{m}_c)$; their difference,
+$2910\;\text{MeV}$, belongs to a different scheme.  Pole masses exceed
+$\overline{\text{MS}}$ masses by $\Ord(\alpha_s m_Q)$ corrections of
+several hundred MeV, and for charm the conversion series converges
+poorly (the PDG pole masses, $4.78$ and $1.67\;\text{GeV}$, carry
+uncertainties of $0.06$--$0.07\;\text{GeV}$~\cite{PDG2024}).  The
+$\sim 500\;\text{MeV}$ offset therefore reflects the scheme mismatch;
+$\Lbar$ plays no role in it.
 
 \paragraph{Status.} These are standard HQET results, well-known since
 the 1990s~\cite{ManoharWise2000,Neubert1994}.  The meson matrix
@@ -445,43 +456,54 @@ new quantitative prediction.
 \subsection{Derivation from the additive quark model}
 
 For the heavy quarkonium and $B_c$ system, the additive quark model
-gives:
+gives, for mesons of the same spin and parity,
 \begin{equation}\label{eq:aqm}
-  m_{J/\psi} = 2\hat{m}_c + \Delta_{c\bar{c}}\,,\qquad
-  m_\Upsilon = 2\hat{m}_b + \Delta_{b\bar{b}}\,,\qquad
-  m_{B_c} = \hat{m}_c + \hat{m}_b + \Delta_{c\bar{b}}\,,
+  m_{c\bar{c}} = 2\hat{m}_c + \Delta_{c\bar{c}}\,,\qquad
+  m_{b\bar{b}} = 2\hat{m}_b + \Delta_{b\bar{b}}\,,\qquad
+  m_{c\bar{b}} = \hat{m}_c + \hat{m}_b + \Delta_{c\bar{b}}\,,
 \end{equation}
 where $\hat{m}_Q$ denotes the constituent quark mass and $\Delta$ is
-the binding energy correction.  If the binding energies are equal
+the binding energy correction, including the spin-dependent (hyperfine)
+term.  If the binding energies are equal
 ($\Delta_{c\bar{c}} \approx \Delta_{b\bar{b}} \approx
-\Delta_{c\bar{b}}$), then:
+\Delta_{c\bar{b}}$), then, for the pseudoscalar ground states,
 \begin{equation}\label{eq:bc-sum-rule}
-  \boxed{m_{B_c} = \frac{m_{J/\psi} + m_\Upsilon}{2}\,.}
+  \boxed{m_{B_c} = \frac{m_{\eta_c} + m_{\eta_b}}{2}\,.}
 \end{equation}
+The comparison must use states of the same $J^{PC}$, because the
+hyperfine splittings of the two quarkonium systems differ
+($m_{J/\psi} - m_{\eta_c} = 113\;\text{MeV}$,
+$m_\Upsilon - m_{\eta_b} = 62\;\text{MeV}$).
 
-This ``equal binding'' assumption is crude---the
-Coulomb-plus-linear potential gives binding energies that depend on
-the reduced mass $\mu = m_1 m_2/(m_1 + m_2)$.  Nevertheless, the
-logarithmic dependence of the Coulombic binding energy on the reduced
-mass, $\Delta \sim -\alpha_s^2 \mu / 2$, is weak for the $c\bar{b}$
-system where $\mu_{c\bar{b}} \approx m_c m_b/(m_c + m_b)$ lies between
-$\mu_{c\bar{c}} = m_c/2$ and $\mu_{b\bar{b}} = m_b/2$.
+This ``equal binding'' assumption is crude: the Coulombic binding
+energy, $\Delta \sim -(C_F\alpha_s)^2 \mu / 2$, grows with the reduced
+mass $\mu = m_1 m_2/(m_1 + m_2)$, and $\mu_{c\bar{b}} \approx
+m_c m_b/(m_c + m_b)$ lies below the average of
+$\mu_{c\bar{c}} = m_c/2$ and $\mu_{b\bar{b}} = m_b/2$.  Coulombic
+binding therefore binds the $B_c$ less than the average of the two
+quarkonia and pushes $m_{B_c}$ above the equal-binding value.
 
 \paragraph{Numerical check.}
 \begin{equation}
-  \frac{m_{J/\psi} + m_\Upsilon}{2}
-  = \frac{3096.9 + 9460.3}{2} = 6278.6\;\text{MeV}\,,
+  \frac{m_{\eta_c} + m_{\eta_b}}{2}
+  = \frac{2983.9 + 9398.7}{2} = 6191.3\;\text{MeV}\,,
 \end{equation}
-compared to $m_{B_c} = 6274.9\;\text{MeV}$.  The agreement is
-\textbf{remarkable}: the discrepancy is only $\mathbf{3.7\;\textbf{MeV}}$,
-or $0.06\%$.
+compared to $m_{B_c} = 6274.9\;\text{MeV}$: the $B_c$ lies
+$84\;\text{MeV}$ ($1.3\%$) above the equal-binding value, with the sign
+expected from Coulombic binding.  Comparing instead with the vector
+states $J/\psi$ and $\Upsilon(1S)$ gives
+$(3096.9 + 9460.3)/2 = 6278.6\;\text{MeV}$, only $3.7\;\text{MeV}$ from
+$m_{B_c}$.  That comparison mixes $J^{PC}$, and its near-agreement is a
+coincidence: the average hyperfine splitting of the two quarkonium
+systems, $87\;\text{MeV}$, happens to cancel the $84\;\text{MeV}$
+offset.
 
 \subsection{Connection to the meson matrix}
 
 In the $6 \times 6$ meson matrix, the $B_c$ occupies the off-diagonal
-entry $\mathcal{M}_{45}$ (charm row, bottom column).  The quarkonium
-states $J/\psi = \mathcal{M}_{44}$ and $\Upsilon = \mathcal{M}_{55}$
-are diagonal entries.  The sum rule~\eqref{eq:bc-sum-rule} relates the
+entry $\mathcal{M}_{45}$ (charm row, bottom column).  The pseudoscalar
+quarkonia $\eta_c = \mathcal{M}_{44}$ and $\eta_b = \mathcal{M}_{55}$
+are diagonal entries (Eq.~\eqref{eq:mass-matrix-physical}).  The sum rule~\eqref{eq:bc-sum-rule} relates the
 off-diagonal entry to the average of the adjacent diagonal entries.
 
 This is precisely the structure of a matrix whose entries depend
@@ -495,22 +517,25 @@ which is the ``rectangular sum rule'' for the meson mass matrix.
 
 \subsection{Nussinov--Wetzel inequality}
 
-The meson matrix structure also implies the Nussinov--Wetzel
-inequality~\cite{NussinovWetzel1983}:
+QCD inequalities~\cite{NussinovWetzel1983} bound the off-diagonal
+entry from below.  For pseudoscalar correlators, the Schwarz inequality
+applied to the quark propagators in the positive QCD path-integral
+measure gives, neglecting the small annihilation contributions to the
+$\eta_c$ and $\eta_b$ correlators,
 \begin{equation}\label{eq:nw-inequality}
-  m_{B_c}^2 \leq \frac{m_{J/\psi}^2 + m_\Upsilon^2}{2}\,.
+  m_{B_c} \geq \frac{m_{\eta_c} + m_{\eta_b}}{2}\,.
 \end{equation}
-Numerically: RHS $= (9.591 + 89.50)/2 = 49.54\;\text{GeV}^2$,
-$m_{B_c}^2 = 39.37\;\text{GeV}^2$. The inequality is satisfied with
-a comfortable margin.
+Numerically: $6274.9\;\text{MeV} \geq 6191.3\;\text{MeV}$, satisfied
+with an $84\;\text{MeV}$ margin.  The equal-binding sum
+rule~\eqref{eq:bc-sum-rule} saturates this inequality, and the data
+depart from the sum rule in the direction the inequality allows.
 
-\paragraph{Status.} The $B_c$ sum rule~\eqref{eq:bc-sum-rule} is known
-from the additive quark model and was used to predict $m_{B_c}$ before
-its discovery~\cite{EichtenQuigg1994}.  The meson matrix gives it a
-\emph{structural} interpretation (additivity of a matrix) but does not
-produce a sharper prediction.  The Nussinov--Wetzel inequality follows
-from the Schwarz inequality applied to the quark propagator and
-pre-dates the duality framework.
+\paragraph{Status.} The additive $B_c$ relation is known from the
+quark model, and quark-potential models predicted $m_{B_c}$ before its
+discovery~\cite{EichtenQuigg1994}.  The meson matrix gives it a
+\emph{structural} interpretation (additivity of a matrix) and produces
+no sharper prediction.  The Nussinov--Wetzel inequality is a property
+of QCD and pre-dates the duality framework.
 
 
 %%======================================================================
@@ -531,18 +556,46 @@ $\epsilon = \mu^2/M^2$ relative to the preceding one (\cref{sec:mass-matrix}).
 If both up-type and down-type quark masses follow the same geometric
 progression, we predict:
 \begin{equation}\label{eq:geometric-sr}
-  \boxed{\frac{m_s}{m_t} \approx \left(\frac{m_b}{m_t}\right)^2\,,}
+  \boxed{\frac{m_s}{m_t} \approx \left(\frac{m_b}{m_t}\right)^2
+  \quad\Longleftrightarrow\quad
+  R \equiv \frac{m_s\, m_t}{m_b^2} \approx 1\,,}
 \end{equation}
-\ie, $m_s/m_t \sim \epsilon^2$ if $m_b/m_t \sim \epsilon$.
+\ie, $m_s/m_t \sim \epsilon^2$ if $m_b/m_t \sim \epsilon$.  The
+cross-sector form $m_s/m_b \approx m_b/m_t$ is the same relation
+$m_s m_t \approx m_b^2$ written differently, so it supplies no
+independent test.
 
-\paragraph{Numerical check.}
+\paragraph{Mass-scale choice.}  Running quark masses depend on the
+renormalisation scale, so all three masses must be evaluated at one
+scale.  QCD running is flavour-universal, so $R$ takes the same value
+at every common scale.  We use $\overline{\text{MS}}$ masses at
+$\mu = \bar{m}_t$, obtained with four-loop running from
+$\alpha_s(M_Z) = 0.1180$ and the PDG inputs
+$m_s(2\;\text{GeV}) = 93.4\;\text{MeV}$,
+$\bar{m}_b(\bar{m}_b) = 4.18\;\text{GeV}$,
+$\bar{m}_c(\bar{m}_c) = 1.27\;\text{GeV}$,
+$m_u(2\;\text{GeV}) = 2.16\;\text{MeV}$,
+$m_d(2\;\text{GeV}) = 4.67\;\text{MeV}$, and
+$\bar{m}_t(\bar{m}_t) = 162.9\;\text{GeV}$, the four-loop
+$\overline{\text{MS}}$ equivalent of the pole mass
+$172.69\;\text{GeV}$.
+
+\paragraph{Numerical check.}  At $\mu = \bar{m}_t$:
+$m_s = 51.5\;\text{MeV}$, $m_b = 2.73\;\text{GeV}$, and
+$m_t = 162.9\;\text{GeV}$, so
 \begin{equation}
-  \frac{m_s}{m_t} = \frac{93.4 \times 10^{-3}}{172.69} = 5.41 \times 10^{-4}\,,
+  \frac{m_s}{m_t} = 3.16 \times 10^{-4}\,,
   \qquad
-  \left(\frac{m_b}{m_t}\right)^2 = (0.02421)^2 = 5.86 \times 10^{-4}\,.
+  \left(\frac{m_b}{m_t}\right)^2 = (0.01676)^2 = 2.81 \times 10^{-4}\,,
+  \qquad
+  R = 1.13\,.
 \end{equation}
-The ratio is $(m_s/m_t)/(m_b/m_t)^2 = 0.92$, confirming the geometric
-hierarchy at the $8\%$ level.
+The geometric hierarchy holds at the $13\%$ level.  The PDG
+cross-section value $\bar{m}_t(\bar{m}_t) = 162.5\;\text{GeV}$ gives
+$R = 1.12$.  Mixing scales instead---$m_s$ at $2\;\text{GeV}$,
+$\bar{m}_b(\bar{m}_b)$, and the top pole mass---gives $R = 0.92$; that
+number reflects the scale mixing, and the common-scale value is the one
+to compare with the framework.
 
 \subsection{Tier assignment consistency}
 
@@ -553,16 +606,18 @@ parameter $\epsilon$, the tier structure predicts:
 \begin{equation}\label{eq:tier-prediction}
 \renewcommand{\arraystretch}{1.3}
 \begin{array}{lcll}
-  \text{Tier 0:} & m_t &\sim yv & \epsilon^0 \\
-  \text{Tier 1:} & m_b,\, m_c &\sim \epsilon\, yv & \epsilon^1 \\
-  \text{Tier 2:} & m_s &\sim \epsilon^2\, yv & \epsilon^2 \\
-  \text{Tier 3:} & m_d,\, m_u &\sim \epsilon^3\, yv & \epsilon^3 \\
+  \text{Tier 0:} & m_t &\sim y v/\sqrt{2} & \epsilon^0 \\
+  \text{Tier 1:} & m_b,\, m_c &\sim \epsilon\, y v/\sqrt{2} & \epsilon^1 \\
+  \text{Tier 2:} & m_s &\sim \epsilon^2\, y v/\sqrt{2} & \epsilon^2 \\
+  \text{Tier 3:} & m_d,\, m_u &\sim \epsilon^3\, y v/\sqrt{2} & \epsilon^3 \\
 \end{array}
 \end{equation}
 \end{proposition}
 
-\paragraph{Numerical check.} We test this against PDG quark masses.
-Taking $\epsilon = m_b/m_t = 0.0242$ as the expansion parameter:
+\paragraph{Numerical check.} We test this against the common-scale
+$\overline{\text{MS}}$ masses at $\mu = \bar{m}_t$ (with $v = 246\;\text{GeV}$
+in the proposition above), taking $\epsilon = m_b/m_t = 0.0168$ as the
+expansion parameter:
 
 \begin{center}
 \renewcommand{\arraystretch}{1.2}
@@ -571,12 +626,12 @@ Taking $\epsilon = m_b/m_t = 0.0242$ as the expansion parameter:
 \textbf{Quark} & \textbf{Mass (GeV)} & \textbf{$m_q/m_t$}
   & \textbf{Tier} & \textbf{$\epsilon^n$} & \textbf{Ratio} \\
 \midrule
-$t$ & $172.69$ & $1$ & $0$ & $1$ & $1.00$ \\
-$b$ & $4.18$ & $0.0242$ & $1$ & $0.0242$ & $1.00$ \\
-$c$ & $1.27$ & $0.00735$ & $1$ & $0.0242$ & $0.30$ \\
-$s$ & $0.0934$ & $5.41 \times 10^{-4}$ & $2$ & $5.86 \times 10^{-4}$ & $0.92$ \\
-$d$ & $0.00467$ & $2.70 \times 10^{-5}$ & $3$ & $1.42 \times 10^{-5}$ & $1.91$ \\
-$u$ & $0.00216$ & $1.25 \times 10^{-5}$ & $3$ & $1.42 \times 10^{-5}$ & $0.88$ \\
+$t$ & $162.9$ & $1$ & $0$ & $1$ & $1.00$ \\
+$b$ & $2.73$ & $0.0168$ & $1$ & $0.0168$ & $1.00$ \\
+$c$ & $0.602$ & $0.00369$ & $1$ & $0.0168$ & $0.22$ \\
+$s$ & $0.0515$ & $3.16 \times 10^{-4}$ & $2$ & $2.81 \times 10^{-4}$ & $1.13$ \\
+$d$ & $0.00258$ & $1.58 \times 10^{-5}$ & $3$ & $4.71 \times 10^{-6}$ & $3.36$ \\
+$u$ & $0.00119$ & $7.32 \times 10^{-6}$ & $3$ & $4.71 \times 10^{-6}$ & $1.55$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -586,43 +641,25 @@ $\Ord(1)$ if the tier assignment is correct.  The results are:
 \begin{itemize}[nosep]
   \item \textbf{Tier 0} ($t$): exact by definition.
   \item \textbf{Tier 1} ($b$): exact by definition of $\epsilon$.
-  \item \textbf{Tier 1} ($c$): ratio $= 0.30$, indicating $m_c$ is at
-    the lower end of tier~1.  The $c$--$b$ mass ratio $m_c/m_b = 0.30$
-    is $\Ord(1)$, consistent.
-  \item \textbf{Tier 2} ($s$): ratio $= 0.92$, \textbf{excellent}
-    agreement.
-  \item \textbf{Tier 3} ($d$): ratio $= 1.91$, consistent within
-    $\Ord(1)$ uncertainties.
-  \item \textbf{Tier 3} ($u$): ratio $= 0.88$, \textbf{good} agreement.
+  \item \textbf{Tier 1} ($c$): ratio $= 0.22$, placing $m_c$ at the
+    lower end of tier~1: $m_c/m_b = 0.22$ is far from a further power
+    of $\epsilon$ ($0.017$).
+  \item \textbf{Tier 2} ($s$): ratio $= 1.13$, the quantity $R$ of
+    Eq.~\eqref{eq:geometric-sr}.
+  \item \textbf{Tier 3} ($d$, $u$): ratios $3.36$ and $1.55$, within a
+    factor of a few of one.
 \end{itemize}
 
-\subsection{Cross-sector mass ratio predictions}
-
-The tier structure also predicts relations between up-type and
-down-type quark masses within the same generation:
-\begin{equation}\label{eq:cross-sector}
-  \frac{m_s}{m_b} \sim \epsilon \sim \frac{m_b}{m_t}\,,
-\end{equation}
-\ie, the second-generation down-type to third-generation down-type
-mass ratio should equal the expansion parameter $\epsilon$.
-
-\paragraph{Numerical check.}
-\begin{equation}
-  \frac{m_s}{m_b} = 0.0223\,,\qquad
-  \frac{m_b}{m_t} = 0.0242\,.
-\end{equation}
-The ratio $(m_s/m_b)/(m_b/m_t) = 0.92$, consistent at the $8\%$ level.
-
-\paragraph{Status.} These are \textbf{new predictions of the scalar
-democracy framework}.  They are not consequences of QCD symmetries
-(chiral or heavy quark) and cannot be derived from ChPT or HQET alone.
-The geometric hierarchy $m_q \sim \epsilon^n$ with a single parameter
-$\epsilon \approx 0.024$ provides a non-trivial $\Ord(10\%)$
-description of the quark mass hierarchy spanning five orders of
-magnitude.  However, the $\Ord(1)$ coefficients at each tier are
-free parameters (the Planck-scale operator coefficients $c^{abcd}$),
-so the framework is explanatory rather than predictive at the level of
-precise mass values.
+\paragraph{Status.} These relations are specific to the scalar
+democracy framework: ChPT and HQET relate meson masses to quark masses
+but say nothing about ratios of quark masses across generations.  A
+single parameter $\epsilon \approx 0.017$ (at $\mu = \bar{m}_t$)
+organises the quark masses over five orders of magnitude with tier
+coefficients between $0.2$ and $3.4$.  The $\Ord(1)$ coefficients at
+each tier are free parameters (the Planck-scale operator coefficients
+$c^{abcd}$), so the framework is explanatory rather than predictive at
+the level of precise mass values, and $R = 1.13$ is a consistency check
+rather than a precision test.
 
 
 %%======================================================================
@@ -664,21 +701,22 @@ gives the rectangular identity:
   m(q_i\bar{q}_j) + m(q_k\bar{q}_l)
   = m(q_i\bar{q}_l) + m(q_k\bar{q}_j)\,.
 \end{equation}
-This is exact for the heavy-heavy sector (where masses are
-approximately additive in constituent quark masses) but breaks down
-when one or more quarks are light, because the binding dynamics
-depends non-additively on the quark masses.
+This holds approximately in the heavy-heavy sector (where masses are
+nearly additive in constituent quark masses) and breaks down when one
+or more quarks are light, because the binding dynamics depends
+non-additively on the quark masses.
 
 \paragraph{Heavy-sector test.}
-Taking $(i,j,k,l) = (c,c,b,b)$:
+Taking $(i,j,k,l) = (c,c,b,b)$ in the pseudoscalar channel:
 \begin{equation}
-  m_{J/\psi} + m_\Upsilon = 3096.9 + 9460.3 = 12{,}557.2\;\text{MeV}\,,
+  m_{\eta_c} + m_{\eta_b} = 2983.9 + 9398.7 = 12{,}382.6\;\text{MeV}\,,
 \end{equation}
 \begin{equation}
   2\,m_{B_c} = 2 \times 6274.9 = 12{,}549.8\;\text{MeV}\,.
 \end{equation}
-Discrepancy: $7.4\;\text{MeV}$, or $0.06\%$.  The rectangular identity
-holds at remarkable precision.
+Discrepancy: $167\;\text{MeV}$, or $1.3\%$, with the sign required by
+the Nussinov--Wetzel inequality~\eqref{eq:nw-inequality}.  The
+rectangular identity holds at the percent level in the heavy sector.
 
 \paragraph{Mixed-sector test.}
 Taking $(i,j,k,l) = (u,s,c,b)$ so that the four mesons are
@@ -693,38 +731,20 @@ $D_s^+ = c\bar{s}$:
 Discrepancy: $479\;\text{MeV}$, or $7\%$.  The failure of the
 rectangular identity in the mixed sector reflects the breakdown of
 mass additivity for light quarks, where the binding energy is
-\emph{not} a small correction to the quark mass.
+comparable to or larger than the quark mass.
 
-\subsection{The meson mass matrix eigenvalue sum rule}
+\subsection{The array of squared masses}
 
-The squared masses of the $5 \times 5$ physical meson matrix
-(excluding the top row/column) can be organised into a symmetric
-matrix $\mathbf{M}^2$ with entries
-$(\mathbf{M}^2)_{ij} = m^2(q_i\bar{q}_j)$.  This matrix has the
-structure:
-\begin{equation}\label{eq:M2-structure}
-  \mathbf{M}^2 \approx
-  \begin{pmatrix}
-    m_\pi^2 & m_\pi^2 & m_K^2 & m_D^2 & m_B^2 \\
-    m_\pi^2 & m_\pi^2 & m_K^2 & m_D^2 & m_B^2 \\
-    m_K^2 & m_K^2 & m_\eta^2 & m_{D_s}^2 & m_{B_s}^2 \\
-    m_D^2 & m_D^2 & m_{D_s}^2 & m_{J/\psi}^2 & m_{B_c}^2 \\
-    m_B^2 & m_B^2 & m_{B_s}^2 & m_{B_c}^2 & m_\Upsilon^2
-  \end{pmatrix}\,,
-\end{equation}
-where we have suppressed the isospin splitting $m_\pi^2 \approx m_K^2$
-in the upper-left block for clarity.  The trace of this matrix is:
-\begin{equation}\label{eq:trace-sr}
-  \Tr(\mathbf{M}^2) = m_\pi^2 + m_\pi^2 + m_\eta^2 + m_{J/\psi}^2
-  + m_\Upsilon^2 \approx 99.4\;\text{GeV}^2\,,
-\end{equation}
-which is overwhelmingly dominated by $m_\Upsilon^2 = 89.5\;\text{GeV}^2$.
-
-The \textbf{strong hierarchy} in the eigenvalues of this matrix---the
-largest eigenvalue ($\sim m_\Upsilon^2$) exceeds the smallest
-($\sim m_\pi^2$) by a factor of $\sim 4600$---reflects the quark mass
-hierarchy and is consistent with the near-rank-1 structure expected from
-the scalar democracy mechanism, where the leading VEV dominates.
+One may also collect the squared masses of the physical mesons into a
+$5 \times 5$ array $(\mathbf{M}^2)_{ij} = m^2(q_i\bar{q}_j)$.  Its
+entries are the masses of distinct states rather than the elements of
+a mass matrix for a common set of fields, so its eigenvalues carry no
+physical meaning.  In the isospin limit the $u$ and $d$ rows coincide,
+so the array is singular; filled with the PDG pseudoscalar masses (with
+the $\eta$ in the $s\bar{s}$ entry) it also has two negative
+eigenvalues, near $-26$ and $-0.13\;\text{GeV}^2$.  We therefore draw
+no conclusion from its spectrum; the quark mass hierarchy is tested
+directly in \cref{sec:scalar-dem-test}.
 
 
 %%======================================================================
@@ -741,7 +761,9 @@ We collect all sum rules and their numerical tests in
 \caption{Summary of meson mass sum rules tested against PDG 2024
   data~\cite{PDG2024}.  ``Std.\ QCD'' indicates the sum rule follows
   from standard QCD symmetries; ``DSM'' indicates it encodes additional
-  structure from the dualised SM / scalar democracy framework.}
+  structure from the dualised SM / scalar democracy framework.  The
+  quark masses in~V are $\overline{\text{MS}}$ masses at the common
+  scale $\mu = \bar{m}_t$.}
 \label{tab:summary}
 \small
 \begin{tabular}{clcccl}
@@ -759,12 +781,10 @@ III\,a & $\Delta_s^{(c)} = \Delta_s^{(b)}$ & $103.5$ & $87.2$
   & $16\;\text{MeV}$ & Std.\ QCD \\
 III\,b & $m_B - m_D$ indep.\ of $q$ & \multicolumn{2}{c}{$3399$--$3415$}
   & $< 17\;\text{MeV}$ & Std.\ QCD \\[3pt]
-IV & $m_{B_c} = (m_{J/\psi} + m_\Upsilon)/2$ & $6279$ & $6275$
-  & $\mathbf{4\;\textbf{MeV}}$ & Std.\ QCD \\[3pt]
-V\,a & $m_s/m_t \approx (m_b/m_t)^2$ & $5.41 \times 10^{-4}$
-  & $5.86 \times 10^{-4}$ & $8\%$ & \textbf{DSM} \\
-V\,b & $m_s/m_b \approx m_b/m_t$ & $0.0223$ & $0.0242$
-  & $8\%$ & \textbf{DSM} \\[3pt]
+IV & $m_{B_c} = (m_{\eta_c} + m_{\eta_b})/2$ & $6275$ & $6191$
+  & $84\;\text{MeV}$ & Std.\ QCD \\[3pt]
+V & $m_s/m_t \approx (m_b/m_t)^2$ & $3.16 \times 10^{-4}$
+  & $2.81 \times 10^{-4}$ & $13\%$ & \textbf{DSM} \\[3pt]
 VI & $(m_{D_s}-m_{D^0})-(m_{B_s}-m_{B^0})$ & \multicolumn{2}{c}{$16.3\;\text{MeV}$}
   & $\Ord(\LQCD^2/m_c)$ & Std.\ QCD \\
 \bottomrule
@@ -781,16 +801,15 @@ VI & $(m_{D_s}-m_{D^0})-(m_{B_s}-m_{B^0})$ & \multicolumn{2}{c}{$16.3\;\text{MeV
     rule) but does not produce numerically new predictions beyond what
     ChPT and HQET already provide.
   \item Sum rule \textbf{V} (geometric VEV hierarchy) is
-    \textbf{specific to the scalar democracy framework}.  The relation
-    $m_s/m_t \approx (m_b/m_t)^2$ is not a consequence of any QCD
-    symmetry and represents a genuine consistency check of the dualised
-    SM.  It holds at the $8\%$ level, which is remarkable for a
-    framework with $\Ord(1)$ free parameters.
-  \item The most precise sum rule is \textbf{IV}:
-    $m_{B_c} = (m_{J/\psi} + m_\Upsilon)/2$ to $4\;\text{MeV}$.  This
-    is a consequence of the approximate additivity of the heavy-heavy
-    meson mass matrix and was used to predict $m_{B_c}$ before its
-    experimental measurement.
+    \textbf{specific to the scalar democracy framework}: the relation
+    $m_s m_t \approx m_b^2$ follows from the VEV tiers and from no QCD
+    symmetry.  With all masses at a common scale it holds at the $13\%$
+    level, as expected for $\Ord(1)$ free coefficients.
+  \item The most precise sum rule is \textbf{III\,b}: $m(B_q) - m(D_q)$
+    is independent of the light quark to $0.5\%$.  Sum rule
+    \textbf{IV} holds at $1.3\%$ for states of equal $J^{PC}$; the
+    $4\;\text{MeV}$ agreement obtained with the vector quarkonia is a
+    coincidence of hyperfine splittings (\cref{sec:bc}).
 \end{enumerate}
 
 
@@ -808,13 +827,12 @@ counterpart in standard QCD.  All other sum rules (I--IV, VI) are
 well-established consequences of chiral symmetry, heavy quark symmetry,
 and the additive quark model.
 
-This is not a criticism of the dualised SM framework---rather, it
-reflects the framework's \emph{consistency}: the meson mass relations
-that follow from the $6 \times 6$ flavour matrix structure are
-precisely those that are independently established by QCD effective
-theories.  The dualised SM provides a \emph{unified structural origin}
-for these relations (the matrix is elementary in the magnetic theory)
-but does not contradict or modify them.
+This outcome reflects the framework's \emph{consistency}: the meson
+mass relations that follow from the $6 \times 6$ flavour matrix
+structure are precisely those that are independently established by
+QCD effective theories.  The dualised SM provides a \emph{unified
+structural origin} for these relations (the matrix is elementary in the
+magnetic theory) and leaves them unchanged.
 
 \subsection{The role of $\Ord(1)$ coefficients}
 
@@ -823,9 +841,9 @@ $\Ord(1)$ coefficients $c^{abcd}$ in the Planck-scale operators that
 generate the VEV hierarchy.  With $\sim 100$ free parameters (the
 tensor $c^{abcd}$), the framework can accommodate any quark mass
 pattern.  The non-trivial content of Sum Rule V is that a
-\emph{single} expansion parameter $\epsilon \approx 0.024$ describes
-five orders of magnitude in quark masses, with $\Ord(1)$ ratios at
-each tier.
+\emph{single} expansion parameter $\epsilon \approx 0.017$ (at
+$\mu = \bar{m}_t$) describes five orders of magnitude in quark masses,
+with tier coefficients between $0.2$ and $3.4$.
 
 A sharper prediction would require a theory of the Planck-scale
 operator coefficients---\eg, from a UV completion involving gravity or
@@ -837,9 +855,10 @@ the dualised SM as currently formulated.
 The formal 6th row and column of the meson matrix (top-quark entries)
 do not correspond to physical mesons, since $\Gamma_t \gg \LQCD$.
 However, they play a role in the algebraic structure: the VEV sum rule
-$v^2 = \sum_{ij}|\langle H_{ij}\rangle|^2 = (174\;\text{GeV})^2$ and
-the top quark mass $m_t = y\,v$ fix the overall scale of the meson
-matrix.  The expansion parameter $\epsilon = m_b/m_t$ is defined
+$\sum_{ij}|\langle H_{ij}\rangle|^2 = v^2/2 = (174\;\text{GeV})^2$, with
+$v = 246\;\text{GeV}$, and the top quark mass
+$m_t = y\,\langle H_{33}\rangle \approx y\,v/\sqrt{2}$ fix the overall
+scale of the meson matrix.  The expansion parameter $\epsilon = m_b/m_t$ is defined
 relative to this scale.
 
 \subsection{Limitations and outlook}
@@ -866,8 +885,11 @@ light scalar mesons remains controversial.
 \label{sec:conclusions}
 %%======================================================================
 
-We have derived and tested six classes of meson mass sum rules from the
-$6 \times 6$ flavour matrix of the dualised Standard Model:
+We have organised six classes of meson mass sum rules by their place
+in the $6 \times 6$ flavour matrix of the dualised Standard Model and
+tested them against PDG data.  The derivations come from ChPT, HQET,
+the additive quark model and, for class~V, the scalar democracy VEV
+hierarchy:
 
 \begin{enumerate}[nosep]
   \item The \textbf{GMOR relation} and \textbf{Weinberg mass ratio}
@@ -879,25 +901,27 @@ $6 \times 6$ flavour matrix of the dualised Standard Model:
   \item \textbf{Heavy quark symmetry flavour splittings}: $m_{D_s} -
     m_{D^0}$ and $m_{B_s} - m_{B^0}$ agree to $16\;\text{MeV}$
     (standard HQET).
-  \item The \textbf{$B_c$ mass sum rule} $m_{B_c} = (m_{J/\psi} +
-    m_\Upsilon)/2$ to $4\;\text{MeV}$ (additive quark model /
+  \item The \textbf{$B_c$ mass sum rule} $m_{B_c} = (m_{\eta_c} +
+    m_{\eta_b})/2$ to $1.3\%$, with the offset in the direction required
+    by the Nussinov--Wetzel inequality (additive quark model /
     rectangular identity of the meson matrix).
   \item The \textbf{scalar democracy geometric hierarchy}:
-    $m_s/m_t \approx (m_b/m_t)^2$ at $8\%$ accuracy.  This is the only
-    sum rule \emph{specific to the dualised SM} and not derivable from
-    QCD symmetries alone.
+    $m_s m_t/m_b^2 = 1.13$ with all masses at a common scale ($13\%$).
+    This is the only sum rule \emph{specific to the dualised SM} and
+    not derivable from QCD symmetries alone.
   \item \textbf{Heavy-light column sum rules} and rectangular identity
-    (standard HQET, violated at $7\%$ when mixing light and heavy
+    (standard HQET; the rectangular identity holds at $1.3\%$ in the
+    heavy sector and fails at $7\%$ when mixing light and heavy
     sectors).
 \end{enumerate}
 
 The honest conclusion is that the $6 \times 6$ meson matrix structure
 of the dualised SM reproduces the known QCD meson mass relations but
 adds only one genuinely new family of sum rules: the scalar democracy
-hierarchy predictions.  These hold at the $\sim 10\%$ level, which is
-consistent with $\Ord(1)$ unknown coefficients in the Planck-scale
-operators.  The framework is \emph{consistent with} but does not
-\emph{improve upon} standard QCD for meson masses.
+hierarchy predictions.  They hold at the $13\%$ level with all quark
+masses at a common scale, consistent with $\Ord(1)$ unknown
+coefficients in the Planck-scale operators.  For meson masses the
+framework reproduces standard QCD and adds no precision beyond it.
 
 \paragraph{Epistemic note.}
 All statements about the dualised SM in this paper are conditional on
@@ -913,7 +937,7 @@ predictions (V) are framework-dependent.
 
 \bibitem{CacciapagliaSannino2024}
   G.~Cacciapaglia and F.~Sannino,
-  ``The dualised Standard Model,''
+  ``Charting Standard Model Duality and its Signatures,''
   arXiv:2407.17281 [hep-ph] (2024).
 
 \bibitem{Sannino2024}
