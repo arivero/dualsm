@@ -129,7 +129,7 @@ complete picture:
     theory.  This is the regime where Seiberg duality is most powerful.
 
   \item \textbf{$\tfrac{3}{2}\Nc < \Nf < 3\Nc$:}
-    The \emph{conformal window} (from Lecture~1, \S6).  Both the electric and
+    The \emph{conformal window} (from Lecture~1, \S7).  Both the electric and
     magnetic theories flow to the same interacting superconformal fixed point
     in the IR.
 
@@ -502,13 +502,13 @@ Total:
   \quad\checkmark
 \end{equation}
 
-\subsection{Coefficient 6: $\UU{1}_R$ (gravitational) and $\UU{1}_R^3$}
+\subsection{Coefficients 6 and 7: $\UU{1}_R$ (gravitational) and $\UU{1}_R^3$}
 \label{ssec:anom6}
 
 The gravitational anomaly $\Tr[R_{\text{ferm}}]$ counts the total weighted
 $R$-charge of all fermions in the theory.
 
-\subsubsection*{$\UU{1}_R$ gravitational anomaly: $\Tr[R]$}
+\subsubsection*{Coefficient 6: $\UU{1}_R$ gravitational anomaly, $\Tr[R]$}
 
 \textbf{Electric side.}
 \begin{itemize}
@@ -518,7 +518,7 @@ $R$-charge of all fermions in the theory.
 \end{itemize}
 Total:
 \[
-  \mathcal{A}^{\text{el}}_{6\text{a}}
+  \mathcal{A}^{\text{el}}_{6}
   = -2\Nc^2 + \Nc^2 - 1 = -\Nc^2 - 1\,.
 \]
 
@@ -534,7 +534,7 @@ Total:
 \end{itemize}
 Total:
 \begin{align*}
-  \mathcal{A}^{\text{mag}}_{6\text{a}}
+  \mathcal{A}^{\text{mag}}_{6}
   &= -2(\Nf - \Nc)^2 + \Nf^2 - 2\Nc\Nf + (\Nf - \Nc)^2 - 1 \\
   &= -(\Nf - \Nc)^2 + \Nf^2 - 2\Nc\Nf - 1 \\
   &= -(\Nf^2 - 2\Nc\Nf + \Nc^2) + \Nf^2 - 2\Nc\Nf - 1 \\
@@ -542,16 +542,16 @@ Total:
 \end{align*}
 
 \begin{equation}\label{eq:anom6a}
-  \boxed{\mathcal{A}^{\text{el}}_{6\text{a}} = -\Nc^2 - 1
-    = \mathcal{A}^{\text{mag}}_{6\text{a}}}\,.
+  \boxed{\mathcal{A}^{\text{el}}_{6} = -\Nc^2 - 1
+    = \mathcal{A}^{\text{mag}}_{6}}\,.
   \quad\checkmark
 \end{equation}
 
-\subsubsection*{$\UU{1}_R^3$ anomaly: $\Tr[R^3]$}
+\subsubsection*{Coefficient 7: $\UU{1}_R^3$ anomaly, $\Tr[R^3]$}
 
 \textbf{Electric side.}
 \begin{align*}
-  \mathcal{A}^{\text{el}}_{6\text{b}}
+  \mathcal{A}^{\text{el}}_{7}
   &= 2 \cdot \Nc\Nf \cdot \left(-\frac{\Nc}{\Nf}\right)^{\!3}
   + (\Nc^2 - 1) \cdot 1^3 \\
   &= -\frac{2\Nc^4}{\Nf^2} + \Nc^2 - 1\,.
@@ -559,7 +559,7 @@ Total:
 
 \textbf{Magnetic side.}
 \begin{align*}
-  \mathcal{A}^{\text{mag}}_{6\text{b}}
+  \mathcal{A}^{\text{mag}}_{7}
   &= 2 \cdot (\Nf - \Nc)\Nf \cdot \left(\frac{\Nc - \Nf}{\Nf}\right)^{\!3}
   + \Nf^2 \cdot \left(\frac{\Nf - 2\Nc}{\Nf}\right)^{\!3}
   + \bigl((\Nf - \Nc)^2 - 1\bigr) \cdot 1 \\[4pt]
@@ -568,16 +568,16 @@ Total:
   + (\Nf - \Nc)^2 - 1\,.
 \end{align*}
 
-The equality $\mathcal{A}^{\text{el}}_{6\text{b}} =
-\mathcal{A}^{\text{mag}}_{6\text{b}}$ can be verified by expanding and
+The equality $\mathcal{A}^{\text{el}}_{7} =
+\mathcal{A}^{\text{mag}}_{7}$ can be verified by expanding and
 simplifying; this is a polynomial identity in $\Nc$ and $\Nf$.  We verify
 it computationally in the companion script
 \texttt{scripts/verify\_anomaly\_matching.py}.
 
 \begin{equation}\label{eq:anom6b}
-  \boxed{\mathcal{A}^{\text{el}}_{6\text{b}}
+  \boxed{\mathcal{A}^{\text{el}}_{7}
     = -\frac{2\Nc^4}{\Nf^2} + \Nc^2 - 1
-    = \mathcal{A}^{\text{mag}}_{6\text{b}}}\,.
+    = \mathcal{A}^{\text{mag}}_{7}}\,.
   \quad\checkmark
 \end{equation}
 
@@ -588,9 +588,14 @@ it computationally in the companion script
   fonttitle=\bfseries,
   title={Anomaly Matching Summary}
 ]
-All six independent 't~Hooft anomaly coefficients match exactly between the
-electric $\SU{\Nc}$ theory and the magnetic $\SU{\Nf - \Nc}$ theory, as
-polynomial identities in $\Nc$ and $\Nf$:
+All seven 't~Hooft anomaly coefficients computed above match exactly
+between the electric $\SU{\Nc}$ theory and the magnetic $\SU{\Nf - \Nc}$
+theory, as polynomial identities in $\Nc$ and $\Nf$.  They cover Seiberg's
+six anomaly types, with the purely cubic $\SU{\Nf}_L^3$ and $\SU{\Nf}_R^3$
+listed separately.  The remaining coefficients follow from the table by the
+$L \leftrightarrow R$ symmetry (\eg\ $\SU{\Nf}_R^2\,\UU{1}_B = -\Nc/2$ on
+both sides) or vanish on both sides ($\UU{1}_B^3$, $\UU{1}_B$-gravitational,
+$\UU{1}_B\,\UU{1}_R^2$).
 
 \renewcommand{\arraystretch}{1.4}
 \begin{center}
@@ -770,13 +775,22 @@ theory has $b_0^{\text{mag}} = 2\Nf - 3\Nc > 0$ (also asymptotically free).
 Both flow to the same interacting superconformal fixed point in the IR.
 
 At the fixed point, Seiberg duality relates the anomalous dimensions of the
-two theories.  From the NSVZ beta function with $\beta(g^*) = 0$:
+two theories.  Setting the numerator of the NSVZ beta function of
+Lecture~2, $3T(G) - \sum_i T(R_i)(1 - \gamma_i)$, to zero in each theory
+gives $3\Nc - \Nf(1 - \gamma_Q^*) = 0$ and
+$3(\Nf - \Nc) - \Nf(1 - \gamma_q^*) = 0$, \ie
 \[
-  \gamma_Q^* = -1 + \frac{3\Nc}{\Nf}\,,
+  \gamma_Q^* = 1 - \frac{3\Nc}{\Nf} = \frac{\Nf - 3\Nc}{\Nf}\,,
   \qquad
-  \gamma_q^* = -1 + \frac{3(\Nf - \Nc)}{\Nf}\,,
+  \gamma_q^* = 1 - \frac{3(\Nf - \Nc)}{\Nf} = \frac{3\Nc - 2\Nf}{\Nf}\,.
 \]
-satisfying $\gamma_Q^* + \gamma_q^* = 1$ --- a consistency relation.
+Both are negative inside the window; $\gamma_Q^*$ vanishes at the upper edge
+$\Nf = 3\Nc$ (free electric quarks) and $\gamma_q^*$ at the lower edge
+$\Nf = \tfrac{3}{2}\Nc$ (free magnetic quarks).  In this convention the
+scaling dimension is $D = 1 + \gamma/2 = \tfrac{3}{2}R$, and the two results
+satisfy $\gamma_Q^* + \gamma_q^* = -1$, \ie\ $D(Q) + D(q) = \tfrac{3}{2}$:
+this is the statement $\Rcharge{Q} + \Rcharge{q} = 1$ of the tables in
+\S\ref{sec:quantum-numbers}.
 
 \subsection{Summary: evidence for Seiberg duality}
 
@@ -792,8 +806,8 @@ proved from the microscopic definition of the theory.  However, it is
 supported by an overwhelming body of evidence:
 
 \begin{enumerate}
-  \item \textbf{Anomaly matching:} All 6 independent 't~Hooft anomaly
-    coefficients match exactly (\S\ref{sec:anomaly-matching}).
+  \item \textbf{Anomaly matching:} All seven 't~Hooft anomaly
+    coefficients of \S\ref{sec:anomaly-matching} match exactly.
   \item \textbf{Moduli space matching:} The classical moduli spaces of the
     electric and magnetic theories agree (\S\ref{sec:moduli-space}).
   \item \textbf{Mass deformation consistency:} Giving mass to one flavour
@@ -828,7 +842,7 @@ In this lecture we have:
     (1/\mu)\, M q \widetilde{q}$.
   \item Derived the quantum numbers of the magnetic theory, including
     the non-trivial baryon charge $B[q] = \Nc/(\Nf - \Nc)$.
-  \item Verified all 6 independent 't~Hooft anomaly coefficients match
+  \item Verified that all seven 't~Hooft anomaly coefficients match
     exactly as polynomial identities in $\Nc$ and $\Nf$.
   \item Checked consistency under mass deformation: $\Nf \to \Nf - 1$ on
     both sides produces the correct dual pair.
@@ -869,13 +883,14 @@ In this lecture we have:
   \textit{Nucl. Phys.} \textbf{B241} (1984) 493.
 
 \bibitem{Sannino2024}
-  F.~Sannino \textit{et al.},
-  ``The Dualised Standard Model,''
-  [\texttt{arXiv:2407.17281}].
+  G.~Cacciapaglia and F.~Sannino,
+  ``Charting Standard Model Duality and its Signatures,''
+  arXiv:2407.17281 [hep-ph] (2024).
 
 \bibitem{CT2011}
-  C.~Cs\'aki and T.~Terning,
-  ``Seiberg duality and the Standard Model,''
+  C.~Cs\'aki, Y.~Shirman, and J.~Terning,
+  ``A Seiberg dual for the MSSM: partially composite $W$ and $Z$,''
+  \textit{Phys.~Rev.} \textbf{D84} (2011) 095011
   [\texttt{arXiv:1106.3074}].
 
 \bibitem{WessBagger}
