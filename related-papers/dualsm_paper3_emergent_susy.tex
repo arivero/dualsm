@@ -88,21 +88,30 @@ at the Conformal Window Boundary}}
 \begin{abstract}
 Antipin, Mojaza, Pica, and Sannino showed that supersymmetric fixed
 points can emerge from non-supersymmetric RG flow in the magnetic dual
-of QCD-like theories, at least in the Veneziano limit.  If this
-emergent-SUSY phenomenon persists at finite~$\Nc$, it makes specific
-predictions for the spectrum and operator dimensions of $\SU{3}$
-gauge theories near the lower boundary~$\Nfstar$ of the conformal window.
-We identify five lattice-measurable observables that discriminate
+of QCD with one adjoint Weyl fermion, in the perturbative regime of the
+magnetic theory.  If this emergent-SUSY phenomenon persists at
+finite~$\Nc$ and carries over to theories with fundamental flavours
+only, it makes specific predictions for the spectrum and operator
+dimensions of $\SU{3}$ gauge theories near the lower
+boundary~$\Nfstar$ of the conformal window.  These predictions exist
+only inside the SUSY conformal window $\tfrac{3}{2}\Nc < \Nf < 3\Nc$,
+\ie\ $4.5 < \Nf < 9$ for $\SU{3}$.
+We describe five lattice-measurable observables that discriminate
 between emergent SUSY and ordinary confining or conformal behaviour:
 (i)~the scalar-to-pseudoscalar mass ratio $m_\sigma / m_\pi$,
 (ii)~the glueball--fermion-bilinear mass relation,
 (iii)~the mass anomalous dimension~$\gamma_m$ at the fixed point,
 (iv)~a lattice SUSY Ward identity violation parameter, and
-(v)~the effective potential for the chiral condensate.  For each
-observable, we give the predicted value in the emergent-SUSY scenario
-versus the ordinary (non-SUSY) scenario for $\SU{3}$ with
-$\Nf = 8$, $10$, and~$12$ fundamental Dirac flavours.
-Observables 1 and 3 ($\gamma_m^*$ and $m_\sigma/m_\pi$) are the core diagnostics with direct operator definitions.  Observables 2, 4, and 5 are exploratory extensions contingent on additional operator-mapping work not established here.
+(v)~the effective potential for the chiral condensate.
+Observables 1 and 3 ($m_\sigma/m_\pi$ and $\gamma_m$) are the core
+diagnostics with direct operator definitions.  Observables 2, 4, and 5
+are exploratory extensions contingent on additional operator-mapping
+work not established here.  Identifying the quark bilinear with the
+$F$-component of the SQCD meson superfield gives
+$\gamma_m = (3\Nc - \Nf)/\Nf$, which is $1/8$ at $\Nf = 8$.  Of the
+three most-studied cases $\Nf = 8$, $10$, and~$12$, only $\Nf = 8$ lies
+inside the SUSY window; $\Nf = 10$ and $12$ serve as non-SUSY controls,
+for which we quote two-loop Banks--Zaks values.
 Existing lattice data from the LatKMI and LSD collaborations are
 compared with these predictions where available.  We propose a
 concrete measurement programme to test the emergent-SUSY hypothesis.
@@ -139,31 +148,42 @@ range $8 \lesssim \Nfstar \lesssim 12$~\cite{Hasenbusch2017,
 Appelquist2016,Aoki2014,Fodor2012}.
 
 In a remarkable paper, Antipin, Mojaza, Pica, and
-Sannino~\cite{AMPS2013} demonstrated that the magnetic dual of a
-QCD-like theory, when augmented by Yukawa and quartic couplings,
-possesses perturbative fixed points where all couplings simultaneously
-take the values predicted by $\mathcal{N}=1$ supersymmetry.  These
-SUSY fixed points are reached from generic non-supersymmetric initial
-conditions---no fine-tuning is required---and have finite basins of
-attraction.  The result was established in the Veneziano limit
-($\Nc, \Nf \to \infty$ with $\Nf/\Nc$ fixed), where the fixed-point
-couplings are perturbatively small.
+Sannino~\cite{AMPS2013} demonstrated that the candidate magnetic dual
+of $\SU{\Nc}$ with $\Nf$ Dirac flavours and one adjoint Weyl fermion
+(the electric field content of SQCD without squarks), an $\SU{X}$ gauge
+theory with $X = \Nf - \Nc$ and general Yukawa couplings, possesses
+perturbative fixed points where all couplings simultaneously take the
+values predicted by $\mathcal{N}=1$ supersymmetry: Seiberg's magnetic
+fixed point.  These SUSY fixed points are reached from generic
+non-supersymmetric initial conditions---no fine-tuning is
+required---and have finite basins of attraction.  The result was
+established in the perturbative regime of the magnetic theory, just
+below $\Nf = 3X$, where the magnetic $\SU{X}$ loses asymptotic freedom
+and the fixed-point couplings are small.  In electric variables
+$\Nf = 3X$ reads $\Nf = \tfrac{3}{2}\Nc$, the lower edge of the SUSY
+conformal window.
 
-If emergent SUSY persists at finite $\Nc$ and governs the physics
+If emergent SUSY persists at finite $\Nc$, carries over to theories
+with fundamental flavours only, and governs the physics
 near~$\Nfstar$, then the IR dynamics of $\SU{3}$ theories at the
-conformal window boundary inherits SUSY predictions.  These predictions
-are qualitatively different from those of ordinary confining or
-conformal behaviour.  The purpose of this paper is to identify lattice
-observables that can distinguish between the two scenarios, derive
-the specific SUSY predictions for $\SU{3}$ with $\Nf = 8$, $10$,
-and~$12$, and compare with existing lattice data.
+conformal window boundary inherits SUSY predictions.  The second
+condition is an assumption of this paper: the adjoint Weyl fermion of
+the AMPS electric theory is absent in the $\SU{3}$ theories simulated
+on the lattice.  The SUSY predictions exist only where SQCD has an
+interacting fixed point, $\tfrac{3}{2}\Nc < \Nf < 3\Nc$, so for
+$\SU{3}$ they require $\Nfstar \le 8$.  They are qualitatively
+different from those of ordinary confining or conformal behaviour.
+The purpose of this paper is to identify lattice observables that can
+distinguish between the two scenarios, derive the SUSY predictions for
+$\SU{3}$ inside the SUSY window, and compare with existing lattice data
+at $\Nf = 8$, $10$, and~$12$.
 
 \textbf{Epistemic status.}  The emergent-SUSY hypothesis is a
-conjecture supported by perturbative evidence in the Veneziano limit.
-Whether it survives at $\Nc = 3$ is an open question.  All predictions
-labelled ``emergent SUSY'' in this paper are conditional on the
-conjecture being correct.  The purpose of our proposed measurements is
-precisely to \emph{test} this conjecture, not to assume it.
+conjecture supported by perturbative evidence in the magnetic theory.
+Whether it survives at $\Nc = 3$, and whether it applies without the
+adjoint fermion, are open questions.  All predictions labelled
+``emergent SUSY'' in this paper are conditional on the conjecture being
+correct, and the proposed measurements are designed to \emph{test} it.
 
 
 %% ================================================================
@@ -186,11 +206,19 @@ two-loop coefficient is
     34\Nc^2 - \Nf\left(10\Nc + \frac{3(\Nc^2 - 1)}{\Nc}\right)
   \right).
 \end{equation}
-A perturbative (Banks--Zaks) fixed point exists when $b_0 > 0$ and
-$b_1 < 0$, which for $\SU{3}$ gives $\Nf > 8.05$~\cite{BZ1982}.
-However, the two-loop estimate for the lower boundary is unreliable
-for the actual non-perturbative transition; it merely provides a rough
-guide.
+With the two-loop beta function in the standard normalisation
+\begin{equation}\label{eq:beta-2loop}
+  \mu\frac{d\alpha}{d\mu} = -\frac{b_0}{2\pi}\,\alpha^2
+  - \frac{b_1}{8\pi^2}\,\alpha^3\,,
+\end{equation}
+a perturbative (Banks--Zaks) fixed point
+\begin{equation}\label{eq:alpha-BZ}
+  \alpha_* = -\frac{4\pi\, b_0}{b_1}
+\end{equation}
+exists when $b_0 > 0$ and $b_1 < 0$, which for $\SU{3}$ gives
+$\Nf > 8.05$~\cite{BZ1982,Caswell1974}.  The two-loop estimate for the
+lower boundary is unreliable for the actual non-perturbative
+transition; it provides a rough guide only.
 
 \subsection{Non-perturbative estimates}
 
@@ -236,9 +264,10 @@ $\Nf = 8$ is \emph{likely below but near} the conformal window
 boundary, with slow (``walking'') running of the coupling.
 
 \textbf{$\boldsymbol{\Nf = 10}$:}  Fewer lattice studies exist at
-$\Nf = 10$.  The available data are consistent with either a conformal
-fixed point or very slow walking~\cite{Hayakawa2013,Cheng2013}.  This
-is the critical region where $\Nfstar$ is expected to lie.
+$\Nf = 10$, and they have not settled whether the theory is conformal
+or walking; see, \eg, the Schr\"odinger-functional study of the running
+coupling in~\cite{Hayakawa2011}.  Many estimates place $\Nfstar$ in
+this region.
 
 \textbf{$\boldsymbol{\Nf = 12}$:}  This case has generated
 significant debate.  The LatKMI collaboration~\cite{LatKMI2016_Nf12}
@@ -262,7 +291,7 @@ $\Nf$ & Status & $\gamma_m$ (lattice) & Key references \\
 $8$  & Confining/walking & $0.4$--$1.0$ &
   LatKMI~\cite{LatKMI2014_Nf8}, LSD~\cite{LSD2014_Nf8} \\
 $10$ & Uncertain & --- &
-  \cite{Hayakawa2013,Cheng2013} \\
+  \cite{Hayakawa2011} \\
 $12$ & Likely conformal & $0.4$--$0.5$ &
   LatKMI~\cite{LatKMI2016_Nf12}, \cite{Fodor2012} \\
 \bottomrule
@@ -298,9 +327,13 @@ window.  The fixed point $\beta(\alpha_*) = 0$ requires
   \gamma_Q^* = 1 - \frac{3\Nc}{\Nf}\,.
 \end{equation}
 The SUSY conformal window is the range where the fixed point exists
-and respects the unitarity bound $\dim(Q) \geq 1$, \ie\
-$\gamma_Q^* \geq -1/2$ (using $\dim(Q) = 1 + \gamma_Q/2$ in the
-convention where the free-field dimension is~$1$).  The resulting
+and the gauge-invariant chiral primaries respect the unitarity bound
+$\dim(\mathcal{O}) \geq 1$.  The bound applies to gauge-invariant
+operators, so it constrains the meson $M = Q\widetilde{Q}$ rather than
+the quark superfield: with $\dim(Q) = 1 + \gamma_Q/2$ (free-field
+dimension~$1$), $\dim(M) = 2 + \gamma_Q^* \geq 1$ requires
+$\gamma_Q^* \geq -1$, \ie\ $\Nf \geq \tfrac{3}{2}\Nc$.  Asymptotic
+freedom, $3\Nc - \Nf > 0$, supplies the upper edge.  The resulting
 window is
 \begin{equation}\label{eq:SUSY-window}
   \frac{3}{2}\Nc < \Nf < 3\Nc\,.
@@ -308,15 +341,23 @@ window is
 For $\SU{3}$: $4.5 < \Nf < 9$.
 
 \subsection{The mass anomalous dimension}
+\label{ssec:gamma-m}
 
 The key quantity for lattice comparison is the mass anomalous dimension
 $\gamma_m$, defined by the scaling dimension of the fermion bilinear:
 \begin{equation}\label{eq:gamma-m-def}
   \dim(\bar\psi\psi) = 3 - \gamma_m\,.
 \end{equation}
-In the SUSY theory, the fermion bilinear is the lowest component of
-the meson superfield $M^i{}_j = Q^i \widetilde{Q}_j / \Lambda$.  At a
-superconformal fixed point, the dimension of a chiral primary
+In the SUSY theory, the fermion bilinear is the $\theta^2$ ($F$-)
+component of the composite meson superfield
+$M^i{}_j = Q^i \widetilde{Q}_j$.  Writing
+$M = \phi_M + \sqrt{2}\,\theta\,\psi_M + \theta^2 F_M$, as in Lecture~10
+of the accompanying course, the lowest component $\phi_M$ is the squark
+bilinear, $\psi_M$ is the mesino, and on shell
+$F_M \propto \psi_Q \psi_{\widetilde{Q}}$ is the quark bilinear, whose
+real and imaginary parts are the scalar density $\bar\psi\psi$ and the
+pseudoscalar density $\bar\psi i\gamma_5\psi$.  At a superconformal
+fixed point, the dimension of a chiral primary
 operator~$\mathcal{O}$ with R-charge $R(\mathcal{O})$ is fixed by the
 superconformal algebra~\cite{Seiberg1995,IS1996}:
 \begin{equation}\label{eq:dim-R}
@@ -330,27 +371,35 @@ so its scaling dimension at the fixed point is
 \begin{equation}\label{eq:dim-meson}
   \dim(M) = \frac{3(\Nf - \Nc)}{\Nf}\,.
 \end{equation}
-Identifying $\dim(M) = \dim(\bar\psi\psi) = 3 - \gamma_m$, the SUSY
+The $F$-component carries one more unit of dimension than the lowest
+component, $\dim(\bar\psi\psi) = \dim(M) + 1 = 3 - \gamma_m$.  The SUSY
 prediction for the mass anomalous dimension at the fixed point is
+therefore
 \begin{equation}\label{eq:gamma-SUSY}
   \boxed{
-    \gamma_m^{\mathrm{SUSY}} = 3 - \frac{3(\Nf - \Nc)}{\Nf}
-    = \frac{3\Nc}{\Nf}\,.
+    \gamma_m^{\mathrm{SUSY}} = 2 - \frac{3(\Nf - \Nc)}{\Nf}
+    = \frac{3\Nc - \Nf}{\Nf}\,,
+    \qquad \tfrac{3}{2}\Nc < \Nf < 3\Nc\,.
   }
 \end{equation}
+Equivalently $\gamma_m^{\mathrm{SUSY}} = -\gamma_Q^*$ by
+Eq.~\eqref{eq:gammaQ-star}, since $\dim(M) = 2 + \gamma_Q^*$.
 
-% SELF-CRITIQUE: gamma_m = 3 - 3(N_f - N_c)/N_f = 3 - 3 + 3N_c/N_f
-% = 3N_c/N_f.  Sign check OK.  Dimensionless: OK.
-% Limits: N_f -> 3N_c => gamma_m -> 1 (unitarity bound from below);
-% N_f -> (3/2)N_c => gamma_m -> 2 (unitarity bound from above). OK.
+% CHECK: gamma_m = 2 - 3(N_f - N_c)/N_f = (3N_c - N_f)/N_f = -gamma_Q*.
+% Limits: N_f -> 3N_c gives 0 (free theory); N_f -> (3/2)N_c gives 1,
+% where dim(M) = 1 saturates the unitarity bound on the gauge-invariant M.
 
 \begin{remark}[Consistency check: conformal window boundaries]
-  At the upper boundary $\Nf = 3\Nc$: $\gamma_m^{\mathrm{SUSY}} = 1$.
-  The fixed point merges with free-field behaviour.  At the lower
-  boundary $\Nf = \frac{3}{2}\Nc$:
-  $\gamma_m^{\mathrm{SUSY}} = 2$, which saturates the unitarity bound
-  $\dim(\bar\psi\psi) \geq 1$, \ie\ $\gamma_m \leq 2$.  Below this
-  point the theory confines.  Both limiting behaviours are correct.
+  At the upper boundary $\Nf = 3\Nc$: $\gamma_m^{\mathrm{SUSY}} = 0$.
+  The fixed point merges with the free theory, where the bilinear has
+  its canonical dimension~$3$.  At the lower boundary
+  $\Nf = \frac{3}{2}\Nc$: $\gamma_m^{\mathrm{SUSY}} = 1$, where
+  $\dim(M) = 1$ saturates the unitarity bound for the gauge-invariant
+  scalar~$M$ and $\dim(\bar\psi\psi) = 2$.  For
+  $\Nc + 2 \le \Nf \le \tfrac{3}{2}\Nc$ SQCD flows instead to a free
+  magnetic phase.  The value $\gamma_m = 1$ at the lower edge agrees
+  with the bound $\gamma_m \le 1$ obtained for the candidate non-SUSY
+  dual of QCD with one adjoint fermion~\cite{MNPS2011,AMPS2013}.
 \end{remark}
 
 \subsection{Numerical predictions for SU(3)}
@@ -359,68 +408,88 @@ prediction for the mass anomalous dimension at the fixed point is
 The emergent-SUSY hypothesis asserts that, near $\Nfstar$ in the
 non-SUSY theory, the IR fixed point acquires SUSY-like properties and
 the mass anomalous dimension approaches the SUSY value
-\eqref{eq:gamma-SUSY}.  For $\SU{3}$:
+\eqref{eq:gamma-SUSY}.  For $\SU{3}$ the SUSY window is $4.5 < \Nf < 9$:
 \begin{equation}\label{eq:gamma-values}
-  \gamma_m^{\mathrm{SUSY}}(\Nf) = \frac{9}{\Nf}
+  \gamma_m^{\mathrm{SUSY}}(\Nf) = \frac{9 - \Nf}{\Nf}
   \qquad \Longrightarrow \qquad
   \gamma_m^{\mathrm{SUSY}} =
   \begin{cases}
-    9/8  = 1.125 & (\Nf = 8) \\
-    9/10 = 0.900 & (\Nf = 10) \\
-    9/12 = 0.750 & (\Nf = 12)
+    4/5 = 0.800 & (\Nf = 5) \\
+    1/2 = 0.500 & (\Nf = 6) \\
+    2/7 = 0.286 & (\Nf = 7) \\
+    1/8 = 0.125 & (\Nf = 8)
   \end{cases}\,.
 \end{equation}
-These should be compared with the non-SUSY expectation.  In the
+For $\Nf \geq 9$ SQCD is not asymptotically free and flows to a free
+theory in the IR; formula~\eqref{eq:gamma-SUSY} would give
+$\gamma_m \leq 0$ there, and there is no superconformal fixed point for
+the non-SUSY theory to approach.  Of the three lattice-studied values,
+only $\Nf = 8$ lies inside the window, so the emergent-SUSY scenario can
+apply only if $\Nfstar \le 8$.
+
+These values should be compared with the non-SUSY expectations.  In the
 ladder Schwinger--Dyson approximation, the lower boundary corresponds
 to $\gamma_m = 1$; in the Ryttov--Sannino all-orders beta function, it
-corresponds to $\gamma_m = 2$~\cite{RS2008}.  The SUSY values are
-distinct from both.  Specifically:
+corresponds to $\gamma_m = 2$~\cite{RS2008}.  Inside the non-SUSY
+conformal window, the two-loop Banks--Zaks estimate evaluates the
+two-loop mass anomalous dimension
+\begin{equation}\label{eq:gamma-BZ}
+  \gamma_m = 6C_F\,a_* + C_F\Bigl[3C_F + \tfrac{97}{3}C_A
+  - \tfrac{20}{3}T_F\Nf\Bigr]a_*^2\,,
+  \qquad a_* = \frac{\alpha_*}{4\pi}\,,
+\end{equation}
+at the two-loop zero~\eqref{eq:alpha-BZ}, following Ryttov and
+Shrock~\cite{RyttovShrock2011} ($C_F = 4/3$, $C_A = 3$, $T_F = 1/2$ for
+$\SU{3}$).
 
 \begin{table}[ht]
 \centering
 \renewcommand{\arraystretch}{1.3}
 \caption{Predicted mass anomalous dimension $\gamma_m$ at the fixed
-  point for $\SU{3}$, under different hypotheses for the conformal
-  window boundary.  ``BZ'' denotes the perturbative Banks--Zaks
-  prediction using the two-loop beta function.  The SUSY values
-  use~\eqref{eq:gamma-SUSY}; they apply only \emph{if} emergent SUSY
-  governs the fixed point.  The Schwinger--Dyson (SD) value marks the
-  onset of chiral symmetry breaking.}
+  point for $\SU{3}$.  The SUSY values use~\eqref{eq:gamma-SUSY} and
+  exist only inside the SUSY window $4.5 < \Nf < 9$; they apply only
+  \emph{if} emergent SUSY governs the fixed point.  ``BZ'' denotes the
+  two-loop Banks--Zaks estimate, Eq.~\eqref{eq:gamma-BZ} at the
+  two-loop zero~\eqref{eq:alpha-BZ}.  The Schwinger--Dyson (SD) value
+  marks the onset of chiral symmetry breaking at $\Nfstar$.}
 \label{tab:gamma-predictions}
-\begin{tabular}{@{} c c c c c @{}}
+\begin{tabular}{@{} c c c c c c @{}}
 \toprule
-$\Nf$ & $\gamma_m^{\mathrm{SUSY}}$ &
+$\Nf$ & $\gamma_m^{\mathrm{SUSY}}$ & $\alpha_*^{\BZ}$ &
   $\gamma_m^{\BZ}$ (2-loop) &
-  $\gamma_m^{\mathrm{SD}}$ &
+  $\gamma_m^{\mathrm{SD}}$ at $\Nfstar$ &
   $\gamma_m^{\mathrm{lattice}}$ \\
 \midrule
-$8$  & $1.125$ & $0.46$ & $\sim 1$ &
+$8$  & $0.125$ & none ($b_1 > 0$) & --- & $\sim 1$ &
   $0.4$--$1.0$ \\
-$10$ & $0.900$ & $0.26$ & $\sim 1$ & --- \\
-$12$ & $0.750$ & $0.13$ & $< 1$ (conformal) &
+$10$ & outside window & $2.21$ & $4.19$ & $\sim 1$ & --- \\
+$12$ & outside window & $0.754$ & $0.77$ & $\sim 1$ &
   $0.4$--$0.5$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The two-loop Banks--Zaks values are much smaller than the SUSY
-predictions for all three cases.  The Schwinger--Dyson prediction of
-$\gamma_m \to 1$ at $\Nfstar$ differs from the SUSY value of $9/\Nfstar$.
-For $\Nfstar = 10$, the distinction is $\gamma_m = 1$ (SD)
-versus $\gamma_m = 0.9$ (SUSY)---a~10\% difference that would require
-high-precision lattice measurements.  For $\Nfstar = 8$, the SUSY
-value $\gamma_m = 1.125$ exceeds the SD value of~$1$, and the
-unitarity bound $\gamma_m \leq 2$ is far from saturated.
+The SUSY and Banks--Zaks estimates never apply at the same $\Nf$: the
+two-loop zero exists only for $\Nf \geq 9$, outside the SUSY window.
+At $\Nf = 12$ the two-loop value $0.77$ lies above the lattice range
+$0.4$--$0.5$; the $a_*^2$ term is $61\%$ of the $a_*$ term there, so the
+truncation uncertainty is large.  At $\Nf = 10$ the two-loop value
+exceeds the unitarity bound $\gamma_m \leq 2$, a sign that perturbation
+theory has broken down.  At $\Nf = 8$, the one case where the SUSY
+prediction exists, emergent SUSY gives $\gamma_m = 1/8$, a factor of
+eight below the Schwinger--Dyson value~$1$ at the boundary and below
+the whole lattice range $0.4$--$1.0$.
 
 \subsection{The SUSY spectrum: boson--fermion degeneracies}
 \label{ssec:spectrum}
 
 At a superconformal fixed point, operators organise into
-superconformal multiplets.  The scalar meson $\sigma$ (the real part
-of the chiral condensate) and the pseudoscalar meson $\pi$ (the
-imaginary part) are related by a superconformal transformation to the
-fermionic component of the same superfield.  The key spectral
-predictions are:
+superconformal multiplets.  The scalar density $\bar\psi\psi$ (the
+$\sigma$ channel) and the pseudoscalar density $\bar\psi i\gamma_5\psi$
+(the $\pi$ channel) are the real and imaginary parts of the same
+component $F_M$ of the meson superfield (\cref{ssec:gamma-m}), related
+by supersymmetry to the squark bilinear $\phi_M$ and the mesino
+$\psi_M$.  The key spectral predictions are:
 
 \begin{enumerate}[label=(\roman*)]
   \item \textbf{Scalar--pseudoscalar degeneracy:}  If the $\sigma$ and
@@ -437,15 +506,18 @@ predictions are:
 
   \item \textbf{Glueball--gluinoball degeneracy:}  In $\mathcal{N}=1$
     super Yang--Mills theory, the glueball (a $0^{++}$ state built from
-    $F_{\mu\nu}F^{\mu\nu}$) and the gluinoball (a fermionic state built
-    from $\lambda\lambda$, where $\lambda$ is the gluino) belong to the
-    same supermultiplet.  If emergent SUSY holds in a theory with an
-    adjoint Weyl fermion (as in Sannino's magnetic dual), the glueball
-    and the adjoint-fermion bilinear state should become degenerate:
+    $F_{\mu\nu}F^{\mu\nu}$) and the gluinoball (a bosonic bound state
+    of two gluinos $\lambda$) belong to the same supermultiplet.  If
+    emergent SUSY holds in a theory with an adjoint Weyl fermion (as in
+    Sannino's magnetic dual), the glueball and the adjoint-fermion
+    bilinear state should become degenerate:
     \begin{equation}\label{eq:glueball}
       \frac{m_{0^{++}}}{m_{\lambda\lambda}}
       \xrightarrow{\text{emergent SUSY}} 1\,.
     \end{equation}
+    This relation underlies the exploratory Observable~2
+    (\cref{ssec:obs2}); $\SU{3}$ with fundamental flavours only has no
+    adjoint fermion and therefore no direct counterpart.
 \end{enumerate}
 
 
@@ -455,10 +527,15 @@ predictions are:
 \section{Proposed lattice observables}
 \label{sec:observables}
 
-We now identify five lattice-measurable quantities that discriminate
+We now describe five lattice-measurable quantities that discriminate
 between emergent SUSY, ordinary confinement, and conformal behaviour
-without emergent SUSY.  For each observable, we give the
-prediction in each scenario.
+without emergent SUSY.  Observables~1 and~3 ($m_\sigma/m_\pi$ and
+$\gamma_m$) are the core diagnostics: both have direct operator
+definitions.  Observables~2, 4, and~5 are exploratory: each needs an
+operator mapping between the SUSY theory and the $\SU{3}$ lattice
+theory that is not established here.  For each observable, we give the
+prediction in each scenario; the emergent-SUSY predictions apply only
+inside the SUSY window (\cref{ssec:gamma-numerical}).
 
 \subsection{Observable 1: scalar-to-pseudoscalar mass ratio
   $m_\sigma / m_\pi$}
@@ -491,8 +568,9 @@ different parity and are not related by a SUSY transformation).  Thus:
 \end{equation}
 
 \textbf{Emergent SUSY:}  At a superconformal fixed point, the scalar
-$\sigma$ and pseudoscalar $\pi$ mesons arise as the real and imaginary
-parts of the lowest component of the meson chiral superfield $M$.
+$\sigma$ and pseudoscalar $\pi$ channels are the real and imaginary
+parts of the component $F_M$ of the meson chiral superfield~$M$
+(\cref{ssec:gamma-m}).
 Within the superconformal multiplet, both have the same scaling
 dimension.  Upon deforming away from the fixed point (by a relevant
 perturbation that gives the theory a mass gap), the mass degeneracy
@@ -527,6 +605,10 @@ partner of the pion.
 \subsection{Observable 2: glueball--fermion-bilinear mass relation}
 \label{ssec:obs2}
 
+\textbf{Status: exploratory.}  $\SU{3}$ with fundamental flavours only
+has no adjoint fermion, and the proxy below rests on a relation derived
+for pure $\mathcal{N}=1$ SYM; the operator mapping is not established.
+
 In a theory containing an adjoint Weyl fermion $\lambda$ in addition
 to fundamental fermions, the glueball ($0^{++}$) and the
 adjoint-fermion bilinear ($\lambda\lambda$ bound state) should become
@@ -552,15 +634,15 @@ no prediction relating $m_{0^{++}}$ to $m_\sigma$.  Generically:
 
 \textbf{Emergent SUSY:}  With an adjoint fermion, the glueball and
 gluinoball become degenerate (Eq.~\eqref{eq:glueball}).  Without
-the adjoint, the prediction is weaker: the glueball mass should be
-related to the fermion-bilinear condensate
-via~\eqref{eq:glueball-condensate}, and the glueball should enter
-the same tower as the meson states with calculable mass ratios.
+the adjoint, relation~\eqref{eq:glueball-condensate}, derived for pure
+SYM, would have to be re-derived with fundamental matter before it
+could be tested; we use it only as a guide for what to measure.
 
 \textbf{Lattice measurement:}  Extract the glueball mass from
 Wilson-loop or gluonic correlator measurements.  Compare with the
 meson spectrum.  A clear separation $m_{0^{++}} \gg m_\sigma$ would
-disfavour emergent SUSY; approximate degeneracy would support it.
+disfavour emergent SUSY; approximate degeneracy would be suggestive,
+pending the operator mapping.
 
 
 \subsection{Observable 3: mass anomalous dimension $\gamma_m$}
@@ -571,47 +653,53 @@ measurable quantity at or near a conformal fixed point.  The
 predictions are given in~\cref{tab:gamma-predictions} and repeated
 here for emphasis:
 
-\textbf{Emergent SUSY:}
+\textbf{Emergent SUSY} (inside the SUSY window only):
 \begin{equation}\label{eq:obs3-SUSY}
   \boxed{
-    \gamma_m = \frac{3\Nc}{\Nf}
-    = \frac{9}{\Nf}\quad (\SU{3})
+    \gamma_m = \frac{3\Nc - \Nf}{\Nf}
+    = \frac{9 - \Nf}{\Nf}\quad (\SU{3},\ 4.5 < \Nf < 9)
   }
 \end{equation}
 
-\textbf{Non-SUSY conformal (Banks--Zaks):}  The two-loop estimate gives
-values significantly smaller than the SUSY prediction for all $\Nf$
-(see~\cref{tab:gamma-predictions}).
+\textbf{Non-SUSY conformal (Banks--Zaks):}  The two-loop estimate
+exists for $\Nf \geq 9$, outside the SUSY window, and gives $0.77$ at
+$\Nf = 12$ (\cref{tab:gamma-predictions}).
 
 \textbf{Schwinger--Dyson:}  The onset of chiral symmetry breaking
 occurs at $\gamma_m = 1$.
 
-The discriminating power depends on the location of $\Nfstar$.  If
-$\Nfstar \approx 10$, the SUSY value $\gamma_m = 0.9$ is close to
-the SD value of~$1$, requiring $\sim 10\%$ precision.  If
-$\Nfstar \approx 12$, the SUSY value is $\gamma_m = 0.75$ while the
-SD value remains~$1$---a~25\% difference that is accessible to
-current lattice methods.
+The discriminating power depends on the location of $\Nfstar$.  For
+integer $\Nf$ the SUSY window ends at $\Nf = 8$, so the emergent-SUSY
+prediction applies only if $\Nfstar \le 8$.  At $\Nf = 8$ it predicts
+$\gamma_m = 1/8$, a factor of eight below the SD value~$1$; current
+lattice methods resolve a difference of this size.  If
+$\Nfstar \geq 9$, the emergent-SUSY scenario in the form used here makes
+no prediction for $\gamma_m$.
 
 \textbf{Lattice measurement:}  Extract $\gamma_m$ from the scaling of
 the Dirac mode number
-$\nu(\lambda) \sim \lambda^{3/(1+\gamma_m)}$~\cite{Patella2012}, from
-the mass dependence of the pseudoscalar decay constant
+$\nu(\lambda) \sim \lambda^{4/(1+\gamma_m)}$~\cite{Patella2012,Cheng2013},
+from the mass dependence of the pseudoscalar decay constant
 $f_\pi \sim m_q^{1/(1+\gamma_m)}$, or from finite-size
 scaling~\cite{DeGrand2015}.
 
-\textbf{Existing data:}  For $\Nf = 12$: LatKMI reports $\gamma_m
-\approx 0.4$--$0.5$~\cite{LatKMI2016_Nf12}.  The SUSY prediction is
-$0.75$.  The discrepancy could indicate that either (a)~emergent SUSY
-does not hold at $\Nf = 12$, or (b)~the lattice measurements have
-not yet reached the deep IR regime where the fixed-point value is
-attained (finite-volume and finite-mass effects can suppress the
-effective $\gamma_m$), or (c)~the theory is not at a fixed point at
-all.
+\textbf{Existing data:}  For $\Nf = 12$, LatKMI reports
+$\gamma_m \approx 0.4$--$0.5$~\cite{LatKMI2016_Nf12}.  $\Nf = 12$ lies
+outside the SUSY window, so this measurement tests the non-SUSY
+conformal scenario and carries no information on emergent SUSY.  For
+$\Nf = 8$ the estimated exponent $0.4$--$1.0$ exceeds the SUSY value
+$0.125$.  If $\Nf = 8$ sits at the boundary, this disfavours emergent
+SUSY; if it lies below the conformal window, as the majority view
+holds, the measured exponent characterises the walking regime and the
+comparison is indirect.
 
 
 \subsection{Observable 4: SUSY Ward identity violation}
 \label{ssec:obs4}
+
+\textbf{Status: exploratory.}  A lattice supercurrent for a theory with
+fundamental fermions and no elementary scalars has not been
+constructed; the construction below is a proposal.
 
 Even without fundamental SUSY, if a theory flows to a superconformal
 fixed point in the IR, the SUSY Ward identities should be approximately
@@ -674,11 +762,16 @@ adapted to include fundamental matter, and measuring
 $\Delta_{\mathrm{SUSY}}$ as a function of the lattice extent~$L$ and
 the bare fermion mass $m_q$.  A power-law decrease of
 $\Delta_{\mathrm{SUSY}}$ with $L$ (or with $1/m_q$ toward the chiral
-limit) would be strong evidence for emergent SUSY.
+limit) would be evidence for emergent SUSY once the supercurrent
+construction is validated.
 
 
 \subsection{Observable 5: effective potential shape and flat directions}
 \label{ssec:obs5}
+
+\textbf{Status: exploratory.}  The relation between the SUSY moduli
+space and the effective potential of the lattice chiral condensate is
+not established.
 
 SUSY theories possess moduli spaces of degenerate vacua---flat
 directions in the scalar potential that are not lifted by quantum
@@ -702,8 +795,9 @@ V''_{\mathrm{eff}}(\Sigma_0)$.
 
 \textbf{Conformal without emergent SUSY:}  The effective potential
 has a minimum at $\Sigma = 0$ (no chiral symmetry breaking), with
-$V_{\mathrm{eff}}(\Sigma) \sim |\Sigma|^{2/(3-\gamma_m)}$ for small
-$\Sigma$.  The curvature depends on $\gamma_m$.
+$V_{\mathrm{eff}}(\Sigma) \sim |\Sigma|^{4/(3-\gamma_m)}$ for small
+$\Sigma$, as scale invariance requires for an order parameter of
+dimension $3 - \gamma_m$.  The curvature depends on $\gamma_m$.
 
 \textbf{Emergent SUSY:}  The effective potential develops approximate
 flat directions corresponding to the SUSY moduli space.  Near $\Nfstar$,
@@ -745,27 +839,31 @@ $\Lambda^2$ (as in ordinary confinement).
 We now assemble the predictions of the five observables for the three
 most-studied cases.  The predictions depend on whether each $\Nf$
 value lies inside the conformal window, outside it (confining), or at
-the boundary where emergent SUSY is expected.
+the boundary where emergent SUSY is expected.  The emergent-SUSY
+predictions exist only inside the SUSY window, which among these three
+cases contains $\Nf = 8$ alone.
 
 \subsection{Scenario assignments}
 
 The emergent-SUSY hypothesis predicts that SUSY-like behaviour appears
-precisely at $\Nf = \Nfstar$.  Depending on the (unknown) value of
-$\Nfstar$, the three cases are:
+at $\Nf = \Nfstar$, provided $\Nfstar$ lies inside the SUSY window.
+Depending on the (unknown) value of $\Nfstar$, the three cases are:
 
 \begin{table}[ht]
 \centering
 \renewcommand{\arraystretch}{1.3}
 \caption{Scenario assignments for each $\Nf$ value, depending on the
-  location of $\Nfstar$.}
+  location of $\Nfstar$.  A boundary outside the SUSY window
+  ($\Nf \geq 9$) admits no emergent SUSY in the form used here, so
+  only the first row allows it.}
 \label{tab:scenarios}
 \begin{tabular}{@{} c c c c @{}}
 \toprule
 $\Nfstar$ & $\Nf = 8$ & $\Nf = 10$ & $\Nf = 12$ \\
 \midrule
 $\sim 8$  & Boundary (SUSY?) & Conformal & Conformal \\
-$\sim 10$ & Confining & Boundary (SUSY?) & Conformal \\
-$\sim 12$ & Confining & Confining/walking & Boundary (SUSY?) \\
+$\sim 10$ & Confining & Boundary (non-SUSY) & Conformal \\
+$\sim 12$ & Confining & Confining/walking & Boundary (non-SUSY) \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -774,8 +872,8 @@ $\sim 12$ & Confining & Confining/walking & Boundary (SUSY?) \\
 
 \Cref{tab:predictions} gives the predicted value of each
 observable in each scenario.  The SUSY values apply only
-\emph{if} emergent SUSY holds \emph{and} $\Nf$ is at the
-boundary.
+\emph{if} emergent SUSY holds, $\Nf$ is at the boundary, \emph{and} the
+boundary lies inside the SUSY window.
 
 \begin{table}[ht]
 \centering
@@ -783,7 +881,9 @@ boundary.
 \caption{Predicted values of the five discriminating observables for
   $\SU{3}$ with $\Nf = 8$, $10$, $12$.  ``Conf.''\ = confining,
   ``CW'' = inside conformal window, ``SUSY'' = emergent SUSY at
-  boundary.  All SUSY values are \emph{conjectural}.}
+  boundary; ``n/a'' marks values outside the SUSY window, where the
+  emergent-SUSY scenario makes no prediction.  Observables 2, 4, and 5
+  are exploratory.  All SUSY values are \emph{conjectural}.}
 \label{tab:predictions}
 \begin{tabular}{@{} l c c c @{}}
 \toprule
@@ -793,29 +893,31 @@ boundary.
   $m_\sigma/m_\pi$}} \\
 \quad Conf. & $\gg 1$ & $\gg 1$ & --- \\
 \quad CW (no SUSY) & --- & $\neq 1$ (generic) & $\neq 1$ (generic) \\
-\quad SUSY boundary & $\to 1$ & $\to 1$ & $\to 1$ \\
+\quad SUSY boundary & $\to 1$ & n/a & n/a \\
 \midrule
-\multicolumn{4}{@{}l}{\textit{2.\ Glueball--meson mass relation}} \\
+\multicolumn{4}{@{}l}{\textit{2.\ Glueball--meson mass relation
+  (exploratory)}} \\
 \quad Conf. & $m_{0^{++}} \sim$ few $\times\, m_\sigma$ & same & --- \\
 \quad CW (no SUSY) & --- & unrelated & unrelated \\
-\quad SUSY boundary & $m_{0^{++}} \approx m_\sigma$ & same & same \\
+\quad SUSY boundary & $m_{0^{++}} \approx m_\sigma$ & n/a & n/a \\
 \midrule
 \multicolumn{4}{@{}l}{\textit{3.\ Mass anomalous dimension
   $\gamma_m$}} \\
 \quad Conf. & N/A (no FP) & N/A & --- \\
-\quad CW (no SUSY, 2-loop) & --- & $0.26$ & $0.13$ \\
-\quad SUSY boundary & $1.125$ & $0.900$ & $0.750$ \\
+\quad CW (no SUSY, 2-loop) & --- & $4.19$ (unreliable) & $0.77$ \\
+\quad SUSY boundary & $0.125$ & n/a & n/a \\
 \midrule
 \multicolumn{4}{@{}l}{\textit{4.\ SUSY Ward identity violation
-  $\Delta_{\mathrm{SUSY}}$}} \\
+  $\Delta_{\mathrm{SUSY}}$ (exploratory)}} \\
 \quad Conf. & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ & --- \\
 \quad CW (no SUSY) & --- & $\mathcal{O}(1)$ & $\mathcal{O}(1)$ \\
-\quad SUSY boundary & $\sim L^{-\Delta}$ & same & same \\
+\quad SUSY boundary & $\sim L^{-\Delta}$ & n/a & n/a \\
 \midrule
-\multicolumn{4}{@{}l}{\textit{5.\ Effective potential shape}} \\
+\multicolumn{4}{@{}l}{\textit{5.\ Effective potential shape
+  (exploratory)}} \\
 \quad Conf. & Mexican hat & same & --- \\
 \quad CW (no SUSY) & --- & Single min.\ at 0 & Single min.\ at 0 \\
-\quad SUSY boundary & Flat direction & same & same \\
+\quad SUSY boundary & Flat direction & n/a & n/a \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -829,7 +931,8 @@ boundary.
 
 We now compare the predictions of~\cref{sec:predictions} with
 available lattice results.  We focus on $\Nf = 8$ and $\Nf = 12$,
-where substantial data exist.
+where substantial data exist.  Of the two, only $\Nf = 8$ lies inside
+the SUSY window.
 
 \subsection{$\Nf = 8$: the light scalar}
 
@@ -854,37 +957,36 @@ have a specific relation to the pseudoscalar decay constant.
 
 \textbf{Observable 3 ($\gamma_m$):}
 The mass anomalous dimension for $\Nf = 8$ has been estimated at
-$\gamma_m \approx 0.4$--$1.0$.  The SUSY prediction is $\gamma_m =
-1.125$.  The upper end of the lattice range ($\gamma_m \sim 1$) is
-not far from the SUSY value, but the uncertainties are large.  Higher
-precision is needed.  If $\Nf = 8$ is below the conformal window
-(as the majority view holds), then $\gamma_m$ is not a fixed-point
-value but an effective exponent characterising the walking regime, and
-the comparison with the SUSY prediction is less direct.
+$\gamma_m \approx 0.4$--$1.0$.  The SUSY prediction is
+$\gamma_m = 1/8$, below the whole lattice range.  If $\Nf = 8$ sits at
+the conformal window boundary, this disfavours emergent SUSY there.  If
+$\Nf = 8$ is below the conformal window (as the majority view holds),
+the measured $\gamma_m$ is an effective exponent characterising the
+walking regime, and the comparison with the SUSY prediction is
+indirect.
 
 \subsection{$\Nf = 12$: the conformal case}
 
 \textbf{Observable 3 ($\gamma_m$):}
 The LatKMI collaboration reports $\gamma_m \approx 0.4$--$0.5$ for
-$\Nf = 12$~\cite{LatKMI2016_Nf12}.  The SUSY prediction is
-$\gamma_m = 0.75$.  The discrepancy is~$\sim 50\%$, which is
-significant.  If $\Nf = 12$ is well inside the conformal window (far
-above $\Nfstar$), then the emergent-SUSY mechanism---which is
-predicted to operate specifically at $\Nfstar$---need not apply.  The
-measured value could reflect ordinary (non-SUSY) conformal dynamics.
-
-However, if $\Nfstar$ is as high as~$12$, the SUSY prediction
-$\gamma_m = 0.75$ should be compared directly.  The discrepancy
-with the lattice value of $0.4$--$0.5$ would then constitute evidence
-against emergent SUSY at $\Nfstar = 12$.
+$\Nf = 12$~\cite{LatKMI2016_Nf12}.  $\Nf = 12$ lies outside the SUSY
+window ($\Nf > 3\Nc = 9$), where SQCD has no interacting fixed point,
+so the emergent-SUSY scenario of this paper makes no prediction there.
+The measurement tests the non-SUSY conformal scenario: the two-loop
+Banks--Zaks value is $0.77$~\cite{RyttovShrock2011}, above the lattice
+range, with a large truncation uncertainty
+(\cref{ssec:gamma-numerical}).  If $\Nfstar$ is as high as~$12$, the
+boundary lies outside the SUSY window and the emergent-SUSY scenario
+used here does not apply.
 
 \subsection{$\Nf = 10$: the missing data}
 
-This is the most critical case.  If $\Nfstar \approx 10$, the
-emergent-SUSY predictions are sharpest here: $\gamma_m = 0.9$,
-$m_\sigma / m_\pi \to 1$, and $\Delta_{\mathrm{SUSY}} \to 0$.
-Unfortunately, very little lattice data exist for $\Nf = 10$.  We
-identify this as the highest priority for future lattice simulations.
+Many estimates place $\Nfstar$ near $\Nf = 10$, and very little lattice
+data exist there.  $\Nf = 10$ lies outside the SUSY window, so it cannot
+display emergent SUSY in the form used here, but it decides whether the
+scenario can apply to $\SU{3}$ at all.  Emergent SUSY requires
+$\Nfstar \le 8$: a confining $\Nf = 10$ would exclude it, while a
+conformal $\Nf = 10$ leaves $\Nf = 8$ and $9$ to be settled.
 
 
 %% ================================================================
@@ -896,51 +998,55 @@ identify this as the highest priority for future lattice simulations.
 Based on the analysis above, we propose the following prioritised
 measurement programme:
 
-\subsection{Priority 1: $\SU{3}$ with $\Nf = 10$}
+\subsection{Priority 1: $\SU{3}$ with $\Nf = 8$ (deeper IR)}
 
-This is the most likely location of $\Nfstar$ and the most
-under-studied case.  We recommend:
-\begin{enumerate}[label=(\alph*)]
-  \item Full spectrum calculation: pseudoscalar, scalar, vector,
-    and axial-vector mesons.  Extract $m_\sigma / m_\pi$ in the chiral
-    limit.
-  \item Mass anomalous dimension $\gamma_m$ from the Dirac mode number,
-    $f_\pi$ scaling, and finite-size scaling.  Compare with
-    $\gamma_m^{\mathrm{SUSY}} = 0.9$.
-  \item Glueball spectrum: extract $m_{0^{++}}$ and compare with
-    $m_\sigma$.
-  \item Multiple fermion masses to enable chiral extrapolation and
-    to test whether $m_\sigma^2 \sim m_q$ (pseudo-modulus scaling) or
-    $m_\sigma^2 \sim m_q^{2/(1+\gamma_m)}$ (conformal scaling).
-\end{enumerate}
-
-\subsection{Priority 2: $\SU{3}$ with $\Nf = 8$ (deeper IR)}
-
-Existing data already hint at a light scalar.  Higher-precision
+$\Nf = 8$ is the only lattice-studied value inside the SUSY window, and
+existing data already hint at a light scalar.  Higher-precision
 measurements are needed:
 \begin{enumerate}[label=(\alph*)]
   \item Lighter fermion masses to approach the chiral limit and
     determine whether $m_\sigma / m_\pi \to 1$ or diverges.
   \item Improved determination of $\gamma_m$ with reduced systematic
-    uncertainties.  The SUSY prediction $\gamma_m = 1.125$ is distinct
-    from the SD value of~$1$.
+    uncertainties.  The SUSY prediction $\gamma_m = 1/8$ lies a factor
+    of eight below the SD value~$1$.
+  \item Multiple fermion masses to test whether $m_\sigma^2 \sim m_q$
+    (pseudo-modulus scaling, exploratory) or
+    $m_\sigma^2 \sim m_q^{2/(1+\gamma_m)}$ (conformal scaling).
   \item Constraint effective potential measurement to probe the shape
     of $V_{\mathrm{eff}}(\Sigma)$ and search for approximate flat
-    directions.
+    directions (exploratory).
 \end{enumerate}
 
-\subsection{Priority 3: SUSY Ward identity measurement (any $\Nf$)}
+\subsection{Priority 2: $\SU{3}$ with $\Nf = 10$}
+
+Many estimates place $\Nfstar$ near $\Nf = 10$, and this case is the
+most under-studied.  $\Nf = 10$ lies outside the SUSY window, so the
+aim is to locate $\Nfstar$: a confining $\Nf = 10$ would exclude
+emergent SUSY in the form used here for $\SU{3}$.  We recommend:
+\begin{enumerate}[label=(\alph*)]
+  \item Full spectrum calculation: pseudoscalar, scalar, vector,
+    and axial-vector mesons.  Extract $m_\sigma / m_\pi$ in the chiral
+    limit.
+  \item Mass anomalous dimension $\gamma_m$ from the Dirac mode number,
+    $f_\pi$ scaling, and finite-size scaling.  Compare with the SD
+    value~$1$ expected at $\Nfstar$.
+  \item Glueball spectrum: extract $m_{0^{++}}$ and compare with
+    $m_\sigma$ (exploratory Observable~2).
+\end{enumerate}
+
+\subsection{Priority 3: SUSY Ward identity measurement (exploratory)}
 
 The SUSY Ward identity violation~\eqref{eq:WI-violation} is
-technically challenging but provides the most direct test of emergent
-SUSY.  We recommend a pilot study:
+technically challenging; once a lattice supercurrent for fundamental
+matter exists, it would provide the most direct test of emergent SUSY.
+We recommend a pilot study:
 \begin{enumerate}[label=(\alph*)]
   \item Construct a lattice discretisation of the supercurrent for
     $\SU{3}$ with $\Nf$ fundamental flavours.  The discretisation
     of~\cite{DESY2008,Munster2014} for pure SYM must be extended to
     include fundamental matter.
   \item Measure $\Delta_{\mathrm{SUSY}}$ at multiple lattice volumes
-    for $\Nf = 8$ or $\Nf = 10$.
+    for $\Nf = 8$, the only studied case inside the SUSY window.
   \item Check for power-law scaling $\Delta_{\mathrm{SUSY}} \sim
     L^{-\Delta}$.
 \end{enumerate}
@@ -948,13 +1054,15 @@ SUSY.  We recommend a pilot study:
 \subsection{Priority 4: comparison across $\Nf$ values}
 
 A definitive test of the emergent-SUSY hypothesis requires comparing
-all five observables across $\Nf = 8$, $10$, and~$12$ (and ideally
-$\Nf = 6$ as a control).  The emergent-SUSY predictions apply only
-at~$\Nfstar$; away from $\Nfstar$, the ordinary confining or
+the two core observables, $m_\sigma/m_\pi$ and $\gamma_m$, across
+$\Nf = 8$, $10$, and~$12$ (and ideally $\Nf = 6$ as a control), with
+the exploratory observables as supporting evidence.  The emergent-SUSY
+predictions apply only at~$\Nfstar$ and only if $\Nfstar$ lies inside
+the SUSY window; away from $\Nfstar$, the ordinary confining or
 conformal predictions should hold.  Observing a sharp change in
-$m_\sigma / m_\pi$, $\gamma_m$, or $\Delta_{\mathrm{SUSY}}$ at a
-specific value of $\Nf$ would be strong evidence for a qualitative
-change in the IR dynamics at the conformal window boundary.
+$m_\sigma / m_\pi$ or $\gamma_m$ at a specific value of $\Nf$ would be
+strong evidence for a qualitative change in the IR dynamics at the
+conformal window boundary.
 
 \subsection{Summary of discriminating signatures}
 
@@ -962,9 +1070,12 @@ change in the IR dynamics at the conformal window boundary.
 \centering
 \renewcommand{\arraystretch}{1.3}
 \caption{Summary of the three scenarios and their distinguishing
-  signatures.  A single observable suffices to distinguish confining
-  from conformal; discriminating emergent SUSY from ordinary conformal
-  requires at least two observables measured at the same~$\Nf$.}
+  signatures.  The two core observables come first; the exploratory
+  ones (expl.) follow.  The emergent-SUSY column applies only inside
+  the SUSY window $\tfrac{3}{2}\Nc < \Nf < 3\Nc$.  A single observable
+  suffices to distinguish confining from conformal; discriminating
+  emergent SUSY from ordinary conformal requires both core observables
+  measured at the same~$\Nf$.}
 \label{tab:summary-signatures}
 \begin{tabular}{@{} l c c c @{}}
 \toprule
@@ -972,12 +1083,13 @@ change in the IR dynamics at the conformal window boundary.
   \textbf{Conformal} & \textbf{Emergent SUSY} \\
 \midrule
 $m_\sigma / m_\pi$ & $\gg 1$ & $\neq 1$ (generic) & $\to 1$ \\
-$m_{0^{++}} / m_\sigma$ & $\mathcal{O}(1)$--$\mathcal{O}(10)$
+$\gamma_m$ & N/A & model-dependent & $(3\Nc - \Nf)/\Nf$ \\
+\midrule
+$m_{0^{++}} / m_\sigma$ (expl.) & $\mathcal{O}(1)$--$\mathcal{O}(10)$
   & unrelated & $\to 1$ \\
-$\gamma_m$ & N/A & $\ll 3\Nc/\Nf$ & $= 3\Nc/\Nf$ \\
-$\Delta_{\mathrm{SUSY}}$ & $\mathcal{O}(1)$ & $\mathcal{O}(1)$
+$\Delta_{\mathrm{SUSY}}$ (expl.) & $\mathcal{O}(1)$ & $\mathcal{O}(1)$
   & $\sim L^{-\Delta}$ \\
-$V_{\mathrm{eff}}$ shape & Mexican hat & Min.\ at $\Sigma = 0$ &
+$V_{\mathrm{eff}}$ shape (expl.) & Mexican hat & Min.\ at $\Sigma = 0$ &
   Flat direction \\
 \bottomrule
 \end{tabular}
@@ -990,33 +1102,39 @@ $V_{\mathrm{eff}}$ shape & Mexican hat & Min.\ at $\Sigma = 0$ &
 \section{Conclusions}
 \label{sec:conclusions}
 
-We have identified five lattice-measurable observables that can
-discriminate between emergent supersymmetry, ordinary confinement, and
-non-SUSY conformal behaviour at the lower boundary of the conformal
-window for $\SU{3}$ gauge theories with fundamental fermions.
+We have identified two core lattice observables, $m_\sigma/m_\pi$ and
+$\gamma_m$, and three exploratory ones that can discriminate between
+emergent supersymmetry, ordinary confinement, and non-SUSY conformal
+behaviour at the lower boundary of the conformal window for $\SU{3}$
+gauge theories with fundamental fermions.
 
-The emergent-SUSY hypothesis of Antipin, Mojaza, Pica, and
-Sannino~\cite{AMPS2013} makes specific, quantitative diagnostic proposals: a mass
-anomalous dimension $\gamma_m = 9/\Nf$, a scalar-to-pseudoscalar mass
-ratio approaching unity, power-law vanishing of SUSY Ward identity
-violations, and the emergence of approximate flat directions in the
-effective potential.  These predictions are qualitatively different
-from both ordinary confining behaviour and non-SUSY conformal
-dynamics.
+Applied to $\SU{3}$ with fundamental flavours, the emergent-SUSY
+hypothesis of Antipin, Mojaza, Pica, and Sannino~\cite{AMPS2013} makes
+specific, quantitative diagnostic proposals inside the SUSY window
+$4.5 < \Nf < 9$: a mass anomalous dimension
+$\gamma_m = (9 - \Nf)/\Nf$ ($1/8$ at $\Nf = 8$) and a
+scalar-to-pseudoscalar mass ratio approaching unity, with power-law
+vanishing of SUSY Ward identity violations and approximate flat
+directions in the effective potential as exploratory signals.  These
+predictions are qualitatively different from both ordinary confining
+behaviour and non-SUSY conformal dynamics.
 
 Existing lattice data provide intriguing but inconclusive evidence.
 The light scalar observed at $\Nf = 8$ is consistent with emergent SUSY
-but also admits a dilaton interpretation.  The mass anomalous dimension
-at $\Nf = 12$ falls below the SUSY prediction, but this may reflect
-$\Nf = 12$ being well above~$\Nfstar$.  The critical case $\Nf = 10$
-remains largely unexplored on the lattice and should be the highest
-priority for future simulations.
+but also admits a dilaton interpretation.  The estimated $\gamma_m$ at
+$\Nf = 8$, $0.4$--$1.0$, exceeds the SUSY value $1/8$; this counts
+against emergent SUSY if $\Nf = 8$ sits at the boundary.  $\Nf = 10$
+and $12$ lie outside the SUSY window and test only the non-SUSY
+scenarios.  Emergent SUSY in the form used here requires
+$\Nfstar \le 8$, so simulations of $\Nf = 8$ closer to the chiral limit,
+together with a determination of whether $\Nf = 10$ is conformal,
+decide whether it can apply to $\SU{3}$ at all.
 
-The most direct test of emergent SUSY---the measurement of a SUSY Ward
-identity violation and its scaling with lattice volume---is technically
-challenging but feasible with current lattice technology.  A pilot
-study at $\Nf = 8$ or $\Nf = 10$ would provide qualitatively new
-information not available from spectral measurements alone.
+The measurement of a SUSY Ward identity violation and its scaling with
+lattice volume would be the most direct test of emergent SUSY once a
+lattice supercurrent for fundamental matter exists; it remains
+exploratory.  A pilot study at $\Nf = 8$ would provide qualitatively
+new information not available from spectral measurements alone.
 
 We emphasise that the emergent-SUSY hypothesis remains a conjecture.
 The diagnostic proposals in this paper are the most concrete available consequences
@@ -1109,6 +1227,19 @@ making their lattice data publicly available.
   \textit{Nucl.~Phys.~Proc.~Suppl.} \textbf{45BC} (1996) 1
   [\texttt{hep-th/9509066}].
 
+\bibitem{RyttovShrock2011}
+  T.~A.~Ryttov and R.~Shrock,
+  ``Higher-loop corrections to the infrared evolution of a gauge
+  theory with fermions,''
+  \textit{Phys.~Rev.} \textbf{D83} (2011) 056011
+  [\texttt{arXiv:1011.4542}].
+
+\bibitem{MNPS2011}
+  M.~Mojaza, M.~Nardecchia, C.~Pica, and F.~Sannino,
+  ``Dual of QCD with one adjoint fermion,''
+  \textit{Phys.~Rev.} \textbf{D83} (2011) 065022
+  [\texttt{arXiv:1101.1522}].
+
 \bibitem{RS2008}
   T.~A.~Ryttov and F.~Sannino,
   ``Supersymmetry inspired QCD beta function,''
@@ -1158,12 +1289,13 @@ making their lattice data publicly available.
   \textit{Phys.~Rev.} \textbf{D99} (2019) 014509
   [\texttt{arXiv:1807.08411}].
 
-\bibitem{Hayakawa2013}
-  M.~Hayakawa \textit{et al.},
-  ``Running coupling constant and mass anomalous dimension of
-  six-flavor SU(3) gauge theory,''
-  \textit{Phys.~Rev.} \textbf{D88} (2013) 094504
-  [\texttt{arXiv:1307.6997}].
+\bibitem{Hayakawa2011}
+  M.~Hayakawa, K.-I.~Ishikawa, Y.~Osaki, S.~Takeda, S.~Uno, and
+  N.~Yamada,
+  ``Running coupling constant of ten-flavor QCD with the
+  Schr\"odinger functional method,''
+  \textit{Phys.~Rev.} \textbf{D83} (2011) 074509
+  [\texttt{arXiv:1011.2577}].
 
 \bibitem{Cheng2013}
   A.~Cheng, A.~Hasenfratz, G.~Petropoulos, and D.~Schaich,
