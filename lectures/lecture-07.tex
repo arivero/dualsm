@@ -52,6 +52,7 @@ $\Nf$ counting & Dirac flavour pairs & each $= 2$ Weyl fermions \\
 \multicolumn{3}{@{}l}{\textbf{New in this lecture:}} \\
 Hypercharge & $Y = T_R^3 + \tfrac{1}{6}\,Q_V$ & Eq.~(6) of \cite{CacciapagliaSannino2024} \\
 Duality map & $X = \Nf - N$ & magnetic gauge group $\SU{X}$ \\
+Electroweak VEV & $v = 246\;\text{GeV}$ & $\langle H_0 \rangle = v/\sqrt{2} \approx 174\;\text{GeV}$ \\
 Epistemic & ``if the duality holds'' & all non-SUSY claims (P1) \\
 \bottomrule
 \end{tabular}
@@ -71,7 +72,7 @@ is conjectural.
 \S\ref{sec:general-duality}: General $\SU{N}$ duality ansatz $\;\to\;$
 \S\ref{sec:pati-salam}: Pati--Salam $\SU{4}_{PS}$ embedding $\;\to\;$
 \S\ref{sec:magnetic-spectrum}: Magnetic spectrum for $\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$ $\;\to\;$\\[2pt]
-\S\ref{sec:electric-theory}: Electric $\SU{2}$ theory $\;\to\;$
+\S\ref{sec:electric-theory}: Electric theories $\;\to\;$
 \S\ref{sec:anomaly-matching}: Anomaly matching $\;\to\;$
 \S\ref{sec:summary-lec7}: Summary
 \end{center}
@@ -147,7 +148,19 @@ magnetic (IR) description is an $\SU{X}$ gauge theory with~\cite{CacciapagliaSan
 \begin{equation}\label{eq:duality-map}
   \boxed{X \;=\; \Nf - N\,,}
 \end{equation}
-and the following quasi-supersymmetric spectrum (Table~I, bottom block,
+Lecture~6, \S3 met a different map, $X = 2\Nf - 5N$~\cite{Sannino2009}.
+The two maps belong to different electric theories.  Sannino's 2009
+electric theory is plain QCD: $\SU{N}$ with $\Nf$ Dirac flavours and
+no adjoint fermion.  The electric theory here adds one adjoint Weyl
+fermion $\lambda$~\cite{MNPS2011}, which gives it the fermion content
+of $\mathcal{N}=1$ SQCD, with $\lambda$ in the role of the gaugino and
+the $\UU{1}_{AF}$ charges of Table~\ref{tab:electric-general} equal to
+the $R$-charges of the SQCD fermions.  Its 't~Hooft anomalies are
+therefore those of SQCD, and anomaly matching admits Seiberg's magnetic
+rank $\Nf - N$ (Lecture~3).
+
+The magnetic theory has
+the following quasi-supersymmetric spectrum (Table~I, bottom block,
 of~\cite{CacciapagliaSannino2024}).  The term ``quasi-supersymmetric''
 reflects the organisation of the magnetic degrees of freedom into
 multiplet-like pairs reminiscent of SUSY, even though \emph{no}
@@ -226,8 +239,12 @@ $M \sim Q\widetilde{Q}$ from Lecture~3, but with the adjoint fermion
 $\lambda$ providing additional ``glue.''
 
 \begin{remark}[Connection to Seiberg duality]
-  Compare with Lecture~3: in SUSY Seiberg duality, the meson
-  $M^i_j = Q^i \widetilde{Q}_j / \Lambda$ is a two-fermion composite.
+  Compare with Lecture~3: in SUSY Seiberg duality the meson is a
+  bilinear of two electric chiral superfields.  In the normalisation
+  introduced in Lecture~6, $M^i_j = Q^i \widetilde{Q}_j / \Lambda$,
+  which gives $M$ mass dimension one, the canonical dimension of an
+  elementary field of the magnetic theory (Lectures~2--3 use the
+  dimension-two bilinear $Q^i \widetilde{Q}_j$).
   The non-SUSY version requires the adjoint fermion $\lambda$ to
   ``saturate'' the additional quantum numbers.  The quasi-SUSY
   multiplet structure~\eqref{eq:quasi-susy} mirrors the SUSY
@@ -336,35 +353,51 @@ is the $\UU{1}_V$ charge from~\eqref{eq:electric-global}.
 \subsection{The generation bound}
 \label{ssec:generation-bound}
 
-The electric gauge group is $\SU{2n_g - 4}$, where $n_g$ is the number
-of generations~\cite{Sannino2011,CacciapagliaSannino2024}.  For this
-group to be non-abelian (a necessary condition for a non-trivial
-gauge theory), we require:
+With $\Nf = 2n_g$ Dirac flavours and the magnetic rank $X$ fixed by the
+SM, the duality map~\eqref{eq:duality-map} determines the electric rank
+$N = \Nf - X$.  Two embeddings appear in the
+literature~\cite{Sannino2011,CacciapagliaSannino2024}:
+\begin{itemize}
+  \item \textbf{QCD-sector route} (Cacciapaglia--Sannino, followed in
+    this lecture): the magnetic group is colour itself,
+    $\SU{X} = \SU{3}_c$, and the electric group is $\SU{2n_g - 3}$.
+  \item \textbf{Pati--Salam route} (Sannino 2011): the magnetic group is
+    $\SU{4}_{\mathrm{PS}} \supset \SU{3}_c \times \UU{1}_{B-L}$, with the
+    leptons as fourth colour, and the electric group is
+    $\SU{2n_g - 4}$.
+\end{itemize}
+In both routes $\SU{3}_c$ belongs to the magnetic description.  For the
+electric group to be non-abelian (a necessary condition for a
+non-trivial gauge theory), the Pati--Salam route requires
 \begin{equation}\label{eq:gen-bound}
   2n_g - 4 \;\geq\; 2
   \qquad \Longrightarrow \qquad
-  \boxed{n_g \;\geq\; 3\,.}
+  \boxed{n_g \;\geq\; 3\,,}
 \end{equation}
-\emph{If the duality holds}, the existence of at least three
-generations of quarks and leptons is \textbf{not an accident}: it is a
-\textbf{mathematical requirement} for the electric dual to be a
-non-trivial gauge theory~\cite{Sannino2011}.
+and the QCD-sector route requires $2n_g - 3 \geq 2$, which for integer
+$n_g$ gives the same bound.  \emph{If the duality holds}, at least
+three generations of quarks and leptons are needed for the electric dual
+to be a non-trivial gauge theory~\cite{Sannino2011,CacciapagliaSannino2024}.
 
-For $n_g = 3$ (three generations):
+For $n_g = 3$ ($\Nf = 6$ Dirac flavours):
 \begin{itemize}
-  \item Electric gauge group: $\SU{2 \cdot 3 - 4} = \SU{2}$.
-  \item Number of Dirac flavours: $\Nf = 2 n_g = 6$.
-  \item Magnetic gauge group (from QCD duality): $X = \Nf - N = 6 - 3 = 3$,
-    but only $\SU{3}_c$ (the QCD subgroup of $\SU{4}_{\mathrm{PS}}$)
-    is gauged in the SM.  The full Pati--Salam $\SU{4}$ is the
-    electric theory containing both quarks and leptons.
+  \item \textbf{QCD-sector route:} the electric group is an $\SU{3}$
+    distinct from colour, which we write $\SU{3}_{\mathrm{el}}$; its
+    magnetic dual is $\SU{3}_c$, with $X = \Nf - N = 6 - 3 = 3$.  The
+    leptons are elementary.  Sections~\ref{sec:magnetic-spectrum}
+    and~\ref{sec:anomaly-matching} use this route.
+  \item \textbf{Pati--Salam route:} the electric group is
+    $\SU{2 \cdot 3 - 4} = \SU{2}_{\mathrm{el}}$; its magnetic dual is
+    $\SU{4}_{\mathrm{PS}}$, with $X = 6 - 2 = 4$, which must be broken
+    further to $\SU{3}_c \times \UU{1}_{B-L}$
+    (Section~\ref{sec:electric-theory}).
 \end{itemize}
 
 \begin{remark}[Upper bound on generations]
-  Requiring asymptotic freedom of the magnetic theory further
-  constrains $n_g \leq 6$~\cite{Sannino2011}.  The observed value
-  $n_g = 3$ is the \emph{minimal} number of generations consistent
-  with the duality framework.
+  In the Pati--Salam route, requiring asymptotic freedom of the magnetic
+  theory further constrains $n_g \leq 6$~\cite{Sannino2011}.  The
+  observed value $n_g = 3$ is the \emph{minimal} number of generations
+  consistent with the duality framework.
 \end{remark}
 
 
@@ -376,7 +409,10 @@ For $n_g = 3$ (three generations):
 
 We now specialise the general magnetic field content of
 Table~\ref{tab:magnetic-general} to the SM values $N = 3$, $\Nf = 6$
-(three generations), giving $X = \Nf - N = 3$.
+(three generations), giving $X = \Nf - N = 3$.  This is the QCD-sector
+route of \S\ref{ssec:generation-bound}: the electric
+$\SU{N} = \SU{3}_{\mathrm{el}}$ is a new gauge group, and the magnetic
+$\SU{X} = \SU{3}$ is identified with colour $\SU{3}_c$.
 Following Table~II of~\cite{CacciapagliaSannino2024}, the full
 magnetic spectrum under $\SU{3}_c \times \SU{6}_L \times \SU{6}_R
 \times \UU{1}_V \times \UU{1}_{AF}$ is:
@@ -385,9 +421,9 @@ magnetic spectrum under $\SU{3}_c \times \SU{6}_L \times \SU{6}_R
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{c c c c c c}
 \toprule
-\multicolumn{6}{c}{\textbf{Electric theory (UV): $\SU{3}$ with $\Nf = 6$}} \\
+\multicolumn{6}{c}{\textbf{Electric theory (UV): $\SU{3}_{\mathrm{el}}$ with $\Nf = 6$}} \\
 \midrule
-Fields & $\SU{3}$ & $\SU{6}_L$ & $\SU{6}_R$ & $\UU{1}_V$ & $\UU{1}_{AF}$ \\
+Fields & $\SU{3}_{\mathrm{el}}$ & $\SU{6}_L$ & $\SU{6}_R$ & $\UU{1}_V$ & $\UU{1}_{AF}$ \\
 \midrule
 $\lambda$ & Adj & $\mathbf{1}$ & $\mathbf{1}$ & $0$ & $1$ \\
 $Q$       & $F$ & $F$ & $\mathbf{1}$ & $1$  & $-1/2$ \\
@@ -439,9 +475,11 @@ The magnetic spectrum of Table~\ref{tab:magnetic-SM} contains
 \paragraph{SM quarks and leptons.}
 The magnetic quarks $q$, $\widetilde{q}$ are, if the duality holds, identified with the SM
 quarks.  Under the flavour decomposition~\eqref{eq:flavour-decomp},
-each $q$ ($\bar{F}$ of $\SU{6}_L$) decomposes into an $\SU{3}_{\mathrm{gen}}$
-triplet (three generations) of $\SU{2}_L$ doublets and singlets,
-reproducing the SM quark content.  The leptons $l \equiv L$ and
+$q$ ($\bar{F}$ of $\SU{6}_L$) decomposes into three generations of
+left-handed quark doublets, and $\widetilde{q}$ ($F$ of $\SU{6}_R$)
+into three generations of $\SU{2}_R$ doublets, whose components are the
+left-handed conjugates of $u_R$ and $d_R$.  Together they reproduce the
+chiral SM quark content.  The leptons $l \equiv L$ and
 $\widetilde{l} \equiv \widetilde{L}$ are elementary states---they are
 \textbf{not} composites of the electric theory in the pure QCD duality.
 
@@ -484,7 +522,8 @@ The total Higgs content is therefore:
   \;=\; \boxed{18 \text{ Higgs doublets}\,.}
 \end{equation}
 One of these---$H_0 \equiv H_{33}^u$---acquires the
-electroweak VEV $\langle H_0 \rangle \approx v$; the remaining 17 have
+electroweak VEV $\langle H_0 \rangle \approx v/\sqrt{2} \approx
+174\;\text{GeV}$; the remaining 17 have
 positive mass-squared at tree level (they are ``dormant'' Higgs
 doublets).
 
@@ -526,18 +565,25 @@ doublets~\cite{CacciapagliaSannino2024}:
 where $i,j = 1,2,3$ are generation indices.  The effective Yukawa
 matrices are~\cite{CacciapagliaSannino2024}:
 \begin{equation}\label{eq:eff-yukawa}
-  Y_{ij}^u \;=\; y\, \frac{\langle H_{ij}^u \rangle}{v}\,,
+  Y_{ij}^u \;=\; \sqrt{2}\, y\, \frac{\langle H_{ij}^u \rangle}{v}\,,
   \qquad
-  Y_{ij}^d \;=\; y\, \frac{\langle H_{ij}^d \rangle}{v}\,,
+  Y_{ij}^d \;=\; \sqrt{2}\, y\, \frac{\langle H_{ij}^d \rangle}{v}\,,
 \end{equation}
 with the VEV sum rule:
 \begin{equation}\label{eq:vev-sum}
-  v^2 \;=\; \sum_{i,j}
+  \sum_{i,j}
   \Bigl(
     \langle H_{ij}^u \rangle^2 + \langle H_{ij}^d \rangle^2
   \Bigr)
-  \;=\; \frac{1}{2}\,(246\;\text{GeV})^2\,.
+  \;=\; \frac{v^2}{2}\,,
+  \qquad v = 246\;\text{GeV}\,.
 \end{equation}
+With this normalisation a fermion mass is $m_f = Y_f\, v/\sqrt{2}$, so a
+quark coupled to $H_{ij}$ has mass $y \langle H_{ij} \rangle$; the top
+quark, with $\langle H_{33}^u \rangle \approx v/\sqrt{2}$, needs
+$y \approx 0.99$.  (Cacciapaglia and Sannino write $v$ for the
+combination $v/\sqrt{2} \approx 174\;\text{GeV}$; these notes keep
+$v = 246\;\text{GeV}$ throughout.)
 \textbf{Key insight:} The fermion mass hierarchy arises \emph{not} from
 a hierarchy in the Yukawa couplings (they are all equal to $y$) but
 from a hierarchy in the Higgs VEVs:
@@ -554,36 +600,43 @@ Lecture~8.
 \label{sec:electric-theory}
 
 Having identified the magnetic spectrum, we now present the electric
-theory that, \emph{if the duality holds}, provides the UV-complete
+theory that, \emph{if the duality holds}, provides the UV
 description of the SM at energies above the duality scale $\Lambda_D$.
+In the QCD-sector route it is $\SU{3}_{\mathrm{el}}$ with $\Nf = 6$
+Dirac flavours, one adjoint Weyl fermion and the elementary leptons
+(Table~\ref{tab:electric-SM}).  This section describes the Pati--Salam
+route, whose electric group $\SU{2n_g - 4} = \SU{2}_{\mathrm{el}}$ is
+the smallest one compatible with $n_g = 3$.
 
-\subsection{Electric field content for $n_g = 3$}
+\subsection{Electric field content for $n_g = 3$ (Pati--Salam route)}
 
-For three generations, the electric gauge group is
-$\SU{2n_g - 4} = \SU{2}$ (from~\S\ref{ssec:generation-bound}).  The
-electric theory contains~\cite{Sannino2011}:
+For three generations, the electric gauge group of the Pati--Salam route
+is $\SU{2n_g - 4} = \SU{2}$ (\S\ref{ssec:generation-bound}).  Following
+Table~IV of~\cite{Sannino2011}, the electric theory contains:
 
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{c c c c c c}
 \toprule
-\multicolumn{6}{c}{\textbf{Electric theory: $\SU{2}$ with $\Nf = 6$}} \\
+\multicolumn{6}{c}{\textbf{Electric theory: $\SU{2}_{\mathrm{el}}$ with $\Nf = 6$}} \\
 \midrule
 Fields & $\SU{2}_{\text{el}}$ & $\SU{6}_L$ & $\SU{6}_R$ & $\UU{1}_V$ & $\UU{1}_{AF}$ \\
 \midrule
 $\lambda$ & Adj ($= \mathbf{3}$) & $\mathbf{1}$ & $\mathbf{1}$ & $0$ & $1$ \\
-$p$       & $F$ ($= \mathbf{2}$) & $F$ & $\mathbf{1}$ & $1$  & $-1/2$ \\
-$\widetilde{p}$ & $\bar{F}$ ($= \mathbf{2}$) & $\mathbf{1}$ & $\bar{F}$ & $-1$ & $-1/2$ \\
-\midrule
-$L$   & $\mathbf{1}$ & $F$ & $\mathbf{1}$ & $-3$ & $0$ \\
-$\widetilde{L}$ & $\mathbf{1}$ & $\mathbf{1}$ & $\bar{F}$ & $3$ & $0$ \\
+$p$       & $F$ ($= \mathbf{2}$) & $F$ & $\mathbf{1}$ & $1$  & $-1/3$ \\
+$\widetilde{p}$ & $\bar{F}$ ($= \mathbf{2}$) & $\mathbf{1}$ & $\bar{F}$ & $-1$ & $-1/3$ \\
 \bottomrule
 \end{tabular}
-\captionof{table}{Electric theory for $n_g = 3$: $\SU{2}_{\text{el}}$
-with 6~fundamental Weyl fermions $p$, 6~antifundamental
-$\widetilde{p}$, and one adjoint $\lambda$.
-For $\SU{2}$, the fundamental and antifundamental are equivalent
-($\bar{F} \cong F$).}
+\captionof{table}{Electric theory of the Pati--Salam route for
+$n_g = 3$: $\SU{2}_{\text{el}}$ with 6~Dirac flavours
+$(p, \widetilde{p})$ and one adjoint Weyl fermion $\lambda$
+(Table~IV of~\cite{Sannino2011}).  The $\UU{1}_{AF}$ charges are those
+of Table~\ref{tab:electric-general} with $N = 2$, $\Nf = 6$.  The
+leptons need no separate electric fields: they are the fourth colour of
+the magnetic $\SU{4}_{\mathrm{PS}}$.  For $\SU{2}$ the fundamental and
+antifundamental are equivalent ($\bar{F} \cong F$), and the global
+symmetry is enhanced to
+$\SU{12} \supset \SU{6}_L \times \SU{6}_R \times \UU{1}_V$~\cite{Sannino2011}.}
 \label{tab:electric-ng3}
 \end{center}
 
@@ -599,23 +652,21 @@ For $\SU{2}$, the fundamental and antifundamental are equivalent
   dynamics of the electric theory at the duality scale $\Lambda_D$.
 \end{remark}
 
-\subsection{Self-duality of $\SU{2}$}
+\subsection{The Pati--Salam dual pair}
 
-Note that for $n_g = 3$, the electric gauge group is $\SU{2}$ with
-$\Nf = 6$ Dirac flavours, and the magnetic gauge group is
-$\SU{X} = \SU{\Nf - N} = \SU{6 - 2} = \SU{4}$.  The magnetic $\SU{4}$
-is the \emph{Pati--Salam} gauge group containing QCD $\SU{3}_c$ as a
-subgroup.  The duality connects:
+For $n_g = 3$ the electric gauge group of the Pati--Salam route is
+$\SU{2}$ with $\Nf = 6$ Dirac flavours, and the magnetic gauge group is
+$\SU{X} = \SU{\Nf - N} = \SU{6 - 2} = \SU{4}$: the Pati--Salam group,
+which contains QCD $\SU{3}_c$ as a subgroup.  The duality connects:
 \[
   \underbrace{\SU{2}_{\text{el}}}_{\text{electric}}
   \quad \xleftrightarrow{\text{duality}} \quad
   \underbrace{\SU{4}_{\text{PS}} \supset \SU{3}_c}_{\text{magnetic
   (contains SM)}}\,.
 \]
-Note also that $\SU{2}$ is \emph{self-dual} under Seiberg duality with
-$\Nf = 4$ flavours (recalled from Lecture~3).  Here we have $\Nf = 6$,
-so the electric and magnetic theories have different gauge groups---the
-duality is a \emph{non-trivial} map, not a self-duality.
+Seiberg's $\SU{2}$ with $\Nf = 4$ flavours is self-dual (Lecture~3).
+With $\Nf = 6$ the magnetic group $\SU{4}$ differs from the electric
+$\SU{2}$, and the map relates two different gauge theories.
 
 \subsection{Energy hierarchy}
 
@@ -627,7 +678,9 @@ of energy scales~\cite{CacciapagliaSannino2024}:
   \item $\Lambda_S < E < \Lambda_D$: the full magnetic spectrum appears
     (gaugino, squarks, 17 heavy Higgs doublets, mesino).
   \item $E > \Lambda_D \sim 10^{11}\;\text{GeV}$: the electric theory
-    $\SU{2}_{\text{el}}$ becomes weakly coupled; this is the
+    ($\SU{3}_{\mathrm{el}}$ in the QCD-sector route,
+    $\SU{2}_{\mathrm{el}}$ in the Pati--Salam route) describes the
+    weakly coupled elementary degrees of freedom; this is the
     ``electric SM.''
   \item Optionally, $E > \Lambda_{\text{eGUT}}$: if the three gauge
     couplings of the electric theory unify, a grand unified theory
@@ -653,25 +706,32 @@ other---the defining feature of duality (recall Lecture~3,
 
 The central non-trivial consistency check of the dualised SM
 construction is 't~Hooft anomaly matching (Lecture~1) between the
-electric and magnetic descriptions.  We now compute all independent
-anomaly conditions for the gauged subgroup
-$\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$ of the global symmetry.
+electric and magnetic descriptions.  We work in the QCD-sector route of
+Tables~\ref{tab:electric-SM} and~\ref{tab:magnetic-SM} and compute all
+independent anomaly conditions for the SM gauge group
+$\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$.
 
-\begin{remark}[Anomaly matching as consistency check]
-  Recall from Lecture~1: 't~Hooft anomaly matching constrains the
-  massless fermion spectrum by requiring that all anomaly coefficients
-  for global symmetries match between UV and IR descriptions.  Here, we
-  treat $\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$ as the gauged
-  symmetry whose anomalies must \emph{cancel} (gauge anomaly
-  cancellation), and we verify that both the electric and magnetic
-  theories satisfy the same anomaly conditions.
+\begin{remark}[Two kinds of condition]
+  The SM gauge group enters the two descriptions differently.
+  $\SU{3}_c$ is the magnetic gauge group itself; the electric theory has
+  its own gauge group $\SU{3}_{\mathrm{el}}$ and no colour symmetry.
+  $\SU{2}_L \times \UU{1}_Y$ is a subgroup of the flavour symmetry
+  $\SU{6}_L \times \SU{6}_R \times \UU{1}_V$, present on both sides of
+  the duality, which the SM gauges weakly.  Consequently:
+  \begin{itemize}
+    \item every condition must vanish in the magnetic theory, where all
+      three SM factors are gauged (gauge anomaly cancellation);
+    \item the conditions that involve only $\SU{2}_L$, $\UU{1}_Y$ and
+      gravity are 't~Hooft anomalies of the flavour symmetry, so their
+      electric and magnetic values must agree
+      (\S\ref{ssec:electric-side}).
+  \end{itemize}
 \end{remark}
 
 \subsection{Independent anomaly conditions}
 
 For a gauge group $\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$, the
-independent anomaly conditions for gauge anomaly cancellation
-are~\cite{tHooft1980}:
+independent anomaly conditions are~\cite{tHooft1980}:
 
 \begin{enumerate}[label=(\roman*)]
   \item $\SU{3}^3$: the cubic $\SU{3}_c$ anomaly.
@@ -694,14 +754,33 @@ The cubic Casimir $d_{abc}$ vanishes for $\SU{2}$:
 This is a group-theoretic identity for $\SU{2}$ and provides no
 constraint on the spectrum.
 
-\subsection{Computing the anomaly coefficients}
+\subsection{Magnetic fermions and their SM quantum numbers}
 
-For the remaining five non-trivial conditions, we need the SM quantum
-numbers of all magnetic fermions.  Using the flavour
+For the remaining five conditions we need the SM quantum numbers of all
+magnetic fermions (only fermions contribute to anomalies).  We write
+every fermion as a left-handed Weyl field.  Under the flavour
 decomposition~\eqref{eq:flavour-decomp} with $n_g = 3$ and the
-hypercharge formula~\eqref{eq:hypercharge}, the magnetic
-\textbf{fermion} content (only fermions contribute to anomalies)
-decomposes as follows.
+hypercharge formula~\eqref{eq:hypercharge}, a field in the $F$ or
+$\bar{F}$ of $\SU{6}_L$ becomes three generations of $\SU{2}_L$
+doublets with $Y = Q_V/6$, and a field in the $F$ or $\bar{F}$ of
+$\SU{6}_R$ becomes three generations of $\SU{2}_R$ doublets, i.e.\
+pairs of $\SU{2}_L$ singlets with $Y = \pm\tfrac{1}{2} + Q_V/6$.
+
+\textbf{Mesino decomposition.}  The mesino $M$ sits in
+$(F, \bar{F})$ of $\SU{6}_L \times \SU{6}_R$ with $Q_V = 0$.  Under
+$\SU{3}_{\mathrm{gen}} \times \SU{2}_L \times \SU{2}_R$,
+\begin{equation}\label{eq:mesino-decomp}
+  M \;\in\; (\mathbf{3}, \mathbf{2}, \mathbf{1}) \otimes
+  (\bar{\mathbf{3}}, \mathbf{1}, \mathbf{2})
+  \;=\; (\mathbf{8} \oplus \mathbf{1},\, \mathbf{2},\, \mathbf{2})\,:
+\end{equation}
+nine bi-doublets $M_{ij}$, $i,j = 1,2,3$, with the same structure as the
+Higgs bi-doublets $H_{ij}$ of Eq.~\eqref{eq:Phi-H}.  Since $Y = T_R^3$
+for $Q_V = 0$, each bi-doublet contains one $\SU{2}_L$ doublet with
+$Y = +\tfrac{1}{2}$ and one with $Y = -\tfrac{1}{2}$.  The mesino is
+therefore a set of 18 colour-singlet Weyl doublets with the quantum
+numbers of higgsinos, in nine pairs of opposite hypercharge
+($9 \times 2 \times 2 = 36$ Weyl components).
 
 \medskip
 
@@ -709,54 +788,42 @@ decomposes as follows.
 
 \renewcommand{\arraystretch}{1.4}
 \begin{center}
-\begin{tabular}{l c c c c c}
+\begin{tabular}{l l c c c c}
 \toprule
-\textbf{Field} & $\SU{3}_c$ & $\SU{2}_L$ & $Y$
-  & \textbf{Weyl count} & \textbf{Type} \\
+\textbf{Field} & \textbf{From} & $\SU{3}_c$ & $\SU{2}_L$ & $Y$
+  & \textbf{Weyl count} \\
 \midrule
-\multicolumn{6}{c}{\emph{SM quarks (from $q$, $\widetilde{q}$):}} \\
-$q_L^i$ & $\mathbf{3}$ & $\mathbf{2}$ & $+1/6$ & $3 \times 2 = 6$ & Weyl \\
-$u_R^i$ & $\mathbf{3}$ & $\mathbf{1}$ & $+2/3$ & $3$ & Weyl \\
-$d_R^i$ & $\mathbf{3}$ & $\mathbf{1}$ & $-1/3$ & $3$ & Weyl \\
-$\widetilde{q}_L^i$ & $\bar{\mathbf{3}}$ & $\mathbf{2}$ & $-1/6$ & $6$ & Weyl \\
-$\widetilde{u}_R^i$ & $\bar{\mathbf{3}}$ & $\mathbf{1}$ & $-2/3$ & $3$ & Weyl \\
-$\widetilde{d}_R^i$ & $\bar{\mathbf{3}}$ & $\mathbf{1}$ & $+1/3$ & $3$ & Weyl \\
+$q^i$ & $q$ & $\mathbf{3}$ & $\mathbf{2}$ & $+1/6$ & $6$ per generation \\
+$u^c_i$ & $\widetilde{q}$ & $\bar{\mathbf{3}}$ & $\mathbf{1}$ & $-2/3$ & $3$ per generation \\
+$d^c_i$ & $\widetilde{q}$ & $\bar{\mathbf{3}}$ & $\mathbf{1}$ & $+1/3$ & $3$ per generation \\
 \midrule
-\multicolumn{6}{c}{\emph{SM leptons (from $l$, $\widetilde{l}$):}} \\
-$\ell_L^i$ & $\mathbf{1}$ & $\mathbf{2}$ & $-1/2$ & $6$ & Weyl \\
-$\nu_R^i$ & $\mathbf{1}$ & $\mathbf{1}$ & $0$ & $3$ & Weyl \\
-$e_R^i$ & $\mathbf{1}$ & $\mathbf{1}$ & $-1$ & $3$ & Weyl \\
-$\widetilde{\ell}_L^i$ & $\mathbf{1}$ & $\mathbf{2}$ & $+1/2$ & $6$ & Weyl \\
-$\widetilde{\nu}_R^i$ & $\mathbf{1}$ & $\mathbf{1}$ & $0$ & $3$ & Weyl \\
-$\widetilde{e}_R^i$ & $\mathbf{1}$ & $\mathbf{1}$ & $+1$ & $3$ & Weyl \\
+$\ell^i$ & $l$ & $\mathbf{1}$ & $\mathbf{2}$ & $-1/2$ & $2$ per generation \\
+$e^c_i$ & $\widetilde{l}$ & $\mathbf{1}$ & $\mathbf{1}$ & $+1$ & $1$ per generation \\
+$\nu^c_i$ & $\widetilde{l}$ & $\mathbf{1}$ & $\mathbf{1}$ & $0$ & $1$ per generation \\
 \midrule
-\multicolumn{6}{c}{\emph{Gaugino (from $\lambda_m$):}} \\
-$\lambda_m$ & $\mathbf{8}$ & $\mathbf{1}$ & $0$ & $8$ & Weyl \\
-\midrule
-\multicolumn{6}{c}{\emph{Mesino (from $M$):}} \\
-$M_{ij}$ & $\mathbf{1}$ & various & various & $36$ & Weyl \\
+$\lambda_m$ & $\lambda_m$ & $\mathbf{8}$ & $\mathbf{1}$ & $0$ & $8$ \\
+$M_{ij}$ & $M$ & $\mathbf{1}$ & $\mathbf{2}$ & $\pm 1/2$ & $36$ \\
 \bottomrule
 \end{tabular}
-\captionof{table}{SM quantum numbers of all magnetic Weyl fermions.
-Scalars ($\phi$, $\widetilde{\phi}$, $\Phi_H$) do \emph{not}
-contribute to anomalies.}
+\captionof{table}{SM quantum numbers of all magnetic Weyl fermions,
+written as left-handed fields: $u^c$, $d^c$, $e^c$, $\nu^c$ are the
+conjugates of $u_R$, $d_R$, $e_R$, $\nu_R$.  Scalars ($\phi$,
+$\widetilde{\phi}$, $\Phi_H$) do \emph{not} contribute to anomalies.}
 \label{tab:magnetic-SM-quantum}
 \end{center}
 
 \medskip
 
-A crucial observation is that the magnetic fermion content can be
-decomposed into two sectors:
-\begin{enumerate}
-  \item \textbf{Vector-like pairs:} The SM quarks and leptons come in
-    left-right pairs ($q$, $\widetilde{q}$) and ($l$, $\widetilde{l}$)
-    with opposite $\UU{1}_V$ charges and conjugate gauge
-    representations.  Each left-right pair contributes zero net
-    anomaly to any purely gauge anomaly condition.
-  \item \textbf{Extra states:} The gaugino $\lambda_m$ and mesino $M$
-    have specific $\SU{3}_c$, $\SU{2}_L$, and $\UU{1}_Y$ quantum
-    numbers.
-\end{enumerate}
+The fields $q$, $\widetilde{q}$, $l$, $\widetilde{l}$ contain exactly
+three generations of SM quarks and leptons, including right-handed
+neutrinos.  Colour is vector-like (every triplet in $q$ has an
+antitriplet partner in $\widetilde{q}$), but the electroweak group is
+chiral: $q$ and $l$ are $\SU{2}_L$ doublets, while $\widetilde{q}$ and
+$\widetilde{l}$ contain $\SU{2}_L$ singlets.  The cancellations below
+are therefore the non-trivial SM cancellations of Lecture~1.  The extra
+states are the gaugino $\lambda_m$ (colour octet, $\SU{2}_L$ singlet,
+$Y = 0$) and the mesino doublets, which pair up with opposite
+hypercharge.
 
 \subsection{Condition (i): $\SU{3}^3$}
 
@@ -768,19 +835,17 @@ The cubic $\SU{3}_c$ anomaly coefficient is:
 where $A(\mathbf{3}) = 1$, $A(\bar{\mathbf{3}}) = -1$,
 $A(\mathbf{8}) = 0$ (adjoint is real), and $A(\mathbf{1}) = 0$.
 
-\textbf{SM quarks:} Per generation, the SM quark contribution is
-$A(q_L) + A(u_R) + A(d_R) = 2 \cdot 1 + 1 + 1 = 4$ from
-left-handed quarks (two $\SU{2}_L$ doublet components) and
-$A(\widetilde{q}_L) + A(\widetilde{u}_R) + A(\widetilde{d}_R)
-= 2 \cdot (-1) + (-1) + (-1) = -4$ from the conjugate quarks.
-Total per generation: $4 + (-4) = 0$.
+\textbf{SM quarks (per generation):} the doublet $q$ contributes
+$2 \times A(\mathbf{3}) = 2$, and $u^c$, $d^c$ contribute
+$A(\bar{\mathbf{3}}) + A(\bar{\mathbf{3}}) = -2$.  Total per
+generation: $2 - 2 = 0$.
 
 \textbf{Extra states:} $A(\lambda_m) = A(\mathbf{8}) = 0$ (adjoint is
 real).  The mesino $M$ is a colour singlet: $A(\mathbf{1}) = 0$.
 
 \begin{equation}\label{eq:su3-result}
   \boxed{A_{\SU{3}^3} \;=\; 0\,.}
-  \qquad \text{(Vector-like pairs cancel generation by generation.)}
+  \qquad \text{(Colour triplets and antitriplets cancel generation by generation.)}
 \end{equation}
 
 \subsection{Condition (iii): $\SU{3}^2\,\UU{1}_Y$}
@@ -796,34 +861,22 @@ $T(\mathbf{8}) = 3$:
 
 \textbf{SM quarks (per generation):}
 \begin{align}
-  &q_L:\; 2 \times \tfrac{1}{6} \times \tfrac{1}{2} = \tfrac{1}{6}\,,
+  &q:\; 2 \times \tfrac{1}{6} \times \tfrac{1}{2} = \tfrac{1}{6}\,,
   \quad
-  u_R:\; \tfrac{2}{3} \times \tfrac{1}{2} = \tfrac{1}{3}\,,
+  u^c:\; (-\tfrac{2}{3}) \times \tfrac{1}{2} = -\tfrac{1}{3}\,,
   \quad
-  d_R:\; (-\tfrac{1}{3}) \times \tfrac{1}{2} = -\tfrac{1}{6}\,,
+  d^c:\; \tfrac{1}{3} \times \tfrac{1}{2} = \tfrac{1}{6}\,,
   \nonumber\\
-  &\text{Sum} = \tfrac{1}{6} + \tfrac{1}{3} - \tfrac{1}{6} = \tfrac{1}{3}\,.
+  &\text{Sum} = \tfrac{1}{6} - \tfrac{1}{3} + \tfrac{1}{6} = 0\,.
   \label{eq:su3sq-quarks}
 \end{align}
-\textbf{Conjugate quarks (per generation):}
-\begin{align}
-  &\widetilde{q}_L:\; 2 \times (-\tfrac{1}{6}) \times \tfrac{1}{2} = -\tfrac{1}{6}\,,
-  \quad
-  \widetilde{u}_R:\; (-\tfrac{2}{3}) \times \tfrac{1}{2} = -\tfrac{1}{3}\,,
-  \quad
-  \widetilde{d}_R:\; \tfrac{1}{3} \times \tfrac{1}{2} = \tfrac{1}{6}\,,
-  \nonumber\\
-  &\text{Sum} = -\tfrac{1}{6} - \tfrac{1}{3} + \tfrac{1}{6} = -\tfrac{1}{3}\,.
-  \label{eq:su3sq-conj-quarks}
-\end{align}
-\textbf{Quarks total (3 generations):} $3 \times (\tfrac{1}{3} - \tfrac{1}{3}) = 0$.
 
 \textbf{Gaugino:} $\lambda_m$ has $Y = 0$ (colour octet, $\SU{2}_L$
 singlet, $Q_V = 0$), so $Y \cdot T(\mathbf{8}) = 0 \times 3 = 0$.
 
 \begin{equation}\label{eq:su3sq-u1-result}
   \boxed{A_{\SU{3}^2\,\UU{1}_Y} \;=\; 0\,.}
-  \qquad\text{(Vector-like quark pairs cancel; gaugino is neutral.)}
+  \qquad\text{(Quark hypercharges cancel per generation; gaugino is neutral.)}
 \end{equation}
 
 \subsection{Condition (iv): $\SU{2}^2\,\UU{1}_Y$}
@@ -836,40 +889,25 @@ $\SU{2}_L$ doublet Weyl fermions:
 \end{equation}
 With $T(\mathbf{2}) = 1/2$ for the $\SU{2}_L$ fundamental:
 
-\textbf{SM quark doublets (per generation):}
-$q_L:\; Y = +1/6$, $T = 1/2$, colour multiplicity $3$:
+\textbf{Quark doublets (per generation):}
+$q:\; Y = +1/6$, colour multiplicity $3$:
 contribution $= 3 \times \tfrac{1}{6} \times \tfrac{1}{2} = \tfrac{1}{4}$.
 
-\textbf{Conjugate quark doublets (per generation):}
-$\widetilde{q}_L:\; Y = -1/6$, $T = 1/2$, colour multiplicity $3$:
-contribution $= 3 \times (-\tfrac{1}{6}) \times \tfrac{1}{2} = -\tfrac{1}{4}$.
-
 \textbf{Lepton doublets (per generation):}
-$\ell_L:\; Y = -1/2$, $T = 1/2$, colour multiplicity $1$:
+$\ell:\; Y = -1/2$, colour multiplicity $1$:
 contribution $= 1 \times (-\tfrac{1}{2}) \times \tfrac{1}{2} = -\tfrac{1}{4}$.
 
-\textbf{Conjugate lepton doublets (per generation):}
-$\widetilde{\ell}_L:\; Y = +1/2$, $T = 1/2$, colour multiplicity $1$:
-contribution $= 1 \times \tfrac{1}{2} \times \tfrac{1}{2} = \tfrac{1}{4}$.
-
-\textbf{Total per generation:}
-$\tfrac{1}{4} - \tfrac{1}{4} - \tfrac{1}{4} + \tfrac{1}{4} = 0$.
+\textbf{Total per generation:} $\tfrac{1}{4} - \tfrac{1}{4} = 0$.
 
 \textbf{Gaugino:} $\SU{2}_L$ singlet---does not contribute.
 
-\textbf{Mesino:} The mesino $M$ transforms under $\SU{6}_L \times \SU{6}_R$.
-Under the flavour decomposition~\eqref{eq:flavour-decomp}, $M$ contains
-components that are $\SU{2}_L$ doublets with various hypercharges.
-However, $M$ transforms as $(F, \bar{F})$ under
-$\SU{6}_L \times \SU{6}_R$ with $Q_V = 0$.
-Its $\SU{2}_L$ doublet components come in conjugate pairs (from the
-$\SU{2}_L \subset \SU{6}_L$ and $\SU{2}_R \subset \SU{6}_R$
-decomposition), which contribute with opposite signs to the anomaly.
-The mesino's net contribution to $\SU{2}^2\,\UU{1}_Y$ vanishes.
+\textbf{Mesino:} by Eq.~\eqref{eq:mesino-decomp}, nine doublets with
+$Y = +\tfrac{1}{2}$ and nine with $Y = -\tfrac{1}{2}$:
+$9 \times \tfrac{1}{2} \times \bigl(\tfrac{1}{2} - \tfrac{1}{2}\bigr) = 0$.
 
 \begin{equation}\label{eq:su2sq-u1-result}
   \boxed{A_{\SU{2}^2\,\UU{1}_Y} \;=\; 0\,.}
-  \qquad\text{(All contributions cancel pairwise.)}
+  \qquad\text{(Quarks cancel leptons; mesino doublets cancel pairwise.)}
 \end{equation}
 
 \subsection{Condition (v): $\UU{1}_Y^3$}
@@ -882,58 +920,34 @@ The cubic hypercharge anomaly sums $Y^3$ over all Weyl fermions:
 
 \textbf{SM quarks (per generation):}
 \begin{align}
-  &q_L:\; 3 \times 2 \times (1/6)^3 = 6/216 = 1/36\,,
+  &q:\; 3 \times 2 \times (1/6)^3 = 1/36\,,
   \nonumber\\
-  &u_R:\; 3 \times 1 \times (2/3)^3 = 3 \times 8/27 = 24/27 = 8/9\,,
+  &u^c:\; 3 \times 1 \times (-2/3)^3 = -8/9\,,
   \nonumber\\
-  &d_R:\; 3 \times 1 \times (-1/3)^3 = 3 \times (-1/27) = -3/27 = -1/9\,.
+  &d^c:\; 3 \times 1 \times (1/3)^3 = 1/9\,.
   \label{eq:u1-quarks}
 \end{align}
-\textbf{Conjugate quarks (per generation):}
-\begin{align}
-  &\widetilde{q}_L:\; 3 \times 2 \times (-1/6)^3 = -1/36\,,
-  \nonumber\\
-  &\widetilde{u}_R:\; 3 \times 1 \times (-2/3)^3 = -8/9\,,
-  \nonumber\\
-  &\widetilde{d}_R:\; 3 \times 1 \times (1/3)^3 = 1/9\,.
-  \label{eq:u1-conj-quarks}
-\end{align}
-Quark + conjugate quark total per generation: 0 (each term cancels its
-partner).
-
 \textbf{SM leptons (per generation):}
 \begin{align}
-  &\ell_L:\; 1 \times 2 \times (-1/2)^3 = -1/4\,,
+  &\ell:\; 1 \times 2 \times (-1/2)^3 = -1/4\,,
   \nonumber\\
-  &\nu_R:\; 1 \times 1 \times 0^3 = 0\,,
+  &e^c:\; 1 \times 1 \times (+1)^3 = 1\,,
   \nonumber\\
-  &e_R:\; 1 \times 1 \times (-1)^3 = -1\,.
+  &\nu^c:\; 1 \times 1 \times 0^3 = 0\,.
   \label{eq:u1-leptons}
 \end{align}
-\textbf{Conjugate leptons (per generation):}
-\begin{align}
-  &\widetilde{\ell}_L:\; 1 \times 2 \times (1/2)^3 = 1/4\,,
-  \nonumber\\
-  &\widetilde{\nu}_R:\; 1 \times 1 \times 0^3 = 0\,,
-  \nonumber\\
-  &\widetilde{e}_R:\; 1 \times 1 \times (1)^3 = 1\,.
-  \label{eq:u1-conj-leptons}
-\end{align}
-Lepton + conjugate lepton total per generation: 0.
+Total per generation:
+$\tfrac{1}{36} - \tfrac{32}{36} + \tfrac{4}{36} - \tfrac{9}{36}
++ \tfrac{36}{36} = 0$.
 
 \textbf{Gaugino:} $Y = 0$, so $Y^3 = 0$.
 
-\textbf{Mesino:} $M$ has $Q_V = 0$, and its $\SU{2}_R$ components come
-in pairs with $T_R^3 = \pm 1/2$ and $T_R^3 = 0$.  Since $Q_V = 0$,
-$Y = T_R^3$ for the mesino.  The $T_R^3 = +1/2$ and $T_R^3 = -1/2$
-components are related by the $\SU{2}_R$ structure and have equal
-multiplicities, so their $Y^3$ contributions cancel:
-$(+1/2)^3 + (-1/2)^3 = 0$.  The $T_R^3 = 0$ components contribute
-$0^3 = 0$.
+\textbf{Mesino:} the pairs with $Y = \pm\tfrac{1}{2}$ give
+$9 \times 2 \times \bigl[(\tfrac{1}{2})^3 + (-\tfrac{1}{2})^3\bigr] = 0$.
 
 \begin{equation}\label{eq:u1-cubed-result}
   \boxed{A_{\UU{1}_Y^3} \;=\; 0\,.}
-  \qquad\text{(Vector-like pairs and $\SU{2}_R$ pairing enforce cancellation.)}
+  \qquad\text{(SM cancellation per generation; mesino pairs cancel.)}
 \end{equation}
 
 \subsection{Condition (vi): $\UU{1}_Y$--gravitational}
@@ -944,130 +958,109 @@ The gravitational anomaly sums $Y$ over all Weyl fermions:
   \;=\; \sum_{\text{all Weyl}} \dim(R_{\text{colour}}) \cdot \dim(R_{\text{weak}}) \cdot Y\,.
 \end{equation}
 
-\textbf{SM quarks (per generation):}
-\begin{align}
-  &q_L:\; 3 \times 2 \times 1/6 = 1\,,
-  \nonumber\\
-  &u_R:\; 3 \times 1 \times 2/3 = 2\,,
-  \nonumber\\
-  &d_R:\; 3 \times 1 \times (-1/3) = -1\,.
-  \nonumber
-\end{align}
-\textbf{Conjugate quarks (per generation):}
-\begin{align}
-  &\widetilde{q}_L:\; 3 \times 2 \times (-1/6) = -1\,,
-  \nonumber\\
-  &\widetilde{u}_R:\; 3 \times 1 \times (-2/3) = -2\,,
-  \nonumber\\
-  &\widetilde{d}_R:\; 3 \times 1 \times (1/3) = 1\,.
-  \nonumber
-\end{align}
-Quark + conjugate total per generation: $(1+2-1) + (-1-2+1) = 0$.
-
-\textbf{SM leptons (per generation):}
-$\ell_L: 2 \times (-1/2) = -1$; $\nu_R: 0$; $e_R: -1$.
-\textbf{Conjugate:}
-$\widetilde{\ell}_L: 2 \times (+1/2) = +1$;
-$\widetilde{\nu}_R: 0$; $\widetilde{e}_R: +1$.
-Total per generation: $(-1+0-1) + (1+0+1) = 0$.
+\textbf{SM fermions (per generation):}
+$q:\; 3 \times 2 \times \tfrac{1}{6} = 1$;
+$u^c:\; 3 \times (-\tfrac{2}{3}) = -2$;
+$d^c:\; 3 \times \tfrac{1}{3} = 1$;
+$\ell:\; 2 \times (-\tfrac{1}{2}) = -1$;
+$e^c:\; 1$;
+$\nu^c:\; 0$.
+Total per generation: $1 - 2 + 1 - 1 + 1 + 0 = 0$.
 
 \textbf{Gaugino:} $Y = 0$, so contribution $= 8 \times 1 \times 0 = 0$.
 
-\textbf{Mesino:} By the same $\SU{2}_R$ pairing argument as in
-Condition~(v), the mesino contributions cancel:
-$(+1/2) + (-1/2) = 0$ for each doublet pair, and $0$ for singlets.
+\textbf{Mesino:} $9 \times 2 \times \bigl(\tfrac{1}{2} - \tfrac{1}{2}\bigr) = 0$.
 
 \begin{equation}\label{eq:u1-grav-result}
   \boxed{A_{\UU{1}_Y\text{-grav}} \;=\; 0\,.}
-  \qquad\text{(Vector-like structure ensures vanishing.)}
+  \qquad\text{(SM cancellation per generation; mesino pairs cancel.)}
 \end{equation}
 
 \subsection{Summary of anomaly matching}
 
 \begin{center}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{l c c c}
+\begin{tabular}{l c c l}
 \toprule
 \textbf{Anomaly condition}
   & \textbf{Magnetic (SM + partners)}
   & \textbf{Electric}
   & \textbf{Status} \\
 \midrule
-$\SU{3}^3$ & $0$ & $0$ & \checkmark \\
-$\SU{2}^3$ & $0$ (trivial: $d_{abc} = 0$) & $0$ & \checkmark \\
-$\SU{3}^2\,\UU{1}_Y$ & $0$ & $0$ & \checkmark \\
-$\SU{2}^2\,\UU{1}_Y$ & $0$ & $0$ & \checkmark \\
-$\UU{1}_Y^3$ & $0$ & $0$ & \checkmark \\
-$\UU{1}_Y\text{-grav}$ & $0$ & $0$ & \checkmark \\
+$\SU{3}^3$ & $0$ & --- & gauge anomaly cancels \checkmark \\
+$\SU{2}^3$ & $0$ (trivial: $d_{abc} = 0$) & $0$ & matched \checkmark \\
+$\SU{3}^2\,\UU{1}_Y$ & $0$ & --- & gauge anomaly cancels \checkmark \\
+$\SU{2}^2\,\UU{1}_Y$ & $0$ & $0$ & matched \checkmark \\
+$\UU{1}_Y^3$ & $0$ & $0$ & matched \checkmark \\
+$\UU{1}_Y\text{-grav}$ & $0$ & $0$ & matched \checkmark \\
 \bottomrule
 \end{tabular}
-\captionof{table}{Summary of anomaly matching for
-$\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$.  All six conditions
-are satisfied.}
+\captionof{table}{Anomaly conditions for
+$\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$ in the QCD-sector route.  All
+six vanish in the magnetic theory.  The four conditions that involve
+only the flavour subgroup $\SU{2}_L \times \UU{1}_Y$ are 't~Hooft
+anomalies and take the same value in the electric theory; the two that
+involve colour have no electric counterpart, because $\SU{3}_c$ is the
+magnetic gauge group.}
 \label{tab:anomaly-summary}
 \end{center}
 
-The key mechanism is the \textbf{vector-like structure} of the magnetic
-theory: quarks and conjugate quarks ($q$, $\widetilde{q}$) carry
-opposite quantum numbers, as do leptons and conjugate leptons ($l$,
-$\widetilde{l}$).  The extra states (gaugino, mesino) either are
-neutral under $\UU{1}_Y$ (gaugino) or come in $\SU{2}_R$ pairs that
-cancel (mesino).
+The magnetic fermions contain the SM content, whose anomalies cancel
+generation by generation, plus extra states that contribute nothing:
+the gaugino is an $\SU{2}_L$ singlet with $Y = 0$ and
+$A(\mathbf{8}) = 0$, and the mesino doublets come in pairs with
+$Y = \pm\tfrac{1}{2}$.
 
-\subsection{Electric side: why the anomalies also vanish}
+\subsection{Electric side: matching the $\SU{2}_L \times \UU{1}_Y$ anomalies}
+\label{ssec:electric-side}
 
-In the electric theory, $\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$
-is a \emph{subgroup of the global symmetry} (it is gauged only at
-lower energies, in the magnetic description).  The 't~Hooft anomaly
-coefficients of this subgroup must match between the electric and
-magnetic descriptions.
-
-The electric fermions (Table~\ref{tab:electric-ng3}) decompose under
-$\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$ using the same
+In the electric theory (Table~\ref{tab:electric-SM}),
+$\SU{2}_L \times \UU{1}_Y$ acts through the same
 embedding~\eqref{eq:flavour-decomp} and
-hypercharge~\eqref{eq:hypercharge}:
+hypercharge~\eqref{eq:hypercharge}, while $\SU{3}_{\mathrm{el}}$ is the
+electric gauge group.  The electric fermions decompose as follows:
 \begin{itemize}
-  \item $Q$ ($\SU{3}$ triplet, $\SU{6}_L$ fundamental, $Q_V = +1$):
-    decomposes into 3~generations of $\SU{2}_L$ doublets with
-    $Y = +1/6$, each carrying an $\SU{2}_{\text{el}}$ fundamental
-    index (multiplicity~2).
-  \item $\widetilde{Q}$ ($\bar{\mathbf{3}}$, $\SU{6}_R$
-    antifundamental, $Q_V = -1$): decomposes into 3~generations of
-    $\SU{2}_R$ doublets.  The $T_R^3 = +1/2$ component has
-    $Y = 1/2 - 1/6 = 1/3$ and the $T_R^3 = -1/2$ component has
-    $Y = -1/2 - 1/6 = -2/3$.  Each carries
-    $\SU{2}_{\text{el}}$ antifundamental (multiplicity~2).
-  \item $\lambda$ ($\SU{3}$ octet, flavour singlet, $Q_V = 0$,
-    $Y = 0$): carries $\SU{2}_{\text{el}}$ adjoint (multiplicity~3).
-  \item $L$ ($\SU{3}$ singlet, $\SU{6}_L$ fundamental, $Q_V = -3$):
-    decomposes into 3~generations of $\SU{2}_L$ doublets with
-    $Y = -1/2$.  These are $\SU{2}_{\text{el}}$ singlets.
-  \item $\widetilde{L}$ ($\SU{3}$ singlet, $\SU{6}_R$
-    antifundamental, $Q_V = +3$): $\SU{2}_R$ doublets with
-    $Y = +1$ and $Y = 0$.  $\SU{2}_{\text{el}}$ singlets.
+  \item $Q$ ($\mathbf{3}$ of $\SU{3}_{\mathrm{el}}$, $F$ of $\SU{6}_L$,
+    $Q_V = +1$): three generations of $\SU{2}_L$ doublets with
+    $Y = +1/6$, each an $\SU{3}_{\mathrm{el}}$ triplet.
+  \item $\widetilde{Q}$ ($\bar{\mathbf{3}}$ of $\SU{3}_{\mathrm{el}}$,
+    $\bar{F}$ of $\SU{6}_R$, $Q_V = -1$): three generations of pairs of
+    $\SU{2}_L$ singlets with $Y = +1/3$ and $Y = -2/3$, each an
+    $\SU{3}_{\mathrm{el}}$ antitriplet.
+  \item $\lambda$ (adjoint of $\SU{3}_{\mathrm{el}}$, flavour singlet,
+    $Q_V = 0$): $Y = 0$.
+  \item $L$, $\widetilde{L}$: the same elementary lepton fields as on the
+    magnetic side ($l \equiv L$, $\widetilde{l} \equiv \widetilde{L}$).
 \end{itemize}
-Crucially, the $\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$ quantum
-numbers of the electric fermions are \textbf{identical} to those of
-the corresponding magnetic fermions (compare with
-Table~\ref{tab:magnetic-SM-quantum})---the only difference is the
-$\SU{2}_{\text{el}}$ multiplicity factor.  Since every anomaly
-coefficient of a product group factorises as
-$A = \dim(R_{\text{el}}) \times A_{\text{SM}}$, and $A_{\text{SM}} = 0$
-for each condition (as computed above), the electric anomalies also
-vanish:
+As $\SU{2}_L \times \UU{1}_Y$ representations, $Q$, $\widetilde{Q}$ and
+$\lambda$ carry the quantum numbers of the magnetic $q$, $\widetilde{q}$
+and $\lambda_m$, with equal multiplicities, because for $\Nf = 6$ the
+electric and magnetic ranks coincide, $N = X = 3$.  The mesino has no
+electric partner, and it contributes zero to conditions (iv)--(vi).
+Hence
 \begin{equation}\label{eq:electric-anomalies}
-  A_{\text{electric}} \;=\; \dim(R_{\SU{2}_{\text{el}}}) \times
-  \underbrace{A_{\SU{3}_c \times \SU{2}_L \times \UU{1}_Y}}_{ = \,0}
-  \;=\; 0\,.
+  A^{\text{el}}_{\SU{2}^2\,\UU{1}_Y}
+  \;=\; \underbrace{3 \cdot 3 \cdot \tfrac{1}{6} \cdot \tfrac{1}{2}}_{Q}
+  \;+\; \underbrace{3 \cdot \bigl(-\tfrac{1}{2}\bigr) \cdot \tfrac{1}{2}}_{L}
+  \;=\; 0\,,
+  \qquad
+  A^{\text{el}}_{\UU{1}_Y^3}
+  \;=\; A^{\text{el}}_{\UU{1}_Y\text{-grav}} \;=\; 0\,,
 \end{equation}
-This confirms the anomaly matching between electric and magnetic
-descriptions: $A_{\text{electric}} = A_{\text{magnetic}} = 0$ for all
-six conditions.
+equal to the magnetic values: the four flavour anomalies match.
+
+Conditions (i) and (iii) have no electric counterpart.  Their role on
+the electric side is played by the consistency of $\SU{3}_{\mathrm{el}}$
+itself: its cubic anomaly and its mixed anomaly with $\UU{1}_Y$ vanish,
+because $Q$ and $\widetilde{Q}$ are vector-like under
+$\SU{3}_{\mathrm{el}}$ (the hypercharges of the $Q$ components sum to
+$+1$ per triplet, those of $\widetilde{Q}$ to $-1$) and $\lambda$ sits in
+a real representation.
 
 \begin{warningbox}[title={Anomaly matching is necessary but not sufficient}]
   The anomaly matching demonstrated in Table~\ref{tab:anomaly-summary}
   is a \textbf{necessary condition} for the conjectured duality between
-  the electric $\SU{2}$ theory and the magnetic SM, not a
+  the electric $\SU{3}_{\mathrm{el}}$ theory and the magnetic SM, not a
   \textbf{sufficient} one.  It constrains the field content of the
   magnetic theory but does not prove the dynamical equivalence of the
   two descriptions.
@@ -1080,33 +1073,20 @@ six conditions.
   modification.  The fact that all conditions are satisfied is
   \textbf{evidence} for the construction's consistency, but the
   construction remains \textbf{conjectural} (recall the central
-  vulnerability of Lecture~6, \S\ref{sec:vulnerability}).
+  vulnerability of Lecture~6, \S6).
 \end{warningbox}
 
 \subsection{Recovery of SM anomaly cancellation}
 
-As a cross-check, we verify that when the extra magnetic states are
-``removed'' (their contributions set to zero), the standard SM anomaly
-cancellation is recovered.
-
-The extra magnetic fermions are:
-\begin{itemize}
-  \item Gaugino $\lambda_m$: $Y = 0$ for all anomaly conditions.
-    Removing it changes nothing.
-  \item Mesino $M$: contributes zero to all anomaly conditions (by the
-    $\SU{2}_R$ pairing argument).  Removing it changes nothing.
-  \item Conjugate quarks $\widetilde{q}$ and conjugate leptons
-    $\widetilde{l}$: these form exact vector-like pairs with $q$ and
-    $l$.  Removing both $\widetilde{q}$ and $\widetilde{l}$ leaves
-    exactly the SM quark and lepton content.
-\end{itemize}
-
-After removing all extra states, the remaining fields are exactly three
-generations of SM quarks and leptons:
-$\{q_L, u_R, d_R, \ell_L, \nu_R, e_R\} \times 3$, and the standard
-SM anomaly cancellation from Lecture~1 is recovered.  This consistency
-check confirms that the anomaly matching of the full magnetic theory
-is a \emph{refinement} of the standard SM result, not a replacement.
+As a cross-check, remove the extra magnetic fermions, the gaugino
+$\lambda_m$ and the mesino $M$.  Each contributes zero to every
+condition, so removing them changes nothing.  What remains, $q$,
+$\widetilde{q}$, $l$, $\widetilde{l}$, is exactly three generations of
+SM quarks and leptons with right-handed neutrinos,
+$\{q_L, u_R, d_R, \ell_L, \nu_R, e_R\} \times 3$, and the computation
+above reduces to the standard SM anomaly cancellation of Lecture~1.  The
+anomaly freedom of the full magnetic theory is thus the SM result plus
+the statement that the extra states are anomaly-neutral.
 
 
 %% ========================================================================
@@ -1139,9 +1119,10 @@ is a \emph{refinement} of the standard SM result, not a replacement.
     exactly.
 
   \item \textbf{Generation bound:}
-    $2n_g - 4 \geq 2$ gives $n_g \geq 3$.  \emph{If the duality
-    holds}, three or more generations are a mathematical necessity
-    (\S\ref{ssec:generation-bound}).
+    requiring a non-abelian electric group gives $n_g \geq 3$ in both
+    routes ($2n_g - 4 \geq 2$ for Pati--Salam, $2n_g - 3 \geq 2$ for the
+    QCD sector).  \emph{If the duality holds}, at least three
+    generations are required (\S\ref{ssec:generation-bound}).
 
   \item \textbf{Magnetic spectrum:}
     For $n_g = 3$, the magnetic theory contains all SM fields plus
@@ -1150,17 +1131,21 @@ is a \emph{refinement} of the standard SM result, not a replacement.
     electroweak VEV~(\S\ref{sec:magnetic-spectrum}).
 
   \item \textbf{Electric theory:}
-    The UV description is $\SU{2}$ with 6 Dirac flavours and an
-    adjoint---\emph{no elementary scalars}.  If the duality holds, all scalars in the
+    The UV description contains only fermions and gauge bosons:
+    $\SU{3}_{\mathrm{el}}$ with 6 Dirac flavours, an adjoint Weyl
+    fermion and elementary leptons (QCD-sector route), or
+    $\SU{2}_{\mathrm{el}}$ with 6 Dirac flavours and an adjoint
+    (Pati--Salam route).  If the duality holds, all scalars in the
     magnetic theory are composites
     (\S\ref{sec:electric-theory}).
 
   \item \textbf{Anomaly matching:}
-    All six independent anomaly conditions for
-    $\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$ are satisfied.
-    The vector-like structure of the magnetic theory ensures
-    cancellation.  This is necessary but not sufficient for the
-    duality~(\S\ref{sec:anomaly-matching}).
+    The magnetic fermions are the chiral SM content plus the gaugino
+    and the mesino.  All six anomaly conditions for
+    $\SU{3}_c \times \SU{2}_L \times \UU{1}_Y$ vanish generation by
+    generation, and the four that involve only $\SU{2}_L \times
+    \UU{1}_Y$ match the electric 't~Hooft anomalies.  This is necessary
+    but not sufficient for the duality~(\S\ref{sec:anomaly-matching}).
 \end{enumerate}
 \end{tcolorbox}
 
@@ -1191,9 +1176,20 @@ is a \emph{refinement} of the standard SM result, not a replacement.
 
 \bibitem{CacciapagliaSannino2024}
   G.~Cacciapaglia and F.~Sannino,
-  ``Charting Standard Model duality and its signatures,''
-  \textit{Phys.~Rev.} \textbf{D111} (2025) 035013
-  [\texttt{arXiv:2407.17281}].
+  ``Charting Standard Model Duality and its Signatures,''
+  arXiv:2407.17281 [hep-ph] (2024).
+
+\bibitem{Sannino2009}
+  F.~Sannino,
+  ``QCD dual,''
+  \textit{Phys.~Rev.} \textbf{D80} (2009) 065011
+  [\texttt{arXiv:0907.1364}].
+
+\bibitem{MNPS2011}
+  M.~Mojaza, M.~Nardecchia, C.~Pica, and F.~Sannino,
+  ``Dual of QCD with one adjoint fermion,''
+  \textit{Phys.~Rev.} \textbf{D83} (2011) 065022
+  [\texttt{arXiv:1101.1522}].
 
 \bibitem{Sannino2011}
   F.~Sannino,
