@@ -15,7 +15,7 @@
 %   Hypercharge: Y = T_R^3 + Q_V/6  (Cacciapaglia-Sannino 2407.17281 Eq. 6)
 %   Epistemic: all non-SUSY duality claims carry conjectural qualifiers (P1)
 %   Universal Yukawa: y (single coupling for all fermions)
-%   VEV convention: v^2 = sum_{ij} (|H^u_{ij}|^2 + |H^d_{ij}|^2) = (246 GeV)^2/2
+%   VEV convention: v = 246 GeV; sum_{ij} (|H^u_{ij}|^2 + |H^d_{ij}|^2) = v^2/2; <H_0> = v/sqrt(2)
 %
 \documentclass[11pt,a4paper]{article}
 \input{preamble}
@@ -49,7 +49,7 @@ Metric & $\eta_{\mu\nu} = \mathrm{diag}(+1,-1,-1,-1)$ & mostly minus \\
 Dynkin index & $\Tr(T^a T^b) = \Tfund\, \delta^{ab}$ & fundamental of $\SU{\Nc}$ \\
 Hypercharge & $Y = T_R^3 + \tfrac{1}{6}\,Q_V$ & Lecture~7; Eq.~(6) of \cite{CacciapagliaSannino2024} \\
 Universal Yukawa & $y$ (single coupling) & Eq.~(4) of \cite{CacciapagliaSannino2024} \\
-VEV sum rule & $v^2 = \sum_{ij}(\langle H_{ij}^u\rangle^2 + \langle H_{ij}^d\rangle^2) = \tfrac{1}{2}(246\;\text{GeV})^2$ & input from $G_F$ \\
+VEV sum rule & $\sum_{ij}(\langle H_{ij}^u\rangle^2 + \langle H_{ij}^d\rangle^2) = v^2/2$, $v = 246\;\text{GeV}$ & input from $G_F$ \\
 Epistemic & ``if the duality holds'' & all non-SUSY claims (P1) \\
 \bottomrule
 \end{tabular}
@@ -76,8 +76,8 @@ coefficients $c^{abcd}$).
 In Lecture~7, we established that the magnetic Lagrangian contains a
 \textbf{single universal Yukawa coupling} $y$ between the magnetic
 quarks and the 18 Higgs doublets
-(Eq.~\eqref{eq:yukawa-lecture7} below, reproduced from Lecture~7
-Eq.~(12)).  This section develops the quantitative consequences of this
+(Eq.~\eqref{eq:yukawa-lecture7} below, reproduced from Lecture~7,
+\S3.2).  This section develops the quantitative consequences of this
 structure.
 
 \subsection{From universal coupling to effective Yukawa matrices}
@@ -103,27 +103,29 @@ the fermion mass matrices are generated.  The \textbf{effective Yukawa
 couplings} are~\cite{CacciapagliaSannino2024,HillMachado2019}:
 \begin{equation}\label{eq:eff-yukawa-8}
   \boxed{%
-  Y_{ij}^u \;=\; y\, \frac{\langle H_{ij}^u \rangle}{v}\,,
+  Y_{ij}^u \;=\; \sqrt{2}\, y\, \frac{\langle H_{ij}^u \rangle}{v}\,,
   \qquad
-  Y_{ij}^d \;=\; y\, \frac{\langle H_{ij}^d \rangle}{v}\,,}
+  Y_{ij}^d \;=\; \sqrt{2}\, y\, \frac{\langle H_{ij}^d \rangle}{v}\,,}
 \end{equation}
-(Eq.~(11) of~\cite{CacciapagliaSannino2024}), where
+(Eq.~(11) of~\cite{CacciapagliaSannino2024}, rewritten for
+$v = 246\;\text{GeV}$; see Lecture~7, \S3.2), where
 \begin{equation}\label{eq:vev-sum-8}
-  v^2 \;=\; \sum_{i,j}
+  \sum_{i,j}
   \Bigl(
     \langle H_{ij}^u \rangle^2 + \langle H_{ij}^d \rangle^2
   \Bigr)
-  \;=\; \frac{1}{2}\,(246\;\text{GeV})^2
+  \;=\; \frac{v^2}{2}\,,
+  \qquad v \;=\; 246\;\text{GeV}\,,
 \end{equation}
-is the electroweak VEV, fixed by the measured Fermi constant $G_F$.
+and $v$ is the electroweak VEV, fixed by the measured Fermi constant
+$G_F$.  A fermion coupled to $H_{ij}$ has mass
+$m_f = Y_f\, v/\sqrt{2} = y \langle H_{ij} \rangle$.
 
-\begin{remark}[The VEV sum rule is an input, not a prediction]
-  The value $v = 246/\sqrt{2}\;\text{GeV} \approx 174\;\text{GeV}$ is
-  \emph{not} predicted by the dualised SM framework.  It is an
-  experimental input---the Fermi constant $G_F = 1/(\sqrt{2}\, v^2)$
-  is measured to high precision.  What the framework \emph{does} provide
-  is a mechanism for distributing this total VEV hierarchically among
-  the 18 Higgs doublets.
+\begin{remark}[The VEV sum rule is an experimental input]
+  The value $v = 246\;\text{GeV}$ comes from experiment: the Fermi
+  constant $G_F = 1/(\sqrt{2}\, v^2)$ is measured to high precision.
+  What the framework provides is a mechanism for distributing this
+  total VEV hierarchically among the 18 Higgs doublets.
 \end{remark}
 
 \subsection{The scalar democracy mechanism}
@@ -162,11 +164,11 @@ natural origin in Planck-scale operators.
 
 The dominant VEV is assigned to the $(3,3)$ up-type Higgs doublet:
 $H_0 \equiv H_{33}^u$, which acquires
-$\langle H_0 \rangle \approx v$.  (The $(3,3)$ label is a convention
-reflecting that the top quark couples most strongly to this doublet.)
-The top quark Yukawa coupling is then:
+$\langle H_0 \rangle \approx v/\sqrt{2} \approx 174\;\text{GeV}$.  (The
+$(3,3)$ label is a convention reflecting that the top quark couples most
+strongly to this doublet.)  The top quark Yukawa coupling is then:
 \begin{equation}\label{eq:top-yukawa}
-  y_t \;=\; y \,\frac{\langle H_{33}^u \rangle}{v}
+  y_t \;=\; \sqrt{2}\, y \,\frac{\langle H_{33}^u \rangle}{v}
   \;\approx\; y \cdot 1
   \;=\; y\,.
 \end{equation}
@@ -174,12 +176,12 @@ The top quark Yukawa coupling is then:
 $y_t \approx 1$ is \textbf{natural}: it is simply the universal
 magnetic Yukawa coupling itself.  The top mass is:
 \begin{equation}\label{eq:top-mass}
-  m_t \;\approx\; y\, v
-  \;\sim\; \mathcal{O}(v)
-  \;\sim\; 174\;\text{GeV}\,,
+  m_t \;=\; y\, \langle H_0 \rangle
+  \;\approx\; y\, \frac{v}{\sqrt{2}}
+  \;\sim\; \mathcal{O}(v)\,,
 \end{equation}
-which is parametrically consistent with the measured value
-$m_t = 172.7 \pm 0.3\;\text{GeV}$.
+which reproduces the measured value $m_t = 172.7 \pm 0.3\;\text{GeV}$
+for $y \approx 0.99$.
 
 \begin{warningbox}[title={Parametric consistency, not prediction}]
   The statement $m_t \sim \mathcal{O}(v)$ is a \textbf{parametric
@@ -196,7 +198,7 @@ $m_t = 172.7 \pm 0.3\;\text{GeV}$.
 
 The bottom quark mass arises from the $(3,3)$ down-type Higgs VEV:
 \begin{equation}\label{eq:bottom-yukawa}
-  y_b \;=\; y\, \frac{\langle H_{33}^d \rangle}{v}\,,
+  y_b \;=\; \sqrt{2}\, y\, \frac{\langle H_{33}^d \rangle}{v}\,,
   \qquad
   \frac{m_b}{m_t}
   \;=\; \frac{\langle H_{33}^d \rangle}{\langle H_{33}^u \rangle}\,.
@@ -205,11 +207,11 @@ The measured ratio $m_b / m_t \approx 4.2 / 173 \approx 0.024$
 requires:
 \begin{equation}\label{eq:vev-ratio-bt}
   \langle H_{33}^d \rangle
-  \;\sim\; 0.024\, v
+  \;\sim\; 0.024\, \langle H_0 \rangle
   \;\sim\; 4\;\text{GeV}\,,
 \end{equation}
 which is the VEV of a ``second-tier'' Higgs doublet---much smaller than
-the leading VEV $\langle H_0 \rangle \sim v$, but non-zero.  The
+the leading VEV $\langle H_0 \rangle \approx v/\sqrt{2}$, but non-zero.  The
 origin of this suppression is the subject of the next section.
 
 
@@ -317,7 +319,8 @@ Planck-scale operators.
 
 Following~\cite{CacciapagliaSannino2024}, the VEV hierarchy can be
 organised into ``tiers.''  The first tier is the leading VEV
-$\langle H_0 \rangle \approx v$, which gives the top quark its mass.
+$\langle H_0 \rangle \approx v/\sqrt{2}$, which gives the top quark its
+mass.
 The second tier arises from mixing between $H_0$ and a set of dormant
 Higgs doublets with mass $M_{d,33}$ (those coupling to the third
 generation down-type quarks).
@@ -335,8 +338,8 @@ second tier are:
 \begin{equation}\label{eq:2nd-tier-vev}
   \text{(2nd tier)}\qquad
   \langle H_{33}^d \rangle
-  \;\sim\; \frac{\mu^2}{M_{d,33}^2}\, v
-  \;\sim\; \frac{m_b}{m_t}\, v\,,
+  \;\sim\; \frac{\mu^2}{M_{d,33}^2}\, \langle H_0 \rangle
+  \;\sim\; \frac{m_b}{m_t}\, \langle H_0 \rangle\,,
 \end{equation}
 (Eq.~(14) of~\cite{CacciapagliaSannino2024}),
 and similarly for the charm and strange quark masses, which arise from
@@ -345,7 +348,7 @@ tier produces even smaller VEVs:
 \begin{equation}\label{eq:3rd-tier-vev}
   \text{(3rd tier)}\qquad
   \langle H \rangle
-  \;\sim\; \frac{\mu^4}{M^4}\, v\,,
+  \;\sim\; \frac{\mu^4}{M^4}\, \langle H_0 \rangle\,,
 \end{equation}
 (Eq.~(15) of~\cite{CacciapagliaSannino2024}),
 and so on, generating a cascade of progressively smaller VEVs.
@@ -443,11 +446,12 @@ essential structure is:
     ($H_0 \equiv H_{33}^u$) gets a \textbf{negative mass-squared}
     $-\mu_0^2$ from radiative corrections (Coleman--Weinberg mechanism)
     or from the strong dynamics at $\Lambda_D$, and triggers EWSB:
-    $\langle H_0 \rangle \approx v$.
+    $\langle H_0 \rangle \approx v/\sqrt{2}$.
   \item The remaining \textbf{17 dormant Higgs doublets}
     have \textbf{positive mass-squared} of order
-    $M_i^2 \sim \Lambda_D^2 / M_{\text{Pl}}$ or larger, keeping them
-    heavy.  Their induced VEVs (Eq.~\eqref{eq:induced-vev}) are
+    $M_i^2 \sim \xi\, \Lambda_D^4 / M_{\text{Pl}}^2 \sim \Lambda_S^2$
+    (Eq.~\eqref{eq:scalar-mass-scale}), with
+    $\Lambda_S \sim \text{few TeV}$, keeping them heavy.  Their induced VEVs (Eq.~\eqref{eq:induced-vev}) are
     hierarchically smaller than $v$.
 \end{itemize}
 
@@ -474,26 +478,27 @@ contribute constructively).
 
 The total electroweak VEV is distributed among all 18 doublets:
 \begin{equation}\label{eq:vev-constraint}
-  v^2 \;=\; \sum_{i,j=1}^{3}
+  \sum_{i,j=1}^{3}
   \Bigl(
     \langle H_{ij}^u \rangle^2
     \;+\; \langle H_{ij}^d \rangle^2
   \Bigr)
-  \;=\; \frac{1}{2}\,(246\;\text{GeV})^2\,.
+  \;=\; \frac{v^2}{2}\,,
+  \qquad v = 246\;\text{GeV}\,.
 \end{equation}
 Since the leading VEV dominates ($\langle H_0 \rangle \gg \langle H_i
 \rangle$ for $i \neq 0$), the VEV sum rule is satisfied to a good
 approximation by the leading term alone:
 \begin{equation}\label{eq:vev-dominance}
-  \langle H_0 \rangle^2 \;\approx\; v^2
+  \langle H_0 \rangle^2 \;=\; \frac{v^2}{2}
   \;-\; \sum_{i \neq 0} \langle H_i \rangle^2
-  \;\approx\; v^2
+  \;=\; \frac{v^2}{2}
   \Bigl(1 - \mathcal{O}\bigl(m_b^2/m_t^2\bigr)\Bigr)
-  \;\approx\; v^2\,,
+  \;\approx\; \frac{v^2}{2}\,,
 \end{equation}
 where we used the VEV hierarchy
-$\langle H_i \rangle / v \sim m_b/m_t \sim 0.024$ for the
-largest dormant VEV.  The corrections are at the per-mille level.
+$\langle H_i \rangle / \langle H_0 \rangle \sim m_b/m_t \sim 0.024$ for
+the largest dormant VEV.  The corrections are at the per-mille level.
 
 \begin{remark}[The VEV sum rule is an input]
   We emphasise again that the VEV sum rule~\eqref{eq:vev-constraint}
@@ -521,8 +526,8 @@ The compositeness becomes manifest only at the
 duality scale $\Lambda_D \sim 10^{11}\;\text{GeV}$, far above current
 collider energies.
 
-The remaining 17 Higgs doublets, 17 mesinos (the fermionic partners of
-the dormant Higgs fields), and the additional quasi-SUSY states
+The remaining 17 Higgs doublets, the 18 mesino doublets (the fermionic
+partners of the Higgs doublets), and the additional quasi-SUSY states
 (gaugino, squarks) are all heavy, with masses at or above the scale
 $\Lambda_S \sim \text{few TeV}$.  Their effects on low-energy
 observables are suppressed by powers of $v / \Lambda_S$ and are
@@ -537,10 +542,9 @@ consistent with current precision electroweak measurements.
       $\mathcal{O}(1)$ coefficients, compute the fermion mass ratios
       and show parametric consistency with observations.
     \item \textbf{Exercise~6:} Given the duality scale
-      $\Lambda_D = 10^{11}\;\text{GeV}$, extract
-      $\Lambda_{\QCD} \approx 200\;\text{MeV}$ from one-loop RG running
-      and verify $v \sim \Lambda_D^2 / M_{\text{Pl}} \sim
-      \mathcal{O}(\text{TeV})$.
+      $\Lambda_D = 10^{11}\;\text{GeV}$, estimate $\Lambda_{\QCD}$ from
+      one-loop RG running and verify $v \sim \Lambda_D^2 / M_{\text{Pl}}
+      \sim \mathcal{O}(\text{TeV})$.
   \end{itemize}
 \end{previewbox}
 
@@ -626,10 +630,10 @@ $\mathcal{O}(1)$ coefficient $\xi$.
 \subsection{$\Lambda_{\QCD}$ from one-loop RG running}
 \label{ssec:lambda-qcd}
 
-A striking consistency check of the framework is that the QCD
-confinement scale $\Lambda_{\QCD} \approx 200\;\text{MeV}$ can be
-extracted from the one-loop running of the strong coupling constant
-$\alphas$, starting from its value at the duality scale $\Lambda_D$.
+The QCD confinement scale $\Lambda_{\QCD} \approx 200\;\text{MeV}$
+offers a further check, weaker than it first appears.  We follow the
+one-loop running of the strong coupling $\alphas$ from its value at the
+duality scale $\Lambda_D$.
 
 At the duality scale, the magnetic and electric gauge couplings are
 related by~\cite{CacciapagliaSannino2024}:
@@ -657,64 +661,62 @@ coefficient.  The crucial observation is that $\Lambda_{\QCD}$ is
 $\bzero$: small changes in the input coupling produce large changes in
 $\Lambda_{\QCD}$.
 
-To illustrate the parametric consistency, we work \emph{backwards} from
-the known SM.  The measured value
-$\alphas(M_Z) = 0.118$ at $M_Z = 91.2\;\text{GeV}$ can be evolved to
-$\Lambda_D = 10^{11}\;\text{GeV}$ using the one-loop formula
-with $\bzero = 7$ ($\Nf = 6$):
+To illustrate, we work \emph{backwards} from the known SM.  The measured
+value $\alphas(M_Z) = 0.118$ at $M_Z = 91.2\;\text{GeV}$ can be evolved
+to $\Lambda_D = 10^{11}\;\text{GeV}$ using the one-loop formula with
+$\bzero = 7$ ($\Nf = 6$):
 \begin{equation}\label{eq:alpha-running}
   \alphas(\Lambda_D)
   \;=\; \frac{\alphas(M_Z)}{1 + \dfrac{\bzero}{2\pi}\,
     \alphas(M_Z)\, \ln\!\bigl(\Lambda_D / M_Z\bigr)}
   \;\approx\; \frac{0.118}{1 + \dfrac{7}{2\pi} \times 0.118 \times 20.8}
-  \;\approx\; 0.032\,.
+  \;\approx\; 0.0316\,.
 \end{equation}
 Substituting back into Eq.~\eqref{eq:rg-running} with
 $\mu_{\UV} = \Lambda_D$:
 \begin{equation}\label{eq:lambda-qcd-estimate}
   \Lambda_{\QCD}
   \;\sim\; 10^{11}\;\text{GeV} \times
-  \exp\!\Bigl(-\frac{2\pi}{7 \times 0.032}\Bigr)
+  \exp\!\Bigl(-\frac{2\pi}{7 \times 0.0316}\Bigr)
   \;=\; 10^{11}\;\text{GeV} \times
-  \exp(-28.0)
-  \;\sim\; 10^{11}\;\text{GeV} \times
-  6 \times 10^{-13}\,,
+  \exp(-28.4)
+  \;\approx\; 10^{11}\;\text{GeV} \times
+  4.5 \times 10^{-13}\,,
 \end{equation}
 giving
 \begin{equation}\label{eq:lambda-qcd-result}
   \boxed{\Lambda_{\QCD}^{(\Nf=6)}
-  \;\sim\; 60\;\text{MeV}\,.}
+  \;\approx\; 45\;\text{MeV}\,.}
 \end{equation}
-This is within a factor of 3 of the physical value
-$\Lambda_{\QCD} \approx 200\;\text{MeV}$---the discrepancy is expected,
-because (i)~the number of active flavours decreases at each quark mass
-threshold (from $\Nf = 6$ above $m_t$ down to $\Nf = 3$ below $m_c$),
-which increases $\bzero$ and slows the running, and (ii)~the precise
-matching of couplings at $\Lambda_D$ depends on the $\mathcal{O}(1)$
-duality relation~\eqref{eq:coupling-duality}, which is not
-quantitatively determined.
+The exponential amplifies small changes of the input: rounding
+$\alphas(\Lambda_D)$ to $0.032$ would give about $66\;\text{MeV}$.
 
-The point of this exercise is \textbf{not} to derive
-$\Lambda_{\QCD} = 200\;\text{MeV}$ from first principles.  It is to
-show that the one-loop QCD running, starting from a coupling
-$\alphas(\Lambda_D) \sim 0.03$ at
-$\Lambda_D \sim 10^{11}\;\text{GeV}$, produces a confinement scale in
-the \emph{right parametric window}---between $\sim 50\;\text{MeV}$ and
-$\sim 1\;\text{GeV}$, depending on the input coupling and threshold
-treatment.
+\begin{warningbox}[title={What this estimate tests}]
+  With a single one-loop coefficient, running up to $\Lambda_D$ and back
+  down is an identity: the result equals
+  $M_Z \exp\bigl(-2\pi/(\bzero\, \alphas(M_Z))\bigr) = 45\;\text{MeV}$
+  for \emph{any} $\Lambda_D$.  The estimate therefore tests the one-loop
+  relation between $\alphas(M_Z)$ and $\Lambda_{\QCD}$; it carries no
+  information about $\Lambda_D$ or about the duality.  A test of the
+  framework would require computing $\alphas(\Lambda_D)$ from the
+  duality relation~\eqref{eq:coupling-duality} without using the
+  measured $\alphas(M_Z)$ as input.
+\end{warningbox}
 
-\begin{remark}[This is not a precision prediction]
-  The estimate $\Lambda_{\QCD} \sim 200\;\text{MeV}$ depends on the
-  input coupling $\alphas(\Lambda_D)$, which in the dualised SM
-  framework is determined by the duality relation at $\Lambda_D$.  The
-  value $\alphas(\Lambda_D) \sim 0.03$ is obtained by running the
-  measured $\alphas(M_Z)$ up to $10^{11}\;\text{GeV}$.  This is a
-  \textbf{consistency check}: the framework is compatible with the
-  measured QCD scale if $\Lambda_D \sim 10^{11}\;\text{GeV}$ and the
-  duality coupling is in a reasonable range.  A true prediction would
-  require calculating $\alphas(\Lambda_D)$ from the duality relation
-  without using the measured $\alphas(M_Z)$ as input.
-\end{remark}
+The six-flavour value lies a factor of about $4$--$5$ below the
+physical $\Lambda_{\QCD} \approx 200\;\text{MeV}$, and the gap has
+standard QCD origins.  (i)~Below each quark threshold the number of
+active flavours drops, $\bzero$ grows, and the coupling rises faster
+towards the infrared; matching at $m_t$, $m_b$ and $m_c$ at one loop
+gives $\Lambda^{(5)} \approx 88\;\text{MeV}$,
+$\Lambda^{(4)} \approx 120\;\text{MeV}$ and
+$\Lambda^{(3)} \approx 140\;\text{MeV}$.  (ii)~Two-loop running in the
+$\overline{\text{MS}}$ scheme raises the scale further, to
+$\Lambda^{(5)}_{\overline{\text{MS}}} \approx 210\;\text{MeV}$~\cite{PDG2024}.
+The one-loop estimate thus lands in the expected parametric window, as
+the course contract requires (parametric consistency with free
+$\mathcal{O}(1)$ inputs), and its distance from $200\;\text{MeV}$ is
+accounted for by these standard effects.
 
 
 %% ========================================================================
@@ -734,7 +736,8 @@ characterised by a hierarchy of energy scales (recalled from Lecture~7,
     mesino states with masses at or above $\Lambda_S$.  Below this
     scale, only SM degrees of freedom are active.
   \item $\Lambda_D \sim 10^{11}\;\text{GeV}$: the \textbf{duality
-    scale}---the energy at which the electric $\SU{2}$ gauge coupling
+    scale}---the energy at which the electric gauge coupling
+    ($\SU{3}_{\mathrm{el}}$ in the QCD-sector route of Lecture~7)
     becomes strong and the electric theory confines.  The magnetic SM
     description is valid below $\Lambda_D$.
   \item $\Lambda_{\text{eGUT}}$ (optional): if the three gauge
@@ -799,11 +802,14 @@ a dark matter candidate~\cite{CacciapagliaSannino2024}.
       compositeness effects becoming visible at $\Lambda_D$.
     \item \textbf{18 Higgs doublets}, not 2.  The MSSM has two Higgs
       doublets; the dualised SM has 18.  The 17 heavy doublets have
-      masses $\sim \Lambda_S$--$\Lambda_D$.
-    \item \textbf{No superpartner of the Higgs}.  In the MSSM, the
-      higgsino is a fermionic partner of the Higgs.  In the dualised
-      SM, the fermionic partner of the mes-Higgs is the \emph{mesino}
-      $M$, which transforms differently under the flavour symmetry.
+      masses of order $\Lambda_S$ (Eq.~\eqref{eq:scalar-mass-scale}).
+    \item \textbf{18 higgsino-like mesinos}.  In the MSSM, the
+      higgsinos are the superpartners of two Higgs doublets.  In the
+      dualised SM, the fermionic partner of the mes-Higgs is the
+      \emph{mesino} $M$, which has the flavour quantum numbers of
+      $\Phi_H$ and therefore contains 18 higgsino-like doublets
+      (Lecture~7, \S5.3); its couplings are not fixed by
+      supersymmetry.
     \item \textbf{No $R$-parity from fundamental symmetry.}  In the
       MSSM, $R$-parity distinguishes SM particles from superpartners.
       In the dualised SM, the quasi-SUSY pairing is emergent, not
@@ -833,9 +839,9 @@ Scalar mixing (\S\ref{sec:ewsb})
 Universal Yukawa (\S\ref{sec:scalar-democracy})
   & Fermion mass hierarchy (tier structure)
   & VEV pattern from above \\
-RG running (\S\ref{sec:scale-matching})
-  & $v$, $\Lambda_{\QCD}$ from $\Lambda_D$
-  & $\Lambda_D$ (single input scale) \\
+Scale matching (\S\ref{sec:scale-matching})
+  & $v \sim \Lambda_D^2/M_{\text{Pl}}$; $\Lambda_{\QCD}$ from $\alphas(M_Z)$
+  & $\Lambda_D$, $\xi$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -858,8 +864,10 @@ provides:
 \begin{enumerate}
   \item \textbf{An alternative UV description of the SM with no
     elementary scalars.}  The electric theory
-    ($\SU{2}$ with 6~Dirac flavours and one adjoint Weyl fermion)
-    contains only fermions and gauge bosons.  All scalars in the
+    ($\SU{3}_{\mathrm{el}}$ with 6~Dirac flavours, one adjoint Weyl
+    fermion and elementary leptons in the QCD-sector route;
+    $\SU{2}_{\mathrm{el}}$ with 6~Dirac flavours and one adjoint in the
+    Pati--Salam route) contains only fermions and gauge bosons.  All scalars in the
     low-energy (magnetic) SM description are composites
     (Lecture~7, \S1.3).
 
@@ -884,9 +892,10 @@ provides:
     scales.}  The duality scale $\Lambda_D \sim 10^{11}\;\text{GeV}$
     gives
     $v \sim \Lambda_D^2/M_{\text{Pl}} \sim \mathcal{O}(\text{TeV})$
-    (Section~\ref{sec:scale-matching}) and
-    $\Lambda_{\QCD} \sim 200\;\text{MeV}$ from one-loop RG running
-    (\S\ref{ssec:lambda-qcd}).
+    (Section~\ref{sec:scale-matching}); one-loop running of the
+    measured $\alphas(M_Z)$ gives $\Lambda_{\QCD}^{(6)} \approx
+    45\;\text{MeV}$, which thresholds and two-loop running bring to the
+    physical $\approx 200\;\text{MeV}$ (\S\ref{ssec:lambda-qcd}).
 
   \item \textbf{A testable quasi-SUSY spectrum at the TeV scale.}
     The gaugino, squarks, and heavy Higgs doublets predicted by the
@@ -902,12 +911,12 @@ provides:
 \subsection{What the dualised SM does not do}
 
 \begin{enumerate}
-  \item \textbf{It does not prove the non-SUSY duality.}
-    The duality is a \emph{conjecture}, supported by anomaly matching
-    (Lecture~7, \S5) but without a rigorous proof analogous to
-    Seiberg's SUSY result (Lecture~3).  The central vulnerability,
-    articulated in Lecture~6, remains: anomaly matching is necessary but
-    not sufficient.
+  \item \textbf{The non-SUSY duality remains a conjecture.}
+    It is supported by anomaly matching (Lecture~7, \S5) but lacks the
+    further evidence---holomorphy, the exact beta function, moduli-space
+    matching---that supports Seiberg's SUSY duality (Lecture~3).  The
+    central vulnerability, articulated in Lecture~6, \S6, remains:
+    anomaly matching is necessary but not sufficient.
 
   \item \textbf{It does not predict specific fermion masses.}
     The $\mathcal{O}(1)$ coefficients $c^{abcd}$ in the Planck-scale
@@ -921,7 +930,7 @@ provides:
     free parameter analogous to $\Lambda_{\QCD}$ in QCD.
 
   \item \textbf{It does not resolve the Cheng--Shadmi tension.}
-    As discussed in Lecture~6 (\S5), the fate of the duality under
+    As discussed in Lecture~6 (\S2.3), the fate of the duality under
     large SUSY breaking (required for the non-SUSY version) remains an
     open theoretical question.  The Cheng--Shadmi counterexamples
     caution against assuming that SUSY duality survives arbitrary
@@ -966,7 +975,8 @@ confirm or exclude.  Specifically:
     deviations from SM predictions, and the spectrum of heavy Higgs
     doublets could distinguish between the two scenarios.
   \item Lattice simulations of the electric theory
-    ($\SU{2}$ with 6~fundamentals and one adjoint) could in principle
+    ($\SU{3}$ with 6~Dirac fundamentals and one adjoint Weyl fermion in
+    the QCD-sector route) could in principle
     test the duality non-perturbatively, though this is a technically
     challenging computation.
 \end{itemize}
@@ -996,10 +1006,12 @@ confirm or exclude.  Specifically:
     the SM with one composite Higgs~(\S\ref{sec:ewsb}).
   \item \textbf{Scale matching:}
     $\Lambda_D \sim 10^{11}\;\text{GeV}$ gives
-    $v \sim \Lambda_D^2/M_{\text{Pl}} \sim \mathcal{O}(\text{TeV})$ and
-    $\Lambda_{\QCD} \sim 200\;\text{MeV}$ from one-loop RG running.
-    These are consistency checks, not
-    predictions~(\S\ref{sec:scale-matching}).
+    $v \sim \Lambda_D^2/M_{\text{Pl}} \sim \mathcal{O}(\text{TeV})$.
+    One-loop running of the measured $\alphas(M_Z)$ gives
+    $\Lambda_{\QCD}^{(6)} \approx 45\;\text{MeV}$, independent of
+    $\Lambda_D$; thresholds and two-loop running account for the gap to
+    $200\;\text{MeV}$.  These are consistency checks
+    only~(\S\ref{sec:scale-matching}).
   \item \textbf{Testability:}
     Quasi-SUSY states at $\Lambda_S \sim \text{TeV}$ are the smoking
     gun.  Key discriminators from true SUSY: composite Higgs, 18
@@ -1016,10 +1028,10 @@ confirm or exclude.  Specifically:
 \begin{previewbox}[title={Exercises 5 and 6}]
   Exercises~5 and 6 make the parametric statements from this lecture
   quantitative.  Exercise~5 works through the VEV hierarchy for the
-  fermion mass spectrum; Exercise~6 extracts
-  $v \sim 246\;\text{GeV}$ and
-  $\Lambda_{\QCD} \sim 200\;\text{MeV}$ from $\Lambda_D$ using
-  one-loop RG running.  These exercises are distributed separately.
+  fermion mass spectrum; Exercise~6 estimates
+  $v \sim \Lambda_D^2/M_{\text{Pl}}$ (within an $\mathcal{O}(1)$ factor
+  of $246\;\text{GeV}$) and $\Lambda_{\QCD}$ using one-loop RG
+  running.  These exercises are distributed separately.
 \end{previewbox}
 
 
@@ -1030,9 +1042,13 @@ confirm or exclude.  Specifically:
 
 \bibitem{CacciapagliaSannino2024}
   G.~Cacciapaglia and F.~Sannino,
-  ``Charting Standard Model duality and its signatures,''
-  \textit{Phys.~Rev.} \textbf{D111} (2025) 035013
-  [\texttt{arXiv:2407.17281}].
+  ``Charting Standard Model Duality and its Signatures,''
+  arXiv:2407.17281 [hep-ph] (2024).
+
+\bibitem{PDG2024}
+  S.~Navas \textit{et al.}\ (Particle Data Group),
+  ``Review of Particle Physics,''
+  \textit{Phys.~Rev.} \textbf{D110} (2024) 030001.
 
 \bibitem{HillMachado2019}
   C.~T.~Hill, P.~A.~N.~Machado, A.~E.~Thomsen, and J.~Turner,
