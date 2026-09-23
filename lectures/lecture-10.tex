@@ -86,13 +86,13 @@ composites of the magnetic theory---is conjectural.
 
 In Lecture~3, we studied Seiberg duality for $\SU{\Nc}$ SQCD with
 $\Nf$ flavours.  The magnetic theory contains an elementary gauge-singlet
-field~\cite{Seiberg1995}
+field $M^i{}_j$, $i,j = 1,\ldots,\Nf$~\cite{Seiberg1995}, which in the
+electric theory corresponds to the composite quark bilinear
 \begin{equation}\label{eq:meson-susy}
-  M^i{}_j \;=\; Q^i\,\widetilde{Q}_j\,,
+  M^i{}_j \;=\; \frac{Q^i\,\widetilde{Q}_j}{\Lambda}\,,
   \qquad i,j = 1,\ldots,\Nf\,,
 \end{equation}
-which, in the electric theory, corresponds to the composite quark
-bilinear $Q^i\,\widetilde{Q}_j / \Lambda$.  The meson $M$ appears in
+in the dimension-one normalisation of Lecture~6.  The meson $M$ appears in
 the magnetic superpotential:
 \begin{equation}\label{eq:W-mag}
   W_{\text{mag}} \;=\; \frac{1}{\mu}\, M^i{}_j\, q_i\,\widetilde{q}^j\,,
@@ -408,7 +408,7 @@ In QCD, the chiral condensate
 \begin{equation}\label{eq:condensate}
   \langle \bar{q}_{R\,j}\, q_{L\,i} \rangle
   \;=\; -v_0\,\delta_{ij}\,,
-  \qquad v_0 \sim (270\;\text{MeV})^3 / \fpi^2\,,
+  \qquad v_0 \approx (270\;\text{MeV})^3\,,
 \end{equation}
 breaks $\SU{\Nf}_L \times \SU{\Nf}_R \to \SU{\Nf}_V$.  In the SUSY
 theory, the corresponding statement is that the meson field acquires
@@ -428,7 +428,11 @@ as a complex matrix field:
 \end{equation}
 where:
 \begin{itemize}
-  \item $v_{ij}$ is the vacuum expectation value (the chiral condensate);
+  \item $v_{ij} = v\,\delta_{ij}$ is the vacuum expectation value of the
+    canonically normalised field $\phi$; it has dimension of mass
+    ($v \sim \fpi$) and is proportional to the condensate $v_0$ of
+    Eq.~\eqref{eq:condensate}, with a proportionality constant of
+    dimension $\text{mass}^{-2}$;
   \item $\sigma_{ij}$ is the \textbf{radial} (amplitude) fluctuation:
     a \textbf{scalar} meson with $J^P = 0^+$;
   \item $\pi_{ij}$ is the \textbf{angular} (phase) fluctuation:
@@ -555,8 +559,8 @@ A complementary perspective was provided by
 Komargodski~\cite{Komargodski2010}, who showed that the
 \textbf{hidden local symmetry} (HLS) framework---the standard
 effective theory for vector meson dominance in
-QCD~\cite{BandoKugoYamawaki1988}---is \emph{rigorously realised}
-within SQCD.
+QCD~\cite{BandoKugoYamawaki1988}---is realised within SQCD, given
+Seiberg duality.
 
 The key insight is:
 \begin{quote}
@@ -566,7 +570,7 @@ action.}
 \end{quote}
 In this picture:
 \begin{itemize}
-  \item The magnetic gauge bosons of $\SU{\Nc - \Nf}$ map to the
+  \item The magnetic gauge bosons of $\SU{\Nf - \Nc}$ map to the
     vector mesons ($\rho$, $K^*$, $\phi$, etc.) of QCD;
   \item The scalar mesons arise from the amplitude fluctuations of
     the meson condensate;
@@ -700,28 +704,31 @@ Using the standard inputs~\cite{PDG2024,FLAG2024}:
 \begin{align}
   \fpi &\;=\; 92.1\;\text{MeV}\,, \label{eq:fpi-value} \\
   \qqbar &\;\approx\; -(270\;\text{MeV})^3\,, \label{eq:qqbar-value} \\
-  m_u + m_d &\;\approx\; 8.5\;\text{MeV}
+  m_u + m_d &\;\approx\; 6.86\;\text{MeV}
     \quad (\overline{\text{MS}},\; \mu = 2\;\text{GeV})\,,
     \label{eq:mq-value}
 \end{align}
 we compute:
 \begin{align}
   m_\pi^2 &\;=\; \frac{(m_u + m_d)\,|\qqbar|}{\fpi^2}
-  \;=\; \frac{8.5 \times (270)^3}{(92.1)^2}\;\text{MeV}^2
+  \;=\; \frac{6.86 \times (270)^3}{(92.1)^2}\;\text{MeV}^2
     \nonumber \\
-  &\;=\; \frac{8.5 \times 1.97 \times 10^7}{8482}\;\text{MeV}^2
-  \;=\; \frac{1.67 \times 10^8}{8482}\;\text{MeV}^2
-  \;\approx\; 19{,}700\;\text{MeV}^2\,, \label{eq:gmor-num}
+  &\;=\; \frac{6.86 \times 1.968 \times 10^7}{8482}\;\text{MeV}^2
+  \;=\; \frac{1.350 \times 10^8}{8482}\;\text{MeV}^2
+  \;\approx\; 15{,}900\;\text{MeV}^2\,, \label{eq:gmor-num}
 \end{align}
 giving:
 \begin{equation}\label{eq:mpi-result}
-  m_\pi \;\approx\; \sqrt{19{,}700}\;\text{MeV}
-  \;\approx\; 140\;\text{MeV}\,.
+  m_\pi \;\approx\; \sqrt{15{,}900}\;\text{MeV}
+  \;\approx\; 126\;\text{MeV}\,.
 \end{equation}
-This matches the observed pion mass $m_{\pi^\pm} = 139.6\;\text{MeV}$
-to within the uncertainties of the input parameters
-($m_u + m_d$ and $\qqbar$ each carry $\sim 10\%$
-uncertainties~\cite{FLAG2024}).
+This lies within 10\% of the observed pion mass
+$m_{\pi^\pm} = 139.6\;\text{MeV}$.  GMOR is a leading-order relation in
+the quark masses: with the chiral-limit decay constant
+$F \approx \fpi/1.06 \approx 87\;\text{MeV}$~\cite{FLAG2024} in place of
+the physical $\fpi$, the same inputs give $m_\pi \approx 134\;\text{MeV}$,
+and the remainder is within the uncertainty of $\qqbar$ (entering
+cubed) and the higher-order chiral corrections.
 
 \begin{remark}[What the GMOR relation confirms]
 The GMOR relation is a statement about standard QCD and chiral
@@ -783,7 +790,7 @@ In Lecture~7, following Cacciapaglia and
 Sannino~\cite{CacciapagliaSannino2024}, we constructed the
 mes-Higgs field $\Phi_H$ of the dualised Standard Model.  This
 field decomposes into 18 Higgs doublets organised by
-generation~(Lecture~7, Eq.~(7)):
+generation~(Lecture~7, \S3.1):
 \begin{equation}\label{eq:Phi-H-recall}
   \Phi_H \;=\; \{H_{ij}\}\,,
   \qquad i,j = 1,2,3\,,
@@ -795,9 +802,9 @@ $Y = -1/2$ for $H^d$).
 \subsection{From generation indices to flavour indices}
 
 The generation indices $i,j = 1,2,3$ in $H_{ij}$ correspond to the
-three generations of quarks.  In the Pati--Salam decomposition used in
-Lecture~7~\cite{PS1974}, each generation contains one up-type and one
-down-type quark:
+three generations of quarks.  In the flavour decomposition
+$\SU{6} \supset \SU{3}_{\mathrm{gen}} \times \SU{2}$ used in Lecture~7,
+each generation contains one up-type and one down-type quark:
 \begin{equation}\label{eq:generation-flavour}
   \text{Gen.~1:}\; (u, d)\,,\qquad
   \text{Gen.~2:}\; (c, s)\,,\qquad
@@ -806,7 +813,7 @@ down-type quark:
 When $\SU{2}_L$ acts on the left-handed doublets and $\SU{2}_R$ acts on
 the right-handed fields, the $H^u$ and $H^d$ components of $H_{ij}$
 couple to the up-type and down-type sectors respectively (Lecture~7,
-Eq.~(12)):
+\S3.2):
 \begin{equation}\label{eq:yukawa-recall}
   y \sum_{i,j}\bigl(q_L^i\, u_R^j\, H_{ij}^u
   + q_L^i\, d_R^j\, H_{ij}^d\bigr)\,.
@@ -826,13 +833,30 @@ $\mathcal{M}_{ij}$ as follows:
     $\SU{2}_L$ doublet structure of the left-handed quarks.
 \end{itemize}
 
+\begin{remark}[Which theory is electric]
+\label{rem:frame}
+Sections~\ref{sec:meson-matrix-intro}--\ref{sec:chpt} follow
+Sannino--Schechter and Komargodski and treat QCD, with the physical
+quarks, as the \emph{electric} theory whose Seiberg meson is
+$\bar{q}q$.  The dualised SM of Lecture~7 uses the opposite frame:
+there $\SU{3}_c$ is the \emph{magnetic} gauge group and the SM quarks
+are magnetic quarks.  In that frame the QCD mesons are bound states of
+magnetic quarks formed at $\Lambda_{\QCD}$, while the mes-Higgs
+$\Phi_H$ is an elementary field of the magnetic theory (a composite of
+the electric theory at $\Lambda_D$).  The two objects share their
+flavour quantum numbers, $(\Nf, \bar{\Nf})$ of
+$\SU{\Nf}_L \times \SU{\Nf}_R$, and the correspondence below is a
+correspondence of flavour structure.
+\end{remark}
+
 \begin{remark}[The Higgs-meson correspondence]
 \label{rem:higgs-meson}
 The $3 \times 3$ Higgs matrix $\Phi_H = \{H_{ij}\}$ from Lecture~7
 and the $6 \times 6$ meson matrix $\mathcal{M}_{ij}$ from this lecture
-share a \textbf{common structural origin} as mapped presentations of the same underlying flavour organisation:
-the meson composite of the electric theory, which becomes an elementary
-field in the magnetic theory.  The Higgs matrix uses generation indices
+share the same flavour organisation, $(\Nf, \bar{\Nf})$ of
+$\SU{\Nf}_L \times \SU{\Nf}_R$: in each frame of
+Remark~\ref{rem:frame}, a meson composite of the electric theory
+becomes an elementary field of the magnetic theory.  The Higgs matrix uses generation indices
 and separates the $\SU{2}_L \times \SU{2}_R$ structure explicitly;
 the meson matrix uses flavour indices and makes the quark content of
 each entry manifest.
@@ -846,11 +870,11 @@ and Higgs fields is \textbf{universal}: the same coupling $y$ appears
 for every generation pair.  In the meson language, this means that the
 coupling of a quark to ``its'' composite meson is generation-independent.
 
-The effective Yukawa matrices (Lecture~7, Eq.~(14)):
+The effective Yukawa matrices (Lecture~7, \S3.2; $v = 246\;\text{GeV}$):
 \begin{equation}\label{eq:eff-yukawa-recall}
-  Y_{ij}^{u} = y\,\frac{\langle H_{ij}^u \rangle}{v}\,,
+  Y_{ij}^{u} = \sqrt{2}\, y\,\frac{\langle H_{ij}^u \rangle}{v}\,,
   \qquad
-  Y_{ij}^{d} = y\,\frac{\langle H_{ij}^d \rangle}{v}\,,
+  Y_{ij}^{d} = \sqrt{2}\, y\,\frac{\langle H_{ij}^d \rangle}{v}\,,
 \end{equation}
 show that the mass hierarchy arises entirely from the VEV hierarchy:
 \begin{equation}\label{eq:vev-hierarchy}
@@ -869,24 +893,25 @@ does \emph{not}.
 
 \paragraph{What the dualised SM provides:}
 \begin{enumerate}[label=(\alph*)]
-  \item \textbf{Structural origin of the meson matrix.}
+  \item \textbf{Structural origin of the flavour matrix.}
     In standard QCD, the meson flavour matrix $q_i\bar{q}_j$ is a
     phenomenological classification scheme.  In the dualised SM,
-    \emph{if the duality holds}, this matrix is inherited from the UV
-    dual theory: the meson field is \emph{elementary} in the magnetic
-    description, and its $\Nf \times \Nf$ structure follows from the
-    gauge and flavour symmetries of the electric theory.
+    \emph{if the duality holds}, the same $\Nf \times \Nf$ flavour
+    structure appears in the elementary magnetic fields $\Phi_H$ and
+    $M$, inherited from the flavour symmetries of the electric theory
+    (Remark~\ref{rem:frame}).
   \item \textbf{Universal Yukawa coupling.}
     The single coupling $y$ for all generation pairs explains why there
     is a universal meson--quark interaction at the level of the magnetic
     Lagrangian.  The mass hierarchy comes from the VEV hierarchy, not
     from different couplings.
   \item \textbf{Connection to the Higgs sector.}
-    The 18 Higgs doublets $H_{ij}^{u,d}$ of Lecture~7 \emph{are} the
-    meson composites after Pati--Salam decomposition.  This
-    unifies the electroweak symmetry breaking sector (Higgs) with the
-    hadronic spectrum (mesons) within a single framework---the mes-Higgs
-    field $\Phi_H$.
+    \emph{If the duality holds}, the 18 Higgs doublets
+    $H_{ij}^{u,d}$ of Lecture~7 are components of the mes-Higgs field
+    $\Phi_H$, a composite of the electric theory that carries the same
+    $(\Nf, \bar{\Nf})$ flavour quantum numbers as the meson matrix
+    (Remark~\ref{rem:frame}).  The electroweak symmetry breaking sector
+    and the meson flavour matrix then share one flavour organisation.
   \item \textbf{Scalar democracy.}
     The VEV hierarchy $\langle H_{33}^u \rangle \gg \langle H_{22}^u
     \rangle \gg \langle H_{11}^u \rangle$ from Planck-scale operators
@@ -927,10 +952,11 @@ sector and the hadronic spectrum via scalar democracy.  It is
 \section{Summary and Outlook}
 \label{sec:summary}
 
-\subsection{Summary of the 10-lecture course}
+\subsection{Summary of the course}
 
-This lecture completes a 10-lecture course on non-perturbative gauge
-dynamics and the dualised Standard Model.  The arc of the course is:
+This lecture closes the ten-lecture arc on non-perturbative gauge
+dynamics and the dualised Standard Model; Lecture~11 applies the
+framework to the Koide relation.  The arc of the course is:
 
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
@@ -944,6 +970,7 @@ dynamics and the dualised Standard Model.  The arc of the course is:
   non-SUSY extensions \\
 7--8 & The dualised Standard Model: construction, spectrum, scales \\
 9--10 & Extensions: the duality landscape, physical meson identification \\
+11 & Application: the Koide relation and the dualised SM \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -1055,9 +1082,9 @@ Using the GMOR relation for the kaon:
 \begin{equation*}
   m_K^2\, \fpi^2 \;=\; -(m_u + m_s)\,\qqbar\,,
 \end{equation*}
-and the inputs $m_u + m_s \approx 103\;\text{MeV}$ (at $\mu =
-2\;\text{GeV}$), $\fpi = 92.1\;\text{MeV}$, $\qqbar \approx
--(270\;\text{MeV})^3$:
+and the inputs $m_u + m_s \approx 95.7\;\text{MeV}$
+($\overline{\text{MS}}$ at $\mu = 2\;\text{GeV}$~\cite{PDG2024}),
+$\fpi = 92.1\;\text{MeV}$, $\qqbar \approx -(270\;\text{MeV})^3$:
 \begin{enumerate}[label=(\alph*)]
   \item Compute $m_K$ and compare with the PDG value $m_{K^\pm} =
     493.7\;\text{MeV}$.
@@ -1074,8 +1101,9 @@ $V(\phi) = \lambda(|\phi|^2 - v^2/2)^2$:
 \begin{enumerate}[label=(\alph*)]
   \item Show that $\sigma$ acquires a mass $m_\sigma^2 = 2\lambda v^2$
     while $\pi$ is massless (the Goldstone boson).
-  \item Add an explicit symmetry-breaking term $\epsilon\,\text{Re}(\phi)$
-    and show that $\pi$ acquires a mass $m_\pi^2 = \epsilon/v$.
+  \item Add an explicit symmetry-breaking term $-\epsilon\,\text{Re}(\phi)$
+    ($\epsilon > 0$) and show that, to first order in $\epsilon$, $\pi$
+    acquires a mass $m_\pi^2 = \epsilon/(\sqrt{2}\,v)$.
   \item Identify $\epsilon$ with the quark mass term and recover the
     GMOR relation.
 \end{enumerate}
@@ -1111,12 +1139,11 @@ Eq.~\eqref{eq:generation-flavour}:
 
 \bibitem{CacciapagliaSannino2024}
   G.~Cacciapaglia and F.~Sannino,
-  ``Charting Standard Model duality and its signatures,''
-  \textit{Phys.~Rev.} \textbf{D111} (2025) 035013
-  [\texttt{arXiv:2407.17281}].
+  ``Charting Standard Model Duality and its Signatures,''
+  arXiv:2407.17281 [hep-ph] (2024).
 
 \bibitem{PDG2024}
-  R.~L.~Workman \textit{et al.}\ (Particle Data Group),
+  S.~Navas \textit{et al.}\ (Particle Data Group),
   ``Review of Particle Physics,''
   \textit{Phys.~Rev.} \textbf{D110} (2024) 030001.
 
@@ -1144,7 +1171,8 @@ Eq.~\eqref{eq:generation-flavour}:
 
 \bibitem{SanninoSchechter1997}
   F.~Sannino and J.~Schechter,
-  ``Chiral symmetry restoration from the effective quark--meson model,''
+  ``Toy model for breaking super gauge theories at the effective
+  Lagrangian level,''
   \textit{Phys.~Rev.} \textbf{D57} (1998) 170
   [\texttt{hep-ph/9708113}].
 
@@ -1160,9 +1188,9 @@ Eq.~\eqref{eq:generation-flavour}:
   \textit{Phys.~Rept.} \textbf{164} (1988) 217.
 
 \bibitem{FLAG2024}
-  Y.~Aoki \textit{et al.}\ (FLAG Collaboration),
-  ``FLAG Review 2024,''
-  \textit{Eur.~Phys.~J.} \textbf{C84} (2024) 227
+  Y.~Aoki \textit{et al.}\ (Flavour Lattice Averaging Group),
+  ``FLAG Review 2021,''
+  \textit{Eur.~Phys.~J.} \textbf{C82} (2022) 869
   [\texttt{arXiv:2111.09849}].
 
 \bibitem{tHooft1976}
