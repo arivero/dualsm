@@ -293,11 +293,12 @@ only the $\mathcal{N}=1$ combination survives as a symmetry.
 
 \noindent\textbf{Background.}
 In Lecture~4, \S4, we introduced the Fayet--Iliopoulos $D$-term for
-$\UU{1}$ gauge factors.  The FI parameter $\xi$ plays a crucial role
-in the $\mathcal{N}=2$ story: on the Coulomb branch, the effective FI
-parameters at singular points can trigger monopole condensation.  This
-exercise develops the mechanics of the FI $D$-term in a simple abelian
-setting.
+$\UU{1}$ gauge factors.  A term linear in an auxiliary field can force
+a charged scalar to condense; the FI parameter $\xi$ does this through
+the $D$-term.  In the Seiberg--Witten solution the monopole condensation
+is driven by the $F$-term analogue, a superpotential linear in the dual
+photon multiplet (part~(e)).  This exercise develops the mechanics of the
+FI $D$-term in a simple abelian setting.
 
 \medskip
 
@@ -348,16 +349,18 @@ chiral superfield $\Phi$ of charge $q = +1$, with no superpotential
     $g(|\phi|^2 - |\tilde\phi|^2) + \xi = 0$ can be satisfied.  Give
     explicit VEV configurations for $\xi > 0$ and $\xi < 0$.
 
-  \item \textbf{Connection to the $\mathcal{N}=2$ Coulomb branch.}
-    In the $\mathcal{N}=2$ context, the $\UU{1}^{\Nc-1}$ factors on
-    the Coulomb branch each carry effective FI parameters.  When the
-    APS deformation $\Wsup_{\mathrm{def}} = \mu\,\Tr\Phi^2$ lifts the
-    Coulomb branch and drives the theory to singular points, the
-    effective FI parameters force the massless monopoles to condense
-    (acquire VEVs), analogous to the $\xi < 0$ case of part~(a)(ii).
-    This monopole condensation confines the original electric charges by
-    the dual Meissner effect.  Summarise in one or two sentences why this
-    provides a mechanism for confinement.
+  \item \textbf{Connection to the $\mathcal{N}=2$ Coulomb branch (an
+    analogy).}  In the Seiberg--Witten solution~\cite{SW1994}, the
+    deformation $\Wsup_{\mathrm{def}} = \mu\,\Tr\Phi^2$ lifts the
+    Coulomb branch; the surviving vacua sit at the singular points where
+    a monopole hypermultiplet $(M, \widetilde{M})$ becomes massless.
+    Near such a point the effective superpotential is
+    $\Wsup = \sqrt{2}\,A_D M\widetilde{M} + \mu\,U(A_D)$, where $A_D$
+    is the dual photon multiplet and $U = \langle\Tr\Phi^2\rangle$ is
+    expressed as a function of $A_D$.  Show that the $F$-term of $A_D$
+    forces the monopoles to condense, and compare this with the
+    $\xi < 0$ case of part~(a)(ii).  Summarise in one or two sentences
+    why monopole condensation provides a mechanism for confinement.
 \end{enumerate}
 
 \medskip
@@ -464,10 +467,10 @@ Therefore $[m_A] = [\mathrm{mass}]$.
 \]
 
 \begin{remark}[Factor of 2]
-  The factor of $2$ in $m_A^2 = 2g^2 v^2$ arises because $\phi$ is a
-  complex scalar: both the real and imaginary parts contribute equally to
-  the gauge boson mass via the Higgs mechanism.  (For a real scalar of
-  charge $q$, the mass would be $m_A^2 = g^2 q^2 v^2$.)
+  The factor of $2$ in $m_A^2 = 2g^2 v^2$ reflects the normalisation of
+  the complex field, $v = |\langle\phi\rangle|$.  Writing
+  $\phi = (v_R + h)/\sqrt{2}$ with a canonically normalised real field
+  $h$, so that $v = v_R/\sqrt{2}$, gives the familiar $m_A = g\,v_R$.
 \end{remark}
 
 \bigskip
@@ -502,21 +505,34 @@ This is one equation in two unknowns, so it always has solutions:
 
 The crucial point is that having fields of \emph{both} charges allows
 $D$-flatness to be satisfied regardless of the sign of $\xi$.  This is
-the generic situation in the $\mathcal{N}=2$ context, where both
-monopoles and dyons (carrying opposite effective charges) are present at
-the singular points.
+the situation at the $\mathcal{N}=2$ singular points: the massless
+monopole hypermultiplet consists of two $\mathcal{N}=1$ chiral
+superfields $M$ and $\widetilde{M}$ with opposite charges under the local
+magnetic $\UU{1}$.
 
 \bigskip
 
 \textbf{(e) Connection to confinement.}
 
-On the $\mathcal{N}=2$ Coulomb branch, the effective $\UU{1}$
-theories at the singular points have massless monopoles that are
-charged under the residual $\UU{1}$ gauge group.  When the APS
-deformation drives the theory to these points and the effective FI
-parameter is nonzero, the monopoles are forced to condense (acquire
-VEVs to satisfy $D$-flatness), just as $\langle\phi\rangle \neq 0$
-in part~(a)(ii).
+Near the monopole point the effective superpotential is
+$\Wsup = \sqrt{2}\,A_D M\widetilde{M} + \mu\,U(A_D)$, and the
+$F$-terms give
+\[
+  \frac{\partial\Wsup}{\partial A_D}
+  = \sqrt{2}\,M\widetilde{M} + \mu\,U'(A_D) = 0,
+  \qquad
+  \frac{\partial\Wsup}{\partial M} = \sqrt{2}\,A_D\widetilde{M} = 0,
+  \qquad
+  \frac{\partial\Wsup}{\partial\widetilde{M}} = \sqrt{2}\,A_D M = 0.
+\]
+Since $U'(0) \neq 0$ at the monopole point, the solution is $A_D = 0$ and
+\[
+  \langle M\widetilde{M}\rangle = -\frac{\mu\,U'(0)}{\sqrt{2}} \neq 0,
+\]
+with $|M| = |\widetilde{M}|$ from $D$-flatness.  The monopoles condense
+through an $F$-term.  The FI problem above is its $D$-term analogue: in
+both cases a term linear in an auxiliary field ($F_{A_D}$ here, $D$ in
+part~(a)) forces a charged scalar to acquire a VEV.
 
 \textit{Monopole condensation produces confinement by the dual Meissner
 effect:} a magnetic condensate confines electric charges into flux
