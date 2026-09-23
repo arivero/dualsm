@@ -21,7 +21,7 @@ ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus,
     generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
 
 References:
-    .gpd/CONVENTIONS.md
+    README.md (convention lock; formerly .gpd/CONVENTIONS.md)
     lectures/preamble.tex (canonical ASSERT_CONVENTION line)
 """
 

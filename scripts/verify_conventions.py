@@ -3,7 +3,8 @@
 Convention verification script for the Dualised Standard Model project.
 
 Systematically verifies ALL group theory identities and beta function
-conventions from .gpd/CONVENTIONS.md for SU(N) with N = 2, 3, 5.
+conventions of the convention lock in README.md (formerly
+.gpd/CONVENTIONS.md, retired 2026-09-23) for SU(N) with N = 2, 3, 5.
 
 ASSERT_CONVENTION: T(fund) = 1/2 per Weyl fermion (Seiberg)
 ASSERT_CONVENTION: b_0 = (11N_c - 2N_f)/3 for N_f Dirac flavours
