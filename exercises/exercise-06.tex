@@ -30,7 +30,10 @@ Units & $\hbar = c = 1$ (natural) \\
 Metric & $\eta_{\mu\nu} = \mathrm{diag}(+1,-1,-1,-1)$ (mostly minus) \\
 Beta function & $\bzero = (11\Nc - 2\Nf)/3$ for $\Nf$ Dirac flavours \\
 Coupling & $\alphas = g_s^2/(4\pi)$ \\
+Electroweak VEV & $v = (\sqrt{2}\,G_F)^{-1/2} = 246\;\text{GeV}$ \\
 Planck mass & $M_{\text{Pl}} = 1.22 \times 10^{19}\;\text{GeV}$ \\
+Scales & $\Lambda_S \sim \text{few TeV}$ (quasi-SUSY states, dormant
+  Higgs doublets) \\
 Epistemic & ``if the conjectured duality holds'' for all non-SUSY claims (P1) \\
 \bottomrule
 \end{tabular}
@@ -72,14 +75,16 @@ duality scale is a \textbf{free parameter} of the framework; the
 estimate $\Lambda_D \sim 10^{11}\;\text{GeV}$ is a parametric
 consistency check (Lecture~8, \S4.1).
 
-This exercise derives two physical scales from the duality scale:
+This exercise relates two physical scales to the duality scale and
+asks what each relation tests:
 \begin{enumerate}
-  \item The electroweak (Fermi) scale $v \approx 246\;\text{GeV}$
-    from the seesaw-like relation
+  \item The electroweak (Fermi) scale $v = 246\;\text{GeV}$,
+    through the seesaw-like relation
     $v \sim \Lambda_D^2 / M_{\text{Pl}}$.
   \item The QCD confinement scale
-    $\Lambda_{\QCD} \approx 200\;\text{MeV}$
-    from one-loop RG running of $\alphas$ below $\Lambda_D$.
+    $\Lambda_{\QCD} \approx 200\;\text{MeV}$,
+    through one-loop RG running of $\alphas$ between $M_Z$ and
+    $\Lambda_D$.
 \end{enumerate}
 
 \medskip
@@ -97,7 +102,7 @@ This exercise derives two physical scales from the duality scale:
         above the top mass threshold, compute $\bzero$.
 
       \item The one-loop running of the strong coupling is
-        (Lecture~1, Eq.~(3)):
+        (the one-loop solution of the beta function of Lecture~1):
         \begin{equation}\label{eq:one-loop-running}
           \alphas(\mu)
           \;=\; \frac{\alphas(\mu_0)}{%
@@ -124,7 +129,7 @@ This exercise derives two physical scales from the duality scale:
   \item \textbf{[8 marks]}
     At the duality scale $\Lambda_D$, the magnetic and electric gauge
     couplings are related by the duality relation
-    (Lecture~8, Eq.~(16)):
+    (Lecture~8, scale-matching section):
     \begin{equation}\label{eq:duality-coupling}
       \frac{1}{\alpha_e(\Lambda_D)}
       \;\sim\; \alpha_m(\Lambda_D)
@@ -136,17 +141,20 @@ This exercise derives two physical scales from the duality scale:
 
     \begin{enumerate}[label=(\roman*)]
       \item For the electric $\SU{2}$ gauge theory underlying the SM
-        QCD sector, the field content includes 6 Weyl fermions in the
-        fundamental representation and one Weyl fermion in the adjoint
-        (from the gaugino of the progenitor SUSY theory).  Compute the
-        electric one-loop coefficient
+        QCD sector (Lecture~7, electric theory for $n_g = 3$), the
+        field content is $\Nf = 6$ Dirac flavours, i.e.\ the six
+        doublets $p$ and the six doublets $\widetilde{p}$ (for $\SU{2}$
+        the fundamental and antifundamental are equivalent), plus one
+        Weyl fermion in the adjoint (from the gaugino of the
+        progenitor SUSY theory).  Compute the electric one-loop
+        coefficient
         \[
           \bzero^e
           \;=\; \frac{11 N_c^e}{3}
           \;-\; \frac{2}{3}\,n_f^e\, T(\fund)
           \;-\; \frac{2}{3}\, T(\adj)\,,
         \]
-        with $N_c^e = 2$, $n_f^e = 6$ Weyl fundamentals, $T(\fund) = 1/2$, and
+        with $N_c^e = 2$, $n_f^e = 12$ Weyl doublets, $T(\fund) = 1/2$, and
         $T(\adj) = N_c^e = 2$.
         Argue that the electric theory \emph{is} asymptotically
         free ($\bzero^e > 0$), which is consistent with the duality
@@ -160,11 +168,13 @@ This exercise derives two physical scales from the duality scale:
         determine $\alphas(\Lambda_D)$.  Then use
         Eq.~\eqref{eq:lambda-qcd-def} with $\mu_0 = \Lambda_D$
         to compute $\Lambda_{\QCD}$ numerically.  Show all
-        intermediate steps.
+        intermediate steps.  Then repeat the last step with
+        $\mu_0 = M_Z$ and $\alphas(M_Z)$, and explain why the two
+        results agree.
 
       \item Compare your result with the measured value
-        $\Lambda_{\QCD} \approx 200\;\text{MeV}$.  Identify two
-        sources of $\mathcal{O}(1)$ uncertainty in the estimate.
+        $\Lambda_{\QCD} \approx 200\;\text{MeV}$ and identify two
+        sources of the difference.
     \end{enumerate}
 
   \item \textbf{[7 marks]}
@@ -217,17 +227,18 @@ This exercise derives two physical scales from the duality scale:
         $\Lambda_D$ & \rule{3cm}{0.4pt} & $\sim 10^{11}\;\text{GeV}$ \\
         $M_{\text{Pl}}$ & \rule{3cm}{0.4pt}
           & $1.22 \times 10^{19}\;\text{GeV}$ \\
-        $\alphas(\Lambda_D)$ & \rule{3cm}{0.4pt} & $\sim 0.03$ \\
-        $v$ & \rule{3cm}{0.4pt} & $\sim 246\;\text{GeV}$ \\
-        $\Lambda_{\QCD}$ & \rule{3cm}{0.4pt}
-          & $\sim 200\;\text{MeV}$ \\
+        $\alphas(M_Z)$ & \rule{3cm}{0.4pt} & $0.118$ \\
+        $\alphas(\Lambda_D)$ & \rule{3cm}{0.4pt} & from (b)(ii) \\
+        $v$ & \rule{3cm}{0.4pt} & from (c)(ii) \\
+        $\Lambda_{\QCD}$ & \rule{3cm}{0.4pt} & from (b)(ii) \\
         $\Lambda_S$ & \rule{3cm}{0.4pt} & $\sim \text{few TeV}$ \\
         \bottomrule
         \end{tabular}
         \end{center}
 
       \item The three energy scales of the dualised SM are
-        $\Lambda_S \sim \text{TeV}$ (quasi-SUSY spectrum mass),
+        $\Lambda_S \sim \text{TeV}$ (quasi-SUSY spectrum and dormant
+        Higgs doublets),
         $\Lambda_D \sim 10^{11}\;\text{GeV}$ (duality scale), and
         optionally $\Lambda_{\text{eGUT}}$ (electric grand unification).
         Present the hierarchy
@@ -319,18 +330,20 @@ $[\Lambda_{\QCD}] = [\mu_0] = [\text{energy}]$.
 
 \textit{(i) Electric beta function.}
 
-For the electric $\SU{2}$ theory with $n_f^e = 6$ Weyl fundamentals
-and 1 Weyl adjoint:
+For the electric $\SU{2}$ theory with $n_f^e = 12$ Weyl doublets
+(six $p$ and six $\widetilde{p}$) and 1 Weyl adjoint:
 \begin{align}
   \bzero^e
   &\;=\; \frac{11 \times 2}{3}
-  \;-\; \frac{2}{3} \times 6 \times \frac{1}{2}
+  \;-\; \frac{2}{3} \times 12 \times \frac{1}{2}
   \;-\; \frac{2}{3} \times 2
   \nonumber \\
-  &\;=\; \frac{22}{3} - 2 - \frac{4}{3}
-  \;=\; \frac{22 - 4}{3} - 2
-  \;=\; 6 - 2 \;=\; 4\,.
+  &\;=\; \frac{22}{3} - 4 - \frac{4}{3}
+  \;=\; \frac{22 - 4}{3} - 4
+  \;=\; 6 - 4 \;=\; 2\,.
 \end{align}
+Equivalently, $\bzero^e = 3N_c^e - \tfrac{2}{3}\Nf = 6 - 4 = 2$ for
+$\Nf = 6$ Dirac flavours plus one adjoint Weyl fermion.
 
 Since $\bzero^e > 0$, the electric theory is \emph{asymptotically
 free}: it becomes strongly coupled in the IR (at $\Lambda_D$) and
@@ -347,125 +360,120 @@ magnetic (SM) description takes over below this scale.
 
 \textit{(ii) Numerical computation of $\Lambda_{\QCD}$.}
 
-With $\alphas(\Lambda_D) = 0.3$, $\Lambda_D = 10^{11}\;\text{GeV}$,
-and $\bzero = 7$:
-
-\textbf{Step 1:} Compute the exponent:
-\[
-  \frac{2\pi}{\bzero\, \alphas(\Lambda_D)}
-  \;=\; \frac{2\pi}{7 \times 0.3}
-  \;=\; \frac{6.283}{2.1}
-  \;\approx\; 2.99\,.
-\]
-
-\textbf{Step 2:} Compute $\Lambda_{\QCD}$:
-\[
-  \Lambda_{\QCD}
-  \;=\; 10^{11}\;\text{GeV} \times
-  \exp(-2.99)
-  \;=\; 10^{11}\;\text{GeV} \times 0.050
-  \;\approx\; 5 \times 10^{9}\;\text{GeV}\,.
-\]
-
-This is far too large!  The issue is that $\alphas(\Lambda_D) = 0.3$
-is too large for the coupling at $10^{11}\;\text{GeV}$.  Let us
-reconsider: the duality relation gives
-$\alphas(\Lambda_D) \sim 1/\alpha_e$, and for $\alpha_e \sim
-\mathcal{O}(1)$ we should use a smaller magnetic coupling.
-
-\textbf{Re-evaluation with self-consistent approach.}
-The measured value $\alphas(M_Z) = 0.118$ at $M_Z = 91.2\;\text{GeV}$
-can be evolved to $\Lambda_D$ using Eq.~\eqref{eq:one-loop-running}:
+\textbf{Step 1: run $\alphas(M_Z)$ up to $\Lambda_D$.}
+With $\alphas(M_Z) = 0.118$, $M_Z = 91.2\;\text{GeV}$ and $\bzero = 7$,
+Eq.~\eqref{eq:one-loop-running} gives
 \[
   \alphas(\Lambda_D)
   \;=\; \frac{0.118}{%
     1 + \dfrac{7}{2\pi} \times 0.118 \times
     \ln\!\bigl(10^{11}/91.2\bigr)}\,.
 \]
-Computing the logarithm:
+The logarithm is
 \[
   \ln\!\bigl(10^{11}/91.2\bigr)
-  \;=\; \ln(1.10 \times 10^{9})
-  \;=\; 9 \ln 10 + \ln 1.10
-  \;\approx\; 20.7 + 0.1
-  \;=\; 20.8\,.
+  \;=\; \ln(1.0965 \times 10^{9})
+  \;=\; 9 \ln 10 + \ln 1.0965
+  \;\approx\; 20.72 + 0.09
+  \;=\; 20.82\,,
 \]
-The denominator:
-\[
-  1 + \frac{7}{2\pi} \times 0.118 \times 20.8
-  \;=\; 1 + 1.114 \times 20.8 \times 0.118
-  \;=\; 1 + \frac{7 \times 0.118 \times 20.8}{6.283}\,.
-\]
-Let us compute carefully:
+and
 \[
   \frac{7 \times 0.118}{2\pi}
   \;=\; \frac{0.826}{6.283}
-  \;\approx\; 0.1315\,.
+  \;\approx\; 0.1315\,,
+  \qquad
+  0.1315 \times 20.82 \;\approx\; 2.736\,,
 \]
-\[
-  0.1315 \times 20.8 \;\approx\; 2.74\,.
-\]
+so
 \[
   \alphas(\Lambda_D)
-  \;\approx\; \frac{0.118}{1 + 2.74}
-  \;=\; \frac{0.118}{3.74}
-  \;\approx\; 0.032\,.
+  \;\approx\; \frac{0.118}{1 + 2.736}
+  \;=\; \frac{0.118}{3.736}
+  \;\approx\; 0.0316\,.
 \]
+The magnetic $\SU{3}_c$ coupling is weak at the duality scale, as the
+duality relation~\eqref{eq:duality-coupling} requires for a strongly
+coupled electric theory.
 
-\textbf{Step 1 (revised):} Compute the exponent with
-$\alphas(\Lambda_D) \approx 0.032$:
+\textbf{Step 2: the exponent.}
 \[
   \frac{2\pi}{\bzero\, \alphas(\Lambda_D)}
-  \;=\; \frac{6.283}{7 \times 0.032}
-  \;=\; \frac{6.283}{0.224}
-  \;\approx\; 28.0\,.
+  \;=\; \frac{6.283}{7 \times 0.0316}
+  \;=\; \frac{6.283}{0.2211}
+  \;\approx\; 28.4\,.
 \]
 
-\textbf{Step 2 (revised):} Compute $\Lambda_{\QCD}$:
+\textbf{Step 3: $\Lambda_{\QCD}$.}
 \[
   \Lambda_{\QCD}
-  \;=\; 10^{11}\;\text{GeV} \times
-  \exp(-28.0)\,.
-\]
-\[
-  \exp(-28.0) \;\approx\; 6.9 \times 10^{-13}\,.
-\]
-\[
-  \Lambda_{\QCD}
-  \;\approx\; 10^{11} \times 6.9 \times 10^{-13}\;\text{GeV}
-  \;=\; 69\;\text{MeV}\,.
+  \;=\; 10^{11}\;\text{GeV} \times \exp(-28.4)
+  \;\approx\; 10^{11} \times 4.5 \times 10^{-13}\;\text{GeV}
+  \;=\; 45\;\text{MeV}\,.
 \]
 \[
   \boxed{\Lambda_{\QCD}^{(\Nf=6)}
-  \;\approx\; 70\;\text{MeV}\,.}
+  \;\approx\; 45\;\text{MeV}\,.}
 \]
+The exponent needs three significant figures: rounding
+$\alphas(\Lambda_D)$ to $0.032$ and the exponent to $28.0$ would give
+$69\;\text{MeV}$, a $50\%$ error from percent-level roundings.
 
-This is within a \textbf{factor of 3} of the measured
-$\Lambda_{\QCD} \approx 200\;\text{MeV}$---a satisfactory result
-for a one-loop estimate with no threshold corrections.
+\textbf{Step 4: the same number from $M_Z$.}
+\begin{align*}
+  \Lambda_{\QCD}
+  &\;=\; M_Z \exp\!\Bigl(-\frac{2\pi}{7 \times 0.118}\Bigr)
+  \;=\; 91.2\;\text{GeV} \times \exp(-7.607) \\
+  &\;\approx\; 91.2 \times 4.97 \times 10^{-4}\;\text{GeV}
+  \;=\; 45\;\text{MeV}\,.
+\end{align*}
+The two results agree because the one-loop $\Lambda_{\QCD}$ is
+renormalisation-group invariant.  From Eq.~\eqref{eq:one-loop-running},
+$1/\alphas(\mu) = 1/\alphas(\mu_0) + (\bzero/2\pi)\ln(\mu/\mu_0)$, so
+\[
+  \ln\Lambda_{\QCD}
+  \;=\; \ln\mu - \frac{2\pi}{\bzero\,\alphas(\mu)}
+  \;=\; \ln\mu_0 - \frac{2\pi}{\bzero\,\alphas(\mu_0)}
+\]
+for any $\mu$.  Running $\alphas(M_Z)$ up to $\Lambda_D$ and
+evaluating Eq.~\eqref{eq:lambda-qcd-def} there reproduces the value
+obtained directly at $M_Z$: at one loop $\Lambda_D$ cancels, and the
+QCD scale is fixed by $\alphas(M_Z)$ alone.
 
-\textit{(iii) Sources of $\mathcal{O}(1)$ uncertainty.}
+\textit{(iii) Comparison and sources of the difference.}
 
+The one-loop result, $45\;\text{MeV}$, lies a factor of about $4.4$
+below $\Lambda_{\QCD} \approx 200\;\text{MeV}$.  Two sources account
+for the difference, and neither involves the duality:
 \begin{enumerate}
-  \item \textbf{Threshold corrections:} The calculation uses
-    $\Nf = 6$ and $\bzero = 7$ throughout, but the number of active
-    flavours decreases at each quark mass threshold (from $\Nf = 6$
-    above $m_t$ to $\Nf = 5$ below $m_t$, then $\Nf = 4$ below
-    $m_b$, etc.).  At each threshold, $\bzero$ increases, which
-    \emph{slows} the running and increases $\Lambda_{\QCD}$.  A proper
-    threshold matching would bring the estimate closer to
-    $200\;\text{MeV}$.
+  \item \textbf{Flavour thresholds.}  The value $45\;\text{MeV}$ is the
+    six-flavour parameter $\Lambda^{(6)}$.  The number usually quoted is
+    the five-flavour $\Lambda^{(5)}_{\overline{\text{MS}}}$.  Decoupling
+    the top quark and running $\alphas(M_Z)$ with $\Nf = 5$
+    ($\bzero = 23/3$) gives $\Lambda^{(5)} \approx 88\;\text{MeV}$ at one
+    loop; continuing through $m_b$ and $m_c$ gives
+    $\Lambda^{(4)} \approx 120\;\text{MeV}$ and
+    $\Lambda^{(3)} \approx 143\;\text{MeV}$.  Below each threshold
+    $\bzero$ is larger, which slows the running and raises $\Lambda$.
 
-  \item \textbf{Duality relation uncertainty:} The matching condition
-    $\alphas(\Lambda_D)$ depends on the duality relation, which is an
-    $\mathcal{O}(1)$ statement.  A $30\%$ change in
-    $\alphas(\Lambda_D)$ shifts $\Lambda_{\QCD}$ by more than an
-    order of magnitude (because of the exponential sensitivity).
-
-  \item \textbf{Two-loop corrections:} The two-loop beta function
-    shifts $\Lambda_{\QCD}$ by $\sim 10$--$20\%$ at the relevant
-    energy scales.
+  \item \textbf{Loop order and scheme.}  $\Lambda$ depends on the order
+    at which the beta function is truncated.  The two-loop formula gives
+    $\Lambda^{(5)} \approx 230\;\text{MeV}$ from the same
+    $\alphas(M_Z) = 0.118$, and the PDG value
+    $\Lambda^{(5)}_{\overline{\text{MS}}} \approx 210\;\text{MeV}$ comes
+    from four-loop running.
 \end{enumerate}
+Two further remarks.  Above $\Lambda_S$ the quasi-SUSY partners
+(gaugino and squarks) change the $\SU{3}_c$ coefficient to the SQCD
+value $\bzero = 3\Nc - \Nf = 3$; for $\Lambda_S = 3\;\text{TeV}$ this
+raises $\alphas(\Lambda_D)$ from $0.032$ to about $0.048$ and leaves
+$\Lambda_{\QCD}$, which is fixed by $\alphas(M_Z)$, unchanged.  And if
+$\alphas(\Lambda_D)$ were computed from the duality
+relation~\eqref{eq:duality-coupling} without using $\alphas(M_Z)$,
+$\Lambda_{\QCD}$ would become a genuine, and exponentially sensitive,
+prediction: a $30\%$ shift in $\alphas(\Lambda_D)$ moves
+$\Lambda_{\QCD}$ up by a factor of about $700$ or down by a factor of
+about $2 \times 10^{5}$.
 
 \bigskip
 
@@ -550,9 +558,8 @@ For $v = 1000\;\text{GeV}$:
   v \in [100,\; 1000]\;\text{GeV}\,.}
 \]
 
-This is a remarkably narrow range---less than one order of magnitude
-in $\Lambda_D$ produces three orders of magnitude in $v$
-(since $v \propto \Lambda_D^2$).
+A factor $\sqrt{10} \approx 3.2$ in $\Lambda_D$ covers one order of
+magnitude in $v$, since $v \propto \Lambda_D^2$.
 
 \textit{(iv) Dimensional consistency.}
 
@@ -577,73 +584,91 @@ in $\Lambda_D$ produces three orders of magnitude in $v$
 \midrule
 $\Lambda_D$ & Input (free parameter) & $\sim 10^{11}\;\text{GeV}$ \\
 $M_{\text{Pl}}$ & Input (measured) & $1.22 \times 10^{19}\;\text{GeV}$ \\
-$\alphas(\Lambda_D)$ & Input (from duality relation/SM running)
-  & $\sim 0.03$ \\
-$v$ & Output (parametric consistency check) & $\sim 246\;\text{GeV}$ \\
-$\Lambda_{\QCD}$ & Output (from RG running) & $\sim 200\;\text{MeV}$ \\
-$\Lambda_S$ & Output (from spectrum) & $\sim \text{few TeV}$ \\
+$\alphas(M_Z)$ & Input (measured) & $0.118$ \\
+$\alphas(\Lambda_D)$ & Derived (one-loop running, $\bzero = 7$)
+  & $\approx 0.032$ \\
+$v$ & Output (seesaw; parametric check)
+  & $\approx 820\;\text{GeV}$ (measured $246$) \\
+$\Lambda_{\QCD}$ & Output of $\alphas(M_Z)$; independent of $\Lambda_D$
+  & $\approx 45\;\text{MeV}$ (measured $\approx 200$) \\
+$\Lambda_S$ & Output (same seesaw as $v$) & $\sim \text{few TeV}$ \\
 \bottomrule
 \end{tabular}
 \end{center}
+The seesaw value of $v$ exceeds the measured one by a factor of $3.3$,
+absorbed by the coefficient $\sqrt{\xi/\lambda}$ (part~(c)); the
+one-loop, six-flavour $\Lambda_{\QCD}$ falls short by the factor of
+$4.4$ discussed in part~(b)(iii).
 \[
   \boxed{
-  \text{Inputs: } \Lambda_D,\, M_{\text{Pl}},\, \alphas(\Lambda_D)\,.
+  \text{Inputs: } \Lambda_D,\, M_{\text{Pl}},\, \alphas(M_Z)\,.
   \qquad
-  \text{Outputs: } v,\, \Lambda_{\QCD},\, \Lambda_S\,.}
+  \text{Outputs: } v,\, \Lambda_S \text{ (one seesaw)};\;
+  \alphas(\Lambda_D),\, \Lambda_{\QCD} \text{ (running)}\,.}
 \]
 
 \textit{(ii) Energy hierarchy.}
 
-The full hierarchy is:
-\[
+With measured or typical values, the hierarchy is:
+\begin{align*}
   \Lambda_{\QCD} \;\sim\; 200\;\text{MeV}
-  \;\ll\; v \;\sim\; 246\;\text{GeV}
-  \;\ll\; \Lambda_S \;\sim\; \text{few TeV}
-  \;\ll\; \Lambda_D \;\sim\; 10^{11}\;\text{GeV}
+  &\;\ll\; v \;=\; 246\;\text{GeV}
+  \;\ll\; \Lambda_S \;\sim\; \text{few TeV} \\
+  &\;\ll\; \Lambda_D \;\sim\; 10^{11}\;\text{GeV}
   \;\ll\; M_{\text{Pl}} \;\sim\; 10^{19}\;\text{GeV}\,.
-\]
+\end{align*}
 
 \textbf{Inputs:}
 \begin{itemize}
   \item $M_{\text{Pl}}$: fundamental gravitational scale (measured).
-  \item $\Lambda_D$: duality scale (free parameter; constrained by
-    consistency to $\sim 10^{10}$--$10^{11}\;\text{GeV}$).
-  \item $\alphas(\Lambda_D)$: magnetic coupling at $\Lambda_D$ (from
-    duality relation or evolved from measured $\alphas(M_Z)$).
+  \item $\Lambda_D$: duality scale (free parameter; part~(c)(iii) gives
+    $3.5 \times 10^{10}$--$1.1 \times 10^{11}\;\text{GeV}$ for
+    $v$ between $100$ and $1000\;\text{GeV}$, up to $\mathcal{O}(1)$
+    coefficients).
+  \item $\alphas(M_Z) = 0.118$: measured.
 \end{itemize}
 
 \textbf{Outputs (derived):}
 \begin{itemize}
   \item $v \sim \Lambda_D^2/M_{\text{Pl}}$: electroweak scale (seesaw
     relation).
-  \item $\Lambda_{\QCD}$: from one-loop RG running below $\Lambda_D$.
-  \item $\Lambda_S$: quasi-SUSY spectrum mass, of order
-    $\Lambda_D^2/M_{\text{Pl}}$ (same seesaw as $v$, with different
-    $\mathcal{O}(1)$ coefficients).
+  \item $\Lambda_S$: of order $\Lambda_D^2/M_{\text{Pl}}$ (the same
+    seesaw as $v$, with a different $\mathcal{O}(1)$ coefficient).  It
+    sets the masses of the quasi-SUSY states and of the 17 dormant Higgs
+    doublets, the scale Exercise Set~5 uses for the dormant doublets.
+  \item $\alphas(\Lambda_D) \approx 0.032$: weak magnetic coupling at
+    the duality scale.
+  \item $\Lambda_{\QCD}$: fixed by $\alphas(M_Z)$; at one loop it does
+    not depend on $\Lambda_D$.
 \end{itemize}
 
 \textit{(iii) Prediction or consistency check?}
 
 The relation $v \sim \Lambda_D^2/M_{\text{Pl}}$ is a
-\textbf{parametric consistency check}, not a prediction:
+\textbf{parametric consistency check}:
 \begin{itemize}
-  \item \textbf{It is not a prediction} because the duality scale
-    $\Lambda_D$ is a free parameter.  Given $\Lambda_D$, the framework
-    produces $v$---but $\Lambda_D$ can be adjusted to match any desired
-    $v$.
-  \item \textbf{It is a consistency check} because the \emph{same}
-    value of $\Lambda_D \sim 10^{11}\;\text{GeV}$ simultaneously
-    gives: (a)~$v \sim 246\;\text{GeV}$ from the seesaw relation,
-    (b)~$\Lambda_{\QCD} \sim 200\;\text{MeV}$ from RG running, and
-    (c)~$\Lambda_S \sim \text{TeV}$ from the spectrum.  The fact that
-    a single input $\Lambda_D$ produces three independent physical
-    scales in the right parametric ballpark is non-trivial.
+  \item The duality scale $\Lambda_D$ is a free parameter.  Given
+    $\Lambda_D$, the framework produces $v$, but $\Lambda_D$ can be
+    adjusted to match any desired $v$.
+  \item The non-trivial content is that one intermediate scale,
+    $\Lambda_D \sim 10^{11}\;\text{GeV}$, combined with $M_{\text{Pl}}$
+    places both $v$ and $\Lambda_S$ near the TeV range with
+    $\mathcal{O}(1)$ coefficients.  This counts as one check, since the
+    same seesaw sets both scales.
+  \item The QCD scale adds no independent test at one loop:
+    $\Lambda_{\QCD}$ follows from $\alphas(M_Z)$ whatever the value of
+    $\Lambda_D$ (part~(b)(ii)).  The running up to $\Lambda_D$ checks
+    only that the magnetic coupling stays perturbative there
+    ($\alphas(\Lambda_D) \approx 0.03$--$0.05$).  A genuine test would
+    require $\alphas(\Lambda_D)$ from the duality relation itself.
 \end{itemize}
 \[
-  \boxed{\text{Parametric consistency check: one input }
-  (\Lambda_D) \text{ gives three outputs }
-  (v,\, \Lambda_{\QCD},\, \Lambda_S)
-  \text{ in the correct range.}}
+  \boxed{\begin{gathered}
+  \text{Parametric consistency check: one input } (\Lambda_D)
+  \text{ sets } v \text{ and } \Lambda_S \text{ through one seesaw;}\\
+  \Lambda_{\QCD} \text{ is fixed by } \alphas(M_Z)
+  \text{ and checks only that } \alphas(\Lambda_D) \text{ is perturbative.}
+  \end{gathered}}
 \]
 
 \end{proof}
@@ -654,17 +679,19 @@ The relation $v \sim \Lambda_D^2/M_{\text{Pl}}$ is a
 \begin{center}
 \rule{0.6\textwidth}{0.4pt}
 
-\textit{End of Exercise Set 6.  This exercise demonstrates the
-scale-matching framework of the dualised Standard Model:
-from a single input parameter $\Lambda_D \sim 10^{11}\;\text{GeV}$
-(and the known Planck mass), the electroweak scale
-$v \sim 246\;\text{GeV}$ emerges via a seesaw-like relation, and the
-QCD confinement scale $\Lambda_{\QCD} \sim 200\;\text{MeV}$ follows
-from one-loop RG running.  The numerical agreement---within
-$\mathcal{O}(1)$ factors---is a parametric consistency check, not
-a first-principles prediction.  The free parameter $\Lambda_D$ and the
-$\mathcal{O}(1)$ coefficients from Planck-scale operators provide
-the flexibility to match the observed scales exactly.}
+\textit{End of Exercise Set 6.  This exercise tests the
+scale-matching framework of the dualised Standard Model.  The
+seesaw-like relation turns the input $\Lambda_D \sim 10^{11}\;\text{GeV}$
+(with the known Planck mass) into $v \approx 820\;\text{GeV}$, an
+$\mathcal{O}(1)$ factor from the measured $246\;\text{GeV}$, and the
+same seesaw sets the quasi-SUSY scale $\Lambda_S$.  One-loop running of
+$\alphas(M_Z) = 0.118$ gives $\Lambda_{\QCD}^{(6)} \approx 45\;\text{MeV}$,
+independent of $\Lambda_D$; flavour thresholds and higher-loop running
+bring the quoted value to about $200\;\text{MeV}$.  Both results are
+parametric consistency checks, not first-principles predictions: the
+free parameter $\Lambda_D$ and the $\mathcal{O}(1)$ coefficients from
+Planck-scale operators provide the flexibility to match the observed
+scales.}
 \end{center}
 
 
@@ -675,8 +702,8 @@ the flexibility to match the observed scales exactly.}
 
 \bibitem{CacciapagliaSannino2024}
   G.~Cacciapaglia and F.~Sannino,
-  ``The Dualised Standard Model,''
-  \texttt{arXiv:2407.17281} [hep-ph] (2024).
+  ``Charting Standard Model Duality and its Signatures,''
+  arXiv:2407.17281 [hep-ph] (2024).
 
 \bibitem{HillMachado2019}
   C.~T.~Hill, P.~A.~N.~Machado, A.~E.~Thomsen, and J.~Turner,
