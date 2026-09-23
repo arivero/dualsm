@@ -21,7 +21,6 @@ import sys
 
 passed = 0
 failed = 0
-warnings = 0
 
 
 def check(description, computed, expected, tol=None):
@@ -39,14 +38,6 @@ def check(description, computed, expected, tol=None):
         passed += 1
         print(f"  [{status}] {description}: {computed}")
     return ok
-
-
-def warn(description, computed, expected_by_conventions_md):
-    """Flag a discrepancy between CONVENTIONS.md and the correct value."""
-    global warnings
-    warnings += 1
-    print(f"  [WARN] {description}: correct={computed}, "
-          f"CONVENTIONS.md has={expected_by_conventions_md} -- DISCREPANCY DETECTED")
 
 
 # ============================================================
@@ -78,24 +69,16 @@ def C2_adj(N):
     return Fraction(N)
 
 def C2_antisym2(N):
-    """Correct: C_2(antisym_2) = (N-2)(N+1)/N.
-    Derived from C_2(R) = T(R) * d(adj) / d(R).
-    NOTE: CONVENTIONS.md has the WRONG formula (N-1)(N+2)/(2N)."""
+    """C_2(antisym_2) = (N-2)(N+1)/N, from C_2(R) = T(R) * d(adj) / d(R).
+    The first .gpd/CONVENTIONS.md (207af7d) listed (N-1)(N+2)/(2N);
+    1c2f797 corrected it, and README.md carries the corrected lock."""
     return Fraction((N - 2) * (N + 1), N)
 
 def C2_sym2(N):
-    """Correct: C_2(sym_2) = (N+2)(N-1)/N.
-    Derived from C_2(R) = T(R) * d(adj) / d(R).
-    NOTE: CONVENTIONS.md has the WRONG formula (N-1)(N+4)/(2N)."""
+    """C_2(sym_2) = (N+2)(N-1)/N, from C_2(R) = T(R) * d(adj) / d(R).
+    The first .gpd/CONVENTIONS.md (207af7d) listed (N-1)(N+4)/(2N);
+    1c2f797 corrected it, and README.md carries the corrected lock."""
     return Fraction((N + 2) * (N - 1), N)
-
-def C2_antisym2_conventions_md(N):
-    """Formula as written in CONVENTIONS.md (INCORRECT)."""
-    return Fraction((N - 1) * (N + 2), 2 * N)
-
-def C2_sym2_conventions_md(N):
-    """Formula as written in CONVENTIONS.md (INCORRECT)."""
-    return Fraction((N - 1) * (N + 4), 2 * N)
 
 def d_fund(N):
     return N
@@ -116,13 +99,36 @@ def A_antifund(N):
     return -1
 
 def A_adj(N):
-    return 2 * N
+    """The adjoint of SU(N) is a real representation, so its cubic anomaly
+    vanishes (the retired .gpd/CONVENTIONS.md listed 2N)."""
+    return 0
 
 def A_antisym2(N):
     return N - 4
 
 def A_sym2(N):
     return N + 4
+
+def A_from_weights(rep_name, N):
+    """Cubic anomaly A(R) = Tr_R(H^3) / Tr_fund(H^3), computed from explicit
+    weights with the traceless Cartan element H = diag(N-1, -1, ..., -1).
+    Independent of the closed forms above; needs N >= 3 (for SU(2) the
+    fundamental trace vanishes and every A(R) is zero)."""
+    h = [N - 1] + [-1] * (N - 1)
+    if rep_name == "fund":
+        w = h
+    elif rep_name == "antifund":
+        w = [-x for x in h]
+    elif rep_name == "adj":
+        w = [h[i] - h[j] for i in range(N) for j in range(N) if i != j]
+        w += [0] * (N - 1)
+    elif rep_name == "antisym_2":
+        w = [h[i] + h[j] for i in range(N) for j in range(i + 1, N)]
+    elif rep_name == "sym_2":
+        w = [h[i] + h[j] for i in range(N) for j in range(i, N)]
+    else:
+        raise ValueError(rep_name)
+    return Fraction(sum(x**3 for x in w), sum(x**3 for x in h))
 
 
 # ============================================================
@@ -183,17 +189,12 @@ def test_symmetric():
 
 
 def test_casimir_sym2():
-    """5b. C_2(sym_2) = (N+2)(N-1)/N.
-    Flags discrepancy with CONVENTIONS.md formula (N-1)(N+4)/(2N)."""
+    """5b. C_2(sym_2) = (N+2)(N-1)/N."""
     print("\n=== 5b. Quadratic Casimir C_2(sym_2) ===")
     # Correct values derived from C_2 = T * d(adj) / d(R)
     for N in [2, 3, 5]:
-        correct = C2_sym2(N)
-        conventions_md = C2_sym2_conventions_md(N)
-        check(f"SU({N}): C_2(sym_2) [correct formula]", correct,
-              Fraction((N + 2) * (N - 1), N))
-        if correct != conventions_md:
-            warn(f"SU({N}): C_2(sym_2)", correct, conventions_md)
+        check(f"SU({N}): C_2(sym_2) = T*d(adj)/d(R)", C2_sym2(N),
+              T_sym2(N) * d_adj(N) / d_sym2(N))
     # Explicit spot checks
     check("SU(3): C_2(sym_2) = 10/3", C2_sym2(3), Fraction(10, 3))
     check("SU(2): C_2(sym_2) = C_2(adj) = 2", C2_sym2(2), Fraction(2))
@@ -201,18 +202,11 @@ def test_casimir_sym2():
 
 
 def test_casimir_antisym2():
-    """Extra: C_2(antisym_2) = (N-2)(N+1)/N.
-    Flags discrepancy with CONVENTIONS.md formula (N-1)(N+2)/(2N).
-    [Rule 4 - Missing Component: plan only flagged sym_2, but antisym_2
-     also has wrong formula in CONVENTIONS.md]"""
+    """Extra: C_2(antisym_2) = (N-2)(N+1)/N."""
     print("\n=== Extra. Quadratic Casimir C_2(antisym_2) ===")
     for N in [2, 3, 5]:
-        correct = C2_antisym2(N)
-        conventions_md = C2_antisym2_conventions_md(N)
-        check(f"SU({N}): C_2(antisym_2) [correct formula]", correct,
-              Fraction((N - 2) * (N + 1), N))
-        if correct != conventions_md:
-            warn(f"SU({N}): C_2(antisym_2)", correct, conventions_md)
+        check(f"SU({N}): C_2(antisym_2) = T*d(adj)/d(R)", C2_antisym2(N),
+              T_antisym2(N) * d_adj(N) / d_antisym2(N))
     # Spot checks
     # SU(3): antisym_2 = antifund, so C_2 = 4/3
     check("SU(3): C_2(antisym_2) = C_2(antifund) = 4/3",
@@ -248,9 +242,15 @@ def test_anomaly_coefficients():
     for N in [2, 3, 5]:
         check(f"SU({N}): A(fund)", A_fund(N), 1)
         check(f"SU({N}): A(antifund)", A_antifund(N), -1)
-        check(f"SU({N}): A(adj)", A_adj(N), 2 * N)
+        check(f"SU({N}): A(adj)", A_adj(N), 0)
         check(f"SU({N}): A(antisym_2)", A_antisym2(N), N - 4)
         check(f"SU({N}): A(sym_2)", A_sym2(N), N + 4)
+    closed = {"fund": A_fund, "antifund": A_antifund, "adj": A_adj,
+              "antisym_2": A_antisym2, "sym_2": A_sym2}
+    for N in [3, 4, 5, 6]:
+        for name, f in closed.items():
+            check(f"SU({N}): A({name}) from weights", A_from_weights(name, N),
+                  f(N))
 
 
 def test_beta_function():
@@ -409,7 +409,7 @@ def test_special_identities():
 # ============================================================
 
 def main():
-    global passed, failed, warnings
+    global passed, failed
 
     print("=" * 60)
     print("Convention Verification: Dualised Standard Model")
@@ -434,15 +434,8 @@ def main():
     test_special_identities()
 
     print("\n" + "=" * 60)
-    print(f"RESULTS: {passed} passed, {failed} failed, {warnings} warnings")
+    print(f"RESULTS: {passed} passed, {failed} failed")
     print("=" * 60)
-
-    if warnings > 0:
-        print(f"\nWARNING: {warnings} discrepancies found with CONVENTIONS.md.")
-        print("The following formulas in CONVENTIONS.md need correction:")
-        print("  - C_2(antisym_2): should be (N-2)(N+1)/N, not (N-1)(N+2)/(2N)")
-        print("  - C_2(sym_2):    should be (N+2)(N-1)/N, not (N-1)(N+4)/(2N)")
-        print("These errors would cause incorrect anomaly matching if used directly.")
 
     if failed > 0:
         print(f"\nFAILED: {failed} checks did not pass.")
