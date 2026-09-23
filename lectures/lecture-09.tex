@@ -70,7 +70,8 @@ Dual Coxeter number & $h_{\SU{N}} = N$,\; $h_{\SO{N}} = N-2$,\; $h_{\Sp{N}} = N+
 
 \begin{warningbox}[title={The $\Sp{N}$ naming convention}]
 The symplectic group is named inconsistently across the literature.
-We follow \textbf{Intriligator and Seiberg}~\cite{IS9506101,IS1995}:
+We follow \textbf{Intriligator and Seiberg}~\cite{IS1995} and
+Intriligator and Pouliot~\cite{IP9505006}:
 $\Sp{\Nc}$ denotes the group of \textbf{rank}~$\Nc$ whose
 fundamental representation has dimension~$2\Nc$.
 Thus $\Sp{1} = \SU{2}$ and $\Sp{2}$ has a $4$-dimensional
@@ -93,8 +94,9 @@ $\mathcal{N}=1$ $\SU{\Nc}$ SQCD with $\Nf$ fundamental flavours: the
 IR physics of the electric theory is equivalently described by a
 \emph{magnetic} $\SU{\Nf - \Nc}$ gauge theory with $\Nf$ dual quarks
 and an elementary $\Nf \times \Nf$ meson matrix~$M$.
-We verified this statement through six independent 't~Hooft anomaly
-coefficients, mass deformation consistency, and moduli space matching.
+We checked this statement through the seven 't~Hooft anomaly
+coefficients of Lecture~3, mass deformation consistency, and moduli
+space matching.
 The conformal window $\tfrac{3}{2}\Nc < \Nf < 3\Nc$ was identified as
 the regime where both descriptions flow to the same IR fixed point.
 
@@ -108,12 +110,12 @@ $\mathcal{N}=1$ gauge theories.  Dualities have been established for:
   \item $\SU{\Nc}$ with fundamental \emph{and adjoint} matter
     (Kutasov--Schwimmer~\cite{KS9505004});
   \item orthogonal gauge groups $\SO{\Nc}$
-    (Intriligator--Seiberg~\cite{IS9506101});
+    (Intriligator--Seiberg~\cite{IS9503179});
   \item symplectic gauge groups $\Sp{\Nc}$
-    (Intriligator--Seiberg~\cite{IS9506101});
+    (Intriligator--Pouliot~\cite{IP9505006});
   \item product gauge groups and quiver gauge theories;
   \item theories exhibiting \emph{s-confinement} without a dual gauge
-    group (Cs\'aki--Schmaltz--Skiba~\cite{CSS9612207});
+    group (Cs\'aki--Schmaltz--Skiba~\cite{CSS9610139});
   \item cascading gauge theories in which repeated Seiberg dualities
     drive a renormalisation group flow
     (Klebanov--Strassler~\cite{KlebanovStrassler2000}).
@@ -130,12 +132,16 @@ explicitly for each new gauge group, confirming that the general
 framework extends consistently beyond $\SU{\Nc}$.
 
 \begin{previewbox}[title={Connection to the dualised SM}]
-The dualised Standard Model of Lectures~7--8 employs Seiberg duality
-for an $\SU{N}$ electric theory with fundamental and adjoint matter
-(the Pati--Salam embedding).  The Kutasov--Schwimmer duality of
-\S\ref{sec:kutasov-schwimmer} is therefore the most directly relevant
-generalisation for the dualised SM programme.  The SO and Sp dualities
-demonstrate the \emph{breadth} of the duality phenomenon.
+The dualised Standard Model of Lectures~7--8 starts from a non-SUSY
+electric theory, $\SU{N}$ with $\Nf$ Dirac fundamentals and one adjoint
+Weyl fermion.  Its fermion content is that of $\mathcal{N}=1$ SQCD, with
+the adjoint fermion in the role of the gaugino, so its SUSY template is
+Seiberg duality itself, with magnetic rank $\Nf - N$.  The
+Kutasov--Schwimmer duality of \S\ref{sec:kutasov-schwimmer} shows how
+the map changes, to $k\Nf - \Nc$, when an adjoint \emph{chiral
+superfield} is added; it is the natural generalisation if the electric
+theory contains a second adjoint.  The SO and Sp dualities demonstrate
+the \emph{breadth} of the duality phenomenon.
 \end{previewbox}
 
 
@@ -147,9 +153,11 @@ demonstrate the \emph{breadth} of the duality phenomenon.
 
 The Kutasov--Schwimmer family is important because it shows that Seiberg
 duality generalises to theories with adjoint matter, and the $k=1$ limit
-recovers basic Seiberg duality as a special case.  This extension is
-directly relevant to the dualised SM, whose electric theory contains an
-adjoint Weyl fermion (Lecture~7).
+recovers basic Seiberg duality as a special case.  The adjoint Weyl
+fermion of the dualised SM (Lecture~7) corresponds to the SQCD gaugino,
+so the dualised SM uses the $k = 1$ member of this family; the members
+with $k \geq 2$ show what an additional adjoint chiral superfield would
+change.
 
 \subsection{Electric theory}
 
@@ -177,7 +185,7 @@ a different conformal window and a different dual description.
 \label{ssec:ks-magnetic}
 
 Kutasov and Schwimmer~\cite{KS9505004}, with further developments
-by Kutasov, Schwimmer, and Seiberg~\cite{KSS9507040}, showed that
+by Kutasov, Schwimmer, and Seiberg~\cite{KSS9510222}, showed that
 the IR physics of the electric theory is equivalently described by
 the following \textbf{magnetic theory}:
 
@@ -237,32 +245,73 @@ basic Seiberg duality are:
     chiral ring relation $\Phi^k \sim 0$ (up to lower powers).
 \end{enumerate}
 
-\subsection{Conformal window}
+\subsection{Phase structure and conformal window}
+\label{ssec:KS-window}
 
-Both the electric and magnetic theories must be asymptotically free
-for the duality to produce a non-trivial interacting fixed point.
-The one-loop beta function coefficient for $\SU{\Nc}$ with $\Nf$
-fundamentals and one adjoint is:
+For $k \geq 2$ the adjoint stays massless, and the one-loop beta
+function coefficient for $\SU{\Nc}$ with $\Nf$ fundamental flavours and
+one adjoint is:
 \begin{equation}\label{eq:KS-beta}
   b_0^{\text{el}} = 3\Nc - \Nf - \Nc = 2\Nc - \Nf\,,
 \end{equation}
-using $T(\adj) = \Nc$ and $T(\fund) = \tfrac{1}{2}$.  (The factor
-of $\Nc$ from the adjoint replaces $\Nc$ in the usual $3\Nc - \Nf$
-by $3\Nc - \Nc = 2\Nc$, because the adjoint contributes as if it
-were $\Nc$ additional flavours.)
-
-However, the superpotential $W = \Tr(\Phi^{k+1})$ constrains the
-anomalous dimension of $\Phi$ at the fixed point to
-$\gamma_\Phi^* = -2/(k+1)$ (so that $W$ has $R$-charge~$2$).
-Incorporating this constraint, the effective conformal window
-becomes~\cite{KS9505004,KSS9507040}:
-\begin{equation}\label{eq:KS-window}
-  \boxed{\frac{3\Nc}{k+1} < \Nf < \frac{3\Nc}{k}}\,.
+using $T(\adj) = \Nc$ and $T(\fund) = \tfrac{1}{2}$.  (The adjoint
+contributes as if it were $\Nc$ additional flavours.)  The magnetic
+theory has the same structure with $\Nc \to \Nctilde = k\Nf - \Nc$:
+\begin{equation}\label{eq:KS-beta-mag}
+  b_0^{\text{mag}} = 2\Nctilde - \Nf = (2k - 1)\Nf - 2\Nc\,.
 \end{equation}
-The upper bound $\Nf < 3\Nc/k$ ensures $b_0^{\text{el}} > 0$
-after accounting for the adjoint's anomalous dimension at the
-fixed point; the lower bound ensures the same for the magnetic
-theory.
+
+The superpotential fixes the $R$-charges at the fixed
+point~\cite{KS9505004}:
+\begin{equation}\label{eq:KS-R}
+  R[\Phi] = \frac{2}{k+1}\,,
+  \qquad
+  R[Q] = R[\widetilde{Q}] = 1 - \frac{2}{k+1}\,\frac{\Nc}{\Nf}\,.
+\end{equation}
+In the convention of Lecture~2 (a chiral primary has dimension
+$D = 1 + \gamma/2 = \tfrac{3}{2}R$), the anomalous dimension of $\Phi$
+at the fixed point is
+\begin{equation}\label{eq:KS-gamma}
+  \gamma_\Phi^* \;=\; 3R[\Phi] - 2 \;=\; \frac{2(2 - k)}{k + 1}\,,
+\end{equation}
+so that $W = \Tr\Phi^{k+1}$ has $R$-charge~$2$ and dimension~$3$.  For
+$k = 2$, $\gamma_\Phi^* = 0$ ($\Tr\Phi^3$ is marginal at the free
+point); for $k = 3$, $\gamma_\Phi^* = -\tfrac{1}{2}$.  With
+$\gamma_Q^* = 3R[Q] - 2$, the numerator of the NSVZ beta function
+vanishes identically:
+$3\Nc - \Nc(1 - \gamma_\Phi^*) - \Nf(1 - \gamma_Q^*) = 0$.
+
+The established statements about the phases are~\cite{KS9505004,KSS9510222}:
+\begin{enumerate}
+  \item The theory has a stable vacuum only for $\Nf \geq \Nc/k$
+    (equivalently $\Nctilde \geq 0$).
+  \item The electric theory is asymptotically free for $\Nf < 2\Nc$ and
+    the magnetic theory for $\Nf > 2\Nc/(2k - 1)$.  For
+    $\Nc/k \leq \Nf < 2\Nc/(2k - 1)$ the magnetic theory is infrared
+    free and describes the infrared at weak coupling (free magnetic
+    phase).
+  \item Unitarity of the meson $M_0 = Q\widetilde{Q}$, whose $R$-charge
+    is $2 - 4\Nc/((k+1)\Nf)$, requires $\Nf \geq 3\Nc/(k+1)$; below this
+    value $M_0$ becomes free and the $R$-charges~\eqref{eq:KS-R} no
+    longer describe the infrared.
+  \item For $k \geq 3$ the operator $\Tr\Phi^{k+1}$ is irrelevant at weak
+    coupling.  It drives the theory to the KS fixed point only for
+    $\Nf$ below a critical value $N_0(k, \Nc)$ with
+    $2\Nc/k < N_0 < 2\Nc$~\cite{KS9505004}.
+  \item The self-dual point $\Nctilde = \Nc$ lies at $\Nf = 2\Nc/k$.
+\end{enumerate}
+Taken together, for $k \geq 2$ the simple picture---an interacting fixed
+point with two dual descriptions and the $R$-charges~\eqref{eq:KS-R}---%
+holds in the range
+\begin{equation}\label{eq:KS-window}
+  \boxed{\frac{3\Nc}{k+1} \;<\; \Nf \;<\; \min\bigl(2\Nc,\; N_0(k, \Nc)\bigr)}
+  \qquad (k \geq 2)\,,
+\end{equation}
+where the lower bound, from item~3, exceeds the magnetic
+asymptotic-freedom bound $2\Nc/(2k-1)$ for every $k \geq 2$.  This window
+has no closed form, because $N_0$ is known only within the bounds of
+item~4 ($a$-maximisation gives estimates).  At $k = 1$ the adjoint is
+massive and must be integrated out first (\S\ref{ssec:KS-k1-limit}).
 
 \subsection{The $k=1$ limit: recovering Seiberg duality}
 \label{ssec:KS-k1-limit}
@@ -319,12 +368,15 @@ magnetic superpotential:
   W_{\text{mag}} \;\xrightarrow{\;\text{integrate out } \phi\;}
   \;\frac{1}{\mu}\, M\, q\, \widetilde{q}\,.
 \]
-This matches $W_{\text{mag}}$ from Lecture~3,
-Eq.~(3.5). \checkmark
+This matches $W_{\text{mag}}$ from Lecture~3, \S2. \checkmark
 
 \medskip
 
 \textbf{Step 5: Conformal window at $k=1$.}
+With both adjoints integrated out, the one-loop coefficients are those
+of SQCD, $b_0^{\text{el}} = 3\Nc - \Nf$ and
+$b_0^{\text{mag}} = 3(\Nf - \Nc) - \Nf = 2\Nf - 3\Nc$, so both
+descriptions are asymptotically free for
 \[
   \frac{3\Nc}{2} < \Nf < 3\Nc\,,
 \]
@@ -334,10 +386,9 @@ which is the standard Seiberg conformal window. \checkmark
 The KS duality thus provides a one-parameter family of dualities
 (parametrised by $k$) that interpolates between Seiberg duality
 ($k=1$) and theories with increasingly rich meson spectra
-($k \geq 2$).  For the dualised Standard Model, the $k=1$ case
-is most directly relevant, but the general framework shows that
-the duality structure is robust under the addition of adjoint
-matter.
+($k \geq 2$).  The dualised Standard Model uses the $k = 1$ member,
+Seiberg duality itself; the general framework shows that the duality
+structure survives the addition of an adjoint chiral superfield.
 
 
 %% ========================================================================
@@ -372,7 +423,7 @@ with complex fundamental representations).
 
 \subsection{The dual (magnetic) theory}
 
-Intriligator and Seiberg~\cite{IS9506101} established the following
+Intriligator and Seiberg~\cite{IS9503179} established the following
 duality:
 
 \begin{tcolorbox}[
@@ -408,8 +459,14 @@ $W_{\text{el}} = 0$.
 
 Note the crucial \textbf{shift by $+4$} in the magnetic gauge group
 rank: $\SO{\Nf - \Nc + 4}$, compared to $\SU{\Nf - \Nc}$ for SU
-duality.  This is not a convention; it is a physical consequence of
-the different group-theoretic structure of $\SO{\Nc}$.
+duality.  The shift follows from a rule common to all three families:
+the dual Coxeter numbers satisfy $h_{\text{mag}} = \Nf - h_{\text{el}}$,
+with $\Nf$ counted as in each section.
+For $\SU{\Nc}$ this gives $\Nctilde = \Nf - \Nc$; for $\SO{\Nc}$, with
+$h = \Nc - 2$, it gives $\Nctilde - 2 = \Nf - (\Nc - 2)$, i.e.\
+$\Nctilde = \Nf - \Nc + 4$; for $\Sp{\Nc}$
+(\S\ref{sec:Sp-duality}), with $h = \Nc + 1$, it gives
+$\Nctilde = \Nf - \Nc - 2$.
 
 The meson $M_{ij}$ is symmetric because the electric quarks $Q_i$
 are in a \emph{real} representation.  The product $Q_i Q_j$ is
@@ -527,20 +584,13 @@ The total magnetic anomaly is:
 
 \textbf{Numerical check:} $\SO{10}$, $\Nf = 14$:
 $\mathcal{A}^{\text{el}} = -10 \times 8/(2 \times 14) = -20/7$.
-Magnetic $\SO{8}$:
-$\mathcal{A}^{\text{mag}}_q = -8 \times \tfrac{1}{2}
-\times (-6/14) = 24/14$;
-$\mathcal{A}^{\text{mag}}_M = 8 \times (-6/14) = -48/14$;
-total $= (24-48)/14 = -24/14 = -12/7$.
-
-Wait --- let me recompute:
+Magnetic $\SO{8}$, with $R_{\text{ferm}}[q] = (8 - 14)/14 = -6/14$ and
+$R_{\text{ferm}}[M] = (14 - 20 + 4)/14 = -2/14$:
 $\mathcal{A}^{\text{mag}}_q = 8 \cdot \tfrac{1}{2} \cdot
-\frac{8-14}{14} = 4 \cdot \frac{-6}{14} = -\frac{24}{14}
-= -\frac{12}{7}$,
-$\mathcal{A}^{\text{mag}}_M = \frac{16}{2} \cdot
-\frac{14 - 20 + 4}{14} = 8 \cdot \frac{-2}{14}
-= -\frac{16}{14} = -\frac{8}{7}$,
-total $= -\frac{12}{7} - \frac{8}{7} = -\frac{20}{7}$.
+\bigl(-\tfrac{6}{14}\bigr) = -\tfrac{12}{7}$,
+$\mathcal{A}^{\text{mag}}_M = \tfrac{16}{2} \cdot
+\bigl(-\tfrac{2}{14}\bigr) = -\tfrac{8}{7}$,
+total $= -\tfrac{12}{7} - \tfrac{8}{7} = -\tfrac{20}{7}$.
 \checkmark
 
 \subsection{Limiting cases}
@@ -551,9 +601,11 @@ total $= -\frac{12}{7} - \frac{8}{7} = -\frac{20}{7}$.
     condensation (using the dual Coxeter number $h = \Nc - 2$),
     matching the Witten index computation.
   \item \textbf{$\Nf = \Nc - 4$:}
-    The magnetic gauge group is $\SO{0}$, trivial.  This is the
-    boundary of s-confinement for $\SO{\Nc}$
-    (see \S\ref{sec:s-confinement}).
+    The magnetic gauge group is $\SO{0}$, trivial.  Unlike the SU and
+    Sp cases, this does not produce s-confinement: for
+    $\Nf = \Nc - 4$ and $\Nc - 3$ the quantum moduli space has distinct
+    branches, and for $\Nf = \Nc - 2$ the theory is in an Abelian
+    Coulomb phase~\cite{IS1995} (see \S\ref{sec:s-confinement}).
 \end{itemize}
 
 \begin{remark}[$\SO{\Nc}$ for even vs.\ odd $\Nc$]
@@ -601,12 +653,15 @@ reflects the pseudo-reality of the fundamental representation.
 
 \subsection{The dual (magnetic) theory}
 
+Intriligator and Pouliot~\cite{IP9505006} established the following
+duality:
+
 \begin{tcolorbox}[
   enhanced,
   colback=blue!5!white,
   colframe=blue!70!black,
   fonttitle=\bfseries\large,
-  title={Intriligator--Seiberg Duality for $\Sp{\Nc}$},
+  title={Intriligator--Pouliot Duality for $\Sp{\Nc}$},
   breakable
 ]
 \textbf{Electric:} $\Sp{\Nc}$ with $2\Nf$ fundamentals $Q_i$,
@@ -624,7 +679,7 @@ reflects the pseudo-reality of the fundamental representation.
     fundamental (dimension $2(\Nf - \Nc - 2)$) of the magnetic
     gauge group.
   \item \textbf{Meson:} a gauge-singlet chiral superfield
-    $M_{ij} = -M_{ji}$ (an $\Nf \times \Nf$ \emph{antisymmetric}
+    $M_{ij} = -M_{ji}$ (a $2\Nf \times 2\Nf$ \emph{antisymmetric}
     matrix under $\SU{2\Nf}$), mapping to the electric composite
     $Q_i\, J\, Q_j$ where $J$ is the symplectic form.
   \item \textbf{Magnetic superpotential:}
@@ -811,9 +866,9 @@ The s-confining theories sit at the \textbf{boundary} of the duality
 landscape: they are the endpoint of Seiberg-type dualities where the
 magnetic gauge group has rank zero.  For $\SU{\Nc}$ SQCD, this
 occurs at $\Nf = \Nc + 1$, which we already encountered in
-Lecture~3, \S1 (item~4): the confined degrees of freedom are the
+Lecture~3, \S1.1: the confined degrees of freedom are the
 meson~$M$, baryons $B_i$, $\widetilde{B}^i$, with the confining
-superpotential from Lecture~3, Eq.~(3.4).
+superpotential of Lecture~3, \S1.1.
 
 \subsection{The canonical example: $\SU{\Nc}$ with $\Nf = \Nc + 1$}
 
@@ -835,7 +890,7 @@ confined.
 
 \subsection{Classification of s-confining theories}
 
-Cs\'aki, Schmaltz, and Skiba~\cite{CSS9612207} systematically
+Cs\'aki, Schmaltz, and Skiba~\cite{CSS9610139} systematically
 classified all s-confining $\mathcal{N}=1$ theories with simple
 gauge groups and no tree-level superpotential ($W_{\text{tree}} = 0$).
 Their criteria are:
@@ -843,15 +898,26 @@ Their criteria are:
   \item The one-loop beta function satisfies $b_0 > 0$
     (asymptotic freedom).
   \item The index condition
-    $\sum_i \mu(R_i) = \mu(\adj) + 1$ is satisfied, where
-    $\mu(R) = T(R) \cdot \dim(G)/\dim(R)$ is the ``index'' of the
-    representation.  This ensures that the theory is at the boundary
-    of the conformal window.
-  \item All flat directions are lifted by the confining superpotential.
+    \[
+      \sum_i \mu(R_i) - \mu(\adj) = 2
+    \]
+    is satisfied, where $\mu(R) = 2T(R)$ is the Dynkin index
+    normalised to $\mu(\fund) = 1$ for $\SU{N}$ (equivalently
+    $\sum_i T(R_i) - T(\adj) = 1$).  It follows from holomorphy: the
+    superpotential fixed by the symmetries,
+    $W \propto \bigl(\prod_i \phi_i^{\mu_i}\bigr)^{2/(\sum_j \mu_j -
+    \mu(G))}$, must be smooth at the origin of moduli space, and for SU
+    and Sp theories anomaly cancellation then selects the value~$2$.
+  \item The confined description holds everywhere on the moduli space,
+    the origin is a vacuum in which all global symmetries are unbroken,
+    and the confining superpotential is non-vanishing.  This excludes
+    theories with a Coulomb phase on part of the moduli space.
 \end{enumerate}
+For $\SU{\Nc}$ SQCD with $\Nf = \Nc + 1$, for example,
+$\sum_i T(R_i) - T(\adj) = (\Nc + 1) - \Nc = 1$.
 
 The complete list for simple gauge groups is given in the following
-table, adapted from~\cite{CSS9612207}:
+table, adapted from~\cite{CSS9610139}:
 
 \medskip
 
@@ -864,30 +930,28 @@ table, adapted from~\cite{CSS9612207}:
 \midrule
 $\SU{\Nc}$ & $\Nf = \Nc + 1$ fundamentals &
   $M, B, \widetilde{B}$ \\
-$\SU{\Nc}$ & $1\;\antisym + (\Nc - 3)\;\fund + 1\;\antifund$ &
+$\SU{\Nc}$ & $1\;\antisym + \Nc\;\antifund + 4\;\fund$ &
   various composites \\
-$\SU{\Nc}$ & $1\;\sym + 1\;\antifund$ (for $\Nc$ odd) &
-  composites from $\sym$ \\
-\midrule
-$\SO{N}$ & $(N-2)$ vectors &
-  $M, \text{Pfaffian}$ (even $N$) \\
-$\SO{7}$ & $5$ spinors &
-  composites from spinors \\
+$\SU{\Nc}$ & $1\;\antisym + 1\;\overline{\antisym} + 3\,(\fund + \antifund)$ &
+  various composites \\
 \midrule
 $\Sp{\Nc}$ & $2(\Nc + 2)$ fundamentals &
   $M_{ij}$ (antisymmetric) \\
-$\Sp{\Nc}$ & $1\;\antisym + 4\;\fund$ &
-  composites from $\antisym$ \\
+$\Sp{\Nc}$ & $1\;\antisym + 6\;\fund$ &
+  composites from $\antisym$ and $\fund$ \\
 \midrule
-$G_2$ & $4$ fundamentals ($\mathbf{7}$) &
-  bilinear composites \\
+$G_2$ & $5$ fundamentals ($\mathbf{7}$) &
+  composites of the $\mathbf{7}$'s \\
 \bottomrule
 \end{tabular}
 \caption{Selected s-confining theories with simple gauge groups and
-$W_{\text{tree}} = 0$, following Cs\'aki--Schmaltz--Skiba~\cite{CSS9612207}.
+$W_{\text{tree}} = 0$, following Cs\'aki--Schmaltz--Skiba~\cite{CSS9610139}.
 The $\SU{\Nc}$ case with $\Nf = \Nc + 1$ is the canonical example
-from Lecture~3.  The exceptional groups $F_4$, $E_6$, $E_7$, $E_8$
-also admit s-confining theories with specific matter representations.}
+from Lecture~3; the complete SU and Sp list also contains isolated
+cases with $\SU{5}$, $\SU{6}$ and $\SU{7}$.  $\SO{N}$ theories with
+vectors only do not s-confine (for $\Nf = N - 2$ they are in an Abelian
+Coulomb phase~\cite{IS1995}); a few $\SO{N}$ theories with spinors
+do~\cite{CSS9610139}.}
 \label{tab:s-confining}
 \end{table}
 
@@ -899,9 +963,10 @@ a Seiberg-type duality where the magnetic gauge group has rank zero:
     $\SU{\Nf - \Nc} = \SU{1}$ (trivial).
   \item $\Sp{\Nc}$ with $\Nf = \Nc + 2$: the dual is
     $\Sp{\Nf - \Nc - 2} = \Sp{0}$ (trivial).
-  \item $\SO{\Nc}$ with $\Nf = \Nc - 4$: the dual is
-    $\SO{\Nf - \Nc + 4} = \SO{0}$ (trivial).
 \end{itemize}
+For $\SO{\Nc}$ with $\Nf = \Nc - 4$ the dual is formally
+$\SO{\Nf - \Nc + 4} = \SO{0}$, but the theory does not s-confine: its
+quantum moduli space splits into distinct branches~\cite{IS1995}.
 The confining superpotential $W_{\text{conf}}$ can be viewed as the
 ``remnant'' of the magnetic superpotential after the magnetic gauge
 group has been completely Higgsed/confined.
@@ -1112,7 +1177,7 @@ into a single comparison table.
 \textbf{Seiberg} (Lec.~3) &
 $\SU{\Nc}$, $\Nf\!\times\!(\fund,\antifund)$ &
 $\SU{\Nf\!-\!\Nc}$ &
-$M = Q\widetilde{Q}$ (sym.\ matrix) &
+$M = Q\widetilde{Q}$ ($\Nf\!\times\!\Nf$, in $(\fund,\antifund)$) &
 $\frac{3\Nc}{2} < \Nf < 3\Nc$ &
 Prototype \\
 \midrule
@@ -1120,7 +1185,7 @@ Prototype \\
 $\SU{\Nc}$, $\Nf\!+\!\adj$, $W\!=\!\Tr\Phi^{k+1}$ &
 $\SU{k\Nf\!-\!\Nc}$ &
 $M_j = Q\Phi^j\widetilde{Q}$, $j=0,\ldots,k\!-\!1$ &
-$\frac{3\Nc}{k+1} < \Nf < \frac{3\Nc}{k}$ &
+$\frac{3\Nc}{k+1} < \Nf < \min(2\Nc, N_0)$ for $k \geq 2$ (\S\ref{ssec:KS-window}) &
 $k\!=\!1$ recovers Seiberg \\
 \midrule
 \textbf{SO} (\S\ref{sec:SO-duality}) &
@@ -1155,7 +1220,9 @@ RG cascade \\
 \caption{Master comparison table of $\mathcal{N}=1$ SUSY dualities.
 The conformal window column gives the range of $\Nf$ for which both
 the electric and magnetic theories are asymptotically free and flow to
-the same interacting fixed point.  The ``shift'' in the SO and Sp
+the same interacting fixed point; for KS it gives the range where this
+simple picture holds, with $N_0(k, \Nc)$ known only within bounds
+(\S\ref{ssec:KS-window}).  The ``shift'' in the SO and Sp
 rows refers to the difference in the dual gauge group rank relative
 to the SU case: $\SU{\Nf - \Nc + 0}$ vs.\ $\SO{\Nf - \Nc + 4}$
 vs.\ $\Sp{\Nf - \Nc - 2}$.}
@@ -1172,7 +1239,7 @@ descriptions, as polynomial identities in $\Nc$ and $\Nf$.
 
 We have verified this explicitly:
 \begin{itemize}
-  \item $\SU{\Nc}$ (Seiberg): six independent anomaly coefficients
+  \item $\SU{\Nc}$ (Seiberg): seven 't~Hooft anomaly coefficients
     matched in Lecture~3.
   \item $\SO{\Nc}$: $\SU{\Nf}^2\,\UU{1}_R$ anomaly matched in
     \S\ref{ssec:SO-anomaly}.
@@ -1192,14 +1259,15 @@ Which of these dualities is most relevant to the dualised Standard
 Model programme of Lectures~7--8~\cite{CacciapagliaSannino2024}?
 
 \begin{enumerate}
-  \item \textbf{Kutasov--Schwimmer duality with adjoint matter}
-    is the most directly relevant.  The dualised SM embeds the SM
-    gauge group in a Pati--Salam-type structure $\SU{4} \times
-    \SU{2}_L \times \SU{2}_R$, where the $\SU{4}$ factor carries
-    both fundamental quarks and potentially adjoint matter from the
-    breaking of a larger gauge group.  The KS duality with $k=1$
-    (recovering standard Seiberg duality after integrating out the
-    adjoint) provides the natural UV framework.
+  \item \textbf{Seiberg duality, the $k = 1$ member of the
+    Kutasov--Schwimmer family}, is the direct template.  The electric
+    theory of the dualised SM has the fermion content of SQCD, with its
+    adjoint Weyl fermion in the role of the gaugino, and the map
+    $X = \Nf - N$ of Lecture~7 is Seiberg's.  KS duality with
+    $k \geq 2$ becomes relevant only if the electric theory contains an
+    additional adjoint chiral superfield, for instance from the
+    breaking of a larger gauge group; the dual rank then changes to
+    $k\Nf - \Nc$.
 
   \item \textbf{Product group dualities} are relevant because the SM
     has a product gauge group structure.  The quiver mutation
@@ -1219,9 +1287,9 @@ Model programme of Lectures~7--8~\cite{CacciapagliaSannino2024}?
     (composites) naturally map to the physical hadrons.
 \end{enumerate}
 
-The central lesson of this lecture is that \textbf{duality is not a
-special trick for one particular gauge group}: it is a pervasive
-structural feature of strongly coupled $\mathcal{N}=1$ gauge theories.
+The central lesson of this lecture: \textbf{duality is a pervasive
+structural feature of strongly coupled $\mathcal{N}=1$ gauge
+theories}, present for every classical gauge group.
 The dualised Standard Model sits within this landscape, drawing on
 the specific features of $\SU{N}$ duality with fundamental (and
 potentially adjoint) matter.
@@ -1266,8 +1334,9 @@ In this lecture we have:
     and the \textbf{Klebanov--Strassler duality cascade}.
   \item Synthesised the landscape into a
     \textbf{master comparison table} (Table~\ref{tab:master-comparison})
-    and identified the Kutasov--Schwimmer duality with adjoint matter
-    as most relevant to the dualised SM programme.
+    and identified Seiberg duality, the $k = 1$ member of the
+    Kutasov--Schwimmer family, as the template of the dualised SM
+    programme.
 \end{enumerate}
 
 
@@ -1289,18 +1358,25 @@ In this lecture we have:
   \textit{Phys.\ Lett.} \textbf{B354} (1995) 315
   [\texttt{hep-th/9505004}].
 
-\bibitem{KSS9507040}
+\bibitem{KSS9510222}
   D.~Kutasov, A.~Schwimmer, and N.~Seiberg,
   ``Chiral rings, singularity theory and electric--magnetic duality,''
   \textit{Nucl.\ Phys.} \textbf{B459} (1996) 455
-  [\texttt{hep-th/9507040}].
+  [\texttt{hep-th/9510222}].
 
-\bibitem{IS9506101}
+\bibitem{IS9503179}
   K.~Intriligator and N.~Seiberg,
   ``Duality, monopoles, dyons, confinement and oblique confinement
   in supersymmetric $\mathrm{SO}(N_c)$ gauge theories,''
   \textit{Nucl.\ Phys.} \textbf{B444} (1995) 125
-  [\texttt{hep-th/9506101}].
+  [\texttt{hep-th/9503179}].
+
+\bibitem{IP9505006}
+  K.~Intriligator and P.~Pouliot,
+  ``Exact superpotentials, quantum vacua and duality in supersymmetric
+  $\mathrm{Sp}(N_c)$ gauge theories,''
+  \textit{Phys.\ Lett.} \textbf{B353} (1995) 471
+  [\texttt{hep-th/9505006}].
 
 \bibitem{IS1995}
   K.~Intriligator and N.~Seiberg,
@@ -1311,16 +1387,16 @@ In this lecture we have:
 
 \bibitem{IS9506084}
   K.~Intriligator and N.~Seiberg,
-  ``Phases of $\mathcal{N}=1$ theories in two dimensions,''
-  \textit{Nucl.\ Phys.} \textbf{B431} (1994) 551
+  ``Phases of $\mathcal{N}=1$ supersymmetric gauge theories and
+  electric--magnetic triality,''
   [\texttt{hep-th/9506084}].
 
-\bibitem{CSS9612207}
+\bibitem{CSS9610139}
   C.~Cs\'aki, M.~Schmaltz, and W.~Skiba,
   ``A systematic approach to confinement in $\mathcal{N}=1$
   supersymmetric gauge theories,''
   \textit{Phys.\ Rev.\ Lett.} \textbf{78} (1997) 799
-  [\texttt{hep-th/9612207}].
+  [\texttt{hep-th/9610139}].
 
 \bibitem{KlebanovStrassler2000}
   I.~R.~Klebanov and M.~J.~Strassler,
@@ -1341,8 +1417,8 @@ In this lecture we have:
 
 \bibitem{CacciapagliaSannino2024}
   G.~Cacciapaglia and F.~Sannino,
-  ``The Dualised Standard Model,''
-  [\texttt{arXiv:2407.17281}].
+  ``Charting Standard Model Duality and its Signatures,''
+  arXiv:2407.17281 [hep-ph] (2024).
 
 \end{thebibliography}
 
