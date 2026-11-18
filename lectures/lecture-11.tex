@@ -97,13 +97,12 @@ The fermion mass is then
   \label{eq:mk}
 \end{equation}
 
-Define the \emph{mixing ratio}:
+Choose real, nonnegative mixing ratios for the diagonal mass eigenvalues,
 \begin{equation}
   x_k \equiv \frac{\mu_{0k}}{M_k}\,.
   \label{eq:xk}
 \end{equation}
-Then $m_k = m_0\,x_k^2$ where $m_0 = y\,v/\sqrt{2}$ is the
-universal scale, and
+Then $m_k = m_0\,x_k^2$ with $m_0 = y\,v/\sqrt{2}>0$, and
 \begin{equation}
   \sqrt{m_k} = \sqrt{m_0}\,x_k\,.
   \label{eq:sqrtm}
@@ -193,7 +192,7 @@ programme.  Exercise Set~9 (Problem~5) shows that an $S_3$-symmetric
 potential with generic soft breaking leaves $Q$ free.
 
 %% ========================================================================
-\section{Conjecture C1: $Q = 3/2$ and the SU(5) Casimir ratio}
+\section{Conjecture C1: \texorpdfstring{$Q = 3/2$}{Q = 3/2} and the SU(5) Casimir ratio}
 \label{sec:casimir}
 %% ========================================================================
 
@@ -230,7 +229,7 @@ $\infty$ & $2$ & \\
 \end{tabular}
 \end{center}
 
-\subsection{Why $N = 5$?}
+\subsection{Why \texorpdfstring{$N = 5$}{N = 5}?}
 
 In the dualised SM of Lectures~7--8, the flavour group is
 $\SU{6}_L \times \SU{6}_R$ (from $\Nf = 6$).  The value $N = 5$
@@ -290,7 +289,7 @@ number of QCD colours.  These coincidences are suggestive but do not
 constitute a derivation.
 
 %% ========================================================================
-\section{The Koide angle $\delta$: an open problem}
+\section{The Koide angle \texorpdfstring{$\delta$}{delta}: an open problem}
 \label{sec:angle}
 %% ========================================================================
 
@@ -305,8 +304,13 @@ representation:
   \qquad k = 1,2,3\,.
   \label{eq:z3}
 \end{equation}
-The value $\delta = 2/9$~rad reproduces the charged lepton
-masses to $10^{-5}$ precision~\cite{Brannen2006}.
+For $z_0>0$, ordering $x_1\leq x_2\leq x_3$ and requiring $x_k\geq0$
+gives the arc $0\leq\delta\leq\pi/12$, up to permutations and
+periodicity.  The upper endpoint has $x_1=0$.  On continuing the
+cosines to signed $x_k$, the mass definition gives
+$\sqrt{m_k}=\sqrt{m_0}\,|x_k|$.  The value $\delta=2/9$~rad is on
+the positive arc and fits the charged-lepton mass ratios to a few
+parts in $10^5$~\cite{Brannen2006}.
 
 Neither the dualised SM nor the sBootstrap currently derives
 this value.  Within the multi-Higgs framework, $\delta$ is
@@ -316,20 +320,47 @@ from Planck-scale operators in the electric theory
 (Lecture~8), and their structure is not sufficiently
 constrained by the duality to fix $\delta$.
 
-Deriving $\delta$ from a dynamical principle---whether from
-modular flavour symmetries, conformal fixed-point dynamics,
-or some other mechanism---remains the central open problem
-of the Koide programme.
+\paragraph{A test of a flavour potential.}
+Electric charge splits the five light quarks into two up-type and
+three down-type flavours.  Their flavour adjoint has a 12-dimensional
+neutral block and two six-dimensional off-diagonal blocks of charges
+$\pm1$ (\S\ref{sec:sbootstrap}).  Three
+lepton generations with $\nu_R$, counting states and conjugates,
+have the same electromagnetic weights~\cite{ConnesKK52}.  Taking the
+generation space to transform as the $\mathbf 3$ of $\SU{3}_d$ is an
+additional assignment.  With that assignment an invariant Hermitian
+charged-lepton mass-squared matrix on this triplet is proportional
+to the identity by Schur's lemma.  Three equal nonzero masses give $Q=3$.
+
+Consider a single positive Hermitian family matrix $X$ whose
+eigenvalues are the dimensionless ratios $x_k$ of Eq.~\eqref{eq:xk},
+with canonical kinetic terms and $m_k=m_0 x_k^2$.  Fix the common
+scale and impose the Koide condition.  This fixes the first two
+elementary symmetric polynomials, $e_1=\sum x_k=3z_0$ and
+$e_2=\sum_{i<j}x_ix_j=e_1^2/6$.  The remaining invariant is
+\begin{equation}
+ e_3=\det X=\frac{z_0^3}{2}\bigl(\sqrt{2}\cos 3\delta-1\bigr).
+ \label{eq:phase-invariant}
+\end{equation}
+A symmetric polynomial of degree at most five in the $x_k$ reduces
+on this fixed cone to $a+b e_3$, since $e_3$ has degree three.
+It is monotone or constant on the ordered positive branch
+$0<\delta<\pi/12$.  Thus an isolated interior minimum needs further
+structure.  A positive term proportional to $(e_3-p)^2$ suffices if
+$p$ is in the interior range of $e_3$.  To select $\delta=2/9$ its
+coefficients would have to give
+$p/z_0^3=(\sqrt{2}\cos(2/3)-1)/2$~\cite{AlphaVacuum}.
+The degree count applies to this potential in the ratios.  Deriving
+it from the dormant doublets requires their kinetic terms, elimination
+of the heavy fields and any further flavour-breaking tensors.
 
 %% ========================================================================
-\section{What $Q = 3/2$ determines and what it leaves free}
+\section{What \texorpdfstring{$Q = 3/2$}{Q = 3/2} determines and what it leaves free}
 \label{sec:spectrum}
 %% ========================================================================
 
-The Koide condition $Q = 3/2$ is one constraint on three
-eigenvalues, leaving a two-parameter family: the overall
-scale $m_0$ and the angle $\delta$.  The scale $m_0$ sets
-the heaviest mass; $\delta$ sets the ratios.
+The Koide condition $Q = 3/2$ leaves two parameters in the spectrum.
+Its normalization is $m_0z_0^2=\sum_k m_k/6$, and $\delta$ sets the ratios.
 
 With the empirical $\delta = 2/9$, the Koide formula predicts
 \begin{align}
@@ -352,7 +383,8 @@ $\delta$ free.
 The Koide chain~\cite{Rivero2013,Zenczykowski2012}
 extends the lepton relation to quarks:
 $(0,s,c) \to (-s,c,b) \to (c,b,t)$, with each link
-satisfying $Q \approx 3/2$ and the chain angle
+satisfying the corresponding signed-root ratio $\approx 3/2$.
+Here $-s$ assigns a minus sign to $\sqrt{m_s}$.  The chain angle obeys
 $\delta_{scb} \approx 3\,\delta_\ell$.
 
 One interpretation of the factor~$3$: the quark sector carries
@@ -372,24 +404,39 @@ without a derivation of the vacuum structure in the coloured
 sector.
 
 %% ========================================================================
-\section{The inverse Koide from the seesaw}
+\section{Testing the inverse Koide relation with the seesaw}
 \label{sec:inverse}
 %% ========================================================================
 
-\subsection{$Q$ is preserved under inversion}
+\subsection{What survives a reciprocal mass map}
 
 In SQCD with every flavour massive, holomorphy fixes the meson VEVs
 to be inversely proportional to the quark masses,
 $\langle Q_k\widetilde Q^k\rangle = C/m_k$ with the flavour-independent
-constant $C = (\det m\,\Lambda^{3\Nc-\Nf})^{1/\Nc}$~\cite{IntriligatorSeiberg1995}:
-a seesaw between quark masses and meson VEVs.  Since $Q$ is
-homogeneous of degree zero:
+constant $C = (\det m\,\Lambda^{3\Nc-\Nf})^{1/\Nc}$ up to a vacuum
+phase~\cite{IntriligatorSeiberg1995}.  Take $m_k>0$ and use $C$ for
+the common magnitude in the following shape ratio.  Homogeneity gives
 \begin{equation}
   Q\!\left(\frac{C}{m_1},\frac{C}{m_2},\frac{C}{m_3}\right)
   = Q\!\left(\frac{1}{m_1},\frac{1}{m_2},\frac{1}{m_3}\right).
   \label{eq:Q-inverse}
 \end{equation}
-This is an exact identity.
+The common factor cancels.  Requiring $Q(m)=Q(1/m)=3/2$ for the
+\emph{same} triple imposes two constraints~\cite{AlphaShape}.  To see
+this, write $u_i=\sqrt{m_i}$ and let $s_1,s_2,s_3$ be their elementary
+symmetric polynomials.  Direct Koide gives $s_2=s_1^2/6$, while
+reciprocal Koide gives $s_2^2=6s_1s_3$.  If both hold, the numbers
+$t_i=6u_i/s_1$ have sum six, pair sum six and product one.  Their
+polynomial is $(t-1)(t^2-5t+1)$, so up to scale and permutation the
+unique positive spectrum is
+\begin{equation}
+ (m_1,m_2,m_3)\ \propto\ (r^{-2},1,r^2),\qquad
+ r=\frac{5+\sqrt{21}}2 .
+ \label{eq:reciprocal-spectrum}
+\end{equation}
+Conversely this spectrum satisfies both equations.  Its two adjacent
+mass ratios are equal.  The empirical proposal below concerns two
+different triples, the charged leptons and the inverse down-type quarks.
 
 \subsection{Empirical status}
 
@@ -405,10 +452,13 @@ The uncertainty on $Q(1/m)$ is dominated by $m_d = 4.70 \pm 0.20$~MeV
 within $1\sigma$: the agreement cannot currently be distinguished
 from numerical coincidence at this level of quark-mass precision.
 
-Note that Q-preservation under inversion is a mathematical identity
-holding for any mass triplet; the empirical near-agreement
-$Q(1/d,1/s,1/b) \approx Q(e,\mu,\tau) \approx 3/2$ is a separate
-observation requiring an independent dynamical explanation.
+The quark numbers above use mixed reference scales.  A common-scale
+SM running analysis quotes $1/Q(1/m_d,1/m_s,1/m_b)=0.66750$ at
+$M_Z$ and a crossing of $2/3$ near $280$~TeV for its default
+central inputs.  An alternate input and running prescription gives
+a crossing near $10$~TeV, illustrating its sensitivity to the light
+quark inputs~\cite{Rivero2026Inverse}.  A mass-scale prediction would
+require an independent matching condition.
 
 The \emph{individual mass ratios} do not match through a simple
 seesaw $m_\ell = c/m_q$ (see~\S\ref{sec:caveats}).
@@ -428,9 +478,8 @@ s \leftrightarrow \mu,\; b \leftrightarrow e)$: $m_\tau$
 is recovered by construction, $m_\mu$ is $15\%$ off, and
 $m_e$ is a factor~$4$ wrong.
 
-The seesaw preserves $Q$ (that is exact) but does \emph{not}
-reproduce the individual lepton masses.  The quark--lepton
-mass mapping is more complex than a simple inversion.
+Changing $C$ rescales all three candidate masses together.  The
+discrepancies in these ratios therefore persist for every choice of $C$.
 
 %% ========================================================================
 \section{Connection to the sBootstrap}
@@ -453,7 +502,7 @@ integers for SQCD with $(\Nc,\Nf) = (3,5)$.  The next subsection
 places that counting in the duality frame of Lecture~7 and shows
 that the match stays numerical.
 
-\subsection{From $\Nf = 6$ to $\Nf = 5$: decoupling the top quark}
+\subsection{Decoupling the top quark from six to five flavours}
 \label{sec:top-decoupling}
 
 \paragraph{The frame.}  In Lecture~7 (\S1 and \S3) the electric
@@ -578,12 +627,12 @@ all giving $N = 3$ generations \emph{uniquely}.
 
 \subsection{Koide from the meson mass formula}
 
-The sBootstrap mass formula $m_k = (z_0+z_k)^2\,K_\Omega$
-is algebraically equivalent to the Koide condition~\eqref{eq:koide-cond},
-as shown in~\cite{Rivero2024}.  The dualised SM provides the
-\emph{physical context} for this formula: $z_0+z_k$ is the
-mixing ratio $x_k$ of the Higgs sector, and $K_\Omega$ is
-the universal scale $m_0$.
+In the sBootstrap mass parametrisation
+$m_k = (z_0+z_k)^2\,K_\Omega$~\cite{Rivero2024}, take
+$z_0+z_k\geq0$ and $\sum_k z_k=0$.  Then $Q=3/2$ requires the
+additional trace condition $\sum_k z_k^2=3z_0^2$ of
+Eq.~\eqref{eq:koide-cond}.  In the dormant-doublet model
+$z_0+z_k=x_k$ and $K_\Omega=m_0$.
 
 %% ========================================================================
 \section{Summary and honest assessment}
@@ -592,7 +641,7 @@ the universal scale $m_0$.
 
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
-\begin{tabular}{lll}
+\begin{tabular}{@{}lll@{}}
 \toprule
 \textbf{Result} & \textbf{Origin} & \textbf{Status} \\
 \midrule
@@ -638,8 +687,9 @@ is unresolved in the present framework.
 
 \textbf{What is established.}  The universal Yukawa coupling of
 the dualised SM translates the Koide relation into a VEV
-condition on the multi-Higgs sector.  The seesaw between quark
-masses and meson VEVs preserves $Q$ as a mathematical identity.
+condition on the multi-Higgs sector.  The SQCD meson VEVs inherit
+the shape ratio of the \emph{reciprocal} quark masses by
+Eq.~\eqref{eq:Q-inverse}.
 
 \textbf{What is observed but not derived.}  The numerical
 coincidence $Q = C_2(\mathbf{10})/C_2(\mathbf{5}) = 3/2$ is an
@@ -654,8 +704,7 @@ The angle $\delta = 2/9$ has no known derivation at all.
 $\mu_{0k}/M_k$ of the 18-Higgs potential must be shown to land on
 the Koide point; the quartic couplings of the dormant doublets enter
 the minimum only at relative order $\langle H_k\rangle^2/M_k^2$.
-The quark--lepton mass mapping through the seesaw preserves $Q$ but
-not the individual mass ratios.
+Both simple seesaw pairings miss the observed lepton mass ratios.
 
 %% ========================================================================
 \section{Exercises}
@@ -680,8 +729,8 @@ $m_d = 4.70$, $m_s = 93.5$, $m_b = 4183\;\text{MeV}$.
 \end{exercise}
 
 \begin{exercise}
-In the $Z_3$ parametrisation~\eqref{eq:z3}, show that
-$Q = 3/2$ is satisfied for \emph{any} value of $\delta$.
+In the $Z_3$ parametrisation~\eqref{eq:z3}, find the ordered arc with
+$x_k\geq0$ and show that the positive-root mass ratio is $Q=3/2$ there.
 Then verify that $\delta = 2/9$ reproduces the lepton mass
 ratios $m_e/m_\mu$ and $m_\mu/m_\tau$ to better than
 $0.01\%$.
@@ -710,6 +759,23 @@ choice of quartic couplings?  What additional conditions
 %% BIBLIOGRAPHY
 %% ========================================================================
 \begin{thebibliography}{20}
+
+\bibitem{ConnesKK52}
+  \emph{Connes / Kaluza--Klein limits}, Proposition~52.3,
+  \href{https://github.com/arivero/conneskk/blob/fd698239cd54a4b8a25054cab7abb4c408f96883/lemmas/52_lepton_generation_three_views.md}{charge decomposition of the five-flavour adjoint}.
+
+\bibitem{AlphaVacuum}
+  \emph{Explaining alphaology}, chapter~8,
+  \href{https://explaining-alphaology.al-rivero.chatgpt.site/geometry-duality/#phase-potential}{phase dependence of a symmetric family potential}.
+
+\bibitem{AlphaShape}
+  \emph{Explaining alphaology}, chapter~5,
+  \href{https://explaining-alphaology.al-rivero.chatgpt.site/shape/#both}{simultaneous direct and reciprocal Koide conditions}.
+
+\bibitem{Rivero2026Inverse}
+  A.~Rivero, \emph{New sum rules of the Koide type},
+  Phys.\ Lett.\ B \textbf{877} (2026)
+  \href{https://doi.org/10.1016/j.physletb.2026.140510}{140510}.
 
 \bibitem{Sannino2024}
 G.~Cacciapaglia and F.~Sannino,

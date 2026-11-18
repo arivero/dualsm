@@ -255,14 +255,16 @@ Lecture~11, \S4, parametrises the mixing ratios as
   \qquad \varphi_k = \frac{2\pi k}{3}+\delta\,,
   \qquad k = 1,2,3\,,
 \end{equation}
-with masses $m_k = m_0\,x_k^2$.
+with masses $m_k = m_0\,x_k^2$ and $m_0,z_0>0$.
 
 \medskip
 
 \noindent\textbf{Questions.}
 \begin{enumerate}[label=(\alph*)]
   \item \textbf{[6 marks]}
-    Show that $Q = 3/2$ for \emph{any} value of $\delta$.
+    Derive $(\sum_k x_k)^2/\sum_k x_k^2$ for any $\delta$.  Find
+    the ordered arc where the positive square roots of the masses
+    give $Q=3/2$.
   \item \textbf{[6 marks]}
     For $\delta = 2/9$, compute $x_k/z_0$ and the predicted ratios
     $m_e/m_\mu$ and $m_\mu/m_\tau$.  Verify that they reproduce the
@@ -291,10 +293,13 @@ Therefore
   \sum_k x_k^2 &= z_0^2\sum_k\left(1 + 2\sqrt{2}\cos\varphi_k
     + 2\cos^2\varphi_k\right) = z_0^2\,(3 + 0 + 3) = 6\,z_0^2\,,
 \end{align*}
-and $Q = (3z_0)^2/(6z_0^2) = 3/2$ for every $\delta$.  In the language
-of Lecture~11, \S2, the traceless parts are
-$z_k = \sqrt{2}\,z_0\cos\varphi_k$ with $\sum_k z_k^2 = 3z_0^2$,
-which is the trace condition $z_0^2 = \tfrac13\sum_k z_k^2$.
+so the signed expression equals $3/2$ for every $\delta$.
+The mass ratio is $Q=(\sum_k |x_k|)^2/(6z_0^2)$.
+Order the entries as $x_1\leq x_2\leq x_3$, which permits
+$0\leq\delta\leq\pi/3$ up to permutations and periodicity.
+The smallest entry reaches zero at $2\pi/3+\delta=3\pi/4$.
+Thus $Q=3/2$ on $0\leq\delta\leq\pi/12$.  Beyond that point in
+the ordered interval, $x_1<0$ gives $\sum_k |x_k|>3z_0$ and $Q>3/2$.
 
 \medskip
 
@@ -593,13 +598,13 @@ terms, consistent with the status ``not derived'' in Lecture~11, \S9.
 \rule{0.6\textwidth}{0.4pt}
 
 \textit{End of Exercise Set 9.  The Casimir ratio equals $3/2$ only
-for $\SU{5}$ (Problem~1); the charged leptons sit at $Q = 3/2$ to
+for $\SU{5}$ (Problem~1). The charged leptons sit at $Q = 3/2$ to
 $10^{-5}$ and the inverse down-type quarks at $1.5045 \pm 0.010$
-(Problem~2); the $Z_3$ form satisfies $Q = 3/2$ for every $\delta$,
-and $\delta = 2/9$ fits the lepton ratios to $2\times10^{-5}$
-(Problem~3); the sBootstrap integers $k_u = 2$, $k_d = 3$ match the
-ISS counting only numerically (Problem~4); and an $S_3$-symmetric
-potential leaves $Q$ to the soft terms (Problem~5).}
+(Problem~2). On the positive-root Koide arc, $\delta = 2/9$ fits the
+lepton ratios to about $2\times10^{-5}$ (Problem~3). The sBootstrap
+integers $k_u=2$, $k_d=3$ match the ISS counting numerically
+(Problem~4). The soft terms set $Q$ at leading order in the
+$S_3$-symmetric potential (Problem~5).}
 \end{center}
 
 

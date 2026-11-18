@@ -7,11 +7,12 @@ exercises/exercise-09.tex quote about the Koide relation, and checks that
 the quoted strings are still present in the two sources (so that an edit
 to either file that changes a number without updating this script fails):
 
-  1. Koide VEV condition: Q(m_0 x_k^2) = (sum x)^2 / sum x^2, the trace
-     condition z_0^2 = (1/3) sum z_k^2, scale invariance of Q.
+  1. Koide VEV condition for nonnegative x: Q(m_0 x_k^2) = (sum x)^2 /
+     sum x^2, the trace condition z_0^2 = (1/3) sum z_k^2, scale invariance.
   2. Q(e, mu, tau) = 1.500005 (PDG 2024) and 1.500004 (rounded inputs).
   3. Q(1/m_d, 1/m_s, 1/m_b) = 1.5045 +/- 0.010 and Q(m_d, m_s, m_b) = 1.3675.
-  4. Z_3 parametrisation: Q = 3/2 for every delta; delta = 2/9 gives
+  4. Z_3 parametrisation: the signed ratio equals 3/2 for every delta.
+     The mass ratio equals 3/2 on the nonnegative arc. Delta = 2/9 gives
      m_e/m_mu = 0.004836 and m_mu/m_tau = 0.05946 (relative differences
      1.0e-5 and 2.1e-5); m_0 z_0^2 = sum m / 6 = 313.85 MeV.
   5. SU(N) Casimirs: C_2(wedge^2 N)/C_2(N) = 2(N-2)/(N-1) = 3/2 only at
@@ -118,7 +119,7 @@ def check_vev_condition():
     check("Q is independent of the universal scale m_0", ok_scale)
     check("Q = 9 z_0^2 / (3 z_0^2 + sum z_k^2) (eq. Qz)", ok_trace)
     # Q = 3/2 <=> z_0^2 = (1/3) sum z_k^2
-    x = [t for t in z3_x(0.4)]
+    x = z3_x(DELTA)
     z0 = sum(x) / 3.0
     zsq = sum((t - z0) ** 2 for t in x)
     check("Q = 3/2 <=> trace condition z_0^2 = (1/3) sum z_k^2",
@@ -160,19 +161,40 @@ def check_q_values():
           abs((q_inv - 1.5) - 0.0045) < 1e-4 and abs(q_inv - 1.5) < sig)
     check("Q(m_d,m_s,m_b) = 1.3675 directly", abs(q_dir - 1.3675) < 5e-5)
 
+    direct_only = (1, 1, (4 + 3 * math.sqrt(2)) ** 2)
+    check("reciprocation can take a positive Koide triple off the cone",
+          math.isclose(koide_q(*direct_only), 1.5)
+          and not math.isclose(koide_q(*(1 / m for m in direct_only)), 1.5))
+    r = (5 + math.sqrt(21)) / 2
+    paired = (r ** -2, 1, r ** 2)
+    check("the exceptional spectrum satisfies direct and reciprocal Koide",
+          math.isclose(koide_q(*paired), 1.5)
+          and math.isclose(koide_q(*(1 / m for m in paired)), 1.5))
+
 
 # ============================================================
 # 4. Z_3 parametrisation (Lecture 11 sections 4-5; Exercise Set 9 Problem 3)
 # ============================================================
 def check_z3():
     print("\n=== 4. Z_3 parametrisation and the Koide angle ===")
-    ok = True
+    signed_ok = True
     for i in range(50):
         d = -3.0 + 0.123 * i
         x = z3_x(d)
-        ok &= abs(sum(x) ** 2 / sum(t * t for t in x) - 1.5) < 1e-12
-    check("Q = 3/2 for every delta", ok)
+        signed_ok &= abs(sum(x) ** 2 / sum(t * t for t in x) - 1.5) < 1e-12
+    check("the signed-root identity holds around the circle", signed_ok)
+    positive_ok = True
+    for i in range(13):
+        x = z3_x((i / 12) * math.pi / 12)
+        positive_ok &= min(x) >= -1e-14 and math.isclose(koide_q(*(t * t for t in x)), 1.5)
+    check("positive mass roots give Q = 3/2 on the ordered nonnegative arc", positive_ok)
+    x = z3_x(math.pi / 3)
+    check("positive mass roots give Q > 3/2 with one negative x at pi/3",
+          min(x) < 0 and koide_q(*(t * t for t in x)) > 1.5)
     x = z3_x(DELTA)
+    determinant = (math.sqrt(2) * math.cos(3 * DELTA) - 1) / 2
+    check("the dimensionless determinant selects the fitted phase",
+          math.isclose(math.prod(x), determinant))
     m = [t * t for t in x]
     print(f"  x_k/z_0 = {x[0]:.6f}, {x[1]:.6f}, {x[2]:.6f}; m_k/(m_0 z_0^2) = "
           f"{m[0]:.6f}, {m[1]:.6f}, {m[2]:.6f}")
@@ -383,8 +405,8 @@ def check_s3_potential():
     # Q = 3/(1 + r^2)
     ok = True
     for r in (0.0, 0.3, 0.5, 0.9, 1.0, 1.2):
-        x = z3_x(0.3, r)
-        ok &= abs(sum(x) ** 2 / sum(t * t for t in x) - 3 / (1 + r * r)) < 1e-12
+        x = z3_x(0.1, r)
+        ok &= min(x) >= 0 and abs(koide_q(*(t * t for t in x)) - 3 / (1 + r * r)) < 1e-12
     check("Q = 3/(1 + r^2) for x_k = z_0 [1 + sqrt2 r cos(2 pi k/3 + delta)]", ok)
     check("S_3-symmetric soft terms (r = 0) give Q = 3; one direction gives Q = 1",
           abs(koide_q(1, 1, 1) - 3) < 1e-12 and abs(koide_q(1e-30, 1e-30, 1) - 1) < 1e-12)
