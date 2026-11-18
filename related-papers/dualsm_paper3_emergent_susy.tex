@@ -97,9 +97,11 @@ leading quark mass operator has dimension $23/8$.  This assumption
 predicts a Dirac mode number per unit volume proportional to
 $\Lambda_R^{32/9}$.  A vector flavour symmetry obstructs a local
 $\mathcal N=1$ supercurrent in the eight-flavour target theory.
-We also examine the singlet scalar to pion mass ratio, the gluonic
-and mesonic scalar spectrum, a supersymmetry Ward identity and the
-condensate potential.
+More generally, baryon number and unbroken charge conjugation exclude
+a single local Weyl supercharge in fundamental-only vectorlike QCD.
+Adding an adjoint Weyl fermion changes the operator algebra. A
+six-flavour example passes the anomaly and symmetry tests below and
+admits a lattice Ward identity with a translation contact term.
 Ten and twelve flavours lie outside the interacting SQCD window and
 provide non-supersymmetric controls.
 \end{abstract}
@@ -436,6 +438,138 @@ $a_{\rm UV}$, whereas a unitary four-dimensional RG flow requires
 $a_{\rm IR}\leq a_{\rm UV}$~\cite{Anselmi1998,Komargodski2011}.
 Equality of one mass exponent remains a testable, weaker hypothesis.
 
+\subsection{Which ultraviolet theories admit a local supercurrent?}
+\label{ssec:endpoint-map}
+
+Work on flat four-dimensional spacetime in a unitary theory with a
+Lorentz-invariant vacuum. Start with asymptotically free $\SU{\Nc}$
+gauge fields and fundamental Dirac fermions. Normalize baryon number
+$B$ so a colour baryon has $B=1$.
+For $\Nc\geq3$ the connected chiral symmetry acts faithfully on
+gauge-invariant local operators through
+\begin{equation}
+ \frac{\SU{\Nf}_L\times\SU{\Nf}_R\times\UU{1}_V}
+      {\mathbb Z_{\Nf}\times\mathbb Z_{\Nc}} .
+\end{equation}
+Here a quark has unit $V$ charge and $V=\Nc B$. A simultaneous
+flavour centre rotation on the two chiralities is cancelled by the
+inverse $V$ phase. A $V$ phase of $2\pi/\Nc$ acts as a colour
+centre transformation~\cite{Tanizaki2018}. For two colours the flavour
+group is enhanced and the colour-centre argument below still applies.
+
+\begin{proposition}
+In the inherited local operator algebra of fundamental-only QCD
+with $\Nc\geq2$, a vacuum preserving baryon number and unitary charge
+conjugation $C$ cannot carry exactly one Weyl Poincar\'e supercharge.
+For even $\Nc$ the local fermionic current is already excluded by
+colour. For even $\Nf$ unbroken vector flavour suffices to exclude
+an $\mathcal N=1$ current.
+\end{proposition}
+\begin{proof}
+Count fundamental and antifundamental fermion insertions as $n,\bar n$.
+Derivatives and gluons change neither their net charge nor parity.
+Colour invariance gives $n-\bar n=\Nc B$, whence
+\begin{equation}\label{eq:spin-baryon}
+ (-1)^F=(-1)^{n+\bar n}=(-1)^{\Nc B}.
+\end{equation}
+Thus even colours give only bosonic local operators. For odd colours
+a fermionic current must have odd $B$. A vector-flavour singlet also
+requires $\Nf\mid\Nc B$, by the phase of the flavour centre. For even
+$\Nf$, its element $-\mathbf1$ acts as $(-1)^F$. A connected simple
+flavour group acts trivially on the one-dimensional space of Weyl
+supercharges of fixed chirality, so one can choose a singlet current.
+
+For odd colours consider the proposed identification of baryon number
+with a generator having an $R$ component. Write
+$[B,\mathcal Q_\alpha]=b\mathcal Q_\alpha$. Internal, unitary $C$
+commutes with the proper Lorentz group and translations, so it
+preserves the undotted chirality and sends the single supercharge to
+$e^{i\phi}\mathcal Q_\alpha$. It also sends $B$ to $-B$.
+Conjugating the commutator gives $b=-b$. The neutral charge would
+require a neutral fermionic current, in conflict with
+\cref{eq:spin-baryon}.
+\end{proof}
+
+The charge-conjugation step assumes $C$ acts within the vacuum.
+If $C$ exchanges broken-symmetry vacua, or several independent
+supercharges of the same chirality are exchanged, that step no
+longer applies. The counting concerns genuine local operators of
+the microscopic theory. Endpoints of external lines do not supply
+a local current acting on this Hilbert space.
+
+\paragraph{A separate test of baryon--$R$ mixing in SQCD.}
+For $\Nf\geq3$ the left and right cubic flavour anomalies of QCD are
+$(\Nc,-\Nc)$ in unit fundamental normalization. They force the same
+electric rank for a candidate consisting solely of SQCD with the
+standard chiral flavour embedding. The mixed
+$\Tr B\,\SU{\Nf}_{L,R}^2$ are $(1/2,-1/2)$, and
+$\Tr B=\Tr B^3=0$. SQCD's ordinary baryon generator $B_s$ has these
+same traces. Its superconformal $R_*$ instead gives
+$\Tr R_*\SU{\Nf}_{L,R}^2=-\Nc^2/(2\Nf)$ for either chirality.
+For an image $B=uB_s+bR_*$ the sum of the two mixed anomalies
+forces $b=0$, and their difference fixes $u=1$. This argument uses
+the singlet currents of isolated ordinary SQCD in its interacting
+window with no extra anomaly-carrying sectors. A more general SCFT
+could have extra abelian currents. The operator proof above applies
+to it under the stated $C$ and single-supercharge hypotheses.
+
+\paragraph{Euler-anomaly map.}
+For $3\Nc/2<\Nf<3\Nc$, the free ultraviolet anomaly and the proposed
+interacting same-rank SQCD anomaly are
+\begin{align}
+ a_0&=\frac{62(\Nc^2-1)+11\Nc\Nf}{360},&
+ a_{\rm SQCD}&=\frac{3}{32}\left(4\Nc^2-2-\frac{6\Nc^4}{\Nf^2}\right).
+ \label{eq:endpoint-a}
+\end{align}
+The second expression follows by tracing fermion charges $1$ for
+the gluino and $-\Nc/\Nf$ for each fundamental Weyl fermion.
+Adding one ultraviolet adjoint Weyl fermion without squarks gives
+$a_\lambda=a_0+11(\Nc^2-1)/720$. A nontrivial flow requires a
+positive difference. Both differences decrease with $x=\Nf/\Nc$
+throughout the window since their slope at fixed colour is
+$\Nc^2[11/360-9/(8x^3)]<0$~\cite{Anselmi1998,Komargodski2011}.
+For three colours this gives
+\begin{center}
+\begin{tabular}{crrl}
+\toprule
+$\Nf$ & $a_0-a_{\rm SQCD}$ & $a_\lambda-a_{\rm SQCD}$ & same-rank SQCD endpoint\\
+\midrule
+5 & $106/225$ & $89/150$ & fundamental current excluded, adjoint candidate open\\
+6 & $17/2880$ & $41/320$ & fundamental current excluded, adjoint candidate open\\
+7 & $-2101/8820$ & $-341/2940$ & excluded for both UV contents by $a$\\
+8 & $-3359/9216$ & $-3721/15360$ & excluded for both UV contents by $a$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+In the theory with one massless adjoint Weyl $\lambda$ the independent
+anomaly-free axial charge $X$ has $X(\lambda)=1$ and
+$X(\psi_Q)=X(\psi_{\widetilde Q})=-\Nc/\Nf$. Its colour anomaly
+is $\Nc+\Nf(-\Nc/\Nf)=0$. All continuous triangle traces in
+$X,B,\SU{\Nf}_{L,R}$ match SQCD with $X=R_*$ because the Weyl
+content and its charges agree. The adjoint gives a baryon-neutral
+flavour-singlet fermion. Even the squark quantum numbers can be
+realized by the colour-covariant scalar contraction
+$(\lambda^a T^a)^\alpha\psi_{Q\alpha}$ and its antifundamental
+counterpart. Consequently a central transformation acting trivially
+on the microscopic fields up to colour also acts trivially on these
+candidate squarks. These checks give kinematically allowed candidates
+at five and six flavours. For the six-flavour adjoint example the
+two-loop gauge coefficients are $b_0=5$ and $b_1=-22$ in the
+conventions of \cref{eq:beta-2loop}. Their formal zero
+$\alpha_*=10\pi/11$ is outside perturbative control. Conformality,
+a conserved current, and the SQCD spectrum remain dynamical tests.
+
+Softly broken SQCD has a third ultraviolet content: at scales above
+the soft masses the squarks and gluino contribute, giving
+$a_{\rm UV}^{\rm SQCD}=3(\Nc^2-1)/16+\Nc\Nf/24$.
+At $(3,8)$ this is $5/2>2535/1024$. Murayama's small anomaly-mediated
+deformation starts in this theory~\cite{Murayama2021}. Following it
+to large soft masses requires dynamical control. AMPS find a
+supersymmetric solution of perturbative magnetic coupling equations
+for an adjoint-containing electric candidate~\cite{AMPS2013}.
+Neither calculation establishes the six-flavour flow in the table.
+
 \subsection{Numerical predictions for SU(3)}
 \label{ssec:gamma-numerical}
 
@@ -698,6 +832,66 @@ algebra.  This Ward identity is available in theories with the
 appropriate fermionic singlet, while the eight-flavour mode number in
 \cref{eq:mode-count} can be measured directly in QCD.
 
+\paragraph{A supercurrent test on adjoint-plus-six-flavour ensembles.}
+Use $\SU{3}$ with six fundamental Dirac fermions, one adjoint Weyl
+fermion and no elementary scalars. In this theory start from the
+baryon-neutral chiral-flavour singlet
+\begin{equation}
+ S^{(1)}_{\mu\alpha}
+ =\Tr\!\left[F_{\rho\sigma}
+       (\sigma^{\rho\sigma}\sigma_\mu\bar\lambda)_\alpha\right] .
+\end{equation}
+It has $X=-1$ in the conventions of \cref{ssec:endpoint-map}, as a
+left-handed supercharge must for $X=R_*$. Discretize $F$ with a
+clover field strength, include $\Tr(F_{\mu\nu}\sigma^\nu\bar\lambda)$
+and allowed operator mixing and improvements, and project the
+vector-spinor onto spin $3/2$. At a superconformal point the improved
+current has $\Delta_S=7/2$ and vanishing divergence and gamma trace
+at separated points. Its projected two-point amplitude scales as
+$|x|^{-7}$. A lattice calculation must establish nonzero overlap
+and tune explicit breaking, including both sea masses~\cite{WardSYM}.
+
+Test the normalization and action of the candidate charges on a
+bosonic probe $O^i{}_j=\bar\psi_{Rj}\psi_L^i$ with $i\ne j$.
+The probe has $B=0$ and is a chiral bifundamental. At six flavours
+its $X=-1$ is appropriate for $F_M$. A candidate bottom-component
+interpolator in the same flavour representation is
+$P^i{}_j=(\psi_{\widetilde Q j}\lambda)(\lambda\psi_Q^i)$,
+with each parenthesis a two-Weyl spinor contraction and the remaining
+colour indices contracted. It has $X=+1$. With nonzero projections
+onto the leading SQCD meson components, the separated $P P^\dagger$
+and $O O^\dagger$ correlators would fall as $|x|^{-3}$ and
+$|x|^{-5}$ respectively. Testing the projections requires operator
+mixing and a continuum scaling interval. The Ward test can be made
+on $O$ independently of these component assignments.
+
+Define
+$\delta_\alpha O$ by the flux of the renormalized $S_{\mu\alpha}$
+through a closed surface about $O$, and use $\bar S$ for
+$\bar\delta_{\dot\beta}$. A translation Ward identity in Euclidean
+conventions, with $y$ outside both surfaces, is
+\begin{equation}\label{eq:translation-WI}
+ \big\langle(\delta_\alpha\bar\delta_{\dot\beta}
+      +\bar\delta_{\dot\beta}\delta_\alpha)O(x)\,O^\dagger(y)\big\rangle
+ =2\sigma^\rho_{\alpha\dot\beta}\partial_{x^\rho}
+        \langle O(x)O^\dagger(y)\rangle .
+\end{equation}
+The left side uses the two radially ordered, nested surface sums of the
+$S\bar S O O^\dagger$ correlator. The right side is separately
+measurable and nonzero. Use radii large compared with the spacing
+and the crossover length to infrared scaling, and small compared with
+$|x-y|$, the box and the mass-induced correlation length. Fix one
+current normalization, vary the radii, repeat with a second probe
+such as a gluonic scalar, and take the massless and continuum
+limits with increasing volume. A zero operator passes separated-point
+conservation but fails \cref{eq:translation-WI}. A dilaton effective
+theory with bosonic scale and chiral symmetry alone supplies no
+fermionic charges realizing this algebra. A successful Ward test
+would be evidence for supersymmetry of the probed sector. Identifying
+the particular SQCD fixed point additionally requires its anomalies
+and spectrum, for example a chiral meson of dimension $3/2$ at six
+flavours.
+
 \subsection{Observable 5: effective potential shape and flat directions}
 \label{ssec:obs5}
 
@@ -799,6 +993,15 @@ simulated~\cite{LatKMI2014_Nf8,LSD2016_Nf8}.  Its lightness also
 admits a dilaton interpretation.  Measuring its mass does not determine
 the dimension of the bilinear in \cref{eq:gamma-m-def}.
 
+LSD compared a dilaton effective theory and mass-deformed conformal
+scaling on the same eight-flavour ensembles using five fermion
+masses and five observables~\cite{LSD2023dilaton}. At leading order
+the Akaike information criteria were $33.3$ and $60.1$ respectively.
+With their selected subleading corrections the values were $24.3$
+and $24.9$. These finite-mass fits constrain the bosonic alternatives.
+The ensembles contain no adjoint fermion, which the current in
+\cref{eq:translation-WI} requires.
+
 LatKMI's channel-dependent hyperscaling fits give $\gamma_m\simeq0.6$
 for $m_\pi$ and $\simeq1$ in several other channels~\cite{LatKMI2017_Nf8}.
 Cheng \emph{et al.} find that the mode-number exponent depends on the
@@ -897,6 +1100,13 @@ fixed-point slope would exclude the matching, and a nonzero limiting
 Dirac spectral density would identify spontaneous chiral symmetry
 breaking.  Existing finite-range exponents and a light singlet scalar
 leave these infrared tests open.
+
+For a single local supercharge in fundamental-only QCD,
+\cref{ssec:endpoint-map} also excludes using baryon--$R$ mixing in a
+$C$-preserving vacuum. A six-flavour theory with an additional adjoint
+Weyl fermion passes the stated symmetry and Euler-anomaly tests.
+The nested current-flux identity in \cref{eq:translation-WI} would
+test whether its infrared charges actually generate translations.
 
 %% ================================================================
 %%  ACKNOWLEDGEMENTS
@@ -1128,6 +1338,17 @@ making their lattice data publicly available.
   supersymmetric $\SU{3}$ Yang--Mills theory on the lattice,''
   \textit{EPJ Web Conf.} \textbf{175} (2018) 08003
   [\texttt{arXiv:1711.05504}].
+
+\bibitem{Murayama2021}
+  H.~Murayama, \emph{Some Exact Results in QCD-like Theories},
+  Phys.\ Rev.\ Lett.\ \textbf{126} (2021)
+  \href{https://doi.org/10.1103/PhysRevLett.126.251601}{251601}.
+
+\bibitem{LSD2023dilaton}
+  T.~Appelquist \textit{et al.} (LSD Collaboration),
+  \emph{Hidden Conformal Symmetry from the Lattice},
+  Phys.\ Rev.\ D \textbf{108} (2023) L091505
+  [\href{https://arxiv.org/abs/2305.03665}{arXiv:2305.03665}].
 
 \end{thebibliography}
 

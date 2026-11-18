@@ -32,6 +32,19 @@ On eight-flavour gauge ensembles, count both signs of the nonzero massless Dirac
 
 Fit the slope freely above finite-volume and sea-mass distortions and below the UV crossover and cutoff. Check stability under varying the interval, increasing volumes, reducing sea masses and taking the continuum limit. A different limiting slope at an established fixed point rules out exponent matching. A nonzero chiral-limit $\rho_R(0)$ after the thermodynamic limit gives $n\propto\Lambda_R$ and signals chiral symmetry breaking. A power law confined to a finite interval can occur during walking.
 
+## Which theories can support a supercurrent?
+
+Normalize baryon number $B=1$ for a colour baryon. In fundamental-only $SU(N_c)$, colour singlets obey $(-1)^F=(-1)^{N_cB}$. At even $N_c$ this excludes every local fermionic current. At odd $N_c$ such a current has odd baryon number. In a baryon- and charge-conjugation-preserving vacuum, unitary $C$ reverses $B$ and preserves the chirality of a unique Weyl supercharge. Consequently that charge must have $B=0$. This excludes a single local supersymmetry under those hypotheses. For even $N_f$ the vector-flavour centre gives an independent exclusion. For a same-rank SQCD endpoint with its standard chiral embedding, the two mixed baryon–flavour anomalies also force the baryon–$R$ mixing coefficient to vanish. The proof specifies the role of the faithful symmetry, unbroken $C$ and the single-supercharge hypothesis. [Paper 3, endpoint classification](paper.tex) · [Faithful QCD symmetry](https://arxiv.org/abs/1807.07666)
+
+| Proposed same-colour SQCD endpoint | Fundamental-only $SU(3)$ | With one adjoint Weyl and no squarks |
+|---|---|---|
+| $N_f=5,6$ | The Euler inequality passes. The local supercurrent is excluded under the hypotheses above. | The local current channel exists and the continuous anomalies and Euler inequality pass. The flow is open. |
+| $N_f=7,8$ | The endpoint violates the Euler inequality. | The endpoint still violates the Euler inequality. |
+
+At six flavours the Euler margins $a_{\rm UV}-a_{\rm SQCD}$ are $17/2880$ and $41/320$ respectively. Softly broken SQCD has squarks as well as the adjoint in the ultraviolet and requires its own deformation analysis. [Exact SQCD anomalies](https://arxiv.org/abs/hep-th/9708042) · [Anomaly-mediated deformation](https://doi.org/10.1103/PhysRevLett.126.251601)
+
+**A new lattice correlator.** Use six fundamental Dirac fermions and one adjoint Weyl $\lambda$. Form a renormalized spin-$3/2$, baryon-neutral flavour singlet starting with $\operatorname{tr}(F_{\rho\sigma}\sigma^{\rho\sigma}\sigma_\mu\bar\lambda)$. Integrate this current and its conjugate on two nested surfaces around an off-diagonal $O=\bar\psi_R\psi_L$. The sum of the two ordered fluxes in $\langle S\bar S O O^\dagger\rangle$ must equal the translation derivative $2\sigma^\mu\partial_\mu\langle O O^\dagger\rangle$ with a common current normalization. The off-diagonal bottom- and top-component candidates also give distinct power laws, $|x|^{-3}$ and $|x|^{-5}$, if they overlap with the six-flavour SQCD meson. This tests a fermionic symmetry beyond light-scalar spectroscopy. [Supercurrent construction and Ward identity](paper.pdf)
+
 ## Existing comparisons
 
 | $N_f$ | SQCD mass exponent for $SU(3)$ | Two-loop QCD estimate | Selected lattice results |
@@ -41,5 +54,7 @@ Fit the slope freely above finite-volume and sea-mass distortions and below the 
 | 12 | Outside the interacting window | $0.77$, with a large two-loop correction | LatKMI finite-size fits gave $\gamma_m\simeq0.4$–$0.5$. [LatKMI twelve-flavour study](https://arxiv.org/abs/1207.3060) |
 
 The light singlet scalar and nonsinglet pion carry different vector flavour. Their mass ratio remains a probe of the spectrum, with no value fixed by the matched exponent. The gluonic spectrum and condensate potential likewise require their own dynamics. A SUSY Ward identity requires a local supercurrent.
+
+On the same eight-flavour data LSD found leading-order Akaike criteria of 33.3 for dilaton EFT and 60.1 for mass-deformed conformal scaling. With the selected subleading corrections the comparison became 24.3 versus 24.9. These fits constrain the bosonic interpretations at finite mass. The adjoint-supercurrent test requires different ensembles. [LSD comparison, Tables I and II](https://arxiv.org/pdf/2305.03665)
 
 [Paper source](paper.tex) · [Compiled paper](paper.pdf)
