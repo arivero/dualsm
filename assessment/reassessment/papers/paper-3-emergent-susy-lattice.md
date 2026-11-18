@@ -4,6 +4,8 @@ XHigh Assessment: Lattice Signatures of Emergent Supersymmetry at the Conformal 
 ## Source
 `papers/paper-3-emergent-susy-lattice/paper.tex`
 
+**Correction to this historical review.** The formula endorsed below, `3N_c/N_f`, is the mass-source eigenvalue. The anomalous dimension is smaller by one because the mass couples to the meson's top component. For eight flavours it equals 1/8 in SQCD. The revised paper states the extra assumption needed to compare this number with QCD and the symmetry obstruction to a literal multiplet map. [Current Paper 3 summary](../../../papers/paper-3-emergent-susy-lattice/SUMMARY.md)
+
 ## Scope
 This paper is best read as a conditional lattice-proposal paper rather than as evidence that emergent supersymmetry has already been observed. Its core move is to start from the Antipin-Mojaza-Pica-Sannino Veneziano-limit result on emergent SUSY in a magnetic dual, assume that some finite-`N_c` remnant survives for non-supersymmetric `SU(3)` near the lower conformal-window boundary, and then ask what lattice observables at `N_f = 8, 10, 12` should look like if that assumption is right. The load-bearing argument is therefore not the five-observable list by itself, but the transfer of superconformal operator relations into a non-SUSY finite-`N_c` setting.
 

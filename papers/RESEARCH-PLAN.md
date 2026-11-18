@@ -3,9 +3,9 @@
 ## Paper 1: Sp(1) Seiberg Duality as an Alternative UV Completion of the Electroweak Sector
 
 **Theme:** From Lecture 9 (SUSY duality landscape)
-**Question:** Can the SU(2)_L sector of the SM be dualised via Sp(1) ≅ SU(2) duality instead of Sannino's SU(N) route? The Sp(N_c) duality has a different magnetic gauge group: Sp(N_f - N_c - 1). For SU(2)_L ≅ Sp(1), what is the electric theory and what new anomaly matching conditions arise?
+**Question:** Can the SU(2)_L sector of the SM be dualised via Sp(1) ≅ SU(2) duality instead of Sannino's SU(N) route? Sp(N_c) with 2N_f fundamentals has magnetic gauge group Sp(N_f - N_c - 2). For SU(2)_L ≅ Sp(1), what is the electric theory and what new anomaly matching conditions arise?
 **Decisive output:** Explicit electric theory field content, anomaly matching verification, comparison with the Sannino SU(N) route.
-**Anchor:** Intriligator-Seiberg hep-th/9509066 (Sp duality); Cacciapaglia-Sannino 2407.17281 (SM dualisation).
+**Anchor:** Intriligator–Pouliot hep-th/9505006 (Sp duality) and Cacciapaglia–Sannino 2407.17281 (SM dualisation).
 
 ## Paper 2: Dual Meson Mass Sum Rules from the 6×6 Flavour Matrix
 
@@ -17,9 +17,11 @@
 ## Paper 3: Lattice Signatures of Emergent Supersymmetry at the Conformal Window Boundary
 
 **Theme:** From Lecture 6 (emergent SUSY)
-**Question:** If SUSY emerges at the lower boundary of the non-SUSY conformal window (Sannino 2013), what lattice observables would distinguish this from ordinary confining behaviour? Propose specific measurement protocols for SU(3) N_f = 8-12 lattice simulations.
+**Question:** Can the magnetic fixed point studied by Antipin, Mojaza, Pica and Sannino (2013) motivate a lattice test at the lower boundary of the fundamental-only SU(3) conformal window? Propose specific measurement protocols for SU(3) N_f = 8-12 lattice simulations.
 **Decisive output:** List of discriminating observables with predicted values/scaling in the emergent-SUSY scenario vs the confining scenario.
 **Anchor:** Existing SU(3) N_f=8,12 lattice data (LatKMI, LSD collaborations).
+
+The eight-flavour test requires an independent assumption about the leading mass operator of a QCD fixed point. Its target is a Dirac mode-number slope of 32/9. [Derivation and scope of the matching](paper-3-emergent-susy-lattice/SUMMARY.md)
 
 ## Paper 4: Why Three Generations — The n_g ≥ 3 Bound Across Duality Types
 

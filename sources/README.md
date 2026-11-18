@@ -1,28 +1,35 @@
 # Reference Corpus: The Dualised Standard Model
 
-**Assembled:** 2026-03-20 (updated: 2026-03-20)
-**Total papers:** 16
+**Assembled:** 2026-03-20
+**Total papers:** 23
 
 ## Paper Index
 
 | # | Filename | arXiv ID | Title | Authors | Year | Role | Requirement | Convention Status |
 |---|----------|----------|-------|---------|------|------|-------------|-------------------|
 | 1 | `seiberg-9411149.pdf` | hep-th/9411149 | Electric-Magnetic Duality in Supersymmetric Non-Abelian Gauge Theories | N. Seiberg | 1994 | anchor | REFS-04 | **Verified match** (ground truth) |
-| 2 | `csaki-terning-1106.3074.pdf` | 1106.3074 | SUSY without Prejudice | C. Csaki, J. Terning | 2011 | method | REFS-04 | Expected match |
-| 3 | `maekawa-9510426.pdf` | hep-ph/9510426 | Duality of a Supersymmetric Model with the Pati-Salam Group | N. Maekawa | 1995 | anchor | REFS-02 | TBD |
+| 2 | `csaki-terning-1106.3074.pdf` | 1106.3074 | A Seiberg Dual for the MSSM: Partially Composite W and Z | C. Csáki, Y. Shirman, J. Terning | 2011 | method | REFS-04 | Expected match |
+| 3 | `maekawa-9510426.pdf` | hep-ph/9510426 | Duality of a Supersymmetric Model with the Pati-Salam Group | N. Maekawa, T. Takahashi | 1995 | anchor | REFS-02 | TBD |
 | 4 | `maekawa-ptp95-943.pdf` | hep-ph/9509407 | Duality of a Supersymmetric Standard Model | N. Maekawa | 1995 | anchor | REFS-02 | TBD |
 | 5 | `maekawa-ptp96-979.pdf` | hep-ph/9511395 | Duality of a Supersymmetric Standard Model without R Parity | N. Maekawa, J. Sato | 1995 | anchor | REFS-02 | TBD |
-| 6 | `sannino-2407.17281.pdf` | 2407.17281 | Cacciapaglia-Sannino Dualised SM Programme | G. Cacciapaglia, F. Sannino | 2024 | anchor | REFS-01 | TBD (verify Phase 4) |
+| 6 | `sannino-2407.17281.pdf` | 2407.17281 | Charting Standard Model Duality and its Signatures | G. Cacciapaglia, F. Sannino | 2024 | anchor | REFS-01 | TBD (verify Phase 4) |
 | 7 | `intriligator-seiberg-9509066.pdf` | hep-th/9509066 | Lectures on Supersymmetric Gauge Theories and Electric-Magnetic Duality | K. Intriligator, N. Seiberg | 1995 | method | REFS-01 | Verified match (same as Seiberg) |
 | 8 | `peskin-9702094.pdf` | hep-th/9702094 | Duality in Supersymmetric Yang-Mills Theory | M. Peskin | 1997 | method | REFS-01 | Verified match |
-| 9 | `terning-0306119.pdf` | hep-th/0306119 | TASI-2002: Non-perturbative Supersymmetry | J. Terning | 2003 | background | REFS-01 | Verified match |
+| 9 | `terning-0306119.pdf` | hep-th/0306119 | TASI-2002 Lectures: Non-perturbative Supersymmetry | J. Terning | 2003 | background | REFS-01 | Verified match |
 | 10 | `bilal-0802.0634.pdf` | 0802.0634 | Lectures on Anomalies | A. Bilal | 2008 | background | REFS-01 | TBD |
-| 11 | `ryttov-sannino-0711.3745.pdf` | 0711.3745 | Conformal Windows of SP(2N) and SO(N) Gauge Theories | T. Ryttov, F. Sannino | 2007 | method | REFS-01 | TBD |
-| 12 | `chan-tsou-9904406.pdf` | hep-ph/9904406 | Dual Colour | Hong-Mo Chan, Sheung Tsun Tsou | 1999 | disambiguation | REFS-04 | N/A (different programme) |
-| 13 | `tsou-0110256.pdf` | hep-th/0110256 | Concepts in Gauge Theory Leading to Electric-Magnetic Duality | S.T. Tsou | 2001 | disambiguation | REFS-04 | N/A (different programme) |
-| 14 | `argyres-plesser-seiberg-9603042.pdf` | hep-th/9603042 | The Moduli Space of N=2 SUSY QCD and Duality in N=1 SUSY QCD | P. Argyres, M. Plesser, N. Seiberg | 1996 | method | REFS-03 | Expected match (Seiberg conventions) |
+| 11 | `ryttov-sannino-0711.3745.pdf` | 0711.3745 | Supersymmetry Inspired QCD Beta Function | T. Ryttov, F. Sannino | 2007 | method | REFS-01 | TBD |
+| 12 | `chan-tsou-9904406.pdf` | hep-ph/9904406 | The Dualized Standard Model and its Applications—an Interim Report | Hong-Mo Chan, Sheung Tsun Tsou | 1999 | disambiguation | REFS-04 | N/A (different programme) |
+| 13 | `tsou-0110256.pdf` | hep-th/0110256 | Electric-Magnetic Duality and the Dualized Standard Model | S.T. Tsou | 2001 | disambiguation | REFS-04 | N/A (different programme) |
+| 14 | `argyres-plesser-seiberg-9603042.pdf` | hep-th/9603042 | The Moduli Space of Vacua of N=2 SUSY QCD and Duality in N=1 SUSY QCD | P. Argyres, M. Plesser, N. Seiberg | 1996 | method | REFS-03 | Expected match (Seiberg conventions) |
 | 15 | `seiberg-witten-9407087.pdf` | hep-th/9407087 | Electric-Magnetic Duality, Monopole Condensation, and Confinement in N=2 Supersymmetric Yang-Mills Theory | N. Seiberg, E. Witten | 1994 | background | REFS-03 | Expected match |
 | 16 | `seiberg-witten-9408099.pdf` | hep-th/9408099 | Monopoles, Duality and Chiral Symmetry Breaking in N=2 Supersymmetric QCD | N. Seiberg, E. Witten | 1994 | background | REFS-03 | Expected match |
+| 17 | `antipin-mojaza-pica-sannino-1105.1510.pdf` | 1105.1510 | Magnetic Fixed Points and Emergent Supersymmetry | O. Antipin, M. Mojaza, C. Pica, F. Sannino | 2011 | magnetic fixed points | Paper 3 | — |
+| 18 | `bi-terning-2208.07842.pdf` | 2208.07842 | Chiral Gauge Dynamics: Candidates for Non-Supersymmetric Dualities | A. Karasik, K. Önder, D. Tong | 2022 | chiral duality and Euler anomaly | Lecture 6 and Paper 3 | — |
+| 19 | `cheng-shadmi-9801146.pdf` | hep-th/9801146 | Duality in the Presence of Supersymmetry Breaking | H.-C. Cheng, Y. Shadmi | 1998 | soft breaking | Lecture 6 | — |
+| 20 | `peskin-9511399.pdf` | hep-ph/9511399 | A Numerical Estimate of the Small-kT Region in the BFKL Pomeron | J. Bartels, H. Lotter, M. Vogt | 1995 | historical filename | — | — |
+| 21 | `sannino-0907.1364.pdf` | 0907.1364 | QCD Dual | F. Sannino | 2009 | anomaly matching | Lecture 6 | — |
+| 22 | `sannino-1102.5100.pdf` | 1102.5100 | The Standard Model is Natural as Magnetic Gauge Theory | F. Sannino | 2011 | magnetic Standard Model | Lecture 6 | — |
+| 23 | `sannino-schechter-9708113.pdf` | hep-th/9708113 | Toy Model for Breaking Super Gauge Theories at the Effective Lagrangian Level | F. Sannino, J. Schechter | 1997 | supersymmetry breaking | REFS-03 | — |
 
 ## Organisation by Requirement
 
@@ -43,7 +50,7 @@
 - `seiberg-witten-9408099.pdf` (hep-th/9408099) -- N=2 SU(2) with matter: monopoles, duality, chiral symmetry breaking
 
 **REFS-03 scope notes:**
-- **Sannino-Schechter paper:** The roadmap listed "hep-th/9708113" as a Sannino-Schechter reference. This arXiv ID does not correspond to a Sannino-Schechter paper on gauge duality. The correct identification is uncertain (may be hep-ph/9708113 or a different paper entirely). Not downloaded pending verification of the correct arXiv ID.
+- Sannino and Schechter's effective-Lagrangian paper is archived here as `sannino-schechter-9708113.pdf`. The arXiv record resolves the conflicting archive prefixes printed on its title page. [hep-th/9708113](https://arxiv.org/abs/hep-th/9708113)
 - **Fayet-Iliopoulos paper:** Fayet and Iliopoulos, Phys. Lett. B 51, 461 (1974) predates arXiv (no preprint available). The FI D-term mechanism (V_FI = xi D for U(1) factors) is a 3-line definition that will be stated with the journal citation in Lecture 4. No download needed.
 
 ### REFS-01: Core References from 2407.17281
@@ -52,7 +59,7 @@
 - `peskin-9702094.pdf` -- Peskin lectures on duality in SUSY Yang-Mills
 - `terning-0306119.pdf` -- Terning TASI lectures on non-perturbative SUSY
 - `bilal-0802.0634.pdf` -- Bilal lectures on anomalies
-- `ryttov-sannino-0711.3745.pdf` -- Conformal windows for SP and SO gauge theories
+- `ryttov-sannino-0711.3745.pdf` -- Conjectured all-orders QCD beta function
 
 ## Convention Compatibility Notes
 
@@ -71,7 +78,7 @@
 
 ## Download Notes
 
-All 16 papers successfully downloaded from arXiv. No manual downloads required.
+The original collection contained 16 arXiv PDFs. The index above includes seven subsequent additions.
 
 - Maekawa PTP papers were identified via INSPIRE-HEP:
   - PTP 95 (1996) 943 = hep-ph/9509407
