@@ -68,6 +68,7 @@ None. All sum rules derive cleanly from the effective theories.
 
 ## Artifacts
 
+- The five-flavour colour-dual comparison derives the current residue on the one-mass branch and the canonical meson Hessian on the full-rank branch. A common low-energy example exhibits the free electromagnetic coupling in the proposed lepton mass ratio. [Five-flavour matching](FIVE-FLAVOUR-MATCHING.md)
 - `paper.tex` -- Complete LaTeX paper (15 pages)
 - `paper.pdf` -- Compiled PDF
 - `SUMMARY.md` -- This file
