@@ -1,5 +1,9 @@
 # Four Research Papers from the Dualised SM Lectures
 
+When an obstruction arises, record which observable it concerns, which assumptions the proof uses, and what happens in a model that changes one of them. Closing a calculation settles the stated case. The broader mechanism can be revisited when a new field, vacuum, operator map or independently fixed coefficient changes its premises.
+
+The open-string endpoint labels, geometric flavour triplet and Koide mass matrix now have a common test. At a zero-electron-mass boundary, a Koide-preserving deformation must change the heavy mass ratio at first order in $\sqrt{m_e/m_\mu}$. A second independent endpoint amplitude with the first held fixed gives zero slope. On the elliptic triplet, squaring a smooth scalar Yukawa profile before projection gives three positive masses and still permits an arbitrarily light electron. The open question is which intermediate states and normalized amplitudes the magnetic theory or the geometry actually produces. [Composite flavour matching and the two issue results](COMPOSITE-FLAVOUR-MATCHING.md)
+
 ## Paper 1: Sp(1) Seiberg Duality as an Alternative UV Completion of the Electroweak Sector
 
 **Theme:** From Lecture 9 (SUSY duality landscape)

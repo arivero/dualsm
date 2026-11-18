@@ -6,6 +6,8 @@ Generated: 2026-03-22
 For waved papers (same base name, multiple numbered versions), only the unnumbered base and the
 last version are included.
 
+**Correction to the O’Raifeartaigh discussion.** The superpotential perturbation in the archived *A Tale of Two Tuples* preserves rigid supersymmetry. At a stationary F-breaking vacuum the Goldstino stays massless. The deformed model also has two supersymmetric vacua. The inference in this manuscript and *From mesinos and quarkinos to the Standard Model* that lifting a Koide seed must be nonperturbative does not follow. [Vacuum calculation and a smooth flavour deformation](../papers/COMPOSITE-FLAVOUR-MATCHING.md#a-correction-to-the-parallel-oraifeartaigh-example)
+
 | Date | File | Title | Source |
 |------|------|-------|--------|
 | 2026-03-03 | phys3_sbootstrap_v4.tex | A Tale of Two Tuples: Seed Triples, Signed Charges, ... [base wave] | phys3 |
