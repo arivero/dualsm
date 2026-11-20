@@ -18,11 +18,11 @@ The open-string endpoint labels, geometric flavour triplet and Koide mass matrix
 **Decisive output:** Derived sum rules, numerical comparison with PDG masses, assessment of which sum rules are trivially satisfied vs genuinely constraining.
 **Anchor:** PDG 2024 meson masses; Gell-Mann–Okubo mass formula as benchmark.
 
-## Paper 3: Lattice Signatures of Emergent Supersymmetry at the Conformal Window Boundary
+## Paper 3: Mass Exponents and Supercurrent Tests at the Conformal Window
 
 **Theme:** From Lecture 6 (emergent SUSY)
 **Question:** Can the magnetic fixed point studied by Antipin, Mojaza, Pica and Sannino (2013) motivate a lattice test at the lower boundary of the fundamental-only SU(3) conformal window? Propose specific measurement protocols for SU(3) N_f = 8-12 lattice simulations.
-**Decisive output:** List of discriminating observables with predicted values/scaling in the emergent-SUSY scenario vs the confining scenario.
+**Decisive output:** A mode-number test of the eight-flavour exponent benchmark $1/8$, which has no known mechanism in fundamental-only QCD, and an independent adjoint-current Ward identity.
 **Anchor:** Existing SU(3) N_f=8,12 lattice data (LatKMI, LSD collaborations).
 
 The eight-flavour test requires an independent assumption about the leading mass operator of a QCD fixed point. Its target is a Dirac mode-number slope of 32/9. [Derivation and scope of the matching](paper-3-emergent-susy-lattice/SUMMARY.md)

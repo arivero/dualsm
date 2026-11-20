@@ -1,7 +1,6 @@
 % ASSERT_CONVENTION: natural_units=natural, metric_signature=mostly_minus, fourier_convention=physics, coupling_convention=alpha_s, generator_normalization=T(fund)=1/2, covariant_derivative_sign=D_mu=partial_mu-igA
 %
-% Paper 3: Lattice Signatures of Emergent Supersymmetry at the
-%           Conformal Window Boundary
+% Paper 3: Mass Exponents and Supercurrent Tests at the Conformal Window
 %
 % Conventions (Seiberg hep-th/9411149):
 %   T(fund) = 1/2 per Weyl fermion
@@ -78,8 +77,8 @@
 %% ================================================================
 \begin{document}
 
-\title{\textbf{Lattice Signatures of Emergent Supersymmetry\\
-at the Conformal Window Boundary}}
+\title{\textbf{Mass Exponents and Supercurrent Tests\\
+at the Conformal Window}}
 \author{Notes from the Dualised Standard Model Programme}
 \date{March 2026, revised November 2026}
 \maketitle
@@ -91,7 +90,7 @@ candidate magnetic dual of QCD with an adjoint Weyl fermion.  We ask
 which consequences can be tested with only fundamental fermions.
 In $\mathcal N=1$ SQCD the quark mass sources the $F$-component of
 the chiral meson $Q\widetilde Q$, giving $\gamma_m=(3\Nc-\Nf)/\Nf$.
-For $\SU{3}$ with eight flavours the result is $1/8$.  Transferring
+For $\SU{3}$ with eight flavours the result is $1/8$. In fundamental-only QCD it is a benchmark with no known matching mechanism.  Transferring
 it to fundamental-only QCD requires an infrared fixed point whose
 leading quark mass operator has dimension $23/8$.  This assumption
 predicts a Dirac mode number per unit volume proportional to
@@ -104,6 +103,8 @@ six-flavour example passes the anomaly and symmetry tests below and
 admits a lattice Ward identity with a translation contact term.
 Ten and twelve flavours lie outside the interacting SQCD window and
 provide non-supersymmetric controls.
+The November derivations received internal model review; independent
+peer review and priority for the supercurrent exclusion remain open.
 \end{abstract}
 
 \tableofcontents
@@ -200,8 +201,7 @@ Several approaches give estimates for $\Nfstar$:
   \item \textbf{Schwinger--Dyson (ladder approximation):}
     Chiral symmetry breaking occurs when the mass anomalous dimension
     $\gamma_m$ exceeds unity.  Combined with the two-loop running, this
-    gives $\Nfstar \approx 4\Nc = 12$ for $\SU{3}$~\cite{Appelquist1988,
-    Cohen1989}.
+    gives $\Nfstar \approx 4\Nc = 12$ for $\SU{3}$~\cite{ATW1996}.
 
   \item \textbf{All-orders conjectured beta function
     (Ryttov--Sannino):}  Using a conjectured non-perturbative beta
@@ -261,6 +261,8 @@ $\Nf$ & Status & $\gamma_m$ (lattice) & Key references \\
 \midrule
 $8$  & Walking candidate & $\simeq 0.6$--$1$ (effective) &
   \cite{LatKMI2017_Nf8,Cheng2013} \\
+$8$ & Conformal fit (LO) & $1.073(28)$ & LSD~\cite{LSD2023dilaton} \\
+    & Conformal fits (NLO) & $1.207(41),\ 1.200(44)$ & ibid., Table II \\
 $10$ & Uncertain & --- &
   \cite{Hayakawa2011} \\
 $12$ & Conformal fits & $0.4$--$0.5$ &
@@ -541,6 +543,19 @@ $\Nf$ & $a_0-a_{\rm SQCD}$ & $a_\lambda-a_{\rm SQCD}$ & same-rank SQCD endpoint\
 \bottomrule
 \end{tabular}
 \end{center}
+
+At six flavours the SQCD Konishi scalar
+$K=Q^\dagger e^V Q+\widetilde Q^\dagger e^{-V}\widetilde Q$
+is allowed by the assumed symmetries. If $\Delta_K<4$, a positive
+soft deformation can drive squark decoupling. If that deformation reaches
+the basin of the proposed scalar-free adjoint flow, returning to the
+same SQCD point would violate strict decrease of $a$. Under this
+decoupling hypothesis the candidate requires $\Delta_K\ge4$ (and a
+marginal perturbation must itself be checked). Neither strong-coupling
+decoupling nor the dimension has been established. A rough NSVZ estimate
+using one-loop matter anomalous dimensions gives $\Delta_K\simeq23/7$.
+For phases and anomalies of the adjoint-plus-fundamental theory see
+Anber, Lohitsiri and Sulejmanpasic~\cite{Anber2023}.
 
 In the theory with one massless adjoint Weyl $\lambda$ the independent
 anomaly-free axial charge $X$ has $X(\lambda)=1$ and
@@ -998,7 +1013,10 @@ scaling on the same eight-flavour ensembles using five fermion
 masses and five observables~\cite{LSD2023dilaton}. At leading order
 the Akaike information criteria were $33.3$ and $60.1$ respectively.
 With their selected subleading corrections the values were $24.3$
-and $24.9$. These finite-mass fits constrain the bosonic alternatives.
+and $24.9$. The corresponding LO power $1/(1+\gamma_*)\simeq0.48$
+is well below $8/9$. The NLO terms reach $46\%$ of the leading term.
+Existing eight-flavour fits disfavour the $1/8$ benchmark unless
+the simulated masses lie far from its scaling regime. These finite-mass fits constrain the bosonic alternatives.
 The ensembles contain no adjoint fermion, which the current in
 \cref{eq:translation-WI} requires.
 
@@ -1015,13 +1033,12 @@ value of $1/8$ requires the extrapolations in \cref{ssec:obs3}.
 The LatKMI collaboration reports $\gamma_m \approx 0.4$--$0.5$ for
 $\Nf = 12$~\cite{LatKMI2012_Nf12}.  $\Nf = 12$ lies outside the SUSY
 window ($\Nf > 3\Nc = 9$), where SQCD has no interacting fixed point,
-so the emergent-SUSY scenario of this paper makes no prediction there.
+so the SQCD exponent benchmark makes no prediction there.
 The measurement tests the non-SUSY conformal scenario: the two-loop
 Banks--Zaks value is $0.77$~\cite{RyttovShrock2011}, above the lattice
 range, with a large truncation uncertainty
 (\cref{ssec:gamma-numerical}).  If $\Nfstar$ is as high as~$12$, the
-boundary lies outside the SUSY window and the emergent-SUSY scenario
-used here does not apply.
+boundary lies outside the SUSY window and this benchmark does not apply.
 
 \subsection{Ten flavours as a control outside the SQCD window}
 
@@ -1208,6 +1225,13 @@ making their lattice data publicly available.
   \textit{Phys.~Rev.} \textbf{D78} (2008) 065001
   [\texttt{arXiv:0711.3745}].
 
+\bibitem{ATW1996}
+T.~Appelquist, J.~Terning and L.~C.~R.~Wijewardhana,
+Phys. Rev. Lett. \textbf{77}, 1214 (1996), hep-ph/9602385.
+\bibitem{Anber2023}
+M.~M.~Anber, N.~Lohitsiri and T.~Sulejmanpasic,
+\emph{Remarks on QCD$_4$ with fundamental and adjoint matter},
+arXiv:2306.01849.
 \bibitem{Appelquist1988}
   T.~Appelquist, D.~Karabali, and L.~C.~R.~Wijewardhana,
   ``Chiral hierarchies and the flavor changing neutral current problem

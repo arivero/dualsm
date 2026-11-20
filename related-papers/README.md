@@ -6,7 +6,7 @@ Generated: 2026-03-22
 For waved papers (same base name, multiple numbered versions), only the unnumbered base and the
 last version are included.
 
-**Correction to the O’Raifeartaigh discussion.** The superpotential perturbation in the archived *A Tale of Two Tuples* preserves rigid supersymmetry. At a stationary F-breaking vacuum the Goldstino stays massless. The deformed model also has two supersymmetric vacua. The inference in this manuscript and *From mesinos and quarkinos to the Standard Model* that lifting a Koide seed must be nonperturbative does not follow. [Vacuum calculation and a smooth flavour deformation](../papers/COMPOSITE-FLAVOUR-MATCHING.md#a-correction-to-the-parallel-oraifeartaigh-example)
+**Correction to the O’Raifeartaigh discussion.** The superpotential perturbation in the archived *A Tale of Two Tuples* preserves rigid supersymmetry. At a stationary F-breaking vacuum the Goldstino stays massless. The deformed model also has two supersymmetric vacua. [Corrected original manuscript](https://github.com/arivero/physres2/blob/a2525e0/sbootstrap_v4d.tex). The inference in this archived version and *From mesinos and quarkinos to the Standard Model* that lifting a Koide seed must be nonperturbative does not follow. [Vacuum calculation and a smooth flavour deformation](../papers/COMPOSITE-FLAVOUR-MATCHING.md#a-correction-to-the-parallel-oraifeartaigh-example)
 
 | Date | File | Title | Source |
 |------|------|-------|--------|
@@ -44,6 +44,6 @@ last version are included.
 | 2026-03-20 | dualsm_paper1_sp_duality.tex | Sp(1) Seiberg Duality as an Alternative UV Completion of the EW Sector | dualsm |
 | 2026-03-20 | dualsm_paper2_meson_sum_rules.tex | Meson Mass Sum Rules in the Dual 6x6 Flavour Matrix Framework | dualsm |
 | 2026-03-20 | dualsm_paper4_generation_number.tex | Why Three Generations: Generation Number from Seiberg Duality | dualsm |
-| 2026-03-20 | dualsm_paper3_emergent_susy.tex | Lattice Signatures of Emergent Supersymmetry at the Conformal Window Boundary | dualsm |
+| 2026-03-20 | dualsm_paper3_emergent_susy.tex | Mass Exponents and Supercurrent Tests at the Conformal Window | dualsm |
 | 2026-03-22 | phys6_explanation.tex | Lecture 11: The Koide Relation and the Dualised SM [base wave] | phys6gpd |
 | 2026-03-22 | phys6_iss_mesons.tex | Meson decomposition from the ISS rank condition | phys6gpd |

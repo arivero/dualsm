@@ -1,5 +1,7 @@
 # Content Assessments
 
+[November review of the revised papers](2026-11-20/README.md)
+
 This folder contains one separate content review for each LaTeX source in:
 
 - `lectures/`

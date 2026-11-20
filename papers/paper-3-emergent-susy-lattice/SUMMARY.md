@@ -1,4 +1,4 @@
-# Lattice signatures of emergent supersymmetry at the conformal window boundary
+# Mass Exponents and Supercurrent Tests at the Conformal Window
 
 ## What gives $1/8$
 
@@ -38,10 +38,10 @@ Normalize baryon number $B=1$ for a colour baryon. In fundamental-only $SU(N_c)$
 
 | Proposed same-colour SQCD endpoint | Fundamental-only $SU(3)$ | With one adjoint Weyl and no squarks |
 |---|---|---|
-| $N_f=5,6$ | The Euler inequality passes. The local supercurrent is excluded under the hypotheses above. | The local current channel exists and the continuous anomalies and Euler inequality pass. The flow is open. |
+| $N_f=5,6$ | The Euler inequality passes. The local supercurrent is excluded under the single-charge hypotheses above. At odd flavour number (5 or 7), two same-chirality charges exchanged by $C$ evade this particular argument. | The local current channel exists and the continuous anomalies and Euler inequality pass. The six-flavour return flow requires $\Delta_K\ge4$ if positive squark mass decouples into this basin. |
 | $N_f=7,8$ | The endpoint violates the Euler inequality. | The endpoint still violates the Euler inequality. |
 
-At six flavours the Euler margins $a_{\rm UV}-a_{\rm SQCD}$ are $17/2880$ and $41/320$ respectively. Softly broken SQCD has squarks as well as the adjoint in the ultraviolet and requires its own deformation analysis. [Exact SQCD anomalies](https://arxiv.org/abs/hep-th/9708042) · [Anomaly-mediated deformation](https://doi.org/10.1103/PhysRevLett.126.251601)
+At six flavours the Euler margins $a_{\rm UV}-a_{\rm SQCD}$ are $17/2880$ and $41/320$ respectively. The symmetry-singlet Konishi perturbation would generate an $a$-theorem cycle if it were relevant and reached the same scalar-free basin. The rough estimate $\Delta_K\simeq23/7$ and the decoupling step are uncontrolled. Softly broken SQCD has squarks as well as the adjoint in the ultraviolet and requires its own deformation analysis. [Exact SQCD anomalies](https://arxiv.org/abs/hep-th/9708042) · [Anomaly-mediated deformation](https://doi.org/10.1103/PhysRevLett.126.251601)
 
 At eight flavours the vector-centre obstruction extends to $1\leq\mathcal N<8$ local Weyl supercharges with the same microscopic field content and unbroken vector flavour symmetry. A bosonic constituent with the quark's colour, flavour and baryon charges changes that argument. A Koide law for composite masses can also be tested independently of spacetime supersymmetry. [Proof and composite examples](../COMPOSITE-FLAVOUR-MATCHING.md#how-far-the-two-issue-results-reach)
 
@@ -51,12 +51,12 @@ At eight flavours the vector-centre obstruction extends to $1\leq\mathcal N<8$ l
 
 | $N_f$ | SQCD mass exponent for $SU(3)$ | Two-loop QCD estimate | Selected lattice results |
 |---|---|---|---|
-| 8 | $1/8$ | No positive two-loop zero | Finite-mass hyperscaling gives effective $\gamma_m\simeq0.6$ for $m_\pi$ and $\simeq1$ in several other channels. [LatKMI eight-flavour study](https://arxiv.org/abs/1610.07011) |
+| 8 | $1/8$ | No positive two-loop zero | LSD conformal fits give $\gamma_*=1.073(28)$ at LO and $1.207(41),1.200(44)$ at NLO. Finite-mass hyperscaling gives effective $\gamma_m\simeq0.6$ for $m_\pi$ and $\simeq1$ in several other channels. [LatKMI eight-flavour study](https://arxiv.org/abs/1610.07011) |
 | 10 | Outside the interacting window | $4.19$, beyond the unitarity bound and unreliable | Running-coupling measurements probe the location of the QCD conformal boundary. [Ten-flavour step scaling](https://arxiv.org/abs/2004.00754) |
 | 12 | Outside the interacting window | $0.77$, with a large two-loop correction | LatKMI finite-size fits gave $\gamma_m\simeq0.4$–$0.5$. [LatKMI twelve-flavour study](https://arxiv.org/abs/1207.3060) |
 
 The light singlet scalar and nonsinglet pion carry different vector flavour. Their mass ratio remains a probe of the spectrum, with no value fixed by the matched exponent. The gluonic spectrum and condensate potential likewise require their own dynamics. A SUSY Ward identity requires a local supercurrent.
 
-On the same eight-flavour data LSD found leading-order Akaike criteria of 33.3 for dilaton EFT and 60.1 for mass-deformed conformal scaling. With the selected subleading corrections the comparison became 24.3 versus 24.9. These fits constrain the bosonic interpretations at finite mass. The adjoint-supercurrent test requires different ensembles. [LSD comparison, Tables I and II](https://arxiv.org/pdf/2305.03665)
+On the same eight-flavour data LSD found leading-order Akaike criteria of 33.3 for dilaton EFT and 60.1 for mass-deformed conformal scaling. With the selected subleading corrections the comparison became 24.3 versus 24.9. The LO mass power is about $0.48$ against $8/9$. NLO terms reach 46% of LO. Existing fits disfavour $1/8$ unless the simulated masses are far from scaling. The adjoint-supercurrent test requires different ensembles. [LSD comparison, Tables I and II](https://arxiv.org/pdf/2305.03665)
 
 [Paper source](paper.tex) · [Compiled paper](paper.pdf)

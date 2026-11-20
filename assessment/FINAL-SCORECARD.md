@@ -1,5 +1,7 @@
 # Final Scorecard
 
+[November review of the revised papers](2026-11-20/README.md)
+
 This scorecard records the adjudication result for each source file and the file that should be treated as the final assessment.
 
 ## Lectures
