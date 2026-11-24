@@ -12,4 +12,4 @@ Count a supersymmetric frame when both electric and magnetic one-loop coefficien
 | $k=2$ | 2, 3 |
 | $k\ge3$ | 1, 2, 3 |
 
-The SU and Sp ranges intersect only at three. For SO the electric coefficient vanishes there. For $k\ge2$ the magnetic coefficient vanishes there. Including the edges and using the supersymmetric magnetic weak coefficient are essential: strict inequalities remove the SU–Sp overlap, and the nonsupersymmetric weak coefficient permits up to five generations. Applications to nonsupersymmetric duality remain conjectural. [Derivations and master table](paper.tex) · [Paper](paper.pdf)
+The SU and Sp ranges intersect only at three. For SO the electric coefficient vanishes there. For $k\ge2$ the magnetic coefficient vanishes there. Under the narrower Kutasov–Schwimmer window that requires every meson to interact, three drops out for $k\ge2$. Strict inequalities also remove the SU–Sp overlap, and the nonsupersymmetric weak coefficient permits up to five generations. Applications to nonsupersymmetric duality remain conjectural. [Derivations and master table](paper.tex) · [Paper](paper.pdf)

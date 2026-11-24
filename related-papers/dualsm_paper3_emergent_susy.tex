@@ -103,8 +103,6 @@ six-flavour example passes the anomaly and symmetry tests below and
 admits a lattice Ward identity with a translation contact term.
 Ten and twelve flavours lie outside the interacting SQCD window and
 provide non-supersymmetric controls.
-The November derivations received internal model review; independent
-peer review and priority for the supercurrent exclusion remain open.
 \end{abstract}
 
 \tableofcontents
@@ -199,9 +197,10 @@ Several approaches give estimates for $\Nfstar$:
 
 \begin{enumerate}[label=(\roman*)]
   \item \textbf{Schwinger--Dyson (ladder approximation):}
-    Chiral symmetry breaking occurs when the mass anomalous dimension
-    $\gamma_m$ exceeds unity.  Combined with the two-loop running, this
-    gives $\Nfstar \approx 4\Nc = 12$ for $\SU{3}$~\cite{ATW1996}.
+    Equating the critical ladder coupling to the two-loop infrared
+    zero gives $\Nfstar=\Nc(100\Nc^2-66)/(25\Nc^2-15)$ in this
+    approximation. It approaches $4\Nc$ at large $\Nc$ and gives
+    $11.91$ at $\Nc=3$~\cite[Eq.~(12)]{ATW1996}.
 
   \item \textbf{All-orders conjectured beta function
     (Ryttov--Sannino):}  Using a conjectured non-perturbative beta
@@ -380,9 +379,12 @@ Eq.~\eqref{eq:gammaQ-star}, since $\dim(M) = 2 + \gamma_Q^*$.
   at separated points, so the limiting dimension does not imply a
   nonzero dimension-two correlator there.  For
   $\Nc + 2 \le \Nf \le \tfrac{3}{2}\Nc$ SQCD flows instead to a free
-  magnetic phase.  The value $\gamma_m = 1$ at the lower edge agrees
-  with the bound $\gamma_m \le 1$ obtained for the candidate non-SUSY
-  dual of QCD with one adjoint fermion~\cite{MNPS2011,AMPS2013}.
+  magnetic phase. In the proposed dual of QCD with one adjoint Weyl
+  fermion, Mojaza \textit{et al.}\ infer $\gamma_m\le1$ from their
+  magnetic mass deformation~\cite[Eq.~(47) and following text]{MNPS2011}.
+  AMPS quote the bound at the lower edge conditional on that
+  duality~\cite[Sec.~II]{AMPS2013}. Fundamental-only QCD has a
+  different operator content.
 \end{remark}
 
 \subsection{Matching the eight-flavour mass deformation}
@@ -458,6 +460,9 @@ flavour centre rotation on the two chiralities is cancelled by the
 inverse $V$ phase. A $V$ phase of $2\pi/\Nc$ acts as a colour
 centre transformation~\cite{Tanizaki2018}. For two colours the flavour
 group is enhanced and the colour-centre argument below still applies.
+The \href{https://github.com/arivero/dualsm/blob/master/assessment/2026-11-20/joint-referee-report.md}{20 November referee report}
+records two internal model checks of the following proposition.
+Independent peer review and priority remain open.
 
 \begin{proposition}
 In the inherited local operator algebra of fundamental-only QCD
@@ -532,28 +537,36 @@ throughout the window since their slope at fixed colour is
 $\Nc^2[11/360-9/(8x^3)]<0$~\cite{Anselmi1998,Komargodski2011}.
 For three colours this gives
 \begin{center}
-\begin{tabular}{crrl}
+\begin{tabular}{crrll}
 \toprule
-$\Nf$ & $a_0-a_{\rm SQCD}$ & $a_\lambda-a_{\rm SQCD}$ & same-rank SQCD endpoint\\
+$\Nf$ & $a_0-a_{\rm SQCD}$ & $a_\lambda-a_{\rm SQCD}$ & fundamental only & with adjoint\\
 \midrule
-5 & $106/225$ & $89/150$ & fundamental current excluded, adjoint candidate open\\
-6 & $17/2880$ & $41/320$ & fundamental current excluded, adjoint candidate open\\
-7 & $-2101/8820$ & $-341/2940$ & excluded for both UV contents by $a$\\
-8 & $-3359/9216$ & $-3721/15360$ & excluded for both UV contents by $a$\\
+5 & $106/225$ & $89/150$ & single charge excluded & open\\
+6 & $17/2880$ & $41/320$ & single charge excluded & Konishi test below\\
+7 & $-2101/8820$ & $-341/2940$ & excluded by $a$ & excluded by $a$\\
+8 & $-3359/9216$ & $-3721/15360$ & excluded by $a$ & excluded by $a$\\
 \bottomrule
 \end{tabular}
 \end{center}
 
-At six flavours the SQCD Konishi scalar
-$K=Q^\dagger e^V Q+\widetilde Q^\dagger e^{-V}\widetilde Q$
-is allowed by the assumed symmetries. If $\Delta_K<4$, a positive
-soft deformation can drive squark decoupling. If that deformation reaches
-the basin of the proposed scalar-free adjoint flow, returning to the
-same SQCD point would violate strict decrease of $a$. Under this
-decoupling hypothesis the candidate requires $\Delta_K\ge4$ (and a
-marginal perturbation must itself be checked). Neither strong-coupling
-decoupling nor the dimension has been established. A rough NSVZ estimate
-using one-loop matter anomalous dimensions gives $\Delta_K\simeq23/7$.
+At six flavours a common positive squark mass couples to the bottom
+component of the singlet Konishi multiplet
+$K=\sum_i(Q_i^\dagger e^V Q_i+\widetilde Q_i^\dagger e^{-V}\widetilde Q_i)$.
+If $\Delta_K<4$, this is a relevant deformation of the SQCD point.
+Suppose its trajectory decouples the squarks and enters the basin of
+the proposed scalar-free adjoint theory. A flow from that basin back
+to the same SQCD point would contradict strict decrease of $a$.
+Under this decoupling hypothesis the candidate requires $\Delta_K\ge4$.
+At equality the direction of the marginal flow still matters.
+
+For electric SQCD with no superpotential the critical exponent gives
+$\Delta_K=2+\beta'(\alpha_*)$~\cite[Eq.~(1.1)]{KonishiSlope}.
+Inserting just $\gamma_Q=-C_F\alpha/\pi$, $C_F=4/3$, into
+\cref{eq:NSVZ} gives $\alpha_*=3\pi/8$ and
+$\beta'(\alpha_*)=\Nf C_F\alpha_*^2/[2\pi^2(1-\Nc\alpha_*/(2\pi))]=9/7$.
+The resulting $23/7$ uses a one-loop matter anomalous dimension at
+strong coupling. Both the exact dimension and the basin reached by
+the deformation remain unknown.
 For phases and anomalies of the adjoint-plus-fundamental theory see
 Anber, Lohitsiri and Sulejmanpasic~\cite{Anber2023}.
 
@@ -1013,8 +1026,11 @@ scaling on the same eight-flavour ensembles using five fermion
 masses and five observables~\cite{LSD2023dilaton}. At leading order
 the Akaike information criteria were $33.3$ and $60.1$ respectively.
 With their selected subleading corrections the values were $24.3$
-and $24.9$. The corresponding LO power $1/(1+\gamma_*)\simeq0.48$
-is well below $8/9$. The NLO terms reach $46\%$ of the leading term.
+and $24.9$ (NLO~2 for conformal scaling). The LO conformal exponent
+$\gamma_*=1.073(28)$ gives a mass power $1/(1+\gamma_*)\simeq0.482$,
+well below $8/9$. In NLO~2 the correction to the scalar decay
+constant $F_S$ reaches $46\%$ of its leading term at the heaviest
+simulated mass~\cite[Table~II and Sec.~IV]{LSD2023dilaton}.
 Existing eight-flavour fits disfavour the $1/8$ benchmark unless
 the simulated masses lie far from its scaling regime. These finite-mass fits constrain the bosonic alternatives.
 The ensembles contain no adjoint fermion, which the current in
@@ -1226,17 +1242,20 @@ making their lattice data publicly available.
   [\texttt{arXiv:0711.3745}].
 
 \bibitem{ATW1996}
-T.~Appelquist, J.~Terning and L.~C.~R.~Wijewardhana,
-Phys. Rev. Lett. \textbf{77}, 1214 (1996), hep-ph/9602385.
+  T.~Appelquist, J.~Terning and L.~C.~R.~Wijewardhana,
+  \emph{The zero temperature chiral phase transition in $\SU{N}$ gauge
+  theories}, \textit{Phys.~Rev.~Lett.} \textbf{77} (1996) 1214
+  [\texttt{hep-ph/9602385}].
+
 \bibitem{Anber2023}
-M.~M.~Anber, N.~Lohitsiri and T.~Sulejmanpasic,
-\emph{Remarks on QCD$_4$ with fundamental and adjoint matter},
-arXiv:2306.01849.
-\bibitem{Appelquist1988}
-  T.~Appelquist, D.~Karabali, and L.~C.~R.~Wijewardhana,
-  ``Chiral hierarchies and the flavor changing neutral current problem
-  in technicolor,''
-  \textit{Phys.~Rev.~Lett.} \textbf{57} (1986) 957.
+  M.~M.~Anber, N.~Lohitsiri and T.~Sulejmanpasic,
+  \emph{Remarks on QCD$_4$ with fundamental and adjoint matter},
+  [\texttt{arXiv:2306.01849}].
+
+\bibitem{KonishiSlope}
+  D.~Anselmi, M.~Grisaru and A.~Johansen,
+  \emph{A critical behaviour of anomalous currents, electric-magnetic
+  universality and CFT$_4$}, [\texttt{hep-th/9601023}].
 
 \bibitem{Cohen1989}
   A.~G.~Cohen and H.~Georgi,

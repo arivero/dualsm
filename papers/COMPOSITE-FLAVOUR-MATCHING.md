@@ -70,14 +70,14 @@ All three pairs must lie on one line with slope at least two. This relation test
 
 ### A correction to the parallel O'Raifeartaigh example
 
-The sBootstrap manuscript obtains the rank-two Koide seed for $gv/m=\sqrt3$ in a rigid model. It then attributes a physical Goldstino mass to the superpotential deformation $\epsilon X B$. For its displayed $W=fX+mAB+gXA^2+\epsilon XB$ with canonical Kähler metric, stationarity is $W_{ij}\overline{W_j}=0$. A vacuum with a nonzero $F$ therefore has a zero fermion mass eigenvalue. Breaking $R$ in the superpotential preserves rigid supersymmetry. For nonzero $f,m,g,\epsilon$ the three $F$ equations also admit the solutions
+The sBootstrap manuscript obtains the rank-two Koide seed for $gv/m=\sqrt3$ in a rigid model. Its March version attributed a physical Goldstino mass to the superpotential deformation $\epsilon X B$. For $W=fX+mAB+gXA^2+\epsilon XB$ with canonical Kähler metric, stationarity requires $W_{ij}\overline{W_j}=0$. At the old seed $(X,A,B)=(v,0,0)$ this vector is $(\epsilon^2v,m\epsilon v,\epsilon f)$ for real parameters. For $\epsilon f\ne0$ the old background is no longer stationary. At any stationary vacuum with a nonzero $F$, the same equation protects a zero fermion mass eigenvalue. Breaking $R$ in the superpotential preserves rigid supersymmetry. For nonzero $f,m,g,\epsilon$ the three $F$ equations also admit the solutions
 
 $$
 A^2=-\frac{f}{3g},\qquad X=-\frac{mA}{\epsilon},\qquad
 B=-\frac{2f}{3\epsilon}.
 $$
 
-These are supersymmetric vacua at large field values as $\epsilon\to0$. A Hessian evaluated on the old background cannot demonstrate a massive Goldstino in a stationary breaking vacuum. This removes the proposed inference that a smooth lifting of the lightest flavour needs nonperturbative dynamics. The rank construction above lifts a flavour zero mode through a second transition. A Goldstino in a stationary breaking vacuum is protected by a supersymmetry Ward identity. [Archived model and deformation](../related-papers/phys3_sbootstrap_v4d.tex) · [Intriligator and Seiberg on the Goldstino](https://arxiv.org/pdf/hep-ph/0702069#page=6)
+These are supersymmetric vacua at large field values as $\epsilon\to0$. The rank construction above lifts a flavour zero through a second transition, and the explicitly correlated deformation follows the Koide branch. Identifying a flavour state with the Goldstino would also require the supersymmetry Ward identity at a stationary breaking vacuum. [March argument](https://github.com/arivero/physres2/blob/f2e137f/sbootstrap_v4d.tex) · [Corrected model and deformation](../related-papers/phys3_sbootstrap_v4d.tex) · [Intriligator and Seiberg on the Goldstino](https://arxiv.org/pdf/hep-ph/0702069#page=6) · [Nelson and Seiberg on R symmetry and supersymmetry breaking](https://arxiv.org/abs/hep-ph/9309299)
 
 ## How far the two issue results reach
 

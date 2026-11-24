@@ -1,12 +1,11 @@
 # Related Papers
 
-Collection of LaTeX source files from research repositories, ordered chronologically by file date.
-Generated: 2026-03-22
+The collection began on 22 March 2026. The table gives the original file dates. The four DualSM entries track their current papers.
 
 For waved papers (same base name, multiple numbered versions), only the unnumbered base and the
 last version are included.
 
-**Correction to the O’Raifeartaigh discussion.** The superpotential perturbation in the archived *A Tale of Two Tuples* preserves rigid supersymmetry. At a stationary F-breaking vacuum the Goldstino stays massless. The deformed model also has two supersymmetric vacua. [Corrected original manuscript](https://github.com/arivero/physres2/blob/a2525e0/sbootstrap_v4d.tex). The inference in this archived version and *From mesinos and quarkinos to the Standard Model* that lifting a Koide seed must be nonperturbative does not follow. [Vacuum calculation and a smooth flavour deformation](../papers/COMPOSITE-FLAVOUR-MATCHING.md#a-correction-to-the-parallel-oraifeartaigh-example)
+**Goldstino correction, 24 November 2026.** The last version of *A Tale of Two Tuples* now includes the corrected source and PDF. At a stationary F-breaking vacuum the Goldstino stays massless. The deformed model also has two supersymmetric vacua. The March versions of *From mesinos and quarkinos to the Standard Model* retain the earlier inference that lifting a flavour seed must be nonperturbative. A smooth flavour deformation is possible. [Corrected original manuscript](https://github.com/arivero/physres2/blob/6027cdc/sbootstrap_v4d.tex) · [Vacuum calculation and explicit deformation](../papers/COMPOSITE-FLAVOUR-MATCHING.md#a-correction-to-the-parallel-oraifeartaigh-example)
 
 | Date | File | Title | Source |
 |------|------|-------|--------|

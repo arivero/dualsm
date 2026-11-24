@@ -1,8 +1,8 @@
-# Final Scorecard
+# March assessment scorecard
 
 [November review of the revised papers](2026-11-20/README.md)
 
-This scorecard records the adjudication result for each source file and the file that should be treated as the final assessment.
+These decisions and totals apply to the March texts. The dated November review above covers the revised supercurrent proposition, lattice benchmarks and flavour calculations.
 
 ## Lectures
 

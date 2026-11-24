@@ -18,6 +18,17 @@ Thus $\partial_\delta V=-3D^{\prime}\sin3\delta$. For an interior positive nonde
 
 Under these assumptions, a renormalizable polynomial of the eigenvalues alone cannot select an isolated interior phase on an exact fixed-scale cone. Extra fields, non-polynomial quantum terms, non-symmetric tensors, or higher-degree operators evade the statement. It does not exclude potentials with such additional structure.
 
+## The coefficient used in Lecture 11
+
+The next section of the chapter supplies the determinant and the first nonlinear example. With the positive-root convention of the lecture,
+
+$$
+e_3=\frac{s^3}{2}(\sqrt2\cos3\delta-1),\qquad
+V_\delta=\frac{\kappa_6}{\Lambda_*^2}(e_3-p_*)^2,\quad\kappa_6>0 .
+$$
+
+On $0<\delta<\pi/12$, $e_3$ decreases from $s^3(\sqrt2-1)/2$ to zero. An interior minimum therefore requires $p_*$ strictly between those values. Setting $\delta=2/9$ requires $p_*/s^3=(\sqrt2\cos(2/3)-1)/2$. The phase depends on a coefficient of the potential. [Source section checked on 24 November 2026](https://explaining-alphaology.al-rivero.chatgpt.site/geometry-duality/#sextic)
+
 [↗ koide-fusaoka](https://explaining-alphaology.al-rivero.chatgpt.site/references/#koide-fusaoka)
 
 [↗ sumino](https://explaining-alphaology.al-rivero.chatgpt.site/references/#sumino)

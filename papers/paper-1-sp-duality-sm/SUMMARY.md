@@ -1,6 +1,6 @@
 # A magnetic Sp(1) electroweak group
 
-Three Standard Model generations supply twelve Weyl doublets, or six flavour pairs. The Intriligator–Pouliot duality map $Sp(N_c)\leftrightarrow Sp(N_f-N_c-2)$ identifies the proposed electric group as $Sp(3)$. Its $SU(12)^3$, $SU(12)^2 U(1)_R$, gravitational and cubic $R$ anomalies match in the two descriptions. [Intriligator and Pouliot](https://arxiv.org/abs/hep-th/9505006)
+Three Standard Model generations supply twelve Weyl doublets, or six flavour pairs. The Intriligator–Pouliot map $Sp(N_c)\leftrightarrow Sp(N_f-N_c-2)$ pairs electric $Sp(3)$ with magnetic $Sp(1)$. The $SU(12)^3$ anomaly is $6$ in either description and $SU(12)^2 U(1)_R$ gives $-2$. The gravitational and cubic $R$ anomalies also match. [Intriligator and Pouliot, hep-th/9505006](https://arxiv.org/abs/hep-th/9505006)
 
 There are 66 independent antisymmetric mesons. Each is a magnetic gauge singlet, so none can supply a weak doublet when $SU(2)_L$ is the magnetic gauge group. Gauging a subgroup of flavour changes that conclusion.
 

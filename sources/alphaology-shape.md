@@ -2,6 +2,8 @@
 
 Section archived on 20 November 2026 from *Explaining alphaology*. [Original chapter](https://explaining-alphaology.al-rivero.chatgpt.site/shape/#both)
 
+The chapter uses $K(m)=\sum_i m_i/(\sum_i\sqrt{m_i})^2$, the reciprocal of the $Q$ used in Lecture 11. For $q_i=\sqrt{m_i}>0$ let $s_1,s_2,s_3$ be the elementary symmetric polynomials in the $q_i$. Then $K(m)=1-2s_2/s_1^2$ and $K(1/m)=1-2s_1s_3/s_2^2$. At $K=2/3$ these give $s_2=s_1^2/6$ and $s_2^2=6s_1s_3$ respectively. [Definitions in the preceding section](https://explaining-alphaology.al-rivero.chatgpt.site/shape/#invariants)
+
 Impose both equalities. Then $s_3=s_1^3/216$. With $t_i=6q_i/s_1$, the three normalized roots satisfy
 
 $$
