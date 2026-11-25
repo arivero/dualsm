@@ -52,7 +52,7 @@ $$
        \left|\frac{m_i m_j}{S}\right|.
 $$
 
-Under $M'=cM$, the Hessian transforms as $H'=H/c^2$ and the metric as $G'=G/|c|^2$. All canonical masses are invariant. Changing the physical metric with holomorphic inputs held fixed does change the result. For example multiplying both metric entries of a pair by $k>0$ divides its mass by $k$. In a specified microscopic SQCD the metric is dynamical input to be computed. Momentum-dependent self-energies would also enter pole masses beyond a local low-energy approximation.
+Under $M'=cM$, the Hessian transforms as $H'=H/c^2$ and the metric as $G'=G/|c|^2$. All canonical masses are invariant. Changing the physical metric with holomorphic inputs held fixed does change the result. For example multiplying both metric entries of a pair by $k>0$ divides its mass by $k$. In a specified microscopic SQCD the metric is dynamical input to be computed. Momentum-dependent self-energies would also enter pole masses beyond a local low-energy approximation. The same free coefficient leaves the scale of an inverse-Koide image of the down quarks undetermined. [Inverse-Koide scale note](../INVERSE-KOIDE-SCALE.md)
 
 ## A common low-energy counterexample
 
