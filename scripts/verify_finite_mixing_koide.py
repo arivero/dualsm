@@ -141,7 +141,9 @@ def check_closed_forms():
         u, v, x = logu(rng, -2, 2), logu(rng, -2, 2), logu(rng, -2, 2)
         M = logu(rng, -3, 3)
         t = x * x
-        m, H = light(u, v, M, x), heavy(u, v, M, x)
+        m = light(u, v, M, x)
+        # H from its second closed form, independent of H = u v t / m
+        H = ((M * M + (u + v) ** 2 * t).sqrt() + (M * M + (u - v) ** 2 * t).sqrt()) / 2
         worst_inv = max(worst_inv, rel(H * m, u * v * t),
                         rel(H * H + m * m, M * M + (u * u + v * v) * t))
         # M M^dagger = [[u^2 t, u x M], [u x M, v^2 t + M^2]]
@@ -150,9 +152,7 @@ def check_closed_forms():
         lam_p = (tr + (tr * tr - 4 * det).sqrt()) / 2
         lam_m = det / lam_p
         worst_diag = max(worst_diag, rel(m * m, lam_m), rel(H * H, lam_p))
-        # second closed form of H
-        H2 = ((M * M + (u + v) ** 2 * t).sqrt() + (M * M + (u - v) ** 2 * t).sqrt()) / 2
-        worst_diag = max(worst_diag, rel(H, H2))
+        worst_diag = max(worst_diag, rel(H, heavy(u, v, M, x)))
     check("m H = u v t and m^2 + H^2 = M^2 + (u^2+v^2) t on 1500 samples", worst_inv < TOL,
           f"max rel. dev. {float(worst_inv):.1e}")
     # det = a d - c^2 loses up to ~12 digits to cancellation at large M, small x
