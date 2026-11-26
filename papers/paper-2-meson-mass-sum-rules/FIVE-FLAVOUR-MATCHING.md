@@ -66,6 +66,52 @@ The five microscopic masses, the common holomorphic condensate and the choice of
 
 This is a test of multiplicative factorization of a two-by-three **array**. All six charged pairs have nonzero canonical masses under the hypotheses. A nondiagonal metric or momentum-dependent pole self-energy calls for current-resolved matching before applying the ratio. The conditions leave a common lepton or hadron mass scale free.
 
+### The first departure from factorization
+
+Fix one full-rank vacuum branch, $m_ih_i=S$ with $S^3=\Lambda_e^4\det m$, and vary $m_i=m_0e^{\delta_i}$ about a common $m_0>0$ at a fixed matching scale. Treat the $Y$ source as an external probe; gauging $Y$ preserves the symmetries used below and adds its own contributions to the coefficient. Assume a positive diagonal two-derivative Kähler metric whose entries are real analytic functions of $\delta$ along the branch, and label each charged pair by its vector-flavour charges. Put $z_{aj}=\tfrac12\log(\kappa_{aj}\kappa_{ja})$ and $\Delta_{ij}=\delta_i-\delta_j$. The cancellation of the holomorphic factors gives
+$$
+ F_{jk}:=\log R_{jk}=z_{uk}+z_{cj}-z_{uj}-z_{ck},\qquad
+ R_{jk}=\frac{m^{\rm can}_{uj}m^{\rm can}_{ck}}{m^{\rm can}_{uk}m^{\rm can}_{cj}} .
+$$
+The antisymmetric part of $\log\kappa_{aj}-\log\kappa_{ja}$ drops out.
+
+**Proposition (order of departure).** Under these hypotheses
+$$
+ \log R_{ds}=C\,\Delta_{uc}\Delta_{ds}+O(\|\delta\|^3),\qquad
+ \log R_{db}=C\,\Delta_{uc}\Delta_{db}+O(\|\delta\|^3),
+$$
+with one coefficient
+$$
+ C=-\big[(\partial_u-\partial_c)(\partial_j-\partial_k)\,z_{uj}\big]_{\delta=0},\qquad \partial_i=\partial/\partial\delta_i ,
+$$
+the same for both ratios. Both ratios equal one exactly whenever $\delta_u=\delta_c$, and $R_{jk}=1$ whenever $\delta_j=\delta_k$, for arbitrary spectator masses. No linear term occurs. Quadratic order is therefore the first allowed departure, and its size is the single Kähler number $C$.
+
+*Proof.* At $m_i=m_0$ the vacuum $h_i=h$ preserves vector $SU(5)$. For unequal masses the theory with permuted masses is the relabelled theory. The permutations $S_2\times S_3$ of up and of down flavours preserve the charge labels, and they act by $z_{\sigma a,\sigma j}(\sigma\delta)=z_{aj}(\delta)$, where $(\sigma\delta)_{\sigma i}=\delta_i$. Exchanging $u,c$ maps the four terms of $F_{jk}$ into one another with the opposite signs, so $F_{jk}(\tau_{uc}\delta)=-F_{jk}(\delta)$; exchanging $j,k$ does the same. When $\delta_u=\delta_c$ the exchanged point is the point itself, so $F_{jk}=0$; likewise when $\delta_j=\delta_k$. A real-analytic function vanishing on the hyperplane $\Delta_{uc}=0$ has the form $\Delta_{uc}G$ with $G$ analytic. Then $G$ vanishes on $\Delta_{jk}=0$ away from $\Delta_{uc}=0$, hence everywhere on it by continuity, and $F_{jk}=\Delta_{uc}\Delta_{jk}H_{jk}$ with $H_{jk}$ analytic. Every term of its Taylor series is at least bilinear, and $C_{jk}=H_{jk}(0)$. Applying $(\partial_u-\partial_c)(\partial_j-\partial_k)$ at $0$ gives $4C_{jk}$ on the right. On the left the exchange symmetries make the four terms contribute equally, each $-[(\partial_u-\partial_c)(\partial_j-\partial_k)z_{uj}]_0$, which gives the formula for $C$. Finally the exchange $s\leftrightarrow b$ maps $F_{ds}(\delta)$ onto $F_{db}(\sigma\delta)$ and $\Delta_{ds}$ onto $\Delta_{db}$, so $C_{ds}=C_{db}$. $\square$
+
+With the full $S_5$ at the symmetric point, write $P,Q,O$ for the second derivatives of $z_{ab}$ at $0$ in $(\delta_a,\delta_b)$, in $(\delta_a,\delta_o)$ with $o$ a third flavour, and in $(\delta_o,\delta_{o'})$ with two distinct third flavours. Then $C=-(P-2Q+O)$. In the vacuum coordinates $w_i=\log h_i=\tfrac13\sum_l\delta_l-\delta_i+{\rm const}$, a metric that depends only on the two vacuum values of its pair, $\kappa_{aj}=\kappa_{ja}=k(h_a,h_j)$, gives $C=-\partial_{w_a}\partial_{w_j}\log k$ at the symmetric point.
+
+**Effective coefficient.** Take the local kinetic term $K_2\propto\operatorname{tr}(\Phi^\dagger\Phi+\lambda\,\Phi^\dagger D\Phi D)$ for the meson fluctuation $\Phi$, with $D=\operatorname{diag}(\delta_i)$, and hold the holomorphic Hessian fixed. Since $\operatorname{tr}(\Phi^\dagger D\Phi D)=\sum_{ij}\delta_i\delta_j|\Phi_{ij}|^2$, the metric is $\kappa_{ij}=1+\lambda\delta_i\delta_j$. It is positive for $|\lambda|\,\|\delta\|^2<1$. Then $z_{uj}=\log(1+\lambda\delta_u\delta_j)$ and $C=-\lambda$ for both ratios. Exactly, $F_{jk}=\log[(1+\lambda\delta_u\delta_k)(1+\lambda\delta_c\delta_j)/((1+\lambda\delta_u\delta_j)(1+\lambda\delta_c\delta_k))]$. The superpotential supplies none of this: $\lambda$ is a free Kähler coefficient.
+
+**The Kähler derivative in microscopic SQCD.** Holomorphy fixes $H_{ij,ji}=m_im_j/S$ and leaves the metric, and hence $C$, undetermined. On the full-rank branch all magnetic quarks are massive and $SU(2)_m$ is unbroken, so at one loop the $M$ dependence of the Kähler potential comes from the magnetic quark loop. For $K=\operatorname{tr}f(M^\dagger M)$ at a positive diagonal vacuum, the Daleckii–Krein expansion gives the off-diagonal metric
+$$
+ \kappa_{ij}=\frac{x_if'(x_i)-x_jf'(x_j)}{x_i-x_j},\qquad x_i=h_i^2 .
+$$
+For $f=2\sqrt x$ this is the classical meson metric $1/(h_i+h_j)$, a pair-local example with $C=-1/4$; it belongs to classical meson moduli and is a check of the formula. In canonical normalization write $W_{\rm mag}=y\,Mq\tilde q$ with $N_m=N_f-N_c=2$ magnetic colours, so the magnetic quark mass matrix is $yM\otimes1_{N_m}$. Adding the one-loop chiral correction $K^{(1)}=-(1/32\pi^2)\operatorname{tr}\mathcal M^\dagger\mathcal M\log(\mathcal M^\dagger\mathcal M/\Lambda^2)$ of Grisaru, Roček and von Unge to the canonical $\operatorname{tr}M^\dagger M$ gives $f=x-\epsilon\,x\log x$ up to a linear term, with $\epsilon=N_my^2/32\pi^2$. The canonical term alone gives a flavour-blind metric and $C=0$. The correction is pair-local, and with $g''' =-1/x^2$ for $g=x\log x$ one finds $\partial_{w_a}\partial_{w_j}\kappa=2\epsilon/3$ at the symmetric point, so
+$$
+ C=-2\epsilon/3+O(\epsilon^2)=-N_my^2/(48\pi^2)=-y^2/(24\pi^2).
+$$
+This is conditional on a perturbative magnetic Yukawa at the magnetic quark masses, on the sign convention of $K^{(1)}$ above, and on negligible nonperturbative Kähler terms from the confining $SU(2)_m$ and higher loops. At $(N_c,N_f)=(3,5)$ the magnetic theory has one-loop coefficient $2N_f-3N_c=1$, close to the lower edge of the conformal window, so a weak magnetic coupling is plausible; its value at the matching scale is an input here. [Effective Kähler potentials, Grisaru, Roček and von Unge](https://arxiv.org/abs/hep-th/9605149)
+
+**Measurement prescription and controls.** Set $(\delta_u,\delta_c)=(x/2,-x/2)$ and $(\delta_j,\delta_k)=(y/2,-y/2)$ with the fifth mass at $m_0$, so $S$ stays fixed. For each ratio form the four-corner difference
+$$
+ \widehat C_{jk}(x,y)=\frac{1}{4xy}\sum_{\epsilon,\eta=\pm1}\epsilon\eta\,F_{jk}(\epsilon x,\eta y) .
+$$
+Since $F_{jk}$ is odd in $x$ and in $y$, $\widehat C_{jk}=H_{jk}$ restricted to this plane, an even function of each splitting, and $\widehat C_{jk}=C+O(x^2+y^2)$ as the two splittings shrink independently. The six canonical masses determine both estimators without the absolute scale. A factorized metric $Z_{aj}=A_aB_j$ gives $(R_{ds},R_{db})=(1,1)$ for every $\delta$. Rescaling only $Z_{us}$ by $q>0$ sends the pair to $(qR_{ds},R_{db})$, since $Z_{us}$ enters only $R_{ds}$.
+
+**Pole masses.** With diagonal quark masses the Cartan flavour charges $e_i$ are exact, and each charged pair $(a,j)$ has its own charge $e_a-e_j$. Different pairs therefore do not mix, and within a pair the two-point matrix of the flavour-labelled operators $M_{aj}$, $M_{ja}^\dagger$ has a pole whose residue identifies the state. Near the symmetric point, with a gapped spectrum, that pole lies below every multiparticle threshold of its charge sector, which starts at least one neutral mass higher, so it is isolated; assume it simple. By the implicit function theorem it is real analytic in $\delta$, and relabelling covariance holds for pole masses as well. The proposition then applies to the six pole masses with its own coefficient $C_{\rm pole}$, which adds momentum-dependent self-energy and, for dynamical $Y$, electromagnetic contributions to the Kähler $C$. Off-diagonal mass terms break the Cartan charges; the poles must then be located in the full two-point matrix and followed by their residues against $M_{aj}$ as the masses split. In both cases the comparison is independent of the absolute scale of issue 1.
+
+**What stays open.** The order of departure is settled in this scope: quadratic, with one coefficient common to both ratios. Its value is a Kähler datum. The effective term gives $C=-\lambda$ with $\lambda$ free, and the one-loop magnetic estimate gives $C=-y^2/(24\pi^2)$ in terms of the magnetic Yukawa at the matching scale. Holomorphy and the duality determine neither number. If $C=0$, a higher-order departure and exact factorization both remain possible. The positive target is a calculation of the meson Kähler metric on the full-rank branch at $(3,5)$, for instance at the magnetic fixed point, that fixes $y$ or the full $C$, or a lattice determination of the four-corner estimator. [Check script (Python 3, standard library)](../../scripts/verify_charged_meson_cross_ratios.py) · [Issue 5](https://github.com/arivero/dualsm/issues/5)
+
 ## A common low-energy counterexample
 
 The two vacua above have different light fields. To test predictivity in a *single* EFT, keep the full-rank branch and weakly gauge its vector $Y$. Add a spectator $SU(2)_w$ and a vectorlike pair of Higgs doublets of $Y=\pm1/2$ with a fixed total VEV $v_w$ and massive charged excitations. The SQCD states are $SU(2)_w$ singlets. This explicit extension gives a gapped charged spectrum, a Thomson matching prescription and identifiable spectator charged and neutral poles. Use a common weak matching scale, canonically normalized kinetic terms and the tree approximation. Choose the three charged $(u,d),(u,s),(u,b)$ mesino pairs as mass probes, and denote the sum of their canonical masses by $\Sigma_u$. The result is
