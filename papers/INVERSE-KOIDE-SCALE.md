@@ -2,6 +2,8 @@
 
 Issue 4 asks whether Seiberg duality and chiral QCD can select the scale $M=\sqrt{C_\ell C_d}$ that maps an inverse down-quark Koide triple onto the charged leptons, and whether that scale is the pion decay constant. For every construction examined below the answer is negative and the scale stays free. The numerical agreement $M\simeq f_\pi$ is a choice of renormalization point near 2 GeV. One narrower bridge problem survives, and the research plan records it. Every number here is recomputed by [`scripts/verify_inverse_koide_scale.py`](../scripts/verify_inverse_koide_scale.py). [Issue 4](https://github.com/arivero/dualsm/issues/4)
 
+The companion note computes the independent heavy-hadron subtraction, tests it at bottom, and derives the electroweak and nuclear comparisons. It also reconciles the harmonic inverse normalization in Chaudhary’s proposal with the root normalization used below. [Where 313 MeV comes from](313-MEV-SCALE.md)
+
 ## Definitions and the renormalization-group orbit
 
 With $\mathcal Q(z)=(\sum_i\sqrt{z_i})^2/\sum_iz_i$ define

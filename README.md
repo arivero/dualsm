@@ -2,6 +2,12 @@
 
 The [papers](papers/index.md) and [lectures](lectures/index.md) test proposed relations among gauge duality, flavour masses and generation number. Extending supersymmetric duality to nonsupersymmetric QCD is conjectural.
 
+## Where 313 MeV comes from · 27 November 2026
+
+| Test | Evidence and status |
+|---|---|
+| A lepton-scale static intercept for the heavy baryon–meson gap | With 2026 hadron masses the charm gap is 313.224 MeV and the bottom gap is 306.116 MeV. Fixing the intercept to the charged-lepton normalization and fitting one inverse-mass term at charm overshoots bottom by 7.50 MeV. A specified intermediate lattice mass tests the curvature of the surviving fit. The spectroscopy is established. The scale mechanism remains open. The note also derives the light-baryon weighting effect, the inverse seesaw, the Alphaology comparisons, and the tin, iron–nickel and free-particle controls. Repository checks only. [Full note](papers/313-MEV-SCALE.md) · [Printable PDF](papers/313-MEV-SCALE.pdf) · [Inputs and calculations](sources/313-mev/README.md) |
+
 | November 18 result | Basis and priority |
 |---|---|
 | Five-flavour electromagnetic matching | An elementary counterexample to a parameter-free mass ratio. At fixed strong masses, weak VEV and $g_w$, the independent spectator coupling gives $R\propto g_Y^{-3}$ for small $g_Y$. [Calculation](papers/paper-2-meson-mass-sum-rules/FIVE-FLAVOUR-MATCHING.md) |

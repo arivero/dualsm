@@ -96,3 +96,7 @@ Peskin and Schroeder, "An Introduction to Quantum Field Theory" (1995), Chapters
 
 _Assembled: 2026-03-20_
 _Convention ground truth: Seiberg hep-th/9411149_
+
+## Numerical source extracts
+
+The 313 MeV note uses a separately documented PDG and AME input set, with primary references for the spectroscopy, inverse-seesaw and electroweak calculations. [Source and reproduction record](313-mev/README.md)
