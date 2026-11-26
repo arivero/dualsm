@@ -54,6 +54,18 @@ $$
 
 Under $M'=cM$, the Hessian transforms as $H'=H/c^2$ and the metric as $G'=G/|c|^2$. All canonical masses are invariant. Changing the physical metric with holomorphic inputs held fixed does change the result. For example multiplying both metric entries of a pair by $k>0$ divides its mass by $k$. In a specified microscopic SQCD the metric is dynamical input to be computed. Momentum-dependent self-energies would also enter pole masses beyond a local low-energy approximation. The same free coefficient leaves the scale of an inverse-Koide image of the down quarks undetermined. [Inverse-Koide scale note](../INVERSE-KOIDE-SCALE.md)
 
+### What six charged masses test
+
+Keep the diagonal two-derivative metric and identify each charged pair by its flavour current. With $a=u,c$, $j=d,s,b$ and $Z_{aj}=\sqrt{\kappa_{aj}\kappa_{ja}}>0$, define the dimensionless cross-ratio of four canonical masses. The preceding formula gives
+$$
+ \frac{m_{uj}^{\rm can}m_{ck}^{\rm can}}
+      {m_{uk}^{\rm can}m_{cj}^{\rm can}}
+ =\frac{Z_{uk}Z_{cj}}{Z_{uj}Z_{ck}} .
+$$
+The five microscopic masses, the common holomorphic condensate and the choice of meson normalization cancel. Thus the two comparisons $(j,k)=(d,s),(d,b)$ both equal one exactly when the six positive normalization factors separate as $Z_{aj}=A_a B_j$. In the converse direction choose $A_a=Z_{ad}$ and $B_j=Z_{uj}/Z_{ud}$; the two equalities determine the remaining entries in the charm row. A change in just one channel can be detected even when the absolute normalization is unknown.
+
+This is a test of multiplicative factorization of a two-by-three **array**. All six charged pairs have nonzero canonical masses under the hypotheses. A nondiagonal metric or momentum-dependent pole self-energy calls for current-resolved matching before applying the ratio. The conditions leave a common lepton or hadron mass scale free.
+
 ## A common low-energy counterexample
 
 The two vacua above have different light fields. To test predictivity in a *single* EFT, keep the full-rank branch and weakly gauge its vector $Y$. Add a spectator $SU(2)_w$ and a vectorlike pair of Higgs doublets of $Y=\pm1/2$ with a fixed total VEV $v_w$ and massive charged excitations. The SQCD states are $SU(2)_w$ singlets. This explicit extension gives a gapped charged spectrum, a Thomson matching prescription and identifiable spectator charged and neutral poles. Use a common weak matching scale, canonically normalized kinetic terms and the tree approximation. Choose the three charged $(u,d),(u,s),(u,b)$ mesino pairs as mass probes, and denote the sum of their canonical masses by $\Sigma_u$. The result is
