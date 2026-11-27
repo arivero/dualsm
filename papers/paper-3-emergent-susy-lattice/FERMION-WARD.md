@@ -49,3 +49,28 @@ $$
 The ratios of the normalized nested response to the stress response are one on the gauge insertion and zero on the bilinear. A second external probe $\partial_{y^\nu}B^\dagger(y)$ gives the derivative of this mismatch, at separated points. Every current built solely out of the free vector multiplet acts in that factor. A common finite change of its two mixing coefficients cannot supply the missing translation of the quark factor. In algebraic terms this charge squares to the gauge–adjoint momentum in the decoupled model, while the total momentum also contains the Dirac stress.
 
 At nonzero coupling the bare action still gives zero for the **compensated** nested variation of $B$ since the trial leaves $q,\bar q$ fixed. A surface-current product alone now has contributions from the breaking insertions; its value cannot be inferred by setting the right side of the compensated identity to zero. The dimension-$9/2$ term displayed above is the first explicit matter contribution to follow. The test for an emergent current remains its infrared projection, measured on both operators with a common normalization. The next calculation is to project this breaking insertion on an independent quark–adjoint probe, fixing its free short-distance normalization before using it in the interacting Ward system. No interacting eight-flavour exponent has been determined by this test.
+
+## A nonzero projection of the fundamental breaking insertion
+
+Take the coefficient of the spinor parameter in the fundamental term alone. Use Hermitian colour generators with $\mathrm{tr}(T^aT^b)=T_F\delta^{ab}$, $T_F=1/2$, and absorb the phase from the link tangent into this definition. For flavour weights $v$ define the gauge-invariant spinor
+$$
+ \mathcal O_v=\sum_f v_f\,(\gamma_\mu\chi^a)\,\bar q_f\gamma_\mu T^a q_f .
+$$
+The leading continuum term of the bare variation is $g\mathcal O_{\bf1}$ in canonical gauge normalization. Use separated points and four-component Majorana notation, pairing $\chi$ with $\bar\chi$. The conjugate ordering is $\bar\chi^a\gamma_\nu j_\nu^a$ with the same Euclidean current convention. A Weyl component follows by chiral projection.
+
+**Short-distance control.** Put $n=x/|x|$. At tree level a single Dirac flavour gives
+$$
+ -{\rm tr}[\gamma_\mu S(x)\gamma_\nu S(-x)]\,{\rm tr}(T^aT^b)
+ =\frac{T_F\delta^{ab}}{\pi^4 |x|^6}(2n_\mu n_\nu-\delta_{\mu\nu}).
+$$
+The fermion loop and $S(-x)=-S(x)$ fix the signs. Contract the remaining adjoint field with $S(x)=\not n/(2\pi^2|x|^3)$. The term $2n_\mu n_\nu$ gives $2\not n$ between the two gamma matrices, and $-\sum_\mu\gamma_\mu\not n\gamma_\mu$ gives another $2\not n$. Thus
+$$
+ \langle\mathcal O_v(x)\overline{\mathcal O}_w(0)\rangle_0
+ =\frac{2T_F(N_c^2-1)}{\pi^6 |x|^9}
+       \left(\sum_f v_f\overline w_f\right)\not n.
+$$
+There is one open gluino propagator. Its contraction carries no closed Majorana-loop factor. At six flavours and three colours the singlet coefficient is **48**. This fixes a nonvanishing denominator for a separated projection in the free reference. The method follows the release's use of free Wick labels and an independent detector in the same symmetry channel. The adjoint contraction belongs to the six-plus-adjoint trial. [Release Wick interface](https://github.com/yang-mills-group/OpenAI-QCD-20261104/blob/53f81cafe5cb9cd18cd0d5b49b8364cce50a0fe7/proof/YM/Massive/Target/Wick.lean) · [Part VI, §§106 and 109](https://github.com/yang-mills-group/OpenAI-informal-20261115/blob/6ca21d98b4022263fd7f2a3de5b5913b8495ee02/continuum-yang-mills-theory.pdf)
+
+At fixed physical separation divide $\mathrm{tr}[\not n\langle X(x)\overline{\mathcal O}_{\bf1}(0)\rangle]$ by the same expression with $X=\mathcal O_{\bf1}$. At leading order this returns $g$ for the isolated fundamental variation. For traceless $w$ the mixed singlet–$\mathcal O_w$ projection vanishes on a flavour-symmetric ensemble. Permutation invariance makes the matrix of diagonal-flavour correlations $A(r)\delta_{fg}+B(r)$, so singlet and traceless weights are orthogonal even with a disconnected term. One traceless self-correlation and one singlet self-correlation resolve the two functions.
+
+At nonzero coupling use independent source normalization for $\mathcal O$, the full current divergence, and the gluino mass insertion. A gauge-equation insertion can acquire the same matter projection, so one singlet matrix element alone cannot determine all mixing coefficients. The next input is the continuum-extrapolated mixed correlation matrix and the two nested contacts on the **same** mass-tuned six-plus-adjoint ensemble. The local release supplies no such adjoint-ensemble readings. This ultraviolet coefficient and the nonsinglet null test leave the infrared supercharge open.
