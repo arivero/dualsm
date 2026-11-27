@@ -31,6 +31,36 @@ For a direct supersymmetry test, the six-flavour theory with an additional massl
 
 Holomorphic scale matching illustrates the normalization issue. At $(N_c,N_f)=(3,8)$ it gives $\Lambda_e\Lambda_m^7=-\mu^8$ in the conventional choice of phases. The parameter $\mu$ specifies the normalization of the magnetic meson. Extracting a canonical mass also requires its kinetic term. The scaling dimension of the nonsupersymmetric mass operator remains independent input. The logarithmic mode-number slope removes an overall normalization and tests that dimension directly. [Intriligator and Seiberg, Eq. (5.6)](https://arxiv.org/pdf/hep-th/9509066#page=22) · [Alphaology on meson normalization](https://explaining-alphaology.al-rivero.chatgpt.site/geometry-duality/#duality)
 
+### A normalized traceless source for the eight-flavour test
+
+Use eight dynamical Wilson Dirac fundamentals of $SU(3)$ with one common reference coupling and a mass-independent subtraction at a fixed $\mu_0$. At the symmetric point take $m_R>0$. Vary the mass matrix as $M_R=m_R{\bf1}+\lambda_R T$ with $T=\operatorname{diag}(1,-1,0,\ldots,0)/2$. Fix the critical Wilson mass, the coupling and the scalar renormalization prescription independently of the mode count. For example, use the massless Landau-gauge RI/SMOM nonsinglet scalar vertex with normalized quark legs and $p_1^2=p_2^2=(p_1-p_2)^2=\mu_0^2$. Use the inverse scalar factor for the nonsinglet mass, including the chosen improvement terms at finite cutoff. Flavour interchange then makes singlet retunings even in $\lambda_R$ at the symmetric point. [RI/SMOM bilinear prescription](https://arxiv.org/abs/0901.2599)
+
+**First test — the source and current.** The action derivative in this direction inserts the spacetime integral of $S_T^R=(\bar\psi T\psi)_R$. With eight sea determinants and physical volume held fixed the finite-regulator identity is
+$$
+\partial_{\lambda_R}\langle Y\rangle=
+\langle\partial_{\lambda_R}Y\rangle-
+\langle Y\,\partial_{\lambda_R}S_{\rm lat}\rangle_c .
+$$
+Include the source dependence of the insertions, counterterms and bare parameters along the tuned trajectory. Use the conserved point-split vector current for the flavour generator $E_{12}$. In conventions $\delta\psi=\alpha E_{12}\psi$, $\delta\bar\psi=-\bar\psi\alpha E_{12}$ and the smeared divergence $D_{12}(\alpha)$ of §108.1, the continuum matching condition is
+$$
+\langle D^R_{12}(\alpha)Y\rangle+\langle\delta_{12,\alpha}Y\rangle
+=\lambda_R\langle S^R_{12}(\alpha)Y\rangle .
+$$
+Take $Y=S_{21}^R(y)S_T^R(z)$ with $\alpha=1$ near $y$ and zero near $z$, using disjoint smooth supports. The contact term is $-2\langle S_T^R(y)S_T^R(z)\rangle$ because $[E_{21},E_{12}]=-2T$. This checks current normalization whenever the separated correlator survives. At $\lambda_R=0$ the predicted integrated divergence is the opposite of that contact. The scalar unit is fixed by the independent source prescription. The six-flavour fit rescales a scalar density by a vector coefficient divided by a fitted mass difference. At degeneracy that quotient needs a separate limiting prescription, which is why this test normalizes the scalar before varying the masses. Any use of a local axial or vector bilinear in place of the conserved vector current needs its own matching, including the subtracted Wilson breaking term for the axial current. [Submitted finite Ward identity](https://github.com/yang-mills-group/OpenAI-QCD-20261104/blob/53f81cafe5cb9cd18cd0d5b49b8364cce50a0fe7/proof/YM/Massive/PCAC/Bare.lean) · [Continuum contact obligation](https://github.com/yang-mills-group/QCD/blob/9b2971888b9d525431bdb398ae2cb3ac33bf28e5/docs/mass-current-normalization.md)
+
+**Second test — the scaling operator.** Measure the separated scalar correlator and the mode count on the symmetric ensembles. Use a single fixed valence operator or a flavour-symmetric count. Exchanging flavours 1 and 2 sends $\lambda_R$ to $-\lambda_R$ and preserves this count. Its first derivative in the traceless sea source vanishes even at finite cutoff. The spectral observable is the slope in the **renormalized eigenvalue threshold**. For Wilson fermions use the spectral projector of $D_m^\dagger D_m$ with its renormalized cutoff $M_R$. In the continuum $\Lambda_R^2=M_R^2-m_R^2$. Report the density per physical four-volume with exact zero modes omitted, as in Paper 3. [Wilson mode-number renormalization](https://arxiv.org/abs/0812.3638)
+
+At an infrared fixed point with restored chiral flavour symmetry, a leading mass multiplet of dimension $23/8$ and nonzero overlap with our scalar would give, for a fixed dilation $b>1$,
+$$
+ \frac{\langle S_T^R(br) S_T^R(0)\rangle_c}
+      {\langle S_T^R(r) S_T^R(0)\rangle_c}\longrightarrow b^{-23/4},
+ \qquad
+ \frac{n(b\Lambda_R)}{n(\Lambda_R)}\longrightarrow b^{32/9}.
+$$
+Here $r$ is a separation along one fixed direction. The first exponent tests $2\Delta$ and the second tests $4/(4-\Delta)$. Take the cutoff limit at fixed physical box, mass, separations, and thresholds. Increase the box, then take $m_R\downarrow0$ before probing $r\to\infty$ and $\Lambda_R\downarrow0$. Compare freely fitted slopes in overlapping scale windows as these controls improve. Check fixed-point running independently. A different limiting exponent falsifies this matching at an established fixed point. A transient walking window leaves it unresolved. [Mode-number scaling](https://arxiv.org/abs/1204.4432)
+
+The six-flavour release supplies the transfer of inserted densities and a mass fit on a selected massive trajectory. Its leading scheduling inequality admits eight flavours arithmetically, with $11-16/3=17/3>11/2$. The eight-flavour construction still needs a tuned neighbourhood of $\lambda_R=0$, contact and insertion bounds uniform towards the chiral limit, and infrared control on that same family. The SQCD exponent remains a benchmark. [Running and flavour budget](https://github.com/yang-mills-group/QCD/blob/9b2971888b9d525431bdb398ae2cb3ac33bf28e5/docs/flavor-running-tests.md)
+
 ## Paper 4: Why Three Generations — The n_g ≥ 3 Bound Across Duality Types
 
 **Theme:** From Lecture 7 (generation bound)
